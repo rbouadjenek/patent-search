@@ -1,0 +1,2557 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass sig-alternate
+\begin_preamble
+\usepackage{subfigure}
+\usepackage{algorithmic}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+title{An Evaluation of Query Expansion for Patent Prior Art Search}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+title{Query Expansion Methods for Patent Prior Art Search with Partial Applicati
+ons}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+numberofauthors{1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{
+\end_layout
+
+\begin_layout Plain Layout
+
+Mohamed Reda Bouadjenek$^{
+\backslash
+dag}$
+\backslash
+titlenote{This work has been mainly done when the author was visiting NICTA,
+ Australia.}, Scott Sanner$^{
+\backslash
+ddag}$, Gabriela Ferraro$^{
+\backslash
+ddag}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+$^{
+\backslash
+dag}$
+\backslash
+affaddr{INRIA 
+\backslash
+& LIRMM University of Montpellier France, reda.bouadjenek@inria.fr}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		$^{
+\backslash
+ddag}$
+\backslash
+affaddr{NICTA, Australian National University, 
+\backslash
+{scott.sanner, gabriela.ferraro
+\backslash
+}@nicta.com.au}
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reda Bouadjenek
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+affaddr{INRIA 
+\backslash
+& LIRMM}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%		
+\backslash
+affaddr{France}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+email{reda.bouadjenek@inria.fr}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+alignauthor
+\end_layout
+
+\begin_layout Plain Layout
+
+%Scott Sanner
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+affaddr{NICTA 
+\backslash
+& ANU}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%		
+\backslash
+affaddr{Australia}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+email{scott.sanner@nicta.com.au}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+alignauthor
+\end_layout
+
+\begin_layout Plain Layout
+
+%Gabriela Ferraro
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+affaddr{NICTA 
+\backslash
+& ANU}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%		
+\backslash
+affaddr{Australia}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+email{gabriela.ferraro@nicta.com.au}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newtheorem{proposition}{Proposition}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+Patents are used by entities to legally protect their inventions and represent
+ a multi-billion dollar industry of licensing and litigation.
+ In 2012, 276,788 patent applications were approved in the US alone -- a
+ number that has doubled in the past 15 years.
+ While much of the literature inspired by the evaluation framework of the
+ CLEF-IP competition has aimed to assist patent examiners in assessing prior
+ art for complete patent applications, less of this work has focused on
+ patent search with shorter queries representing (partial) titles, abstract,
+ or claims to help inventors assess the patentability of their ideas prior
+ to writing a full application.
+ In this paper, we focus on the latter task and specifically on query expansion
+ methods that are targeted for patent prior art search.
+ We propose query expansion methods that exploit the specific structure
+ of patent documents as well as methods aimed to improve recall with a limited
+ set of query expansion terms.
+ We demonstrate that our methods improve both general (MAP) and patent-specific
+ (PRES) evaluation metrics for prior art search performance on standardized
+ datasets of CLEF-IP.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+bf Categories and Subject Descriptors:} H.3.3 {[Information Systems]}: {Informatio
+n Storage and Retrieval, Information Search and Retrieval}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+bf General Terms:} Algorithms, Experimentation.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+bf Keywords:} Query Reduction, Patent Search, Pseudo-Relevance Feedback.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Patents are used by entities to legally protect their inventions and represent
+ a multi-billion dollar industry of licensing and litigation.
+ In 2012, 276,788 patent applications were approved in the US alone -- a
+ number that has doubled in the past 15 years.
+ Hence, patent prior art search emerged as a way to help in finding already
+ filed patents, which may invalidate a given patent application.
+ The objective and challenges of patent prior art search are different from
+ those of standard text and web search since 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2012"
+
+\end_inset
+
+: (i) queries are full patent applications, which consist of documents with
+ hundreds of words organized into several sections, while queries in text
+ and web search constitute only few words; (ii) patent prior art search
+ is a recall oriented task where the primary focus is to retrieve all relevant
+ documents at early ranks in contrast to ad hoc and web search, which is
+ precision oriented where the primary goal is to retrieve part of relevant
+ documents at early ranks.
+\end_layout
+
+\begin_layout Standard
+While much of the literature inspired by the evaluation framework of the
+ CLEF-IP competition has aimed to assist patent examiners in assessing prior
+ art for complete patent applications, less work has focused in assessing
+ the patentability of inventions before writing a full patent application.
+ Prior art search with shorter queries that represent unfinished patent
+ applications is certainly desirable, since writing a full application is
+ costly (the process may cost thousand of dollars since companies often
+ employ lawyers to write patent applications) and time consuming (the decision
+ of patent examiners may take few month).
+ In this paper, we focus on query expansion methods for prior art search
+ with queries representing sections of patent applications such as title,
+ abstract and claims.
+ Our contributions are the following: (i) an approach for diverse query
+ expansion; (ii)an study about query expansion methods that exploits the
+ patent specific structure; (iii) a study about the use of different patents'
+ fields as source of query expansion terms; (iv) an intensive evaluation
+ of these methods using both general (MAP) and patent-specific (PRES) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2010a"
+
+\end_inset
+
+ evaluation metrics for prior art search on standardized datasets of CLEF-IP
+ released in 2010 and 2011.
+\end_layout
+
+\begin_layout Standard
+The rest of this paper is organized as follows: in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:relatedworks"
+
+\end_inset
+
+, we present the related work.
+ Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:approach"
+
+\end_inset
+
+ introduces our approach for high recall patent query expansion.
+ Experiments are discussed in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:eval"
+
+\end_inset
+
+.
+ We conclude and provide some future directions in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:conclusion"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Related Work
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:relatedworks"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The major contributions in patent search has focused on query formulation,
+ where the objective is to find the best terms to represent a patent application
+ as a query to achieve high retrieval effectiveness by retrieving all possible
+ relevant documents at high ranks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2012"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The scenario of patent prior art search consists of manually form queries
+ by selecting high frequency terms from patent application.
+ Hence, following this methodology, some algorithms of patent query reduction
+ have been proposed to select only useful terms from patent application
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ganguly2011,Itoh2003"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Similarly, query expansion has been explored for patent search.
+  Magdy et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2011"
+
+\end_inset
+
+ experiment a set of classic techniques of query expansion, which rely on
+ pseudo-relevance feedback and WordNet as source of expansion terms.
+ However, none of these approaches were able to achieve a significant improvemen
+t over the baseline.
+ Therefore, they introduce a novel approach that automatically generates
+ candidate synonyms sets for terms, and use them as a source of expansion
+ terms, which showed significant improvement with respect to the baseline.
+ Also, Bashir et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bashir2010"
+
+\end_inset
+
+ propose a query expansion with pseudo-relevance feedback.
+ They proposed to select relevant terms for the expansion process using
+ a machine learning approach, by picking terms that may have a potential
+ positive impact on the retrieval effectiveness.
+ However, this approach can be computational expensive, since the presented
+ features are complicated to compute.
+ Verma and Varma 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Verma2011"
+
+\end_inset
+
+ propose a different approach, which instead of using the patent text to
+ query, they use its International Patent Classification (IPC) codes as
+ query which are expanded using the citation network.
+ The formed query is used to perform an initial search.
+ The results are then re-ranked using queries constructed from patent text.
+ Throughout our experiments, we concluded that relying on other terms to
+ form a query rather than those in the patent application, leads to poor
+ retrieval quality.
+ Therefore, the approach proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Verma2011"
+
+\end_inset
+
+ doesn't guarantee to obtain good performance.
+ Lastly, a more recent work by Mahdabi et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahdabi2013"
+
+\end_inset
+
+ propose both a query reduction and expansion method.
+ For the query reduction process, they just shorten the query document by
+ taking the first claim since it contains the core of the invention.
+ For the expansion process, they propose to build a query-specific patent
+ lexicon based on the definitions of the IPC.
+ Then, this patent lexicon is used to select expansion terms that are focused
+ on the query topic.
+ 
+\end_layout
+
+\begin_layout Standard
+Finally, other works investigated query suggestion for patent prior art
+ search, which reflect real-life scenario of examiners, who form reproducible
+ boolean queries 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Adams2011,Azzopardi2010"
+
+\end_inset
+
+.
+ Reproducibility of search means that the retrieval system will give the
+ same results for the same query each time.
+ Hence, Kim et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kim2011"
+
+\end_inset
+
+ propose an approach, which generate boolean queries by exploiting decision
+ trees learned from pseudo-labeled documents and rank the suggested queries
+ using query quality predictors.
+\end_layout
+
+\begin_layout Section
+Patent Search Framework
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:approach"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Motivation
+\end_layout
+
+\begin_layout Standard
+The scenario that interest us assumes that the inventor of a patent enter
+ a short query that takes the form of a title, an abstract, or claims, and
+ is seeking to build a prior art search, before writing a complete application.
+ In this case, the size of a query may be few terms for a title query, to
+ a hundred of terms for a claims query.
+ Despite the length of the query, a significant term mismatch problem between
+ topics and relevant documents exists.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:FailureAnalysis"
+
+\end_inset
+
+ shows the cosine measure between different fields of topics and the whole
+ text in relevant and top irrelevant documents, and this for 100 topics
+ that perform the best (top), and 100 topics that perform the worst (bottom).
+ This analysis is carried out on the CLEF-IP 2010, and led us to focus on
+ query expansion in order to overcome the mentioned problem of terms mismatching
+ for patent prior art search.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legend.eps
+	width 4cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Analysis of terms overlapping.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:FailureAnalysis"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Unlike scientific publications or technical reports, the writers of a patent
+ try to generalize and maximize the scope of what is protected by the patent,
+ and try to make sure that finding any relevant prior work by the patent
+ examiner is a hard job.
+ This leads to the usage of unusual expressions that makes understanding
+ or even finding a patent a difficult job.
+ This specificity of patents content led us to explore a method of terms
+ diversification selection for query expansion (the diversification here
+ arise to select terms not only similar to the query to avoid the effect
+ of this ambiguity).
+ More specifically, we propose a new algorithm for query expansion based
+ on the Maximal Marginal Relevance (MMR) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Carbonell1998"
+
+\end_inset
+
+ method, which is a popular approach for result set diversification.
+ We refer to our method from now on as MMRQE, which we define as a query
+ expansion method that selects terms by carrying out a trade-off between
+ diversification, and similarity to the query.
+ Details of MMRQE are given in the next section.
+\end_layout
+
+\begin_layout Subsection
+MMRQE Algorithm
+\end_layout
+
+\begin_layout Standard
+MMRQE is summarized in Algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:MMRQE"
+
+\end_inset
+
+.
+ It takes as input a pseudo-relevant feedback set of 
+\begin_inset Formula $N$
+\end_inset
+
+ documents (PRF), which is obtained after an initial run on the query.
+ This PRF set is used in order to extract terms to expand the query.
+ Hence, in Line 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:line1"
+
+\end_inset
+
+ the algorithm uses the PRF set to build a document-term matrix 
+\begin_inset Formula $\mathbb{F}_{N,M}$
+\end_inset
+
+ of 
+\begin_inset Formula $N$
+\end_inset
+
+ documents and 
+\begin_inset Formula $M$
+\end_inset
+
+ terms, which describes the frequency of terms that occur in the PRF set
+ using the TF-IDF.
+ Next, in Line 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:line2"
+
+\end_inset
+
+ the algorithm maps the initial query to a document space of 
+\begin_inset Formula $N$
+\end_inset
+
+ dimensions, where each dimension represent a document in the PRF set, and
+ the associated weight is the score affected to this document by the initial
+ run of the query.
+ Given the terms 
+\begin_inset Formula $T$
+\end_inset
+
+ of the matrix 
+\begin_inset Formula $\mathbb{F}_{N,M}$
+\end_inset
+
+, where any associated term is denoted as 
+\begin_inset Formula $t_{j}\in T$
+\end_inset
+
+, we aim to select an optimal subset of terms 
+\begin_inset Formula $T_{j}^{*}\subset T$
+\end_inset
+
+ (where 
+\begin_inset Formula $\left|T_{j}^{*}\right|=k$
+\end_inset
+
+ and 
+\begin_inset Formula $k<\left|T\right|$
+\end_inset
+
+) that may expand the initial query 
+\begin_inset Formula $q$
+\end_inset
+
+ in order to maximize both recall and precision metrics.
+ Hence, in Lines 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:line5"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:line6"
+
+\end_inset
+
+ we build 
+\begin_inset Formula $T_{k}^{*}$
+\end_inset
+
+ in a greedy manner by choosing the next optimal selection selections 
+\begin_inset Formula $T_{k-1}^{*}=\{t_{1}^{*},\ldots,t_{k-1}^{*}\}$
+\end_inset
+
+ and recursively defining 
+\begin_inset Formula $T_{j}^{*}=T_{j-1}^{*}\cup\{t_{j}^{*}\}$
+\end_inset
+
+ with 
+\begin_inset Formula $T_{0}^{*}=\varnothing$
+\end_inset
+
+ as initialized in Line 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:line3"
+
+\end_inset
+
+.
+ Finally, in Line 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:line8"
+
+\end_inset
+
+ the algorithm merges 
+\begin_inset Formula $T_{k}^{*}$
+\end_inset
+
+ with the query 
+\begin_inset Formula $q$
+\end_inset
+
+ in order to obtain a new expanded query 
+\begin_inset Formula $q'$
+\end_inset
+
+, which is then processed by the search engine.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+MMR Query Expansion.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:MMRQE"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+scriptsize
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+REQUIRE $q$: The query, $
+\backslash
+mathbb{R}$: Set of $N$ pseudo-relevant documents, $k$: Number of terms used
+ for expanding the query, $
+\backslash
+lambda$: weigth 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+medskip
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Build a document-term matrix $
+\backslash
+mathbb{F}_{N,M}$, which describes the frequency of terms that occur in $
+\backslash
+mathbb{R}$ using the TF-IDF.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:line1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Map the query to a vector $V^q_N$ in the documents' dimension weigthed
+ using the score of relevance of each documents.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:line2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE Initialize $T^*_0$, an empty set that will be updated with terms.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:line3}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+FOR{$j=1$ to $k$}
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+tiny
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+STATE $t^*_j= 
+\backslash
+underset{t_j
+\backslash
+in 
+\backslash
+mathbb{F}_{M} 
+\backslash
+backslash T^*_{j-1}}{
+\backslash
+arg
+\backslash
+max}$ $[
+\backslash
+lambda$ $Cos(V^q_i,
+\backslash
+mathbb{F}_{t_j})$ $-$ $(1-
+\backslash
+lambda)$ $
+\backslash
+underset{t_k
+\backslash
+in T^*_{j-1}}{
+\backslash
+max}$ $Cos(
+\backslash
+mathbb{F}_{t_k},
+\backslash
+mathbb{F}_{t_j})]$
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:line5}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+STATE $T^*_j 
+\backslash
+leftarrow T^*_{j-1} 
+\backslash
+cup 
+\backslash
+{t^*_j
+\backslash
+}$: update the set of expanded query terms, with the term selected.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:line6}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+ENDFOR 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+STATE $q' 
+\backslash
+leftarrow q + T^*_k $: update the query with the terms selected for the
+ expansion.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{alg:line8}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+RETURN $q'$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Evaluations
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:eval"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Experimental Setup
+\end_layout
+
+\begin_layout Standard
+We used Lucene IR System to index the collection of CLEF-IP 2010 and CLEF-IP
+ 2011 datasets with the default stemming and stop-word removal.
+ We removed patent-specific stop-words as described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2012"
+
+\end_inset
+
+.
+ In our experiments we used the English subsection of both collections.
+ The English test sets of CLEF-IP 2010 and CLEF-IP 2011 correspond to 1303
+ and 1351 topics respectively.
+ We report Mean Average Precision (MAP), and Patent Retrieval Evaluation
+ Score (PRES) , which combines Recall with the quality of ranking.
+ We report the evaluation metrics on the top 1000 results.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sTitle_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sAbstract_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sClaims_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sDescription_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mean Average Average (MAP) on CLEF-2011.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sTitle_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sAbstract_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sClaims_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sDescription_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Patent Retrieval Evaluation Score (PRES) on CLEF-2011.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Experimental Methodology
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/matching.eps
+	width 8cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Index fields matching.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Experimental Results
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qTitle-sTitle_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qTitle-sAbstract_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qTitle-sClaims_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qTitle-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qAbstract-sTitle_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qAbstract-sAbstract_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qAbstract-sClaims_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qAbstract-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sTitle_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sAbstract_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sClaims_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mean Average Average (MAP) on CLEF-2010.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qTitle-sTitle_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qTitle-sAbstract_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qTitle-sClaims_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qTitle-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qAbstract-sTitle_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qAbstract-sAbstract_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qAbstract-sClaims_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qAbstract-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sTitle_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sAbstract_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sClaims_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-SIGIR2014/qClaims-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Patent Retrieval Evaluation Score (PRES) on CLEF-2010.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:conclusion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Section*
+Acknowledgements 
+\end_layout
+
+\begin_layout Plain Layout
+NICTA is funded by the Australian Government as represented by the Department
+ of Broadband, Communications and the Digital Economy and the Australian
+ Research Council through the ICT Centre of Excellence program.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{ 
+\backslash
+scriptsize
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "biblio"
+options "abbrv"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
