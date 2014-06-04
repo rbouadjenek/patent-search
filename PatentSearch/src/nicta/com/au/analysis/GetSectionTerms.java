@@ -364,7 +364,9 @@ public class GetSectionTerms {
 		
 		
 //		GetSectionTerms doc = new GetSectionTerms("/media/mona/MyProfesion/EP/000000/75/57/77/UN-EP-0755777.xml",0, 0, 1, 0, 0, 0, true, true); //Des='De' 
-		GetSectionTerms doc = new GetSectionTerms("/media/mona/MyProfesion/EP/000000//19/17/71/UN-EP-0191771.xml",0, 0, 1, 0, 0, 0, true, true);
+		
+		//TODO: Please uncomment two following lines to see the error for patents with missing abstract.  
+		GetSectionTerms doc = new GetSectionTerms("/media/mona/MyProfesion/EP/000000/19/17/71/UN-EP-0191771.xml",0, 0, 1, 0, 0, 0, true, true);
 		Map<String, Integer> maps = doc.analyze();
 		
 	
