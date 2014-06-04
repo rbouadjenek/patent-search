@@ -118,7 +118,7 @@ public class GetSectionTerms {
 		
 		if (pt.getAbstrac().getLang().toLowerCase().equals("en")) {
 			abstrac = pt.getAbstrac().getContent();
-		}else {abstrac = null;} 
+		}/*else {abstrac = null;} */
 		}
 		// ********************************************************************
 		// leveraging Description
