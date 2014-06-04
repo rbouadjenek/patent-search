@@ -32,7 +32,7 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.util.Version;
 
 /**
- * @author Mona
+ * @author 
  * 
  */
 public class GetSectionTerms {
