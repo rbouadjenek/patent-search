@@ -114,8 +114,7 @@ public class GetSectionTerms {
 		// leveraging Abstract
 		// ********************************************************************
 		if(pt.getAbstrac().getLang() != null){
-		System.out.println(pt.getAbstrac().getLang()); 
-		
+				
 		if (pt.getAbstrac().getLang().toLowerCase().equals("en")) {
 			abstrac = pt.getAbstrac().getContent();
 		}/*else {abstrac = null;} */
@@ -123,18 +122,21 @@ public class GetSectionTerms {
 		// ********************************************************************
 		// leveraging Description
 		// ********************************************************************
-		if (pt.getDescription().getLang().toLowerCase().equals("en")) {
-			for (P p : pt.getDescription().getP()) {
-				if (Integer.parseInt(p.getNum()) == 1
-						|| Integer.parseInt(p.getNum()) == 2
-						|| Integer.parseInt(p.getNum()) == 3
-						|| Integer.parseInt(p.getNum()) == 4
-						|| Integer.parseInt(p.getNum()) == 5) { // Leveraging
-																// first 5
-																// paragraphes
-					descriptionP5 += p.getContent() + " ";
+		
+		if (pt.getDescription() != null) {
+			if (pt.getDescription().getLang().toLowerCase().equals("en")) {
+				for (P p : pt.getDescription().getP()) {
+					if (Integer.parseInt(p.getNum()) == 1
+							|| Integer.parseInt(p.getNum()) == 2
+							|| Integer.parseInt(p.getNum()) == 3
+							|| Integer.parseInt(p.getNum()) == 4
+							|| Integer.parseInt(p.getNum()) == 5) { // Leveraging
+																	// first 5
+																	// paragraphes
+						descriptionP5 += p.getContent() + " ";
+					}
+					description += p.getContent() + " ";
 				}
-				description += p.getContent() + " ";
 			}
 		}
 		// ********************************************************************
@@ -368,9 +370,11 @@ public class GetSectionTerms {
 //		GetSectionTerms doc = new GetSectionTerms("/media/mona/MyProfesion/EP/000000/75/57/77/UN-EP-0755777.xml",0, 0, 1, 0, 0, 0, true, true); //Des='De' 
 		
 		//TODO: Please uncomment two following lines to see the error for patents with missing abstract.  
-		GetSectionTerms doc = new GetSectionTerms("/media/mona/MyProfesion/EP/000000/19/17/71/UN-EP-0191771.xml",0, 0, 1, 0, 0, 0, true, true);
-		Map<String, Integer> maps = doc.analyze();
+//		GetSectionTerms doc = new GetSectionTerms("/media/mona/MyProfesion/EP/000000/19/17/71/UN-EP-0191771.xml",0, 0, 1, 0, 0, 0, true, true);
+//		Map<String, Integer> maps = doc.analyze();
 	
+		GetSectionTerms doc = new GetSectionTerms("/media/mona/MyProfesion/EP/000000/18/81/15/UN-EP-0188115.xml",0, 0, 1, 0, 0, 0, true, true);
+		Map<String, Integer> maps = doc.analyze();
 	
 		for (Entry<String, Integer> entry  : maps.entrySet()) {			
 		    System.out.println(entry.getKey() + " - " + entry.getValue());}

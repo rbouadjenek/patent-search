@@ -365,8 +365,10 @@ public class PatentQuery {
     public static void main(String[] args) throws ParseException, IOException {//PAC_1913_EP-1691238-A2.xml
         // TODO code application logic here
 //        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/query/PAC-132_EP-1550834-A1.xml", 0, 1, 0, 0, 0, 0, true, true);
-        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1001_EP-1233512-A2.xml", 1, 1, 1, 1, 1, 1, true, true);
-        System.out.println(query.parse());
+//        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1001_EP-1233512-A2.xml", 1, 1, 1, 1, 1, 1, true, true);
+    	PatentQuery query = new PatentQuery("data/CLEF-IP-2010/PAC_test/topics/PAC-544_EP-1405720-A1.xml", 0, 0, 1, 0, 0, 0, true, true);
+       
+    	System.out.println(query.parse());
 
     }
 
