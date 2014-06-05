@@ -87,7 +87,7 @@ public class PACSearcher {
 
     public TopDocs search(PatentDocument patent, Map<String, Float> boosts, boolean filter, boolean stopWords) throws Exception {
         Query query = new PatentQuery(patent, boosts, filter, stopWords).parse();
-        System.err.println(query);
+//        System.err.println(query);
         return is.search(query, topK);
     }
 
@@ -136,9 +136,8 @@ public class PACSearcher {
     }
 
     public Query rewrite(String queryid, PatentDocument patent, RewriteQuery rq, Map<String, Float> boosts, boolean filter, boolean stopWords) throws ParseException, IOException {
-        Query query = new PatentQuery(patent, boosts, filter, stopWords).parse();
-        query = rq.rewrite(queryid, query);
-        return query;
+        PatentQuery query = new PatentQuery(patent, boosts, filter, stopWords);
+        return rq.rewrite(queryid, query);
     }
 
     /**

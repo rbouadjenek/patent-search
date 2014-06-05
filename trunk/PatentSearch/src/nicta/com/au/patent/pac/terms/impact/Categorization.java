@@ -37,14 +37,13 @@ public class Categorization {
 
     }
 
-    public void evaluate(double z) {
-        int somme = 0;
+    public void evaluate() {
         double AP = 0;
         double RR = 0;
         int nbrRelevant = 0;
         String currentQueryid = "";
         String currentRemovedterm = "";
-        System.out.println("#queryid\tterm\toldAV\tAV\timpact\trate\tlabel1\tlabel2\tlabel3\tlabel5");
+        System.out.println("#queryid\tterm\toldAV\tAV\timpact\ty");
         try {
             FileInputStream fstream = new FileInputStream(results);
             // Get the object of DataInputStream
@@ -72,32 +71,11 @@ public class Categorization {
                         AP /= qrels.getNumberOfRelevantPatent(currentQueryid);
                         double oldAP = distribution.getDistributionInMemory().get(currentQueryid);
                         double impact = oldAP - AP;
-                        double rate = 0;
-                        if (oldAP != 0) {
-                            rate = impact * 100 / oldAP;
+                        int y = 0;
+                        if (impact > 0) {
+                            y = 1;
                         }
-                        int label1;
-                        int label2;
-                        int label3;
-                        if (rate > 0) {
-                            label1 = 1;
-                            label2 = 1;
-                            label3 = 1;
-                        } else if (rate < 0 || (oldAP == 0 && AP == 0)) {
-                            label1 = 0;
-                            label2 = 0;
-                            label3 = -1;
-                        } else {
-                            label1 = 0;
-                            label2 = 1;
-                            label3 = 0;
-                        }
-                        int label5 = 1;
-                        if (rate < -z || rate == 0) {
-                            label5 = 0;
-                        }
-                        somme += label5;
-                        System.out.println(currentQueryid + "\t" + currentRemovedterm + "\t" + df.format(oldAP) + "\t" + df.format(AP) + "\t" + df.format(impact) + "\t" + df.format(rate) + "\t" + label1 + "\t" + label2 + "\t" + label3 + "\t" + label5);
+                        System.out.println(currentQueryid + "\t" + currentRemovedterm.replace("title:", "") + "\t" + df.format(oldAP).replace(",", ".") + "\t" + df.format(AP).replace(",", ".") + "\t" + df.format(impact).replace(",", ".") + "\t" + y);
                         AP = 0;
                         RR = 0;
                         nbrRelevant = 0;
@@ -116,32 +94,11 @@ public class Categorization {
                 AP /= qrels.getNumberOfRelevantPatent(currentQueryid);
                 double oldAP = distribution.getDistributionInMemory().get(currentQueryid);
                 double impact = oldAP - AP;
-                double rate = 0;
-                if (oldAP != 0) {
-                    rate = impact * 100 / oldAP;
+                int y = 0;
+                if (impact > 0) {
+                    y = 1;
                 }
-                int label1;
-                int label2;
-                int label3;
-                if (rate > 0) {
-                    label1 = 1;
-                    label2 = 1;
-                    label3 = 1;
-                } else if (rate < 0 || (oldAP == 0 && AP == 0)) {
-                    label1 = 0;
-                    label2 = 0;
-                    label3 = -1;
-                } else {
-                    label1 = 0;
-                    label2 = 1;
-                    label3 = 0;
-                }
-                int label5 = 1;
-                if (rate < -z || rate == 0) {
-                    label5 = 0;
-                }
-                somme += label5;
-                System.out.println(currentQueryid + "\t" + currentRemovedterm + "\t" + df.format(oldAP) + "\t" + df.format(AP) + "\t" + df.format(impact) + "\t" + df.format(rate) + "\t" + label1 + "\t" + label2 + "\t" + label3 + "\t" + label5);
+                System.out.println(currentQueryid + "\t" + currentRemovedterm.replace("title:", "") + "\t" + df.format(oldAP).replace(",", ".") + "\t" + df.format(AP).replace(",", ".") + "\t" + df.format(impact).replace(",", ".") + "\t" + y);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -157,18 +114,16 @@ public class Categorization {
         String qrelFile;
         String results;
         String reference;
-        double z = -1;
         if (args.length == 0) {
             qrelFile = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/PAC_test_rels.txt";
-            results = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/TermsImpact/abstractResults_Test.txt";
+            results = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/termsImpactResults/abstractTermImpactResults-2.txt";
             reference = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/distribution/distAbstract.txt";
         } else {
             qrelFile = args[0];
             results = args[1];
             reference = args[2];
-            z = Double.parseDouble(args[3]);
         }
         Categorization re = new Categorization(qrelFile, results, reference);
-        re.evaluate(z);
+        re.evaluate();
     }
 }

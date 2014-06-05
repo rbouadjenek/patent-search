@@ -14,6 +14,7 @@ import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 import nicta.com.au.patent.pac.search.PatentQuery;
 import nicta.com.au.patent.pac.search.PACSearcher;
 import org.apache.lucene.document.Document;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
@@ -71,6 +72,19 @@ public class TermsImpact {
             System.err.print(l + "- " + queryid + " -> " + pt.getUcid() + ": ");
             long start2 = System.currentTimeMillis();
             PatentQuery query = new PatentQuery(pt, boosts, filter, stopWords);
+
+            TopDocs hitsAll = searcher.search(query.parse());;
+
+            int j = 0;
+            if (hitsAll.totalHits == 0) {
+                System.out.println(queryid + " allTerms " + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
+            }
+            for (ScoreDoc scoreDoc : hitsAll.scoreDocs) {
+                j++;
+                Document doc = searcher.getIndexSearch().doc(scoreDoc.doc);
+                System.out.println(queryid + " allTerms " + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + j + " " + scoreDoc.score + " STANDARD");
+            }
+
             BooleanQuery bQuery = (BooleanQuery) query.parse();
             if (bQuery.getClauses().length != 2 || !(bQuery.getClauses()[1].getQuery() instanceof BooleanQuery)) {
                 continue;
@@ -79,15 +93,39 @@ public class TermsImpact {
                     || !(((BooleanQuery) bQuery.getClauses()[1].getQuery()).getClauses()[0].getQuery() instanceof BooleanQuery)) {
                 continue;
             }
+
             BooleanQuery bQuery2 = (BooleanQuery) ((BooleanQuery) bQuery.getClauses()[1].getQuery()).getClauses()[0].getQuery();
             for (int i = 0; i < bQuery2.clauses().size(); i++) {
                 BooleanQuery bQueryFinal = new BooleanQuery();
+                BooleanQuery bQueryFinal2 = new BooleanQuery();
                 BooleanQuery bQuery3 = bQuery2.clone();
                 BooleanClause bClause = bQuery3.clauses().remove(i);
+                //*************
+//            System.out.println(bQuery3);
+                for (int k = 1; k < PatentQuery.getFields().length; k++) {
+                    if (query.getQueries()[k] != null && !query.getQueries()[k].equals("") && (k != 4 || k != 6) && query.getBoosts().get(PatentQuery.getFields()[k]) != 0) {
+
+                        BooleanQuery bq = ((BooleanQuery) bQuery3).clone();
+                        BooleanQuery bq2 = new BooleanQuery();
+                        for (BooleanClause bc : bq.clauses()) {
+                            TermQuery tq = (TermQuery) bc.getQuery();
+                            Term term = new Term(PatentQuery.getFields()[k], tq.getTerm().text());
+                            TermQuery tq2 = new TermQuery(term);
+                            tq2.setBoost(tq.getBoost());
+                            bq2.add(tq2, BooleanClause.Occur.SHOULD);
+                        }
+//                    System.out.println(bq2);
+                        bQueryFinal2.add(bq2, BooleanClause.Occur.SHOULD);
+
+                    }
+
+                }
+                //*******************************
                 bQueryFinal.add((Query) bQuery.getClauses()[0].getQuery(), BooleanClause.Occur.MUST);
-                bQueryFinal.add(bQuery3, BooleanClause.Occur.MUST);
+                bQueryFinal.add(bQueryFinal2, BooleanClause.Occur.MUST);
+
                 TopDocs hits = searcher.search(bQueryFinal);
-                int j = 0;
+                j = 0;
                 //***************************
                 // Get features
                 //***************************      

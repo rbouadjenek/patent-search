@@ -86,10 +86,17 @@ ons}
 
 \begin_layout Plain Layout
 
-
+%
 \backslash
 title{Query Expansion Methods for Prior Art Search with Partial Patent Applicati
 ons}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+title{A Study of Query Reformulation for Patent Prior Art Search}
 \end_layout
 
 \begin_layout Plain Layout
@@ -247,6 +254,7 @@ noindent
 {
 \backslash
 bf Keywords:} Query Expansion, Patent Search.
+ 
 \end_layout
 
 \end_inset
@@ -412,7 +420,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../../Downloads/SIGIR14/img/legend.eps
+	filename img/legend.eps
 	width 3.5cm
 
 \end_inset
@@ -421,6 +429,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status collapsed
 
@@ -436,7 +445,7 @@ subfigure[Title query.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qTitle-CLEF-IP2010.eps
-	width 2.75cm
+	width 4.3cm
 
 \end_inset
 
@@ -467,7 +476,7 @@ subfigure[Abstract query.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010.eps
-	width 2.75cm
+	width 4.3cm
 
 \end_inset
 
@@ -483,6 +492,10 @@ status collapsed
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status collapsed
 
@@ -498,7 +511,7 @@ subfigure[Claims query.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qClaims-CLEF-IP2010.eps
-	width 2.75cm
+	width 4.3cm
 
 \end_inset
 
@@ -513,8 +526,35 @@ status collapsed
 
 \end_inset
 
- 
-\begin_inset VSpace -3mm
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Description query.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/jaccard-qClaims-CLEF-IP2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
 \end_inset
 
  
@@ -588,10 +628,6 @@ status collapsed
 LatexCommand label
 name "fig:FailureAnalysis"
 
-\end_inset
-
- 
-\begin_inset VSpace -1mm
 \end_inset
 
  
@@ -1023,7 +1059,7 @@ ref{sec:conclusion}.
 \end_layout
 
 \begin_layout Section
-Query Expansion for Patents
+Query Reformulation for Patents
 \end_layout
 
 \begin_layout Subsection
@@ -1987,7 +2023,7 @@ Here, the first cosine similarity part (i) aims to select a term
 \end_layout
 
 \begin_layout Section
-Experimental results
+Experimental Evaluation
 \end_layout
 
 \begin_layout Standard
@@ -1998,6 +2034,33 @@ name "results"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Experimental Setup
+\end_layout
+
+\begin_layout Standard
+We used Lucene IR System to index the collection of CLEF-IP 2010 and CLEF-IP
+ 2011 datasets with the default stemming and stop-word removal.
+ We removed patent-specific stop-words as described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2012"
+
+\end_inset
+
+.
+ In our experiments we used the English subsection of both collections.
+ The English test sets of CLEF-IP 2010 and CLEF-IP 2011 correspond to 1303
+ and 1351 topics respectively.
+ We report Mean Average Precision (MAP), and Patent Retrieval Evaluation
+ Score (PRES) , which combines Recall with the quality of ranking.
+ We report the evaluation metrics on the top 1000 results.
+\end_layout
+
+\begin_layout Standard
+----------
 \end_layout
 
 \begin_layout Standard
@@ -2120,7 +2183,7 @@ Term selection method:
 \end_layout
 
 \begin_layout Standard
-e include one additional QE baseline motivated by 
+We include one additional QE baseline motivated by 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mahdabi2013"
@@ -2948,3393 +3011,6 @@ end{figure*}
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float figure
-placement t
-wide true
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qTitle-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qTitle-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qTitle-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qTitle-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qAbstract-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qAbstract-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qAbstract-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qAbstract-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Descrip 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qDescription-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Descrip 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qDescription-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Descrip 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qDescription-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Descrip 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qDescription-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Mean Average Precision (MAP) on CLEF-2010 (for MMRQE 
-\begin_inset Formula $\lambda=0.5$
-\end_inset
-
-).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:MAP-CLEF2010"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide true
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qTitle-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qTitle-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qTitle-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qTitle-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qAbstract-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qAbstract-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qAbstract-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qAbstract-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Descrip 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qDescription-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Descrip 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qDescription-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Descrip 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qDescription-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Descrip 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qDescription-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQE 
-\begin_inset Formula $\lambda=0.5$
-\end_inset
-
-).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:PRES-CLEF2010"
-
-\end_inset
-
- 
-\end_layout
-
-\end_inset
-
-
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-placement t
-wide true
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qTitle-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qTitle-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qTitle-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qTitle-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qAbstract-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qAbstract-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qAbstract-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qAbstract-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qClaims-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qClaims-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qClaims-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qClaims-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Mean Average Precision (MAP) on CLEF-2010 (for 50 expansion terms).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide true
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qTitle-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qTitle-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qTitle-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qTitle-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qAbstract-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qAbstract-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qAbstract-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qAbstract-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qClaims-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qClaims-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qClaims-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014-lambda/qClaims-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for 50 expansion
- terms).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:PRES-CLEF2010-1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement t
-wide true
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qTitle-sDescription_MAP_2010.eps
-	width 8cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qAbstract-sDescription_MAP_2010.eps
-	width 8cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qClaims-sDescription_MAP_2010.eps
-	width 8cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Description.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qDescription-sDescription_MAP_2010.eps
-	width 8cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Mean Average Precision (MAP) for MMRQR on CLEF-2010 (for MMRQE 
-\begin_inset Formula $\lambda=0.8$
-\end_inset
-
-).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide true
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{ Query Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qTitle-sDescription_PRES_2010.eps
-	width 8cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qAbstract-sDescription_PRES_2010.eps
-	width 8cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qClaims-sDescription_PRES_2010.eps
-	width 8cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Description.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qDescription-sDescription_PRES_2010.eps
-	width 8cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) for MMRQR on CLEF-2010 (for MMRQE
- 
-\begin_inset Formula $\lambda=0.8$
-\end_inset
-
-).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-placement t
-wide true
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qTitle-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qTitle-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qTitle-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qTitle-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sTitle_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sAbstract_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sClaims_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Mean Average Precision (MAP) for MMRQR on CLEF-2010.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Float figure
-wide true
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qTitle-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qTitle-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qTitle-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Title 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qTitle-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Abstract 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sTitle_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sAbstract_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sClaims_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Descrip.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) for MMRQR on CLEF-2010.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Related Work
 \end_layout
@@ -6347,6 +3023,134 @@ name "sec:relatedworks"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The major contributions in patent search has focused on query formulation,
+ where the objective is to find the best terms to represent a patent application
+ as a query to achieve high retrieval effectiveness by retrieving all possible
+ relevant documents at high ranks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2012"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The scenario of patent prior art search consists of manually form queries
+ by selecting high frequency terms from patent application.
+ Hence, following this methodology, some algorithms of patent query reduction
+ have been proposed to select only useful terms from patent application
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ganguly2011,Itoh2003"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Similarly, query expansion has been explored for patent search.
+  Magdy et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2011"
+
+\end_inset
+
+ experiment a set of classic techniques of query expansion, which rely on
+ pseudo-relevance feedback and WordNet as source of expansion terms.
+ However, none of these approaches were able to achieve a significant improvemen
+t over the baseline.
+ Therefore, they introduce a novel approach that automatically generates
+ candidate synonyms sets for terms, and use them as a source of expansion
+ terms, which showed significant improvement with respect to the baseline.
+ Also, Bashir et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bashir2010"
+
+\end_inset
+
+ propose a query expansion with pseudo-relevance feedback.
+ They proposed to select relevant terms for the expansion process using
+ a machine learning approach, by picking terms that may have a potential
+ positive impact on the retrieval effectiveness.
+ However, this approach can be computational expensive, since the presented
+ features are complicated to compute.
+ Verma and Varma 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Verma2011"
+
+\end_inset
+
+ propose a different approach, which instead of using the patent text to
+ query, they use its International Patent Classification (IPC) codes as
+ query which are expanded using the citation network.
+ The formed query is used to perform an initial search.
+ The results are then re-ranked using queries constructed from patent text.
+ Throughout our experiments, we concluded that relying on other terms to
+ form a query rather than those in the patent application, leads to poor
+ retrieval quality.
+ Therefore, the approach proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Verma2011"
+
+\end_inset
+
+ doesn't guarantee to obtain good performance.
+ Lastly, a more recent work by Mahdabi et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahdabi2013"
+
+\end_inset
+
+ propose both a query reduction and expansion method.
+ For the query reduction process, they just shorten the query document by
+ taking the first claim since it contains the core of the invention.
+ For the expansion process, they propose to build a query-specific patent
+ lexicon based on the definitions of the IPC.
+ Then, this patent lexicon is used to select expansion terms that are focused
+ on the query topic.
+ 
+\end_layout
+
+\begin_layout Standard
+Finally, other works investigated query suggestion for patent prior art
+ search, which reflect real-life scenario of examiners, who form reproducible
+ boolean queries 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Adams2011,Azzopardi2010"
+
+\end_inset
+
+.
+ Reproducibility of search means that the retrieval system will give the
+ same results for the same query each time.
+ Hence, Kim et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kim2011"
+
+\end_inset
+
+ propose an approach, which generate boolean queries by exploiting decision
+ trees learned from pseudo-labeled documents and rank the suggested queries
+ using query quality predictors.
 \end_layout
 
 \begin_layout Standard
@@ -6373,6 +3177,10 @@ cite{Magdy2012}.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 There are a variety of existing query expansion methods that use synonyms
  (both from WordNet and automatically generated)
 \begin_inset space ~
@@ -6428,6 +3236,11 @@ partial patent applications
 ; it would be interesting future work to comprehensively evaluate all of
  these patent-specific QE methods with our generic methods for partial patent
  application queries.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7101,6 +3914,3082 @@ status open
 \begin_layout Plain Layout
 
 }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sTitle_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sAbstract_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sClaims_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sTitle_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sAbstract_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sClaims_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sTitle_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sAbstract_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sClaims_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sTitle_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sAbstract_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sClaims_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mean Average Precision (MAP) on CLEF-2010 (for MMRQE 
+\begin_inset Formula $\lambda=0.5$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:MAP-CLEF2010"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sTitle_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sAbstract_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sClaims_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sTitle_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sAbstract_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sClaims_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sTitle_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sAbstract_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sClaims_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sTitle_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sAbstract_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sClaims_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQE 
+\begin_inset Formula $\lambda=0.5$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PRES-CLEF2010"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sTitle_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sAbstract_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sClaims_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sDescription_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sTitle_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sAbstract_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sClaims_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sDescription_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sTitle_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sAbstract_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sClaims_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sDescription_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sTitle_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sAbstract_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sClaims_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sDescription_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mean Average Precision (MAP) on CLEF-2011 (for MMRQE 
+\begin_inset Formula $\lambda=0.5$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:MAP-CLEF2010-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sTitle_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sAbstract_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sClaims_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Title 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-sDescription_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sTitle_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sAbstract_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sClaims_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Abstract 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-sDescription_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sTitle_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sAbstract_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sClaims_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Claims 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-sDescription_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sTitle_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sAbstract_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sClaims_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{
+\backslash
+tiny Query Descrip 
+\backslash
+& source Descrip.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-sDescription_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Patent Retrieval Evaluation Score (PRES) on CLEF-2011 (for MMRQE 
+\begin_inset Formula $\lambda=0.5$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PRES-CLEF2010-1"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qTitle-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qClaims-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Description.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mean Average Precision (MAP) for MMRQR on CLEF-2010 (for MMRQE 
+\begin_inset Formula $\lambda=0.8$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{ Query Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qTitle-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qClaims-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Description.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Patent Retrieval Evaluation Score (PRES) for MMRQR on CLEF-2010 (for MMRQE
+ 
+\begin_inset Formula $\lambda=0.8$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qTitle-sDescription_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-sDescription_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qClaims-sDescription_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Description.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-sDescription_MAP_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mean Average Precision (MAP) for MMRQR on CLEF-2011 (for MMRQE 
+\begin_inset Formula $\lambda=0.8$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{ Query Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qTitle-sDescription_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-sDescription_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qClaims-sDescription_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Description.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-sDescription_PRES_2011.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Patent Retrieval Evaluation Score (PRES) for MMRQR on CLEF-2011 (for MMRQE
+ 
+\begin_inset Formula $\lambda=0.8$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

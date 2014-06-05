@@ -7,6 +7,7 @@ package nicta.com.au.patent.pac.evaluation;
 import com.hrstc.lucene.queryexpansion.PatentClassCodeBasedQueryExpansion;
 import com.hrstc.lucene.queryexpansion.PatentQueryExpansion;
 import com.hrstc.lucene.queryexpansion.PatentRocchioQueryExpansion;
+import com.hrstc.lucene.queryreduction.PatentClassCodeBasedQueryReduction;
 import com.hrstc.lucene.queryreduction.PatentRocchioQueryReduction;
 import dcu.com.ie.patent.queryreduction.PatentMagdyQueryReduction;
 import dcu.com.ie.synset.PatentSynSetQueryExpansion;
@@ -75,92 +76,113 @@ public final class ExecuteTopics {
             System.out.print(" #claims1Boost: " + claims1Boost);
             System.out.print(" #Filter: " + filter);
             System.out.print(" #Stop Words: " + stopWords);
+            if (rewrite) {
+                System.out.print(" #termsImpactFilename: " + termsImpactFilename);
+                System.out.println("");
+            }
         }
         if (expansion) {
             if (startingPoint.equals("-1")) {
                 System.out.print(" #Expansion: " + expansion);
                 System.out.print(" #Algo: " + algo);
             }
-            if (algo.toLowerCase().equals("rocc")) {
-                pqe = new PatentRocchioQueryExpansion(indexDir, nbrDocs, nbrTerms, source, alpha, beta, gamma, 0);
-                if (startingPoint.equals("-1")) {
-                    System.out.print(" #nbrDocs: " + nbrDocs);
-                    if (source != 7) {
-                        System.out.print(" #source: " + PatentQuery.getFields()[source]);
-                    } else {
-                        System.out.println(" #source: All");
+            switch (algo.toLowerCase()) {
+                case "rocc":
+                    pqe = new PatentRocchioQueryExpansion(indexDir, nbrDocs, nbrTerms, source, alpha, beta, gamma, 0);
+                    if (startingPoint.equals("-1")) {
+                        System.out.print(" #nbrDocs: " + nbrDocs);
+                        if (source != 7) {
+                            System.out.print(" #source: " + PatentQuery.getFields()[source]);
+                        } else {
+                            System.out.println(" #source: All");
+                        }
                     }
-                }
-            } else if (algo.toLowerCase().equals("roccqr")) {
-                pqe = new PatentRocchioQueryReduction(indexDir, nbrDocs, nbrTerms, source, alpha, beta, gamma, 0);
-                if (startingPoint.equals("-1")) {
-                    System.out.print(" #nbrDocs: " + nbrDocs);
-                    if (source != 7) {
-                        System.out.print(" #source: " + PatentQuery.getFields()[source]);
-                    } else {
-                        System.out.println(" #source: All");
+                    break;
+                case "roccqr":
+                    pqe = new PatentRocchioQueryReduction(indexDir, nbrDocs, nbrTerms, source, alpha, beta, gamma, 0);
+                    if (startingPoint.equals("-1")) {
+                        System.out.print(" #nbrDocs: " + nbrDocs);
+                        if (source != 7) {
+                            System.out.print(" #source: " + PatentQuery.getFields()[source]);
+                        } else {
+                            System.out.println(" #source: All");
+                        }
                     }
-                }
-            } else if (algo.toLowerCase().equals("mmrqe")) {
-                pqe = new PatentMMRQueryExpansion(searcher.getIndexSearch(), similarity, nbrDocs, nbrTerms, source, alpha, beta);
-                if (startingPoint.equals("-1")) {
-                    System.out.print(" #nbrDocs: " + nbrDocs);
-                    if (source != 7) {
-                        System.out.print(" #source: " + PatentQuery.getFields()[source]);
-                    } else {
-                        System.out.println(" #source: All");
+                    break;
+                case "mmrqe":
+                    pqe = new PatentMMRQueryExpansion(searcher.getIndexSearch(), similarity, nbrDocs, nbrTerms, source, alpha, beta);
+                    if (startingPoint.equals("-1")) {
+                        System.out.print(" #nbrDocs: " + nbrDocs);
+                        if (source != 7) {
+                            System.out.print(" #source: " + PatentQuery.getFields()[source]);
+                        } else {
+                            System.out.println(" #source: All");
+                        }
                     }
-                }
-            } else if (algo.toLowerCase().equals("mmrqr")) {
-                pqe = new PatentMMRQueryReduction(searcher.getIndexSearch(), similarity, nbrDocs, nbrTerms, source, beta);
-                if (startingPoint.equals("-1")) {
-                    System.out.print(" #nbrDocs: " + nbrDocs);
-                    if (source != 7) {
-                        System.out.print(" #source: " + PatentQuery.getFields()[source]);
-                    } else {
-                        System.out.println(" #source: All");
+                    break;
+                case "mmrqr":
+                    pqe = new PatentMMRQueryReduction(searcher.getIndexSearch(), similarity, nbrDocs, nbrTerms, source, beta);
+                    if (startingPoint.equals("-1")) {
+                        System.out.print(" #nbrDocs: " + nbrDocs);
+                        if (source != 7) {
+                            System.out.print(" #source: " + PatentQuery.getFields()[source]);
+                        } else {
+                            System.out.println(" #source: All");
+                        }
                     }
-                }
-            } else if (algo.toLowerCase().equals("magdyqr")) {
-                pqe = new PatentMagdyQueryReduction(searcher.getIndexSearch(), similarity, nbrDocs, nbrTerms, source);
-                if (startingPoint.equals("-1")) {
-                    System.out.print(" #nbrDocs: " + nbrDocs);
-                    if (source != 7) {
-                        System.out.print(" #source: " + PatentQuery.getFields()[source]);
-                    } else {
-                        System.out.println(" #source: All");
+                    break;
+                case "magdyqr":
+                    pqe = new PatentMagdyQueryReduction(searcher.getIndexSearch(), similarity, nbrDocs, nbrTerms, source);
+                    if (startingPoint.equals("-1")) {
+                        System.out.print(" #nbrDocs: " + nbrDocs);
+                        if (source != 7) {
+                            System.out.print(" #source: " + PatentQuery.getFields()[source]);
+                        } else {
+                            System.out.println(" #source: All");
+                        }
                     }
-                }
-            } else if (algo.toLowerCase().equals("wsynset")) {
-
-                pqe = new PatentSynSetQueryExpansion(termsImpactFilename, nbrTerms, true);
-                if (startingPoint.equals("-1")) {
-                    System.out.print(" #SynSet: " + termsImpactFilename);
-                }
-
-            } else if (algo.toLowerCase().equals("usynset")) {
-                pqe = new PatentSynSetQueryExpansion(termsImpactFilename, nbrTerms, false);
-                if (startingPoint.equals("-1")) {
-                    System.out.print(" #SynSet: " + termsImpactFilename);
-                }
-            } else {
-                pqe = new PatentClassCodeBasedQueryExpansion(classCodesIndexDir, nbrTerms, alpha, beta, 0);
-                if (startingPoint.equals("-1")) {
-                    System.out.print(" #classCodesIndexDir: " + classCodesIndexDir);
-                }
+                    break;
+                case "wsynset":
+                    pqe = new PatentSynSetQueryExpansion(termsImpactFilename, nbrTerms, true);
+                    if (startingPoint.equals("-1")) {
+                        System.out.print(" #SynSet: " + termsImpactFilename);
+                    }
+                    break;
+                case "usynset":
+                    pqe = new PatentSynSetQueryExpansion(termsImpactFilename, nbrTerms, false);
+                    if (startingPoint.equals("-1")) {
+                        System.out.print(" #SynSet: " + termsImpactFilename);
+                    }
+                    break;
+                case "codeqr":
+                    pqe = new PatentClassCodeBasedQueryReduction(classCodesIndexDir, nbrTerms);
+                    if (startingPoint.equals("-1")) {
+                        System.out.print(" #classCodesIndexDir: " + classCodesIndexDir);
+                    }
+                    break;
+                default:
+                    pqe = new PatentClassCodeBasedQueryExpansion(classCodesIndexDir, nbrTerms, alpha, beta, 0);
+                    if (startingPoint.equals("-1")) {
+                        System.out.print(" #classCodesIndexDir: " + classCodesIndexDir);
+                    }
+                    break;
             }
             if (startingPoint.equals("-1")) {
                 System.out.print(" #nbrTerms: " + nbrTerms);
-                if (algo.toLowerCase().equals("mmrqe")) {
-                    System.out.print(" #alpha: " + alpha);
-                    System.out.print(" #lambda: " + beta);
-                } else if (algo.toLowerCase().equals("mmrqr")) {
-                    System.out.print(" #lambda: " + beta);
-                } else {
-                    System.out.print(" #alpha: " + alpha);
-                    System.out.print(" #beta: " + beta);
-                    System.out.print(" #gamma: " + gamma);
-                    System.out.print(" #decay: " + decay);
+                switch (algo.toLowerCase()) {
+                    case "mmrqe":
+                        System.out.print(" #alpha: " + alpha);
+                        System.out.print(" #lambda: " + beta);
+                        break;
+                    case "mmrqr":
+                        System.out.print(" #lambda: " + beta);
+                        break;
+                    default:
+                        System.out.print(" #alpha: " + alpha);
+                        System.out.print(" #beta: " + beta);
+                        System.out.print(" #gamma: " + gamma);
+                        System.out.print(" #decay: " + decay);
+                        break;
                 }
                 System.out.println("");
             }
@@ -189,11 +211,10 @@ public final class ExecuteTopics {
             System.err.print(j + "- " + queryid + " -> " + pt.getUcid());
             long start2 = System.currentTimeMillis();
             TopDocs hits;
-//            if (rewrite) {
-//                Query query = searcher.rewrite(queryid, pt, rewriteQuery, boosts, filter, stopWords);
-//                hits = searcher.search(query);                
-//            } else
-            if (expansion) {
+            if (rewrite) {
+                Query query = searcher.rewrite(queryid, pt, rewriteQuery, boosts, filter, stopWords);
+                hits = searcher.search(query);
+            } else if (expansion) {
                 PatentQuery pq = new PatentQuery(pt, boosts, filter, stopWords);
 //                System.err.println("");
 //                System.err.println("---------------------------------------------------------------------------------------------------");
@@ -255,7 +276,7 @@ public final class ExecuteTopics {
         float beta = 0;
         float gamma = 0;
 //        float decay = 0;
-        String decay = "";
+        String decay = "-1";
         if (args.length < 13) {
             System.err.println("ERROR: incorrect parameters for nicta.com.au.patent.pac.evaluation.ExecuteTopics! "
                     + "only " + args.length + " parameters :-(");
