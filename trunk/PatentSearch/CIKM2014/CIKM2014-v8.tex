@@ -3,8 +3,10 @@
 \documentclass[english]{sig-alternate-2013}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+\usepackage{color}
 \usepackage{array}
 \usepackage{verbatim}
+\usepackage{multirow}
 \usepackage{graphicx}
 
 \makeatletter
@@ -179,11 +181,12 @@ conclude and provide some future directions in Section \ref{sec:conclusion}.
 
 \label{sec:QueryReformulationForPatents}
 
-In this section, we first present the general approach of query expansion
-and reduction in Sections \ref{sec:FrameworkQE} and \ref{sec:FrameworkQR}
-respectively, then, we present novel term selection methods for both
-query expansion and reduction in Sections \ref{sec:MMRQE} and \ref{sec:MMRQR}
-respectively.
+In this section, we first present the requirements of a query expansion
+method in Sections \ref{sec:FrameworkQE}, then, we introduce a novel
+term selection method for query expansion in Section \ref{sec:MMRQE}.
+Next, in Section \ref{sec:FrameworkQR} we introduce the motivations
+behind the benefit of query reduction, and a new approach of query
+reduction in Section \ref{sec:MMRQR}.
 
 
 \subsection{General Framework for Query Expansion}
@@ -355,12 +358,13 @@ query reduction for the abstract section of the Topic PAC-1019 from
 the CLEF-IP 2010 data collection. The baseline query, which is the
 original query (provided in the header row) after stemming and patent
 specific stopword removal, had an average precision (AP) of 0.280
-and a patent retrieval evaluation score (PRES) of 0.777 (its performance
-are provided in the footer row). We show the evaluation performance
-of the query after removing each term from the original query. The
-removed terms have been sorted in the order of decreasing PRES. We
-can observe that there are ten terms that if they are removed from
-the query, we increase PRES of the original long query.
+and a patent retrieval evaluation score (PRES) \cite{Magdy2010a}
+of 0.777 (its performance are provided in the footer row). We show
+the evaluation performance of the query after removing each term from
+the original query. The removed terms have been sorted in the order
+of decreasing PRES. We can observe that there are ten terms that if
+they are removed from the query, we increase PRES of the original
+long query.
 
 \begin{table}[h]
 \begin{centering}
@@ -369,7 +373,11 @@ PAC-1019. }
 
 \par\end{centering}
 
-\centering{}{\footnotesize{}\label{tbl:queryPAC-1019}}{\scriptsize{}}%
+\begin{centering}
+{\footnotesize{}\label{tbl:queryPAC-1019}}
+\par\end{centering}{\footnotesize \par}
+
+\centering{}{\scriptsize{}}%
 \begin{tabular}{|l|c|c|c|c|c|}
 \hline 
 \multicolumn{6}{|>{\raggedright}p{8cm}|}{\textbf{\scriptsize{}Topic:}{\scriptsize{} PAC-1019}}\tabularnewline
@@ -480,9 +488,11 @@ building $T_{k}^{*}$ in a greedy manner by choosing the next optimal
 term $t_{k}^{*}$ given the previous set of optimal term selections
 $T_{k-1}^{*}=\{t_{1}^{*},\ldots,t_{k-1}^{*}\}$ (assuming $T_{0}^{*}=\emptyset$)
 using an adaptation of the MMR diverse selection criterion as given
-in Equation \ref{eq:MMRQE-QR}. Here, we found that $\lambda=0.8$
-provides generally the best results in our experiments on the CLEF-IP
-training dataset collection.
+in Equation \ref{eq:MMRQE-QR}. Note that the we used all the sections
+of the patent documents of the PRF set to built the document-term
+matrix of $n$ documents and $m$ terms shown in Figure~\ref{fig:notation}.
+Here, we found that $\lambda=0.8$ provides generally the best results
+in our experiments on the CLEF-IP training dataset collection.
 
 In the next section, we propose a deep evaluation of QE and QR methods
 for patent search, and we attempt to answer the questions we asked
@@ -496,9 +506,11 @@ throughout this section.
 
 \subsection{Experimental Setup}
 
-We used the Lucene IR System to index the English subset ofCLEF-IP
-2010 and CLEF-IP 2010 datasets%
-\footnote{\texttt{http://www.ifs.tuwien.ac.at/~clef-ip/}%
+We used the Lucene IR System%
+\footnote{We used the LucQE module, which provides an implementation of the
+Rocchio QE method for Lucene. \\ \texttt{http://lucene-qe.sourceforge.net/}%
+} to index the English subset of CLEF-IP 2010 and CLEF-IP 2010 datasets%
+\footnote{\texttt{http://www.ifs.tuwien.ac.at/clef-ip/}%
 }~\cite{Piroi2011,Roda2009} with the default stemming and stop-word
 removal. We removed patent-specific stop-words as described in \cite{Magdy2012}.
 The English test sets of CLEF-IP 2010 and CLEF-IP 2011 correspond
@@ -506,24 +518,14 @@ to 1303 and 1351 topics respectively. In our implementation, each
 section of a patent application (title, abstract, claims, and description)
 is indexed in a separate field. Hence, when a query is processed,
 all fields in the index are targeted as shown in Figure \ref{fig:IndexFields}.
-As recommended in \cite{Magdy2012} and confirmed in our own experimentation
-(not shown due to lack of space), best QE performance results are
-obtained when using few documents in the PRF set (in our case, the
-top five gave the best results). 
-
-We carry out comprehensive experiments along the dimensions outlined
-in Section~\ref{sec:QueryReformulationForPatents} with the following
-specific options:
-\begin{itemize}
-\item \textbf{Query type:} $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$ 
-\item \textbf{Query expansion source:} $\{\mathrm{Title},\mathrm{Abs.},\mathrm{Claims},\mathrm{Descrip.}\}$ 
-\item \textbf{Relevance model:} $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$ 
-\item \textbf{Term selection method:} $\{\mathrm{Rocchio},\mathrm{MMRQE/QR},etc...\}$ 
-\end{itemize}
-Finally, we report Mean Average Precision (MAP), and Patent Retrieval
-Evaluation Score (PRES) \cite{Magdy2010a}, which combines Recall
-with the quality of ranking. We report the evaluation metrics on the
-top 1000 results.
+We also used the patent classification (IPC) for filtering the results
+by constraining them to have common classifications with the patent
+topic as suggested in previous works \cite{Roda2009,Lopez2009}. Finally,
+we report Mean Average Precision (MAP), and Patent Retrieval Evaluation
+Score (PRES) \cite{Magdy2010a}, which combines Recall with the quality
+of ranking and weights relevant documents lower in the ranking more
+highly than MAP. We report the evaluation metrics on the top 1000
+results.
 
 \begin{figure}
 \begin{centering}
@@ -540,22 +542,97 @@ top 1000 results.
 
 \subsection{Experimental Results for QE}
 
-We include one additional QE baseline motivated by \cite{Mahdabi2013},
-where the text definitions of the International Patent Classification
-(IPC) codes assigned to a patent application are used as a source
-for query expansion --- this is denoted as \textbf{IPC Code}.
 
-The relevance model and term selection options give us four QE algorithms
+\subsubsection{Query Expansion Baselines}
+
+In addition to the general Rocchio approach for QE, we included two
+other patent specific QE methods as baselines. Motivated by \cite{Mahdabi2013},
+we used the text definitions of the International Patent Classification
+(IPC) codes assigned to a patent application as a source for query
+expansion --- this is denoted as \textbf{IPC Codes}. We also implemented
+the QE approach proposed in \cite{Magdy2011}, which automatically
+generates candidate synonyms sets (SynSet) for terms, and use it as
+a source of expansion terms. This approach has two variants: (i) The
+first one used the probability associated with the SynSet entries
+as a weight for each expanded term in the query (denoted \textbf{WSynSet}).
+Therefore, each term was replaced with its SynSet entries with the
+probability of each item in the SynSet acting as a weight to the term
+within the query. (ii) The second one neglected this associated probability
+and used uniform weighting for all synonyms of a given term (denoted
+\textbf{USynSet}).
+
+The relevance model and term selection options give us seven QE algorithms
 to evaluate. When MMRQE is used in combination with the VSM, the additional
 terms use the weights provided by the Rocchio method, whereas when
 using MMRQE and Rocchio with BM25, there is no need to weight the
-terms. For both MMRQE and Rocchio, their parameters were fixed to
-their optimal values, which were estimated using the CLEF-IP training
-queries.
+terms. For all methods, their parameters were fixed to their optimal
+values, which were estimated using the CLEF-IP training queries.
 
-We report MAP and PRES on the top 1000 results. PRES \cite{Magdy2012}
-is a metric that combines recall with the quality of ranking and weights
-relevant documents lower in the ranking more highly than MAP.
+
+\subsubsection{Discussion}
+
+In this section, we discuss the results of the evaluation performed
+on the QE methods described above. But before, we first discuss the
+effect of the size of the PRF set on the performance. Table \ref{tbl:PFRSize}
+shows the impact of the PRF size on the performance for the two QE
+algorithms Rocchio and MMRQE. These results are shown on the CLEF-IP
+2010 training queries, which consists of 196 topics. We observe that
+the best QE performance results are obtained when using few documents
+in the PRF set as it was also reported in \cite{Magdy2011} (in our
+case, the top five gave the best results). This is certainly due to
+the fact that a large PRF set set will include too much irrelevant
+documents, whose the terms may negatively affect the quality of the
+expanded query.
+
+\begin{table}
+\caption{Effect of PRF with varying numbers of feedback documents on prior-art
+patent search. 20 terms are used for query expansion.}
+\label{tbl:PFRSize}
+
+\centering{}{\scriptsize{}}%
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}Query/Source} & \textbf{\scriptsize{}Metric} & \textbf{\scriptsize{}Method} & \textbf{\scriptsize{}5} & \textbf{\scriptsize{}10} & \textbf{\scriptsize{}20}\tabularnewline
+\hline 
+\hline 
+{\scriptsize{}Query: Abstract} & {\scriptsize{}MAP} & {\scriptsize{}Rocchio} & {\scriptsize{}0.074} & {\scriptsize{}0.072} & {\scriptsize{}0.070}\tabularnewline
+\cline{3-6} 
+ & {\scriptsize{}BL=0.073} & {\scriptsize{}MMRQE} & {\scriptsize{}0.074} & {\scriptsize{}0.071} & {\scriptsize{}0.071}\tabularnewline
+\cline{2-6} 
+{\scriptsize{}Source: Claims} & {\scriptsize{}PRES} & {\scriptsize{}Rocchio} & {\scriptsize{}0.409} & {\scriptsize{}0.409} & {\scriptsize{}0.409}\tabularnewline
+\cline{3-6} 
+ & \multirow{1}{*}{{\scriptsize{}BL=0.403}} & {\scriptsize{}MMRQE} & {\scriptsize{}0.411} & {\scriptsize{}0.411} & {\scriptsize{}0.410}\tabularnewline
+\hline 
+{\scriptsize{}Query: Claims} & {\scriptsize{}MAP} & {\scriptsize{}Rocchio} & {\scriptsize{}0.083} & {\scriptsize{}0.080} & {\scriptsize{}0.079}\tabularnewline
+\cline{3-6} 
+ & {\scriptsize{}BL=0.081} & {\scriptsize{}MMRQE} & {\scriptsize{}0.082} & {\scriptsize{}0.080} & {\scriptsize{}0.080}\tabularnewline
+\cline{2-6} 
+{\scriptsize{}Source: Claims} & {\scriptsize{}PRES} & {\scriptsize{}Rocchio} & {\scriptsize{}0.443} & {\scriptsize{}0.445} & {\scriptsize{}0.446}\tabularnewline
+\cline{3-6} 
+ & {\scriptsize{}BL=0.433} & {\scriptsize{}MMRQE} & {\scriptsize{}0.445} & {\scriptsize{}0.444} & {\scriptsize{}0.442}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+\begin{comment}
+As recommended in \cite{Magdy2012} and confirmed in our own experimentation
+(not shown due to lack of space), best QE performance results are
+obtained when using few documents in the PRF set (in our case, the
+top five gave the best results).
+\end{comment}
+{} 
+
+Next, we carry out comprehensive experiments along the dimensions
+outlined in Section~\ref{sec:FrameworkQE} with the following specific
+options:
+\begin{itemize}
+\item \textbf{\footnotesize{}Query type:}{\footnotesize{} $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$ }{\footnotesize \par}
+\item \textbf{\footnotesize{}Query expansion source:}{\footnotesize{} $\{\mathrm{Title},\mathrm{Abs.},\mathrm{Claims},\mathrm{Descrip.}\}$ }{\footnotesize \par}
+\item \textbf{\footnotesize{}Relevance model:}{\footnotesize{} $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$ }{\footnotesize \par}
+\item \textbf{\footnotesize{}Term selection method:}{\footnotesize{} $\{\mathrm{Rocchio},\mathrm{MMRQE},etc...\}$ }{\footnotesize \par}
+\end{itemize}
+\textcolor{red}{-----------TO DO-----------------------}
 
 Figures~\ref{fig:MAP-CLEF2010} and~\ref{fig:PRES-CLEF2010} show
 the performance across different queries and sources of expansion
@@ -632,8 +709,98 @@ better performance for MAP.
 %r\end{figure*}
 
 
+\textcolor{red}{----------------------------------------}
+
 
 \subsection{Experimental Results for QR}
+
+
+\subsubsection{Query Reduction Baselines}
+
+As a general QR method, we proposed to adapt the Rocchio method for
+query pruning. Basically, the idea is once we have computed the Rocchio
+modified query vector, we take only terms of the initial query that
+appear in this vector and rank them using the Rocchio score. Then,
+we remove $n$ terms with the lower score. We refer to the approach
+as \textbf{RocchioQR}.
+
+Regarding patent specific QR methods, we implemented the approach
+proposed in \cite{Ganguly2011}. This technique decomposes a query
+(a patent section) into constituent text segments and compute the
+Language Modeling (LM) similarities by calculating the probability
+of generating each segment from the top ranked documents (PRF set).
+Then, the query is reduced by removing the least similar segments
+from the query. This approach is denoted \textbf{LMQR}. Finally, we
+also proposed a baseline method that use IPC codes for query reduction
+as follows: (i) For each patent application, we take the definitions
+of the IPC codes which are associated to it. Then, (ii) we rank the
+terms of the query according to both their frequency in the class
+code definition, and their frequency in the query. Finally, (iii)
+we remove bottom terms of this ranking from the query (i.e. good terms
+are terms that occur a lot in the query, and few in the class code
+definition, whereas bad terms are those that occur few in the query,
+and a lot in the class code definition). The intuition is that, terms
+in the IPC code definition may represent \textquotedbl{}stopwords\textquotedbl{},
+especially if they are rare (unfrequent in the patent application).
+We denote this approach \textbf{IPC Codes}.
+
+The relevance model and term selection options give us eight QR algorithms
+to evaluate. Similarly, the parameters of all methods were fixed to
+their optimal values, which were estimated using the CLEF-IP training
+queries.
+
+
+\subsubsection{Discussion}
+
+In this section, we discuss the results of the evaluation performed
+on the QR methods described above. As recommended in \cite{Ganguly2011}
+and confirmed in our own experimentation (not shown due to lack of
+space), best QR performance results are also obtained when using few
+documents in the PRF set (in our case, the top five gave the best
+results). 
+
+Figure \ref{fig:DivImpactMMRQR} shows the impact of the diversity
+parameter $\lambda$ on the performance of MMRQR. The results are
+shown using BM25 retrieval model, and using abstract and claims for
+querying. Throughout our experiments, we concluded that the best value
+of $\lambda$ is 0.8, which indicates that few diversification in
+term selection can provide some improvement. It is clear that if we
+consider only diversification to select terms ($\lambda=0$), the
+overall performance are significantly degraded. This is certainly
+due to the fact that if we consider only diversified terms in the
+query, there is a loss in the meaning of the query.
+
+
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=4.3cm]{mmrqrResults-lambda/qAbstract-sDescription_MAP_2010}\includegraphics[width=4.3cm]{mmrqrResults-lambda/qAbstract-sDescription_PRES_2010}
+\par\end{centering}
+
+\begin{centering}
+\includegraphics[width=4.3cm]{mmrqrResults-lambda/qClaims-sDescription_MAP_2010}\includegraphics[width=4.3cm]{mmrqrResults-lambda/qClaims-sDescription_PRES_2010}
+\par\end{centering}
+
+\caption{Impact of the diversity parameter $\lambda$ on the performance of
+MMRQR.}
+
+
+\label{fig:DivImpactMMRQR}
+
+\end{figure}
+
+
+\textcolor{red}{-----------TO DO-----------------------}
+
+Next, we carry out comprehensive experiments along the dimensions
+outlined in Section~\ref{sec:FrameworkQR} with the following specific
+options:
+\begin{itemize}
+\item \textbf{\footnotesize{}Query type:}{\footnotesize{} $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$ }{\footnotesize \par}
+\item \textbf{\footnotesize{}Relevance model:}{\footnotesize{} $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$ }{\footnotesize \par}
+\item \textbf{\footnotesize{}Term selection method:}{\footnotesize{} $\{\mathrm{RocchioQR},\mathrm{MMRQR},etc...\}$ }{\footnotesize \par}
+\end{itemize}
+\textcolor{red}{----------------------------------------}
 
 
 \section{Related Work}
@@ -649,21 +816,26 @@ The scenario of patent prior art search consists of manually form
 queries by selecting high frequency terms from patent application.
 Hence, following this methodology, some algorithms of patent query
 reduction have been proposed to select only useful terms from patent
-application \cite{Ganguly2011,Itoh2003}.
+application \cite{Ganguly2011,Itoh2003}. We used the approach propose
+by Ganguly et al. \cite{Ganguly2011} for QR as a baseline, and we
+showed that the performance of MMRQR outperform this approach in many
+cases.
 
-Similarly, query expansion has been explored for patent search.  Magdy
-et al. \cite{Magdy2011} experiment a set of classic techniques of
-query expansion, which rely on pseudo-relevance feedback and WordNet
+Similarly, query expansion has been widely explored for patent search.
+ Magdy et al. \cite{Magdy2011} experiment a set of classic techniques
+of query expansion, which rely on pseudo-relevance feedback and WordNet
 as source of expansion terms. However, none of these approaches were
 able to achieve a significant improvement over the baseline. Therefore,
 they introduce a novel approach that automatically generates candidate
 synonyms sets for terms, and use them as a source of expansion terms,
 which showed significant improvement with respect to the baseline.
-Also, Bashir et al. \cite{Bashir2010} propose a query expansion with
-pseudo-relevance feedback. They proposed to select relevant terms
-for the expansion process using a machine learning approach, by picking
-terms that may have a potential positive impact on the retrieval effectiveness.
-However, this approach can be computational expensive, since the presented
+We also used this approach as a baseline in our experiments, and we
+showed that MMRQE provides better performance in many cases. Also,
+Bashir et al. \cite{Bashir2010} propose a query expansion with pseudo-relevance
+feedback. They proposed to select relevant terms for the expansion
+process using a machine learning approach, by picking terms that may
+have a potential positive impact on the retrieval effectiveness. However,
+this approach can be computational expensive, since the presented
 features are complicated to compute. Verma and Varma \cite{Verma2011}
 propose a different approach, which instead of using the patent text
 to query, they use its International Patent Classification (IPC) codes
@@ -680,7 +852,7 @@ document by taking the first claim since it contains the core of the
 invention. For the expansion process, they propose to build a query-specific
 patent lexicon based on the definitions of the IPC. Then, this patent
 lexicon is used to select expansion terms that are focused on the
-query topic. 
+query topic.
 
 Finally, other works investigated query suggestion for patent prior
 art search, which reflect real-life scenario of examiners, who form
@@ -750,14 +922,23 @@ application queries.
 
 \label{sec:conclusion}
 
-In this paper we analyzed general QE methods for patent prior art
-search with incomplete patent applications. We demonstrated that QE
-methods are critical for short queries, that claims are the ideal
-section content both to query with and to use as a source of query
-expansion terms, and that a new method MMRQE improves QE results in
-many cases. Future work can look at more patent-specific methods of
-QE for prior art search with partial patent applications and how they
-can be integrated with methods like MMRQE.
+In this paper we analyzed general QE and QR methods for patent prior
+art search with incomplete patent applications on two patent retrieval
+corpora, namely CLEF-IP 2010 and CLEF-IP 2011. We demonstrated that
+QE methods are critical for short queries, i.e. title, abstract, and
+claims, but useless for very long queries, i.e. the description section.
+We also showed that claims are the best section that works with QE
+both to query with and to use as a source of query expansion terms,
+and that a new method MMRQE improves QE results in many cases. Future
+work can look at more patent-specific methods of QE for prior art
+search with partial patent applications and how they can be integrated
+with methods like MMRQE. Regarding QR methods, we showed that these
+techniques are effective to some extend for claims and description
+sections, which are considered as the longest sections in a patent
+application. We also demonstrated that our new QR methods MMRQR may
+improve both recall and precision in many cases. For this second part,
+future work may consist in exploiting query quality predictors to
+identify useless terms in a query using machine learning methods.
 
 %We demonstrated that it reasonable to do prior art search 
 %with partial applications, especially when combined with query expansion methods. 

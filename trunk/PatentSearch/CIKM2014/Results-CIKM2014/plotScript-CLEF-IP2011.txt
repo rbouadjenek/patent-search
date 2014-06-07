@@ -14,7 +14,7 @@ plot "plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:2 title "MMRQE BM25"   
 "plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qTitle-sClaims_PRES_2011.eps" 
@@ -22,7 +22,7 @@ plot "plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:2 title "MMRQE BM25"  
 "plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qTitle-sAbstract_PRES_2011.eps" 
@@ -30,7 +30,7 @@ plot "plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:2 title "MMRQE BM25"
 "plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qTitle-sDescription_PRES_2011.eps" 
@@ -38,7 +38,7 @@ plot "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:2 title "MMRQE BM
 "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 #--------------------------------------
@@ -48,7 +48,7 @@ plot "plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:3 title "MMRQE BM25"   
 "plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qTitle-sTitle.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qTitle-sClaims_MAP_2011.eps" 
@@ -56,7 +56,7 @@ plot "plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:3 title "MMRQE BM25"  
 "plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qTitle-sClaims.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qTitle-sAbstract_MAP_2011.eps" 
@@ -64,7 +64,7 @@ plot "plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:3 title "MMRQE BM25"
 "plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qTitle-sAbstract.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qTitle-sDescription_MAP_2011.eps" 
@@ -72,7 +72,7 @@ plot "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:3 title "MMRQE BM
 "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qTitle-sDescription.txt" using 1:5 title "USynSet" with linespoints lw 4
 #--------------------------------------
@@ -81,7 +81,7 @@ plot "plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:2 title "MMRQE BM25"
 "plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qAbstract-sClaims_PRES_2011.eps" 
@@ -89,7 +89,7 @@ plot "plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:2 title "MMRQE BM25
 "plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qAbstract-sAbstract_PRES_2011.eps" 
@@ -97,7 +97,7 @@ plot "plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:2 title "MMRQE BM
 "plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qAbstract-sDescription_PRES_2011.eps" 
@@ -105,7 +105,7 @@ plot "plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:2 title "MMRQE
 "plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 #--------------------------------------
@@ -115,7 +115,7 @@ plot "plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:3 title "MMRQE BM25"
 "plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qAbstract-sTitle.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qAbstract-sClaims_MAP_2011.eps" 
@@ -123,7 +123,7 @@ plot "plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:3 title "MMRQE BM25
 "plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qAbstract-sClaims.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qAbstract-sAbstract_MAP_2011.eps" 
@@ -131,7 +131,7 @@ plot "plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:3 title "MMRQE BM
 "plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qAbstract-sAbstract.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qAbstract-sDescription_MAP_2011.eps" 
@@ -139,7 +139,7 @@ plot "plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:3 title "MMRQE
 "plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qAbstract-sDescription.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qAbstract-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 #--------------------------------------
@@ -148,7 +148,7 @@ plot "plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:2 title "MMRQE BM25"  
 "plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qClaims-sClaims_PRES_2011.eps" 
@@ -156,7 +156,7 @@ plot "plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:2 title "MMRQE BM25" 
 "plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qClaims-sAbstract_PRES_2011.eps" 
@@ -164,7 +164,7 @@ plot "plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:2 title "MMRQE BM25
 "plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qClaims-sDescription_PRES_2011.eps" 
@@ -172,7 +172,7 @@ plot "plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:2 title "MMRQE B
 "plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 #--------------------------------------
@@ -182,7 +182,7 @@ plot "plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:3 title "MMRQE BM25"  
 "plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qClaims-sTitle.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qClaims-sClaims_MAP_2011.eps" 
@@ -190,7 +190,7 @@ plot "plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:3 title "MMRQE BM25" 
 "plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qClaims-sClaims.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qClaims-sAbstract_MAP_2011.eps" 
@@ -198,7 +198,7 @@ plot "plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:3 title "MMRQE BM25
 "plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qClaims-sAbstract.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qClaims-sDescription_MAP_2011.eps" 
@@ -206,7 +206,7 @@ plot "plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:3 title "MMRQE B
 "plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qClaims-sDescription.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qClaims-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 #--------------------------------------
@@ -215,7 +215,7 @@ plot "plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:2 title "MMRQE BM
 "plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qDescription-sClaims_PRES_2011.eps" 
@@ -223,7 +223,7 @@ plot "plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:2 title "MMRQE B
 "plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qDescription-sAbstract_PRES_2011.eps" 
@@ -231,7 +231,7 @@ plot "plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:2 title "MMRQE
 "plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 set output "qDescription-sDescription_PRES_2011.eps" 
@@ -239,7 +239,7 @@ plot "plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:2 title "MM
 "plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:4 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:6 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:8 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:10 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:10 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:2 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:4 title "USynSet" with linespoints lw 4
 #--------------------------------------
@@ -249,7 +249,7 @@ plot "plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:3 title "MMRQE BM
 "plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qDescription-sTitle.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qDescription-sClaims_MAP_2011.eps" 
@@ -257,7 +257,7 @@ plot "plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:3 title "MMRQE B
 "plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qDescription-sClaims.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qDescription-sAbstract_MAP_2011.eps" 
@@ -265,7 +265,7 @@ plot "plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:3 title "MMRQE
 "plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qDescription-sAbstract.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 set output "qDescription-sDescription_MAP_2011.eps" 
@@ -273,7 +273,7 @@ plot "plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:3 title "MM
 "plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:5 title "MMRQE VSM " with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:7 title "Rocchio BM25" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:9 title "Rocchio VSM" with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:11 title "Class Code" with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/qDescription-sDescription.txt" using 1:11 title "IPC Codes" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:3 title "WSynSet" with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/qDescription-SynSet.txt" using 1:5 title "USynSet" with linespoints lw 4
 
@@ -291,6 +291,7 @@ set grid
 unset key #outside center top horizontal
 set style data histograms
 set xtics   ("source title" 0.00000, "source abstract" 1.00000, "source claims" 2.00000, "source Description" 3.00000)
+set offset -0.5,-0.5,0,0
 set term postscript eps enhanced color "Courier,17"
 
 set output "qTitle-PRES-CLEF-IP2011.eps" 

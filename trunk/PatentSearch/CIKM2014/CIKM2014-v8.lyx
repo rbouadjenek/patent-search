@@ -716,37 +716,39 @@ name "sec:QueryReformulationForPatents"
 \end_layout
 
 \begin_layout Standard
-In this section, we first present the general approach of query expansion
- and reduction in Sections 
+In this section, we first present the requirements of a query expansion
+ method in Sections 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:FrameworkQE"
 
 \end_inset
 
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:FrameworkQR"
-
-\end_inset
-
- respectively, then, we present novel term selection methods for both query
- expansion and reduction in Sections 
+, then, we introduce a novel term selection method for query expansion in
+ Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:MMRQE"
 
 \end_inset
 
- and 
+.
+ Next, in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:FrameworkQR"
+
+\end_inset
+
+ we introduce the motivations behind the benefit of query reduction, and
+ a new approach of query reduction in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:MMRQR"
 
 \end_inset
 
- respectively.
+.
 \end_layout
 
 \begin_layout Subsection
@@ -1613,8 +1615,14 @@ reference "tbl:queryPAC-1019"
  of the Topic PAC-1019 from the CLEF-IP 2010 data collection.
  The baseline query, which is the original query (provided in the header
  row) after stemming and patent specific stopword removal, had an average
- precision (AP) of 0.280 and a patent retrieval evaluation score (PRES) of
- 0.777 (its performance are provided in the footer row).
+ precision (AP) of 0.280 and a patent retrieval evaluation score (PRES) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2010a"
+
+\end_inset
+
+ of 0.777 (its performance are provided in the footer row).
  We show the evaluation performance of the query after removing each term
  from the original query.
  The removed terms have been sorted in the order of decreasing PRES.
@@ -1654,8 +1662,12 @@ name "tbl:queryPAC-1019"
 \end_inset
 
 
-\size scriptsize
+\end_layout
 
+\begin_layout Plain Layout
+\align center
+
+\size scriptsize
 \begin_inset Tabular
 <lyxtabular version="3" rows="19" columns="6">
 <features tabularvalignment="middle">
@@ -3271,6 +3283,27 @@ reference "eq:MMRQE-QR"
 \end_inset
 
 .
+ Note that the we used all the sections of the patent documents of the PRF
+ set to built the document-term matrix of 
+\begin_inset Formula $n$
+\end_inset
+
+ documents and 
+\begin_inset Formula $m$
+\end_inset
+
+ terms shown in Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:notation"
+
+\end_inset
+
+.
  Here, we found that 
 \begin_inset Formula $\lambda=0.8$
 \end_inset
@@ -3304,19 +3337,43 @@ Experimental Setup
 \end_layout
 
 \begin_layout Standard
-We used the Lucene IR System to index the English subset ofCLEF-IP 2010
- and CLEF-IP 2010 datasets
+We used the Lucene IR System
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We used the LucQE module, which provides an implementation of the Rocchio
+ QE method for Lucene.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\family typewriter
+http://lucene-qe.sourceforge.net/
+\end_layout
+
+\end_inset
+
+ to index the English subset of CLEF-IP 2010 and CLEF-IP 2010 datasets
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
 
 \family typewriter
-http://www.ifs.tuwien.ac.at/
-\begin_inset space ~
-\end_inset
-
-clef-ip/
+http://www.ifs.tuwien.ac.at/clef-ip/
 \end_layout
 
 \end_inset
@@ -3354,93 +3411,26 @@ reference "fig:IndexFields"
 \end_inset
 
 .
- As recommended in 
+ We also used the patent classification (IPC) for filtering the results
+ by constraining them to have common classifications with the patent topic
+ as suggested in previous works 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Magdy2012"
+key "Roda2009,Lopez2009"
 
 \end_inset
 
- and confirmed in our own experimentation (not shown due to lack of space),
- best QE performance results are obtained when using few documents in the
- PRF set (in our case, the top five gave the best results).
- 
-\end_layout
-
-\begin_layout Standard
-We carry out comprehensive experiments along the dimensions outlined in
- Section
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:QueryReformulationForPatents"
-
-\end_inset
-
- with the following specific options:
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Query type:
-\series default
- 
-\begin_inset Formula $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Query expansion source:
-\series default
- 
-\begin_inset Formula $\{\mathrm{Title},\mathrm{Abs.},\mathrm{Claims},\mathrm{Descrip.}\}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Relevance model:
-\series default
- 
-\begin_inset Formula $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Term selection method:
-\series default
- 
-\begin_inset Formula $\{\mathrm{Rocchio},\mathrm{MMRQE/QR},etc...\}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-Finally, we report Mean Average Precision (MAP), and Patent Retrieval Evaluation
- Score (PRES) 
+.
+ Finally, we report Mean Average Precision (MAP), and Patent Retrieval Evaluatio
+n Score (PRES) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Magdy2010a"
 
 \end_inset
 
-, which combines Recall with the quality of ranking.
+, which combines Recall with the quality of ranking and weights relevant
+ documents lower in the ranking more highly than MAP.
  We report the evaluation metrics on the top 1000 results.
 \end_layout
 
@@ -3492,44 +3482,853 @@ name "fig:IndexFields"
 Experimental Results for QE
 \end_layout
 
+\begin_layout Subsubsection
+Query Expansion Baselines
+\end_layout
+
 \begin_layout Standard
-We include one additional QE baseline motivated by 
+In addition to the general Rocchio approach for QE, we included two other
+ patent specific QE methods as baselines.
+ Motivated by 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Mahdabi2013"
 
 \end_inset
 
-, where the text definitions of the International Patent Classification
- (IPC) codes assigned to a patent application are used as a source for query
- expansion --- this is denoted as 
+, we used the text definitions of the International Patent Classification
+ (IPC) codes assigned to a patent application as a source for query expansion
+ --- this is denoted as 
 \series bold
-IPC Code
+IPC Codes
 \series default
 .
+ We also implemented the QE approach proposed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2011"
+
+\end_inset
+
+, which automatically generates candidate synonyms sets (SynSet) for terms,
+ and use it as a source of expansion terms.
+ This approach has two variants: (i) The first one used the probability
+ associated with the SynSet entries as a weight for each expanded term in
+ the query (denoted 
+\series bold
+WSynSet
+\series default
+).
+ Therefore, each term was replaced with its SynSet entries with the probability
+ of each item in the SynSet acting as a weight to the term within the query.
+ (ii) The second one neglected this associated probability and used uniform
+ weighting for all synonyms of a given term (denoted 
+\series bold
+USynSet
+\series default
+).
 \end_layout
 
 \begin_layout Standard
-The relevance model and term selection options give us four QE algorithms
+The relevance model and term selection options give us seven QE algorithms
  to evaluate.
  When MMRQE is used in combination with the VSM, the additional terms use
  the weights provided by the Rocchio method, whereas when using MMRQE and
  Rocchio with BM25, there is no need to weight the terms.
- For both MMRQE and Rocchio, their parameters were fixed to their optimal
- values, which were estimated using the CLEF-IP training queries.
+ For all methods, their parameters were fixed to their optimal values, which
+ were estimated using the CLEF-IP training queries.
+\end_layout
+
+\begin_layout Subsubsection
+Discussion
 \end_layout
 
 \begin_layout Standard
-We report MAP and PRES on the top 1000 results.
- PRES 
+In this section, we discuss the results of the evaluation performed on the
+ QE methods described above.
+ But before, we first discuss the effect of the size of the PRF set on the
+ performance.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tbl:PFRSize"
+
+\end_inset
+
+ shows the impact of the PRF size on the performance for the two QE algorithms
+ Rocchio and MMRQE.
+ These results are shown on the CLEF-IP 2010 training queries, which consists
+ of 196 topics.
+ We observe that the best QE performance results are obtained when using
+ few documents in the PRF set as it was also reported in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2011"
+
+\end_inset
+
+ (in our case, the top five gave the best results).
+ This is certainly due to the fact that a large PRF set set will include
+ too much irrelevant documents, whose the terms may negatively affect the
+ quality of the expanded query.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Effect of PRF with varying numbers of feedback documents on prior-art patent
+ search.
+ 20 terms are used for query expansion.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tbl:PFRSize"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\size scriptsize
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="6">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Query/Source
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Metric
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Method
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Query: Abstract
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MAP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Rocchio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.074
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.072
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.070
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+BL=0.073
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.074
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.071
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.071
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Source: Claims
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+PRES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Rocchio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.409
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.409
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.409
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+BL=0.403
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.411
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.411
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.410
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Query: Claims
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MAP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Rocchio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.083
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.080
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.079
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+BL=0.081
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.082
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.080
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.080
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Source: Claims
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+PRES
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Rocchio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.443
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.445
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.446
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+BL=0.433
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQE
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.445
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.444
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.442
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+As recommended in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Magdy2012"
 
 \end_inset
 
- is a metric that combines recall with the quality of ranking and weights
- relevant documents lower in the ranking more highly than MAP.
+ and confirmed in our own experimentation (not shown due to lack of space),
+ best QE performance results are obtained when using few documents in the
+ PRF set (in our case, the top five gave the best results).
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Next, we carry out comprehensive experiments along the dimensions outlined
+ in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:FrameworkQE"
+
+\end_inset
+
+ with the following specific options:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Query type:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Query expansion source:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{Title},\mathrm{Abs.},\mathrm{Claims},\mathrm{Descrip.}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Relevance model:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Term selection method:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{Rocchio},\mathrm{MMRQE},etc...\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color red
+-----------TO DO-----------------------
 \end_layout
 
 \begin_layout Standard
@@ -4321,8 +5120,280 @@ end{figure*}
 
 \end_layout
 
+\begin_layout Standard
+
+\color red
+----------------------------------------
+\end_layout
+
 \begin_layout Subsection
 Experimental Results for QR
+\end_layout
+
+\begin_layout Subsubsection
+Query Reduction Baselines
+\end_layout
+
+\begin_layout Standard
+As a general QR method, we proposed to adapt the Rocchio method for query
+ pruning.
+ Basically, the idea is once we have computed the Rocchio modified query
+ vector, we take only terms of the initial query that appear in this vector
+ and rank them using the Rocchio score.
+ Then, we remove 
+\begin_inset Formula $n$
+\end_inset
+
+ terms with the lower score.
+ We refer to the approach as 
+\series bold
+RocchioQR
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Regarding patent specific QR methods, we implemented the approach proposed
+ in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ganguly2011"
+
+\end_inset
+
+.
+ This technique decomposes a query (a patent section) into constituent text
+ segments and compute the Language Modeling (LM) similarities by calculating
+ the probability of generating each segment from the top ranked documents
+ (PRF set).
+ Then, the query is reduced by removing the least similar segments from
+ the query.
+ This approach is denoted 
+\series bold
+LMQR
+\series default
+.
+ Finally, we also proposed a baseline method that use IPC codes for query
+ reduction as follows: (i) For each patent application, we take the definitions
+ of the IPC codes which are associated to it.
+ Then, (ii) we rank the terms of the query according to both their frequency
+ in the class code definition, and their frequency in the query.
+ Finally, (iii) we remove bottom terms of this ranking from the query (i.e.
+ good terms are terms that occur a lot in the query, and few in the class
+ code definition, whereas bad terms are those that occur few in the query,
+ and a lot in the class code definition).
+ The intuition is that, terms in the IPC code definition may represent "stopword
+s", especially if they are rare (unfrequent in the patent application).
+ We denote this approach 
+\series bold
+IPC Codes
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+The relevance model and term selection options give us eight QR algorithms
+ to evaluate.
+ Similarly, the parameters of all methods were fixed to their optimal values,
+ which were estimated using the CLEF-IP training queries.
+\end_layout
+
+\begin_layout Subsubsection
+Discussion
+\end_layout
+
+\begin_layout Standard
+In this section, we discuss the results of the evaluation performed on the
+ QR methods described above.
+ As recommended in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ganguly2011"
+
+\end_inset
+
+ and confirmed in our own experimentation (not shown due to lack of space),
+ best QR performance results are also obtained when using few documents
+ in the PRF set (in our case, the top five gave the best results).
+ 
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DivImpactMMRQR"
+
+\end_inset
+
+ shows the impact of the diversity parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ on the performance of MMRQR.
+ The results are shown using BM25 retrieval model, and using abstract and
+ claims for querying.
+ Throughout our experiments, we concluded that the best value of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is 0.8, which indicates that few diversification in term selection can provide
+ some improvement.
+ It is clear that if we consider only diversification to select terms (
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+), the overall performance are significantly degraded.
+ This is certainly due to the fact that if we consider only diversified
+ terms in the query, there is a loss in the meaning of the query.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mmrqrResults-lambda/qAbstract-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults-lambda/qAbstract-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mmrqrResults-lambda/qClaims-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults-lambda/qClaims-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Impact of the diversity parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ on the performance of MMRQR.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DivImpactMMRQR"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color red
+-----------TO DO-----------------------
+\end_layout
+
+\begin_layout Standard
+Next, we carry out comprehensive experiments along the dimensions outlined
+ in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:FrameworkQR"
+
+\end_inset
+
+ with the following specific options:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Query type:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Relevance model:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Term selection method:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{RocchioQR},\mathrm{MMRQR},etc...\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color red
+----------------------------------------
 \end_layout
 
 \begin_layout Section
@@ -4367,10 +5438,20 @@ key "Ganguly2011,Itoh2003"
 \end_inset
 
 .
+ We used the approach propose by Ganguly et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ganguly2011"
+
+\end_inset
+
+ for QR as a baseline, and we showed that the performance of MMRQR outperform
+ this approach in many cases.
 \end_layout
 
 \begin_layout Standard
-Similarly, query expansion has been explored for patent search.
+Similarly, query expansion has been widely explored for patent search.
   Magdy et al.
  
 \begin_inset CommandInset citation
@@ -4386,6 +5467,8 @@ t over the baseline.
  Therefore, they introduce a novel approach that automatically generates
  candidate synonyms sets for terms, and use them as a source of expansion
  terms, which showed significant improvement with respect to the baseline.
+ We also used this approach as a baseline in our experiments, and we showed
+ that MMRQE provides better performance in many cases.
  Also, Bashir et al.
  
 \begin_inset CommandInset citation
@@ -4438,7 +5521,6 @@ key "Mahdabi2013"
  lexicon based on the definitions of the IPC.
  Then, this patent lexicon is used to select expansion terms that are focused
  on the query topic.
- 
 \end_layout
 
 \begin_layout Standard
@@ -5067,15 +6149,26 @@ name "sec:conclusion"
 \end_layout
 
 \begin_layout Standard
-In this paper we analyzed general QE methods for patent prior art search
- with incomplete patent applications.
- We demonstrated that QE methods are critical for short queries, that claims
- are the ideal section content both to query with and to use as a source
- of query expansion terms, and that a new method MMRQE improves QE results
- in many cases.
+In this paper we analyzed general QE and QR methods for patent prior art
+ search with incomplete patent applications on two patent retrieval corpora,
+ namely CLEF-IP 2010 and CLEF-IP 2011.
+ We demonstrated that QE methods are critical for short queries, i.e.
+ title, abstract, and claims, but useless for very long queries, i.e.
+ the description section.
+ We also showed that claims are the best section that works with QE both
+ to query with and to use as a source of query expansion terms, and that
+ a new method MMRQE improves QE results in many cases.
  Future work can look at more patent-specific methods of QE for prior art
  search with partial patent applications and how they can be integrated
  with methods like MMRQE.
+ Regarding QR methods, we showed that these techniques are effective to
+ some extend for claims and description sections, which are considered as
+ the longest sections in a patent application.
+ We also demonstrated that our new QR methods MMRQR may improve both recall
+ and precision in many cases.
+ For this second part, future work may consist in exploiting query quality
+ predictors to identify useless terms in a query using machine learning
+ methods.
 \end_layout
 
 \begin_layout Standard
