@@ -1,7 +1,7 @@
 %!PS-Adobe-2.0 EPSF-2.0
 %%Title: qAbstract-MAP-CLEF-IP2011.eps
 %%Creator: gnuplot 4.6 patchlevel 5
-%%CreationDate: Wed Jun  4 12:38:13 2014
+%%CreationDate: Fri Jun  6 17:50:10 2014
 %%DocumentFonts: (atend)
 %%BoundingBox: 50 50 230 143
 %%EndComments
@@ -420,6 +420,49 @@ Level1 {Level1PatternFill} {Level2PatternFill} ifelse
 /Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
 dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
 currentdict end definefont pop
+%
+% Encoding for ISO-8859-1 (also called Latin1)
+%
+/reencodeISO {
+dup dup findfont dup length dict begin
+{ 1 index /FID ne { def }{ pop pop } ifelse } forall
+currentdict /CharStrings known {
+	CharStrings /Idieresis known {
+		/Encoding ISOLatin1Encoding def } if
+} if
+currentdict end definefont
+} def
+/ISOLatin1Encoding [
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/space/exclam/quotedbl/numbersign/dollar/percent/ampersand/quoteright
+/parenleft/parenright/asterisk/plus/comma/minus/period/slash
+/zero/one/two/three/four/five/six/seven/eight/nine/colon/semicolon
+/less/equal/greater/question/at/A/B/C/D/E/F/G/H/I/J/K/L/M/N
+/O/P/Q/R/S/T/U/V/W/X/Y/Z/bracketleft/backslash/bracketright
+/asciicircum/underscore/quoteleft/a/b/c/d/e/f/g/h/i/j/k/l/m
+/n/o/p/q/r/s/t/u/v/w/x/y/z/braceleft/bar/braceright/asciitilde
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/dotlessi/grave/acute/circumflex/tilde/macron/breve
+/dotaccent/dieresis/.notdef/ring/cedilla/.notdef/hungarumlaut
+/ogonek/caron/space/exclamdown/cent/sterling/currency/yen/brokenbar
+/section/dieresis/copyright/ordfeminine/guillemotleft/logicalnot
+/hyphen/registered/macron/degree/plusminus/twosuperior/threesuperior
+/acute/mu/paragraph/periodcentered/cedilla/onesuperior/ordmasculine
+/guillemotright/onequarter/onehalf/threequarters/questiondown
+/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute
+/Thorn/germandbls/agrave/aacute/acircumflex/atilde/adieresis
+/aring/ae/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve/oacute/ocircumflex
+/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex/udieresis
+/yacute/thorn/ydieresis
+] def
 /MFshow {
    { dup 5 get 3 ge
      { 5 get 3 eq {gsave} {grestore} ifelse }
@@ -448,6 +491,7 @@ currentdict end definefont pop
   Blacktext {gsave 0 setgray MFshow grestore} {MFshow} ifelse } bind def
 /XYsave    { [( ) 1 2 true false 3 ()] } bind def
 /XYrestore { [( ) 1 2 true false 4 ()] } bind def
+/Courier reencodeISO def
 Level1 SuppressPDFMark or 
 {} {
 /SDict 10 dict def
@@ -461,7 +505,7 @@ SDict begin [
   /Author (rbouadjenek)
 %  /Producer (gnuplot)
 %  /Keywords ()
-  /CreationDate (Wed Jun  4 12:38:13 2014)
+  /CreationDate (Fri Jun  6 17:50:10 2014)
   /DOCINFO pdfmark
 end
 } ifelse
@@ -706,13 +750,13 @@ LCb setrgbcolor
 5.000 UL
 LT0
 LC0 setrgbcolor
-1.000 1608 340 117 672 BoxColFill
+1.000 1085 340 234 672 BoxColFill
 LCb setrgbcolor
-1608 340 N
+1085 340 N
 0 671 V
-116 0 V
+233 0 V
 0 -671 V
--116 0 V
+-233 0 V
 Z stroke
 LT0
 LC0 setrgbcolor
@@ -721,13 +765,13 @@ LC0 setrgbcolor
 5.000 UL
 LT0
 LC1 setrgbcolor
-1.000 1724 340 118 193 BoxColFill
+1.000 1318 340 233 193 BoxColFill
 LCb setrgbcolor
-1724 340 N
+1318 340 N
 0 192 V
-117 0 V
+232 0 V
 0 -192 V
--117 0 V
+-232 0 V
 Z stroke
 LT0
 LC1 setrgbcolor
@@ -736,13 +780,13 @@ LC1 setrgbcolor
 5.000 UL
 LT0
 LC2 setrgbcolor
-1.000 1841 340 117 1303 BoxColFill
+1.000 1550 340 233 1303 BoxColFill
 LCb setrgbcolor
-1841 340 N
+1550 340 N
 0 1302 V
-116 0 V
+232 0 V
 0 -1302 V
--116 0 V
+-232 0 V
 Z stroke
 LT0
 LC2 setrgbcolor
@@ -751,13 +795,13 @@ LC2 setrgbcolor
 5.000 UL
 LT0
 LC3 setrgbcolor
-1.000 1957 340 117 542 BoxColFill
+1.000 1782 340 234 542 BoxColFill
 LCb setrgbcolor
-1957 340 N
+1782 340 N
 0 541 V
-116 0 V
+233 0 V
 0 -541 V
--116 0 V
+-233 0 V
 Z stroke
 LT0
 LC3 setrgbcolor
@@ -766,13 +810,13 @@ LC3 setrgbcolor
 5.000 UL
 LT0
 LC4 setrgbcolor
-1.000 2073 340 117 671 BoxColFill
+1.000 2015 340 233 671 BoxColFill
 LCb setrgbcolor
-2073 340 N
+2015 340 N
 0 670 V
-116 0 V
+232 0 V
 0 -670 V
--116 0 V
+-232 0 V
 Z stroke
 LT0
 LC4 setrgbcolor
@@ -781,13 +825,13 @@ LC4 setrgbcolor
 5.000 UL
 LT0
 LC5 setrgbcolor
-1.000 2189 340 117 271 BoxColFill
+1.000 2247 340 234 271 BoxColFill
 LCb setrgbcolor
-2189 340 N
+2247 340 N
 0 270 V
-116 0 V
+233 0 V
 0 -270 V
--116 0 V
+-233 0 V
 Z stroke
 LT0
 LC5 setrgbcolor
@@ -796,13 +840,13 @@ LC5 setrgbcolor
 5.000 UL
 LT0
 LC6 setrgbcolor
-1.000 2305 340 118 275 BoxColFill
+1.000 2480 340 233 275 BoxColFill
 LCb setrgbcolor
-2305 340 N
+2480 340 N
 0 274 V
-117 0 V
+232 0 V
 0 -274 V
--117 0 V
+-232 0 V
 Z stroke
 LT0
 LC6 setrgbcolor
@@ -811,13 +855,13 @@ LC6 setrgbcolor
 5.000 UL
 LT0
 LC7 setrgbcolor
-1.000 2422 340 117 30 BoxColFill
+1.000 2712 340 233 30 BoxColFill
 LCb setrgbcolor
-2422 340 N
+2712 340 N
 0 29 V
-116 0 V
+232 0 V
 0 -29 V
--116 0 V
+-232 0 V
 Z stroke
 LT0
 LC7 setrgbcolor
@@ -826,13 +870,13 @@ LC7 setrgbcolor
 5.000 UL
 LT0
 LC8 setrgbcolor
-1.000 2538 340 117 672 BoxColFill
+1.000 2944 340 234 672 BoxColFill
 LCb setrgbcolor
-2538 340 N
+2944 340 N
 0 671 V
-116 0 V
+233 0 V
 0 -671 V
--116 0 V
+-233 0 V
 Z stroke
 LT0
 LC8 setrgbcolor

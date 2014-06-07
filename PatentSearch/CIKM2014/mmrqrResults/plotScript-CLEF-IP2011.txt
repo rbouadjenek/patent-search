@@ -14,8 +14,8 @@ plot "plots-CLEF-IP-2011/test/mmrqr/qTitle-sDescription.txt" using 1:2 title "MM
 "plots-CLEF-IP-2011/test/mmrqr/qTitle-sDescription.txt" using 1:4 title "MMRQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qTitle-sDescription.txt" using 1:2 title "RocchioQR BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qTitle-sDescription.txt" using 1:4 title "RocchioQR VSM"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qTitle-sDescription.txt" using 1:2 title "Ganguly BM25"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qTitle-sDescription.txt" using 1:4 title "Ganguly VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qTitle-sDescription.txt" using 1:2 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qTitle-sDescription.txt" using 1:4 title "LMQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qTitle-sCodes.txt" using 1:2 title "IPC-Codes BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qTitle-sCodes.txt" using 1:4 title "IPC-Codes VSM"   with linespoints lw 4
 
@@ -26,8 +26,8 @@ plot "plots-CLEF-IP-2011/test/mmrqr/qTitle-sDescription.txt" using 1:3 title "MM
 "plots-CLEF-IP-2011/test/mmrqr/qTitle-sDescription.txt" using 1:5 title "MMRQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qTitle-sDescription.txt" using 1:3 title "RocchioQR BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qTitle-sDescription.txt" using 1:5 title "RocchioQR VSM"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qTitle-sDescription.txt" using 1:3 title "Ganguly BM25"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qTitle-sDescription.txt" using 1:5 title "Ganguly VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qTitle-sDescription.txt" using 1:3 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qTitle-sDescription.txt" using 1:5 title "LMQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qTitle-sCodes.txt" using 1:3 title "IPC-Codes BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qTitle-sCodes.txt" using 1:5 title "IPC-Codes VSM"   with linespoints lw 4
 #--------------------------------------
@@ -37,8 +37,8 @@ plot "plots-CLEF-IP-2011/test/mmrqr/qAbstract-sDescription.txt" using 1:2 title 
 "plots-CLEF-IP-2011/test/mmrqr/qAbstract-sDescription.txt" using 1:4 title "MMRQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qAbstract-sDescription.txt" using 1:2 title "RocchioQR BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qAbstract-sDescription.txt" using 1:4 title "RocchioQR VSM"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qAbstract-sDescription.txt" using 1:2 title "Ganguly BM25"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qAbstract-sDescription.txt" using 1:4 title "Ganguly VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qAbstract-sDescription.txt" using 1:2 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qAbstract-sDescription.txt" using 1:4 title "LMQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qAbstract-sCodes.txt" using 1:2 title "IPC-Codes BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qAbstract-sCodes.txt" using 1:4 title "IPC-Codes VSM"   with linespoints lw 4
 #--------------------------------------
@@ -48,8 +48,8 @@ plot "plots-CLEF-IP-2011/test/mmrqr/qAbstract-sDescription.txt" using 1:3 title 
 "plots-CLEF-IP-2011/test/mmrqr/qAbstract-sDescription.txt" using 1:5 title "MMRQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qAbstract-sDescription.txt" using 1:3 title "RocchioQR BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qAbstract-sDescription.txt" using 1:5 title "RocchioQR VSM"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qAbstract-sDescription.txt" using 1:3 title "Ganguly BM25"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qAbstract-sDescription.txt" using 1:5 title "Ganguly VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qAbstract-sDescription.txt" using 1:3 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qAbstract-sDescription.txt" using 1:5 title "LMQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qAbstract-sCodes.txt" using 1:3 title "IPC-Codes BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qAbstract-sCodes.txt" using 1:5 title "IPC-Codes VSM"   with linespoints lw 4
 #--------------------------------------
@@ -59,8 +59,8 @@ plot "plots-CLEF-IP-2011/test/mmrqr/qClaims-sDescription.txt" using 1:2 title "M
 "plots-CLEF-IP-2011/test/mmrqr/qClaims-sDescription.txt" using 1:4 title "MMRQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qClaims-sDescription.txt" using 1:2 title "RocchioQR BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qClaims-sDescription.txt" using 1:4 title "RocchioQR VSM"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qClaims-sDescription.txt" using 1:2 title "Ganguly BM25"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qClaims-sDescription.txt" using 1:4 title "Ganguly VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qClaims-sDescription.txt" using 1:2 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qClaims-sDescription.txt" using 1:4 title "LMQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qClaims-sCodes.txt" using 1:2 title "IPC-Codes BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qClaims-sCodes.txt" using 1:4 title "IPC-Codes VSM"   with linespoints lw 4
 #--------------------------------------
@@ -70,8 +70,8 @@ plot "plots-CLEF-IP-2011/test/mmrqr/qClaims-sDescription.txt" using 1:3 title "M
 "plots-CLEF-IP-2011/test/mmrqr/qClaims-sDescription.txt" using 1:5 title "MMRQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qClaims-sDescription.txt" using 1:3 title "RocchioQR BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qClaims-sDescription.txt" using 1:5 title "RocchioQR VSM"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qClaims-sDescription.txt" using 1:3 title "Ganguly BM25"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qClaims-sDescription.txt" using 1:5 title "Ganguly VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qClaims-sDescription.txt" using 1:3 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qClaims-sDescription.txt" using 1:5 title "LMQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qClaims-sCodes.txt" using 1:3 title "IPC-Codes BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qClaims-sCodes.txt" using 1:5 title "IPC-Codes VSM"   with linespoints lw 4
 #--------------------------------------
@@ -81,8 +81,8 @@ plot "plots-CLEF-IP-2011/test/mmrqr/qDescription-sDescription.txt" using 1:2 tit
 "plots-CLEF-IP-2011/test/mmrqr/qDescription-sDescription.txt" using 1:4 title "MMRQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qDescription-sDescription.txt" using 1:2 title "RocchioQR BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qDescription-sDescription.txt" using 1:4 title "RocchioQR VSM"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qDescription-sDescription.txt" using 1:2 title "Ganguly BM25"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qDescription-sDescription.txt" using 1:4 title "Ganguly VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qDescription-sDescription.txt" using 1:2 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qDescription-sDescription.txt" using 1:4 title "LMQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qDescription-sCodes.txt" using 1:2 title "IPC-Codes BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qDescription-sCodes.txt" using 1:4 title "IPC-Codes VSM"   with linespoints lw 4
 #--------------------------------------
@@ -92,8 +92,8 @@ plot "plots-CLEF-IP-2011/test/mmrqr/qDescription-sDescription.txt" using 1:3 tit
 "plots-CLEF-IP-2011/test/mmrqr/qDescription-sDescription.txt" using 1:5 title "MMRQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qDescription-sDescription.txt" using 1:3 title "RocchioQR BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/rocchioqr/qDescription-sDescription.txt" using 1:5 title "RocchioQR VSM"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qDescription-sDescription.txt" using 1:3 title "Ganguly BM25"   with linespoints lw 4,\
-"plots-CLEF-IP-2011/test/magdyqr/qDescription-sDescription.txt" using 1:5 title "Ganguly VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qDescription-sDescription.txt" using 1:3 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2011/test/magdyqr/qDescription-sDescription.txt" using 1:5 title "LMQR VSM"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qDescription-sCodes.txt" using 1:3 title "IPC-Codes BM25"   with linespoints lw 4,\
 "plots-CLEF-IP-2011/test/codeqr/qDescription-sCodes.txt" using 1:5 title "IPC-Codes VSM"   with linespoints lw 4
 
@@ -113,6 +113,7 @@ set format x ""
 unset key #outside center top horizontal
 set style data histograms
 #set xtics   ("Sreda" 0.00000)
+set offset -0.5,-0.5,0,0
 set term postscript eps enhanced color "Courier,17"
 
 set output "qTitle-PRES-CLEF-IP2011.eps" 
