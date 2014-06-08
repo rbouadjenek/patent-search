@@ -1,7 +1,7 @@
 %% LyX 2.0.7.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[english]{sig-alternate-2013}
-\usepackage[T1]{fontenc}
+\usepackage[LGR,T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \usepackage{color}
 \usepackage{array}
@@ -12,6 +12,11 @@
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\DeclareRobustCommand{\greektext}{%
+  \fontencoding{LGR}\selectfont\def\encodingdefault{LGR}}
+\DeclareRobustCommand{\textgreek}[1]{\leavevmode{\greektext #1}}
+\DeclareFontEncoding{LGR}{}{}
+\DeclareTextSymbol{\~}{LGR}{126}
 %% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
 
@@ -513,19 +518,20 @@ Rocchio QE method for Lucene. \\ \texttt{http://lucene-qe.sourceforge.net/}%
 \footnote{\texttt{http://www.ifs.tuwien.ac.at/clef-ip/}%
 }~\cite{Piroi2011,Roda2009} with the default stemming and stop-word
 removal. We removed patent-specific stop-words as described in \cite{Magdy2012}.
-The English test sets of CLEF-IP 2010 and CLEF-IP 2011 correspond
-to 1303 and 1351 topics respectively. In our implementation, each
-section of a patent application (title, abstract, claims, and description)
-is indexed in a separate field. Hence, when a query is processed,
-all fields in the index are targeted as shown in Figure \ref{fig:IndexFields}.
-We also used the patent classification (IPC) for filtering the results
-by constraining them to have common classifications with the patent
-topic as suggested in previous works \cite{Roda2009,Lopez2009}. Finally,
-we report Mean Average Precision (MAP), and Patent Retrieval Evaluation
-Score (PRES) \cite{Magdy2010a}, which combines Recall with the quality
-of ranking and weights relevant documents lower in the ranking more
-highly than MAP. We report the evaluation metrics on the top 1000
-results.
+CLEF-IP 2010 contains 2.6 million patent documents and CLEF-IP 2011
+consists of 3 million patent documents. The English test sets of CLEF-IP
+2010 and CLEF-IP 2011 correspond to 1303 and 1351 topics respectively.
+In our implementation, each section of a patent application (title,
+abstract, claims, and description) is indexed in a separate field.
+Hence, when a query is processed, all fields in the index are targeted
+as shown in Figure \ref{fig:IndexFields}. We also used the patent
+classification (IPC) for filtering the results by constraining them
+to have common classifications with the patent topic as suggested
+in previous works \cite{Roda2009,Lopez2009}. Finally, we report Mean
+Average Precision (MAP), and Patent Retrieval Evaluation Score (PRES)
+\cite{Magdy2010a}, which combines Recall with the quality of ranking
+and weights relevant documents lower in the ranking more highly than
+MAP. We report the evaluation metrics on the top 1000 results.
 
 \begin{figure}
 \begin{centering}
@@ -633,6 +639,167 @@ options:
 \item \textbf{\footnotesize{}Term selection method:}{\footnotesize{} $\{\mathrm{Rocchio},\mathrm{MMRQE},etc...\}$ }{\footnotesize \par}
 \end{itemize}
 \textcolor{red}{-----------TO DO-----------------------}
+
+\begin{table*}
+
+
+\caption{Samples of queries extracted from CLEF-IP 2011, where MMRQE improves
+the performance.}
+
+
+\begin{tabular}{|>{\raggedright}p{17.5cm}|}
+\hline 
+\textbf{\scriptsize{}Topic:}{\scriptsize{} EP-1921264-A2}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} An article of manufacture
+having a nominal profile substantially in accordance with Cartesian
+coordinate values of X, Y and Z set forth in a TABLE 1. Wherein X
+and Y are distances in inches which, when connected by smooth continuing
+arcs, define airfoil profile sections at each distance Z in inches.
+The profile sections at the Z distances being joined smoothly with
+one another to form a complete airfoil shape (22,23).}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.000} & {\scriptsize{}RR:} & {\scriptsize{}0.066} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.043} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.777}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQE expanded terms:}{\scriptsize{} rotor, includ,
+form, root, blend, substanti, suction, tip, portion, airfoil}\textbf{\scriptsize{} }\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.666} & {\scriptsize{}RR:} & {\scriptsize{}0.142} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.124} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.872}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Rocchio expanded terms:}{\scriptsize{} airfoil,
+trail, edg, cool, form, blade, side, portion, root, lead}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.333} & {\scriptsize{}RR:} & {\scriptsize{}0.142} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.822}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}Topic: }{\scriptsize{}EP-1707587-A1}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} It is intended to provide
+a crosslinked polyrotaxane formed by crosslinking polyrotaxane moleculesvia
+chemical bonds which exhibits excellent optical properties in water
+or in an aqueous solution of sodium chloride; a compound having this
+crosslinked polyrotaxane; and a process for producing the same. The
+above object can be achieved by a crosslinked polyrotaxane having
+at least two polyrotaxane molecules, wherein linear molecules are
+included in a skewered-like state at the opening of cyclodextrin molecules
+and blocking groups are provided at both ends of the linear molecules,
+so as to prevent the cyclodextrin molecules from leaving, and cyclodextrin
+molecules in at least two polyrotaxane molecules being bonded to each
+other via chemical bond, characterized in that hydroxyl (-OH) groups
+in the cyclodextrin molecules are partly substituted with non-ionic
+groups. }\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.600} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.477} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.784}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQE expanded terms: }{\scriptsize{}includ,
+convent, chemic, uniform, physic, biodegrad, rotat, crosslink, expans,
+resist, plural, substanc, bond, elast, entrop, thereof, gelatin, polyrotaxan,
+fractur, realiz}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.600} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.577} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.797}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Rocchio expanded terms: }{\scriptsize{}form,
+present, cyclodextrin, compris, molecul, polym, includ, crosslink,
+group, compound, relat, contact, water, monom, linear, composit, thereof,
+materi, plural, bond}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.400} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.455} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.770}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}Topic: }{\scriptsize{}EP-1422250-A1}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} Provided is a method
+for the production of a polypropylene comprising branches in the polymer
+backbone, which method comprises: (a) forming macromers from an olefin
+monomer; and (b) polymerising propylene in the presence of the macromers
+and a catalyst, under polymerising conditions which favour the incorporation
+of the macromers into the polypropylene backbone, to form a branched
+polypropylene; wherein the catalyst employed in step (a) comprises
+a metallocene catalyst which promotes a chain terminating \textgreek{b}-alkyl
+elimination reaction to form terminal unsaturated groups in the macromers.}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.166} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.223} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.634}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQE expanded terms: }{\scriptsize{}total, atom,
+monom, polymer, chiral, produc, stereorigid, molecular, polypropylen,
+transit, copolymer, recov, compris, metal, chain, polym, olefin, propylen,
+catalyst, option}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.277} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.301} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.675}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Rocchio expanded terms: }{\scriptsize{}catalyst,
+monom, total, polypropylen, recov, copolymer, olefin, propylen, polymer,
+transit, compris, metal, chiral, stereorigid, produc, compound, suitabl,
+temperatur, option, molecular}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.222} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.251} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.650}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\end{tabular}
+\end{table*}
+
 
 Figures~\ref{fig:MAP-CLEF2010} and~\ref{fig:PRES-CLEF2010} show
 the performance across different queries and sources of expansion
