@@ -6,6 +6,7 @@
 \usepackage{color}
 \usepackage{array}
 \usepackage{verbatim}
+\usepackage{url}
 \usepackage{multirow}
 \usepackage{graphicx}
 
@@ -515,7 +516,7 @@ We used the Lucene IR System%
 \footnote{We used the LucQE module, which provides an implementation of the
 Rocchio QE method for Lucene. \\ \texttt{http://lucene-qe.sourceforge.net/}%
 } to index the English subset of CLEF-IP 2010 and CLEF-IP 2010 datasets%
-\footnote{\texttt{http://www.ifs.tuwien.ac.at/clef-ip/}%
+\footnote{\texttt{\url{http://www.ifs.tuwien.ac.at/~clef-ip/}}%
 }~\cite{Piroi2011,Roda2009} with the default stemming and stop-word
 removal. We removed patent-specific stop-words as described in \cite{Magdy2012}.
 CLEF-IP 2010 contains 2.6 million patent documents and CLEF-IP 2011
@@ -649,7 +650,7 @@ the performance.}
 
 \begin{tabular}{|>{\raggedright}p{17.5cm}|}
 \hline 
-\textbf{\scriptsize{}Topic:}{\scriptsize{} EP-1921264-A2}\tabularnewline
+\textbf{\scriptsize{}1- Topic:}{\scriptsize{} EP-1921264-A2}\tabularnewline
 \hline 
 \textbf{\scriptsize{}Abstract:}{\scriptsize{} An article of manufacture
 having a nominal profile substantially in accordance with Cartesian
@@ -663,37 +664,38 @@ one another to form a complete airfoil shape (22,23).}\tabularnewline
 {\scriptsize{}Baseline performance:}~{\scriptsize{}}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.000} & {\scriptsize{}RR:} & {\scriptsize{}0.066} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.043} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.777}\tabularnewline
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.066} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.043} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.777}\tabularnewline
 \hline 
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
 \hline 
 \textbf{\scriptsize{}MMRQE expanded terms:}{\scriptsize{} rotor, includ,
-form, root, blend, substanti, suction, tip, portion, airfoil}\textbf{\scriptsize{} }\tabularnewline
+form, root, blend, substanti, suction, tip, portion, airfoil }\tabularnewline
 \hline 
 \begin{tabular}{>{\centering}p{16.5cm}}
 {\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.666} & {\scriptsize{}RR:} & {\scriptsize{}0.142} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.124} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.872}\tabularnewline
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.666} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.142} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.124} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.872}\tabularnewline
 \hline 
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
 \hline 
-\textbf{\scriptsize{}Rocchio expanded terms:}{\scriptsize{} airfoil,
-trail, edg, cool, form, blade, side, portion, root, lead}\tabularnewline
+\textbf{\scriptsize{}Rocchio expanded terms:}\textit{\scriptsize{}
+}{\scriptsize{}airfoil, trail, edg, cool, form, blade, side, portion,
+root, lead}\tabularnewline
 \hline 
 \begin{tabular}{>{\centering}p{16.5cm}}
 {\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.333} & {\scriptsize{}RR:} & {\scriptsize{}0.142} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.822}\tabularnewline
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.333} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.142} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.822}\tabularnewline
 \hline 
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
 \hline 
 \hline 
-\textbf{\scriptsize{}Topic: }{\scriptsize{}EP-1707587-A1}\tabularnewline
+\textbf{\scriptsize{}2- Topic: }{\scriptsize{}EP-1707587-A1}\tabularnewline
 \hline 
 \textbf{\scriptsize{}Abstract:}{\scriptsize{} It is intended to provide
 a crosslinked polyrotaxane formed by crosslinking polyrotaxane moleculesvia
@@ -714,7 +716,7 @@ groups. }\tabularnewline
 {\scriptsize{}Baseline performance:}~{\scriptsize{}}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.600} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.477} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.784}\tabularnewline
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.477} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.784}\tabularnewline
 \hline 
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
@@ -728,7 +730,7 @@ fractur, realiz}\tabularnewline
 {\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.600} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.577} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.797}\tabularnewline
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.577} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.797}\tabularnewline
 \hline 
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
@@ -742,13 +744,13 @@ materi, plural, bond}\tabularnewline
 {\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.400} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.455} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.770}\tabularnewline
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.455} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.770}\tabularnewline
 \hline 
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
 \hline 
 \hline 
-\textbf{\scriptsize{}Topic: }{\scriptsize{}EP-1422250-A1}\tabularnewline
+\textbf{\scriptsize{}3- Topic: }{\scriptsize{}EP-1422250-A1}\tabularnewline
 \hline 
 \textbf{\scriptsize{}Abstract:}{\scriptsize{} Provided is a method
 for the production of a polypropylene comprising branches in the polymer
@@ -764,12 +766,12 @@ elimination reaction to form terminal unsaturated groups in the macromers.}\tabu
 {\scriptsize{}Baseline performance:}~{\scriptsize{}}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.166} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.223} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.634}\tabularnewline
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.166} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.223} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.634}\tabularnewline
 \hline 
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
 \hline 
-\textbf{\scriptsize{}MMRQE expanded terms: }{\scriptsize{}total, atom,
+\textbf{\scriptsize{}MMRQE expanded terms:}{\scriptsize{} total, atom,
 monom, polymer, chiral, produc, stereorigid, molecular, polypropylen,
 transit, copolymer, recov, compris, metal, chain, polym, olefin, propylen,
 catalyst, option}\tabularnewline
@@ -778,7 +780,7 @@ catalyst, option}\tabularnewline
 {\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.277} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.301} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.675}\tabularnewline
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.277} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.301} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.675}\tabularnewline
 \hline 
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
@@ -792,7 +794,113 @@ temperatur, option, molecular}\tabularnewline
 {\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.222} & {\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.251} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.650}\tabularnewline
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.222} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.251} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.650}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}4- Topic: }{\scriptsize{}EP-1449914-A1}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} The present invention
+relates to a novel strain of Bacillus sp. D747 (FERM BP-8234). In
+addition, the present invention also relates to an agent for controlling
+plant diseases and an agent for controlling insect pests, comprising
+the Bacillus sp. D747 strain, and relates to a control method using
+the agents described above. By administering cultures of Bacillus
+sp. D747 (including the viable bacteria) or viable bacteria isolated
+by culturing, on the plant parts such as roots, stems, leaves, seeds,
+and the like, or in the culture soil, outbreaks of various plant diseases
+in an extremely wide range can be controlled, and pests can also be
+controlled. In addition, the plants on which the agents for controlling
+plant diseases and the agents for controlling pests comprising the
+D747 strain according to the present invention have been sprayed can
+exhibit superior controlling effects with respect to various plant
+diseases and pests.}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.285} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.250} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.130} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.694}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQE expanded terms: }{\scriptsize{}plant, control,
+fungal, administ, antibacteri, antifung, strain, protect, activ, exhibit,
+amount, pathogen, present, appli, specif, bacillu, antibiot, thuringiensi,
+train, isol}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.285} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.267} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.699}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Rocchio expanded terms: }{\scriptsize{}plant,
+strain, bacillu, antibacteri, exhibit, antibiot, antifung, activ,
+fungal, produc, present, protect, metabolit, administ, amount, appli,
+treat, supernat, isol, cultur}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.285} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.190} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.650}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}5- Topic: }{\scriptsize{}EP-1754935-A1}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} The fire-rated recessed
+downlight includes a mantle. A radiating mouth (4) is defined in the
+mantle. A dilatable fireproof piece (5) is fixed in the radiating
+mouth (4). Radiating apertures (6 or 6') corresponding to the radiating
+mouth (4) is defined in the dilatable fireproof piece (5) or between
+edges of the dilatable fireproof piece (5) and edges of the radiating
+mouth (4). The radiating mouth (4) of the mantle and the dilatable
+fireproof piece (5) could help to radiate the heat in ordinary situation
+and the dilatable fireproof piece (5) will expand rapidly to close
+the radiating mouth (4) when on fire, therefore the fire inside the
+mantle will not spread to the outside.}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.111} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.250} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.086} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.801}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQE expanded terms: }{\scriptsize{}result,
+support, includ, form, extend, recess, hous, adapt, plural, fit, compris,
+mount, side, materi, light}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.111} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.044} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.767}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Rocchio expanded terms: }{\scriptsize{}materi,
+compris, light, adapt, support, form, surfac, side, recess, hous,
+fire, mount, resist, wall}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.222} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.333} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.146} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.821}\tabularnewline
 \hline 
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
@@ -967,6 +1075,256 @@ options:
 \item \textbf{\footnotesize{}Relevance model:}{\footnotesize{} $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$ }{\footnotesize \par}
 \item \textbf{\footnotesize{}Term selection method:}{\footnotesize{} $\{\mathrm{RocchioQR},\mathrm{MMRQR},etc...\}$ }{\footnotesize \par}
 \end{itemize}
+\begin{table*}
+\caption{Samples of queries extracted from CLEF-IP 2011, where MMRQR improves
+the performance.}
+
+
+\begin{tabular}{|>{\raggedright}p{17.5cm}|}
+\hline 
+\textbf{\scriptsize{}1- Topic:}{\scriptsize{} EP-1253083-A1}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} A device for tensioning
+web, such as a plastics web (21) dispensed from a shuttle (3) in a
+wrapping machine (1), is disclosed. The wrapping machine (1) usually
+includes an endless track (2) positioned about an object (5) to be
+wrapped and the shuttle (3) travels on the endless track (2), dispensing
+the web (21) as it goes. The rate at which web is dispensed varies
+as the shuttle (3) progresses around the track (2) and is dependent
+upon the shape of the track and the shape of the object to be wrapped.
+The web tensioning device (22) attempts to maintain a constant tension
+in the web (21) and includes a pair of rollers (23,24) covered with
+resilient material. The rollers (23,24) are urged together to form
+a nip (29) with the resilient covering of the rollers compressed in
+the nip. The web (21) is fed between the nip (29) of the rollers (23,24).}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.800} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.363} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.405} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.737}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQR removed terms: }{\scriptsize{}plastic,
+pair, endless, dispens, shuttl, constant, track, machin, nip, vari}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.800} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.363} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.433} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.764}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}LMQR removed terms:}{\scriptsize{} attempt, resili,
+object, cover, depend, disclos, urg, shape, compress, materi}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}LMQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.800} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.363} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.388} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0,740}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}2- Topic: }{\scriptsize{}EP-1424597-A2}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} Measurements of an interferometric
+measurement system are corrected for variations of atmospheric conditions
+such as pressure, temperature and turbulence using measurements from
+a second harmonic interferometer (10). A ramp, representing the dependence
+of the SHI data on path length, is removed before use of the SHI data.
+The SHI may use a passive Q-switched laser (11) as a light source
+and Brewster prisms (142,144) in the receiver module. Optical fibers
+may be used to conduct light to the detectors (145-147). A mirror
+reflecting the measurement beams has a coating of a thickness selected
+to minimize the sensitivity of the SHI data to changes in coating
+thickness.}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.037} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.022} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.648}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQR removed terms: }{\scriptsize{}temperatur,
+detector, path, laser, light, interferometr, brewster, sensit, repres,
+sourc}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.166} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.111} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.053} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.761}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}LMQR removed terms: }{\scriptsize{}minim, conduct,
+variat, shi, turbul, condit, pressur, remov, ramp, thick}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}LMQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.076} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.036} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.724}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}3- Topic: }{\scriptsize{}EP-1239127-A1}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} A method and system
+for distributing electrical energy from an integrated starter-alternator
+during a deceleration or overrun vehicle condition to an electrically
+heated catalyst in order to maintain the temperature of the electrically
+heated catalyst within an operating temperature range during the deceleration
+or overrun vehicle condition.}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.333} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.194} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.686}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQR removed terms: }{\scriptsize{}energi, integr,
+maintain, distribut, deceler, order, starter, oper, rang, overrun}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.439} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.725}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}LMQR removed terms: }{\scriptsize{}energi, maintain,
+altern, order, distribut, starter, rang, integr, deceler, overrun}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}LMQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.333} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.245} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.650}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}4- Topic: }{\scriptsize{}EP-1498393-A1}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} In methods for recovering
+and recycling helium and unreacted chlorine from a process for manufacturing
+optical fiber an exhaust gas is recovered typically from a consolidation
+furnace and is separated into helium-rich and chlorine-rich gas streams.
+The helium-rich stream is typically dried and blended with make-up
+helium and the chlorine-rich stream is typically purified and blended
+with make-up chlorine so that both may be reused in the optical fiber
+production process.}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.125} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.060} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.481}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQR removed terms: }{\scriptsize{}stream, rich,
+fiber, reus, product, dri, separ, exhaust, method, make}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.250} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.250} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.106} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.604}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}LMQR removed terms: }{\scriptsize{}dri, rich,
+process, product, make, reus, unreact, typic, blend, method}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}LMQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.250} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.097} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.552}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}5- Topic: }{\scriptsize{}EP-1314594-A1}\tabularnewline
+\hline 
+\textbf{\scriptsize{}Abstract:}{\scriptsize{} An air conditioner for
+air conditioning the interior of a compartment includes a compressor
+(C) and an electric motor (84). The compressor (C) compresses refrigerant
+gas and changes the displacement. The electric motor (84) drives the
+compressor (C). A motor controller (72) rotates the motor (84) at
+a constant reference speed. A detection device (92) detects information
+related to the thermal load on the air conditioner. A current sensor
+(97) detects the value of current supplied to the electric motor.
+A controller (72) controls the compressor based on the detected thermal
+load information and the detected current value. The controller (72)
+computes a target torque of the compressor based on the thermal load
+information. In accordance with the computed target torque, the controller
+(72) computes a target current value to be supplied to the electric
+motor. The controller (72) further controls the displacement of the
+compressor such that the detected current value matches the target
+current value.}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.307} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.301} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.777}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}MMRQR removed terms:}{\scriptsize{} refer, motor,
+current, relat, condit, constant, suppli, compress, load, match}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}MMRQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.384} & \textbf{\scriptsize{}RR}{\scriptsize{}:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.221} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.774}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\textbf{\scriptsize{}LMQR removed terms: }{\scriptsize{}compart, suppli,
+current, ga, refer, compress, relat, interior, thermal, match}\tabularnewline
+\hline 
+\begin{tabular}{>{\centering}p{16.5cm}}
+{\scriptsize{}LMQR performance:}~{\scriptsize{}}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.307} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.266} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.802}\tabularnewline
+\hline 
+\end{tabular}\tabularnewline
+\end{tabular}\tabularnewline
+\hline 
+\end{tabular}
+\end{table*}
+
+
 \textcolor{red}{----------------------------------------}
 
 
