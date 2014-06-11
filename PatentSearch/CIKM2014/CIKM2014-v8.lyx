@@ -185,13 +185,13 @@ status collapsed
 \end_inset
 
 In this paper, we carry out an intensive study about query reformulation
- for patent prior art search with partial patent application, with the objective
- of assessing not only the performance of standard query reformulation methods,
- but also the effectiveness of query reformulation methods that exploit
- patent-specific characteristics.
- We also propose new query reformulation methods that exploit the specific
- structure of patents and carry out the trade-off between diversification
- and similarity to the query.
+ for patent prior art search with partial patent applications, with the
+ objective of assessing not only the performance of standard query reformulation
+ methods, but also the effectiveness of query reformulation methods that
+ exploit patent-specific characteristics.
+ We also propose new query reformulation methods that (a) exploit patent
+ structure and (b) leverage techniques for diverse term selection in query
+ reformulation.
  We demonstrate that our methods improve both general (MAP) and patent-specific
  (PRES) evaluation metrics for prior art search performance on standardized
  datasets of CLEF-IP, with respect to both general and specific query reformulat
@@ -295,10 +295,31 @@ Patents are used by entities to legally protect their inventions and represent
  a multi-billion dollar industry of licensing and litigation.
  In 2012, 276,788 patent applications were approved in the US alone a number
  that has doubled in the past 15 years.
- Hence, helping both inventors and patents examiners to assess the patentability
+ Hence, helping both inventors and patent examiners assess the patentability
  of a given patent application through a patent prior art search is a critical
  task.
- Patent prior art search involves finding previously granted patents that
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% NOTE: more paragraph breaks help reader digest content better
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Patent prior art search involves finding previously granted patents that
  may be relevant to a new patent application.
  The objective and challenges of standard formulations of patent prior art
  search are different from those of standard text and web search since
@@ -312,12 +333,13 @@ key "Magdy2012"
 
 \end_inset
 
-: (i) queries are full patent applications, which consist of documents with
- hundreds of words organized into several sections, while queries in text
- and web search constitute only a few words; (ii) patent prior art search
- is a recall-oriented task, where the primary focus is to retrieve all relevant
- documents at early ranks, in contrast to text and web search that are precision
--oriented, where the primary goal is to retrieve a subset of relevant documents.
+: (i) queries are (partial) patent applications, which consist of documents
+ with hundreds of words organized into several sections, while queries in
+ text and web search constitute only a few words; (ii) patent prior art
+ search is a recall-oriented task, where the primary focus is to retrieve
+ all relevant documents at early ranks, in contrast to text and web search
+ that are precision-oriented, where the primary goal is to retrieve a subset
+ of relevant documents.
 \end_layout
 
 \begin_layout Standard
@@ -351,11 +373,69 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-A patent application is organized in, at least, four sections: title, abstract,
- claims and description.
- We assumed that a partial application consist in one of the mentioned sections.
- To assess the difficulty of querying with partial patent applications,
- we refer to Figure
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%NOTE: start a paragaph with the key idea
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%A patent application is organized in, at least, four sections: title,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%abstract, claims and description.
+ We assumed that a partial application
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%consist in one of the mentioned sections.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+To assess the difficulty of querying with partial patent applications, we
+ refer to Figure
 \begin_inset space ~
 \end_inset
 
@@ -388,9 +468,10 @@ key "Mahdabi2012"
 
 \end_inset
 
- between different queries (representing the title, abstract, or claims
- of a patent application) and the labeled relevant (all) and irrelevant
- documents (top 10 irrelevant documents ranked by BM25
+ between different queries (representing the title, abstract, claims, or
+ descriptions intended to represent a partial patent application) and the
+ labeled relevant (all) and irrelevant documents (top 10 irrelevant documents
+ ranked by BM25
 \begin_inset space ~
 \end_inset
 
@@ -707,36 +788,23 @@ key "Efthimiadis1996"
 
  enhance the query with additional terms likely to occur in relevant documents.
  In this paper, we carry out an intensive study about query reformulation
- for patent prior art search with partial patent application, with the objective
- of assessing not only the performance of standard query reformulation methods,
- but also the effectiveness of query reformulation methods that exploit
- patent-specific characteristics.
- In summary, the contributions of this paper are the following:
+ for patent prior art search with partial patent applications, with the
+ objective of assessing not only the performance of standard query reformulation
+ methods, but also the effectiveness of query reformulation methods that
+ exploit patent-specific characteristics.
+ In summary, the contributions of this paper are the following: 
 \end_layout
 
 \begin_layout Enumerate
-A deep analysis of general methods of query expansion for patent prior-art
- search, as well as patent-specific query expansion methods; 
-\end_layout
-
-\begin_layout Enumerate
-A new method of query expansion based on diversification in terms selection;
+Novel contributions for query expansion and reduction that leverage (a)
+ patent structure and (b) term diversification techniques.
  
 \end_layout
 
 \begin_layout Enumerate
-A deep analysis of general methods of query reduction for patent search,
- as well as patent-specific query reduction methods; 
-\end_layout
-
-\begin_layout Enumerate
-A new method of query reduction based on diversification in terms selection;
- 
-\end_layout
-
-\begin_layout Enumerate
-A strong performance evaluation on standardized datasets of CLEF-IP using
- different configurations.
+A thorough comparative analysis of existing and novel methods for query
+ expansion and reduction in patent prior-art search on standardized datasets
+ of CLEF-IP.
  
 \end_layout
 
@@ -748,23 +816,22 @@ reference "sec:QueryReformulationForPatents"
 
 \end_inset
 
- we present query reformulation frameworks.
- Section 
+ we present query reformulation frameworks; in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:evaluation"
 
 \end_inset
 
- is dedicated to present and discuss the experiments.
- Finally, conclusion and future directions are provided in Section 
+ we present our evaluation framework and results analysis; and in Section
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:conclusion"
 
 \end_inset
 
-.
+ we conclude with possible directions for future work.
 \end_layout
 
 \begin_layout Section
@@ -814,7 +881,7 @@ ref{sec:MMRQR}.
 \begin_layout Standard
 During the exploration of query reformulation for patent search with partial
  patent applications, there are many configuration options and associated
- questions that we can consider:
+ questions that we can consider: 
 \end_layout
 
 \begin_layout Description
@@ -930,7 +997,7 @@ key "Salton1975"
 
 .
  A natural question is which relevance model works best for query reformulation
- for patent prior art search?
+ for patent prior art search? 
 \end_layout
 
 \begin_layout Description
@@ -948,6 +1015,7 @@ Query expansion source:
  different term sources to determine which section offers the best source
  of expansion terms, e.g., are the title words of particularly high value
  as expansion terms? Note that this only applies to query expansion methods.
+ 
 \end_layout
 
 \begin_layout Description
@@ -961,7 +1029,7 @@ Term selection method:
 
 \end_inset
 
- We considered different term selection methods for query reformulation.
+ We consider different term selection methods for query reformulation.
  We evaluate the performance of term selection using Rocchio
 \begin_inset space ~
 \end_inset
@@ -1046,8 +1114,8 @@ key "Efthimiadis1996"
 
 \end_inset
 
- is an approach that (automatically) adds terms to an initial query in order
- to improve retrieval performance.
+ is a query reformulation approach that (automatically) adds terms to an
+ initial query in order to improve retrieval performance.
  The utility of QE for patent prior art search is motivated by the term
  overlap analysis depicted in Figure 
 \begin_inset CommandInset ref
@@ -1056,9 +1124,9 @@ reference "fig:FailureAnalysis"
 
 \end_inset
 
-, which illustrates that there is a big term mismatched between queries
+, which illustrates that there is a large term mismatch between queries
  an relevant documents.
- This term mismatch might be alleviated by QE methods.
+ This term mismatch may be alleviated by QE methods.
 \end_layout
 
 \begin_layout Standard
@@ -1345,9 +1413,8 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-While space precludes a full discussion, we remark that as a term selection
- method in QE, Rocchio derives a score for each potential query expansion
- term and in practice, the top-
+As a term selection method in QE, Rocchio derives a score for each potential
+ query expansion term and in practice, the top-
 \begin_inset Formula $k$
 \end_inset
 
@@ -1701,7 +1768,11 @@ name "sec:FrameworkQR"
 
 \end_inset
 
- As mentioned earlier, Query Reduction (QR)
+ 
+\end_layout
+
+\begin_layout Standard
+As mentioned earlier, Query Reduction (QR)
 \begin_inset space ~
 \end_inset
 
@@ -1712,10 +1783,70 @@ key "Kumaran2009"
 
 \end_inset
 
- attempts to reduce the query such that useless information is removed.
- The patent sections: title, abstract, claims and description are of progressive
-ly increasing length.
- While the title is usually composed by an average of six terms, the other
+ is a query reformulation method that attempts to reduce the query such
+ that superfluous information is removed.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% NOTE: the sentence following this gets more to the point
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%The patent sections: title,
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%abstract, claims and description are of progressively increasing
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%length.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+While the title is usually composed by an average of six terms, the other
  sections are longer, ranging from ten to thousands of terms.
  Therefore, we investigate the impact of query reduction methods when querying
  with long sections such as abstract, claims and description.
@@ -3129,7 +3260,7 @@ reference "fig:QRUtility"
  Reciprocal Rank (MRR), and PRES that can be achieved for a set of 1304
  abstract queries from the CLEF-IP 2010 data collection.
  
-\begin_inset Quotes grd
+\begin_inset Quotes eld
 \end_inset
 
 Baseline” refers to a probabilistic BM25 retrieval model 
@@ -3152,7 +3283,7 @@ key "McCandless2010"
 
  and the original long query.
  
-\begin_inset Quotes grd
+\begin_inset Quotes eld
 \end_inset
 
 Oracle” refers to the situation where all terms with negative impact are
@@ -5124,7 +5255,7 @@ end{figure*}
 \begin_layout Standard
 Regarding the best term selection method, we conclude that in general MMRQE
  provides better performance than Rocchio.
- To to give an insight of the effect of MMRQE and Rocchio over the performance,
+ To  give an insight of the effect of MMRQE and Rocchio over the performance,
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8160,7 +8291,7 @@ From these results, we make the following observations: (i) query reduction
 \end_layout
 
 \begin_layout Standard
-To to give an insight of the effect of MMRQR and LMQR over the performance,
+To give an insight of the effect of MMRQR and LMQR over the performance,
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
