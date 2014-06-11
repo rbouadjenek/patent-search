@@ -4819,14 +4819,14 @@ reference "fig:qDescription-PRES-CLEF-IP2010"
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:qDescription-MAP-CLEF-IP2010"
+reference "fig:qDescription-MAP-CLEF-IP2011"
 
 \end_inset
 
 , and 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:qDescription-PRES-CLEF-IP2010"
+reference "fig:qDescription-PRES-CLEF-IP2011"
 
 \end_inset
 
@@ -8193,7 +8193,7 @@ To summarize all the results obtained over all the above configurations,
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:QR-MAP-CLEF-IP2010"
+reference "fig:QR-PRES-CLEF-IP2010"
 
 \end_inset
 
@@ -8204,7 +8204,7 @@ reference "fig:QR-MAP-CLEF-IP2010"
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:QR-PRES-CLEF-IP2010"
+reference "fig:QR-MAP-CLEF-IP2010"
 
 \end_inset
 
@@ -8215,7 +8215,7 @@ reference "fig:QR-PRES-CLEF-IP2010"
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:QR-MAP-CLEF-IP2011"
+reference "fig:QR-PRES-CLEF-IP2011"
 
 \end_inset
 
@@ -8226,7 +8226,7 @@ reference "fig:QR-MAP-CLEF-IP2011"
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:QR-PRES-CLEF-IP2011"
+reference "fig:QR-MAP-CLEF-IP2011"
 
 \end_inset
 
@@ -11392,6 +11392,7 @@ Regarding QR methods, we showed that these techniques are effective to some
  For this second part, future work may consist of exploiting query quality
  predictors to identify useless terms in a query using machine learning
  methods.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -11727,7 +11728,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mean Average Precision (MAP) on CLEF-2010 (for MMRQE 
+Mean Average Precision (MAP) for QE methods on CLEF-2010 (for MMRQE 
 \begin_inset Formula $\lambda=0.5$
 \end_inset
 
@@ -11923,7 +11924,8 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQE 
+Patent Retrieval Evaluation Score (PRES) for QE methods on CLEF-2010 (for
+ MMRQE 
 \begin_inset Formula $\lambda=0.5$
 \end_inset
 
@@ -11945,367 +11947,6 @@ name "fig:PRES-CLEF2010"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement t
-wide true
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/legendQR.eps
-	width 15.5cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qTitle-PRES-CLEF-IP2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qAbstract-PRES-CLEF-IP2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qClaims-PRES-CLEF-IP2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Description.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qDescription-PRES-CLEF-IP2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Mean Average Precision (MAP) on CLEF-2010 (for MMRQR 
-\begin_inset Formula $\lambda=0.8$
-\end_inset
-
-).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:QR-MAP-CLEF-IP2010"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement t
-wide true
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/legendQR.eps
-	width 15.5cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Title.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qTitle-MAP-CLEF-IP2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Abstract.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qAbstract-MAP-CLEF-IP2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Claims.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qClaims-MAP-CLEF-IP2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[{Query Description.}]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qDescription-MAP-CLEF-IP2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQR 
-\begin_inset Formula $\lambda=0.8$
-\end_inset
-
-).
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:QR-PRES-CLEF-IP2010"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage clearpage
 \end_inset
 
 
@@ -12480,7 +12121,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mean Average Precision (MAP) on CLEF-2011 (for MMRQE 
+Mean Average Precision (MAP) for QE methods on CLEF-2011 (for MMRQE 
 \begin_inset Formula $\lambda=0.5$
 \end_inset
 
@@ -12508,11 +12149,18 @@ name "fig:MAP-CLEF2011"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12544,7 +12192,7 @@ tiny Query Title.}]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qTitle-PRES-CLEF-IP2011.eps
-	width 8.6cm
+	width 8.4cm
 
 \end_inset
 
@@ -12577,7 +12225,7 @@ tiny Query Abstract.}]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qAbstract-PRES-CLEF-IP2011.eps
-	width 8.6cm
+	width 8.4cm
 
 \end_inset
 
@@ -12614,7 +12262,7 @@ tiny Query Claims.}]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qClaims-PRES-CLEF-IP2011.eps
-	width 8.6cm
+	width 8.4cm
 
 \end_inset
 
@@ -12676,7 +12324,8 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) on CLEF-2011 (for MMRQE 
+Patent Retrieval Evaluation Score (PRES) for QE methods on CLEF-2011 (for
+ MMRQE 
 \begin_inset Formula $\lambda=0.5$
 \end_inset
 
@@ -12708,7 +12357,7 @@ name "fig:PRES-CLEF2011"
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12737,8 +12386,8 @@ subfigure[{Query Title.}]{
 
 
 \begin_inset Graphics
-	filename mmrqrResults/qTitle-PRES-CLEF-IP2011.eps
-	width 4.3cm
+	filename mmrqrResults/qTitle-MAP-CLEF-IP2010.eps
+	width 4cm
 
 \end_inset
 
@@ -12768,8 +12417,8 @@ subfigure[{Query Abstract.}]{
 
 
 \begin_inset Graphics
-	filename mmrqrResults/qAbstract-PRES-CLEF-IP2011.eps
-	width 4.3cm
+	filename mmrqrResults/qAbstract-MAP-CLEF-IP2010.eps
+	width 4cm
 
 \end_inset
 
@@ -12799,8 +12448,8 @@ subfigure[{Query Claims.}]{
 
 
 \begin_inset Graphics
-	filename mmrqrResults/qClaims-PRES-CLEF-IP2011.eps
-	width 4.3cm
+	filename mmrqrResults/qClaims-MAP-CLEF-IP2010.eps
+	width 4cm
 
 \end_inset
 
@@ -12830,8 +12479,8 @@ subfigure[{Query Description.}]{
 
 
 \begin_inset Graphics
-	filename mmrqrResults/qDescription-PRES-CLEF-IP2011.eps
-	width 4.3cm
+	filename mmrqrResults/qDescription-MAP-CLEF-IP2010.eps
+	width 4cm
 
 \end_inset
 
@@ -12853,7 +12502,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mean Average Precision (MAP) on CLEF-2010 (for MMRQR 
+Mean Average Precision (MAP) for QR methods on CLEF-2010 (for MMRQR 
 \begin_inset Formula $\lambda=0.8$
 \end_inset
 
@@ -12868,7 +12517,7 @@ Mean Average Precision (MAP) on CLEF-2010 (for MMRQR
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:QR-MAP-CLEF-IP2011"
+name "fig:QR-PRES-CLEF-IP2010"
 
 \end_inset
 
@@ -12885,7 +12534,185 @@ name "fig:QR-MAP-CLEF-IP2011"
 placement t
 wide true
 sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQR.eps
+	width 15.5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qTitle-PRES-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+
+\begin_inset ERT
 status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-PRES-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qClaims-PRES-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Description.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-PRES-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF-2010 (for
+ MMRQR 
+\begin_inset Formula $\lambda=0.8$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-MAP-CLEF-IP2010"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12915,7 +12742,7 @@ subfigure[{Query Title.}]{
 
 \begin_inset Graphics
 	filename mmrqrResults/qTitle-MAP-CLEF-IP2011.eps
-	width 4.3cm
+	width 4cm
 
 \end_inset
 
@@ -12946,7 +12773,7 @@ subfigure[{Query Abstract.}]{
 
 \begin_inset Graphics
 	filename mmrqrResults/qAbstract-MAP-CLEF-IP2011.eps
-	width 4.3cm
+	width 4cm
 
 \end_inset
 
@@ -12977,7 +12804,7 @@ subfigure[{Query Claims.}]{
 
 \begin_inset Graphics
 	filename mmrqrResults/qClaims-MAP-CLEF-IP2011.eps
-	width 4.3cm
+	width 4cm
 
 \end_inset
 
@@ -13008,7 +12835,7 @@ subfigure[{Query Description.}]{
 
 \begin_inset Graphics
 	filename mmrqrResults/qDescription-MAP-CLEF-IP2011.eps
-	width 4.3cm
+	width 4cm
 
 \end_inset
 
@@ -13030,7 +12857,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQR 
+Mean Average Precision (MAP) for QR methods on CLEF-2010 (for MMRQR 
 \begin_inset Formula $\lambda=0.8$
 \end_inset
 
@@ -13046,6 +12873,184 @@ Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQR
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:QR-PRES-CLEF-IP2011"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement t
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQR.eps
+	width 15.5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Title.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qTitle-PRES-CLEF-IP2011.eps
+	width 4cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Abstract.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-PRES-CLEF-IP2011.eps
+	width 4cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Claims.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qClaims-PRES-CLEF-IP2011.eps
+	width 4cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[{Query Description.}]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-PRES-CLEF-IP2011.eps
+	width 4cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF-2010 (for
+ MMRQR 
+\begin_inset Formula $\lambda=0.8$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-MAP-CLEF-IP2011"
 
 \end_inset
 

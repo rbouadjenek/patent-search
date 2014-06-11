@@ -701,8 +701,8 @@ the QE methods, while selecting the optimal number of terms used for
 the expansion (number of terms that maximizes the performance for
 each method). From these results, we first observe that the best section
 to use for querying is the description section (see Figures \ref{fig:qDescription-MAP-CLEF-IP2010},
-\ref{fig:qDescription-PRES-CLEF-IP2010}, \ref{fig:qDescription-MAP-CLEF-IP2010},
-and \ref{fig:qDescription-PRES-CLEF-IP2010}). We attribute this to
+\ref{fig:qDescription-PRES-CLEF-IP2010}, \ref{fig:qDescription-MAP-CLEF-IP2011},
+and \ref{fig:qDescription-PRES-CLEF-IP2011}). We attribute this to
 the fact that the description section has more content along with
 more terms relevant to specific details that describe the patent,
 since the core of the invention is described therein.
@@ -1078,10 +1078,10 @@ the original queries (in the case where the description is used for
 querying). Removing more terms will decrease significantly the performance.
 
 To summarize all the results obtained over all the above configurations,
-Figures~\ref{fig:QR-MAP-CLEF-IP2010}, ~\ref{fig:QR-PRES-CLEF-IP2010},~\ref{fig:QR-MAP-CLEF-IP2011},
-and~\ref{fig:QR-PRES-CLEF-IP2011} show the performance obtained
-for all the QR methods, when selecting the optimal number of terms
-removed from the original queries (number of terms removed that maximizes
+Figures~\ref{fig:QR-PRES-CLEF-IP2010}, ~\ref{fig:QR-MAP-CLEF-IP2010},~\ref{fig:QR-PRES-CLEF-IP2011},
+and~\ref{fig:QR-MAP-CLEF-IP2011} show the performance obtained for
+all the QR methods, when selecting the optimal number of terms removed
+from the original queries (number of terms removed that maximizes
 the performance for each method). 
 
 From these results, we make the following observations: (i) query
@@ -1387,7 +1387,7 @@ as the longest sections in a patent application. We also demonstrated
 that our new QR method MMRQR might improve both recall and precision
 in many cases. For this second part, future work may consist of exploiting
 query quality predictors to identify useless terms in a query using
-machine learning methods.
+machine learning methods. 
 
 %We demonstrated that it reasonable to do prior art search 
 %with partial applications, especially when combined with query expansion methods. 
@@ -1423,7 +1423,8 @@ machine learning methods.
 \subfigure[{\tiny Query Claims.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qClaims-MAP-CLEF-IP2010}}\subfigure[{\tiny Query Description.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qDescription-MAP-CLEF-IP2010}\label{fig:qDescription-MAP-CLEF-IP2010}}
 \par\end{centering}
 
-\caption{Mean Average Precision (MAP) on CLEF-2010 (for MMRQE $\lambda=0.5$).}
+\caption{Mean Average Precision (MAP) for QE methods on CLEF-2010 (for MMRQE
+$\lambda=0.5$).}
 
 
 \label{fig:MAP-CLEF2010}
@@ -1443,48 +1444,13 @@ machine learning methods.
 \subfigure[{\tiny Query Claims.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qClaims-PRES-CLEF-IP2010}}\subfigure[{\tiny Query Description.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qDescription-PRES-CLEF-IP2010}\label{fig:qDescription-PRES-CLEF-IP2010}} 
 \par\end{centering}
 
-\caption{Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQE $\lambda=0.5$).}
+\caption{Patent Retrieval Evaluation Score (PRES) for QE methods on CLEF-2010
+(for MMRQE $\lambda=0.5$).}
 
 
 \label{fig:PRES-CLEF2010}
 \end{figure*}
 
-
-\begin{figure*}[t]
-\begin{centering}
-\includegraphics[width=15.5cm]{img/legendQR}
-\par\end{centering}
-
-\begin{centering}
-\subfigure[{Query Title.}]{\includegraphics[width=4.3cm]{mmrqrResults/qTitle-PRES-CLEF-IP2010}}\subfigure[{Query Abstract.}]{\includegraphics[width=4.3cm]{mmrqrResults/qAbstract-PRES-CLEF-IP2010}}\subfigure[{Query Claims.}]{\includegraphics[width=4.3cm]{mmrqrResults/qClaims-PRES-CLEF-IP2010}}
-\subfigure[{Query Description.}]{\includegraphics[width=4.3cm]{mmrqrResults/qDescription-PRES-CLEF-IP2010}} 
-\par\end{centering}
-
-\caption{Mean Average Precision (MAP) on CLEF-2010 (for MMRQR $\lambda=0.8$).}
-
-
-\label{fig:QR-MAP-CLEF-IP2010}
-\end{figure*}
-
-
-\begin{figure*}[t]
-\begin{centering}
-\includegraphics[width=15.5cm]{img/legendQR}
-\par\end{centering}
-
-\begin{centering}
-\subfigure[{Query Title.}]{\includegraphics[width=4.3cm]{mmrqrResults/qTitle-MAP-CLEF-IP2010}}\subfigure[{Query Abstract.}]{\includegraphics[width=4.3cm]{mmrqrResults/qAbstract-MAP-CLEF-IP2010}}\subfigure[{Query Claims.}]{\includegraphics[width=4.3cm]{mmrqrResults/qClaims-MAP-CLEF-IP2010}}
-\subfigure[{Query Description.}]{\includegraphics[width=4.3cm]{mmrqrResults/qDescription-MAP-CLEF-IP2010}} 
-\par\end{centering}
-
-\caption{Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQR $\lambda=0.8$).}
-
-
-\label{fig:QR-PRES-CLEF-IP2010}
-\end{figure*}
-
-
-\clearpage{}
 
 \begin{figure*}[t]
 \begin{centering}
@@ -1499,12 +1465,15 @@ machine learning methods.
 \subfigure[{\tiny Query Claims.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qClaims-MAP-CLEF-IP2011}}\subfigure[{\tiny Query Description.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qDescription-MAP-CLEF-IP2011}\label{fig:qDescription-MAP-CLEF-IP2011}} 
 \par\end{centering}
 
-\caption{Mean Average Precision (MAP) on CLEF-2011 (for MMRQE $\lambda=0.5$).}
+\caption{Mean Average Precision (MAP) for QE methods on CLEF-2011 (for MMRQE
+$\lambda=0.5$).}
 
 
 \label{fig:MAP-CLEF2011}
 \end{figure*}
 
+
+\clearpage{}
 
 \begin{figure*}[t]
 \begin{centering}
@@ -1512,14 +1481,15 @@ machine learning methods.
 \par\end{centering}
 
 \begin{centering}
-\subfigure[{\tiny Query Title.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qTitle-PRES-CLEF-IP2011}}\subfigure[{\tiny Query Abstract.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qAbstract-PRES-CLEF-IP2011}}
+\subfigure[{\tiny Query Title.}]{\includegraphics[width=8.4cm]{Results-CIKM2014/qTitle-PRES-CLEF-IP2011}}\subfigure[{\tiny Query Abstract.}]{\includegraphics[width=8.4cm]{Results-CIKM2014/qAbstract-PRES-CLEF-IP2011}}
 \par\end{centering}
 
 \begin{centering}
-\subfigure[{\tiny Query Claims.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qClaims-PRES-CLEF-IP2011}}\subfigure[{\tiny Query Description.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qDescription-PRES-CLEF-IP2011}\label{fig:qDescription-PRES-CLEF-IP2011}} 
+\subfigure[{\tiny Query Claims.}]{\includegraphics[width=8.4cm]{Results-CIKM2014/qClaims-PRES-CLEF-IP2011}}\subfigure[{\tiny Query Description.}]{\includegraphics[width=8.6cm]{Results-CIKM2014/qDescription-PRES-CLEF-IP2011}\label{fig:qDescription-PRES-CLEF-IP2011}} 
 \par\end{centering}
 
-\caption{Patent Retrieval Evaluation Score (PRES) on CLEF-2011 (for MMRQE $\lambda=0.5$).}
+\caption{Patent Retrieval Evaluation Score (PRES) for QE methods on CLEF-2011
+(for MMRQE $\lambda=0.5$).}
 
 
 \label{fig:PRES-CLEF2011}
@@ -1532,14 +1502,15 @@ machine learning methods.
 \par\end{centering}
 
 \begin{centering}
-\subfigure[{Query Title.}]{\includegraphics[width=4.3cm]{mmrqrResults/qTitle-PRES-CLEF-IP2011}}\subfigure[{Query Abstract.}]{\includegraphics[width=4.3cm]{mmrqrResults/qAbstract-PRES-CLEF-IP2011}}\subfigure[{Query Claims.}]{\includegraphics[width=4.3cm]{mmrqrResults/qClaims-PRES-CLEF-IP2011}}
-\subfigure[{Query Description.}]{\includegraphics[width=4.3cm]{mmrqrResults/qDescription-PRES-CLEF-IP2011}} 
+\subfigure[{Query Title.}]{\includegraphics[width=4cm]{mmrqrResults/qTitle-MAP-CLEF-IP2010}}\subfigure[{Query Abstract.}]{\includegraphics[width=4cm]{mmrqrResults/qAbstract-MAP-CLEF-IP2010}}\subfigure[{Query Claims.}]{\includegraphics[width=4cm]{mmrqrResults/qClaims-MAP-CLEF-IP2010}}
+\subfigure[{Query Description.}]{\includegraphics[width=4cm]{mmrqrResults/qDescription-MAP-CLEF-IP2010}} 
 \par\end{centering}
 
-\caption{Mean Average Precision (MAP) on CLEF-2010 (for MMRQR $\lambda=0.8$).}
+\caption{Mean Average Precision (MAP) for QR methods on CLEF-2010 (for MMRQR
+$\lambda=0.8$).}
 
 
-\label{fig:QR-MAP-CLEF-IP2011}
+\label{fig:QR-PRES-CLEF-IP2010}
 \end{figure*}
 
 
@@ -1549,14 +1520,51 @@ machine learning methods.
 \par\end{centering}
 
 \begin{centering}
-\subfigure[{Query Title.}]{\includegraphics[width=4.3cm]{mmrqrResults/qTitle-MAP-CLEF-IP2011}}\subfigure[{Query Abstract.}]{\includegraphics[width=4.3cm]{mmrqrResults/qAbstract-MAP-CLEF-IP2011}}\subfigure[{Query Claims.}]{\includegraphics[width=4.3cm]{mmrqrResults/qClaims-MAP-CLEF-IP2011}}
-\subfigure[{Query Description.}]{\includegraphics[width=4.3cm]{mmrqrResults/qDescription-MAP-CLEF-IP2011}} 
+\subfigure[{Query Title.}]{\includegraphics[width=4cm]{mmrqrResults/qTitle-PRES-CLEF-IP2010}}\subfigure[{Query Abstract.}]{\includegraphics[width=4cm]{mmrqrResults/qAbstract-PRES-CLEF-IP2010}}\subfigure[{Query Claims.}]{\includegraphics[width=4cm]{mmrqrResults/qClaims-PRES-CLEF-IP2010}}
+\subfigure[{Query Description.}]{\includegraphics[width=4cm]{mmrqrResults/qDescription-PRES-CLEF-IP2010}} 
 \par\end{centering}
 
-\caption{Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQR $\lambda=0.8$).}
+\caption{Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF-2010
+(for MMRQR $\lambda=0.8$).}
+
+
+\label{fig:QR-MAP-CLEF-IP2010}
+\end{figure*}
+
+
+\begin{figure*}[t]
+\begin{centering}
+\includegraphics[width=15.5cm]{img/legendQR}
+\par\end{centering}
+
+\begin{centering}
+\subfigure[{Query Title.}]{\includegraphics[width=4cm]{mmrqrResults/qTitle-MAP-CLEF-IP2011}}\subfigure[{Query Abstract.}]{\includegraphics[width=4cm]{mmrqrResults/qAbstract-MAP-CLEF-IP2011}}\subfigure[{Query Claims.}]{\includegraphics[width=4cm]{mmrqrResults/qClaims-MAP-CLEF-IP2011}}
+\subfigure[{Query Description.}]{\includegraphics[width=4cm]{mmrqrResults/qDescription-MAP-CLEF-IP2011}} 
+\par\end{centering}
+
+\caption{Mean Average Precision (MAP) for QR methods on CLEF-2010 (for MMRQR
+$\lambda=0.8$).}
 
 
 \label{fig:QR-PRES-CLEF-IP2011}
+\end{figure*}
+
+
+\begin{figure*}[t]
+\begin{centering}
+\includegraphics[width=15.5cm]{img/legendQR}
+\par\end{centering}
+
+\begin{centering}
+\subfigure[{Query Title.}]{\includegraphics[width=4cm]{mmrqrResults/qTitle-PRES-CLEF-IP2011}}\subfigure[{Query Abstract.}]{\includegraphics[width=4cm]{mmrqrResults/qAbstract-PRES-CLEF-IP2011}}\subfigure[{Query Claims.}]{\includegraphics[width=4cm]{mmrqrResults/qClaims-PRES-CLEF-IP2011}}
+\subfigure[{Query Description.}]{\includegraphics[width=4cm]{mmrqrResults/qDescription-PRES-CLEF-IP2011}} 
+\par\end{centering}
+
+\caption{Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF-2010
+(for MMRQR $\lambda=0.8$).}
+
+
+\label{fig:QR-MAP-CLEF-IP2011}
 \end{figure*}
 
 
