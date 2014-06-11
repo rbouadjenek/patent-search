@@ -12857,7 +12857,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mean Average Precision (MAP) for QR methods on CLEF-2010 (for MMRQR 
+Mean Average Precision (MAP) for QR methods on CLEF-2011 (for MMRQR 
 \begin_inset Formula $\lambda=0.8$
 \end_inset
 
@@ -13034,7 +13034,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF-2010 (for
+Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF-2011 (for
  MMRQR 
 \begin_inset Formula $\lambda=0.8$
 \end_inset
