@@ -9,6 +9,10 @@
 \usepackage{url}
 \usepackage{multirow}
 \usepackage{graphicx}
+\usepackage{epstopdf}
+
+\DeclareGraphicsExtensions{.eps}
+
 
 \makeatletter
 
@@ -30,10 +34,8 @@
 
 \usepackage{babel}
 \begin{document}
-%\title{An Evaluation of Query Expansion for Patent Prior Art Search}
-%\title{Query Expansion Methods for Patent Prior Art Search with Partial Applications}
-%\title{Query Expansion Methods for Prior Art Search with Partial Patent Applications}
-\title{A Study of Query Reformulation for Patent Prior Art Search}
+\title{A Study of Query Reformulation for Patent Prior Art Search with Partial Patent Applications}
+\title{Query Reformulation for Patent Prior Art Search with Partial Patent Applications}
 %\title{ A Study of Query Reformulation for Patent Prior Art Search}
 \numberofauthors{1}
 \author{
@@ -50,16 +52,20 @@ In 2012, 276,788 patent applications were approved in the US alone
 literature inspired by the evaluation framework of the CLEF-IP competition
 has aimed to assist patent examiners in assessing prior art for complete
 patent applications, less of this work has focused on patent search
-with shorter queries representing (partial) titles, abstract, or claims
-to help inventors assess the patentability of their ideas prior to
-writing a full application. Hence, in this paper, we focus on both
-helping inventors to assess the patentability of their ideas and patents
-examiners to assess the patentability of a given patent application.
-Specifically, we propose a deep analysis of query reformulation methods
-that are targeted for patent prior art search. We also propose query
-reformulation methods that exploit the specific structure of patent
-documents as well as methods aimed to improve recall with a limited
-set of query expansion terms. We demonstrate that our methods improve
+with queries representing (partial) applications
+to help inventors to assess the patentability of their ideas prior to
+writing a full application.
+%Hence, in this paper, we focus on both helping inventors to assess the patentability of their ideas and patents examiners to assess the patentability of a given patent application.
+--
+In this paper, we carry out an intensive study about query
+reformulation for patent prior art search with partial patent
+application, within the aim of assessing not only the performance 
+of standard query reformulation methods, but also
+to assess the effectiveness of query reformulation methods
+that exploit patent-specific characteristics.
+We also propose new query reformulation methods that exploit the specific structure of patents
+and carry out the trade-off between diversification and similarity to the query.
+We demonstrate that our methods improve
 both general (MAP) and patent-specific (PRES) evaluation metrics for
 prior art search performance on standardized datasets of CLEF-IP,
 with respect to both general and specific query reformulation methods.
@@ -87,8 +93,7 @@ a number that has doubled in the past 15 years. Hence, helping both
 inventors and patents examiners to assess the patentability of a given
 patent application through a patent prior art search is a critical
 task.
-
-\noindent Patent prior art search involves finding previously granted
+Patent prior art search involves finding previously granted
 patents that may be relevant to a new patent application. The objective
 and challenges of standard formulations of patent prior art search
 are different from those of standard text and web search since~\cite{Magdy2012}:
@@ -104,13 +109,12 @@ While much of the literature inspired by the evaluation framework
 of the CLEF-IP competition has aimed to assist patent examiners in
 assessing prior art for complete patent applications, less work has
 focused on assessing the patentability of inventions before writing
-a full patent application. Prior art search with shorter queries that
+a full patent application. Prior art search with queries that
 represent unfinished patent applications is certainly desirable, since
 writing a full application is time-consuming and costly, especially
-if lawyers are hired to assist. However prior art search with partial
-applications is much different than queries with a full application
--- namely because the queries are much shorter and represent only
-parts of a patent application.
+if lawyers are hired to assist.
+
+%However prior art search with partial applications is much different than queries with a full application -- namely because the queries are much shorter and represent only parts of a patent application.
 
 \begin{figure}[!h]
 \begin{centering}
@@ -134,38 +138,42 @@ sets for different queries. }
 \label{fig:FailureAnalysis} }
 \end{figure}
 
-
-To assess the difficulty of querying with partial patent applications
-(such as the title, abstract, claims, or description sections), we
-refer to Figure~\ref{fig:FailureAnalysis}. Here we show an analysis
-of the average Jaccard similarity (fraction of overlapping terms after
-removing patent-specific stopwords) between different queries (representing
-the title, abstract, or claims of a patent application) and the labeled
+A patent application is organized in, at least, four sections:
+title, abstract, claims and description. 
+We assumed that a partial application consist in one of the mentioned sections.
+To assess the difficulty of querying with partial patent applications, 
+we refer to Figure~\ref{fig:FailureAnalysis}.
+Here we show an analysis of the average Jaccard similarity\footnote{The Jaccard similarity is used to measure the term overlap between two sets, and is defined as the size of the intersection divided by the size of the union of the sample sets. Before applying the Jaccard similarity, patent-specific stopwords were removed, as suggested by \cite{Mahdabi2012}.}
+between different queries (representing the title, abstract, or claims of a patent application) and the labeled
 relevant (all) and irrelevant documents (top 10 non-relevant documents
-ranked by BM25). We show results for the top 100 and bottom 100 queries
-of CLEP-IP 2010 evaluated according to MAP. There are three notable
-trends here: (i) term overlap increases from title to description
-since the query size grows accordingly; (ii) the bottom 100 performing
-queries tend to have much smaller term overlap with the relevant documents
-than the top 100 queries; and (iii) the best overlap for any relevant
-document set for any set of queries is less than one in four terms.
-While these results suggest the description section may be the best
-part of a partial patent application to use for a query, there is
-still significant room for improving the overlap of query terms with
-the relevant documents, which suggests an investigation of \emph{query
-reformulation} \cite{Baeza-Yates2010} methods. 
+ranked by BM25~\cite{Robertson1993}). 
+We show results for the top 100 and bottom 100 queries
+of CLEP-IP 2010 evaluated according to Mean Average Precision (MAP).
+There are three notable trends here: 
+(i) term overlap increases from title to description since the query size grows accordingly; 
+(ii) the bottom 100 performing queries tend to have much smaller term overlap with the relevant documents than the top 100 queries; and 
+(iii) the best overlap for any relevant document set for any set of queries is less than one in four terms.
 
-Query Reformulation is the process, which consists of transforming
+While these results suggest the description section is the best
+part of a partial patent application to use as query, 
+they also point out that the term overlap between the queries and the relevant 
+documents can be very low.
+Therefore, we suggest an investigation of \emph{query reformulation} \cite{Baeza-Yates2010} methods 
+as a means for improving the term overlap between queries and relevant documents.
+
+Query Reformulation is the process of transforming
 an initial query $q$ to another query $q'$. This transformation
 may be either a reduction or an expansion of the query. \emph{Query
-reduction}~\emph{\cite{Kumaran2009}} reduces the query such that
-useless information is removed, while \emph{query expansion~\cite{Efthimiadis1996}}
+reduction} \cite{Kumaran2009} reduces the query such that
+useless information is removed, while \emph{query expansion} \cite{Efthimiadis1996}
 enhance the query with additional terms likely to occur in relevant
-documents. These are the tasks we evaluate in this paper.
+documents. 
+In this paper, we carry out an intensive study about query reformulation for
+patent prior art search with partial patent application, 
+within the aim of assessing not only the performance of standard query reformulation methods, but also to assess the effectiveness of query reformulation methods that exploit patent-specific characteristics. In summary, the contributions of this paper are the following:
 
-In summary, our contributions are the following:
 \begin{enumerate}
-\item A deep analysis of general methods of query expansion for patent search,
+\item A deep analysis of general methods of query expansion for patent prior-art search,
 as well as patent-specific query expansion methods;
 \item A new method of query expansion based on diversification in terms
 selection; 
@@ -184,70 +192,59 @@ conclude and provide some future directions in Section \ref{sec:conclusion}.
 
 
 \section{Query Reformulation for Patents}
-
 \label{sec:QueryReformulationForPatents}
 
-In this section, we first present the requirements of a query expansion
-method in Sections \ref{sec:FrameworkQE}, then, we introduce a novel
-term selection method for query expansion in Section \ref{sec:MMRQE}.
-Next, in Section \ref{sec:FrameworkQR} we introduce the motivations
-behind the benefit of query reduction, and a new approach of query
-reduction in Section \ref{sec:MMRQR}.
+%In this section, we first present the requirements of a query expansion method in Sections \ref{sec:FrameworkQE}, then, we introduce a novel term selection method for query expansion in Section \ref{sec:MMRQE}. Next, in Section \ref{sec:FrameworkQR} we introduce the motivations behind the benefit of query reduction, and a new approach of query reduction in Section \ref{sec:MMRQR}.
 
+During the exploration of query reformulation for patent search with partial patent applications, there are many configuration options and associated questions that we considered: 
 
-\subsection{General Framework for Query Expansion}
-
-\label{sec:FrameworkQE}
-
-Query expansion (QE)~\cite{Efthimiadis1996} is an approach that
-(automatically) adds terms to an initial query in order to improve
-retrieval performance. In exploring QE for patent search with partial
-patent applications, there are many configuration options and associated
-questions that we can consider: 
 \begin{description}
-\item [{Query type:}] We consider a partial patent application to consist
-of either the title, the abstract, the claims of the description section
-and allow one to query with each%
-\footnote{A query is always evaluated against the full content (title, abstract,
-claims, description) of granted patent applications since it is sensible
-to make use of all available content.%
-}. Critical questions are: (i) what part of a partial application an
-inventor should write to obtain the best search results? (ii) what
+\item [{Query type:}] We considered that a query of a partial patent application consist
+of either the title, the abstract, the claims or the description section.
+%\footnote{A query is always evaluated against the full content (title, abstract, claims, description) of granted patent applications since it is sensible to make use of all available content.}
+Critical questions are: (i) what part of a partial application an
+inventor should write to obtain the best search results? (ii) \textbf{what
 part of a patent application a patent examiner should use to make
-a patent prior art search? 
-\item [{Query expansion source:}] We can consider the title, abstract,
-claims, and description section as different QE term sources and ask
-which section offers the best source of expansion terms? E.g., are
-the title words of particularly high value as expansion terms? 
+a patent prior art search? }
+
 \item [{Relevance model:}] For initial retrieval of documents in the \emph{pseudo-relevant}
-feedback set (PRF) --- often used to generate the terms for QE ---
-and subsequent re-retrieval with an expanded term set, there are various
+feedback set (PRF) 
+%---\textbf{ often used to generate the terms for QE} ---
+and subsequent re-retrieval, there are various
 options for the relevance ranking model. In this work, we explore
 a probabilistic approach represented by the popular BM25~\cite{Robertson1993}
-algorithm as well as a vector space model approach as represented
-by TF-IDF~\cite{Salton1975}. A natural question is which relevance
-model works best for QE for patent prior art search? 
-\item [{Term selection method:}] Once we have identified a query expansion
-source, we may consider different methods of selecting terms for expansion.
-A standard method for term selection is based on the Rocchio~\cite{Salton1971}
-approach, but in the next subsection, we introduce an alternate term
-selection method intended to address the high-recall nature of patent
-prior art search. Then a natural question to ask is which term expansion
+algorithm, as well as a vector space model approach, TF-IDF~\cite{Salton1975}.
+A natural question is which relevance
+model works best for query reformulation for patent prior art search? 
+
+\item [{Query expansion source:}] We can consider the title, abstract,
+claims, and description sections as different term sources to determine 
+which section offers the best source of expansion terms? E.g., are
+the title words of particularly high value as expansion terms? 
+Note that this only applies to query expansion methods. 
+
+\item [{Term selection method:}] We considered different term selection methods for query reformulation. We evaluate the performance of term selection using Rocchio~\cite{Salton1971}
+and an new term selection method that we propose in the next section.
+%,which is intended to address the high-recall nature of patent prior art search. 
+Then a natural question is, which term expansion
 method works best, and with which expansion source and retrieval model? 
 \end{description}
-Before we proceed to evaluate the above questions, we first define
-a novel term selection method to address a potential deficiency of
-Rocchio as used in practice for high-recall search that we term MMRQE.
+
+In what follows, we present ...
 
 
-\subsection{MMR Query Expansion (MMRQE)}
+\subsection{Query Expansion Frameworks}
+\label{sec:FrameworkQE}
 
-\label{sec:MMRQE}
+As already mentioned, Query Expansion (QE)~\cite{Efthimiadis1996} is an approach that (automatically) adds terms to an initial query in order to improve retrieval performance. 
+The utility of QE for patent prior art search for patent application has been motivated 
+by the term overlap analysis depicted in Figure \ref{fig:FailureAnalysis} that illustrate 
+that there is a term mismatched between queries an relevant documents, which might
+alleviate by QE methods.
 
 % The following is a reasonable argument, but could be refuted by
 % reviewers... term coverage and recall are more direct and simple
 % arguments.
-
 
 %Moreover, in contrast to scientific and technical writers, patent
 %writers tend to generalize and maximize the scope of what is protected
@@ -274,11 +271,18 @@ to their Rocchio score during the second stage of retrieval. The caveat
 of this approach is that given a limited budget of $k$ expansion
 terms, there is no inherent guarantee that these terms ``cover''
 all documents in the pseudo-relevant set. It seems that what we are
-asking for then is a method of ``diverse'' term selection --- something
-like the \emph{maximal marginal relevance} (MMR)~\cite{Carbonell1998}
+asking for then is a method of ``diverse'' term selection --- such as
+the \emph{Maximal Marginal Relevance} (MMR)~\cite{Carbonell1998}
 algorithm for result set diversification, but rather than for diverse
 document selection as typically used, we intend to use it here for
 diverse term selection. 
+In what follows, we present a novel term selection method inspired by MMR, 
+to address the deficiency of Rocchio, that we called MMR Query Expansion.  
+
+
+
+\subsubsection{MMR Query Expansion (MMRQE)}
+\label{sec:MMRQE}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
@@ -289,13 +293,9 @@ diverse term selection.
 \vspace{-1mm}
  \caption{Notation used in MMR QE/QR.}
 
-
 \label{fig:notation} 
 \end{figure}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 We begin our formal description of MMRQE by first defining some necessary
 notation. MMRQE takes as input a pseudo-relevant feedback set of $n$
@@ -333,31 +333,26 @@ parameter $\lambda\in[0,1]$ trades off relevance and diversity and
 we found $\lambda=0.5$ to generally provide the best results in our
 experiments on the CLEF-IP training dataset collection.
 
-The key insight we want to conclude this section with is simply that
+The key insight we want to conclude this section with is that
 MMRQE does not select expansion terms independently as in practical
 usage of Rocchio, but rather it selects terms that have uncorrelated
 usage patterns across documents, thus hopefully encouraging diverse
 term selection that covers more documents for a fixed expansion budget
 $k$ and ideally, higher recall.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                Gabriela has edited from here
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-\subsection{General Framework for Query Reduction}
+\subsection{Query Reduction Frameworks}
 
 \label{sec:FrameworkQR}
-
-A patent application is composed of the following sections: title,
-abstract, description, and claims, which are of progressively increasing
-length. While the title is usually between three and ten terms in
-length, the other section are longer, ranging from ten to thousand
-terms in length. Hence, query expansion may be not useful for these
-sections, and we propose to investigate query reduction as an alternative.
-Query reduction (QR)~\cite{Kumaran2009} attempts to reduce the query
+As mentioned earlier, Query Reduction (QR)~\cite{Kumaran2009} attempts to reduce the query
 such that useless information is removed. 
+The patent sections: title, abstract, claims and description 
+are of progressively increasing length. 
+While the title is usually composed by an average of six terms, 
+the other sections are longer, ranging from ten to thousands of
+terms. 
+Therefore, we investigate the impact of query reduction methods
+when querying with long sections such as abstract, claims and description.
 
 Table \ref{tbl:queryPAC-1019} provides insight into the utility of
 query reduction for the abstract section of the Topic PAC-1019 from
@@ -365,11 +360,11 @@ the CLEF-IP 2010 data collection. The baseline query, which is the
 original query (provided in the header row) after stemming and patent
 specific stopword removal, had an average precision (AP) of 0.280
 and a patent retrieval evaluation score (PRES) \cite{Magdy2010a}
-of 0.777 (its performance are provided in the footer row). We show
-the evaluation performance of the query after removing each term from
+of 0.777 (its performance are provided in the footer row). 
+We show the evaluation performance of the query after removing each term from
 the original query. The removed terms have been sorted in the order
 of decreasing PRES. We can observe that there are ten terms that if
-they are removed from the query, we increase PRES of the original
+they are (individually) removed from the query, we increase PRES of the original
 long query.
 
 \begin{table}[h]
@@ -433,9 +428,8 @@ comprising the same.}}\tabularnewline
 \end{tabular}
 \end{table}
 
-
 Figure \ref{fig:QRUtility} shows the summary upper-bound performance
-for precision, recall, MAP, MRR, and PRES that can be achieved for
+for precision, recall, MAP, Mean Reciprocal Rank (MRR), and PRES that can be achieved for
 a set of 1304 abstract queries from the CLEF-IP 2010 data collection.
 \textquotedblleft{}Baseline\textquotedblright{} refers to a probabilistic
 BM25 retrieval model ~\cite{Robertson1993} run using the Lucene
@@ -453,35 +447,26 @@ part of our work.
 \includegraphics[width=4cm]{analysis/precision-recall_ByField-CLEF-IP_2010}\includegraphics[width=4cm]{analysis/MAP-MRR_ByField-CLEF-IP_2010}
 \caption{The utility of query reduction for 1304 abstract queries from the
 CLEF-IP 2010 data collection. }
-
 \par\end{centering}
-
 {\footnotesize{}%different queries (representing the title, abstract, or claims of a patent application)
 %and the labeled (ir)relevant documents for the best (top) and worst (bottom) performing
 %queries from CLEF-IP 2010 w.r.t. MAP.}
 \label{fig:QRUtility} }
 \end{figure}
 
+%During the exploration of QR for patent prior-art search with partial patent applications we take into account the following configuration options:
 
-Similarly, in exploring QR for patent search with partial patent applications,
-there are many configuration options and associated questions that
-we can consider:
-\begin{description}
-\item [{Query type:}] What part of a patent application is best suited
-to use with a QR method?
-\item [{Relevance model:}] What is the relevance model that works best
-for QR for patent prior art search, i.e we investigate the probabilistic
-BM25 model~\cite{Robertson1993}, as well as the vector model~\cite{Salton1975}? 
-\item [{Term selection method:}] Many approaches of general and patent
-specific QR has been proposed. So, a natural question to ask is: which
-QR method works best, and with which retrieval model?
-\end{description}
+%\begin{description}
+%\item [{Query type:}] What part of a patent application is best suited to use with a QR method?
+%\item [{Relevance model:}] What is the relevance model that works best for QR for patent prior art search, i.e we investigate the probabilistic BM25 model~\cite{Robertson1993}, as well as the vector model~\cite{Salton1975}? 
+%\item [{Term selection method:}] Many approaches of general and patent specific QR has been proposed. So, a natural question to ask is: which QR method works best, and with which retrieval model?
+%\end{description}
+
+
 In the next section we propose a new method for query reduction based
 on MMR that we term MMRQR.
 
-
-\subsection{MMR Query Reduction (MMRQR)}
-
+\subsubsection{MMR Query Reduction (MMRQR)}
 \label{sec:MMRQR}
 
 Following the same motivations than those which led us to propose
@@ -505,12 +490,11 @@ for patent search, and we attempt to answer the questions we asked
 throughout this section.
 
 
-\section{Experimental Evaluation}
-
+\section{Experiments Evaluation}
 \label{sec:evaluation}
 
 
-\subsection{Experimental Setup}
+\subsection{Experiments Setup}
 
 We used the Lucene IR System%
 \footnote{We used the LucQE module, which provides an implementation of the
@@ -522,10 +506,13 @@ removal. We removed patent-specific stop-words as described in \cite{Magdy2012}.
 CLEF-IP 2010 contains 2.6 million patent documents and CLEF-IP 2011
 consists of 3 million patent documents. The English test sets of CLEF-IP
 2010 and CLEF-IP 2011 correspond to 1303 and 1351 topics respectively.
-In our implementation, each section of a patent application (title,
-abstract, claims, and description) is indexed in a separate field.
-Hence, when a query is processed, all fields in the index are targeted
-as shown in Figure \ref{fig:IndexFields}. We also used the patent
+In our implementation, each section of a patent (title,
+abstract, claims, and description) is indexed in a separate field, 
+so that different sections can be use, for example, as source of expansion terms.
+But, when a query is processed, all fields in the index are targeted, since
+it is sensible to use all available content. 
+
+We also used the patent
 classification (IPC) for filtering the results by constraining them
 to have common classifications with the patent topic as suggested
 in previous works \cite{Roda2009,Lopez2009}. Finally, we report Mean
@@ -534,21 +521,16 @@ Average Precision (MAP), and Patent Retrieval Evaluation Score (PRES)
 and weights relevant documents lower in the ranking more highly than
 MAP. We report the evaluation metrics on the top 1000 results.
 
-\begin{figure}
-\begin{centering}
-\includegraphics[width=8cm]{img/matching}
-\par\end{centering}
-
-\caption{Model of the index fields matching with queries .}
-
-
-\label{fig:IndexFields}
-\end{figure}
-
+%\begin{figure}
+%\begin{centering}
+%\includegraphics[width=8cm]{img/matching}
+%\par\end{centering}
+%\caption{Model of the index fields matching with queries .}
+%\label{fig:IndexFields}
+%\end{figure}
 
 
 \subsection{Experimental Results for QE}
-
 
 \subsubsection{Query Expansion Baselines}
 
@@ -567,13 +549,40 @@ probability of each item in the SynSet acting as a weight to the term
 within the query. (ii) The second one neglected this associated probability
 and used uniform weighting for all synonyms of a given term (denoted
 \textbf{USynSet}).
-
-The relevance model and term selection options give us seven QE algorithms
+The combination of QE methods, relevance model and 
+and term selection options give us seven QE algorithms
 to evaluate. When MMRQE is used in combination with the VSM, the additional
 terms use the weights provided by the Rocchio method, whereas when
 using MMRQE and Rocchio with BM25, there is no need to weight the
 terms. For all methods, their parameters were fixed to their optimal
 values, which were estimated using the CLEF-IP training queries.
+
+Other QE methods have been also explored for patent prior art search.
+For example, Magdy et al. \cite{Magdy2011} experiment a set of classic techniques
+of query expansion, which rely on pseudo-relevance feedback and WordNet
+as source of expansion terms. However, none of these approaches were
+able to achieve a significant improvement over the baseline/queries without expansion.
+Also, Bashir et al. \cite{Bashir2010} propose a query expansion with pseudo-relevance
+feedback. They proposed to select relevant terms for the expansion
+process using a machine learning approach, by picking terms that may
+have a potential positive impact on the retrieval effectiveness. However,
+this approach can be computational expensive, since the presented
+features are complicated to compute. 
+Verma and Varma \cite{Verma2011}
+propose a different approach, which instead of using the patent text
+to query, they use its International Patent Classification (IPC) codes
+as query which are expanded using the citation network. The formed
+query is used to perform an initial search. The results are then re-ranked
+using queries constructed from patent text. Throughout our experiments,
+we concluded that relying on other terms to form a query rather than
+those in the patent application, leads to poor retrieval quality.
+Therefore, the approach proposed in \cite{Verma2011} doesn't guarantee
+to obtain good performance. 
+Lastly, a more recent work by Mahdabi
+et al. \cite{Mahdabi2013} propose a query expansion
+method that build a query-specific patent lexicon based on the definitions of the IPC. 
+Then, this patent lexicon is used to select expansion terms that are focused on the
+query topic. 
 
 
 \subsubsection{Discussion}
@@ -647,7 +656,6 @@ options:
 \caption{Samples of queries extracted from CLEF-IP 2011, where MMRQE improves
 the performance.}
 
-
 \begin{tabular}{|>{\raggedright}p{17.5cm}|}
 \hline 
 \textbf{\scriptsize{}1- Topic:}{\scriptsize{} EP-1921264-A2}\tabularnewline
@@ -695,62 +703,7 @@ root, lead}\tabularnewline
 \end{tabular}\tabularnewline
 \hline 
 \hline 
-\textbf{\scriptsize{}2- Topic: }{\scriptsize{}EP-1707587-A1}\tabularnewline
-\hline 
-\textbf{\scriptsize{}Abstract:}{\scriptsize{} It is intended to provide
-a crosslinked polyrotaxane formed by crosslinking polyrotaxane moleculesvia
-chemical bonds which exhibits excellent optical properties in water
-or in an aqueous solution of sodium chloride; a compound having this
-crosslinked polyrotaxane; and a process for producing the same. The
-above object can be achieved by a crosslinked polyrotaxane having
-at least two polyrotaxane molecules, wherein linear molecules are
-included in a skewered-like state at the opening of cyclodextrin molecules
-and blocking groups are provided at both ends of the linear molecules,
-so as to prevent the cyclodextrin molecules from leaving, and cyclodextrin
-molecules in at least two polyrotaxane molecules being bonded to each
-other via chemical bond, characterized in that hydroxyl (-OH) groups
-in the cyclodextrin molecules are partly substituted with non-ionic
-groups. }\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.477} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.784}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}MMRQE expanded terms: }{\scriptsize{}includ,
-convent, chemic, uniform, physic, biodegrad, rotat, crosslink, expans,
-resist, plural, substanc, bond, elast, entrop, thereof, gelatin, polyrotaxan,
-fractur, realiz}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.300} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.577} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.797}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}Rocchio expanded terms: }{\scriptsize{}form,
-present, cyclodextrin, compris, molecul, polym, includ, crosslink,
-group, compound, relat, contact, water, monom, linear, composit, thereof,
-materi, plural, bond}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.455} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.770}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\hline 
-\textbf{\scriptsize{}3- Topic: }{\scriptsize{}EP-1422250-A1}\tabularnewline
+\textbf{\scriptsize{}2- Topic: }{\scriptsize{}EP-1422250-A1}\tabularnewline
 \hline 
 \textbf{\scriptsize{}Abstract:}{\scriptsize{} Provided is a method
 for the production of a polypropylene comprising branches in the polymer
@@ -759,7 +712,7 @@ monomer; and (b) polymerising propylene in the presence of the macromers
 and a catalyst, under polymerising conditions which favour the incorporation
 of the macromers into the polypropylene backbone, to form a branched
 polypropylene; wherein the catalyst employed in step (a) comprises
-a metallocene catalyst which promotes a chain terminating \textgreek{b}-alkyl
+a metallocene catalyst which promotes a chain terminating $\beta$ -alkyl
 elimination reaction to form terminal unsaturated groups in the macromers.}\tabularnewline
 \hline 
 \begin{tabular}{>{\centering}p{16.5cm}}
@@ -800,63 +753,7 @@ temperatur, option, molecular}\tabularnewline
 \end{tabular}\tabularnewline
 \hline 
 \hline 
-\textbf{\scriptsize{}4- Topic: }{\scriptsize{}EP-1449914-A1}\tabularnewline
-\hline 
-\textbf{\scriptsize{}Abstract:}{\scriptsize{} The present invention
-relates to a novel strain of Bacillus sp. D747 (FERM BP-8234). In
-addition, the present invention also relates to an agent for controlling
-plant diseases and an agent for controlling insect pests, comprising
-the Bacillus sp. D747 strain, and relates to a control method using
-the agents described above. By administering cultures of Bacillus
-sp. D747 (including the viable bacteria) or viable bacteria isolated
-by culturing, on the plant parts such as roots, stems, leaves, seeds,
-and the like, or in the culture soil, outbreaks of various plant diseases
-in an extremely wide range can be controlled, and pests can also be
-controlled. In addition, the plants on which the agents for controlling
-plant diseases and the agents for controlling pests comprising the
-D747 strain according to the present invention have been sprayed can
-exhibit superior controlling effects with respect to various plant
-diseases and pests.}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.285} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.250} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.130} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.694}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}MMRQE expanded terms: }{\scriptsize{}plant, control,
-fungal, administ, antibacteri, antifung, strain, protect, activ, exhibit,
-amount, pathogen, present, appli, specif, bacillu, antibiot, thuringiensi,
-train, isol}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}MMRQE performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.285} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.267} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.699}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}Rocchio expanded terms: }{\scriptsize{}plant,
-strain, bacillu, antibacteri, exhibit, antibiot, antifung, activ,
-fungal, produc, present, protect, metabolit, administ, amount, appli,
-treat, supernat, isol, cultur}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}Rocchio performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.200} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.285} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.190} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.650}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\hline 
-\textbf{\scriptsize{}5- Topic: }{\scriptsize{}EP-1754935-A1}\tabularnewline
+\textbf{\scriptsize{}3- Topic: }{\scriptsize{}EP-1754935-A1}\tabularnewline
 \hline 
 \textbf{\scriptsize{}Abstract:}{\scriptsize{} The fire-rated recessed
 downlight includes a mantle. A radiating mouth (4) is defined in the
@@ -1016,13 +913,19 @@ are terms that occur a lot in the query, and few in the class code
 definition, whereas bad terms are those that occur few in the query,
 and a lot in the class code definition). The intuition is that, terms
 in the IPC code definition may represent \textquotedbl{}stopwords\textquotedbl{},
-especially if they are rare (unfrequent in the patent application).
+especially if they are rare (infrequent in the patent application).
 We denote this approach \textbf{IPC Codes}.
+The combination of QR method with the relevance model and term selection options give us eight QR algorithms to evaluate. 
+Again, the parameters of all methods were fixed to their optimal values, which were estimated using the CLEF-IP training queries.
 
-The relevance model and term selection options give us eight QR algorithms
-to evaluate. Similarly, the parameters of all methods were fixed to
-their optimal values, which were estimated using the CLEF-IP training
-queries.
+Recently, \cite{Mahdabi2013} proposed as reduction process 
+to short the query by taking only the first claim of a patent application since it contains the core of the invention. This approach has not been implemented as baselines because of its 
+poor performance, has been already pointed out by its authors.
+
+%\textbf{Is query suggestion a query reformulation process? if not, remove the next paragraph} 
+%Finally, other works investigated \textbf{query suggestion} for patent prior art search, which reflect real-life scenario of examiners, who form reproducible boolean queries \cite{Adams2011,Azzopardi2010}. Reproducibility of search means that the retrieval system will give the same results for the same query each time. Hence, Kim et al. \ cite{Kim2011} propose an approach, which generate boolean queries by exploiting decision trees learned from pseudo-labeled documents and rank the suggested queries using query quality predictors.
+
+
 
 
 \subsubsection{Discussion}
@@ -1082,106 +985,8 @@ the performance.}
 
 \begin{tabular}{|>{\raggedright}p{17.5cm}|}
 \hline 
-\textbf{\scriptsize{}1- Topic:}{\scriptsize{} EP-1253083-A1}\tabularnewline
-\hline 
-\textbf{\scriptsize{}Abstract:}{\scriptsize{} A device for tensioning
-web, such as a plastics web (21) dispensed from a shuttle (3) in a
-wrapping machine (1), is disclosed. The wrapping machine (1) usually
-includes an endless track (2) positioned about an object (5) to be
-wrapped and the shuttle (3) travels on the endless track (2), dispensing
-the web (21) as it goes. The rate at which web is dispensed varies
-as the shuttle (3) progresses around the track (2) and is dependent
-upon the shape of the track and the shape of the object to be wrapped.
-The web tensioning device (22) attempts to maintain a constant tension
-in the web (21) and includes a pair of rollers (23,24) covered with
-resilient material. The rollers (23,24) are urged together to form
-a nip (29) with the resilient covering of the rollers compressed in
-the nip. The web (21) is fed between the nip (29) of the rollers (23,24).}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.800} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.363} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.405} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.737}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}MMRQR removed terms: }{\scriptsize{}plastic,
-pair, endless, dispens, shuttl, constant, track, machin, nip, vari}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}MMRQR performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.800} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.363} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.433} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.764}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}LMQR removed terms:}{\scriptsize{} attempt, resili,
-object, cover, depend, disclos, urg, shape, compress, materi}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}LMQR performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.800} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.363} & \textbf{\scriptsize{}RR:} & {\scriptsize{}1.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.388} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0,740}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\hline 
-\textbf{\scriptsize{}2- Topic: }{\scriptsize{}EP-1424597-A2}\tabularnewline
-\hline 
-\textbf{\scriptsize{}Abstract:}{\scriptsize{} Measurements of an interferometric
-measurement system are corrected for variations of atmospheric conditions
-such as pressure, temperature and turbulence using measurements from
-a second harmonic interferometer (10). A ramp, representing the dependence
-of the SHI data on path length, is removed before use of the SHI data.
-The SHI may use a passive Q-switched laser (11) as a light source
-and Brewster prisms (142,144) in the receiver module. Optical fibers
-may be used to conduct light to the detectors (145-147). A mirror
-reflecting the measurement beams has a coating of a thickness selected
-to minimize the sensitivity of the SHI data to changes in coating
-thickness.}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.037} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.022} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.648}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}MMRQR removed terms: }{\scriptsize{}temperatur,
-detector, path, laser, light, interferometr, brewster, sensit, repres,
-sourc}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}MMRQR performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.166} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.111} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.053} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.761}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}LMQR removed terms: }{\scriptsize{}minim, conduct,
-variat, shi, turbul, condit, pressur, remov, ramp, thick}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{16.5cm}}
-{\scriptsize{}LMQR performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}RR:} & {\scriptsize{}0.076} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.036} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.724}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\hline 
-\textbf{\scriptsize{}3- Topic: }{\scriptsize{}EP-1239127-A1}\tabularnewline
+
+\textbf{\scriptsize{}1- Topic: }{\scriptsize{}EP-1239127-A1}\tabularnewline
 \hline 
 \textbf{\scriptsize{}Abstract:}{\scriptsize{} A method and system
 for distributing electrical energy from an integrated starter-alternator
@@ -1224,7 +1029,8 @@ altern, order, distribut, starter, rang, integr, deceler, overrun}\tabularnewlin
 \end{tabular}\tabularnewline
 \hline 
 \hline 
-\textbf{\scriptsize{}4- Topic: }{\scriptsize{}EP-1498393-A1}\tabularnewline
+
+\textbf{\scriptsize{}2- Topic: }{\scriptsize{}EP-1498393-A1}\tabularnewline
 \hline 
 \textbf{\scriptsize{}Abstract:}{\scriptsize{} In methods for recovering
 and recycling helium and unreacted chlorine from a process for manufacturing
@@ -1269,7 +1075,8 @@ process, product, make, reus, unreact, typic, blend, method}\tabularnewline
 \end{tabular}\tabularnewline
 \hline 
 \hline 
-\textbf{\scriptsize{}5- Topic: }{\scriptsize{}EP-1314594-A1}\tabularnewline
+
+\textbf{\scriptsize{}3- Topic: }{\scriptsize{}EP-1314594-A1}\tabularnewline
 \hline 
 \textbf{\scriptsize{}Abstract:}{\scriptsize{} An air conditioner for
 air conditioning the interior of a compartment includes a compressor
@@ -1328,65 +1135,12 @@ current, ga, refer, compress, relat, interior, thermal, match}\tabularnewline
 \textcolor{red}{----------------------------------------}
 
 
-\section{Related Work}
+%\section{Related Work}
+%\label{sec:relatedworks}
 
-\label{sec:relatedworks}
+%The major contributions in patent search has focused on query formulation, where the objective is to find the best terms to represent a patent application as a query to achieve high retrieval effectiveness by retrieving all possible relevant documents at high ranks \cite{Magdy2012}. 
 
-The major contributions in patent search has focused on query formulation,
-where the objective is to find the best terms to represent a patent
-application as a query to achieve high retrieval effectiveness by
-retrieving all possible relevant documents at high ranks \cite{Magdy2012}. 
-
-The scenario of patent prior art search consists of manually form
-queries by selecting high frequency terms from patent application.
-Hence, following this methodology, some algorithms of patent query
-reduction have been proposed to select only useful terms from patent
-application \cite{Ganguly2011,Itoh2003}. We used the approach propose
-by Ganguly et al. \cite{Ganguly2011} for QR as a baseline, and we
-showed that the performance of MMRQR outperform this approach in many
-cases.
-
-Similarly, query expansion has been widely explored for patent search.
- Magdy et al. \cite{Magdy2011} experiment a set of classic techniques
-of query expansion, which rely on pseudo-relevance feedback and WordNet
-as source of expansion terms. However, none of these approaches were
-able to achieve a significant improvement over the baseline. Therefore,
-they introduce a novel approach that automatically generates candidate
-synonyms sets for terms, and use them as a source of expansion terms,
-which showed significant improvement with respect to the baseline.
-We also used this approach as a baseline in our experiments, and we
-showed that MMRQE provides better performance in many cases. Also,
-Bashir et al. \cite{Bashir2010} propose a query expansion with pseudo-relevance
-feedback. They proposed to select relevant terms for the expansion
-process using a machine learning approach, by picking terms that may
-have a potential positive impact on the retrieval effectiveness. However,
-this approach can be computational expensive, since the presented
-features are complicated to compute. Verma and Varma \cite{Verma2011}
-propose a different approach, which instead of using the patent text
-to query, they use its International Patent Classification (IPC) codes
-as query which are expanded using the citation network. The formed
-query is used to perform an initial search. The results are then re-ranked
-using queries constructed from patent text. Throughout our experiments,
-we concluded that relying on other terms to form a query rather than
-those in the patent application, leads to poor retrieval quality.
-Therefore, the approach proposed in \cite{Verma2011} doesn't guarantee
-to obtain good performance. Lastly, a more recent work by Mahdabi
-et al. \cite{Mahdabi2013} propose both a query reduction and expansion
-method. For the query reduction process, they just shorten the query
-document by taking the first claim since it contains the core of the
-invention. For the expansion process, they propose to build a query-specific
-patent lexicon based on the definitions of the IPC. Then, this patent
-lexicon is used to select expansion terms that are focused on the
-query topic.
-
-Finally, other works investigated query suggestion for patent prior
-art search, which reflect real-life scenario of examiners, who form
-reproducible boolean queries \cite{Adams2011,Azzopardi2010}. Reproducibility
-of search means that the retrieval system will give the same results
-for the same query each time. Hence, Kim et al. \cite{Kim2011} propose
-an approach, which generate boolean queries by exploiting decision
-trees learned from pseudo-labeled documents and rank the suggested
-queries using query quality predictors.
+%The scenario of patent prior art search consists of manually form queries by selecting high frequency terms from patent application. Hence, following this methodology, some algorithms of patent query reduction have been proposed to select only useful terms from patent application \cite{Ganguly2011,Itoh2003}. We used the approach propose by Ganguly et al. \cite{Ganguly2011} for QR as a baseline, and we showed that the performance of MMRQR outperform this approach in many cases. 
 
 %The major contributions in patent search has focused on query formulation, where the objective is to find the best terms to represent a patent application as a query to achieve high retrieval effectiveness by retrieving all possible relevant documents at high ranks \cite{Magdy2012}.
 
