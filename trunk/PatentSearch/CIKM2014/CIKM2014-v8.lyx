@@ -1531,7 +1531,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename img/matrix.eps
-	width 6cm
+	width 5.5cm
 
 \end_inset
 
@@ -3322,8 +3322,8 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-The utility of query reduction for 1304 abstract queries from the CLEF-IP
- 2010 data collection.
+The utility of query reduction for 1304 abstract queries of the CLEF-IP
+ 2010 dataset.
  
 \end_layout
 
@@ -8278,6 +8278,7 @@ motor
 load
 \shape default
 ), which probably decrease the quality of the query.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -8285,7 +8286,7 @@ load
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption
@@ -8293,6 +8294,10 @@ status collapsed
 \begin_layout Plain Layout
 Samples of queries extracted from CLEF-IP 2011, where MMRQR improves the
  performance.
+ (P: Precision, R: Recall, RR: Reciprocal Rank, AP: Average Precision, PRES:
+ Patent Retrieval Evaluation Score).
+ MMRQR improves the two first examples, while LMQR improves the third.
+ 
 \end_layout
 
 \end_inset
@@ -11300,7 +11305,7 @@ cite{Ganguly2011,Itoh2003}.
 placement t
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
