@@ -3509,7 +3509,7 @@ name "sec:evaluation"
 \begin_layout Standard
 In this section we first explain our experimental setup for evaluating the
  effectiveness of the different methods.
- Then, we discuss the results of the QE and QR methods.
+ Then, we discuss the results of QE and QR methods.
 \end_layout
 
 \begin_layout Subsection
@@ -3781,9 +3781,9 @@ key "Magdy2011"
 
 , which automatically generates candidate synonyms sets (SynSet) for terms,
  and use it as a source of expansion terms.
- This approach has two variants: (i) The first one used the probability
- associated with the SynSet entries as a weight for each expanded term in
- the query (denoted 
+ This approach has two variants: (i) The first one use the probability associate
+d with the SynSet entries as a weight for each expanded term in the query
+ (denoted 
 \series bold
 WSynSet
 \series default
@@ -3815,8 +3815,8 @@ key "Magdy2011"
 
 \end_inset
 
- experiment a set of classic techniques of query expansion, which rely on
- pseudo-relevance feedback and WordNet as source of expansion terms.
+ experiment a set of classic techniques of query expansion, which rely WordNet
+ as source of expansion terms.
  However, none of these approaches were able to achieve a significant improvemen
 t over the baseline/queries without expansion.
  Also, Bashir et al.
@@ -3856,7 +3856,12 @@ key "Verma2011"
 \end_inset
 
  doesn't guarantee to obtain good performance.
- Lastly, a more recent work by Mahdabi et al.
+ 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Lastly, a more recent work by Mahdabi et al.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3868,6 +3873,11 @@ key "Mahdabi2013"
  based on the definitions of the IPC.
  Then, this patent lexicon is used to select expansion terms that are focused
  on the query topic.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -3888,7 +3898,7 @@ reference "tbl:PFRSize"
 
  shows the impact of the PRF size on the performance for the two QE algorithms
  Rocchio and MMRQE.
- These results are shown on the CLEF-IP 2010 training queries, which consists
+ These results are shown on the CLEF-IP 2010 training dataset, which consists
  of 196 topics.
  We observe that the best QE performance results are obtained when using
  few documents in the PRF set as it was also reported in 
@@ -3899,9 +3909,9 @@ key "Magdy2011"
 \end_inset
 
  (in our case, the top five gave the best results).
- This is certainly due to the fact that a large PRF set set will include
- too much irrelevant documents, whose the terms may negatively affect the
- quality of the expanded query.
+ This is certainly due to the fact that a large PRF set will include too
+ much irrelevant documents, whose the terms may negatively affect the quality
+ of the expanded query.
 \end_layout
 
 \begin_layout Standard
@@ -3915,7 +3925,7 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Effect of PRF with varying numbers of feedback documents on prior-art patent
+Effect of PRF with various numbers of feedback documents on prior-art patent
  search.
  20 terms are used for query expansion.
 \end_layout
@@ -4678,13 +4688,13 @@ reference "fig:QE-qClaims-sAbstract-CLEF-2010"
  For lack of space we show only the results of queries extracted from the
  claims and the abstract used as source of query expansion.
  From these results, we make the following observations: (i) for the two
- retrieval models, MMRQE provides the best performance for both MAP and
- PRES (except for MAP, where Rocchio BM25 provides better performance than
- MMRQE BM25), (ii) for both MMRQE and Rocchio, the best performance is obtained
- while adding no more than 50 terms to the original queries (adding more
- terms may have no effect, or decrease the performance), and (iii) exploiting
- external sources for query expansion provides poor performance (IPC code
- definition and SynSets).
+ retrieval models (VSM and BM25), MMRQE provides the best performance for
+ both MAP and PRES (except for MAP, where Rocchio BM25 provides better performan
+ce than MMRQE BM25), (ii) for both MMRQE and Rocchio, the best performance
+ is obtained while adding no more than 50 terms to the original queries
+ (adding more terms may have no effect, or decrease the performance), and
+ (iii) exploiting external sources for query expansion provides poor performance
+ (IPC code definition and SynSets).
  
 \end_layout
 
@@ -4790,7 +4800,7 @@ reference "fig:PRES-CLEF2011"
 
  show the performance obtained for all the QE methods, while selecting the
  optimal number of terms used for the expansion (number of terms that maximizes
- the performance).
+ the performance for each method).
  From these results, we first observe that the best section to use for querying
  is the description section (see Figures 
 \begin_inset CommandInset ref
@@ -4829,12 +4839,12 @@ reference "fig:qDescription-PRES-CLEF-IP2010"
 \begin_layout Standard
 Secondly, regarding the source of query expansion, we observe that the best
  source is the claims.
- We attribute this to the fact that the claims section has more content
- along with more terms relevant to specific details of the patent, since
- the core of the invention is described therein.
+ We attribute this to the fact that the claims section has more technical
+ terms, which may be common with relevant patents, since legal aspects of
+ the invention are described therein.
  However, when querying using the claims, other sources of query expansion
  may provide better performance.
- This may be because the query needs more general terms than the technical
+ This may be because the query needs more general terms than the technical/legal
  terms already in the claims section.
  It is interesting to notice that the description is not either a good source
  for expansion, since it may contain more general terms that may hurt the
@@ -4844,7 +4854,7 @@ Secondly, regarding the source of query expansion, we observe that the best
 \begin_layout Standard
 Thirdly, we observed that query expansion is not useful for very long queries
  (i.e.
- description), indicating that in an advanced stages of the patent application
+ description), indicating that in advanced stages of the patent application
  process, QE is not relevant.
  We also notice that when dealing with more complex queries such as abstract
  or claims, MMRQE is more effective than Rocchio, which suggest that diverse
@@ -4867,7 +4877,7 @@ key "Magdy2011"
 
 \end_inset
 
-) as a source of expansion , gave poor performance (see IPC Codes and SynSet
+) as a source of expansion, gave poor performance (see IPC Codes and SynSet
  bars along the Figures).
 \end_layout
 
@@ -5255,7 +5265,7 @@ end{figure*}
 \begin_layout Standard
 Regarding the best term selection method, we conclude that in general MMRQE
  provides better performance than Rocchio.
- To  give an insight of the effect of MMRQE and Rocchio over the performance,
+ To give an insight of the effect of MMRQE and Rocchio over the performance,
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5264,14 +5274,14 @@ reference "tbl:QESampleQueries"
 \end_inset
 
  shows some queries where QE methods improved the performance.
- First of all, it is interesting to notice that even if there is common
+ First of all, it is interesting to notice that even if there are common
  terms selected to expand the queries by both MMRQE and Rocchio, the lists
- of MMRQE contain more diversified terms in (at least in the two first examples).
+ of MMRQE contain more diversified terms (at least in the two first examples).
  For the two first examples, relevant patents talk about a similar idea
  than the applications, but using different examples and applications (the
  writers of a patent use complex and ambiguous terms to generalize the coverage
  of the invention).
- Hence, for the first query, terms like: 
+ Hence, for the first query, key terms like: 
 \shape italic
 rotor, blend, and suction
 \shape default
@@ -7865,7 +7875,7 @@ key "Ganguly2011"
 
 .
  This technique decomposes a query (a patent section) into constituent text
- segments and compute the Language Modeling (LM) similarities by calculating
+ segments and computes the Language Modeling (LM) similarities by calculating
  the probability of generating each segment from the top ranked documents
  (PRF set).
  Then, the query is reduced by removing the least similar segments from
@@ -7892,7 +7902,7 @@ IPC Codes
 \series default
 .
  The combination of QR method with the relevance model and term selection
- options give us eight QR algorithms to evaluate.
+ options gives us eight QR algorithms to evaluate.
  Again, the parameters of all methods were fixed to their optimal values,
  which were estimated using the CLEF-IP training queries.
 \end_layout
@@ -8006,7 +8016,7 @@ reference "fig:DivImpactMMRQR"
 
 ), the overall performance are significantly degraded.
  This is certainly due to the fact that if we consider only diversified
- terms in the query, there is a loss in the meaning of the query, and thus
+ terms in the query, there is a loss in the meaning of the query, and thus,
  we increase the probability of retrieving irrelevant patents.
 \end_layout
 
@@ -8168,63 +8178,10 @@ reference "fig:QR-qDescription-CLEF-2010"
  description.
  These results tell us mainly two things: (i) for the two retrieval models,
  MMRQR provides the best performance for both MAP and PRES, and (ii) for
- both MMRQR and RocchioQR, the best performance is obtained when removing
- about 30 terms from the original queries (removing more terms will decrease
- significantly the performance).
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename mmrqrResults/qDescription-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qDescription-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Results obtained for QR while using the description for querying on the
- CLEF-IP 2010 dataset.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:QR-qDescription-CLEF-2010"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ both almost all methods, the best performance is obtained when removing
+ about 30 terms from the original queries (in the case where the description
+ is used for querying).
+ Removing more terms will decrease significantly the performance.
 \end_layout
 
 \begin_layout Standard
@@ -8275,13 +8232,13 @@ reference "fig:QR-PRES-CLEF-IP2011"
 
  show the performance obtained for all the QR methods, when selecting the
  optimal number of terms removed from the original queries (number of terms
- removed that maximizes the performance).
+ removed that maximizes the performance for each method).
  
 \end_layout
 
 \begin_layout Standard
 From these results, we make the following observations: (i) query reduction
- is not really useful for short queries (i.e.
+ is very often not useful for short queries (i.e.
  title), since no QR method outperforms significantly the baseline (i.e.
  No QR), (ii) when dealing with very long query (i.e.
  description), BM25 based QR methods perform better than VSM based QR methods,
@@ -8299,10 +8256,10 @@ reference "tbl:QRSampleQueries"
 
 \end_inset
 
- shows some queries where QE methods improved the performance.
+ shows some queries where QR methods improved the performance.
  First, we notice that even if there is common terms removed from the original
  queries by both MMRQR and LMQR, the lists of MMRQR contain more similar
- terms in (e.g.
+ terms (e.g.
  
 \shape italic
 laser, light, interferometer
@@ -8311,7 +8268,7 @@ laser, light, interferometer
  For the two first examples, for MMRQR, similar terms were removed from
  the queries, which favor finding more diverse patent relevant to the patent
  applications.
- However, for the third query, MMRQR removed to main terms from the query
+ However, for the third query, MMRQR removed the main terms from the query
  (
 \shape italic
 motor
@@ -11337,6 +11294,60 @@ cite{Ganguly2011,Itoh2003}.
 
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Results obtained for QR while using the description for querying on the
+ CLEF-IP 2010 dataset.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-qDescription-CLEF-2010"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Conclusion
 \end_layout
@@ -11371,7 +11382,7 @@ In this paper we analyzed general and specific QE and QR methods for patent
 Regarding QR methods, we showed that these techniques are effective to some
  extend for claims and description sections, which are considered as the
  longest sections in a patent application.
- We also demonstrated that our new QR methods MMRQR may improve both recall
+ We also demonstrated that our new QR method MMRQR might improve both recall
  and precision in many cases.
  For this second part, future work may consist of exploiting query quality
  predictors to identify useless terms in a query using machine learning
