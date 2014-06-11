@@ -5123,7 +5123,7 @@ end{figure*}
 
 \begin_layout Standard
 Regarding the best term selection method, we conclude that in general MMRQE
- provide better performance than Rocchio.
+ provides better performance than Rocchio.
  To to give an insight of the effect of MMRQE and Rocchio over the performance,
  Table 
 \begin_inset CommandInset ref
@@ -7834,6 +7834,365 @@ Discussion
 \end_layout
 
 \begin_layout Standard
+In this section, we discuss the results of the evaluation performed on the
+ QR methods described above.
+ As recommended in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ganguly2011"
+
+\end_inset
+
+ and confirmed in our own experimentation (not shown due to lack of space),
+ best QR performance results are also obtained when using few documents
+ in the PRF set (in our case, the top five gave the best results).
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:DivImpactMMRQR"
+
+\end_inset
+
+ shows the impact of the diversity parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ on the performance of MMRQR.
+ The results are shown using BM25 retrieval model, and using abstract and
+ claims for querying.
+ Throughout our experiments, we concluded that the best value of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is 0.8, which indicates that few diversification in term selection can provide
+ some improvement.
+ It is clear that if we consider only diversification to select terms (
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+), the overall performance are significantly degraded.
+ This is certainly due to the fact that if we consider only diversified
+ terms in the query, there is a loss in the meaning of the query, and thus
+ we increase the probability of retrieving irrelevant patents.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mmrqrResults-lambda/qAbstract-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults-lambda/qAbstract-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mmrqrResults-lambda/qClaims-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults-lambda/qClaims-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Impact of the diversity parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ on the performance of MMRQR.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:DivImpactMMRQR"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next, we carry out experiments along the dimensions outlined in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:FrameworkQR"
+
+\end_inset
+
+ with the following specific options:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Query type:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Relevance model:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+Term selection method:
+\series default
+ 
+\begin_inset Formula $\{\mathrm{RocchioQR},\mathrm{MMRQR},etc...\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QR-qDescription-CLEF-2010"
+
+\end_inset
+
+ shows the results obtained in terms of MAP and PRES for CLEF-IP 2010 for
+ different numbers of removed terms 
+\begin_inset Formula $k$
+\end_inset
+
+ on the x-axis (with 
+\begin_inset Formula $k=0$
+\end_inset
+
+ using no QR, just the baseline retrieval model).
+ For lack of space we show only the results of queries extracted from the
+ description.
+ These results tell us mainly two things: (i) for the two retrieval models,
+ MMRQR provides the best performance for both MAP and PRES, and (ii) for
+ both MMRQR and RocchioQR, the best performance is obtained when removing
+ about 30 terms from the original queries (removing more terms will decrease
+ significantly the performance).
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-sDescription_MAP_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-sDescription_PRES_2010.eps
+	width 4.3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Results obtained for QR while using the description for querying on the
+ CLEF-IP 2010 dataset.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-qDescription-CLEF-2010"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To summarize all the results obtained over all the above configurations,
+ Figures
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QR-MAP-CLEF-IP2010"
+
+\end_inset
+
+, 
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QR-PRES-CLEF-IP2010"
+
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QR-MAP-CLEF-IP2011"
+
+\end_inset
+
+, and
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QR-PRES-CLEF-IP2011"
+
+\end_inset
+
+ show the performance obtained for all the QR methods, when selecting the
+ optimal number of terms removed from the original queries (number of terms
+ removed that maximizes the performance).
+ 
+\end_layout
+
+\begin_layout Standard
+From these results, we make the following observations: (i) query reduction
+ is not really useful for short queries (i.e.
+ title), since no QR method outperforms significantly the baseline (i.e.
+ No QR), (ii) when dealing with very long query (i.e.
+ description), BM25 based QR methods perform better than VSM based QR methods,
+ and (iii) in general, MMRQR provides better performance than the other
+ methods.
+ 
+\end_layout
+
+\begin_layout Standard
+To to give an insight of the effect of MMRQR and LMQR over the performance,
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tbl:QRSampleQueries"
+
+\end_inset
+
+ shows some queries where QE methods improved the performance.
+ First, we notice that even if there is common terms removed from the original
+ queries by both MMRQR and LMQR, the lists of MMRQR contain more similar
+ terms in (e.g.
+ 
+\shape italic
+laser, light, interferometer
+\shape default
+ for the first example).
+ For the two first examples, for MMRQR, similar terms were removed from
+ the queries, which favor finding more diverse patent relevant to the patent
+ applications.
+ However, for the third query, MMRQR removed to main terms from the query
+ (
+\shape italic
+motor
+\shape default
+, and thermal 
+\shape italic
+load
+\shape default
+), which probably decrease the quality of the query.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement t
 wide true
@@ -7847,6 +8206,13 @@ status collapsed
 Samples of queries extracted from CLEF-IP 2011, where MMRQR improves the
  performance.
 \end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tbl:QRSampleQueries"
 
 \end_inset
 
@@ -10164,823 +10530,6 @@ PRES:
 \end_layout
 
 \begin_layout Standard
-In this section, we discuss the results of the evaluation performed on the
- QR methods described above.
- As recommended in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Ganguly2011"
-
-\end_inset
-
- and confirmed in our own experimentation (not shown due to lack of space),
- best QR performance results are also obtained when using few documents
- in the PRF set (in our case, the top five gave the best results).
-\end_layout
-
-\begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:DivImpactMMRQR"
-
-\end_inset
-
- shows the impact of the diversity parameter 
-\begin_inset Formula $\lambda$
-\end_inset
-
- on the performance of MMRQR.
- The results are shown using BM25 retrieval model, and using abstract and
- claims for querying.
- Throughout our experiments, we concluded that the best value of 
-\begin_inset Formula $\lambda$
-\end_inset
-
- is 0.8, which indicates that few diversification in term selection can provide
- some improvement.
- It is clear that if we consider only diversification to select terms (
-\begin_inset Formula $\lambda=0$
-\end_inset
-
-), the overall performance are significantly degraded.
- This is certainly due to the fact that if we consider only diversified
- terms in the query, there is a loss in the meaning of the query, and thus
- we increase the probability of retrieving irrelevant patents.
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qAbstract-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults-lambda/qClaims-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Impact of the diversity parameter 
-\begin_inset Formula $\lambda$
-\end_inset
-
- on the performance of MMRQR.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:DivImpactMMRQR"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Next, we carry out experiments along the dimensions outlined in Section
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:FrameworkQR"
-
-\end_inset
-
- with the following specific options:
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\size footnotesize
-Query type:
-\series default
- 
-\begin_inset Formula $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\size footnotesize
-Relevance model:
-\series default
- 
-\begin_inset Formula $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\size footnotesize
-Term selection method:
-\series default
- 
-\begin_inset Formula $\{\mathrm{RocchioQR},\mathrm{MMRQR},etc...\}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-
-\color red
-----------------------------------------
-\end_layout
-
-\begin_layout Standard
-Figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:QR-qDescription-CLEF-2010"
-
-\end_inset
-
- shows the results obtained in terms of MAP and PRES for CLEF-IP 2010 for
- different numbers of expanded terms 
-\begin_inset Formula $k$
-\end_inset
-
- on the x-axis (with 
-\begin_inset Formula $k=0$
-\end_inset
-
- using no QE, just the baseline retrieval model).
- For lack of space we show only the results of queries extracted from the
- claims and the abstract used as source of query expansion.
- From these results, we make the following observations: (i) for the two
- retrieval models, MMRQE provides the best performance for both MAP and
- PRES (except for MAP, where Rocchio BM25 provides better performance than
- MMRQE BM25), (ii) for both MMRQE and Rocchio, the best performance is obtained
- while adding no more than 50 terms to the original queries (adding more
- terms may have no effect, or decrease the performance), and (iii) exploiting
- external sources for query expansion provides poor performance (IPC code
- definition and SynSets).
- 
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename mmrqrResults/qDescription-sDescription_MAP_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qDescription-sDescription_PRES_2010.eps
-	width 4.3cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Results obtained for QR while using the description for querying on the
- CLEF-IP 2010 dataset.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:QR-qDescription-CLEF-2010"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-To summarize all the results obtained over all the above configurations,
- Figures
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:MAP-CLEF2010"
-
-\end_inset
-
-, 
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:PRES-CLEF2010"
-
-\end_inset
-
-,
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:MAP-CLEF2011"
-
-\end_inset
-
-, and
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:PRES-CLEF2011"
-
-\end_inset
-
- show the performance obtained for all the QE methods, while selecting the
- optimal number of terms used for the expansion (number of terms that maximizes
- the performance).
- From these results, we first observe that the best section to use for querying
- is the description section (see Figures 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:qDescription-MAP-CLEF-IP2010"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:qDescription-PRES-CLEF-IP2010"
-
-\end_inset
-
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:qDescription-MAP-CLEF-IP2010"
-
-\end_inset
-
-, and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:qDescription-PRES-CLEF-IP2010"
-
-\end_inset
-
-).
- We attribute this to the fact that the description section has more content
- along with more terms relevant to specific details that describe the patent,
- since the core of the invention is described therein.
-\end_layout
-
-\begin_layout Standard
-Secondly, regarding the source of query expansion, we observe that the best
- source is the claims.
- We attribute this to the fact that the claims section has more content
- along with more terms relevant to specific details of the patent, since
- the core of the invention is described therein.
- However, when querying using the claims, other sources of query expansion
- may provide better performance.
- This may be because the query needs more general terms than the technical
- terms already in the claims section.
- It is interesting to notice that the description is not either a good source
- for expansion, since it may contain more general terms that may hurt the
- performance.
-\end_layout
-
-\begin_layout Standard
-Thirdly, we observed that query expansion is not useful for very long queries
- (i.e.
- description), indicating that in an advanced stages of the patent application
- process, QE is not relevant.
- We also notice that when dealing with more complex queries such as abstract
- or claims, MMRQE is more effective than Rocchio, which suggest that diverse
- term selection is not crucial for short queries.
-\end_layout
-
-\begin_layout Standard
-Finally, we observed that using the IPC code definitions (as suggested by
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Mahdabi2013"
-
-\end_inset
-
-) and SynSet (method of 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Magdy2011"
-
-\end_inset
-
-) as a source of expansion , gave poor performance (see IPC Codes and SynSet
- bars along the Figures).
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-begin{figure*}[t]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-begin{centering}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Title.}]{
-\backslash
-includegraphics[width=4.3cm]{Results-SIGIR2014/qClaims-sTitle_MAP_2011}}
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Abstract.}]{
-\backslash
-includegraphics[width=4.3cm]{Results-SIGIR2014/qClaims-sAbstract_MAP_2011}}
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Claims.}]{
-\backslash
-includegraphics[width=4.3cm]{Results-SIGIR2014/qClaims-sClaims_MAP_2011}}
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Descrip.}]{
-\backslash
-includegraphics[width=4.3cm]{Results-SIGIR2014/qClaims-sDescription_MAP_2011}}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-par
-\backslash
-end{centering}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-vspace{-3mm}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-caption{Mean Average Precision (MAP) on CLEF-2011 (for MMRQE $
-\backslash
-lambda=0.5$).}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-label{fig:MAP-CLEF2011}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-vspace{-3mm}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-end{figure*}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-begin{figure*}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-begin{centering}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Title.}]{
-\backslash
-includegraphics[width=4.3cm]{Results-SIGIR2014/qClaims-sTitle_PRES_2011}}
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Abstract.}]{
-\backslash
-includegraphics[width=4.3cm]{Results-SIGIR2014/qClaims-sAbstract_PRES_2011}}
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Claims.}]{
-\backslash
-includegraphics[width=4.3cm]{Results-SIGIR2014/qClaims-sClaims_PRES_2011}}
-\backslash
-subfigure[{
-\backslash
-tiny Query Claims 
-\backslash
-& source Descrip.}]{
-\backslash
-includegraphics[width=4.3cm]{Results-SIGIR2014/qClaims-sDescription_PRES_2011}}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-par
-\backslash
-end{centering}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-vspace{-3mm}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-caption{Patent Retrieval Evaluation Score (PRES) on CLEF-2011 (for MMRQE
- $
-\backslash
-lambda=0.5$).}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-label{fig:PRES-CLEF2011}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
-\backslash
-vspace{-3mm}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%r
-\backslash
-end{figure*}
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Regarding the best term selection method, we conclude that in general MMRQE
- provide better performance than Rocchio.
- To to give an insight of the effect of MMRQE and Rocchio over the performance,
- Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tbl:QESampleQueries"
-
-\end_inset
-
- shows some queries where QE methods improved the performance.
- First of all, it is interesting to notice that even if there is common
- terms selected to expand the queries by both MMRQE and Rocchio, the lists
- of MMRQE contain more diversified terms in (at least in the two first examples).
- For the two first examples, relevant patents talk about a similar idea
- than the applications, but using different examples and applications (the
- writers of a patent use complex and ambiguous terms to generalize the coverage
- of the invention).
- Hence, for the first query, terms like: 
-\shape italic
-rotor, blend, and suction
-\shape default
-, were able to capture the scope of the relevant patents to allow either
- retrieving them (improving PRES), or pushing them to the top of the ranking
- (improving MAP).
- As for the third query, MMRQE expand the query with general terms, e.g.
- 
-\shape italic
-result, includ, extend, plural
-\shape default
-, which probably encourage retrieving irrelevant patents.
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status collapsed
 
@@ -11096,7 +10645,7 @@ cite{Magdy2012}.
 
 \begin_layout Standard
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 There are a variety of existing query expansion methods that use synonyms
@@ -11672,9 +11221,9 @@ name "sec:conclusion"
 \end_layout
 
 \begin_layout Standard
-In this paper we analyzed general QE and QR methods for patent prior art
- search with incomplete patent applications on two patent retrieval corpora,
- namely CLEF-IP 2010 and CLEF-IP 2011.
+In this paper we analyzed general and specific QE and QR methods for patent
+ prior art search with incomplete patent applications on two patent retrieval
+ corpora, namely CLEF-IP 2010 and CLEF-IP 2011.
  We demonstrated that QE methods are critical for short queries, i.e.
  title, abstract, and claims, but useless for very long queries, i.e.
  the description section.
@@ -11684,12 +11233,16 @@ In this paper we analyzed general QE and QR methods for patent prior art
  Future work can look at more patent-specific methods of QE for prior art
  search with partial patent applications and how they can be integrated
  with methods like MMRQE.
- Regarding QR methods, we showed that these techniques are effective to
- some extend for claims and description sections, which are considered as
- the longest sections in a patent application.
+ 
+\end_layout
+
+\begin_layout Standard
+Regarding QR methods, we showed that these techniques are effective to some
+ extend for claims and description sections, which are considered as the
+ longest sections in a patent application.
  We also demonstrated that our new QR methods MMRQR may improve both recall
  and precision in many cases.
- For this second part, future work may consist in exploiting query quality
+ For this second part, future work may consist of exploiting query quality
  predictors to identify useless terms in a query using machine learning
  methods.
 \end_layout
@@ -12412,6 +11965,16 @@ Mean Average Precision (MAP) on CLEF-2010 (for MMRQR
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-MAP-CLEF-IP2010"
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -12573,6 +12136,16 @@ Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQR
 
 ).
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-PRES-CLEF-IP2010"
 
 \end_inset
 
@@ -13145,6 +12718,16 @@ Mean Average Precision (MAP) on CLEF-2010 (for MMRQR
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-MAP-CLEF-IP2011"
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -13306,6 +12889,16 @@ Patent Retrieval Evaluation Score (PRES) on CLEF-2010 (for MMRQR
 
 ).
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-PRES-CLEF-IP2011"
 
 \end_inset
 
@@ -15142,16 +14735,6 @@ Mean Average Precision (MAP) on CLEF-2011 (for MMRQE
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:MAP-CLEF2010-1"
-
-\end_inset
-
-
-\end_layout
-
 \end_inset
 
 
@@ -15749,16 +15332,6 @@ Patent Retrieval Evaluation Score (PRES) on CLEF-2011 (for MMRQE
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:PRES-CLEF2010-1"
-
-\end_inset
-
- 
 \end_layout
 
 \end_inset
