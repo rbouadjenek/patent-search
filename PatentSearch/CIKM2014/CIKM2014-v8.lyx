@@ -3925,8 +3925,8 @@ status open
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Effect of PRF with various numbers of feedback documents on prior-art patent
- search.
+Effect of PRF with various numbers of feedback documents on the CLEF-IP
+ 2010 dataset.
  20 terms are used for query expansion.
 \end_layout
 
@@ -8075,7 +8075,7 @@ Impact of the diversity parameter
 \begin_inset Formula $\lambda$
 \end_inset
 
- on the performance of MMRQR.
+ on the performance of MMRQR on the CLEF-IP 2010 dataset.
 \end_layout
 
 \end_inset
@@ -12160,7 +12160,7 @@ name "fig:MAP-CLEF2011"
 placement t
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -12357,7 +12357,7 @@ name "fig:PRES-CLEF2011"
 placement t
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -12534,7 +12534,7 @@ name "fig:QR-PRES-CLEF-IP2010"
 placement t
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -12712,7 +12712,7 @@ name "fig:QR-MAP-CLEF-IP2010"
 placement t
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -12889,7 +12889,7 @@ name "fig:QR-PRES-CLEF-IP2011"
 placement t
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
