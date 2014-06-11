@@ -296,7 +296,7 @@ of Rocchio, that we call MMR Query Expansion (MMRQE).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\includegraphics[width=6cm]{img/matrix} 
+\includegraphics[width=5.5cm]{img/matrix} 
 \par\end{centering}
 
 \vspace{-1mm}
@@ -462,8 +462,8 @@ and description.
 \begin{figure}[!h]
 \begin{centering}
 \includegraphics[width=4cm]{analysis/precision-recall_ByField-CLEF-IP_2010}\includegraphics[width=4cm]{analysis/MAP-MRR_ByField-CLEF-IP_2010}
-\caption{The utility of query reduction for 1304 abstract queries from the
-CLEF-IP 2010 data collection. }
+\caption{The utility of query reduction for 1304 abstract queries of the CLEF-IP
+2010 dataset. }
 
 \par\end{centering}
 
@@ -1101,11 +1101,13 @@ for MMRQR, similar terms were removed from the queries, which favor
 finding more diverse patent relevant to the patent applications. However,
 for the third query, MMRQR removed the main terms from the query (\textit{motor},
 and thermal \textit{load}), which probably decrease the quality of
-the query.
+the query. 
 
 \begin{table*}[t]
 \caption{Samples of queries extracted from CLEF-IP 2011, where MMRQR improves
-the performance.}
+the performance. (P: Precision, R: Recall, RR: Reciprocal Rank, AP:
+Average Precision, PRES: Patent Retrieval Evaluation Score). MMRQR
+improves the two first examples, while LMQR improves the third. }
 \label{tbl:QRSampleQueries}
 
 \centering{}%
