@@ -56,7 +56,6 @@ with queries representing (partial) applications
 to help inventors to assess the patentability of their ideas prior to
 writing a full application.
 %Hence, in this paper, we focus on both helping inventors to assess the patentability of their ideas and patents examiners to assess the patentability of a given patent application.
---
 In this paper, we carry out an intensive study about query
 reformulation for patent prior art search with partial patent
 application, within the aim of assessing not only the performance 
@@ -184,11 +183,10 @@ selection;
 \item A strong performance evaluation on standardized datasets of CLEF-IP
 using different configurations.
 \end{enumerate}
-The rest of this paper is organized as follows: in Section \ref{sec:QueryReformulationForPatents}
-we introduce our approaches for diverse patent query reformulation,
-and we discuss the experiments in Section \ref{sec:evaluation}. We
-present the related work in Section \ref{sec:relatedworks}, and we
-conclude and provide some future directions in Section \ref{sec:conclusion}.
+
+The rest of this paper is organized as follows: in Section \ref{sec:QueryReformulationForPatents} we present query reformulation frameworks. 
+Section \ref{sec:evaluation} is dedicated to present and discuss the 
+experiments. Finally, conclusion and future directions are provided in Section \ref{sec:conclusion}.
 
 
 \section{Query Reformulation for Patents}
@@ -202,10 +200,9 @@ During the exploration of query reformulation for patent search with partial pat
 \item [{Query type:}] We considered that a query of a partial patent application consist
 of either the title, the abstract, the claims or the description section.
 %\footnote{A query is always evaluated against the full content (title, abstract, claims, description) of granted patent applications since it is sensible to make use of all available content.}
-Critical questions are: (i) what part of a partial application an
-inventor should write to obtain the best search results? (ii) \textbf{what
-part of a patent application a patent examiner should use to make
-a patent prior art search? }
+Critical questions is: what part of a partial application an
+inventor should write to obtain the best search results? 
+%(ii) \textbf{what part of a patent application a patent examiner should use to make a patent prior art search? }
 
 \item [{Relevance model:}] For initial retrieval of documents in the \emph{pseudo-relevant}
 feedback set (PRF) 
@@ -219,7 +216,7 @@ model works best for query reformulation for patent prior art search?
 
 \item [{Query expansion source:}] We can consider the title, abstract,
 claims, and description sections as different term sources to determine 
-which section offers the best source of expansion terms? E.g., are
+which section offers the best source of expansion terms, e.g., are
 the title words of particularly high value as expansion terms? 
 Note that this only applies to query expansion methods. 
 
@@ -229,8 +226,6 @@ and an new term selection method that we propose in the next section.
 Then a natural question is, which term expansion
 method works best, and with which expansion source and retrieval model? 
 \end{description}
-
-In what follows, we present ...
 
 
 \subsection{Query Expansion Frameworks}
@@ -277,12 +272,13 @@ algorithm for result set diversification, but rather than for diverse
 document selection as typically used, we intend to use it here for
 diverse term selection. 
 In what follows, we present a novel term selection method inspired by MMR, 
-to address the deficiency of Rocchio, that we called MMR Query Expansion.  
+to address the deficiency of Rocchio, that we called MMR Query Expansion (MMRQE).  
 
 
+%\subsubsection{MMR Query Expansion (MMRQE)}
+%\label{sec:MMRQE}
 
-\subsubsection{MMR Query Expansion (MMRQE)}
-\label{sec:MMRQE}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
@@ -297,7 +293,7 @@ to address the deficiency of Rocchio, that we called MMR Query Expansion.
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We begin our formal description of MMRQE by first defining some necessary
+We begin our formal description of \textbf{MMRQE} by first defining some necessary
 notation. MMRQE takes as input a pseudo-relevant feedback set of $n$
 documents (PRF), which is obtained after a retrieval for the initial
 query. From the PRF set, we build a document-term matrix of $n$ documents
@@ -363,7 +359,7 @@ and a patent retrieval evaluation score (PRES) \cite{Magdy2010a}
 of 0.777 (its performance are provided in the footer row). 
 We show the evaluation performance of the query after removing each term from
 the original query. The removed terms have been sorted in the order
-of decreasing PRES. We can observe that there are ten terms that if
+of decreasing PRES. We can observe that there are ten terms (highlighted in boldface) that if
 they are (individually) removed from the query, we increase PRES of the original
 long query.
 
@@ -463,14 +459,11 @@ CLEF-IP 2010 data collection. }
 %\end{description}
 
 
-In the next section we propose a new method for query reduction based
-on MMR that we term MMRQR.
-
-\subsubsection{MMR Query Reduction (MMRQR)}
-\label{sec:MMRQR}
+%\subsubsection{MMR Query Reduction (MMRQR)}
+%\label{sec:MMRQR}
 
 Following the same motivations than those which led us to propose
-MMRQE, we propose to greedily rebuild the query from its terms, while
+\textbf{MMRQR}, we propose to greedily rebuild the query from its terms, while
 choosing diversified terms. Formally, given a query representation
 $Q$, we aim to select an optimal subset of $k$ terms $T_{k}^{*}\subset Q$
 (where $|T_{k}^{*}|=k$ and $k<|Q|$) relevant to $Q$ but inherently
