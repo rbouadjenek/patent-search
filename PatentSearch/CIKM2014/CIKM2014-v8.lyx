@@ -4729,7 +4729,7 @@ status open
 
 \begin_layout Plain Layout
 Results obtained while using the claims for querying and the abstract as
- source of query expansion on the CLEF-IP 2010.
+ source of query expansion on the CLEF-IP 2010 dataset.
 \end_layout
 
 \end_inset
@@ -11564,7 +11564,7 @@ status open
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -11728,7 +11728,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mean Average Precision (MAP) for QE methods on CLEF-2010 (for MMRQE 
+Mean Average Precision (MAP) for QE methods on CLEF-IP 2010 (for MMRQE 
 \begin_inset Formula $\lambda=0.5$
 \end_inset
 
@@ -11760,7 +11760,7 @@ name "fig:MAP-CLEF2010"
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -11924,8 +11924,8 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) for QE methods on CLEF-2010 (for
- MMRQE 
+Patent Retrieval Evaluation Score (PRES) for QE methods on CLEF-IP 2010
+ (for MMRQE 
 \begin_inset Formula $\lambda=0.5$
 \end_inset
 
@@ -11957,7 +11957,7 @@ name "fig:PRES-CLEF2010"
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12121,7 +12121,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mean Average Precision (MAP) for QE methods on CLEF-2011 (for MMRQE 
+Mean Average Precision (MAP) for QE methods on CLEF-IP 2011 (for MMRQE 
 \begin_inset Formula $\lambda=0.5$
 \end_inset
 
@@ -12160,7 +12160,7 @@ name "fig:MAP-CLEF2011"
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12324,7 +12324,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) for QE methods on CLEF-2011 (for
+Patent Retrieval Evaluation Score (PRES) for QE methods on CLEF 2011 (for
  MMRQE 
 \begin_inset Formula $\lambda=0.5$
 \end_inset
@@ -12357,7 +12357,7 @@ name "fig:PRES-CLEF2011"
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12502,7 +12502,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mean Average Precision (MAP) for QR methods on CLEF-2010 (for MMRQR 
+Mean Average Precision (MAP) for QR methods on CLEF-IP 2010 (for MMRQR 
 \begin_inset Formula $\lambda=0.8$
 \end_inset
 
@@ -12534,7 +12534,7 @@ name "fig:QR-PRES-CLEF-IP2010"
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12679,7 +12679,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF-2010 (for
+Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF 2010 (for
  MMRQR 
 \begin_inset Formula $\lambda=0.8$
 \end_inset
@@ -12712,7 +12712,7 @@ name "fig:QR-MAP-CLEF-IP2010"
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -12857,7 +12857,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Mean Average Precision (MAP) for QR methods on CLEF-2011 (for MMRQR 
+Mean Average Precision (MAP) for QR methods on CLEF-IP 2011 (for MMRQR 
 \begin_inset Formula $\lambda=0.8$
 \end_inset
 
@@ -12889,7 +12889,7 @@ name "fig:QR-PRES-CLEF-IP2011"
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -13034,7 +13034,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF-2011 (for
+Patent Retrieval Evaluation Score (PRES) for QR methods on CLEF 2011 (for
  MMRQR 
 \begin_inset Formula $\lambda=0.8$
 \end_inset
