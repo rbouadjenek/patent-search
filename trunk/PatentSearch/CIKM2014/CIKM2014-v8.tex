@@ -50,13 +50,13 @@ with queries representing (partial) applications to help inventors
 to assess the patentability of their ideas prior to writing a full
 application. %Hence, in this paper, we focus on both helping inventors to assess the patentability of their ideas and patents examiners to assess the patentability of a given patent application.
 In this paper, we carry out an intensive study about query reformulation
-for patent prior art search with partial patent application, with
+for patent prior art search with partial patent applications, with
 the objective of assessing not only the performance of standard query
 reformulation methods, but also the effectiveness of query reformulation
 methods that exploit patent-specific characteristics. We also propose
-new query reformulation methods that exploit the specific structure
-of patents and carry out the trade-off between diversification and
-similarity to the query. We demonstrate that our methods improve both
+new query reformulation methods that (a) exploit patent structure 
+and (b) leverage techniques for diverse term selection in query
+reformulation.  We demonstrate that our methods improve both
 general (MAP) and patent-specific (PRES) evaluation metrics for prior
 art search performance on standardized datasets of CLEF-IP, with respect
 to both general and specific query reformulation methods. 
@@ -81,13 +81,16 @@ to both general and specific query reformulation methods.
 and represent a multi-billion dollar industry of licensing and litigation.
 In 2012, 276,788 patent applications were approved in the US alone
 a number that has doubled in the past 15 years. Hence, helping both
-inventors and patents examiners to assess the patentability of a given
+inventors and patent examiners assess the patentability of a given
 patent application through a patent prior art search is a critical
-task. Patent prior art search involves finding previously granted
+task. 
+
+% NOTE: more paragraph breaks help reader digest content better
+Patent prior art search involves finding previously granted
 patents that may be relevant to a new patent application. The objective
 and challenges of standard formulations of patent prior art search
 are different from those of standard text and web search since~\cite{Magdy2012}:
-(i) queries are full patent applications, which consist of documents
+(i) queries are (partial) patent applications, which consist of documents
 with hundreds of words organized into several sections, while queries
 in text and web search constitute only a few words; (ii) patent prior
 art search is a recall-oriented task, where the primary focus is to
@@ -106,10 +109,11 @@ are hired to assist.
 
 %However prior art search with partial applications is much different than queries with a full application -- namely because the queries are much shorter and represent only parts of a patent application.
 
-
-A patent application is organized in, at least, four sections: title,
-abstract, claims and description. We assumed that a partial application
-consist in one of the mentioned sections. To assess the difficulty
+%NOTE: start a paragaph with the key idea
+%A patent application is organized in, at least, four sections: title,
+%abstract, claims and description. We assumed that a partial application
+%consist in one of the mentioned sections. 
+To assess the difficulty
 of querying with partial patent applications, we refer to Figure~\ref{fig:FailureAnalysis}.
 Here we show an analysis of the average Jaccard similarity%
 \footnote{The Jaccard similarity is used to measure the term overlap between
@@ -117,18 +121,19 @@ two sets, and is defined as the size of the intersection divided by
 the size of the union of the sample sets. Before applying the Jaccard
 similarity, patent-specific stopwords were removed, as suggested by
 \cite{Mahdabi2012}.%
-} between different queries (representing the title, abstract, or claims
-of a patent application) and the labeled relevant (all) and irrelevant
-documents (top 10 irrelevant documents ranked by BM25~\cite{Robertson1993}).
-We show results for the top 100 and bottom 100 queries (100 queries
-that perform the best, and 100 queries that perform the worst) of
-CLEP-IP 2010 evaluated according to Mean Average Precision (MAP).
-There are three notable trends here: (i) term overlap increases from
-title to description since the query size grows accordingly; (ii)
-the bottom 100 performing queries tend to have much smaller term overlap
-with the relevant documents than the top 100 queries; and (iii) the
-best overlap for any relevant document set for any set of queries
-is less than one in four terms.
+} between different queries (representing the title, abstract, claims,
+or descriptions intended to represent a partial patent application)
+and the labeled relevant (all) and irrelevant documents (top 10
+irrelevant documents ranked by BM25~\cite{Robertson1993}).  We show
+results for the top 100 and bottom 100 queries (100 queries that
+perform the best, and 100 queries that perform the worst) of CLEP-IP
+2010 evaluated according to Mean Average Precision (MAP).  There are
+three notable trends here: (i) term overlap increases from title to
+description since the query size grows accordingly; (ii) the bottom
+100 performing queries tend to have much smaller term overlap with the
+relevant documents than the top 100 queries; and (iii) the best
+overlap for any relevant document set for any set of queries is less
+than one in four terms.
 
 \begin{figure}[!th]
 \begin{centering}
@@ -167,27 +172,21 @@ reduces the query such that useless information is removed, while
 \emph{query expansion} \cite{Efthimiadis1996} enhance the query with
 additional terms likely to occur in relevant documents. In this paper,
 we carry out an intensive study about query reformulation for patent
-prior art search with partial patent application, with the objective
+prior art search with partial patent applications, with the objective
 of assessing not only the performance of standard query reformulation
 methods, but also the effectiveness of query reformulation methods
 that exploit patent-specific characteristics. In summary, the contributions
 of this paper are the following:
 \begin{enumerate}
-\item A deep analysis of general methods of query expansion for patent prior-art
-search, as well as patent-specific query expansion methods; 
-\item A new method of query expansion based on diversification in terms
-selection; 
-\item A deep analysis of general methods of query reduction for patent search,
-as well as patent-specific query reduction methods; 
-\item A new method of query reduction based on diversification in terms
-selection; 
-\item A strong performance evaluation on standardized datasets of CLEF-IP
-using different configurations. 
+\item Novel contributions for query expansion and reduction that leverage 
+(a) patent structure and (b) term diversification techniques.
+\item A thorough comparative analysis of existing and novel methods for query expansion 
+and reduction in patent prior-art search on standardized datasets of CLEF-IP.
 \end{enumerate}
 The rest of this paper is organized as follows: in Section \ref{sec:QueryReformulationForPatents}
-we present query reformulation frameworks. Section \ref{sec:evaluation}
-is dedicated to present and discuss the experiments. Finally, conclusion
-and future directions are provided in Section \ref{sec:conclusion}.
+we present query reformulation frameworks; in Section \ref{sec:evaluation}
+we present our evaluation framework and results analysis; and in Section \ref{sec:conclusion}
+we conclude with possible directions for future work.
 
 
 \section{Query Reformulation for Patents}
@@ -220,7 +219,7 @@ claims, and description sections as different term sources to determine
 which section offers the best source of expansion terms, e.g., are
 the title words of particularly high value as expansion terms? Note
 that this only applies to query expansion methods.
-\item [{Term selection method:}] We considered different term selection
+\item [{Term selection method:}] We consider different term selection
 methods for query reformulation. We evaluate the performance of term
 selection using Rocchio~\cite{Salton1971} and new term selection
 methods that we propose in the next sections. %,which is intended to address the high-recall nature of patent prior art search. 
@@ -241,13 +240,14 @@ selecting diversified terms.
 
 \label{sec:FrameworkQE}
 
-As already mentioned, Query Expansion (QE)~\cite{Efthimiadis1996}
-is an approach that (automatically) adds terms to an initial query
-in order to improve retrieval performance. The utility of QE for patent
-prior art search is motivated by the term overlap analysis depicted
-in Figure \ref{fig:FailureAnalysis}, which illustrates that there
-is a big term mismatched between queries an relevant documents. This
-term mismatch might be alleviated by QE methods.
+As already mentioned, Query Expansion (QE)~\cite{Efthimiadis1996} is a
+query reformulation approach that (automatically) adds terms to an
+initial query in order to improve retrieval performance. The utility
+of QE for patent prior art search is motivated by the term overlap
+analysis depicted in Figure \ref{fig:FailureAnalysis}, which
+illustrates that there is a large term mismatch between queries an
+relevant documents. This term mismatch may be alleviated by QE
+methods.
 
 % The following is a reasonable argument, but could be refuted by
 % reviewers... term coverage and recall are more direct and simple
@@ -271,21 +271,21 @@ term mismatch might be alleviated by QE methods.
 %the query.
 
 
-While space precludes a full discussion, we remark that as a term
-selection method in QE, Rocchio derives a score for each potential
-query expansion term and in practice, the top-$k$ scoring terms (often
-for $k\ll200$) are used to expand the query and are weighted according
-to their Rocchio score during the second stage of retrieval. The caveat
-of this approach is that given a limited budget of $k$ expansion
-terms, there is no inherent guarantee that these terms ``cover''
-all documents in the pseudo-relevant set. It seems that what we are
-asking for then is a method of ``diverse'' term selection --- such
-as the \emph{Maximal Marginal Relevance} (MMR)~\cite{Carbonell1998}
-algorithm for result set diversification. But rather than use MMR
-for diverse document selection (as typically used), we intend to use
-it here for diverse term selection. In what follows, we present a
-novel term selection method inspired by MMR, to address the deficiency
-of Rocchio, that we call MMR Query Expansion (MMRQE).
+As a term selection method in QE, Rocchio derives a score for each
+potential query expansion term and in practice, the top-$k$ scoring
+terms (often for $k\ll200$) are used to expand the query and are
+weighted according to their Rocchio score during the second stage of
+retrieval. The caveat of this approach is that given a limited budget
+of $k$ expansion terms, there is no inherent guarantee that these
+terms ``cover'' all documents in the pseudo-relevant set. It seems
+that what we are asking for then is a method of ``diverse'' term
+selection --- such as the \emph{Maximal Marginal Relevance}
+(MMR)~\cite{Carbonell1998} algorithm for result set
+diversification. But rather than use MMR for diverse document
+selection (as typically used), we intend to use it here for diverse
+term selection. In what follows, we present a novel term selection
+method inspired by MMR, to address the deficiency of Rocchio, that we
+call MMR Query Expansion (MMRQE).
 
 %\subsubsection{MMR Query Expansion (MMRQE)}
 %\label{sec:MMRQE}
@@ -355,13 +355,17 @@ $k$ and ideally, higher recall.
 \subsection{Query Reduction Frameworks (MMRQR)}
 
 \label{sec:FrameworkQR} As mentioned earlier, Query Reduction (QR)~\cite{Kumaran2009}
-attempts to reduce the query such that useless information is removed.
-The patent sections: title, abstract, claims and description are of
-progressively increasing length. While the title is usually composed
-by an average of six terms, the other sections are longer, ranging
-from ten to thousands of terms. Therefore, we investigate the impact
-of query reduction methods when querying with long sections such as
-abstract, claims and description.
+is a query reformulation method that attempts to reduce the query such
+that superfluous information is removed.  
+% NOTE: the sentence following this gets more to the point
+%The patent sections: title,
+%abstract, claims and description are of progressively increasing
+%length. 
+While the title is usually composed by an average of six
+terms, the other sections are longer, ranging from ten to thousands of
+terms. Therefore, we investigate the impact of query reduction methods
+when querying with long sections such as abstract, claims and
+description.
 
 Table \ref{tbl:queryPAC-1019} provides insight into the utility of
 query reduction for the abstract section of the Topic PAC-1019 from
