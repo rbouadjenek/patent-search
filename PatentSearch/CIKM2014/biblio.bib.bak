@@ -508,10 +508,15 @@
 
 @INPROCEEDINGS{Magdy2010a,
   author = {Magdy, Walid and Jones, Gareth J.F.},
-  title = {{PRES: A Score Metric for Evaluating Recall-Oriented Information
+  title = {{PRES: A Score Metric for Evaluating Recall-oriented Information
 	Retrieval Applications}},
-  booktitle = {SIGIR},
+  booktitle = {Proceedings of the 33rd International ACM SIGIR Conference on Research
+	and Development in Information Retrieval},
   year = {2010},
+  series = {SIGIR '10},
+  pages = {611--618},
+  address = {New York, NY, USA},
+  publisher = {ACM},
   acmid = {1835551},
   doi = {10.1145/1835449.1835551},
   isbn = {978-1-4503-0153-4},
