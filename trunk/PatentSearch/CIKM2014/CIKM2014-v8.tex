@@ -139,15 +139,15 @@ document set for any set of queries is less than one in four terms.
 
 \begin{figure}[!th]
 \begin{centering}
-\includegraphics[width=5cm]{img/legend} 
+\includegraphics[width=4.5cm]{img/legend} 
 \par\end{centering}
 
 \begin{centering}
-\subfigure[Title query.]{\includegraphics[width=4cm]{Results-CIKM2014/jaccard-qTitle-CLEF-IP2010}}\subfigure[Abstract query.]{\includegraphics[width=4cm]{Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010}} 
+\subfigure[Title query.]{\includegraphics[width=3.5cm]{Results-CIKM2014/jaccard-qTitle-CLEF-IP2010}}\subfigure[Abstract query.]{\includegraphics[width=3.5cm]{Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010}} 
 \par\end{centering}
 
 \begin{centering}
-\subfigure[Claims query.]{\includegraphics[width=4cm]{Results-CIKM2014/jaccard-qClaims-CLEF-IP2010}}\subfigure[Description query.]{\includegraphics[width=4cm]{Results-CIKM2014/jaccard-qDescription-CLEF-IP2010}}
+\subfigure[Claims query.]{\includegraphics[width=3.5cm]{Results-CIKM2014/jaccard-qClaims-CLEF-IP2010}}\subfigure[Description query.]{\includegraphics[width=3.5cm]{Results-CIKM2014/jaccard-qDescription-CLEF-IP2010}}
 \caption{Average Jaccard similarity of (ir)relevant documents with the result
 sets for different queries. }
 
@@ -478,21 +478,23 @@ and description.
 \end{figure}
 
 
-Following the same motivations than those which led us to propose
-MMRQR, we propose to greedily rebuild the query from its terms, while
-choosing diversified terms. Formally, given a query representation
-$Q$, we aim to select an optimal subset of $k$ terms $T_{k}^{*}\subset Q$
-(where $|T_{k}^{*}|=k$ and $k<|Q|$) relevant to $Q$ but inherently
-different from each other (i.e., diverse). This can be achieved by
-building $T_{k}^{*}$ in a greedy manner by choosing the next optimal
-term $t_{k}^{*}$ given the previous set of optimal term selections
-$T_{k-1}^{*}=\{t_{1}^{*},\ldots,t_{k-1}^{*}\}$ (assuming $T_{0}^{*}=\emptyset$)
-using an adaptation of the MMR diverse selection criterion as given
-in Equation \ref{eq:MMRQE-QR}. Note that the we used all the sections
-of the patent documents of the PRF set to built the document-term
-matrix of $n$ documents and $m$ terms shown in Figure~\ref{fig:notation}.
-Here, we found that $\lambda=0.8$ provides generally the best results
-in our experiments on the CLEF-IP training dataset collection.
+Following the same motivations than those which led us to explore
+diversification for term selection, we propose to greedily rebuild
+the query from scratch, while choosing diversified terms (i.e. terms
+of the query). We call this approach MMR Query Reduction (MMRQR).
+Formally, given a query representation $Q$, we aim to select an optimal
+subset of $k$ terms $T_{k}^{*}\subset Q$ (where $|T_{k}^{*}|=k$
+and $k<|Q|$) relevant to $Q$ but inherently different from each
+other (i.e., diverse). This can be achieved by building $T_{k}^{*}$
+in a greedy manner by choosing the next optimal term $t_{k}^{*}$
+given the previous set of optimal term selections $T_{k-1}^{*}=\{t_{1}^{*},\ldots,t_{k-1}^{*}\}$
+(assuming $T_{0}^{*}=\emptyset$) using an adaptation of the MMR diverse
+selection criterion as given in Equation \ref{eq:MMRQE-QR}. Note
+that the we used all the sections of the patent documents of the PRF
+set to built the document-term matrix of $n$ documents and $m$ terms
+shown in Figure~\ref{fig:notation}. Here, we found that $\lambda=0.8$
+provides generally the best results in our experiments on the CLEF-IP
+training dataset collection.
 
 In the next section, we propose a deep evaluation of QE and QR methods
 for patent search, and we attempt to answer the questions we asked

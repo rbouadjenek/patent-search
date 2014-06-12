@@ -505,7 +505,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename img/legend.eps
-	width 5cm
+	width 4.5cm
 
 \end_inset
 
@@ -529,7 +529,7 @@ subfigure[Title query.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qTitle-CLEF-IP2010.eps
-	width 4cm
+	width 3.5cm
 
 \end_inset
 
@@ -560,7 +560,7 @@ subfigure[Abstract query.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010.eps
-	width 4cm
+	width 3.5cm
 
 \end_inset
 
@@ -595,7 +595,7 @@ subfigure[Claims query.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qClaims-CLEF-IP2010.eps
-	width 4cm
+	width 3.5cm
 
 \end_inset
 
@@ -626,7 +626,7 @@ subfigure[Description query.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qDescription-CLEF-IP2010.eps
-	width 4cm
+	width 3.5cm
 
 \end_inset
 
@@ -3404,9 +3404,11 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-Following the same motivations than those which led us to propose MMRQR,
- we propose to greedily rebuild the query from its terms, while choosing
- diversified terms.
+Following the same motivations than those which led us to explore diversificatio
+n for term selection, we propose to greedily rebuild the query from scratch,
+ while choosing diversified terms (i.e.
+ terms of the query).
+ We call this approach MMR Query Reduction (MMRQR).
  Formally, given a query representation 
 \begin_inset Formula $Q$
 \end_inset
