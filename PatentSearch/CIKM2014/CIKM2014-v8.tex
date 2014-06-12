@@ -50,7 +50,7 @@ patent applications, less of this work has focused on patent search
 with queries representing (partial) applications to help inventors
 to assess the patentability of their ideas prior to writing a full
 application. %Hence, in this paper, we focus on both helping inventors to assess the patentability of their ideas and patents examiners to assess the patentability of a given patent application.
-In this paper, we carry out an intensive study about query reformulation
+In this paper, we carry out an intensive study of query reformulation
 for patent prior art search with partial patent applications, with
 the objective of assessing not only the performance of standard query
 reformulation methods, but also the effectiveness of query reformulation
@@ -170,7 +170,7 @@ the term overlap between queries and relevant documents.
 Query Reformulation is the process of transforming an initial query
 $Q$ to another query $Q'$. This transformation may be either a reduction
 or an expansion of the query. \emph{Query Reduction} (QR) \cite{Kumaran2009}
-reduces the query such that useless information is removed, while
+reduces the query such that superfluous information is removed, while
 \emph{Query Expansion} (QE) \cite{Efthimiadis1996} enhance the query with
 additional terms likely to occur in relevant documents. In this paper,
 we carry out an intensive study about query reformulation for patent
@@ -203,10 +203,10 @@ During the exploration of query reformulation for patent search with
 partial patent applications, there are many configuration options
 and associated questions that we can consider: 
 \begin{description}
-\item [{Query type:}] We considered that a query of a partial patent application
+\item [{Query type:}] We consider that a query of a partial patent application
 consist of either the title, the abstract, the claims or the description
 section. %\footnote{A query is always evaluated against the full content (title, abstract, claims, description) of granted patent applications since it is sensible to make use of all available content.}
-Critical questions is: what part of a partial application an inventor
+A critical question is what part of a partial application an inventor
 should write to obtain the best search results? %(ii) \textbf{what part of a patent application a patent examiner should use to make a patent prior art search? }
 
 \item [{Relevance model:}] For initial retrieval of documents in the \emph{pseudo-relevant}
@@ -217,7 +217,7 @@ by the popular BM25~\cite{Robertson1993} algorithm, as well as a
 vector space model (VSM) approach, TF-IDF~\cite{Salton1975}. A natural
 question is which relevance model works best for query reformulation
 for patent prior art search? 
-\item [{Query expansion source:}] We can consider the title, abstract,
+\item [{Query expansion source:}] We consider the title, abstract,
 claims, and description sections as different term sources to determine
 which section offers the best source of expansion terms, e.g., are
 the title words of particularly high value as expansion terms? Note
@@ -244,7 +244,7 @@ selecting diversified terms.
 \label{sec:FrameworkQE}
 
 As already mentioned, Query Expansion (QE)~\cite{Efthimiadis1996}
-is a query reformulation approach that (automatically) adds terms
+is a query reformulation approach that adds terms
 to an initial query in order to improve retrieval performance. The
 utility of QE for patent prior art search is motivated by the term
 overlap analysis depicted in Figure \ref{fig:FailureAnalysis}, which
@@ -1102,7 +1102,7 @@ interferometer} for the first example). For the two first examples,
 for MMRQR, similar terms were removed from the queries, which favor
 finding more diverse patent relevant to the patent applications. However,
 for the third query, MMRQR removed the main terms from the query (\textit{motor},
-and thermal \textit{load}), which probably decrease the quality of
+and thermal \textit{load}), which likely decrease the quality of
 the query. 
 
 \begin{table*}[t]
@@ -1377,20 +1377,20 @@ patent retrieval corpora, namely CLEF-IP 2010 and CLEF-IP 2011. We
 demonstrated that QE methods are critical for short queries, i.e.
 title, abstract, and claims, but useless for very long queries, i.e.
 the description section.
-We also showed that the claims is the best section
+We also showed that claims is the best section
 that works with QE both to query with and to use as a source of query
 expansion terms, suggesting that claims should be written at early stages of the
 patent application drafting so that they can be use to performed patent prior art search.
-We also demonstrate that a new method MMRQE improves QE results in
+We also demonstrate that the novel MMRQE  method improves QE results in
 many cases. Future work can look at more patent-specific methods of
 QE for prior art search with partial patent applications and how they
 can be integrated with methods like MMRQE. 
 
 Regarding QR methods, we showed that these techniques are effective
-to some extend for claims and description sections, which are considered
+to some extent for claims and description sections, which are considered
 the longest sections in a patent application. We also demonstrated
 that our new QR method MMRQR improve both recall and precision
-in many cases. Future work includes may consist of exploiting
+in many cases. Future work may consist of exploiting
 query quality predictors to identify useless terms in a query using
 machine learning methods. 
 
