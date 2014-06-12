@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
+\usepackage{epstopdf}
 
 \makeatletter
 
@@ -86,7 +87,6 @@ patent application through a patent prior art search is a critical
 task.
 
 % NOTE: more paragraph breaks help reader digest content better
-
 
 Patent prior art search involves finding previously granted patents
 that may be relevant to a new patent application. The objective and
@@ -169,9 +169,9 @@ the term overlap between queries and relevant documents.
 
 Query Reformulation is the process of transforming an initial query
 $Q$ to another query $Q'$. This transformation may be either a reduction
-or an expansion of the query. \emph{Query reduction} \cite{Kumaran2009}
+or an expansion of the query. \emph{Query Reduction} (QR) \cite{Kumaran2009}
 reduces the query such that useless information is removed, while
-\emph{query expansion} \cite{Efthimiadis1996} enhance the query with
+\emph{Query Expansion} (QE) \cite{Efthimiadis1996} enhance the query with
 additional terms likely to occur in relevant documents. In this paper,
 we carry out an intensive study about query reformulation for patent
 prior art search with partial patent applications, with the objective
@@ -194,7 +194,6 @@ work.
 
 
 \section{Query Reformulation for Patents}
-
 \label{sec:QueryReformulationForPatents}
 
 %In this section, we first present the requirements of a query expansion method in Sections \ref{sec:FrameworkQE}, then, we introduce a novel term selection method for query expansion in Section \ref{sec:MMRQE}. Next, in Section \ref{sec:FrameworkQR} we introduce the motivations behind the benefit of query reduction, and a new approach of query reduction in Section \ref{sec:MMRQR}.
@@ -215,7 +214,7 @@ feedback set (PRF) %---\textbf{ often used to generate the terms for QE} ---
 and subsequent re-retrieval, there are various options for the relevance
 ranking model. In this work, we explore a probabilistic approach represented
 by the popular BM25~\cite{Robertson1993} algorithm, as well as a
-vector space model approach, TF-IDF~\cite{Salton1975}. A natural
+vector space model (VSM) approach, TF-IDF~\cite{Salton1975}. A natural
 question is which relevance model works best for query reformulation
 for patent prior art search? 
 \item [{Query expansion source:}] We can consider the title, abstract,
@@ -231,17 +230,17 @@ methods that we propose in the next sections. %,which is intended to address the
 and with which configuration, i.e. query type, retrieval model, and
 term source for query expansion methods? 
 \end{description}
+
 Before we proceed to evaluate the above questions, we first define
 in Section \ref{sec:FrameworkQE} a novel term selection method for
-QE hat we term MMRQE. This method is expected to address a potential
+QE that we term MMRQE. This method is expected to address a potential
 deficiency of Rocchio as used in practice for high-recall search.
 Then, in Section \ref{sec:FrameworkQR} we present MMRQR, a novel
-QR method, which is expected to rebuild the query from scratch by
+QR method, which is expected to rebuild the query from the scratch by
 selecting diversified terms.
 
 
 \subsection{Query Expansion Frameworks (MMRQE)}
-
 \label{sec:FrameworkQE}
 
 As already mentioned, Query Expansion (QE)~\cite{Efthimiadis1996}
@@ -354,43 +353,15 @@ selection that covers more documents for a fixed expansion budget
 $k$ and ideally, higher recall.
 
 
-\subsection{Query Reduction Frameworks (MMRQR)}
-
-\label{sec:FrameworkQR} 
-
-As mentioned earlier, Query Reduction (QR)~\cite{Kumaran2009} is
-a query reformulation method that attempts to reduce the query such
-that superfluous information is removed. % NOTE: the sentence following this gets more to the point
-%The patent sections: title,
-%abstract, claims and description are of progressively increasing
-%length. 
-While the title is usually composed by an average of six terms, the
-other sections are longer, ranging from ten to thousands of terms.
-Therefore, we investigate the impact of query reduction methods when
-querying with long sections such as abstract, claims and description.
-
-Table \ref{tbl:queryPAC-1019} provides insight into the utility of
-query reduction for the abstract section of the Topic PAC-1019 from
-the CLEF-IP 2010 data collection. The baseline query, which is the
-original query (provided in the header row) after stemming and patent
-specific stopword removal, had an average precision (AP) of 0.280
-and a patent retrieval evaluation score (PRES) \cite{Magdy2010a}
-of 0.777 (its performance are provided in the footer row). We show
-the evaluation performance of the query after removing each term from
-the original query. The removed terms have been sorted in the order
-of decreasing PRES. We can observe that there are ten terms (highlighted
-in boldface) that if they are (individually) removed from the query,
-we increase PRES of the original long query.
-
 \begin{table}[h]
 \begin{centering}
 \caption{Sample of terms removed from the abstract section of CLEP-IP2010 Topic
 PAC-1019. }
-
+\label{tbl:queryPAC-1019}
 \par\end{centering}
 
 \begin{centering}
-{\footnotesize{}\label{tbl:queryPAC-1019}}
+{\footnotesize{}}
 \par\end{centering}{\footnotesize \par}
 
 \centering{}{\scriptsize{}}%
@@ -444,6 +415,36 @@ comprising the same.}}\tabularnewline
 \end{table}
 
 
+
+\subsection{Query Reduction Frameworks (MMRQR)}
+\label{sec:FrameworkQR} 
+
+As mentioned earlier, Query Reduction (QR)~\cite{Kumaran2009} is
+a query reformulation method that attempts to reduce the query such
+that superfluous information is removed. % NOTE: the sentence following this gets more to the point
+%The patent sections: title,
+%abstract, claims and description are of progressively increasing
+%length. 
+While the title is usually composed by an average of six terms, the
+other sections are longer, ranging from ten to thousands of terms.
+Therefore, we investigate the impact of query reduction methods when
+querying with long sections such as abstract, claims or description.
+
+Table \ref{tbl:queryPAC-1019} provides insight into the utility of
+query reduction for the abstract section of the Topic PAC-1019 from
+the CLEF-IP 2010 data collection. The baseline query, which is the
+original query (provided in the header row) after stemming and patent
+specific stopword removal, had an Average Precision (AP) of 0.280
+and a Patent Retrieval Evaluation Score (PRES) \cite{Magdy2010a}
+of 0.777 (its performance are provided in the footer row). We show
+the evaluation performance of the query after removing each term from
+the original query. The removed terms have been sorted in the order
+of decreasing PRES. We can observe that there are ten terms (highlighted
+in boldface) that if they are (individually) removed from the query,
+we increase PRES of the original long query.
+
+
+
 Figure \ref{fig:QRUtility} shows the summary upper-bound performance
 for precision, recall, MAP, Mean Reciprocal Rank (MRR), and PRES that
 can be achieved for a set of 1304 abstract queries from the CLEF-IP
@@ -456,19 +457,20 @@ query following the previous process. This gives us an upper bound
 on the performance that can be realized through query reduction for
 this set of queries. It is this statistically significant improvement
 in performance through query reduction that we target in this second
-part of our work for all query sections, i.e. title, abstract, claims,
+part of our work for all query sections, i.e.: title, abstract, claims,
 and description.
 
 \begin{figure}[!h]
 \begin{centering}
 \includegraphics[width=4cm]{analysis/precision-recall_ByField-CLEF-IP_2010}\includegraphics[width=4cm]{analysis/MAP-MRR_ByField-CLEF-IP_2010}
 \caption{The utility of query reduction for 1304 abstract queries of the CLEF-IP
-2010 dataset. }
+2010 dataset.}
+\label{fig:QRUtility}
 
 \par\end{centering}
 
 \begin{centering}
-{\footnotesize{}\label{fig:QRUtility}}
+{\footnotesize{}}
 \par\end{centering}{\footnotesize \par}
 
 {\footnotesize{}%different queries (representing the title, abstract, or claims of a patent application)
@@ -501,16 +503,15 @@ for patent search, and we attempt to answer the questions we asked
 in the beginning of this section.
 
 
-\section{Experimental Evaluation}
-
+\section{Experiments Evaluation}
 \label{sec:evaluation}
 
-In this section we first explain our experimental setup for evaluating
+In this section we first explain the experiments setup for evaluating
 the effectiveness of the different methods. Then, we discuss the results
 of QE and QR methods.
 
 
-\subsection{Experimental Setup}
+\subsection{Experiments Setup}
 
 We used the Lucene IR System%
 \footnote{We used the LucQE module, which provides an implementation of the
@@ -531,8 +532,7 @@ it is sensible to use all available content.
 We also used the patent classification (IPC) for filtering the results
 by constraining them to have common classifications with the patent
 topic as suggested in previous works \cite{Lopez2009,Roda2009}. Finally,
-we report Mean Average Precision (MAP), and Patent Retrieval Evaluation
-Score (PRES) \cite{Magdy2010a}, which combines Recall with the quality
+we report MAP, and PRES, which combines Recall with the quality
 of ranking and weights relevant documents lower in the ranking more
 highly than MAP. We report the evaluation metrics on the top 1000
 results.
@@ -546,9 +546,7 @@ results.
 %\end{figure}
 
 
-
-\subsection{Experimental Results for QE}
-
+\subsection{Experiments Results for QE}
 
 \subsubsection{Query Expansion Baselines}
 
@@ -663,7 +661,7 @@ options:
 \begin{itemize}
 \item \textbf{\footnotesize{}Query type:}{\footnotesize{} $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$ }{\footnotesize \par}
 \item \textbf{\footnotesize{}Query expansion source:}{\footnotesize{} $\{\mathrm{Title},\mathrm{Abs.},\mathrm{Claims},\mathrm{Descrip.}\}$ }{\footnotesize \par}
-\item \textbf{\footnotesize{}Relevance model:}{\footnotesize{} $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$ }{\footnotesize \par}
+\item \textbf{\footnotesize{}Relevance model:}{\footnotesize{} $\{\mathrm{BM25},\mbox{Vector-space Model}\}$ }{\footnotesize \par}
 \item \textbf{\footnotesize{}Term selection method:}{\footnotesize{} $\{\mathrm{Rocchio},\mathrm{MMRQE},etc...\}$ }{\footnotesize \par}
 \end{itemize}
 Figure \ref{fig:QE-qClaims-sAbstract-CLEF-2010} shows the results
@@ -697,7 +695,7 @@ as source of query expansion on the CLEF-IP 2010 dataset.}
 \par\end{center}
 
 To summarize all the results obtained over all the above configurations,
-Figures~\ref{fig:MAP-CLEF2010}, ~\ref{fig:PRES-CLEF2010},~\ref{fig:MAP-CLEF2011},
+Figures~\ref{fig:MAP-CLEF2010},~\ref{fig:PRES-CLEF2010},~\ref{fig:MAP-CLEF2011},
 and~\ref{fig:PRES-CLEF2011} show the performance obtained for all
 the QE methods, while selecting the optimal number of terms used for
 the expansion (number of terms that maximizes the performance for
@@ -706,28 +704,30 @@ to use for querying is the description section (see Figures \ref{fig:qDescriptio
 \ref{fig:qDescription-PRES-CLEF-IP2010}, \ref{fig:qDescription-MAP-CLEF-IP2011},
 and \ref{fig:qDescription-PRES-CLEF-IP2011}). We attribute this to
 the fact that the description section has more content along with
-more terms relevant to specific details that describe the patent,
-since the core of the invention is described therein.
+relevant terms that define the invention since a detailed 
+summary of the invention is described therein.
 
-Secondly, regarding the source of query expansion, we observe that
-the best source is the claims. We attribute this to the fact that
-the claims section has more technical terms, which may be common with
-relevant patents, since legal aspects of the invention are described
-therein. However, when querying using the claims, other sources of
-query expansion may provide better performance. This may be because
-the query needs more general terms than the technical/legal terms
-already in the claims section. It is interesting to notice that the
-description is not either a good source for expansion, since it may
-contain more general terms that may hurt the performance.
+According to our experiments, the best source for query expansion is
+the claims section. We attribute this to the fact that, 
+the claims contained not only relevant, but also, specific terminology, 
+since the scope of the invention is described therein.
+However, when querying using the claims, other sources of
+query expansion provided better performance. 
+This may be because claims are very similar between them and contained
+specific terms; consequently, the queries lack of diversity
+and general terms or synonyms that are used to describe similar inventions. 
+It is interesting to notice that the
+description is not either a good source for expansion, since its content is too
+broad, therefore, it contains many irrelevant terms that hurt the performance.
 
-Thirdly, we observed that query expansion is not useful for very long
+As expected, we observed that query expansion is not useful for very long
 queries (i.e. description), indicating that in advanced stages of
 the patent application process, QE is not relevant. We also notice
-that when dealing with more complex queries such as abstract or claims,
+that when dealing with more mid-long queries such as abstract or claims,
 MMRQE is more effective than Rocchio, which suggest that diverse term
 selection is not crucial for short queries.
 
-Finally, we observed that using the IPC code definitions (as suggested
+We note that using the IPC code definitions (as suggested
 by \cite{Mahdabi2013}) and SynSet (method of \cite{Magdy2011}) as
 a source of expansion, gave poor performance (see IPC Codes and SynSet
 bars along the Figures).
@@ -973,7 +973,7 @@ mantle will not spread to the outside.}\tabularnewline
 
 
 
-\subsection{Experimental Results for QR}
+\subsection{Experiments Results for QR}
 
 
 \subsubsection{Query Reduction Baselines}
@@ -1011,9 +1011,8 @@ CLEF-IP training queries.
 
 Recently, \cite{Mahdabi2013} proposed as reduction process to short
 the query by taking only the first claim of a patent application since
-it contains the core of the invention. This approach hasn't been implemented
-because of its poor performance, which has been already pointed out
-by its authors.
+it contains the core of the invention. This approach has not been implemented
+as its authors already point out its poor performance.
 
 %\textbf{Is query suggestion a query reformulation process? if not, remove the next paragraph} 
 %Finally, other works investigated \textbf{query suggestion} for patent prior art search, which reflect real-life scenario of examiners, who form reproducible boolean queries \cite{Adams2011,Azzopardi2010}. Reproducibility of search means that the retrieval system will give the same results for the same query each time. Hence, Kim et al. \ cite{Kim2011} propose an approach, which generate boolean queries by exploiting decision trees learned from pseudo-labeled documents and rank the suggested queries using query quality predictors.
@@ -1068,13 +1067,14 @@ with the following specific options:
 \item \textbf{\footnotesize{}Relevance model:}{\footnotesize{} $\{\mathrm{BM25},\mbox{Vector-space Model (VSM)}\}$ }{\footnotesize \par}
 \item \textbf{\footnotesize{}Term selection method:}{\footnotesize{} $\{\mathrm{RocchioQR},\mathrm{MMRQR},etc...\}$ }{\footnotesize \par}
 \end{itemize}
+
 Figure \ref{fig:QR-qDescription-CLEF-2010} shows the results obtained
 in terms of MAP and PRES for CLEF-IP 2010 for different numbers of
 removed terms $k$ on the x-axis (with $k=0$ using no QR, just the
 baseline retrieval model). For lack of space we show only the results
 of queries extracted from the description. These results tell us mainly
 two things: (i) for the two retrieval models, MMRQR provides the best
-performance for both MAP and PRES, and (ii) for both almost all methods,
+performance for both MAP and PRES, and (ii) for almost all methods,
 the best performance is obtained when removing about 30 terms from
 the original queries (in the case where the description is used for
 querying). Removing more terms will decrease significantly the performance.
@@ -1095,7 +1095,7 @@ in general, MMRQR provides better performance than the other methods.
 
 To give an insight of the effect of MMRQR and LMQR over the performance,
 Table \ref{tbl:QRSampleQueries} shows some queries where QR methods
-improved the performance. First, we notice that even if there is common
+are helpful. First, we notice that even if there is common
 terms removed from the original queries by both MMRQR and LMQR, the
 lists of MMRQR contain more similar terms (e.g. \textit{laser, light,
 interferometer} for the first example). For the two first examples,
@@ -1372,22 +1372,25 @@ the CLEF-IP 2010 dataset.}
 \label{sec:conclusion}
 
 In this paper we analyzed general and specific QE and QR methods for
-patent prior art search with incomplete patent applications on two
+patent prior art search for partial (incomplete) patent applications on two
 patent retrieval corpora, namely CLEF-IP 2010 and CLEF-IP 2011. We
 demonstrated that QE methods are critical for short queries, i.e.
 title, abstract, and claims, but useless for very long queries, i.e.
-the description section. We also showed that claims are the best section
+the description section.
+We also showed that the claims is the best section
 that works with QE both to query with and to use as a source of query
-expansion terms, and that a new method MMRQE improves QE results in
+expansion terms, suggesting that claims should be written at early stages of the
+patent application drafting so that they can be use to performed patent prior art search.
+We also demonstrate that a new method MMRQE improves QE results in
 many cases. Future work can look at more patent-specific methods of
 QE for prior art search with partial patent applications and how they
 can be integrated with methods like MMRQE. 
 
 Regarding QR methods, we showed that these techniques are effective
 to some extend for claims and description sections, which are considered
-as the longest sections in a patent application. We also demonstrated
-that our new QR method MMRQR might improve both recall and precision
-in many cases. For this second part, future work may consist of exploiting
+the longest sections in a patent application. We also demonstrated
+that our new QR method MMRQR improve both recall and precision
+in many cases. Future work includes may consist of exploiting
 query quality predictors to identify useless terms in a query using
 machine learning methods. 
 
