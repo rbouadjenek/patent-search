@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.4.18)  18 JUN 2014 15:59
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.4.18)  18 JUN 2014 17:26
 entering extended mode
  %&-line parsing enabled.
 **PriorArtSearch.tex
@@ -1216,27 +1216,37 @@ LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <8> not available
 
 ]
 
-LaTeX Warning: Citation `Magdy2012' on page 16 undefined on input line 413.
+LaTeX Warning: Citation `Magdy2012' on page 16 undefined on input line 411.
 
 
-LaTeX Warning: Citation `Lopez2009' on page 16 undefined on input line 413.
+LaTeX Warning: Citation `Lopez2009' on page 16 undefined on input line 411.
 
 
-LaTeX Warning: Citation `Roda2009' on page 16 undefined on input line 413.
+LaTeX Warning: Citation `Roda2009' on page 16 undefined on input line 411.
 
 [16
 
-] [17
+]
+
+LaTeX Warning: Citation `Mahdabi2013' on page 17 undefined on input line 441.
+
+
+LaTeX Warning: Citation `Magdy2011' on page 17 undefined on input line 441.
+
+
+LaTeX Warning: Citation `Magdy2011' on page 17 undefined on input line 441.
+
+[17
 
 ]
 
-LaTeX Warning: Citation `Magdy2011' on page 18 undefined on input line 454.
+LaTeX Warning: Citation `Magdy2011' on page 18 undefined on input line 459.
 
 
-LaTeX Warning: Citation `Bashir2010' on page 18 undefined on input line 454.
+LaTeX Warning: Citation `Bashir2010' on page 18 undefined on input line 459.
 
 
-LaTeX Warning: Citation `Verma2011' on page 18 undefined on input line 454.
+LaTeX Warning: Citation `Verma2011' on page 18 undefined on input line 459.
 
 [18
 
@@ -1244,7 +1254,7 @@ LaTeX Warning: Citation `Verma2011' on page 18 undefined on input line 454.
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 504.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 509.
  [20
 
 ]
@@ -1298,20 +1308,13 @@ Overfull \hbox (34.14317pt too wide) in paragraph at lines 526--526
 lts-CIKM2014/qClaims-sAbstract_PRES_2010-eps-converted-to.pdf>] [22
 
 ]
+
+LaTeX Warning: Citation `Ganguly2011' on page 23 undefined on input line 568.
+
+
+LaTeX Warning: Citation `Mahdabi2013' on page 23 undefined on input line 568.
+
 [23
-
-]
-
-LaTeX Warning: Citation `Ganguly2011' on page 24 undefined on input line 574.
-
-
-LaTeX Warning: Citation `Mahdabi2013' on page 24 undefined on input line 574.
-
-
-Overfull \vbox (42.49442pt too high) detected at line 574
- []
-
-[24
 
 ]
 Package epstopdf Info: Source file: <../mmrqrResults-lambda/qAbstract-sDescript
@@ -1325,11 +1328,11 @@ ion_MAP_2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults-lambda/qAbs
 tract-sDescription_MAP_2010-eps-converted-to.pdf ../mmrqrResults-lambda/qAbstra
 ct-sDescription_MAP_2010.eps>
-(epstopdf)             \includegraphics on input line 599.
+(epstopdf)             \includegraphics on input line 589.
 Package epstopdf Info: Output file is already uptodate.
 
 <../mmrqrResults-lambda/qAbstract-sDescription_MAP_2010-eps-converted-to.pdf, i
-d=742, 198.7425pt x 118.4425pt>
+d=716, 198.7425pt x 118.4425pt>
 File: ../mmrqrResults-lambda/qAbstract-sDescription_MAP_2010-eps-converted-to.p
 df Graphic file (type pdf)
 
@@ -1346,11 +1349,11 @@ ion_PRES_2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults-lambda/qAbs
 tract-sDescription_PRES_2010-eps-converted-to.pdf ../mmrqrResults-lambda/qAbstr
 act-sDescription_PRES_2010.eps>
-(epstopdf)             \includegraphics on input line 599.
+(epstopdf)             \includegraphics on input line 589.
 Package epstopdf Info: Output file is already uptodate.
 
 <../mmrqrResults-lambda/qAbstract-sDescription_PRES_2010-eps-converted-to.pdf, 
-id=743, 198.7425pt x 118.4425pt>
+id=717, 198.7425pt x 118.4425pt>
 File: ../mmrqrResults-lambda/qAbstract-sDescription_PRES_2010-eps-converted-to.
 pdf Graphic file (type pdf)
 
@@ -1367,11 +1370,11 @@ n_MAP_2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults-lambda/qCla
 ims-sDescription_MAP_2010-eps-converted-to.pdf ../mmrqrResults-lambda/qClaims-s
 Description_MAP_2010.eps>
-(epstopdf)             \includegraphics on input line 599.
+(epstopdf)             \includegraphics on input line 589.
 Package epstopdf Info: Output file is already uptodate.
 
 <../mmrqrResults-lambda/qClaims-sDescription_MAP_2010-eps-converted-to.pdf, id=
-744, 198.7425pt x 118.4425pt>
+718, 198.7425pt x 118.4425pt>
 File: ../mmrqrResults-lambda/qClaims-sDescription_MAP_2010-eps-converted-to.pdf
  Graphic file (type pdf)
 
@@ -1387,23 +1390,23 @@ n_PRES_2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults-lambda/qCla
 ims-sDescription_PRES_2010-eps-converted-to.pdf ../mmrqrResults-lambda/qClaims-
 sDescription_PRES_2010.eps>
-(epstopdf)             \includegraphics on input line 599.
+(epstopdf)             \includegraphics on input line 589.
 Package epstopdf Info: Output file is already uptodate.
 
 <../mmrqrResults-lambda/qClaims-sDescription_PRES_2010-eps-converted-to.pdf, id
-=745, 198.7425pt x 118.4425pt>
+=719, 198.7425pt x 118.4425pt>
 File: ../mmrqrResults-lambda/qClaims-sDescription_PRES_2010-eps-converted-to.pd
 f Graphic file (type pdf)
 
 <use ../mmrqrResults-lambda/qClaims-sDescription_PRES_2010-eps-converted-to.pdf
-> [25
+> [24
 
  <../mmrqrResults-lambda/qAbstract-sDescription_MAP_2010-eps-converted-to.pdf> 
 <../mmrqrResults-lambda/qAbstract-sDescription_PRES_2010-eps-converted-to.pdf> 
 <../mmrqrResults-lambda/qClaims-sDescription_MAP_2010-eps-converted-to.pdf> <..
-/mmrqrResults-lambda/qClaims-sDescription_PRES_2010-eps-converted-to.pdf>] [26
+/mmrqrResults-lambda/qClaims-sDescription_PRES_2010-eps-converted-to.pdf>] [25
 
-] [27
+] [26
 
 ]
 Package epstopdf Info: Source file: <../mmrqrResults/qDescription-sDescription_
@@ -1417,11 +1420,11 @@ MAP_2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
 n-sDescription_MAP_2010-eps-converted-to.pdf ../mmrqrResults/qDescription-sDesc
 ription_MAP_2010.eps>
-(epstopdf)             \includegraphics on input line 630.
+(epstopdf)             \includegraphics on input line 632.
 Package epstopdf Info: Output file is already uptodate.
 
-<../mmrqrResults/qDescription-sDescription_MAP_2010-eps-converted-to.pdf, id=87
-3, 234.8775pt x 151.56625pt>
+<../mmrqrResults/qDescription-sDescription_MAP_2010-eps-converted-to.pdf, id=84
+7, 234.8775pt x 151.56625pt>
 File: ../mmrqrResults/qDescription-sDescription_MAP_2010-eps-converted-to.pdf G
 raphic file (type pdf)
 
@@ -1437,16 +1440,16 @@ PRES_2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
 n-sDescription_PRES_2010-eps-converted-to.pdf ../mmrqrResults/qDescription-sDes
 cription_PRES_2010.eps>
-(epstopdf)             \includegraphics on input line 630.
+(epstopdf)             \includegraphics on input line 632.
 Package epstopdf Info: Output file is already uptodate.
 
 <../mmrqrResults/qDescription-sDescription_PRES_2010-eps-converted-to.pdf, id=8
-74, 234.8775pt x 151.56625pt>
+48, 234.8775pt x 151.56625pt>
 File: ../mmrqrResults/qDescription-sDescription_PRES_2010-eps-converted-to.pdf 
 Graphic file (type pdf)
 
 <use ../mmrqrResults/qDescription-sDescription_PRES_2010-eps-converted-to.pdf>
-[28
+[27
 
  <../mmrqrResults/qDescription-sDescription_MAP_2010-eps-converted-to.pdf> <../
 mmrqrResults/qDescription-sDescription_PRES_2010-eps-converted-to.pdf>]
@@ -1458,17 +1461,13 @@ Package epstopdf Info: Source file: <../img/legendQE.eps>
 (epstopdf)                    size: 14045 bytes
 (epstopdf)             Command: <epstopdf --outfile=../img/legendQE-eps-convert
 ed-to.pdf ../img/legendQE.eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 654.
 Package epstopdf Info: Output file is already uptodate.
 
-<../img/legendQE-eps-converted-to.pdf, id=919, 1115.16624pt x 15.05624pt>
+<../img/legendQE-eps-converted-to.pdf, id=893, 1115.16624pt x 15.05624pt>
 File: ../img/legendQE-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ../img/legendQE-eps-converted-to.pdf>
-Overfull \hbox (176.40697pt too wide) in paragraph at lines 674--674
- [] 
- []
-
 Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-MAP-CLEF-IP2010
 .eps>
 (epstopdf)                    date: 2014-06-12 11:57:38
@@ -1480,10 +1479,10 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-MAP-CLEF-IP2010
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qTitle-
 MAP-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qTitle-MAP-CLEF-IP2010
 .eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 654.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf, id=920, 505.8
+<../Results-CIKM2014/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf, id=894, 505.8
 9pt x 138.5175pt>
 File: ../Results-CIKM2014/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -1500,16 +1499,16 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qAbstract-MAP-CLEF-IP2
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qAbstra
 ct-MAP-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qAbstract-MAP-CLEF-
 IP2010.eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 654.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf, id=921, 50
+<../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf, id=895, 50
 5.89pt x 138.5175pt>
 File: ../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf Graphi
 c file (type pdf)
 
 <use ../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf>
-Overfull \hbox (182.09785pt too wide) in paragraph at lines 674--674
+Overfull \hbox (5.69041pt too wide) in paragraph at lines 654--654
  [][][] 
  []
 
@@ -1524,10 +1523,10 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-MAP-CLEF-IP201
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
 -MAP-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qClaims-MAP-CLEF-IP20
 10.eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 654.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf, id=922, 505.
+<../Results-CIKM2014/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf, id=896, 505.
 89pt x 138.5175pt>
 File: ../Results-CIKM2014/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic 
 file (type pdf)
@@ -1544,19 +1543,25 @@ IP2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qDescri
 ption-MAP-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qDescription-MAP
 -CLEF-IP2010.eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 654.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf, id=923,
+<../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf, id=897,
  505.89pt x 138.5175pt>
 File: ../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf Gra
 phic file (type pdf)
 
 <use ../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf>
-Overfull \hbox (182.09785pt too wide) in paragraph at lines 674--674
+Overfull \hbox (5.69041pt too wide) in paragraph at lines 654--654
  [][][] 
  []
 
+[28
+
+ <../img/legendQE-eps-converted-to.pdf> <../Results-CIKM2014/qTitle-MAP-CLEF-IP
+2010-eps-converted-to.pdf> <../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-c
+onverted-to.pdf> <../Results-CIKM2014/qClaims-MAP-CLEF-IP2010-eps-converted-to.
+pdf> <../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <../img/legendQE.eps>
 (epstopdf)                    date: 2014-06-11 21:45:37
 (epstopdf)                    size: 48766 bytes
@@ -1565,14 +1570,10 @@ Package epstopdf Info: Source file: <../img/legendQE.eps>
 (epstopdf)                    size: 14045 bytes
 (epstopdf)             Command: <epstopdf --outfile=../img/legendQE-eps-convert
 ed-to.pdf ../img/legendQE.eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 675.
 Package epstopdf Info: Output file is already uptodate.
 File: ../img/legendQE-eps-converted-to.pdf Graphic file (type pdf)
-<use ../img/legendQE-eps-converted-to.pdf>
-Overfull \hbox (176.40697pt too wide) in paragraph at lines 674--674
- [] 
- []
-
+ <use ../img/legendQE-eps-converted-to.pdf>
 Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-PRES-CLEF-IP201
 0.eps>
 (epstopdf)                    date: 2014-06-12 11:57:38
@@ -1584,10 +1585,10 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-PRES-CLEF-IP201
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qTitle-
 PRES-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qTitle-PRES-CLEF-IP20
 10.eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 675.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf, id=924, 505.
+<../Results-CIKM2014/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf, id=954, 505.
 89pt x 138.5175pt>
 File: ../Results-CIKM2014/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic 
 file (type pdf)
@@ -1604,16 +1605,16 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qAbstract-PRES-CLEF-IP
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qAbstra
 ct-PRES-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qAbstract-PRES-CLE
 F-IP2010.eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 675.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf, id=925, 5
+<../Results-CIKM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf, id=955, 5
 05.89pt x 138.5175pt>
 File: ../Results-CIKM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf Graph
 ic file (type pdf)
 
 <use ../Results-CIKM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf>
-Overfull \hbox (182.09785pt too wide) in paragraph at lines 674--674
+Overfull \hbox (5.69041pt too wide) in paragraph at lines 675--675
  [][][] 
  []
 
@@ -1628,10 +1629,10 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-PRES-CLEF-IP20
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
 -PRES-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qClaims-PRES-CLEF-IP
 2010.eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 675.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf, id=926, 505
+<../Results-CIKM2014/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf, id=956, 505
 .89pt x 138.5175pt>
 File: ../Results-CIKM2014/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic
  file (type pdf)
@@ -1648,33 +1649,25 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qDescription-PRES-CLEF
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qDescri
 ption-PRES-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qDescription-PR
 ES-CLEF-IP2010.eps>
-(epstopdf)             \includegraphics on input line 674.
+(epstopdf)             \includegraphics on input line 675.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf, id=927
+<../Results-CIKM2014/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf, id=957
 , 505.89pt x 138.5175pt>
 File: ../Results-CIKM2014/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf Gr
 aphic file (type pdf)
 
 <use ../Results-CIKM2014/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf>
-Overfull \hbox (182.09785pt too wide) in paragraph at lines 674--674
+Overfull \hbox (5.69041pt too wide) in paragraph at lines 675--675
  [][][] 
- []
-
-
-Overfull \vbox (310.41312pt too high) detected at line 674
  []
 
 [29
 
- <../img/legendQE-eps-converted-to.pdf> <../Results-CIKM2014/qTitle-MAP-CLEF-IP
-2010-eps-converted-to.pdf> <../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-c
-onverted-to.pdf> <../Results-CIKM2014/qClaims-MAP-CLEF-IP2010-eps-converted-to.
-pdf> <../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf> <.
-./Results-CIKM2014/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf> <../Results-CI
-KM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf> <../Results-CIKM2014/qC
-laims-PRES-CLEF-IP2010-eps-converted-to.pdf> <../Results-CIKM2014/qDescription-
-PRES-CLEF-IP2010-eps-converted-to.pdf>]
+ <../Results-CIKM2014/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf> <../Results
+-CIKM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf> <../Results-CIKM2014
+/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf> <../Results-CIKM2014/qDescripti
+on-PRES-CLEF-IP2010-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <../img/legendQE.eps>
 (epstopdf)                    date: 2014-06-11 21:45:37
 (epstopdf)                    size: 48766 bytes
@@ -1683,15 +1676,11 @@ Package epstopdf Info: Source file: <../img/legendQE.eps>
 (epstopdf)                    size: 14045 bytes
 (epstopdf)             Command: <epstopdf --outfile=../img/legendQE-eps-convert
 ed-to.pdf ../img/legendQE.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 696.
 Package epstopdf Info: Output file is already uptodate.
 File: ../img/legendQE-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ../img/legendQE-eps-converted-to.pdf>
-Overfull \hbox (176.40697pt too wide) in paragraph at lines 721--721
- [] 
- []
-
 Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-MAP-CLEF-IP2011
 .eps>
 (epstopdf)                    date: 2014-06-11 21:45:33
@@ -1703,10 +1692,10 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-MAP-CLEF-IP2011
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qTitle-
 MAP-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qTitle-MAP-CLEF-IP2011
 .eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 696.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1007, 505.
+<../Results-CIKM2014/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1005, 505.
 89pt x 138.5175pt>
 File: ../Results-CIKM2014/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -1723,16 +1712,16 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qAbstract-MAP-CLEF-IP2
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qAbstra
 ct-MAP-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qAbstract-MAP-CLEF-
 IP2011.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 696.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1008, 5
+<../Results-CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1006, 5
 05.89pt x 138.5175pt>
 File: ../Results-CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf Graphi
 c file (type pdf)
 
 <use ../Results-CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf>
-Overfull \hbox (182.09785pt too wide) in paragraph at lines 721--721
+Overfull \hbox (5.69041pt too wide) in paragraph at lines 696--696
  [][][] 
  []
 
@@ -1747,10 +1736,10 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-MAP-CLEF-IP201
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
 -MAP-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qClaims-MAP-CLEF-IP20
 11.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 696.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1009, 505
+<../Results-CIKM2014/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1007, 505
 .89pt x 138.5175pt>
 File: ../Results-CIKM2014/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic 
 file (type pdf)
@@ -1767,19 +1756,25 @@ IP2011-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qDescri
 ption-MAP-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qDescription-MAP
 -CLEF-IP2011.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 696.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1010
+<../Results-CIKM2014/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1008
 , 505.89pt x 138.5175pt>
 File: ../Results-CIKM2014/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf Gra
 phic file (type pdf)
 
 <use ../Results-CIKM2014/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf>
-Overfull \hbox (182.09785pt too wide) in paragraph at lines 721--721
+Overfull \hbox (5.69041pt too wide) in paragraph at lines 696--696
  [][][] 
  []
 
+[30
+
+ <../Results-CIKM2014/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-
+CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014/q
+Claims-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014/qDescription-
+MAP-CLEF-IP2011-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <../img/legendQE.eps>
 (epstopdf)                    date: 2014-06-11 21:45:37
 (epstopdf)                    size: 48766 bytes
@@ -1788,14 +1783,11 @@ Package epstopdf Info: Source file: <../img/legendQE.eps>
 (epstopdf)                    size: 14045 bytes
 (epstopdf)             Command: <epstopdf --outfile=../img/legendQE-eps-convert
 ed-to.pdf ../img/legendQE.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 719.
 Package epstopdf Info: Output file is already uptodate.
 File: ../img/legendQE-eps-converted-to.pdf Graphic file (type pdf)
-<use ../img/legendQE-eps-converted-to.pdf>
-Overfull \hbox (176.40697pt too wide) in paragraph at lines 721--721
- [] 
- []
 
+<use ../img/legendQE-eps-converted-to.pdf>
 Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-PRES-CLEF-IP201
 1.eps>
 (epstopdf)                    date: 2014-06-11 21:45:33
@@ -1807,10 +1799,10 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-PRES-CLEF-IP201
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qTitle-
 PRES-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qTitle-PRES-CLEF-IP20
 11.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 719.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1011, 505
+<../Results-CIKM2014/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1056, 505
 .89pt x 138.5175pt>
 File: ../Results-CIKM2014/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic 
 file (type pdf)
@@ -1827,16 +1819,16 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qAbstract-PRES-CLEF-IP
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qAbstra
 ct-PRES-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qAbstract-PRES-CLE
 F-IP2011.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 719.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1012, 
+<../Results-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1057, 
 505.89pt x 138.5175pt>
 File: ../Results-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf Graph
 ic file (type pdf)
 
 <use ../Results-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf>
-Overfull \hbox (170.71608pt too wide) in paragraph at lines 721--721
+Overfull \hbox (5.69041pt too wide) in paragraph at lines 719--719
  [][][] 
  []
 
@@ -1851,10 +1843,10 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-PRES-CLEF-IP20
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
 -PRES-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qClaims-PRES-CLEF-IP
 2011.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 719.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1013, 50
+<../Results-CIKM2014/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1058, 50
 5.89pt x 138.5175pt>
 File: ../Results-CIKM2014/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic
  file (type pdf)
@@ -1871,32 +1863,25 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/qDescription-PRES-CLEF
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qDescri
 ption-PRES-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qDescription-PR
 ES-CLEF-IP2011.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 719.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf, id=101
-4, 505.89pt x 138.5175pt>
+<../Results-CIKM2014/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf, id=105
+9, 505.89pt x 138.5175pt>
 File: ../Results-CIKM2014/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf Gr
 aphic file (type pdf)
 
 <use ../Results-CIKM2014/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf>
-Overfull \hbox (176.40697pt too wide) in paragraph at lines 721--721
+Overfull \hbox (5.69041pt too wide) in paragraph at lines 719--719
  [][][] 
  []
 
+[31
 
-Overfull \vbox (304.4533pt too high) detected at line 721
- []
-
-[30
-
- <../Results-CIKM2014/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-
-CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014/q
-Claims-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014/qDescription-
-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014/qTitle-PRES-CLEF-IP2
-011-eps-converted-to.pdf> <../Results-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-c
-onverted-to.pdf> <../Results-CIKM2014/qClaims-PRES-CLEF-IP2011-eps-converted-to
-.pdf> <../Results-CIKM2014/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf>]
+ <../Results-CIKM2014/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf> <../Results
+-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014
+/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014/qDescripti
+on-PRES-CLEF-IP2011-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <../img/legendQR.eps>
 (epstopdf)                    date: 2014-06-12 11:57:38
 (epstopdf)                    size: 44894 bytes
@@ -1905,16 +1890,13 @@ Package epstopdf Info: Source file: <../img/legendQR.eps>
 (epstopdf)                    size: 13021 bytes
 (epstopdf)             Command: <epstopdf --outfile=../img/legendQR-eps-convert
 ed-to.pdf ../img/legendQR.eps>
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
- <../img/legendQR-eps-converted-to.pdf, id=1085, 1113.15875pt x 15.05624pt>
+
+<../img/legendQR-eps-converted-to.pdf, id=1108, 1113.15875pt x 15.05624pt>
 File: ../img/legendQR-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ../img/legendQR-eps-converted-to.pdf>
-Overfull \hbox (133.72784pt too wide) in paragraph at lines 765--765
- [] 
- []
-
 Package epstopdf Info: Source file: <../mmrqrResults/qTitle-MAP-CLEF-IP2010.eps
 >
 (epstopdf)                    date: 2014-06-12 11:57:38
@@ -1925,10 +1907,10 @@ Package epstopdf Info: Source file: <../mmrqrResults/qTitle-MAP-CLEF-IP2010.eps
 (epstopdf)                    size: 5072 bytes
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qTitle-MAP-
 CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qTitle-MAP-CLEF-IP2010.eps>
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 
-<../mmrqrResults/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1086, 180.675p
+<../mmrqrResults/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1109, 180.675p
 t x 90.3375pt>
 File: ../mmrqrResults/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic file 
 (type pdf)
@@ -1945,10 +1927,10 @@ eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qAbstract-M
 AP-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qAbstract-MAP-CLEF-IP2010.e
 ps>
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 
-<../mmrqrResults/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1087, 180.6
+<../mmrqrResults/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1110, 180.6
 75pt x 90.3375pt>
 File: ../mmrqrResults/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic fi
 le (type pdf)
@@ -1964,10 +1946,10 @@ s-converted-to.pdf>
 (epstopdf)                    size: 5411 bytes
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qClaims-MAP
 -CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qClaims-MAP-CLEF-IP2010.eps>
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 
-<../mmrqrResults/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1088, 180.675
+<../mmrqrResults/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1111, 180.675
 pt x 90.3375pt>
 File: ../mmrqrResults/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic file
  (type pdf)
@@ -1984,19 +1966,15 @@ Package epstopdf Info: Source file: <../mmrqrResults/qDescription-MAP-CLEF-IP20
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
 n-MAP-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qDescription-MAP-CLEF-IP
 2010.eps>
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 
-<../mmrqrResults/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1089, 18
+<../mmrqrResults/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1112, 18
 0.675pt x 90.3375pt>
 File: ../mmrqrResults/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic
  file (type pdf)
 
 <use ../mmrqrResults/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf>
-Overfull \hbox (34.14319pt too wide) in paragraph at lines 765--765
- [][][][] 
- []
-
 Package epstopdf Info: Source file: <../img/legendQR.eps>
 (epstopdf)                    date: 2014-06-12 11:57:38
 (epstopdf)                    size: 44894 bytes
@@ -2005,14 +1983,11 @@ Package epstopdf Info: Source file: <../img/legendQR.eps>
 (epstopdf)                    size: 13021 bytes
 (epstopdf)             Command: <epstopdf --outfile=../img/legendQR-eps-convert
 ed-to.pdf ../img/legendQR.eps>
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 File: ../img/legendQR-eps-converted-to.pdf Graphic file (type pdf)
-<use ../img/legendQR-eps-converted-to.pdf>
-Overfull \hbox (133.72784pt too wide) in paragraph at lines 765--765
- [] 
- []
 
+<use ../img/legendQR-eps-converted-to.pdf>
 Package epstopdf Info: Source file: <../mmrqrResults/qTitle-PRES-CLEF-IP2010.ep
 s>
 (epstopdf)                    date: 2014-06-12 11:57:38
@@ -2023,10 +1998,10 @@ s-converted-to.pdf>
 (epstopdf)                    size: 4759 bytes
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qTitle-PRES
 -CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qTitle-PRES-CLEF-IP2010.eps>
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 
-<../mmrqrResults/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1090, 180.675
+<../mmrqrResults/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1113, 180.675
 pt x 90.3375pt>
 File: ../mmrqrResults/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic file
  (type pdf)
@@ -2043,10 +2018,10 @@ Package epstopdf Info: Source file: <../mmrqrResults/qAbstract-PRES-CLEF-IP2010
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qAbstract-P
 RES-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qAbstract-PRES-CLEF-IP2010
 .eps>
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 
-<../mmrqrResults/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1091, 180.
+<../mmrqrResults/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1114, 180.
 675pt x 90.3375pt>
 File: ../mmrqrResults/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic f
 ile (type pdf)
@@ -2063,10 +2038,10 @@ ps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qClaims-PRE
 S-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qClaims-PRES-CLEF-IP2010.eps
 >
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 
-<../mmrqrResults/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1092, 180.67
+<../mmrqrResults/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1115, 180.67
 5pt x 90.3375pt>
 File: ../mmrqrResults/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic fil
 e (type pdf)
@@ -2083,24 +2058,16 @@ Package epstopdf Info: Source file: <../mmrqrResults/qDescription-PRES-CLEF-IP2
 (epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
 n-PRES-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qDescription-PRES-CLEF-
 IP2010.eps>
-(epstopdf)             \includegraphics on input line 765.
+(epstopdf)             \includegraphics on input line 752.
 Package epstopdf Info: Output file is already uptodate.
 
-<../mmrqrResults/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1093, 1
+<../mmrqrResults/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1116, 1
 80.675pt x 90.3375pt>
 File: ../mmrqrResults/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf Graphi
 c file (type pdf)
 
 <use ../mmrqrResults/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf>
-Overfull \hbox (34.14319pt too wide) in paragraph at lines 765--765
- [][][][] 
- []
-
-
-Overfull \vbox (258.24219pt too high) detected at line 765
- []
-
-[31
+[32
 
  <../img/legendQR-eps-converted-to.pdf> <../mmrqrResults/qTitle-MAP-CLEF-IP2010
 -eps-converted-to.pdf> <../mmrqrResults/qAbstract-MAP-CLEF-IP2010-eps-converted
@@ -2109,219 +2076,11 @@ qrResults/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf> <../mmrqrResults/q
 Title-PRES-CLEF-IP2010-eps-converted-to.pdf> <../mmrqrResults/qAbstract-PRES-CL
 EF-IP2010-eps-converted-to.pdf> <../mmrqrResults/qClaims-PRES-CLEF-IP2010-eps-c
 onverted-to.pdf> <../mmrqrResults/qDescription-PRES-CLEF-IP2010-eps-converted-t
-o.pdf>]
-Package epstopdf Info: Source file: <../img/legendQR.eps>
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 44894 bytes
-(epstopdf)             Output file: <../img/legendQR-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:09
-(epstopdf)                    size: 13021 bytes
-(epstopdf)             Command: <epstopdf --outfile=../img/legendQR-eps-convert
-ed-to.pdf ../img/legendQR.eps>
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-File: ../img/legendQR-eps-converted-to.pdf Graphic file (type pdf)
- <use ../img/legendQR-eps-converted-to.pdf>
-Overfull \hbox (133.72784pt too wide) in paragraph at lines 805--805
- [] 
- []
-
-Package epstopdf Info: Source file: <../mmrqrResults/qTitle-MAP-CLEF-IP2011.eps
->
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 21822 bytes
-(epstopdf)             Output file: <../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps
--converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:11
-(epstopdf)                    size: 5398 bytes
-(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qTitle-MAP-
-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qTitle-MAP-CLEF-IP2011.eps>
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-
-<../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1172, 180.675p
-t x 90.3375pt>
-File: ../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic file 
-(type pdf)
-
-<use ../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf>
-Package epstopdf Info: Source file: <../mmrqrResults/qAbstract-MAP-CLEF-IP2011.
-eps>
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 21621 bytes
-(epstopdf)             Output file: <../mmrqrResults/qAbstract-MAP-CLEF-IP2011-
-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:11
-(epstopdf)                    size: 4976 bytes
-(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qAbstract-M
-AP-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qAbstract-MAP-CLEF-IP2011.e
-ps>
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-
-<../mmrqrResults/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1173, 180.6
-75pt x 90.3375pt>
-File: ../mmrqrResults/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic fi
-le (type pdf)
-
-<use ../mmrqrResults/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf>
-Package epstopdf Info: Source file: <../mmrqrResults/qClaims-MAP-CLEF-IP2011.ep
-s>
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 20973 bytes
-(epstopdf)             Output file: <../mmrqrResults/qClaims-MAP-CLEF-IP2011-ep
-s-converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:11
-(epstopdf)                    size: 4898 bytes
-(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qClaims-MAP
--CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qClaims-MAP-CLEF-IP2011.eps>
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-
-<../mmrqrResults/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1174, 180.675
-pt x 90.3375pt>
-File: ../mmrqrResults/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic file
- (type pdf)
-
-<use ../mmrqrResults/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf>
-Package epstopdf Info: Source file: <../mmrqrResults/qDescription-MAP-CLEF-IP20
-11.eps>
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 22037 bytes
-(epstopdf)             Output file: <../mmrqrResults/qDescription-MAP-CLEF-IP20
-11-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:11
-(epstopdf)                    size: 5231 bytes
-(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
-n-MAP-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qDescription-MAP-CLEF-IP
-2011.eps>
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-
-<../mmrqrResults/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1175, 18
-0.675pt x 90.3375pt>
-File: ../mmrqrResults/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic
- file (type pdf)
-
-<use ../mmrqrResults/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf>
-Overfull \hbox (34.14319pt too wide) in paragraph at lines 805--805
- [][][][] 
- []
-
-Package epstopdf Info: Source file: <../img/legendQR.eps>
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 44894 bytes
-(epstopdf)             Output file: <../img/legendQR-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:09
-(epstopdf)                    size: 13021 bytes
-(epstopdf)             Command: <epstopdf --outfile=../img/legendQR-eps-convert
-ed-to.pdf ../img/legendQR.eps>
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-File: ../img/legendQR-eps-converted-to.pdf Graphic file (type pdf)
-<use ../img/legendQR-eps-converted-to.pdf>
-Overfull \hbox (133.72784pt too wide) in paragraph at lines 805--805
- [] 
- []
-
-Package epstopdf Info: Source file: <../mmrqrResults/qTitle-PRES-CLEF-IP2011.ep
-s>
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 22036 bytes
-(epstopdf)             Output file: <../mmrqrResults/qTitle-PRES-CLEF-IP2011-ep
-s-converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:12
-(epstopdf)                    size: 5369 bytes
-(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qTitle-PRES
--CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qTitle-PRES-CLEF-IP2011.eps>
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-
-<../mmrqrResults/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1176, 180.675
-pt x 90.3375pt>
-File: ../mmrqrResults/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic file
- (type pdf)
-
-<use ../mmrqrResults/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf>
-Package epstopdf Info: Source file: <../mmrqrResults/qAbstract-PRES-CLEF-IP2011
-.eps>
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 21620 bytes
-(epstopdf)             Output file: <../mmrqrResults/qAbstract-PRES-CLEF-IP2011
--eps-converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:12
-(epstopdf)                    size: 5382 bytes
-(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qAbstract-P
-RES-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qAbstract-PRES-CLEF-IP2011
-.eps>
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-
-<../mmrqrResults/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1177, 180.
-675pt x 90.3375pt>
-File: ../mmrqrResults/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic f
-ile (type pdf)
-
-<use ../mmrqrResults/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf>
-Package epstopdf Info: Source file: <../mmrqrResults/qClaims-PRES-CLEF-IP2011.e
-ps>
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 21187 bytes
-(epstopdf)             Output file: <../mmrqrResults/qClaims-PRES-CLEF-IP2011-e
-ps-converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:12
-(epstopdf)                    size: 4836 bytes
-(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qClaims-PRE
-S-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qClaims-PRES-CLEF-IP2011.eps
->
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-
-<../mmrqrResults/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1178, 180.67
-5pt x 90.3375pt>
-File: ../mmrqrResults/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic fil
-e (type pdf)
-
-<use ../mmrqrResults/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf>
-Package epstopdf Info: Source file: <../mmrqrResults/qDescription-PRES-CLEF-IP2
-011.eps>
-(epstopdf)                    date: 2014-06-12 11:57:38
-(epstopdf)                    size: 21632 bytes
-(epstopdf)             Output file: <../mmrqrResults/qDescription-PRES-CLEF-IP2
-011-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-06-12 12:03:12
-(epstopdf)                    size: 4999 bytes
-(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
-n-PRES-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qDescription-PRES-CLEF-
-IP2011.eps>
-(epstopdf)             \includegraphics on input line 805.
-Package epstopdf Info: Output file is already uptodate.
-
-<../mmrqrResults/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1179, 1
-80.675pt x 90.3375pt>
-File: ../mmrqrResults/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf Graphi
-c file (type pdf)
-
-<use ../mmrqrResults/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf>
-Overfull \hbox (34.14319pt too wide) in paragraph at lines 805--805
- [][][][] 
- []
-
-
-Overfull \vbox (258.24219pt too high) detected at line 805
- []
-
-[32
-
- <../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf> <../mmrqrResults
-/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf> <../mmrqrResults/qClaims-MAP-C
-LEF-IP2011-eps-converted-to.pdf> <../mmrqrResults/qDescription-MAP-CLEF-IP2011-
-eps-converted-to.pdf> <../mmrqrResults/qTitle-PRES-CLEF-IP2011-eps-converted-to
-.pdf> <../mmrqrResults/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf> <../mmr
-qrResults/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf> <../mmrqrResults/qDesc
-ription-PRES-CLEF-IP2011-eps-converted-to.pdf>] [33
+o.pdf>] [33
 
 ] [34
+
+] [35
 
 ]
 \tf@nav=\write6
@@ -2333,17 +2092,16 @@ ription-PRES-CLEF-IP2011-eps-converted-to.pdf>] [33
 \tf@snm=\write8
 \openout8 = `PriorArtSearch.snm'.
 
-
-(./PriorArtSearch.aux)
+ (./PriorArtSearch.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 18663 strings out of 495061
- 364920 string characters out of 1182621
- 473320 words of memory out of 3000000
- 21191 multiletter control sequences out of 15000+50000
+ 18619 strings out of 495061
+ 362459 string characters out of 1182621
+ 472565 words of memory out of 3000000
+ 21153 multiletter control sequences out of 15000+50000
  48448 words of font info for 94 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  49i,15n,65p,1416b,1140s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2361,9 +2119,9 @@ crro8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/
 share/texmf-texlive/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/u
 rw/palatino/uplri8a.pfb>
-Output written on PriorArtSearch.pdf (34 pages, 658541 bytes).
+Output written on PriorArtSearch.pdf (35 pages, 637783 bytes).
 PDF statistics:
- 1366 PDF objects out of 1440 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 291 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1335 PDF objects out of 1440 (max. 8388607)
+ 77 named destinations out of 1000 (max. 500000)
+ 251 words of extra memory for PDF output out of 10000 (max. 10000000)
 
