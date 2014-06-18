@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.4.18)  16 JUN 2014 17:46
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.4.18)  18 JUN 2014 15:59
 entering extended mode
  %&-line parsing enabled.
 **PriorArtSearch.tex
@@ -199,8 +199,8 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 
-(/usr/share/texmf-texlive/tex/latex/graphics/dvipsnam.def
-File: dvipsnam.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+(/usr/share/texmf/tex/latex/xcolor/x11nam.def
+File: x11nam.def 2007/01/21 v2.11 Predefined colors according to Unix/X11 (UK)
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
@@ -641,297 +641,96 @@ Package: beamerinnerthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
 (/usr/share/texmf/tex/latex/beamer/base/themes/outer/beamerouterthemedefault.st
 y
 Package: beamerouterthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
+))) (/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
+Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
+
+(/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+\pgfnodeparttextbox=\box53
+)
+(/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
+)
+(/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen178
+\pgf@nodesepend=\dimen179
+)
+(/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
+))
+(/usr/share/texmf/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texmf/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
+\pgffor@iter=\dimen180
+\pgffor@skip=\dimen181
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
+))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
+
+(/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
+\pgf@plot@mark@count=\count150
+\pgfplotmarksize=\dimen182
+)
+\tikz@lastx=\dimen183
+\tikz@lasty=\dimen184
+\tikz@lastxsaved=\dimen185
+\tikz@lastysaved=\dimen186
+\tikzleveldistance=\dimen187
+\tikzsiblingdistance=\dimen188
+\tikz@figbox=\box54
+\tikz@tempbox=\box55
+\tikztreelevel=\count151
+\tikznumberofchildren=\count152
+\tikznumberofcurrentchild=\count153
+\tikz@fig@count=\count154
+
+(/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
+\pgfmatrixcurrentrow=\count155
+\pgfmatrixcurrentcolumn=\count156
+\pgf@matrix@numberofcolumns=\count157
+)
+\tikz@expandcount=\count158
+
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
+hs.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 )))
-(/usr/share/texmf/tex/latex/beamer/base/themes/color/beamercolorthemestructure.
-sty
-Package: beamercolorthemestructure 2010/06/17  (rcs-revision d02a7cf4d8ae)
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
+ations.fractals.code.tex
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
+ations.code.tex
+(/usr/share/texmf/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen189
+\pgfdecoratedremainingdistance=\dimen190
+\pgfdecoratedinputsegmentcompleteddistance=\dimen191
+\pgfdecoratedinputsegmentremainingdistance=\dimen192
+\pgf@decorate@distancetomove=\dimen193
+\pgf@decorate@repeatstate=\count159
+\pgfdecorationsegmentamplitude=\dimen194
+\pgfdecorationsegmentlength=\dimen195
 )
-(/usr/share/texmf/tex/latex/beamer/base/themes/theme/beamerthemeFrankfurt.sty
-Package: beamerthemeFrankfurt 2010/06/17  (rcs-revision d02a7cf4d8ae)
-
-(/usr/share/texmf/tex/latex/beamer/base/themes/outer/beamerouterthemesmoothbars
+\tikz@lib@dec@box=\box56
+)
+(/usr/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.f
+ractals.code.tex))
+(/usr/share/texmf/tex/latex/beamer/base/themes/outer/beamerouterthememiniframes
 .sty
-Package: beamerouterthemesmoothbars 2010/06/17  (rcs-revision d02a7cf4d8ae)
+Package: beamerouterthememiniframes 2010/06/17  (rcs-revision d02a7cf4d8ae)
 )
-(/usr/share/texmf/tex/latex/beamer/base/themes/inner/beamerinnerthemerounded.st
-y
-Package: beamerinnerthemerounded 2010/06/17  (rcs-revision d02a7cf4d8ae)
+(/usr/share/texmf/tex/latex/beamer/base/themes/font/beamerfontthemeserif.sty
+Package: beamerfontthemeserif 2010/06/17  (rcs-revision d02a7cf4d8ae)
 )
-(/usr/share/texmf/tex/latex/beamer/base/themes/color/beamercolorthemeorchid.sty
-Package: beamercolorthemeorchid 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)
-(/usr/share/texmf/tex/latex/beamer/base/themes/color/beamercolorthemewhale.sty
-Package: beamercolorthemewhale 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)) (/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
-Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
-
-(/usr/share/texmf-texlive/tex/latex/base/t1enc.def
-File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
-))
-(/usr/share/texmf-texlive/tex/latex/tools/array.sty
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen178
-\extrarowheight=\dimen179
-\NC@list=\toks41
-\extratabsurround=\skip57
-\backup@length=\skip58
-)
-(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip59
-\subfigcapskip=\skip60
-\subfigcaptopadj=\dimen180
-\subfigbottomskip=\skip61
-\subfigcapmargin=\dimen181
-\subfiglabelskip=\skip62
-\c@subfigure=\count150
-\c@lofdepth=\count151
-\c@subtable=\count152
-\c@lotdepth=\count153
-
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip63
-\subfig@bottom=\skip64
-)
-(/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
-Package: inputenc 2008/03/30 v1.1d Input encoding file
-\inpenc@prehook=\toks42
-\inpenc@posthook=\toks43
-
-(/usr/share/texmf-texlive/tex/latex/base/latin1.def
-File: latin1.def 2008/03/30 v1.1d Input encoding file
-))
-(/usr/share/texmf-texlive/tex/latex/tools/calc.sty
-Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count154
-\calc@Bcount=\count155
-\calc@Adimen=\dimen182
-\calc@Bdimen=\dimen183
-\calc@Askip=\skip65
-\calc@Bskip=\skip66
-LaTeX Info: Redefining \setlength on input line 76.
-LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count156
-\calc@Cskip=\skip67
-)
-(/usr/share/texmf-texlive/tex/latex/sdrt/sdrt.sty
-Package: sdrt 2008/04/02 Package for typesetting Discourse Representation Theor
-y and formal semantics in general
-
-(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
-) (./xyling.sty
-(/usr/share/texmf-texlive/tex/generic/xypic/xy.sty
-(/usr/share/texmf-texlive/tex/generic/xypic/xy.tex Bootstrap'ing: catcodes,
-docmode, (/usr/share/texmf-texlive/tex/generic/xypic/xyrecat.tex)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyidioms.tex)
-
- Xy-pic version 3.7 <1999/02/16>
- Copyright (c) 1991-1998 by Kristoffer H. Rose <krisrose@ens-lyon.fr>
- Xy-pic is free software: see the User's Guide for details.
-
-Loading kernel: messages; fonts; allocations: state,
-\X@c=\dimen184
-\Y@c=\dimen185
-\U@c=\dimen186
-\D@c=\dimen187
-\L@c=\dimen188
-\R@c=\dimen189
-\Edge@c=\toks44
-\X@p=\dimen190
-\Y@p=\dimen191
-\U@p=\dimen192
-\D@p=\dimen193
-\L@p=\dimen194
-\R@p=\dimen195
-\Edge@p=\toks45
-\X@origin=\dimen196
-\Y@origin=\dimen197
-\X@xbase=\dimen198
-\Y@xbase=\dimen199
-\X@ybase=\dimen200
-\Y@ybase=\dimen201
-\X@min=\dimen202
-\Y@min=\dimen203
-\X@max=\dimen204
-\Y@max=\dimen205
-\lastobjectbox@=\box53
-\zerodotbox@=\box54
-\almostz@=\dimen206
- direction,
-\d@X=\dimen207
-\d@Y=\dimen208
-\K@=\count157
-\KK@=\count158
-\Direction=\count159
-\K@dXdY=\dimen209
-\K@dYdX=\dimen210
-\xyread@=\read2
-\xywrite@=\write5
-\csp@=\count160
-\quotPTK@=\dimen211
-
-utility macros; pictures: \xy, positions,
-\swaptoks@@=\toks46
-\connectobjectbox@@=\box55
- objects,
-\styletoks@=\toks47
- decorations;
-kernel objects: directionals, circles, text; options; algorithms: directions,
-edges, connections;  Xy-pic loaded)
-Package: xy 1999/02/16 Xy-pic version 3.7
-
-(/usr/share/texmf-texlive/tex/generic/xypic/xydvips.tex
- Xy-pic option: DVIPS driver v.3.3 loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyps.tex
- Xy-pic option: PostScript backend v.3.7 drivers, hooks, loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xycolor.tex
- Xy-pic option: Colour extension v.3.3
-(/usr/share/texmf-texlive/tex/generic/xypic/xyps-c.tex
-(/usr/share/texmf-texlive/tex/generic/xypic/xyps-s.tex)) loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyall.tex
- Xy-pic option: All features v.3.3
-(/usr/share/texmf-texlive/tex/generic/xypic/xycurve.tex
- Xy-pic option: Curve and Spline extension v.3.7 curve,
-\crv@cnt@=\count161
-\crvpts@=\toks48
-\splinebox@=\box56
-\splineval@=\dimen212
-\splinedepth@=\dimen213
-\splinetol@=\dimen214
-\splinelength@=\dimen215
- circles,
-\L@=\dimen216
- loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyframe.tex
- Xy-pic option: Frame and Bracket extension v.3.7 loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xycmtip.tex
- Xy-pic option: Computer Modern tip extension v.3.3
-(/usr/share/texmf-texlive/tex/generic/xypic/xytips.tex
- Xy-pic option: More Tips extension v.3.3 loaded) loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyline.tex
- Xy-pic option: Line styles extension v.3.6
-\xylinethick@=\dimen217
- loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyrotate.tex
- Xy-pic option: Rotate and Scale extension v.3.3 loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xymatrix.tex
- Xy-pic option: Matrix feature v.3.4
-\Row=\count162
-\Col=\count163
-\queue@=\toks49
-\queue@@=\toks50
-\qcount@=\count164
-\qcount@@=\count165
-\matrixsize@=\count166
- loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyarrow.tex
- Xy-pic option: Arrow and Path feature v.3.5 path, \ar, loaded)
-(/usr/share/texmf-texlive/tex/generic/xypic/xygraph.tex
- Xy-pic option: Graph feature v.3.7 loaded) loaded))
-(/usr/share/texmf-texlive/tex/generic/xypic/xycrayon.tex
- Xy-pic option: Crayola Colours v.3.3 loaded)
-\c@PXcnt=\count167
-\TXTwidth=\skip68
-\GLOSSwidth=\skip69
-\PGwidth=\skip70
-)
-(/usr/share/texmf-texlive/tex/latex/xytree/xytree.sty
-Package: xytree 2006/8/15 Pacakge for drawing trees
-
-`xytree.sty' package v1.5 for drawing trees.
-\rowheight=\dimen218
-\XyColumnSpacing=\dimen219
-\drs@wd=\dimen220
-\drs@ht=\dimen221
-\drsboxsep=\dimen222
-\drs@boxa=\box57
-\drs@boxb=\box58
-)) (/usr/share/texmf-texlive/tex/latex/psnfss/palatino.sty
+(/usr/share/texmf-texlive/tex/latex/psnfss/palatino.sty
 Package: palatino 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
-Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
-Package textcomp Info: Sub-encoding information:
-(textcomp)               5 = only ISO-Adobe without \textcurrency
-(textcomp)               4 = 5 + \texteuro
-(textcomp)               3 = 4 + \textohm
-(textcomp)               2 = 3 + \textestimated + \textcurrency
-(textcomp)               1 = TS1 - \textcircled - \t
-(textcomp)               0 = TS1 (full)
-(textcomp)             Font families with sub-encoding setting implement
-(textcomp)             only a restricted character set as indicated.
-(textcomp)             Family '?' is the default used for unknown fonts.
-(textcomp)             See the documentation for details.
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
-
-(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
-)
-LaTeX Info: Redefining \oldstylenums on input line 266.
-Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
-Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
-Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
-Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
-Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
-Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
-Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
-Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
-Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
-Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
-Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
-Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
-Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
-Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
-Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
-Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
-Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
-Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
-Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
-Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
-Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
-Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
-Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
-Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
-
-Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
-Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
-Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
-Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
-Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
-Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
-)
-(/usr/share/texmf-texlive/tex/generic/genmisc/time.sty
-\hour=\count168
-\minute=\count169
-)
-(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
-Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
-
-(/usr/share/texmf-texlive/tex/latex/base/t1enc.def
-File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
-))
 (/usr/share/texmf-texlive/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2009/10/17 v2.4 Conversion with epstopdf on the fly (HO)
 
@@ -951,33 +750,89 @@ G,.JBIG2,.JB2,.eps]
 (/usr/share/texmf-texlive/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2009/10/26 v1.1 Configuration of epstopdf for TeX Live
 )))
+(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texmf-texlive/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks43
+\inpenc@posthook=\toks44
+
+(/usr/share/texmf-texlive/tex/latex/base/latin9.def
+File: latin9.def 2008/03/30 v1.1d Input encoding file
+))
+(/usr/share/texmf-texlive/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen196
+\extrarowheight=\dimen197
+\NC@list=\toks45
+\extratabsurround=\skip57
+\backup@length=\skip58
+)
+(/usr/share/texmf-texlive/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks46
+\verbatim@line=\toks47
+\verbatim@in@stream=\read2
+)
+(/usr/share/texmf-texlive/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen198
+)
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/ulem.sty
+\UL@box=\box57
+\UL@hyphenbox=\box58
+\UL@skip=\skip59
+\UL@hook=\toks48
+\UL@pe=\count160
+\UL@pixel=\dimen199
+\ULC@box=\box59
+Package: ulem 2000/05/26
+\ULdepth=\dimen200
+)
+(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip60
+\subfigcapskip=\skip61
+\subfigcaptopadj=\dimen201
+\subfigbottomskip=\skip62
+\subfigcapmargin=\dimen202
+\subfiglabelskip=\skip63
+\c@subfigure=\count161
+\c@lofdepth=\count162
+\c@subtable=\count163
+\c@lotdepth=\count164
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip64
+\subfig@bottom=\skip65
+)
 (./PriorArtSearch.aux)
 \openout1 = `PriorArtSearch.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 56.
- (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 56.
-
-(/usr/share/texmf-texlive/tex/latex/psnfss/t1phv.fd
-File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 57.
+ (/usr/share/texmf-texlive/tex/latex/psnfss/t1ppl.fd
+File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
@@ -1022,18 +877,18 @@ driver: pdftex
 -----------------------
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count170
-\scratchdimen=\dimen223
-\scratchbox=\box59
-\nofMPsegments=\count171
-\nofMParguments=\count172
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count173
-\MPscratchDim=\dimen224
-\MPnumerator=\count174
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count165
+\scratchdimen=\dimen203
+\scratchbox=\box60
+\nofMPsegments=\count166
+\nofMParguments=\count167
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count168
+\MPscratchDim=\dimen204
+\MPnumerator=\count169
+\everyMPtoPDFconversion=\toks50
 ) ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring OFF on input line 56.
+Package hyperref Info: Link coloring OFF on input line 57.
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
@@ -1041,58 +896,54 @@ Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
-\c@section@level=\count175
+\c@section@level=\count170
 )
-LaTeX Info: Redefining \ref on input line 56.
-LaTeX Info: Redefining \pageref on input line 56.
+LaTeX Info: Redefining \ref on input line 57.
+LaTeX Info: Redefining \pageref on input line 57.
 
 (./PriorArtSearch.out) (./PriorArtSearch.out)
-\@outlinefile=\write6
-\openout6 = `PriorArtSearch.out'.
+\@outlinefile=\write5
+\openout5 = `PriorArtSearch.out'.
 
-\AtBeginShipoutBox=\box60
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 56.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 56.
+\AtBeginShipoutBox=\box61
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/ppl/m/n on input line 56.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 56.
+(Font)                  OT1/cmr/m/n --> T1/ppl/m/n on input line 57.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/phv/bx/n on input line 56.
+(Font)                  OT1/cmr/bx/n --> T1/ppl/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/phv/bx/n on input line 56.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 56.
+(Font)                  OT1/cmr/bx/n --> T1/ppl/bx/n on input line 57.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/phv/m/n on input line 56.
+(Font)                  OT1/cmss/m/n --> T1/phv/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/phv/m/n on input line 56.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 56.
+(Font)                  OT1/cmss/bx/n --> T1/phv/m/n on input line 57.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/phv/m/it on input line 56.
+(Font)                  OT1/cmr/m/it --> T1/ppl/m/it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/phv/m/it on input line 56.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 56.
+(Font)                  OT1/cmr/bx/it --> T1/ppl/m/it on input line 57.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 56.
+(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 56.
+(Font)                  OT1/cmtt/m/n --> T1/pcr/m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 56.
+(Font)                  T1/ppl/m/n --> T1/ppl/bx/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 56.
+(Font)                  T1/ppl/m/it --> T1/ppl/bx/it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/ppl/bx/n on input line 56.
+(Font)                  OT1/cmr/bx/n --> T1/ppl/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/phv/bx/n --> T1/phv/bx/n on input line 56.
+(Font)                  T1/ppl/bx/n --> T1/ppl/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 56.
+(Font)                  T1/phv/m/n --> T1/phv/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/phv/m/it --> T1/phv/bx/it on input line 56.
+(Font)                  T1/ppl/m/it --> T1/ppl/bx/it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/pcr/m/n --> T1/pcr/bx/n on input line 56.
+(Font)                  T1/pcr/m/n --> T1/pcr/bx/n on input line 57.
 
 (/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-basic-dicti
 onary/translator-basic-dictionary-English.dict
@@ -1117,94 +968,51 @@ Dictionary: translator-numbers-dictionary, Language: English
 (/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-theorem-dic
 tionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyps-ps.tex)
+) (./PriorArtSearch.nav)
 
-Xy-pic Warning: The produced DVI file is NOT PORTABLE [PriorArtSearch:56]:
- It contains <driver> `dvips' \specials for the `PostScript' extension.
+Package hyperref Warning: Option `pdfauthor' has already been used,
+(hyperref)                setting the option has no effect on input line 78.
 
-(/usr/share/texmf-texlive/tex/generic/xypic/xyps-pro.tex)
-(/usr/share/texmf-texlive/tex/generic/xypic/xypspatt.tex)
-(/usr/share/texmf-texlive/tex/generic/xypic/xypsdict.tex)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyps-col.tex) PS relaxed
-(/usr/share/texmf-texlive/tex/generic/xypic/xyps-r.tex)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyps-l.tex)
-(/usr/share/texmf-texlive/tex/generic/xypic/xyps-f.tex) (./PriorArtSearch.nav)
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 58.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 78.
 
-[1
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
+Overfull \vbox (29.59636pt too high) detected at line 78
+ []
 
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-[2
+] [2
 
 ] [3
 
 ]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 106.
- [4
+LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/it' tried instead on input line 130.
+LaTeX Font Info:    Try loading font information for U+msa on input line 130.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 130.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+) [4
 
 ]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 146.
+ [5
+
+] [6
+
+]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <6> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 181.
+
+
+LaTeX Warning: Citation `Robertson1993' on page 7 undefined on input line 181.
+
 Package epstopdf Info: Source file: <../img/legend.eps>
 (epstopdf)                    date: 2014-06-11 21:45:37
 (epstopdf)                    size: 32198 bytes
@@ -1213,10 +1021,9 @@ Package epstopdf Info: Source file: <../img/legend.eps>
 (epstopdf)                    size: 10255 bytes
 (epstopdf)             Command: <epstopdf --outfile=../img/legend-eps-converted
 -to.pdf ../img/legend.eps>
-(epstopdf)             \includegraphics on input line 124.
+(epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
-
-<../img/legend-eps-converted-to.pdf, id=47, 253.94875pt x 15.05624pt>
+<../img/legend-eps-converted-to.pdf, id=178, 253.94875pt x 15.05624pt>
 File: ../img/legend-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ../img/legend-eps-converted-to.pdf>
@@ -1231,11 +1038,11 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/jaccard-qTitle-CLEF-IP
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/jaccard
 -qTitle-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/jaccard-qTitle-CLE
 F-IP2010.eps>
-(epstopdf)             \includegraphics on input line 124.
+(epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/jaccard-qTitle-CLEF-IP2010-eps-converted-to.pdf, id=48, 14
-4.54pt x 88.33pt>
+<../Results-CIKM2014/jaccard-qTitle-CLEF-IP2010-eps-converted-to.pdf, id=179, 1
+44.54pt x 88.33pt>
 File: ../Results-CIKM2014/jaccard-qTitle-CLEF-IP2010-eps-converted-to.pdf Graph
 ic file (type pdf)
 
@@ -1251,11 +1058,11 @@ Package epstopdf Info: Source file: <../Results-CIKM2014/jaccard-qAbstract-CLEF
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/jaccard
 -qAbstract-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/jaccard-qAbstra
 ct-CLEF-IP2010.eps>
-(epstopdf)             \includegraphics on input line 124.
+(epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010-eps-converted-to.pdf, id=49,
- 144.54pt x 88.33pt>
+<../Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010-eps-converted-to.pdf, id=180
+, 144.54pt x 88.33pt>
 File: ../Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010-eps-converted-to.pdf Gr
 aphic file (type pdf)
 
@@ -1271,11 +1078,11 @@ P2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/jaccard
 -qClaims-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/jaccard-qClaims-C
 LEF-IP2010.eps>
-(epstopdf)             \includegraphics on input line 124.
+(epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
 
-<../Results-CIKM2014/jaccard-qClaims-CLEF-IP2010-eps-converted-to.pdf, id=50, 1
-44.54pt x 88.33pt>
+<../Results-CIKM2014/jaccard-qClaims-CLEF-IP2010-eps-converted-to.pdf, id=181, 
+144.54pt x 88.33pt>
 File: ../Results-CIKM2014/jaccard-qClaims-CLEF-IP2010-eps-converted-to.pdf Grap
 hic file (type pdf)
 
@@ -1291,86 +1098,75 @@ LEF-IP2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/jaccard
 -qDescription-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/jaccard-qDes
 cription-CLEF-IP2010.eps>
-(epstopdf)             \includegraphics on input line 124.
+(epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
 
 <../Results-CIKM2014/jaccard-qDescription-CLEF-IP2010-eps-converted-to.pdf, id=
-51, 144.54pt x 88.33pt>
+182, 144.54pt x 88.33pt>
 File: ../Results-CIKM2014/jaccard-qDescription-CLEF-IP2010-eps-converted-to.pdf
  Graphic file (type pdf)
 
 <use ../Results-CIKM2014/jaccard-qDescription-CLEF-IP2010-eps-converted-to.pdf>
-[5
+[7
 
  <../img/legend-eps-converted-to.pdf> <../Results-CIKM2014/jaccard-qTitle-CLEF-
 IP2010-eps-converted-to.pdf> <../Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010
 -eps-converted-to.pdf> <../Results-CIKM2014/jaccard-qClaims-CLEF-IP2010-eps-con
 verted-to.pdf> <../Results-CIKM2014/jaccard-qDescription-CLEF-IP2010-eps-conver
-ted-to.pdf>]
-
-LaTeX Warning: Citation `Robertson1993' on page 6 undefined on input line 144.
-
-[6
+ted-to.pdf>] [8
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 168.
- (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 168.
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 168.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 168.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 168.
+LaTeX Warning: Citation `Kumaran2009' on page 9 undefined on input line 213.
 
 
-LaTeX Warning: Citation `Kumaran2009' on page 7 undefined on input line 168.
-
-
-LaTeX Warning: Citation `Efthimiadis1996' on page 7 undefined on input line 168
+LaTeX Warning: Citation `Efthimiadis1996' on page 9 undefined on input line 213
 .
 
-[7
+[9
 
 ]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 198.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 243.
+ (/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 243.
 
 
-LaTeX Warning: Citation `Robertson1993' on page 8 undefined on input line 198.
+LaTeX Warning: Citation `Salton1975' on page 10 undefined on input line 243.
 
 
-LaTeX Warning: Citation `Salton1975' on page 8 undefined on input line 198.
-
-
-LaTeX Warning: Citation `Salton1971' on page 8 undefined on input line 198.
-
-
-Overfull \vbox (1.33559pt too high) detected at line 198
- []
-
-[8
-
-] [9
-
-]
-
-LaTeX Warning: Citation `Carbonell1998' on page 10 undefined on input line 222.
-
+LaTeX Warning: Citation `Salton1971' on page 10 undefined on input line 243.
 
 [10
 
 ] [11
 
-] [12
+]
+
+LaTeX Warning: Citation `Carbonell1998' on page 12 undefined on input line 266.
+
+
+[12
 
 ]
+Package epstopdf Info: Source file: <../img/matrix.eps>
+(epstopdf)                    date: 2014-06-11 21:45:37
+(epstopdf)                    size: 56881 bytes
+(epstopdf)             Output file: <../img/matrix-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:03
+(epstopdf)                    size: 14102 bytes
+(epstopdf)             Command: <epstopdf --outfile=../img/matrix-eps-converted
+-to.pdf ../img/matrix.eps>
+(epstopdf)             \includegraphics on input line 291.
+Package epstopdf Info: Output file is already uptodate.
+ <../img/matrix-eps-converted-to.pdf, id=373, 287.0725pt x 194.7275pt>
+File: ../img/matrix-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ../img/matrix-eps-converted-to.pdf> [13
+
+ <../img/matrix-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <../analysis/precision-recall_ByField-CLEF-
 IP_2010.eps>
 (epstopdf)                    date: 2014-06-11 21:45:31
@@ -1382,10 +1178,10 @@ IP_2010-eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../analysis/precision-recal
 l_ByField-CLEF-IP_2010-eps-converted-to.pdf ../analysis/precision-recall_ByFiel
 d-CLEF-IP_2010.eps>
-(epstopdf)             \includegraphics on input line 264.
+(epstopdf)             \includegraphics on input line 316.
 Package epstopdf Info: Output file is already uptodate.
 
-<../analysis/precision-recall_ByField-CLEF-IP_2010-eps-converted-to.pdf, id=127
+<../analysis/precision-recall_ByField-CLEF-IP_2010-eps-converted-to.pdf, id=419
 , 180.675pt x 126.4725pt>
 File: ../analysis/precision-recall_ByField-CLEF-IP_2010-eps-converted-to.pdf Gr
 aphic file (type pdf)
@@ -1402,98 +1198,1172 @@ ps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../analysis/MAP-MRR_ByField
 -CLEF-IP_2010-eps-converted-to.pdf ../analysis/MAP-MRR_ByField-CLEF-IP_2010.eps
 >
-(epstopdf)             \includegraphics on input line 264.
+(epstopdf)             \includegraphics on input line 316.
 Package epstopdf Info: Output file is already uptodate.
 
-<../analysis/MAP-MRR_ByField-CLEF-IP_2010-eps-converted-to.pdf, id=128, 208.78p
+<../analysis/MAP-MRR_ByField-CLEF-IP_2010-eps-converted-to.pdf, id=420, 208.78p
 t x 146.5475pt>
 File: ../analysis/MAP-MRR_ByField-CLEF-IP_2010-eps-converted-to.pdf Graphic fil
 e (type pdf)
 
-<use ../analysis/MAP-MRR_ByField-CLEF-IP_2010-eps-converted-to.pdf> [13
+<use ../analysis/MAP-MRR_ByField-CLEF-IP_2010-eps-converted-to.pdf> [14
 
  <../analysis/precision-recall_ByField-CLEF-IP_2010-eps-converted-to.pdf> <../a
 nalysis/MAP-MRR_ByField-CLEF-IP_2010-eps-converted-to.pdf>]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 333.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <6> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 333.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 333.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <8> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 383.
+ [15
 
-Overfull \vbox (6.85329pt too high) detected at line 333
- []
+]
 
-[14
+LaTeX Warning: Citation `Magdy2012' on page 16 undefined on input line 413.
 
-] [15
 
-] [16
+LaTeX Warning: Citation `Lopez2009' on page 16 undefined on input line 413.
+
+
+LaTeX Warning: Citation `Roda2009' on page 16 undefined on input line 413.
+
+[16
 
 ] [17
 
-] [18
+]
+
+LaTeX Warning: Citation `Magdy2011' on page 18 undefined on input line 454.
+
+
+LaTeX Warning: Citation `Bashir2010' on page 18 undefined on input line 454.
+
+
+LaTeX Warning: Citation `Verma2011' on page 18 undefined on input line 454.
+
+[18
 
 ] [19
 
-] [20
+]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 504.
+ [20
 
-] [21
+]
+Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-sAbstract_MAP_
+2010.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 26525 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qClaims-sAbstract_MAP_
+2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:03
+(epstopdf)                    size: 12184 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
+-sAbstract_MAP_2010-eps-converted-to.pdf ../Results-CIKM2014/qClaims-sAbstract_
+MAP_2010.eps>
+(epstopdf)             \includegraphics on input line 526.
+Package epstopdf Info: Output file is already uptodate.
 
-] [22
+<../Results-CIKM2014/qClaims-sAbstract_MAP_2010-eps-converted-to.pdf, id=620, 2
+34.8775pt x 151.56625pt>
+File: ../Results-CIKM2014/qClaims-sAbstract_MAP_2010-eps-converted-to.pdf Graph
+ic file (type pdf)
 
-] [23
+<use ../Results-CIKM2014/qClaims-sAbstract_MAP_2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-sAbstract_PRES
+_2010.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 26961 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qClaims-sAbstract_PRES
+_2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:04
+(epstopdf)                    size: 12443 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
+-sAbstract_PRES_2010-eps-converted-to.pdf ../Results-CIKM2014/qClaims-sAbstract
+_PRES_2010.eps>
+(epstopdf)             \includegraphics on input line 526.
+Package epstopdf Info: Output file is already uptodate.
 
-] [24
+<../Results-CIKM2014/qClaims-sAbstract_PRES_2010-eps-converted-to.pdf, id=621, 
+234.8775pt x 151.56625pt>
+File: ../Results-CIKM2014/qClaims-sAbstract_PRES_2010-eps-converted-to.pdf Grap
+hic file (type pdf)
 
-] [25
+<use ../Results-CIKM2014/qClaims-sAbstract_PRES_2010-eps-converted-to.pdf>
+Overfull \hbox (34.14317pt too wide) in paragraph at lines 526--526
+ [][] 
+ []
 
-] [26
+[21
+
+ <../Results-CIKM2014/qClaims-sAbstract_MAP_2010-eps-converted-to.pdf> <../Resu
+lts-CIKM2014/qClaims-sAbstract_PRES_2010-eps-converted-to.pdf>] [22
+
+]
+[23
+
+]
+
+LaTeX Warning: Citation `Ganguly2011' on page 24 undefined on input line 574.
+
+
+LaTeX Warning: Citation `Mahdabi2013' on page 24 undefined on input line 574.
+
+
+Overfull \vbox (42.49442pt too high) detected at line 574
+ []
+
+[24
+
+]
+Package epstopdf Info: Source file: <../mmrqrResults-lambda/qAbstract-sDescript
+ion_MAP_2010.eps>
+(epstopdf)                    date: 2014-06-11 21:45:36
+(epstopdf)                    size: 24198 bytes
+(epstopdf)             Output file: <../mmrqrResults-lambda/qAbstract-sDescript
+ion_MAP_2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:04
+(epstopdf)                    size: 9862 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults-lambda/qAbs
+tract-sDescription_MAP_2010-eps-converted-to.pdf ../mmrqrResults-lambda/qAbstra
+ct-sDescription_MAP_2010.eps>
+(epstopdf)             \includegraphics on input line 599.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults-lambda/qAbstract-sDescription_MAP_2010-eps-converted-to.pdf, i
+d=742, 198.7425pt x 118.4425pt>
+File: ../mmrqrResults-lambda/qAbstract-sDescription_MAP_2010-eps-converted-to.p
+df Graphic file (type pdf)
+
+<use ../mmrqrResults-lambda/qAbstract-sDescription_MAP_2010-eps-converted-to.pd
+f>
+Package epstopdf Info: Source file: <../mmrqrResults-lambda/qAbstract-sDescript
+ion_PRES_2010.eps>
+(epstopdf)                    date: 2014-06-11 21:45:36
+(epstopdf)                    size: 24624 bytes
+(epstopdf)             Output file: <../mmrqrResults-lambda/qAbstract-sDescript
+ion_PRES_2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:04
+(epstopdf)                    size: 10333 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults-lambda/qAbs
+tract-sDescription_PRES_2010-eps-converted-to.pdf ../mmrqrResults-lambda/qAbstr
+act-sDescription_PRES_2010.eps>
+(epstopdf)             \includegraphics on input line 599.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults-lambda/qAbstract-sDescription_PRES_2010-eps-converted-to.pdf, 
+id=743, 198.7425pt x 118.4425pt>
+File: ../mmrqrResults-lambda/qAbstract-sDescription_PRES_2010-eps-converted-to.
+pdf Graphic file (type pdf)
+
+<use ../mmrqrResults-lambda/qAbstract-sDescription_PRES_2010-eps-converted-to.p
+df>
+Package epstopdf Info: Source file: <../mmrqrResults-lambda/qClaims-sDescriptio
+n_MAP_2010.eps>
+(epstopdf)                    date: 2014-06-11 21:45:36
+(epstopdf)                    size: 23734 bytes
+(epstopdf)             Output file: <../mmrqrResults-lambda/qClaims-sDescriptio
+n_MAP_2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:04
+(epstopdf)                    size: 9754 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults-lambda/qCla
+ims-sDescription_MAP_2010-eps-converted-to.pdf ../mmrqrResults-lambda/qClaims-s
+Description_MAP_2010.eps>
+(epstopdf)             \includegraphics on input line 599.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults-lambda/qClaims-sDescription_MAP_2010-eps-converted-to.pdf, id=
+744, 198.7425pt x 118.4425pt>
+File: ../mmrqrResults-lambda/qClaims-sDescription_MAP_2010-eps-converted-to.pdf
+ Graphic file (type pdf)
+
+<use ../mmrqrResults-lambda/qClaims-sDescription_MAP_2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults-lambda/qClaims-sDescriptio
+n_PRES_2010.eps>
+(epstopdf)                    date: 2014-06-11 21:45:36
+(epstopdf)                    size: 24634 bytes
+(epstopdf)             Output file: <../mmrqrResults-lambda/qClaims-sDescriptio
+n_PRES_2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:04
+(epstopdf)                    size: 10149 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults-lambda/qCla
+ims-sDescription_PRES_2010-eps-converted-to.pdf ../mmrqrResults-lambda/qClaims-
+sDescription_PRES_2010.eps>
+(epstopdf)             \includegraphics on input line 599.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults-lambda/qClaims-sDescription_PRES_2010-eps-converted-to.pdf, id
+=745, 198.7425pt x 118.4425pt>
+File: ../mmrqrResults-lambda/qClaims-sDescription_PRES_2010-eps-converted-to.pd
+f Graphic file (type pdf)
+
+<use ../mmrqrResults-lambda/qClaims-sDescription_PRES_2010-eps-converted-to.pdf
+> [25
+
+ <../mmrqrResults-lambda/qAbstract-sDescription_MAP_2010-eps-converted-to.pdf> 
+<../mmrqrResults-lambda/qAbstract-sDescription_PRES_2010-eps-converted-to.pdf> 
+<../mmrqrResults-lambda/qClaims-sDescription_MAP_2010-eps-converted-to.pdf> <..
+/mmrqrResults-lambda/qClaims-sDescription_PRES_2010-eps-converted-to.pdf>] [26
 
 ] [27
 
-] [28
-
 ]
+Package epstopdf Info: Source file: <../mmrqrResults/qDescription-sDescription_
+MAP_2010.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 30423 bytes
+(epstopdf)             Output file: <../mmrqrResults/qDescription-sDescription_
+MAP_2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:05
+(epstopdf)                    size: 17826 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
+n-sDescription_MAP_2010-eps-converted-to.pdf ../mmrqrResults/qDescription-sDesc
+ription_MAP_2010.eps>
+(epstopdf)             \includegraphics on input line 630.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qDescription-sDescription_MAP_2010-eps-converted-to.pdf, id=87
+3, 234.8775pt x 151.56625pt>
+File: ../mmrqrResults/qDescription-sDescription_MAP_2010-eps-converted-to.pdf G
+raphic file (type pdf)
+
+<use ../mmrqrResults/qDescription-sDescription_MAP_2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qDescription-sDescription_
+PRES_2010.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 31046 bytes
+(epstopdf)             Output file: <../mmrqrResults/qDescription-sDescription_
+PRES_2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:05
+(epstopdf)                    size: 18480 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
+n-sDescription_PRES_2010-eps-converted-to.pdf ../mmrqrResults/qDescription-sDes
+cription_PRES_2010.eps>
+(epstopdf)             \includegraphics on input line 630.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qDescription-sDescription_PRES_2010-eps-converted-to.pdf, id=8
+74, 234.8775pt x 151.56625pt>
+File: ../mmrqrResults/qDescription-sDescription_PRES_2010-eps-converted-to.pdf 
+Graphic file (type pdf)
+
+<use ../mmrqrResults/qDescription-sDescription_PRES_2010-eps-converted-to.pdf>
+[28
+
+ <../mmrqrResults/qDescription-sDescription_MAP_2010-eps-converted-to.pdf> <../
+mmrqrResults/qDescription-sDescription_PRES_2010-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <../img/legendQE.eps>
+(epstopdf)                    date: 2014-06-11 21:45:37
+(epstopdf)                    size: 48766 bytes
+(epstopdf)             Output file: <../img/legendQE-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:05
+(epstopdf)                    size: 14045 bytes
+(epstopdf)             Command: <epstopdf --outfile=../img/legendQE-eps-convert
+ed-to.pdf ../img/legendQE.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+
+<../img/legendQE-eps-converted-to.pdf, id=919, 1115.16624pt x 15.05624pt>
+File: ../img/legendQE-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ../img/legendQE-eps-converted-to.pdf>
+Overfull \hbox (176.40697pt too wide) in paragraph at lines 674--674
+ [] 
+ []
+
+Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-MAP-CLEF-IP2010
+.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 26853 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qTitle-MAP-CLEF-IP2010
+-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:06
+(epstopdf)                    size: 7084 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qTitle-
+MAP-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qTitle-MAP-CLEF-IP2010
+.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf, id=920, 505.8
+9pt x 138.5175pt>
+File: ../Results-CIKM2014/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic f
+ile (type pdf)
+
+<use ../Results-CIKM2014/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../Results-CIKM2014/qAbstract-MAP-CLEF-IP2
+010.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 26905 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qAbstract-MAP-CLEF-IP2
+010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:06
+(epstopdf)                    size: 7165 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qAbstra
+ct-MAP-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qAbstract-MAP-CLEF-
+IP2010.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf, id=921, 50
+5.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf Graphi
+c file (type pdf)
+
+<use ../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf>
+Overfull \hbox (182.09785pt too wide) in paragraph at lines 674--674
+ [][][] 
+ []
+
+Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-MAP-CLEF-IP201
+0.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 27085 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qClaims-MAP-CLEF-IP201
+0-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:06
+(epstopdf)                    size: 7452 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
+-MAP-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qClaims-MAP-CLEF-IP20
+10.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf, id=922, 505.
+89pt x 138.5175pt>
+File: ../Results-CIKM2014/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic 
+file (type pdf)
+
+<use ../Results-CIKM2014/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../Results-CIKM2014/qDescription-MAP-CLEF-
+IP2010.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 26864 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qDescription-MAP-CLEF-
+IP2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:06
+(epstopdf)                    size: 7173 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qDescri
+ption-MAP-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qDescription-MAP
+-CLEF-IP2010.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf, id=923,
+ 505.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf Gra
+phic file (type pdf)
+
+<use ../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf>
+Overfull \hbox (182.09785pt too wide) in paragraph at lines 674--674
+ [][][] 
+ []
+
+Package epstopdf Info: Source file: <../img/legendQE.eps>
+(epstopdf)                    date: 2014-06-11 21:45:37
+(epstopdf)                    size: 48766 bytes
+(epstopdf)             Output file: <../img/legendQE-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:05
+(epstopdf)                    size: 14045 bytes
+(epstopdf)             Command: <epstopdf --outfile=../img/legendQE-eps-convert
+ed-to.pdf ../img/legendQE.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+File: ../img/legendQE-eps-converted-to.pdf Graphic file (type pdf)
+<use ../img/legendQE-eps-converted-to.pdf>
+Overfull \hbox (176.40697pt too wide) in paragraph at lines 674--674
+ [] 
+ []
+
+Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-PRES-CLEF-IP201
+0.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 27277 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qTitle-PRES-CLEF-IP201
+0-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:06
+(epstopdf)                    size: 7456 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qTitle-
+PRES-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qTitle-PRES-CLEF-IP20
+10.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf, id=924, 505.
+89pt x 138.5175pt>
+File: ../Results-CIKM2014/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic 
+file (type pdf)
+
+<use ../Results-CIKM2014/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../Results-CIKM2014/qAbstract-PRES-CLEF-IP
+2010.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 26874 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qAbstract-PRES-CLEF-IP
+2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:07
+(epstopdf)                    size: 7230 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qAbstra
+ct-PRES-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qAbstract-PRES-CLE
+F-IP2010.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf, id=925, 5
+05.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf Graph
+ic file (type pdf)
+
+<use ../Results-CIKM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf>
+Overfull \hbox (182.09785pt too wide) in paragraph at lines 674--674
+ [][][] 
+ []
+
+Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-PRES-CLEF-IP20
+10.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 27546 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qClaims-PRES-CLEF-IP20
+10-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:07
+(epstopdf)                    size: 7237 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
+-PRES-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qClaims-PRES-CLEF-IP
+2010.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf, id=926, 505
+.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic
+ file (type pdf)
+
+<use ../Results-CIKM2014/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../Results-CIKM2014/qDescription-PRES-CLEF
+-IP2010.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 27520 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qDescription-PRES-CLEF
+-IP2010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:07
+(epstopdf)                    size: 7321 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qDescri
+ption-PRES-CLEF-IP2010-eps-converted-to.pdf ../Results-CIKM2014/qDescription-PR
+ES-CLEF-IP2010.eps>
+(epstopdf)             \includegraphics on input line 674.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf, id=927
+, 505.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf Gr
+aphic file (type pdf)
+
+<use ../Results-CIKM2014/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf>
+Overfull \hbox (182.09785pt too wide) in paragraph at lines 674--674
+ [][][] 
+ []
+
+
+Overfull \vbox (310.41312pt too high) detected at line 674
+ []
+
 [29
 
-] [30
+ <../img/legendQE-eps-converted-to.pdf> <../Results-CIKM2014/qTitle-MAP-CLEF-IP
+2010-eps-converted-to.pdf> <../Results-CIKM2014/qAbstract-MAP-CLEF-IP2010-eps-c
+onverted-to.pdf> <../Results-CIKM2014/qClaims-MAP-CLEF-IP2010-eps-converted-to.
+pdf> <../Results-CIKM2014/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf> <.
+./Results-CIKM2014/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf> <../Results-CI
+KM2014/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf> <../Results-CIKM2014/qC
+laims-PRES-CLEF-IP2010-eps-converted-to.pdf> <../Results-CIKM2014/qDescription-
+PRES-CLEF-IP2010-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <../img/legendQE.eps>
+(epstopdf)                    date: 2014-06-11 21:45:37
+(epstopdf)                    size: 48766 bytes
+(epstopdf)             Output file: <../img/legendQE-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:05
+(epstopdf)                    size: 14045 bytes
+(epstopdf)             Command: <epstopdf --outfile=../img/legendQE-eps-convert
+ed-to.pdf ../img/legendQE.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+File: ../img/legendQE-eps-converted-to.pdf Graphic file (type pdf)
 
-] [31
+<use ../img/legendQE-eps-converted-to.pdf>
+Overfull \hbox (176.40697pt too wide) in paragraph at lines 721--721
+ [] 
+ []
 
-] [32
+Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-MAP-CLEF-IP2011
+.eps>
+(epstopdf)                    date: 2014-06-11 21:45:33
+(epstopdf)                    size: 24920 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qTitle-MAP-CLEF-IP2011
+-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:07
+(epstopdf)                    size: 7390 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qTitle-
+MAP-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qTitle-MAP-CLEF-IP2011
+.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1007, 505.
+89pt x 138.5175pt>
+File: ../Results-CIKM2014/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic f
+ile (type pdf)
+
+<use ../Results-CIKM2014/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../Results-CIKM2014/qAbstract-MAP-CLEF-IP2
+011.eps>
+(epstopdf)                    date: 2014-06-11 21:45:33
+(epstopdf)                    size: 25604 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qAbstract-MAP-CLEF-IP2
+011-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:07
+(epstopdf)                    size: 7611 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qAbstra
+ct-MAP-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qAbstract-MAP-CLEF-
+IP2011.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1008, 5
+05.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf Graphi
+c file (type pdf)
+
+<use ../Results-CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf>
+Overfull \hbox (182.09785pt too wide) in paragraph at lines 721--721
+ [][][] 
+ []
+
+Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-MAP-CLEF-IP201
+1.eps>
+(epstopdf)                    date: 2014-06-11 21:45:33
+(epstopdf)                    size: 24906 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qClaims-MAP-CLEF-IP201
+1-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:08
+(epstopdf)                    size: 7257 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
+-MAP-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qClaims-MAP-CLEF-IP20
+11.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1009, 505
+.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic 
+file (type pdf)
+
+<use ../Results-CIKM2014/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../Results-CIKM2014/qDescription-MAP-CLEF-
+IP2011.eps>
+(epstopdf)                    date: 2014-06-11 21:45:33
+(epstopdf)                    size: 24499 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qDescription-MAP-CLEF-
+IP2011-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:08
+(epstopdf)                    size: 7084 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qDescri
+ption-MAP-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qDescription-MAP
+-CLEF-IP2011.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1010
+, 505.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf Gra
+phic file (type pdf)
+
+<use ../Results-CIKM2014/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf>
+Overfull \hbox (182.09785pt too wide) in paragraph at lines 721--721
+ [][][] 
+ []
+
+Package epstopdf Info: Source file: <../img/legendQE.eps>
+(epstopdf)                    date: 2014-06-11 21:45:37
+(epstopdf)                    size: 48766 bytes
+(epstopdf)             Output file: <../img/legendQE-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:05
+(epstopdf)                    size: 14045 bytes
+(epstopdf)             Command: <epstopdf --outfile=../img/legendQE-eps-convert
+ed-to.pdf ../img/legendQE.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+File: ../img/legendQE-eps-converted-to.pdf Graphic file (type pdf)
+<use ../img/legendQE-eps-converted-to.pdf>
+Overfull \hbox (176.40697pt too wide) in paragraph at lines 721--721
+ [] 
+ []
+
+Package epstopdf Info: Source file: <../Results-CIKM2014/qTitle-PRES-CLEF-IP201
+1.eps>
+(epstopdf)                    date: 2014-06-11 21:45:33
+(epstopdf)                    size: 24947 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qTitle-PRES-CLEF-IP201
+1-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:08
+(epstopdf)                    size: 7131 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qTitle-
+PRES-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qTitle-PRES-CLEF-IP20
+11.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1011, 505
+.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic 
+file (type pdf)
+
+<use ../Results-CIKM2014/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../Results-CIKM2014/qAbstract-PRES-CLEF-IP
+2011.eps>
+(epstopdf)                    date: 2014-06-11 21:45:33
+(epstopdf)                    size: 24917 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qAbstract-PRES-CLEF-IP
+2011-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:08
+(epstopdf)                    size: 7347 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qAbstra
+ct-PRES-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qAbstract-PRES-CLE
+F-IP2011.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1012, 
+505.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf Graph
+ic file (type pdf)
+
+<use ../Results-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf>
+Overfull \hbox (170.71608pt too wide) in paragraph at lines 721--721
+ [][][] 
+ []
+
+Package epstopdf Info: Source file: <../Results-CIKM2014/qClaims-PRES-CLEF-IP20
+11.eps>
+(epstopdf)                    date: 2014-06-11 21:45:33
+(epstopdf)                    size: 25156 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qClaims-PRES-CLEF-IP20
+11-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:08
+(epstopdf)                    size: 7230 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qClaims
+-PRES-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qClaims-PRES-CLEF-IP
+2011.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1013, 50
+5.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic
+ file (type pdf)
+
+<use ../Results-CIKM2014/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../Results-CIKM2014/qDescription-PRES-CLEF
+-IP2011.eps>
+(epstopdf)                    date: 2014-06-11 21:45:33
+(epstopdf)                    size: 24492 bytes
+(epstopdf)             Output file: <../Results-CIKM2014/qDescription-PRES-CLEF
+-IP2011-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:08
+(epstopdf)                    size: 6934 bytes
+(epstopdf)             Command: <epstopdf --outfile=../Results-CIKM2014/qDescri
+ption-PRES-CLEF-IP2011-eps-converted-to.pdf ../Results-CIKM2014/qDescription-PR
+ES-CLEF-IP2011.eps>
+(epstopdf)             \includegraphics on input line 721.
+Package epstopdf Info: Output file is already uptodate.
+
+<../Results-CIKM2014/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf, id=101
+4, 505.89pt x 138.5175pt>
+File: ../Results-CIKM2014/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf Gr
+aphic file (type pdf)
+
+<use ../Results-CIKM2014/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf>
+Overfull \hbox (176.40697pt too wide) in paragraph at lines 721--721
+ [][][] 
+ []
+
+
+Overfull \vbox (304.4533pt too high) detected at line 721
+ []
+
+[30
+
+ <../Results-CIKM2014/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-
+CIKM2014/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014/q
+Claims-MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014/qDescription-
+MAP-CLEF-IP2011-eps-converted-to.pdf> <../Results-CIKM2014/qTitle-PRES-CLEF-IP2
+011-eps-converted-to.pdf> <../Results-CIKM2014/qAbstract-PRES-CLEF-IP2011-eps-c
+onverted-to.pdf> <../Results-CIKM2014/qClaims-PRES-CLEF-IP2011-eps-converted-to
+.pdf> <../Results-CIKM2014/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <../img/legendQR.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 44894 bytes
+(epstopdf)             Output file: <../img/legendQR-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:09
+(epstopdf)                    size: 13021 bytes
+(epstopdf)             Command: <epstopdf --outfile=../img/legendQR-eps-convert
+ed-to.pdf ../img/legendQR.eps>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+ <../img/legendQR-eps-converted-to.pdf, id=1085, 1113.15875pt x 15.05624pt>
+File: ../img/legendQR-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ../img/legendQR-eps-converted-to.pdf>
+Overfull \hbox (133.72784pt too wide) in paragraph at lines 765--765
+ [] 
+ []
+
+Package epstopdf Info: Source file: <../mmrqrResults/qTitle-MAP-CLEF-IP2010.eps
+>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21656 bytes
+(epstopdf)             Output file: <../mmrqrResults/qTitle-MAP-CLEF-IP2010-eps
+-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:09
+(epstopdf)                    size: 5072 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qTitle-MAP-
+CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qTitle-MAP-CLEF-IP2010.eps>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1086, 180.675p
+t x 90.3375pt>
+File: ../mmrqrResults/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic file 
+(type pdf)
+
+<use ../mmrqrResults/qTitle-MAP-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qAbstract-MAP-CLEF-IP2010.
+eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21003 bytes
+(epstopdf)             Output file: <../mmrqrResults/qAbstract-MAP-CLEF-IP2010-
+eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:09
+(epstopdf)                    size: 5166 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qAbstract-M
+AP-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qAbstract-MAP-CLEF-IP2010.e
+ps>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1087, 180.6
+75pt x 90.3375pt>
+File: ../mmrqrResults/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic fi
+le (type pdf)
+
+<use ../mmrqrResults/qAbstract-MAP-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qClaims-MAP-CLEF-IP2010.ep
+s>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21867 bytes
+(epstopdf)             Output file: <../mmrqrResults/qClaims-MAP-CLEF-IP2010-ep
+s-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:10
+(epstopdf)                    size: 5411 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qClaims-MAP
+-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qClaims-MAP-CLEF-IP2010.eps>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1088, 180.675
+pt x 90.3375pt>
+File: ../mmrqrResults/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic file
+ (type pdf)
+
+<use ../mmrqrResults/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qDescription-MAP-CLEF-IP20
+10.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21011 bytes
+(epstopdf)             Output file: <../mmrqrResults/qDescription-MAP-CLEF-IP20
+10-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:10
+(epstopdf)                    size: 4987 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
+n-MAP-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qDescription-MAP-CLEF-IP
+2010.eps>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf, id=1089, 18
+0.675pt x 90.3375pt>
+File: ../mmrqrResults/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf Graphic
+ file (type pdf)
+
+<use ../mmrqrResults/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf>
+Overfull \hbox (34.14319pt too wide) in paragraph at lines 765--765
+ [][][][] 
+ []
+
+Package epstopdf Info: Source file: <../img/legendQR.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 44894 bytes
+(epstopdf)             Output file: <../img/legendQR-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:09
+(epstopdf)                    size: 13021 bytes
+(epstopdf)             Command: <epstopdf --outfile=../img/legendQR-eps-convert
+ed-to.pdf ../img/legendQR.eps>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+File: ../img/legendQR-eps-converted-to.pdf Graphic file (type pdf)
+<use ../img/legendQR-eps-converted-to.pdf>
+Overfull \hbox (133.72784pt too wide) in paragraph at lines 765--765
+ [] 
+ []
+
+Package epstopdf Info: Source file: <../mmrqrResults/qTitle-PRES-CLEF-IP2010.ep
+s>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 20998 bytes
+(epstopdf)             Output file: <../mmrqrResults/qTitle-PRES-CLEF-IP2010-ep
+s-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:10
+(epstopdf)                    size: 4759 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qTitle-PRES
+-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qTitle-PRES-CLEF-IP2010.eps>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1090, 180.675
+pt x 90.3375pt>
+File: ../mmrqrResults/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic file
+ (type pdf)
+
+<use ../mmrqrResults/qTitle-PRES-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qAbstract-PRES-CLEF-IP2010
+.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 20789 bytes
+(epstopdf)             Output file: <../mmrqrResults/qAbstract-PRES-CLEF-IP2010
+-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:10
+(epstopdf)                    size: 4872 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qAbstract-P
+RES-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qAbstract-PRES-CLEF-IP2010
+.eps>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1091, 180.
+675pt x 90.3375pt>
+File: ../mmrqrResults/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic f
+ile (type pdf)
+
+<use ../mmrqrResults/qAbstract-PRES-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qClaims-PRES-CLEF-IP2010.e
+ps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21647 bytes
+(epstopdf)             Output file: <../mmrqrResults/qClaims-PRES-CLEF-IP2010-e
+ps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:10
+(epstopdf)                    size: 5019 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qClaims-PRE
+S-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qClaims-PRES-CLEF-IP2010.eps
+>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1092, 180.67
+5pt x 90.3375pt>
+File: ../mmrqrResults/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf Graphic fil
+e (type pdf)
+
+<use ../mmrqrResults/qClaims-PRES-CLEF-IP2010-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qDescription-PRES-CLEF-IP2
+010.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 20575 bytes
+(epstopdf)             Output file: <../mmrqrResults/qDescription-PRES-CLEF-IP2
+010-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:11
+(epstopdf)                    size: 4612 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
+n-PRES-CLEF-IP2010-eps-converted-to.pdf ../mmrqrResults/qDescription-PRES-CLEF-
+IP2010.eps>
+(epstopdf)             \includegraphics on input line 765.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf, id=1093, 1
+80.675pt x 90.3375pt>
+File: ../mmrqrResults/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf Graphi
+c file (type pdf)
+
+<use ../mmrqrResults/qDescription-PRES-CLEF-IP2010-eps-converted-to.pdf>
+Overfull \hbox (34.14319pt too wide) in paragraph at lines 765--765
+ [][][][] 
+ []
+
+
+Overfull \vbox (258.24219pt too high) detected at line 765
+ []
+
+[31
+
+ <../img/legendQR-eps-converted-to.pdf> <../mmrqrResults/qTitle-MAP-CLEF-IP2010
+-eps-converted-to.pdf> <../mmrqrResults/qAbstract-MAP-CLEF-IP2010-eps-converted
+-to.pdf> <../mmrqrResults/qClaims-MAP-CLEF-IP2010-eps-converted-to.pdf> <../mmr
+qrResults/qDescription-MAP-CLEF-IP2010-eps-converted-to.pdf> <../mmrqrResults/q
+Title-PRES-CLEF-IP2010-eps-converted-to.pdf> <../mmrqrResults/qAbstract-PRES-CL
+EF-IP2010-eps-converted-to.pdf> <../mmrqrResults/qClaims-PRES-CLEF-IP2010-eps-c
+onverted-to.pdf> <../mmrqrResults/qDescription-PRES-CLEF-IP2010-eps-converted-t
+o.pdf>]
+Package epstopdf Info: Source file: <../img/legendQR.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 44894 bytes
+(epstopdf)             Output file: <../img/legendQR-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:09
+(epstopdf)                    size: 13021 bytes
+(epstopdf)             Command: <epstopdf --outfile=../img/legendQR-eps-convert
+ed-to.pdf ../img/legendQR.eps>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+File: ../img/legendQR-eps-converted-to.pdf Graphic file (type pdf)
+ <use ../img/legendQR-eps-converted-to.pdf>
+Overfull \hbox (133.72784pt too wide) in paragraph at lines 805--805
+ [] 
+ []
+
+Package epstopdf Info: Source file: <../mmrqrResults/qTitle-MAP-CLEF-IP2011.eps
+>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21822 bytes
+(epstopdf)             Output file: <../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps
+-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:11
+(epstopdf)                    size: 5398 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qTitle-MAP-
+CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qTitle-MAP-CLEF-IP2011.eps>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1172, 180.675p
+t x 90.3375pt>
+File: ../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic file 
+(type pdf)
+
+<use ../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qAbstract-MAP-CLEF-IP2011.
+eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21621 bytes
+(epstopdf)             Output file: <../mmrqrResults/qAbstract-MAP-CLEF-IP2011-
+eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:11
+(epstopdf)                    size: 4976 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qAbstract-M
+AP-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qAbstract-MAP-CLEF-IP2011.e
+ps>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1173, 180.6
+75pt x 90.3375pt>
+File: ../mmrqrResults/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic fi
+le (type pdf)
+
+<use ../mmrqrResults/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qClaims-MAP-CLEF-IP2011.ep
+s>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 20973 bytes
+(epstopdf)             Output file: <../mmrqrResults/qClaims-MAP-CLEF-IP2011-ep
+s-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:11
+(epstopdf)                    size: 4898 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qClaims-MAP
+-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qClaims-MAP-CLEF-IP2011.eps>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1174, 180.675
+pt x 90.3375pt>
+File: ../mmrqrResults/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic file
+ (type pdf)
+
+<use ../mmrqrResults/qClaims-MAP-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qDescription-MAP-CLEF-IP20
+11.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 22037 bytes
+(epstopdf)             Output file: <../mmrqrResults/qDescription-MAP-CLEF-IP20
+11-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:11
+(epstopdf)                    size: 5231 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
+n-MAP-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qDescription-MAP-CLEF-IP
+2011.eps>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf, id=1175, 18
+0.675pt x 90.3375pt>
+File: ../mmrqrResults/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf Graphic
+ file (type pdf)
+
+<use ../mmrqrResults/qDescription-MAP-CLEF-IP2011-eps-converted-to.pdf>
+Overfull \hbox (34.14319pt too wide) in paragraph at lines 805--805
+ [][][][] 
+ []
+
+Package epstopdf Info: Source file: <../img/legendQR.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 44894 bytes
+(epstopdf)             Output file: <../img/legendQR-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:09
+(epstopdf)                    size: 13021 bytes
+(epstopdf)             Command: <epstopdf --outfile=../img/legendQR-eps-convert
+ed-to.pdf ../img/legendQR.eps>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+File: ../img/legendQR-eps-converted-to.pdf Graphic file (type pdf)
+<use ../img/legendQR-eps-converted-to.pdf>
+Overfull \hbox (133.72784pt too wide) in paragraph at lines 805--805
+ [] 
+ []
+
+Package epstopdf Info: Source file: <../mmrqrResults/qTitle-PRES-CLEF-IP2011.ep
+s>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 22036 bytes
+(epstopdf)             Output file: <../mmrqrResults/qTitle-PRES-CLEF-IP2011-ep
+s-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:12
+(epstopdf)                    size: 5369 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qTitle-PRES
+-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qTitle-PRES-CLEF-IP2011.eps>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1176, 180.675
+pt x 90.3375pt>
+File: ../mmrqrResults/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic file
+ (type pdf)
+
+<use ../mmrqrResults/qTitle-PRES-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qAbstract-PRES-CLEF-IP2011
+.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21620 bytes
+(epstopdf)             Output file: <../mmrqrResults/qAbstract-PRES-CLEF-IP2011
+-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:12
+(epstopdf)                    size: 5382 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qAbstract-P
+RES-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qAbstract-PRES-CLEF-IP2011
+.eps>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1177, 180.
+675pt x 90.3375pt>
+File: ../mmrqrResults/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic f
+ile (type pdf)
+
+<use ../mmrqrResults/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qClaims-PRES-CLEF-IP2011.e
+ps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21187 bytes
+(epstopdf)             Output file: <../mmrqrResults/qClaims-PRES-CLEF-IP2011-e
+ps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:12
+(epstopdf)                    size: 4836 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qClaims-PRE
+S-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qClaims-PRES-CLEF-IP2011.eps
+>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1178, 180.67
+5pt x 90.3375pt>
+File: ../mmrqrResults/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf Graphic fil
+e (type pdf)
+
+<use ../mmrqrResults/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <../mmrqrResults/qDescription-PRES-CLEF-IP2
+011.eps>
+(epstopdf)                    date: 2014-06-12 11:57:38
+(epstopdf)                    size: 21632 bytes
+(epstopdf)             Output file: <../mmrqrResults/qDescription-PRES-CLEF-IP2
+011-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-06-12 12:03:12
+(epstopdf)                    size: 4999 bytes
+(epstopdf)             Command: <epstopdf --outfile=../mmrqrResults/qDescriptio
+n-PRES-CLEF-IP2011-eps-converted-to.pdf ../mmrqrResults/qDescription-PRES-CLEF-
+IP2011.eps>
+(epstopdf)             \includegraphics on input line 805.
+Package epstopdf Info: Output file is already uptodate.
+
+<../mmrqrResults/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf, id=1179, 1
+80.675pt x 90.3375pt>
+File: ../mmrqrResults/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf Graphi
+c file (type pdf)
+
+<use ../mmrqrResults/qDescription-PRES-CLEF-IP2011-eps-converted-to.pdf>
+Overfull \hbox (34.14319pt too wide) in paragraph at lines 805--805
+ [][][][] 
+ []
+
+
+Overfull \vbox (258.24219pt too high) detected at line 805
+ []
+
+[32
+
+ <../mmrqrResults/qTitle-MAP-CLEF-IP2011-eps-converted-to.pdf> <../mmrqrResults
+/qAbstract-MAP-CLEF-IP2011-eps-converted-to.pdf> <../mmrqrResults/qClaims-MAP-C
+LEF-IP2011-eps-converted-to.pdf> <../mmrqrResults/qDescription-MAP-CLEF-IP2011-
+eps-converted-to.pdf> <../mmrqrResults/qTitle-PRES-CLEF-IP2011-eps-converted-to
+.pdf> <../mmrqrResults/qAbstract-PRES-CLEF-IP2011-eps-converted-to.pdf> <../mmr
+qrResults/qClaims-PRES-CLEF-IP2011-eps-converted-to.pdf> <../mmrqrResults/qDesc
+ription-PRES-CLEF-IP2011-eps-converted-to.pdf>] [33
+
+] [34
 
 ]
-\tf@nav=\write7
-\openout7 = `PriorArtSearch.nav'.
+\tf@nav=\write6
+\openout6 = `PriorArtSearch.nav'.
 
-\tf@toc=\write8
-\openout8 = `PriorArtSearch.toc'.
+\tf@toc=\write7
+\openout7 = `PriorArtSearch.toc'.
 
-\tf@snm=\write9
-\openout9 = `PriorArtSearch.snm'.
+\tf@snm=\write8
+\openout8 = `PriorArtSearch.snm'.
 
- (./PriorArtSearch.aux)
+
+(./PriorArtSearch.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 19439 strings out of 495061
- 336567 string characters out of 1182621
- 460454 words of memory out of 3000000
- 21966 multiletter control sequences out of 15000+50000
- 53518 words of font info for 73 fonts, out of 3000000 for 9000
+ 18663 strings out of 495061
+ 364920 string characters out of 1182621
+ 473320 words of memory out of 3000000
+ 21191 multiletter control sequences out of 15000+50000
+ 48448 words of font info for 94 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 49i,16n,57p,927b,637s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,15n,65p,1416b,1140s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/urw/helv
-etic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb><
-/usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on PriorArtSearch.pdf (32 pages, 123625 bytes).
+ve/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/symbols/msam10.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/symbols/msam7.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/u
+crro8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/
+share/texmf-texlive/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texmf-texl
+ive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/u
+rw/palatino/uplri8a.pfb>
+Output written on PriorArtSearch.pdf (34 pages, 658541 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
- 65 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1366 PDF objects out of 1440 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 291 words of extra memory for PDF output out of 10000 (max. 10000000)
 
