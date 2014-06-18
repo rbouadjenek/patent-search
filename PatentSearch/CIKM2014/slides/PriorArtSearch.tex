@@ -83,8 +83,7 @@
 \begin{itemize}
 \item[-] Prior art search
 \item[-] Query reformulation for patents
-\item[-] General Query reformulation methods
-\item[-]  
+\item[-] Diversification methods for query reformulation
 \item[-] Experiments 
 \item[-] Results and discussion
 \item[-] Conclusion and future work
@@ -96,11 +95,11 @@
 \begin{frame}
 \frametitle{What patents are?}
 
-Patents are legal documents to protect an invention.
+\textit{\textbf{{\color{DeepSkyBlue4}Patents are legal documents to protect an invention.}}}
 
 \begin{itemize}
 \item[-] \textbf{Rich meta}: Inventor, Author, Company, Country, Publication year, etc.
-\item[-] \textbf{Predefined document structure}: Title, Abstract, Description, Claims.		
+\item[-] \textbf{Predefined document structure}: Title, Abstract, Description and Claims.		
 \item[]
 \end{itemize}
 
@@ -118,6 +117,7 @@ Patents are legal documents to protect an invention.
 \begin{itemize}
 \item[-] Patent examiners
 \item[-] Patent authors/inventors
+\item[]
 \end{itemize}
 
 
@@ -125,7 +125,7 @@ Challenges and data sets:
 \begin{itemize}
 \item NTCIR (since 2002)
 \item TREC-Chem (2007)
-\item CLEF-IP (2010/2011)*
+\item \textbf{CLEF-IP (2010/2011)}
 \end{itemize}
 \end{frame}
 
@@ -149,11 +149,12 @@ Challenges and data sets:
 
 \begin{frame}
 \frametitle{Patent Prior Art Search with partial applications}
-Writing a full patent application is time-consuming and costly
+
+{\color{DeepSkyBlue4}\textit{\textbf{Writing a full patent application is time-consuming and costly}}}
 
 \begin{itemize}
 \item[-] We proposed to do patent prior art search with \textbf{partial (incomplete) patent applications}
-\item[-] Intensive study about query reformulation for patent prior art search with partial patent applications
+%\item[-] Intensive study about query reformulation for patent prior art search with partial patent applications
 \end{itemize}
 \end{frame}
 
@@ -389,12 +390,12 @@ comprising the same.}}\tabularnewline
 \begin{itemize}
 \item CLEF-IP 2010: 
 	\begin{itemize}
-		\item 2.6 million patent documents
+		\item 2.6 million European patent documents
 		\item 1303 English topics (queries)
 	\end{itemize}
 \item CLEF-IP 2011: 3 million patent documents
 	\begin{itemize}
-		\item 2.6 million patent documents
+		\item 2.6 million European patent documents
 		\item 1351 English topics (queries)
 	\end{itemize}
 \item Lucene IR System
@@ -778,22 +779,43 @@ where Rocchio BM25 provides better performance than MMRQE BM25);
 \end{frame}
 
 
+
+
 \begin{frame}
 \frametitle{}
 
 Contributions are the following: 
 \begin{enumerate}
-\item Novel contributions for query expansion and reduction that leverage
-(a) patent structure and (b) term diversification techniques. 
+\item Novel contributions for query expansion and reduction that leverage:
+	\begin{itemize} 
+	\item patent structure;
+	\item a term diversification technique. 
+	\end{itemize}
 \item A thorough comparative analysis of existing and novel methods for
 query expansion and reduction in patent prior-art search on standardized
 datasets of CLEF-IP. 
 \end{enumerate}
 \end{frame}
 
-
 \begin{frame}
-\frametitle{}
+\frametitle{Conclusions}
+\begin{itemize}
+
+\item We analyzed general and specific \textbf{QE} and \textbf{QR} methods for
+patent prior art search for partial (incomplete) patent applications
+(CLEF-IP 2010, 2011);
+\item[]
+\item The \textbf{claims should be written at early stages of the
+patent application drafting} (the best section that works with QE/QR (to query with and to use as a source of query expansion/reduction terms)
+\item[]
+\item The novel \textbf{MMR QE/QR} methods improves results in many cases. 
+\end{itemize}
+
+
+{\color{DeepSkyBlue4}\textbf{Future work}}
+
+Look at more patent-specific methods of and how they
+can be integrated with methods like MMRQE. 
 \end{frame}
 
 %\bibliographystyle{acl}
