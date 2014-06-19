@@ -244,7 +244,7 @@ MRR QE/QR
 \begin{frame}
 \frametitle{Query Expansion (QE) Frameworks}
 
-{\color{DeepSkyBlue4}\textit{\textbf{QE aims to alleviate the term mi mismatch between queries an relevant documents.}}}
+{\color{DeepSkyBlue4}\textit{\textbf{QE aims to alleviate the term mismatch between queries and relevant documents.}}}
 
 \vspace{0.3cm}
 
@@ -358,22 +358,7 @@ t_{k}^{*}=\argmax_{t_{k}\notin T_{k-1}^{*}}\hspace{-0.3mm}[\lambda\cos(Q,t_{k})-
 We investigate the impact of QR methods when 
 querying with long sections such as \textit{abstract}, \textit{claims} or \textit{description}.
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=4cm]{../analysis/precision-recall_ByField-CLEF-IP_2010}
-\includegraphics[width=4cm]{../analysis/MAP-MRR_ByField-CLEF-IP_2010}
-\caption{Sample of terms removed from the abstract section}
-\end{center}
-\end{figure}
 
-\begin{tiny}
-\textbf{MAP}: Mean Average Precision;  \textbf{MRR}: Mean Reciprocal Rank; \textbf{PRES}: Patent Retrieval Evaluation Score
-\end{tiny}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{The utility of query reduction for 1304 abstract queries of the CLEF-IP 2010 dataset}
 
 \begin{tiny}
 \begin{table}
@@ -434,6 +419,25 @@ comprising the same.}}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
+\end{tiny}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The utility of query reduction for 1304 abstract queries of the CLEF-IP 2010 dataset}
+
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=4cm]{../analysis/precision-recall_ByField-CLEF-IP_2010}
+\includegraphics[width=4cm]{../analysis/MAP-MRR_ByField-CLEF-IP_2010}
+\caption{Sample of terms removed from the abstract section}
+\end{center}
+\end{figure}
+
+\begin{tiny}
+\textbf{MAP}: Mean Average Precision;  \textbf{MRR}: Mean Reciprocal Rank; \textbf{PRES}: Patent Retrieval Evaluation Score
 \end{tiny}
 \end{frame}
 
