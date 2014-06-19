@@ -72,8 +72,11 @@
 \headcommand {\beamer@framepages {34}{34}}
 \headcommand {\slideentry {1}{0}{35}{35/35}{}{0}}
 \headcommand {\beamer@framepages {35}{35}}
-\headcommand {\beamer@partpages {1}{35}}
-\headcommand {\beamer@subsectionpages {3}{35}}
+\headcommand {\sectionentry {2}{\translate {References}}{36}{\translate {References}}{0}}
 \headcommand {\beamer@sectionpages {3}{35}}
-\headcommand {\beamer@documentpages {35}}
+\headcommand {\beamer@subsectionpages {3}{35}}
+\headcommand {\beamer@partpages {1}{39}}
+\headcommand {\beamer@subsectionpages {3}{39}}
+\headcommand {\beamer@sectionpages {3}{39}}
+\headcommand {\beamer@documentpages {39}}
 \headcommand {\def \inserttotalframenumber {35}}
