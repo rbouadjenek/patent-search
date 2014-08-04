@@ -9,12 +9,17 @@ import com.hrstc.lucene.queryexpansion.PatentQueryExpansion;
 import com.hrstc.lucene.queryexpansion.PatentRocchioQueryExpansion;
 import com.hrstc.lucene.queryreduction.PatentClassCodeBasedQueryReduction;
 import com.hrstc.lucene.queryreduction.PatentRocchioQueryReduction;
+
 import dcu.com.ie.patent.queryreduction.PatentMagdyQueryReduction;
 import dcu.com.ie.synset.PatentSynSetQueryExpansion;
+
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
+
 import nicta.com.au.main.Functions;
 import nicta.com.au.patent.pac.search.PACSearcher;
 import nicta.com.au.patent.document.PatentDocument;
@@ -22,6 +27,7 @@ import nicta.com.au.patent.pac.search.PatentQuery;
 import nicta.com.au.patent.pac.search.RewriteQuery;
 import nicta.com.au.patent.queryexpansion.PatentMMRQueryExpansion;
 import nicta.com.au.patent.queryreduction.PatentMMRQueryReduction;
+
 import org.apache.lucene.document.Document;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -32,6 +38,15 @@ import org.apache.lucene.search.TopDocs;
  * @author rbouadjenetopK
  */
 public final class ExecuteTopics {
+	
+/*--------------------------- Write in output file. -Mona ------------------------*/
+//	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
+	public String outputfile = "./output/results/test1.txt";
+
+	
+	public FileOutputStream out = new FileOutputStream(outputfile);
+	public PrintStream ps = new PrintStream(out);
+/*-------------------------------------------------------------------------------*/
 
     private final File topicFile;
     private final PACSearcher searcher;
@@ -239,6 +254,11 @@ public final class ExecuteTopics {
                 i++;
                 Document doc = searcher.getIndexSearch().doc(scoreDoc.doc);
                 System.out.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+/*-------------------------------- Write the retrieved results in output text file. -Mona ----------------------- */                
+                
+                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+          
+/*------------------------------------------------------------------------------------------------------------------*/        
             }
         }
         long end = System.currentTimeMillis();
