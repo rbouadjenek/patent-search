@@ -60,6 +60,10 @@ public class CollectionSearcher {
 		}
 	}
 	
+	public IndexSearcher getIndexSearch() {
+		return is;
+	}
+	
 	public CollectionSearcher(String indexDir, String similarity, int topK)
 			throws IOException {
 		Directory dir = FSDirectory.open(new File(indexDir));
