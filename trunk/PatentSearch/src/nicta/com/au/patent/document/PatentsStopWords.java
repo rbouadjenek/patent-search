@@ -105,6 +105,15 @@ public class PatentsStopWords {
                 "willing", "wish", "with", "within", "without", "won't", "wonder",
                 "would", "would", "wouldn't", "x", "y", "yes", "yet",
                 "you", "you'd", "you'll", "you're", "you've", "your", "yours", "method", "device", "apparatus", "system", "process"
+                ,/* metric system units, symbols, and prefixes -mona*/
+                "km", "m", "mm", "cm", "g", "mg" ,"kg", "t" , "s", "ms", "µs" , "A", "mA", "K", "mole",
+                "mol", "cd", "°C", "m²", "ha", "km²", "mL", "L", "cm³", "m³", "m/s", "km/h", "kg/m³",	 	 	 
+                "N", "kPa", "watt", "kilowatt",	"kW", "kJ", "MJ", "kW·h", "rad", "sr", "J/kg", "m/s²", "1/s",
+                "rad/s²", "m²", "kg/m", "J/kg", "W/A", "J/K", "kg·m/s²",
+                "I", "II", "III","IV","V","VI","VII", "VIII","IX", "X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII", 
+            	"XIX", "XX", 
+            	"i", "ii", "iii","iv","v","vi","vii", "viii","ix", "x","xi","xii","xiii","xiv","xv","xvi","xvii","xvii", 
+            	"xix", "xx"
         );
         final CharArraySet stopSet = new CharArraySet(Version.LUCENE_48, stopWords, false);
         TITLE_ENGLISH_STOP_WORDS_SET = CharArraySet.unmodifiableSet(stopSet);
@@ -196,6 +205,15 @@ public class PatentsStopWords {
                 "would", "would", "wouldn't", "x", "y", "yes", "yet",
                 "you", "you'd", "you'll", "you're", "you've", "your", "yours",
                 "which", "from", "one", "having", "first", "said", "least", "invention", "device", "each", "can", "has", "second", "means", "between", "surface", "provided", "signal", "method", "system"
+                ,  /* metric system units, symbols, and prefixes -mona*/
+                "km", "m", "mm", "cm", "g", "mg" ,"kg", "t" , "s", "ms", "µs" , "A", "mA", "K", "mole",
+                "mol", "cd", "°C", "m²", "ha", "km²", "mL", "L", "cm³", "m³", "m/s", "km/h", "kg/m³",	 	 	 
+                "N", "kPa", "watt", "kilowatt",	"kW", "kJ", "MJ", "kW·h", "rad", "sr", "J/kg", "m/s²", "1/s",
+                "rad/s²", "m²", "kg/m", "J/kg", "W/A", "J/K", "kg·m/s²",
+                "I", "II", "III","IV","V","VI","VII", "VIII","IX", "X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII", 
+            	"XIX", "XX", 
+            	"i", "ii", "iii","iv","v","vi","vii", "viii","ix", "x","xi","xii","xiii","xiv","xv","xvi","xvii","xvii", 
+            	"xix", "xx"
         );
         final CharArraySet stopSet = new CharArraySet(Version.LUCENE_48, stopWords, false);
         ABSTRACT_ENGLISH_STOP_WORDS_SET = CharArraySet.unmodifiableSet(stopSet);
@@ -290,8 +308,12 @@ public class PatentsStopWords {
                 ,  /* metric system units, symbols, and prefixes -mona*/
                 "km", "m", "mm", "cm", "g", "mg" ,"kg", "t" , "s", "ms", "µs" , "A", "mA", "K", "mole",
                 "mol", "cd", "°C", "m²", "ha", "km²", "mL", "L", "cm³", "m³", "m/s", "km/h", "kg/m³",	 	 	 
-                "N", "kPa", "watt", "kilowatt",	"kW", "kJ", "MJ", "kW·h",
-                "rad", "sr", "J/kg", "m/s²", "1/s", "rad/s²", "m²", "kg/m", "J/kg", "W/A", "J/K", "kg·m/s²"
+                "N", "kPa", "watt", "kilowatt",	"kW", "kJ", "MJ", "kW·h", "rad", "sr", "J/kg", "m/s²", "1/s",
+                "rad/s²", "m²", "kg/m", "J/kg", "W/A", "J/K", "kg·m/s²",
+                "I", "II", "III","IV","V","VI","VII", "VIII","IX", "X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII", 
+            	"XIX", "XX", 
+            	"i", "ii", "iii","iv","v","vi","vii", "viii","ix", "x","xi","xii","xiii","xiv","xv","xvi","xvii","xvii", 
+            	"xix", "xx"
                 
         );
         final CharArraySet stopSet = new CharArraySet(Version.LUCENE_48, stopWords, false);
@@ -388,7 +410,11 @@ public class PatentsStopWords {
                 "km", "m", "mm", "cm", "g", "mg" ,"kg", "t" , "s", "ms", "µs" , "A", "mA", "K", "mole",
                 "mol", "cd", "°C", "m²", "ha", "km²", "mL", "L", "cm³", "m³", "m/s", "km/h", "kg/m³",	 	 	 
                 "N", "kPa", "watt", "kilowatt",	"kW", "kJ", "MJ", "kW·h",
-                "rad", "sr", "J/kg", "m/s²", "1/s", "rad/s²", "m²", "kg/m", "J/kg", "W/A", "J/K", "kg·m/s²"
+                "rad", "sr", "J/kg", "m/s²", "1/s", "rad/s²", "m²", "kg/m", "J/kg", "W/A", "J/K", "kg·m/s²",
+                "I", "II", "III","IV","V","VI","VII", "VIII","IX", "X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII", 
+            	"XIX", "XX", 
+            	"i", "ii", "iii","iv","v","vi","vii", "viii","ix", "x","xi","xii","xiii","xiv","xv","xvi","xvii","xvii", 
+            	"xix", "xx"
         );
         final CharArraySet stopSet = new CharArraySet(Version.LUCENE_48, stopWords, false);
         CLAIMS_ENGLISH_STOP_WORDS_SET = CharArraySet.unmodifiableSet(stopSet);
