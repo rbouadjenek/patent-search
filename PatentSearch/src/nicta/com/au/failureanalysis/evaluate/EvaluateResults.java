@@ -31,24 +31,6 @@ public class EvaluateResults {
 		ArrayList<String> relevantdocs = _reldocs.get(_queryID);
 		ArrayList<String> retrieveddocs = _retdocs.get(_queryID);
 
-		int i = 0;
-		// System.out.print("Retrieved Documents: ");
-
-		for (String x : retrieveddocs) {
-			i++;
-			// System.out.print(" [" + i + "] " + x);
-		}
-
-		// System.out.println();
-		int j = 0;
-		// System.out.print("Relevant Documents: ");
-		for (String x : relevantdocs) {
-			j++;
-			// System.out.print(" [" + j + "] " + x);
-		}
-
-		// System.out.println();
-
 		for (String ret : retrieveddocs) {
 			for (String rel : relevantdocs) {
 
@@ -71,10 +53,6 @@ public class EvaluateResults {
 		}
 		
 
-		/*
-		 * for(String r : TPs){ System.out.println(r); }
-		 */
-
 		if (select.equals("TP")) {
 			return TPs;
 		} else {
@@ -85,9 +63,6 @@ public class EvaluateResults {
 			}
 		}
 
-		/*
-		 * if (TP) { return TPs; } else { return FPs; }
-		 */
 	}
 	
 public static void main(String[] args) throws IOException {
@@ -97,34 +72,41 @@ public static void main(String[] args) throws IOException {
 		/*ArrayList<String> tps = er.evaluatePatents("PAC-544", "TP");
 		ArrayList<String> fps = er.evaluatePatents("PAC-544", "FP");
 		ArrayList<String> fns = er.evaluatePatents("PAC-544", "FN");*/
-//		er.evaluatePatents("PAC-825", "TP");
+
 		ArrayList<String> tps = er.evaluatePatents("PAC-825", "TP");
 		ArrayList<String> fps = er.evaluatePatents("PAC-825", "FP");
 		ArrayList<String> fns = er.evaluatePatents("PAC-825", "FN");
+		
+		System.out.println("----------------------------------------------------------------------");
+		System.out.println("----------- TPs: Relevant documents, retrieved at top 100 ------------ ");
+		System.out.println("----------------------------------------------------------------------");
 		int n = 0; 
 		  for (String tp : tps) { 
 			  n++; 
 			  			  			  
-			  System.out.println(" [" + n + "], [" + tp + "]"); 
-			  }	
-		  
-		  System.out.println("---------------------------------------------------- ");
+			  System.out.print(" [" + n + "] [" + tp + "], "); 
+			  }			  
+		  System.out.println();
+		  System.out.println("----------------------------------------------------------------");
+		  System.out.println("------- FPs: Non-relevant documents, retrieved at top 100 -------");
+		  System.out.println("----------------------------------------------------------------");
 		  
 		  
 		  int m = 0; 
 		  for (String fp : fps) { 
 			  m++; 
 			  			  			  
-			  System.out.println(" [" + m + "], [" + fp + "]"); 
+			  System.out.println(" [" + m + "] [" + fp + "],"); 
 			  }	
-
-		  System.out.println("---------------------------------------------------- ");
 		  
+		  System.out.println("-------------------------------------------------------------");
+		  System.out.println("----- FNs: Relevant documents, not retrieved at top 100 -----");
+		  System.out.println("-------------------------------------------------------------");
 		  int k = 0; 
 		  for (String fn : fns) { 
-			  k++; 
-			  			  			  
-			  System.out.println(" [" + k + "], [" + fn + "]"); 
+			  k++; 			  
+			  
+			  System.out.print(" [" + k + "] [" + fn + "],"); 
 			  }		 
 
 
