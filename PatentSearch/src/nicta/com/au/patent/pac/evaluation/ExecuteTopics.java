@@ -254,6 +254,7 @@ public final class ExecuteTopics {
                 i++;
                 Document doc = searcher.getIndexSearch().doc(scoreDoc.doc);
                 System.out.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+
 /*-------------------------------- Write the retrieved results in output text file. -Mona ----------------------- */                
                 
                 ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");

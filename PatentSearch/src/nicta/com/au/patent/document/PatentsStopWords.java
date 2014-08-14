@@ -805,8 +805,8 @@ public class PatentsStopWords {
 				"composition", "compound", "alkyl", "b", "position", "two",
 				"than", "element"
 
-				,/* --- added metric system units, symbols, and prefixes -mona ---*/
-				"km", "m", "mm", "cm", "g", "mg", "kg", "t", "s", "ms", "µs",
+				,/* --- added metric system units, symbols, prefixes, and etc -mona ---*/
+				"km", "m", "mm", "cm", "µm", "g", "mg", "kg", "t", "s", "ms", "µs",
 				"a", "ma", "k", "mole", "mol", "cd", "°c", "m²", "ha", "km²",
 				"ml", "l", "cm³", "m³", "m/s", "km/h", "kg/m³", "n", "kpa",
 				"watt", "kilowatt", "kw", "kj", "mj", "kw·h", "rad", "sr",
