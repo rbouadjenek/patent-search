@@ -707,9 +707,9 @@ public class PatentsStopWords {
 				"would", "would", "wouldn't", "x", "y", "yes", "yet", "you",
 				"you'd", "you'll", "you're", "you've", "your", "yours",
 
-				/* -------------merged title stiopwords----------- -mona */
+				/* -------------merged title stopwords----------- -mona */
 				"method", "device", "apparatus", "system", "process"
-				/* -------------merged abstarct stiopwords----------- -mona */
+				/* -------------merged abstarct stopwords----------- -mona */
 				, "which", "from", "one", "having", "first", "said", "least",
 				"invention", "device", "each", "can", "has", "second", "means",
 				"between", "surface", "provided", "signal", "method", "system"
@@ -792,7 +792,8 @@ public class PatentsStopWords {
 				"apparent", "occur", "readily", "similarly", "increasing",
 				"claims", "otherwise", "problems", "often", "discloses",
 				"itself", "much", "instead", "advantages", "cannot", "achieve",
-				"difficult", "accompanying", "modifications"
+				"difficult", "accompanying", "modifications", 
+				"represent","represents", "represented", "formula"
 				/* -------------merged claims stopwords----------- -mona */
 				, "said", "claim", "wherein", "according", "one", "from",
 				"means", "which", "first", "second", "method", "comprise",
@@ -803,17 +804,21 @@ public class PatentsStopWords {
 				"end", "material", "r", "characterised", "member", "plurality",
 				"has", "about", "control", "acid", "layer", "step",
 				"composition", "compound", "alkyl", "b", "position", "two",
-				"than", "element"
+				"than", "element", "prefer", "preferably", "basic", "basically", "first","second"
 
 				,/* --- added metric system units, symbols, prefixes, and etc -mona ---*/
-				"km", "m", "mm", "cm", "µm", "g", "mg", "kg", "t", "s", "ms", "µs",
-				"a", "ma", "k", "mole", "mol", "cd", "°c", "m²", "ha", "km²",
-				"ml", "l", "cm³", "m³", "m/s", "km/h", "kg/m³", "n", "kpa",
-				"watt", "kilowatt", "kw", "kj", "mj", "kw·h", "rad", "sr",
-				"j/kg", "m/s²", "1/s", "rad/s²", "m²", "kg/m", "j/kg", "w/a",
-				"j/k", "kg·m/s²", "i", "ii", "iii", "iv", "v", "vi", "vii",
+				"min","max", "min.","max.",
+				"g", "mg", "kg", "t", "s", "ms", "µs", "hr" , "hour" , "g/cm", "kg/m", 
+				"m", "mm", "cm", "cm²", "cm2","µm", "nm", "m²", "m2", "km", "km²", "km2", "cm³", "m³", "cm3", "m3",
+				"a", "ma", "k", "mole", "mol", "mmol", "cd", "°c", "ha", 
+				"ml", "l", "m/s", "km/h", "kg/m³", "kg/m3","n", "kpa",
+				"watt", "kilowatt", "kw", "kj", "mj", "kw·h", "rad", "sr", "rad/s²", "rad/s2",
+				"j/kg", "m/s²", "m/s2","1/s", "j/kg", "w/a",
+				"j/k", "kg·m/s²", 
+				"i", "ii", "iii", "iv", "v", "vi", "vii",
 				"viii", "ix", "x", "xi", "xii", "xiii", "xiv", "xv", "xvi",
-				"xvii", "xvii", "xix", "xx");
+				"xvii", "xvii", "xix", "xx", 
+				"α", "β" , "ω", "Ω");
 		final CharArraySet stopSet = new CharArraySet(Version.LUCENE_48,
 				stopWords, false);
 		UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET = CharArraySet
