@@ -2,7 +2,9 @@ package nicta.com.au.failureanalysis.search;
 
 import java.io.File;
 import java.io.IOException;
+
 import nicta.com.au.patent.document.PatentDocument;
+
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.DocsEnum;
 import org.apache.lucene.index.IndexReader;
@@ -51,18 +53,66 @@ public class CollectionReader {
 		ir.close();
 
 	}
+	
+	/**
+	 * @param field
+	 * @param term
+	 * @throws IOException
+	 */
+	public int getTFreq(String field, String term, String filename) throws IOException {
+
+		int termfreq = 0;
+		
+		DocsEnum de = MultiFields.getTermDocsEnum(ir, MultiFields.getLiveDocs(ir), field, new BytesRef(term));
+
+		
+//		int num = 0;
+		if (de != null){
+		while ((de.nextDoc()) != DocsEnum.NO_MORE_DOCS) {
+//			num++;
+			
+			if(ir.document(de.docID()).get(PatentDocument.FileName).contains(filename)){
+				// .substring(3).equals(filename)
+				termfreq = de.freq();
+				return termfreq;
+				
+			}
+			// if(de.freq() >= 4){
+			/*System.out.println("("
+					+ num
+					+ ") "
+					+ ir.document(de.docID()).get(PatentDocument.FileName)
+							.substring(3) + "  " + de.freq() + "  "
+					+ de.docID());*/
+			// }
+
+		}
+		}
+//		ir.close();
+		return 0;
+		
+
+	}
+
 
 	public static void main(String[] args) {
 		String indexDir = args[0];
 
 		try {
-			String term = /*"methyl" */"resin";
+			String term = /*"methyl" *//*"resin"*//*"excel"*/ /*"mixtur"*/ /*"mona"*/"adhesiveport";
 			String field = /* PatentDocument.Classification */PatentDocument.Description;
+			String filename = "EP-0415270";
 
 			CollectionReader reader = new CollectionReader(indexDir/*, "bm25ro",
-					10*/);
+					10*/);			
+			
+			int a = reader.getTFreq(field, term, filename);
+			System.out.println(a);
 
-			reader.termFreqInDocs(field, term);
+			
+			//reader.termFreqInDocs(field, term);
+			
+			
 
 		} catch (Exception ex) {
 			ex.printStackTrace();

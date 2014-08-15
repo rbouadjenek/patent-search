@@ -49,7 +49,7 @@ public class QueryGneration {
     private PerFieldAnalyzerWrapper analyzer;
     private final int titleTreshold = 1;
     private final int abstractTreshold = 1;
-    private final int descriptionTreshold = 1;
+    private final int descriptionTreshold = 4;
     private final int claimsTreshold = 1;
     public static final String all = "all";
     private static final String[] fields = {PatentDocument.Classification, PatentDocument.Title, PatentDocument.Abstract, PatentDocument.Description, "descriptionP5", PatentDocument.Claims, "claims1"};
@@ -89,7 +89,7 @@ public class QueryGneration {
 //        getSectionTerms();
     }
 
-    private Map<String, Integer> getSectionTerms(String section) throws IOException {
+    public Map<String, Integer> getSectionTerms(String section) throws IOException {
         String title = "";
         String ipc = "";
         String abstrac = "";
@@ -219,21 +219,21 @@ public class QueryGneration {
             String[] qText = queries;
             String q = transformation(analyzer.tokenStream(PatentDocument.Title, qText[1]), titleTreshold, PatentDocument.Title);
             Map<String, Integer> t = getTerms(analyzer.tokenStream(PatentDocument.Title, qText[1]), titleTreshold, PatentDocument.Title);
-            System.err.println(q);
+//            System.err.println(q);
             queries[1] = q;
             q = transformation(analyzer.tokenStream(PatentDocument.Abstract, qText[2]), abstractTreshold, PatentDocument.Abstract);
             Map<String, Integer> a = getTerms(analyzer.tokenStream(PatentDocument.Abstract, qText[2]), abstractTreshold, PatentDocument.Abstract);
-            System.err.println(q);
+//            System.err.println(q);
             queries[2] = q;
             q = transformation(analyzer.tokenStream(PatentDocument.Description, qText[3]), descriptionTreshold, PatentDocument.Description);
             Map<String, Integer> d = getTerms(analyzer.tokenStream(PatentDocument.Description, qText[3]), descriptionTreshold, PatentDocument.Description);
-            System.err.println(q);
+//            System.err.println(q);
             queries[3] = q;
             q = transformation(analyzer.tokenStream(PatentDocument.Description, qText[4]), descriptionTreshold, null);
             queries[4] = q;
             q = transformation(analyzer.tokenStream(PatentDocument.Claims, qText[5]), claimsTreshold, PatentDocument.Claims);
             Map<String, Integer> c = getTerms(analyzer.tokenStream(PatentDocument.Claims, qText[5]), claimsTreshold, PatentDocument.Claims);
-            System.err.println(q);
+//            System.err.println(q);
             queries[5] = q;
             q = transformation(analyzer.tokenStream(PatentDocument.Claims, qText[6]), claimsTreshold, null);
             queries[6] = q;
@@ -280,18 +280,18 @@ public class QueryGneration {
         ts.close();
 //        return q;
         q = "";
-        int count = 0;
+//        int count = 0;
         for (String k : m.keySet()) {
             if (m.get(k) >= treshold) {
                 if (!Functions.isNumeric(k)) {
                     q += k + "^" + m.get(k) + " ";
                     qterm_freq.put(k, m.get(k));
-                    count++;
+//                    count++;
 //                    System.out.println(count + " " + k + " " + m.get(k));
                 }
             }
         }
-        System.out.println("-------------------");
+//        System.out.println("-------------------");
         if (field != null) {
             vocabulary.put(field, m);
         }
@@ -440,13 +440,16 @@ public class QueryGneration {
      */
     public static void main(String[] args) throws ParseException, IOException {//PAC_1913_EP-1691238-A2.xml
         // TODO code application logic here
-//        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/query/PAC-132_EP-1550834-A1.xml", 0, 1, 0, 0, 0, 0, true, true);
-//        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1001_EP-1233512-A2.xml", 1, 1, 1, 1, 1, 1, true, true);
-    	QueryGneration query = new QueryGneration("data/CLEF-IP-2010/PAC_test/topics/PAC-544_EP-1405720-A1.xml", 0, 1, 0, 0, 0, 0, true, true);
-    	Map<String, Integer> titleterms = query.getSectionTerms(/*"title"*//*"abstract"*//*"description"*/"claims");   
+    	String path = "data/CLEF-IP-2010/PAC_test/topics/";
+    	String queryfile = "PAC-825_EP-1267369-A2.xml";
+		
+    	QueryGneration query = new QueryGneration(path + queryfile, 0, 1, 0, 0, 0, 0, true, true);
+    	Map<String, Integer> terms = query.getSectionTerms(/*"title"*//*"abstract"*/"description"/*"claims"*/);   
     	
-    	for(Entry<String, Integer> tt : titleterms.entrySet()){
-    		System.out.println(tt.getKey() + " " + tt.getValue());
+    	int count = 0;
+    	for(Entry<String, Integer> t : terms.entrySet()){
+    		count++;
+    		System.out.println(count + " " + t.getKey() + " " + t.getValue());
     	}
     	
     	System.out.println(query.parse());
