@@ -793,32 +793,39 @@ public class PatentsStopWords {
 				"claims", "otherwise", "problems", "often", "discloses",
 				"itself", "much", "instead", "advantages", "cannot", "achieve",
 				"difficult", "accompanying", "modifications", 
-				"represent","represents", "represented", "formula"
+				"represent","represents", "represented", "formula", "formulae"
 				/* -------------merged claims stopwords----------- -mona */
 				, "said", "claim", "wherein", "according", "one", "from",
-				"means", "which", "first", "second", "method", "comprise",
+				"means", "which", "first", "second", "secondary", "method", "comprise",
 				"comprising", "least", "claims", "having", "each", "any", "c",
 				"characterized", "comprises", "device", "group", "signal",
 				"being", "data", "system", "between", "further", "apparatus",
 				"claimed", "surface", "portion", "selected", "n", "process",
 				"end", "material", "r", "characterised", "member", "plurality",
-				"has", "about", "control", "acid", "layer", "step",
+				"has", "about", "control", "acid", "acidic", "layer", "step",
 				"composition", "compound", "alkyl", "b", "position", "two",
-				"than", "element", "prefer", "preferably", "basic", "basically", "first","second"
+				"than", "element", "prefer", "preferable", "basic", "basically", "group"
 
 				,/* --- added metric system units, symbols, prefixes, and etc -mona ---*/
 				"min","max", "min.","max.",
-				"g", "mg", "kg", "t", "s", "ms", "µs", "hr" , "hour" , "g/cm", "kg/m", 
-				"m", "mm", "cm", "cm²", "cm2","µm", "nm", "m²", "m2", "km", "km²", "km2", "cm³", "m³", "cm3", "m3",
-				"a", "ma", "k", "mole", "mol", "mmol", "cd", "°c", "ha", 
-				"ml", "l", "m/s", "km/h", "kg/m³", "kg/m3","n", "kpa",
-				"watt", "kilowatt", "kw", "kj", "mj", "kw·h", "rad", "sr", "rad/s²", "rad/s2",
-				"j/kg", "m/s²", "m/s2","1/s", "j/kg", "w/a",
-				"j/k", "kg·m/s²", 
+				"kg","g", "mg",  "t",
+				"s", "ms", "µs", "hr" , "hour", "hours", "h", "d", "a", "seconds",
+				"g/cm", "kg/m", 
+				"m", "mm", "cm", "cm²", "cm2","µm", "nm", "m²", "m2", "km", "km²", "km2", 
+				"cm³", "m³", "cm3", "m3", "ha",
+				"a", "ma", "Ω", 
+				"k", "mole", "mol", "mmol", "cd", 
+				"hz","n", "pa", "w", "c", "v", "f", "°c", "wb", 
+				"t", "lm", "lx", "bq","gy", "sv", "bar", "st", "ev", "u","au","pc",
+				"j", "kj", "mj", "j/kg", "j/k", 
+				"ml", "l", "m/s", "km/h", "kg/m³", "kg/m3","kpa","kg·m/s²","kg·m/s2",
+				"watt", "kilowatt", "kw", "kw·h", 
+				"rad", "sr", "rad/s²", "rad/s2",
+				"m/s²", "m/s2","1/s", "w/a",
 				"i", "ii", "iii", "iv", "v", "vi", "vii",
 				"viii", "ix", "x", "xi", "xii", "xiii", "xiv", "xv", "xvi",
 				"xvii", "xvii", "xix", "xx", 
-				"α", "β" , "ω", "Ω");
+				"α", "β" , "ω");
 		final CharArraySet stopSet = new CharArraySet(Version.LUCENE_48,
 				stopWords, false);
 		UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET = CharArraySet
