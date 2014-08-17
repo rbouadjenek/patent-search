@@ -31,19 +31,40 @@ public class CalculateAverage {
 		ArrayList<String> fps = er.evaluatePatents(queryid, "FP");
 		ArrayList<String> fns = er.evaluatePatents(queryid, "FN");
 		
+		int n_tps = tps.size();
+		int n_fps = fps.size();
+		int n_fns = fns.size();
+		
 		CollectionReader reader = new CollectionReader(indexDir);	
 		
-				
+//		System.out.println(terms.size());
     	int count = 0;
     	for(Entry<String, Integer> t : terms.entrySet()){
-    		int avg = 0;
+    		int avg_tps = 0;
     		count++;
-    		System.out.println(count + " " + t.getKey() + " " + t.getValue());
+    		System.out.print(count + " " + t.getKey() + "\t" + t.getValue()+ "\t");
     		for (String tp : tps) { 
-    			avg = avg + reader.getTFreq(field, t.getKey(), tp);
+    			avg_tps = avg_tps + reader.getTFreq(field, t.getKey(), tp);
     			
     		}
-    		System.out.println((float)avg/tps.size());
+    		float avgtps = (float)avg_tps/n_tps ;
+    		System.out.print(avgtps + "\t");
+    		
+//    		int k =0;
+    		int avg_fps = 0;
+    		for (String fp : fps) { 
+//    			k++;
+//    			if(k<=n_tps){
+//    				System.out.println(reader.getTFreq(field, t.getKey(), fp) + "\t");
+    			avg_fps = avg_fps + reader.getTFreq(field, t.getKey(), fp);
+//    			}
+    			
+    		}
+    		float avgfps = (float)avg_fps/n_fps;
+    		float diff = avgtps - avgfps;
+    		System.out.println( avgfps + "\t" + diff);
+//    		System.out.println((float)avg_fps/n_tps);
+    		
     	}
     	
     	 for (String tp : tps) { 
