@@ -96,10 +96,11 @@ public class CollectionReader {
 
 
 	public static void main(String[] args) {
-		String indexDir = args[0];
+//		String indexDir = args[0];
+		String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
 
 		try {
-			String term = /*"methyl" *//*"resin"*//*"excel"*/ /*"mixtur"*/ /*"mona"*/"adhesiveport";
+			String term = /*"methyl" */"resin"/*"excel"*/ /*"mixtur"*/ /*"mona"*//*"adhesiveport"*/;
 			String field = /* PatentDocument.Classification */PatentDocument.Description;
 			String filename = "EP-0415270";
 
