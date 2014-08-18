@@ -125,21 +125,25 @@ public class QueryGneration {
         //********************************************************************
         // leveraging Abstract
         //********************************************************************
-        if (pt.getAbstrac().getLang().toLowerCase().equals("en")) {
-            abstrac = pt.getAbstrac().getContent();
+        if(pt.getAbstrac().getLang() != null){
+        	if (pt.getAbstrac().getLang().toLowerCase().equals("en")) {
+        		abstrac = pt.getAbstrac().getContent();
+        	}
         }
         //********************************************************************
         // leveraging Description
         //********************************************************************
-        if (pt.getDescription().getLang().toLowerCase().equals("en")) {
-            for (P p : pt.getDescription().getP()) {
-                if (Integer.parseInt(p.getNum()) == 1 || Integer.parseInt(p.getNum()) == 2
-                        || Integer.parseInt(p.getNum()) == 3 || Integer.parseInt(p.getNum()) == 4
-                        || Integer.parseInt(p.getNum()) == 5) { // Leveraging first 5 paragraphes
-                    descriptionP5 += p.getContent() + " ";
-                }
-                description += p.getContent() + " ";
-            }
+        if (pt.getDescription() != null) {
+        	if (pt.getDescription().getLang().toLowerCase().equals("en")) {
+        		for (P p : pt.getDescription().getP()) {
+        			if (Integer.parseInt(p.getNum()) == 1 || Integer.parseInt(p.getNum()) == 2
+        					|| Integer.parseInt(p.getNum()) == 3 || Integer.parseInt(p.getNum()) == 4
+        					|| Integer.parseInt(p.getNum()) == 5) { // Leveraging first 5 paragraphes
+        				descriptionP5 += p.getContent() + " ";
+        			}
+        			description += p.getContent() + " ";
+        		}
+        	}
         }
         //********************************************************************
         // leveraging Claims
@@ -432,6 +436,88 @@ public class QueryGneration {
     public Set<String> getFullClassCodes() {
         return fullClassCodes;
     }
+    
+    public String getTitle() throws IOException {
+		String title = "";		
+
+		// ********************************************************************
+		// leveraging Title
+		// ********************************************************************
+		for (InventionTitle inventionTitle : pt.getTechnicalData()
+				.getInventionTitle()) {
+			if (inventionTitle.getLang().toLowerCase().equals("en")) {
+				title = inventionTitle.getContent();
+				
+//				System.out.println(title);
+			}
+		}
+		
+		return title;
+	}
+
+	public String getIpc() throws IOException {
+		String ipc = "";
+
+		// ********************************************************************
+		// leveraging IPC Codes
+		// ********************************************************************
+		Set<String> codes = new HashSet<>();
+		for (ClassificationIpcr ipcCode : pt.getTechnicalData()
+				.getClassificationIpcr()) {
+//			System.out.println(ipcCode.getContent());
+			StringTokenizer st = new StringTokenizer(ipcCode.getContent());
+			
+			String p1 = st.nextToken();
+//			System.out.println(p1);
+			String p2 = st.nextToken();
+/*------------- hashset contains no duplicate elements. ---------------*/
+			codes.add(p1);
+			
+			fullClassCodes.add(p1 + p2);
+		}
+		
+//		System.out.println(codes);
+		for (String code : codes) {
+			if (!ipc.contains(code)) {				
+				ipc += code + " ";
+				
+			}
+		}
+//		System.out.println(ipc);
+		return ipc;
+	}
+
+	public Set<String> getIpclist() throws IOException {
+		String ipc = "";
+
+		// ********************************************************************
+		// leveraging IPC Codes
+		// ********************************************************************
+		Set<String> codes = new HashSet<>();
+		for (ClassificationIpcr ipcCode : pt.getTechnicalData()
+				.getClassificationIpcr()) {
+//			System.out.println(ipcCode.getContent());
+			StringTokenizer st = new StringTokenizer(ipcCode.getContent());
+			
+			String p1 = st.nextToken();
+//			System.out.println(p1);
+			String p2 = st.nextToken();
+			
+/*------------- hashset contains no duplicate elements. ---------------*/
+			codes.add(p1);			
+
+		}
+		
+//		System.out.println(codes);
+		/*for (String code : codes) {
+			if (!ipc.contains(code)) {				
+				ipc += code + " ";
+				
+			}
+		}*/
+//		System.out.println(ipc);
+		return codes;
+	}
 
     /**
      * @param args the command line arguments
@@ -443,7 +529,7 @@ public class QueryGneration {
     	String path = "data/CLEF-IP-2010/PAC_test/topics/";
     	String queryfile = "PAC-825_EP-1267369-A2.xml";
 		
-    	QueryGneration query = new QueryGneration(path + queryfile, 0, 1, 0, 0, 0, 0, true, true);
+    	QueryGneration query = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
     	Map<String, Integer> terms = query.getSectionTerms(/*"title"*//*"abstract"*/"description"/*"claims"*/);   
     	
     	int count = 0;
@@ -453,6 +539,17 @@ public class QueryGneration {
     	}
     	
     	System.out.println(query.parse());
+    	
+    	System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println("-----------------------------Testing getTitle() & getIpc() methods----------------------------");
+		System.out.println("----------------------------------------------------------------------------------------------");
+		System.out.println(query.getTitle()); 
+		System.out.println(query.getIpc()); 
+					
+//		query.getIpclist();		
+		for (String ipc : query.getIpclist()){
+			System.out.println(ipc);			
+		}
 
     }
 

@@ -97,8 +97,7 @@ public class GetSectionTerms {
 		// leveraging IPC Codes
 		// ********************************************************************
 		Set<String> codes = new HashSet<>();
-		for (ClassificationIpcr ipcCode : pt.getTechnicalData()
-				.getClassificationIpcr()) {
+		for (ClassificationIpcr ipcCode : pt.getTechnicalData().getClassificationIpcr()) {
 			StringTokenizer st = new StringTokenizer(ipcCode.getContent());
 			String p1 = st.nextToken();
 			String p2 = st.nextToken();
@@ -265,7 +264,7 @@ public class GetSectionTerms {
 	}
 	
 	
-	String getTitle() throws IOException {
+	public String getTitle() throws IOException {
 		String title = "";		
 
 		// ********************************************************************

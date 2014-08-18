@@ -8,10 +8,7 @@ public class EvaluateResults {
 
 	public String _queryID = null;
 
-	public ArrayList<String> evaluatePatents(String queryID, String select/*
-																		 * boolean
-																		 * TP
-																		 */)
+	public ArrayList<String> evaluatePatents(String queryID, String select)
 			throws IOException {
 
 		ArrayList<String> TPs = new ArrayList<>();
