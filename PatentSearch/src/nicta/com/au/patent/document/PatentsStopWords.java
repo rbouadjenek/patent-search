@@ -848,7 +848,8 @@ public class PatentsStopWords {
 				"Φ",	"φ",	
 				"Χ",	"χ",	
 				"Ψ",    "ψ",	
-				"Ω",    "ω"	);
+				"Ω",    "ω"	
+				);
 		final CharArraySet stopSet = new CharArraySet(Version.LUCENE_48,
 				stopWords, false);
 		UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET = CharArraySet
