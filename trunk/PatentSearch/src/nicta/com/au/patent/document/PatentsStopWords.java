@@ -806,8 +806,8 @@ public class PatentsStopWords {
 				"composition", "compound", "alkyl", "b", "position", "two",
 				"than", "element", "prefer", "preferable", "basic", "basically", "group"
 
-				,/* --- added metric system units, symbols, prefixes, and etc -mona ---*/
-				"min","max", "min.","max.",
+				/*, --- added metric system units, symbols, prefixes, and etc -mona ---*/
+				/*"min","max", "min.","max.",
 				"kg","g", "mg",  "t",
 				"s", "ms", "µs", "hr" , "hour", "hours", "h", "d", "a", "seconds",
 				"g/cm", "kg/m", 
@@ -848,7 +848,7 @@ public class PatentsStopWords {
 				"Φ",	"φ",	
 				"Χ",	"χ",	
 				"Ψ",    "ψ",	
-				"Ω",    "ω"	
+				"Ω",    "ω"	*/
 				);
 		final CharArraySet stopSet = new CharArraySet(Version.LUCENE_48,
 				stopWords, false);
