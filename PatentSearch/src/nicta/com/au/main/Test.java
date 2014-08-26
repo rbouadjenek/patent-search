@@ -32,9 +32,11 @@ public class Test {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        Directory dir = FSDirectory.open(new File("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/codeIndex/"));
+//        Directory dir = FSDirectory.open(new File("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/codeIndex/"));
+        Directory dir = FSDirectory.open(new File("data/INDEX/codeIndex/"));
         IndexSearcher is = new IndexSearcher(DirectoryReader.open(dir));
-        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1028_EP-1652736-A1.xml", 1, 0, 0, 0, 0, 0, true, true);
+//        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1028_EP-1652736-A1.xml", 1, 0, 0, 0, 0, 0, true, true);
+        PatentQuery query = new PatentQuery("./data/CLEF-IP-2010/PAC_test/topics/PAC-1028_EP-1652736-A1.xml", 1, 0, 0, 0, 0, 0, true, true);
         long start = System.currentTimeMillis();
         TopDocs hits = is.search(GenerateClassCodesQuery.generateQuery(query.getFullClassCodes()), 10);
         long end = System.currentTimeMillis();
