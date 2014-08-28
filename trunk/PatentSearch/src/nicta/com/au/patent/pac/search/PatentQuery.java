@@ -122,21 +122,25 @@ public class PatentQuery {
         //********************************************************************
         // leveraging Abstract
         //********************************************************************
-        if (pt.getAbstrac().getLang().toLowerCase().equals("en")) {
-            abstrac = pt.getAbstrac().getContent();
+        if(pt.getAbstrac().getLang() != null){
+        	if (pt.getAbstrac().getLang().toLowerCase().equals("en")) {
+        		abstrac = pt.getAbstrac().getContent();
+        	}
         }
         //********************************************************************
         // leveraging Description
         //********************************************************************
-        if (pt.getDescription().getLang().toLowerCase().equals("en")) {
-            for (P p : pt.getDescription().getP()) {
-                if (Integer.parseInt(p.getNum()) == 1 || Integer.parseInt(p.getNum()) == 2
-                        || Integer.parseInt(p.getNum()) == 3 || Integer.parseInt(p.getNum()) == 4
-                        || Integer.parseInt(p.getNum()) == 5) { // Leveraging first 5 paragraphes
-                    descriptionP5 += p.getContent() + " ";
-                }
-                description += p.getContent() + " ";
-            }
+        if (pt.getDescription() != null) {
+        	if (pt.getDescription().getLang().toLowerCase().equals("en")) {
+        		for (P p : pt.getDescription().getP()) {
+        			if (Integer.parseInt(p.getNum()) == 1 || Integer.parseInt(p.getNum()) == 2
+        					|| Integer.parseInt(p.getNum()) == 3 || Integer.parseInt(p.getNum()) == 4
+        					|| Integer.parseInt(p.getNum()) == 5) { // Leveraging first 5 paragraphes
+        				descriptionP5 += p.getContent() + " ";
+        			}
+        			description += p.getContent() + " ";
+        		}
+        	}
         }
         //********************************************************************
         // leveraging Claims
