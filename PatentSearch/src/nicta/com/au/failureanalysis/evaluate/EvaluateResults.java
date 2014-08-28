@@ -74,18 +74,20 @@ public static void main(String[] args) throws IOException {
 		ArrayList<String> fps = er.evaluatePatents("PAC-825", "FP");
 		ArrayList<String> fns = er.evaluatePatents("PAC-825", "FN");
 		
-		System.out.println(" ");
-		System.out.println("----------- TPs: Relevant documents, retrieved at top 100 ------------ ");
+		/*System.out.println(" ");
+		System.out.println("----------------------------------------------------------------------");
+		System.out.println("----------- TPs: Relevant patents, retrieved at top 100 ------------ ");
 		System.out.println("----------------------------------------------------------------------");
 		int n = 0; 
 		  for (String tp : tps) { 
 			  n++; 
 			  			  			  
 			  System.out.print(" [" + n + "] [" + tp + "], "); 
-			  }			  
+			  }		*/	 
+		
 		 /* System.out.println();
-		  System.out.println(" ");
-		  System.out.println("------- FPs: Non-relevant documents, retrieved at top 100 -------");
+		  System.out.println("----------------------------------------------------------------");
+		  System.out.println("------- FPs: Non-relevant patents, retrieved at top 100 -------");
 		  System.out.println("----------------------------------------------------------------");
 		  
 		  
@@ -93,18 +95,19 @@ public static void main(String[] args) throws IOException {
 		  for (String fp : fps) { 
 			  m++; 
 			  			  			  
-			  System.out.println(" [" + m + "] [" + fp + "],"); 
-			  }	
+			  System.out.print(" [" + m + "] [" + fp + "],"); 
+			  }	*/
 		  
-		  System.out.println(" ");
-		  System.out.println("----- FNs: Relevant documents, not retrieved at top 100 -----");
+		  System.out.println();
+		  System.out.println("-------------------------------------------------------------");
+		  System.out.println("------ FNs: Relevant patents, not retrieved at top 100 ------");
 		  System.out.println("-------------------------------------------------------------");
 		  int k = 0; 
 		  for (String fn : fns) { 
 			  k++; 			  
 			  
 			  System.out.print(" [" + k + "] [" + fn + "],"); 
-			  }	*/	 
+			  }		 
 
 
 		}

@@ -454,6 +454,23 @@ public class QueryGneration {
 		
 		return title;
 	}
+    
+    public String getDescLangOrMising() throws IOException {
+    	
+    	String status = null;
+    	if(pt.getDescription() != null) {
+    		if (pt.getDescription().getLang().toLowerCase().equals("en")){
+    			status = "en";
+    		}else {
+    			status = "non-en";
+    		}
+    	}else { 
+    		status = "missing";
+    	}
+
+    	return status;
+
+    }
 
 	public String getIpc() throws IOException {
 		String ipc = "";
@@ -526,8 +543,8 @@ public class QueryGneration {
      */
     public static void main(String[] args) throws ParseException, IOException {//PAC_1913_EP-1691238-A2.xml
         // TODO code application logic here
-    	String path = "data/CLEF-IP-2010/PAC_test/topics/";
-    	String queryfile = "PAC-825_EP-1267369-A2.xml";
+    	String path = /*"data/CLEF-IP-2010/PAC_test/topics/"*/ "/media/mona/MyProfesion/EP/000000/96/81/18/";
+    	String queryfile = /*"PAC-825_EP-1267369-A2.xml"*/ "UN-EP-0968118.xml";
 		
     	QueryGneration query = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
     	Map<String, Integer> terms = query.getSectionTerms(/*"title"*//*"abstract"*/"description"/*"claims"*/);   
@@ -550,6 +567,8 @@ public class QueryGneration {
 		for (String ipc : query.getIpclist()){
 			System.out.println(ipc);			
 		}
+		
+		System.out.println(query.getDescLangOrMising());
 
     }
 

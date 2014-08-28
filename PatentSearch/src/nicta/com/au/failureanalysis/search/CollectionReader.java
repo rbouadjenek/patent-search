@@ -68,25 +68,25 @@ public class CollectionReader {
 		
 //		int num = 0;
 		if (de != null){
-		while ((de.nextDoc()) != DocsEnum.NO_MORE_DOCS) {
-//			num++;
-			
-			if(ir.document(de.docID()).get(PatentDocument.FileName).contains(filename)){
-				// .substring(3).equals(filename)
-				termfreq = de.freq();
-				return termfreq;
-				
-			}
-			// if(de.freq() >= 4){
-			/*System.out.println("("
+			while ((de.nextDoc()) != DocsEnum.NO_MORE_DOCS) {
+//							num++;
+
+				if(ir.document(de.docID()).get(PatentDocument.FileName).contains(filename)){
+					// .substring(3).equals(filename)
+					termfreq = de.freq();
+					return termfreq;
+
+				}
+				// if(de.freq() >= 4){
+				/*System.out.println("("
 					+ num
 					+ ") "
 					+ ir.document(de.docID()).get(PatentDocument.FileName)
 							.substring(3) + "  " + de.freq() + "  "
 					+ de.docID());*/
-			// }
+				// }
 
-		}
+			}
 		}
 //		ir.close();
 		return 0;

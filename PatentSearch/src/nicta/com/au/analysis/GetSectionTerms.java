@@ -74,7 +74,7 @@ public class GetSectionTerms {
 //		analyze();
 	}
 
-	Map<String, Integer> analyze() throws IOException {
+	public Map<String, Integer> analyze() throws IOException {
 		String title = "";
 		String ipc = "";
 		String abstrac = "";
