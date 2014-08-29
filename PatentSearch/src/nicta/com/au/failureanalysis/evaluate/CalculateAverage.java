@@ -33,15 +33,15 @@ public class CalculateAverage {
         		
                 String indexDir = "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
                 String field = /* PatentDocument.Classification */PatentDocument.Description;
-                
+
                 QueryGneration query = new QueryGneration(path + queryfile, 0, 1, 0, 0, 0, 0, true, true);
-        Map<String, Integer> terms = query.getSectionTerms(/*"title"*//*"abstract"*/"description"/*"claims"*/);
-        
-        EvaluateResults er = new EvaluateResults();
-        ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
+                Map<String, Integer> terms = query.getSectionTerms(/*"title"*//*"abstract"*/"description"/*"claims"*/);
+
+                EvaluateResults er = new EvaluateResults();
+                ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
                 ArrayList<String> fps = er.evaluatePatents(queryid, "FP");
                 ArrayList<String> fns = er.evaluatePatents(queryid, "FN");
-                
+
                 int n_tps = tps.size();
                 int n_fps = fps.size();
                 int n_fns = fns.size();
@@ -57,9 +57,9 @@ public class CalculateAverage {
                 ps.print(/*count + " " + */t.getKey() + "\t" + t.getValue()+ "\t");
                 
                 for (String tp : tps) { 
-                        avg_tps = avg_tps + reader.getTFreq(field, t.getKey(), tp);
-                        
+                	avg_tps = avg_tps + reader.getTFreq(field, t.getKey(), tp);
                 }
+                
                 float avgtps = (float)avg_tps/n_tps ;
                 System.out.print(avgtps + "\t");
                 ps.print(avgtps + "\t");
