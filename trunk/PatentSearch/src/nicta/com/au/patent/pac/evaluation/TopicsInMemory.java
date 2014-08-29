@@ -88,7 +88,8 @@ public final class TopicsInMemory {
     public static void main(String[] args) {
         try {
             // TODO code application logic here
-            TopicsInMemory topics = new TopicsInMemory("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_training/topics/PAC_topics.xml");
+//            TopicsInMemory topics = new TopicsInMemory("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_training/topics/PAC_topics.xml");
+            TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml");
             System.out.println(topics.getTopics().size());
             QrelsInMemory qrels = new QrelsInMemory("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_training/PACt_training_rels.txt");
 
