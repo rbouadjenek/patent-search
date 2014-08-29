@@ -28,13 +28,15 @@ public class EvaluateResults {
 		ArrayList<String> relevantdocs = _reldocs.get(_queryID);
 		ArrayList<String> retrieveddocs = _retdocs.get(_queryID);
 
-		for (String ret : retrieveddocs) {
-			for (String rel : relevantdocs) {
+		if(retrieveddocs != null){
+			for (String ret : retrieveddocs) {
+				for (String rel : relevantdocs) {
 
-				if (ret.equals(rel)) {
-					// System.out.println(" matched: " + rel);
-					TPs.add(rel);
-					break;
+					if (ret.equals(rel)) {
+						// System.out.println(" matched: " + rel);
+						TPs.add(rel);
+						break;
+					}
 				}
 			}
 		}
