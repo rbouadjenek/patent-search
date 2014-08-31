@@ -14,6 +14,10 @@ public class EvaluateResults {
 		ArrayList<String> TPs = new ArrayList<>();
 		ArrayList<String> FPs = new ArrayList<>();
 		ArrayList<String> FNs = new ArrayList<>();
+		
+		String resultsfile = "output/results/" + /*"results-lmdir-desc-1000.txt"*/ 
+				"results-lmdir-desc-200.txt" 
+				/*"results-lmdir-desc-100.txt"*/;
 
 		_queryID = queryID.toUpperCase();
 
@@ -23,7 +27,7 @@ public class EvaluateResults {
 				.GetQueryPatents("data/qrel/PAC_test_rels.txt");
 
 		HashMap<String, ArrayList<String>> _retdocs = qps
-				.GetQueryPatents("output/results/results-lmdir-desc-100.txt");
+				.GetQueryPatents(resultsfile);
 
 		ArrayList<String> relevantdocs = _reldocs.get(_queryID);
 		ArrayList<String> retrieveddocs = _retdocs.get(_queryID);
