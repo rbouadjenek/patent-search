@@ -16,8 +16,8 @@ public class EvaluateResults {
 		ArrayList<String> FNs = new ArrayList<>();
 		
 		String resultsfile = "output/results/" + /*"results-lmdir-desc-1000.txt"*/ 
-				"results-lmdir-desc-200.txt" 
-				/*"results-lmdir-desc-100.txt"*/;
+				/*"results-lmdir-desc-200.txt"*/ 
+				"results-lmdir-desc-100.txt";
 
 		_queryID = queryID.toUpperCase();
 

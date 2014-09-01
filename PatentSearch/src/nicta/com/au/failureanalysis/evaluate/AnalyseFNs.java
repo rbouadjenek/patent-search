@@ -12,14 +12,14 @@ import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 
 public class AnalyseFNs {
 	
-	public ArrayList<String> getEnglishFNs() throws IOException{
+	public ArrayList<String> getEnglishFNs(String queryid) throws IOException{
 		
 		String _rootpath  = "/media/mona/MyProfesion/";
-		String _queryId = "PAC-1035"/*"PAC-1012"*//*"PAC-544"*/ /*"PAC-825"*/ /*"PAC-1149"*//*"PAC-1460"*/;
+		
 		ArrayList<String> enFNs = new ArrayList<>();
 		
 		EvaluateResults er = new EvaluateResults();
-		ArrayList<String> fns = er.evaluatePatents(_queryId, "FN");
+		ArrayList<String> fns = er.evaluatePatents(queryid, "FN");
 		for (String fn : fns) { 
 
 			GetPatentFile gpf = new GetPatentFile();
@@ -27,7 +27,7 @@ public class AnalyseFNs {
 
 			QueryGneration query = new QueryGneration(_rootpath + path, 0, 0, 1, 0, 0, 0, true, true);
 
-			//			System.out.println(" [" + k + "] [" + fn + "], " + query.getDescLangOrMising()); 
+//						System.out.println(" [" + k + "] [" + fn + "], " + query.getDescLangOrMising()); 
 
 			if(query.getDescLangOrMising().equals("en")){
 				enFNs.add(fn);
@@ -43,22 +43,26 @@ public class AnalyseFNs {
 	
 	public static void main(String[] args) throws IOException {
 		
-		/*AnalyseFNs afn = new AnalyseFNs();
-		ArrayList<String> efns = afn.getEnglishFNs();
+		/*-------------- Test English FN patents ---------------*/
+		
+		String _queryId = "PAC-1087"/*"PAC-1035"*//*"PAC-1012"*//*"PAC-544"*/ /*"PAC-825" *//*"PAC-1149"*//*"PAC-1460"*/;
+		AnalyseFNs afn = new AnalyseFNs();
+		ArrayList<String> efns = afn.getEnglishFNs(_queryId);
 		
 		int count = 0;
+		if(efns.size()==0){System.out.println(0);}
 		for(String efn : efns){
 			count++;
-			System.out.println(count+" "+efn);
+			System.out.println(count + " " + efn);
 			
-		}*/
+		}
 		
 		/*--------------------------- Write in outputfile. ------------------------*/
-		String outputfile = "./output/AnalysisFNs/AnalyzeFNs-200.txt";
+		/*String outputfile = "./output/AnalysisFNs/AnalyzeFNs-test.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
-		/*------------------------------------------------------------------------*/
+		------------------------------------------------------------------------
 
 		String _rootpath  = "/media/mona/MyProfesion/";
 //		String _queryId = "PAC-544" "PAC-825" "PAC-1149""PAC-1460";
@@ -80,7 +84,7 @@ public class AnalyseFNs {
 		int n=0;
 		for(String  q:topics.getTopics().keySet()){
 			n++;
-			ArrayList<String> fns = er.evaluatePatents(q/*_queryId*/, "FN");
+			ArrayList<String> fns = er.evaluatePatents(q_queryId, "FN");
 			
 	        int num_rel_patents = qrels.getNumberOfRelevantPatent(q);
 
@@ -105,13 +109,13 @@ public class AnalyseFNs {
 			}
 			//		System.out.println("QueryId" + "\t\t" + "En%" + "\t\t" + "Non-En%" + "\t\t" + "missing%" + "\t" + "FN size");
 			if(k != 0){
-				System.out.println("(" + n + ")\t" + q/*_queryId*/ + "\t" + (float)en/k + "\t" + (float)nen/k + "\t" + (float)miss/k + "\t" + en + "\t" + nen + "\t" + miss + "\t" + k + "\t" + num_rel_patents+ "\t" + error_percentage);
+				System.out.println("(" + n + ")\t" + q_queryId + "\t" + (float)en/k + "\t" + (float)nen/k + "\t" + (float)miss/k + "\t" + en + "\t" + nen + "\t" + miss + "\t" + k + "\t" + num_rel_patents+ "\t" + error_percentage);
 				ps.println("(" + n + ")\t" + q + "\t" + (float)en/k + "\t" + (float)nen/k + "\t" + (float)miss/k + "\t" + en + "\t" + nen + "\t" + miss + "\t" + k+ "\t" + num_rel_patents + "\t" + error_percentage);
 			}else {
 				System.out.println("(" + n + ")\t" + q + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + k + "\t" + num_rel_patents + "\t" + error_percentage);
 				ps.println("(" + n + ")\t" + q + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + k+ "\t" + num_rel_patents + "\t" + error_percentage);
 			}
-		}
+		}*/
 	}
 
 }
