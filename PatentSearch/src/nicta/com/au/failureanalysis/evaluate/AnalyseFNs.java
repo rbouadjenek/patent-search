@@ -45,7 +45,7 @@ public class AnalyseFNs {
 		
 		/*-------------- Test English FN patents ---------------*/
 		
-		String _queryId = "PAC-1087"/*"PAC-1035"*//*"PAC-1012"*//*"PAC-544"*/ /*"PAC-825" *//*"PAC-1149"*//*"PAC-1460"*/;
+		String _queryId = /*"PAC-1087"*/"PAC-1087"/*"PAC-1035"*//*"PAC-1012"*//*"PAC-544"*/ /*"PAC-825" *//*"PAC-1149"*//*"PAC-1460"*/;
 		AnalyseFNs afn = new AnalyseFNs();
 		ArrayList<String> efns = afn.getEnglishFNs(_queryId);
 		
