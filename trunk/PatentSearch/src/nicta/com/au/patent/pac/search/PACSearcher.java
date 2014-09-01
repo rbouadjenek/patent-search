@@ -53,7 +53,7 @@ public class PACSearcher {
             return new LMDirichletSimilarity();
         } else if (similarity.toLowerCase().startsWith("lmj")) {
 //            System.err.println("LMJelinekMercerSimilarity");
-            return new LMJelinekMercerSimilarity(1);
+            return new LMJelinekMercerSimilarity((float) 0.7/*1*/);
         } else if (similarity.toLowerCase().startsWith("ibs")) {
 //            System.err.println("IBSimilarity");
             return new IBSimilarity(new DistributionLL(), new LambdaDF(), new Normalization.NoNormalization());
