@@ -45,15 +45,17 @@ public class AnalyseFNs {
 		
 		/*-------------- Test English FN patents ---------------*/
 		
-		String _queryId = /*"PAC-1087"*/"PAC-1087"/*"PAC-1035"*//*"PAC-1012"*//*"PAC-544"*/ /*"PAC-825" *//*"PAC-1149"*//*"PAC-1460"*/;
+		String _queryId = "PAC-1305"/*"PAC-1604"*/ /*"PAC-1142"*//*"PAC-1087"*//*"PAC-1379"*//*"PAC-1035"*//*"PAC-1012"*//*"PAC-544"*/ /*"PAC-825" *//*"PAC-1149"*//*"PAC-1460"*/;
 		AnalyseFNs afn = new AnalyseFNs();
 		ArrayList<String> efns = afn.getEnglishFNs(_queryId);
 		
+		System.out.print(_queryId + ":");
+		System.out.println(" List of FN patents due to term mismatch (k=100):");
 		int count = 0;
-		if(efns.size()==0){System.out.println(0);}
+		if(efns.size()==0){System.out.println("There is no FN patent: " + 0);}
 		for(String efn : efns){
 			count++;
-			System.out.println(count + " " + efn);
+			System.out.print(" [" + count + "] " + efn);
 			
 		}
 		

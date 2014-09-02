@@ -49,7 +49,7 @@ public class QueryGneration {
     private PerFieldAnalyzerWrapper analyzer;
     private final int titleTreshold = 1;
     private final int abstractTreshold = 1;
-    private final int descriptionTreshold = /*1*/15;
+    private final int descriptionTreshold = /*1*/20;
     private final int claimsTreshold = 1;
     public static final String all = "all";
     private static final String[] fields = {PatentDocument.Classification, PatentDocument.Title, PatentDocument.Abstract, PatentDocument.Description, "descriptionP5", PatentDocument.Claims, "claims1"};
