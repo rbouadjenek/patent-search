@@ -16,8 +16,8 @@ public class CalculateAvgEnFN {
 	public static void main(String[] args) throws IOException {
 
 		String path = "data/CLEF-IP-2010/PAC_test/topics/";
-		String queryid = /*"PAC-1216"*//*"PAC-1604"*//*"PAC-1142"*/"PAC-1379"/*"PAC-1087"*//*"PAC-1035"*//*"PAC-825"*/;
-		String queryfile = /*"PAC-1216_EP-1749865-A1.xml"*//*"PAC-1604_EP-1705241-A1.xml"*//*"PAC-1142_EP-1345275-A1.xml"*/"PAC-1379_EP-1304229-A2.xml"/*"PAC-1087_EP-1666549-A1.xml"*//*"PAC-1035_EP-1378908-A2.xml"*/ /*"PAC-825_EP-1267369-A2.xml"*/;
+		String queryid = "PAC-1216"/*"PAC-1604"*//*"PAC-1142"*//*"PAC-1379"*//*"PAC-1087"*//*"PAC-1035"*//*"PAC-825"*/;
+		String queryfile = "PAC-1216_EP-1749865-A1.xml"/*"PAC-1604_EP-1705241-A1.xml"*//*"PAC-1142_EP-1345275-A1.xml"*//*"PAC-1379_EP-1304229-A2.xml"*//*"PAC-1087_EP-1666549-A1.xml"*//*"PAC-1035_EP-1378908-A2.xml"*/ /*"PAC-825_EP-1267369-A2.xml"*/;
 
 		/*String queryid = "PAC-544";
     String queryfile = "PAC-544_EP-1405720-A1.xml"; */
@@ -35,7 +35,7 @@ public class CalculateAvgEnFN {
 		String field = /* PatentDocument.Classification */PatentDocument.Description;
 
 		QueryGneration query = new QueryGneration(path + queryfile, 0, 1, 0, 0, 0, 0, true, true);
-		Map<String, Integer> terms = query.getSectionTerms(/*"title"*//*"abstract"*/"description"/*"claims"*/);
+		Map<String, Integer> terms = query.getSectionTerms(field/*"title"*//*"abstract"*//*"description"*//*"claims"*/);
 
 		/*EvaluateResults er = new EvaluateResults();
 		ArrayList<String> fns = er.evaluatePatents(queryid, "FN");*/
