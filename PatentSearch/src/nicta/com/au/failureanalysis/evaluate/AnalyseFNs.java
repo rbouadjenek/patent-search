@@ -45,29 +45,29 @@ public class AnalyseFNs {
 		
 		/*-------------- Test English FN patents ---------------*/
 		
-		String _queryId = "PAC-1216" /*"PAC-1604" "PAC-1035" "PAC-1142""PAC-1087""PAC-1379""PAC-1035""PAC-1012""PAC-544" "PAC-825" "PAC-1149""PAC-1460"*/;
-		AnalyseFNs afn = new AnalyseFNs();
-		ArrayList<String> efns = afn.getEnglishFNs(_queryId);
+//		String _queryId = "PAC-1216" /*"PAC-1604" "PAC-1035" "PAC-1142""PAC-1087""PAC-1379""PAC-1035""PAC-1012""PAC-544" "PAC-825" "PAC-1149""PAC-1460"*/;
+//		AnalyseFNs afn = new AnalyseFNs();
+//		ArrayList<String> efns = afn.getEnglishFNs(_queryId);
+//		
+//		System.out.print(_queryId + ":");
+//		System.out.println(" List of FN patents due to term mismatch (k=100):");
+//		int count = 0;
+//		if(efns.size()==0){System.out.println("There is no FN patent: " + 0);}
+//		for(String efn : efns){
+//			count++;
+//			System.out.print(" [" + count + "] " + efn);
+//			
+//		}
 		
-		System.out.print(_queryId + ":");
-		System.out.println(" List of FN patents due to term mismatch (k=100):");
-		int count = 0;
-		if(efns.size()==0){System.out.println("There is no FN patent: " + 0);}
-		for(String efn : efns){
-			count++;
-			System.out.print(" [" + count + "] " + efn);
-			
-		}
 		
 		
-		/*
 		
-		--------------------------- Write in outputfile. ------------------------
+		/*--------------------------- Write in outputfile. ------------------------*/
 		String outputfile = "./output/AnalysisFNs/AnalyzeFNs-test.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
-		------------------------------------------------------------------------
+		/*------------------------------------------------------------------------*/
 
 		String _rootpath  = "/media/mona/MyProfesion/";
 //		String _queryId = "PAC-544" "PAC-825" "PAC-1149""PAC-1460";
@@ -121,7 +121,7 @@ public class AnalyseFNs {
 				ps.println("(" + n + ")\t" + q + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + k+ "\t" + num_rel_patents + "\t" + error_percentage);
 			}
 		}
-		*/
+		
 		
 		
 	}
