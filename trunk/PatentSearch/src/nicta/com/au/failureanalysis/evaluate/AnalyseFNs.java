@@ -45,7 +45,7 @@ public class AnalyseFNs {
 		
 		/*-------------- Test English FN patents ---------------*/
 		
-		String _queryId = "PAC-1305"/*"PAC-1604"*/ /*"PAC-1142"*//*"PAC-1087"*//*"PAC-1379"*//*"PAC-1035"*//*"PAC-1012"*//*"PAC-544"*/ /*"PAC-825" *//*"PAC-1149"*//*"PAC-1460"*/;
+		String _queryId = "PAC-1216" /*"PAC-1604" "PAC-1035" "PAC-1142""PAC-1087""PAC-1379""PAC-1035""PAC-1012""PAC-544" "PAC-825" "PAC-1149""PAC-1460"*/;
 		AnalyseFNs afn = new AnalyseFNs();
 		ArrayList<String> efns = afn.getEnglishFNs(_queryId);
 		
@@ -59,8 +59,11 @@ public class AnalyseFNs {
 			
 		}
 		
-		/*--------------------------- Write in outputfile. ------------------------*/
-		/*String outputfile = "./output/AnalysisFNs/AnalyzeFNs-test.txt";
+		
+		/*
+		
+		--------------------------- Write in outputfile. ------------------------
+		String outputfile = "./output/AnalysisFNs/AnalyzeFNs-test.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
@@ -86,7 +89,7 @@ public class AnalyseFNs {
 		int n=0;
 		for(String  q:topics.getTopics().keySet()){
 			n++;
-			ArrayList<String> fns = er.evaluatePatents(q_queryId, "FN");
+			ArrayList<String> fns = er.evaluatePatents(q, "FN");
 			
 	        int num_rel_patents = qrels.getNumberOfRelevantPatent(q);
 
@@ -111,13 +114,16 @@ public class AnalyseFNs {
 			}
 			//		System.out.println("QueryId" + "\t\t" + "En%" + "\t\t" + "Non-En%" + "\t\t" + "missing%" + "\t" + "FN size");
 			if(k != 0){
-				System.out.println("(" + n + ")\t" + q_queryId + "\t" + (float)en/k + "\t" + (float)nen/k + "\t" + (float)miss/k + "\t" + en + "\t" + nen + "\t" + miss + "\t" + k + "\t" + num_rel_patents+ "\t" + error_percentage);
+				System.out.println("(" + n + ")\t" + q + "\t" + (float)en/k + "\t" + (float)nen/k + "\t" + (float)miss/k + "\t" + en + "\t" + nen + "\t" + miss + "\t" + k + "\t" + num_rel_patents+ "\t" + error_percentage);
 				ps.println("(" + n + ")\t" + q + "\t" + (float)en/k + "\t" + (float)nen/k + "\t" + (float)miss/k + "\t" + en + "\t" + nen + "\t" + miss + "\t" + k+ "\t" + num_rel_patents + "\t" + error_percentage);
 			}else {
 				System.out.println("(" + n + ")\t" + q + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + k + "\t" + num_rel_patents + "\t" + error_percentage);
 				ps.println("(" + n + ")\t" + q + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + "0" + "\t" + k+ "\t" + num_rel_patents + "\t" + error_percentage);
 			}
-		}*/
+		}
+		*/
+		
+		
 	}
 
 }
