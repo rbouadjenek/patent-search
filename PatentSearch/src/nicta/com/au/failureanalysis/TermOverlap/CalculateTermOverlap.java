@@ -1,6 +1,8 @@
 package nicta.com.au.failureanalysis.TermOverlap;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -19,6 +21,8 @@ import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
  * In other words, we ignore FN patents due to missing part or being in another language. 
  */
 public class CalculateTermOverlap {
+	
+	
 
 	static String path = "data/CLEF-IP-2010/PAC_test/topics/";
 	static String _queryid = "PAC-1216"/*"PAC-1379"*/;
@@ -102,10 +106,17 @@ public class CalculateTermOverlap {
 	}
 	
 	public void FNsTermOverlapAllQueries(CollectionReader reader) throws IOException{
+		
+		/*--------------------------- Write in output file. -Mona ------------------------*/
+		String outputfile = "./output/TermOverlap/termoverlp-part2.txt";
+
+		FileOutputStream out = new FileOutputStream(outputfile);
+		PrintStream ps = new PrintStream(out);
+		/*-------------------------------------------------------------------------------*/
 
 		AnalyseFNs afn = new AnalyseFNs();
 
-		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml");
+		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-testoverlap.xml");
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 
 			String queryid = topic.getKey();
@@ -122,6 +133,8 @@ public class CalculateTermOverlap {
 			float overlapratio = 0;
 			int querydocintersection;
 			if(n_enfns != 0){
+				
+				if(n_enfns < 11){
 			for (String doc : enfns) { 
 				querydocintersection = 0;
 				int i=0;
@@ -148,17 +161,19 @@ public class CalculateTermOverlap {
 			avg = (float)sum/n_enfns;
 			System.out.println("---------------------------------------------------------");
 			System.out.println(queryid + "\t" + avg);
-			System.out.println("Avg. Term Overlap between query and FN patents =" + avg);
+			ps.println(queryid + "\t" + avg);
+//			System.out.println("Avg. Term Overlap between query and FN patents =" + avg);
+				}else{
+					System.out.println(queryid+"\t" + "big FNs");
+					ps.println(queryid+"\t"+ "big FNs");
+				}
 
 		}else{
-			System.out.println(queryid+"\t No FN for this query");
+			System.out.println(queryid+"\t" + "No FN for this query");
+			ps.println(queryid+"\t"+ "No FN for this query");
 			
 		}
-			/*avg = (float)sum/n_enfns;
-			System.out.println("---------------------------------------------------------");
-			System.out.println(queryid + "\t" + avg);
-			System.out.println("Avg. Term Overlap between query and FN patents =" + avg);
-*/
+			
 			//    		System.out.println(queryid + "\t" + queryfile);
 		}
 

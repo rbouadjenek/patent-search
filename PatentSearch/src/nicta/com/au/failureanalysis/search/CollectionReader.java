@@ -111,7 +111,7 @@ public class CollectionReader {
 			System.out.println(a);
 
 			
-			//reader.termFreqInDocs(field, term);
+//			reader.termFreqInDocs(field, term);
 			
 			
 
