@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import nicta.com.au.patent.document.PatentDocument;
 import nicta.com.au.patent.pac.search.BM25Rocchio;
+
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.Term;
@@ -59,11 +60,11 @@ public class CollectionSearcher {
 			return new BM25Similarity();
 		}
 	}
-	
+
 	public IndexSearcher getIndexSearch() {
 		return is;
 	}
-	
+
 	public CollectionSearcher(String indexDir, String similarity, int topK)
 			throws IOException {
 		Directory dir = FSDirectory.open(new File(indexDir));
@@ -71,8 +72,8 @@ public class CollectionSearcher {
 		is.setSimilarity(getSimilarity(similarity));
 		this.topK = topK;
 	}
-	
-	
+
+
 	/**
 	 * @param field
 	 * @param term
@@ -85,32 +86,61 @@ public class CollectionSearcher {
 		ArrayList<String> returneddocuments = new ArrayList<>();
 
 		TermQuery query = new TermQuery(new Term(field, term));
-		
+
 		// TermQuery query = new TermQuery(new Term(PatentDocument.Classification, term));
 
 		TopDocs topdocs = is.search(query, topK);
 		System.err.println("'" + term + "'"
 				+ " appeared in " + topdocs.totalHits
 				+ " documents:");
-		
+
 		for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
 			Document doc = is.doc(scoreDoc.doc);
-//			System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName).substring(3) + " " + scoreDoc.score);
+			//			System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName).substring(3) + " " + scoreDoc.score);
 			returneddocuments.add(doc.get(PatentDocument.FileName).substring(3));
 
 		}
 		return returneddocuments;
 	}
-	
-	public static void main(String[] args) {
-		
-		String indexDir = args[0];
-		
-		try {
-			String term = /* "b32b" *//* "h01l"*/ /*"methyl" */ "resin" ;
-			String field = /*PatentDocument.Classification*/ PatentDocument.Title;
 
-			CollectionSearcher searcher = new CollectionSearcher(indexDir, "bm25ro", 1000);
+	public boolean termExists(String field, String term, String filename) throws IOException {
+		TermQuery query = new TermQuery(new Term(field, term));
+		TopDocs topdocs = is.search(query, topK);
+		/*System.err.println("'" + term + "'"
+				+ " appeared in " + topdocs.totalHits
+				+ " documents:");*/
+		for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
+			Document doc = is.doc(scoreDoc.doc);
+			//			System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName).substring(3) + " " + scoreDoc.score);
+			if(doc.get(PatentDocument.FileName).contains(filename)){
+				// .substring(3).equals(filename)
+				//				termfreq = de.freq();
+				return true;
+
+			}
+//			doc.get(PatentDocument.FileName).substring(3);
+
+		}
+		return false;
+
+	}
+
+	public static void main(String[] args) {
+
+		String indexDir = args[0];
+
+		try {
+			String term = /*"film"*//*"print"*/ /*"b32b" *//* "h01l"*/ /*"methyl" */ /*"mona"*/ "resin";
+			String field = /*PatentDocument.Classification*/ PatentDocument.Description;
+			String filename = "EP-0415270";
+
+			CollectionSearcher searcher = new CollectionSearcher(indexDir, "bm25ro", 1000000);
+
+			/*---------------------Testing SingleTermSEarch method---------------------*/
+			System.out.println(searcher.termExists(field, term, filename));
+			/*-------------------------------------------------------------------------*/
+
+			/*---------------------Testing SingleTermSEarch method---------------------*/
 
 			ArrayList<String> returned_docs = searcher.singleTermSearch(field , term.toLowerCase()); 
 
@@ -119,10 +149,11 @@ public class CollectionSearcher {
 				n++;
 				System.out.println("[" + n + "] " + d);
 			}
-
+			 
+			/*--------------------------------------------------------------------------*/
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		
+
 	}
 }

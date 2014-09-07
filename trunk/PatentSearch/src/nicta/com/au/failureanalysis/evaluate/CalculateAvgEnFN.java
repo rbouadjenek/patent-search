@@ -19,10 +19,7 @@ public class CalculateAvgEnFN {
 		String queryid = "PAC-1216"/*"PAC-1604"*//*"PAC-1142"*//*"PAC-1379"*//*"PAC-1087"*//*"PAC-1035"*//*"PAC-825"*/;
 		String queryfile = "PAC-1216_EP-1749865-A1.xml"/*"PAC-1604_EP-1705241-A1.xml"*//*"PAC-1142_EP-1345275-A1.xml"*//*"PAC-1379_EP-1304229-A2.xml"*//*"PAC-1087_EP-1666549-A1.xml"*//*"PAC-1035_EP-1378908-A2.xml"*/ /*"PAC-825_EP-1267369-A2.xml"*/;
 
-		/*String queryid = "PAC-544";
-    String queryfile = "PAC-544_EP-1405720-A1.xml"; */
-
-		String outputfilename =  queryid + "TEST_avgfreq_testthendelete.txt"; 
+		String outputfilename =  queryid + "_TEST_avgfreq_testthendelete.txt"; 
 		//	String outputfile = "C:/Users/Mona/workspace/PatentSearch/output/CommonTerms/" + outputfilename;
 		String outputfile = "./output/AvgEnFNFreq/" + outputfilename;
 

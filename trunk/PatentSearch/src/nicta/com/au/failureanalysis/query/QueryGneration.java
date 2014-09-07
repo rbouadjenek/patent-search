@@ -504,13 +504,35 @@ public class QueryGneration {
 		return ipc;
 	}
 
-	public Set<String> getIpclist() throws IOException {
+	public String getmainIpc() throws IOException {
 		String ipc = "";
 
 		// ********************************************************************
 		// leveraging IPC Codes
 		// ********************************************************************
 		Set<String> codes = new HashSet<>();
+		List<ClassificationIpcr> x = pt.getTechnicalData().getClassificationIpcr();
+//		if(x.get(0).getContent() != null){
+		/*System.out.println(x.get(0).getContent());*/
+		StringTokenizer st = new StringTokenizer(pt.getTechnicalData().getClassificationIpcr().get(0).getContent());
+		String p1 = st.nextToken();
+//		System.out.println(p1);		
+		
+		return p1;
+//		}
+		/*else{
+			return "No ipc code";
+					}*/
+	}
+	
+	public List<String> getIpclist() throws IOException {
+		String ipc = "";
+
+		// ********************************************************************
+		// leveraging IPC Codes
+		// ********************************************************************
+		Set<String> codes = new HashSet<>();
+		List<ClassificationIpcr> x = pt.getTechnicalData().getClassificationIpcr();
 		for (ClassificationIpcr ipcCode : pt.getTechnicalData()
 				.getClassificationIpcr()) {
 //			System.out.println(ipcCode.getContent());
@@ -519,12 +541,14 @@ public class QueryGneration {
 			String p1 = st.nextToken();
 //			System.out.println(p1);
 			String p2 = st.nextToken();
+//			System.out.println(p2);
 			
 /*------------- hashset contains no duplicate elements. ---------------*/
 			codes.add(p1);			
 
 		}
-		
+		 List<String> list = new ArrayList<String>(codes);
+//		    System.out.println(list);
 //		System.out.println(codes);
 		/*for (String code : codes) {
 			if (!ipc.contains(code)) {				
@@ -533,7 +557,7 @@ public class QueryGneration {
 			}
 		}*/
 //		System.out.println(ipc);
-		return codes;
+		return list;
 	}
 
     /**
@@ -543,11 +567,11 @@ public class QueryGneration {
      */
     public static void main(String[] args) throws ParseException, IOException {//PAC_1913_EP-1691238-A2.xml
         // TODO code application logic here
-    	String path = /*"data/CLEF-IP-2010/PAC_test/topics/"*/ "/media/mona/MyProfesion/EP/000000/96/81/18/";
-    	String queryfile = /*"PAC-825_EP-1267369-A2.xml"*/ "UN-EP-0968118.xml";
+    	String path = "data/CLEF-IP-2010/PAC_test/topics/" /*"/media/mona/MyProfesion/EP/000000/96/81/18/"*/;
+    	String queryfile = "PAC-1134_EP-1783182-A1.xml"/*"PAC-1064_EP-1426187-A2.xml"*//*"PAC-1216_EP-1749865-A1.xml"*//*"PAC-825_EP-1267369-A2.xml"*/ /*"UN-EP-0968118.xml"*/;
 		
     	QueryGneration query = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
-    	Map<String, Integer> terms = query.getSectionTerms(/*"title"*//*"abstract"*/"description"/*"claims"*/);   
+    	/*Map<String, Integer> terms = query.getSectionTerms("title""abstract""description""claims");   
     	
     	int count = 0;
     	for(Entry<String, Integer> t : terms.entrySet()){
@@ -555,7 +579,7 @@ public class QueryGneration {
     		System.out.println(count + " " + t.getKey() + " " + t.getValue());
     	}
     	
-    	System.out.println(query.parse());
+    	System.out.println(query.parse());*/
     	
     	System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println("-----------------------------Testing getTitle() & getIpc() methods----------------------------");
@@ -563,11 +587,17 @@ public class QueryGneration {
 		System.out.println(query.getTitle()); 
 		System.out.println(query.getIpc()); 
 					
-//		query.getIpclist();		
-		for (String ipc : query.getIpclist()){
-			System.out.println(ipc);			
-		}
+		List<String> ipclists = query.getIpclist();
+		/*System.out.println("----------------------------");
+		System.out.println(ipclists.get(0));
+		System.out.println("----------------------------");*/
 		
+		/*for (String ipc : query.getIpclist()){
+			System.out.println(ipc);			
+		}*/
+		
+		
+		System.out.println("Main IPC COde: " + query.getmainIpc());
 		System.out.println(query.getDescLangOrMising());
 
     }
