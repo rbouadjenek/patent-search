@@ -65,7 +65,7 @@ public class CollectionReader {
 		
 		DocsEnum de = MultiFields.getTermDocsEnum(ir, MultiFields.getLiveDocs(ir), field, new BytesRef(term));
 
-		
+         	
 //		int num = 0;
 		if (de != null){
 			while ((de.nextDoc()) != DocsEnum.NO_MORE_DOCS) {
