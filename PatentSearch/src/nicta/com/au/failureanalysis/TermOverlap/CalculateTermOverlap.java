@@ -138,11 +138,15 @@ public class CalculateTermOverlap {
 			for (String doc : enfns) { 
 				querydocintersection = 0;
 				int i=0;
+//				int m=0;
 				for(Entry<String, Integer> t : qterms.entrySet()){
 					i++;
 					boolean x=reader.getTFreq(field, t.getKey(), doc)>0;
 					//			System.out.println("[" + i + "] " + t.getKey() + "\t" + t.getValue() + "\t" + reader.getTFreq(field, t.getKey(), doc) + "\t" + x + "\t");
-					if(reader.getTFreq(field, t.getKey(), doc)>0){
+					
+					if(x){
+//						m++;
+//						System.out.println(m);
 						querydocintersection++;					
 					}	
 				}
