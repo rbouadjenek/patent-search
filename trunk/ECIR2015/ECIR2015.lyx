@@ -16068,16 +16068,5 @@ Patent Retrieval Evaluation Score (PRES) for MMRQR on CLEF-2011 (for MMRQE
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "biblio"
-options "abbrv"
-
-\end_inset
-
-
-\end_layout
-
 \end_body
 \end_document
