@@ -1,0 +1,15 @@
+# IMMIGRATION BY REGION AND SELECTED COUNTRY OF LAST RESIDENCE										
+#	Abstract	Abstract								
+PRES	mmrqeResults-BM25PRES	mmrqeResults-RocchioPRES	rocchioResults-BM25PRES	rocchioResults-VSMPRES	MagdyqrBM25	MagdyqrVSM	IPC-CodeQRBM25	IPC-CodeQRVSM	NoQE-BM25	NoQE-VSM
+-	0.488622106	0.496601814	0.494850761	0.49557187	0.488630401	0.496475503	0.48617674	0.492229432	0.489117728788267	0.496976710647666
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										

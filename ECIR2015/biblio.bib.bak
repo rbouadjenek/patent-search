@@ -1,0 +1,800 @@
+% This file was created with JabRef 2.9.2.
+% Encoding: MacRoman
+
+@STRING{acm = {ACM Press}}
+
+@STRING{acmsurvey = {ACM Computing Surveys}}
+
+@STRING{addison = {Addison Wesley}}
+
+@STRING{ai = {Artificial Intelligence}}
+
+@STRING{altair = {Altair}}
+
+@STRING{apr = {April}}
+
+@STRING{aug = {August}}
+
+@STRING{aw = {Addison-Wesley}}
+
+@STRING{bda = {Proceedings of the French conference on Databases: Bases de Donn\'ees
+	Avanc\'ees}}
+
+@STRING{bncod = {Proceedings of the British National Conference on Databases}}
+
+@STRING{cacm = {Communications of the ACM}}
+
+@STRING{caise = {Proceedings of the International Conference Advanced Information
+	Systems Engineering (CAISE)}}
+
+@STRING{cj = {The Computer Journal}}
+
+@STRING{compsurv = {ACM Computing Surveys}}
+
+@STRING{cup = {Cambridge University Press}}
+
+@STRING{dataeng = {Proc. IEEE Intl. Conf. on Data Engineering}}
+
+@STRING{dbpl = {Proceedings of the International Workshop on Database Programming
+	Languages}}
+
+@STRING{dec = {December}}
+
+@STRING{dexa = {Proc. of the Intl. Conf. on Data and Expert Systems Applications
+	(DEXA)}}
+
+@STRING{dood = {Proceedings of the International Conference on Deductive and Object-Oriented
+	Databases}}
+
+@STRING{ecai = {European Conf. on Artificial Intelligence}}
+
+@STRING{ecoop = {European Conference on Object-Oriented Programming}}
+
+@STRING{edbt = {Proceedings of the International Conference on Extending Database
+	Technology}}
+
+@STRING{feb = {February}}
+
+@STRING{gu = {Department of Computing Science, University of Glasgow}}
+
+@STRING{icde = {Proceedings of the International Conference on Data Engineering}}
+
+@STRING{icdt = {Proceedings of the International Conference on Database Theory}}
+
+@STRING{ieee = {IEEE Press}}
+
+@STRING{ieeede = {Proceedings of the IEEE Data Engineering Conference}}
+
+@STRING{ieeetkde = {IEEE Transactions on Knowledge and Data Engineering}}
+
+@STRING{ifp = {Information Processing Letters}}
+
+@STRING{ijcai = {Intl. Joint Conf. on Artificial Intelligence}}
+
+@STRING{ijcis = {International Journal of Cooperative Information Systems (IJCIS)}}
+
+@STRING{infcont = {Information and Control}}
+
+@STRING{is = {Information Systems}}
+
+@STRING{italiano = {In italian.}}
+
+@STRING{jacm = {J. ACM}}
+
+@STRING{jan = {January}}
+
+@STRING{jcss = {Journal of Computer and System Sciences}}
+
+@STRING{jul = {July}}
+
+@STRING{jun = {June}}
+
+@STRING{lncs = {Lecture Notes in Computer Science}}
+
+@STRING{lnia = {Lecture Notes in Artificial Intelligence}}
+
+@STRING{mar = {March}}
+
+@STRING{may = {May}}
+
+@STRING{mit = {MIT Press}}
+
+@STRING{mk = {Morgan Kaufmann}}
+
+@STRING{nov = {November}}
+
+@STRING{oct = {October}}
+
+@STRING{oopsla = {Proceedings of the Conference on Object-Oriented Programming Systems,
+	Languages, and Applications}}
+
+@STRING{oup = {Oxford University Press}}
+
+@STRING{ph = {Prentice-Hall}}
+
+@STRING{pods = {Proceedings of the Principles of Database Systems}}
+
+@STRING{popl = {Proc. ACM Symp. on Principles of Programming Languages}}
+
+@STRING{second = {Second}}
+
+@STRING{sep = {September}}
+
+@STRING{sigmod = {Proceedings of the ACM SIGMOD International Conference on Management
+	of Data}}
+
+@STRING{stoc = {Proc. ACM SIGACT Symp. on the Theory of Computing}}
+
+@STRING{sv = {Springer-Verlag}}
+
+@STRING{tcs = {Theoretical Computer Science}}
+
+@STRING{third = {Third}}
+
+@STRING{tods = {ACM Transactions on Database Systems}}
+
+@STRING{tois = {ACM Transactions on Office Information Systems}}
+
+@STRING{toois = {ACM Trans. on Office Information Systems}}
+
+@STRING{vldb = {Proceedings of the Conference on Very Large Data Bases}}
+
+@STRING{wics = {Workshops in Computing Series}}
+
+@STRING{woods = {Proceedings of the International Workshop on Object-Oriented Database
+	Systems}}
+
+@INPROCEEDINGS{Magdy2010,
+  author = {Walid Magdy and Gareth J. F. Jones},
+  title = {Applying the KISS Principle for the CLEF- IP 2010 Prior Art Candidate
+	Patent Search Task},
+  booktitle = {CLEF (Notebook Papers/LABs/Workshops)},
+  year = {2010},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  crossref = {DBLP:conf/clef/2010w},
+  ee = {http://clef2010.org/resources/proceedings/clef2010labs_submission_60.pdf}
+}
+
+@INPROCEEDINGS{Piroi2010,
+  author = {Piroi, Florina},
+  title = {CLEF-IP 2010: Retrieval Experiments in the Intellectual Property
+	Domain.},
+  booktitle = {CLEF (Notebook Papers/LABs/Workshops)},
+  year = {2010},
+  editor = {Braschler, Martin and Harman, Donna and Pianta, Emanuele},
+  added-at = {2010-12-16T11:18:47.000+0100},
+  biburl = {http://www.bibsonomy.org/bibtex/2902fb984ffdf5828662e199ab1117b38/promisenoe},
+  crossref = {conf/clef/2010w},
+  ee = {http://clef2010.org/resources/proceedings/clef2010labs_submission_122.pdf},
+  interhash = {ec3f0c3a19807ce81ae11da39fe19d7d},
+  intrahash = {902fb984ffdf5828662e199ab1117b38},
+  isbn = {978-88-904810-0-0},
+  keywords = {dblp},
+  timestamp = {2010-12-16T11:18:47.000+0100},
+  url = {http://dblp.uni-trier.de/db/conf/clef/clef2010w.html#Piroi10}
+}
+
+@INPROCEEDINGS{Adams2011,
+  author = {Adams, Stephen},
+  title = {A practitioner's view on PaIR},
+  booktitle = {Proceedings of the 4th workshop on PaIR},
+  year = {2011},
+  acmid = {2064987},
+  doi = {10.1145/2064975.2064987},
+  isbn = {978-1-4503-0955-4},
+  keywords = {patent retrieval},
+  location = {Glasgow, Scotland, UK},
+  numpages = {2},
+  url = {http://doi.acm.org/10.1145/2064975.2064987}
+}
+
+@INPROCEEDINGS{Andersson2013,
+  author = {Andersson, Linda and Mahdabi, Parvaz and Hanbury, Allan and Rauber,
+	Andreas},
+  title = {Exploring patent passage retrieval using nouns phrases},
+  booktitle = {Proceedings of the 35th European conference on Advances in Information
+	Retrieval},
+  year = {2013},
+  series = {ECIR'13},
+  pages = {676--679},
+  address = {Berlin, Heidelberg},
+  publisher = {Springer-Verlag},
+  acmid = {2458251},
+  doi = {10.1007/978-3-642-36973-5_58},
+  isbn = {978-3-642-36972-8},
+  keywords = {natural language processing, passage retrieval, patent search},
+  location = {Moscow, Russia},
+  numpages = {4},
+  url = {http://dx.doi.org/10.1007/978-3-642-36973-5_58}
+}
+
+@INPROCEEDINGS{Azzopardi2010,
+  author = {Azzopardi, Leif and Vanderbauwhede, Wim and Joho, Hideo},
+  title = {Search system requirements of patent analysts},
+  booktitle = {SIGIR},
+  year = {2010},
+  acmid = {1835610},
+  doi = {10.1145/1835449.1835610},
+  isbn = {978-1-4503-0153-4},
+  keywords = {patent analysts, patent engineers, patent search, user study},
+  location = {Geneva, Switzerland},
+  numpages = {2},
+  url = {http://doi.acm.org/10.1145/1835449.1835610}
+}
+
+@BOOK{Baeza-Yates2010,
+  title = {Modern Information Retrieval},
+  publisher = {Addison-Wesley Publishing Company},
+  year = {2010},
+  author = {Baeza-Yates, Ricardo and Ribeiro-Neto, Berthier},
+  address = {USA},
+  edition = {2nd},
+  date-added = {2013-09-11 01:41:47 +0000},
+  date-modified = {2013-09-11 02:17:30 +0000},
+  isbn = {0321416910, 9780321416919},
+  rating = {5}
+}
+
+@INPROCEEDINGS{Bashir2010,
+  author = {Bashir, Shariq and Rauber, Andreas},
+  title = {Improving retrievability of patents in prior-art search},
+  booktitle = {ECIR},
+  year = {2010},
+  acmid = {2128394},
+  doi = {10.1007/978-3-642-12275-0_40},
+  isbn = {3-642-12274-4, 978-3-642-12274-3},
+  location = {Milton Keynes, UK},
+  numpages = {14},
+  url = {http://dx.doi.org/10.1007/978-3-642-12275-0_40}
+}
+
+@INPROCEEDINGS{Carbonell1998,
+  author = {Carbonell, Jaime and Goldstein, Jade},
+  title = {The Use of MMR, Diversity-based Reranking for Reordering Documents
+	and Producing Summaries},
+  booktitle = {SIGIR},
+  year = {1998},
+  acmid = {291025},
+  doi = {10.1145/290941.291025},
+  isbn = {1-58113-015-5},
+  location = {Melbourne, Australia},
+  numpages = {2},
+  owner = {rbouadjenek},
+  timestamp = {2014.02.13},
+  url = {http://doi.acm.org/10.1145/290941.291025}
+}
+
+@INPROCEEDINGS{Clinchant2010,
+  author = {Clinchant, St{\'e}phane and Gaussier, Eric},
+  title = {Information-based models for ad hoc IR},
+  booktitle = {Proceedings of the 33rd international ACM SIGIR conference on Research
+	and development in information retrieval},
+  year = {2010},
+  series = {SIGIR '10},
+  pages = {234--241},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {1835490},
+  doi = {10.1145/1835449.1835490},
+  isbn = {978-1-4503-0153-4},
+  keywords = {burstiness, information-based models, log-logistic, power laws, pseudo-relevance
+	feedback, retrieval constraints},
+  location = {Geneva, Switzerland},
+  numpages = {8},
+  url = {http://doi.acm.org/10.1145/1835449.1835490}
+}
+
+@ARTICLE{Efthimiadis1996,
+  author = {Efthimis N. Efthimiadis},
+  title = {Query Expansion},
+  journal = {Annual Review of Inf. Systems and Technology ({ARIST})},
+  year = {1996},
+  volume = {31},
+  pages = {121--187},
+  editor = {Martha E. Williams}
+}
+
+@ARTICLE{Fujii2005,
+  author = {Atsushi Fujii and Fujii, Atsushi and Iwayama, Makoto and K, Noriko},
+  title = {Overview of patent retrieval task at NTCIR-5},
+  journal = {IN PROCEEDINGS OF THE FIFTH NTCIR WORKSHOP MEETING ON EVALUATION
+	OF INFORMATION ACCESS TECHNOLOGIES: INFORMATION RETRIEVAL, QUESTION
+	ANSWERING AND CROSS-LINGUAL INFORMATION ACCESS},
+  year = {2005},
+  pages = {269--277},
+  bdsk-url-1 = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.192.2609},
+  date-added = {2013-09-11 02:17:41 +0000},
+  date-modified = {2013-09-11 02:17:54 +0000},
+  doi = {10.1.1.192.2609}
+}
+
+@INPROCEEDINGS{Ganguly2011,
+  author = {Ganguly, Debasis and Leveling, Johannes and Magdy, Walid and Jones,
+	Gareth J.F.},
+  title = {Patent query reduction using pseudo relevance feedback},
+  booktitle = {CIKM},
+  year = {2011},
+  acmid = {2063863},
+  doi = {10.1145/2063576.2063863},
+  isbn = {978-1-4503-0717-8},
+  keywords = {patent search, pseudo-relevance feedback, query reduction},
+  location = {Glasgow, Scotland, UK},
+  numpages = {4},
+  url = {http://doi.acm.org/10.1145/2063576.2063863}
+}
+
+@INPROCEEDINGS{Graf2008,
+  author = {E. Graf and L. Azzopardi},
+  title = {A methodology for building a patent test collection for prior art
+	search},
+  booktitle = {The Second International Workshop on Evaluating Information Access
+	(EVIA)},
+  year = {2008},
+  abstract = {This paper proposes a methodology for the construction of a patent
+	test collection for the task of prior art search. Key to the justification
+	of the methodology is an analysis of the nature and structure of
+	patent documents and the patenting process. These factors enable
+	a corpus of patent documents to be reverse engineered in order to
+	arrive at high quality, realistic, relevance assessments. The paper
+	first outlines the case for such a prior art search test collection
+	along with the characteristics of patent documents, before describing
+	the proposed method. Further research and development will be directed
+	towards the application of this methodology to create a suite of
+	prior art search topics for the evaluation of patent retrieval systems.
+	We also include a preliminary analysis of its application on European
+	patents.},
+  url = {http://eprints.gla.ac.uk/34682/}
+}
+
+@INPROCEEDINGS{Hasan2009,
+  author = {Hasan, Mohammad Al and Spangler, W. Scott and Griffin, Thomas and
+	Alba, Alfredo},
+  title = {COA: finding novel patents through text analysis},
+  booktitle = {Proceedings of the 15th ACM SIGKDD international conference on Knowledge
+	discovery and data mining},
+  year = {2009},
+  series = {KDD '09},
+  pages = {1175--1184},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {1557146},
+  doi = {10.1145/1557019.1557146},
+  isbn = {978-1-60558-495-9},
+  keywords = {document ranking, information retrieval, patent processing, patent
+	visualization},
+  location = {Paris, France},
+  numpages = {10},
+  url = {http://doi.acm.org/10.1145/1557019.1557146}
+}
+
+@INPROCEEDINGS{Hu2012,
+  author = {Hu, Po and Huang, Minlie and Xu, Peng and Li, Weichang and Usadi,
+	Adam K. and Zhu, Xiaoyan},
+  title = {Finding nuggets in IP portfolios: core patent mining through textual
+	temporal analysis},
+  booktitle = {Proceedings of the 21st ACM international conference on Information
+	and knowledge management},
+  year = {2012},
+  series = {CIKM '12},
+  pages = {1819--1823},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {2398524},
+  doi = {10.1145/2396761.2398524},
+  isbn = {978-1-4503-1156-4},
+  keywords = {core patent mining, patent influence, patent novelty, textual temporal
+	analysis},
+  location = {Maui, Hawaii, USA},
+  numpages = {5},
+  url = {http://doi.acm.org/10.1145/2396761.2398524}
+}
+
+@ARTICLE{Itoh2004,
+  author = {Hideo Itoh},
+  title = {NTCIR-4 Patent Retrieval Experiments at RICOH},
+  journal = {NTCIR-4},
+  year = {2004},
+  owner = {rbouadjenek},
+  timestamp = {2014.02.14}
+}
+
+@INPROCEEDINGS{Itoh2003,
+  author = {Itoh, Hideo and Mano, Hiroko and Ogawa, Yasushi},
+  title = {Term distillation in patent retrieval},
+  booktitle = {Proceedings of the ACL-2003 workshop on Patent corpus processing
+	- Volume 20},
+  year = {2003},
+  acmid = {1119308},
+  doi = {10.3115/1119303.1119308},
+  location = {Sapporo, Japan},
+  numpages = {5},
+  url = {http://dx.doi.org/10.3115/1119303.1119308}
+}
+
+@INPROCEEDINGS{Kim2011,
+  author = {Kim, Youngho and Seo, Jangwon and Croft, W. Bruce},
+  title = {Automatic boolean query suggestion for professional search},
+  booktitle = {SIGIR},
+  year = {2011},
+  acmid = {2010026},
+  doi = {10.1145/2009916.2010026},
+  isbn = {978-1-4503-0757-4},
+  keywords = {boolean query suggestion, patentability search, prior-art search},
+  location = {Beijing, China},
+  numpages = {10},
+  url = {http://doi.acm.org/10.1145/2009916.2010026}
+}
+
+@INPROCEEDINGS{Kumaran2009,
+  author = {Kumaran, Giridhar and Carvalho, Vitor R.},
+  title = {Reducing Long Queries Using Query Quality Predictors},
+  booktitle = {SIGIR},
+  year = {2009},
+  series = {SIGIR '09},
+  pages = {564--571},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {1572038},
+  doi = {10.1145/1571941.1572038},
+  isbn = {978-1-60558-483-6},
+  keywords = {long queries, query quality, query reduction, verbose queries},
+  location = {Boston, MA, USA},
+  numpages = {8},
+  url = {http://doi.acm.org/10.1145/1571941.1572038}
+}
+
+@INPROCEEDINGS{Liu2011,
+  author = {Liu, Yan and Hseuh, Pei-yun and Lawrence, Rick and Meliksetian, Steve
+	and Perlich, Claudia and Veen, Alejandro},
+  title = {Latent graphical models for quantifying and predicting patent quality},
+  booktitle = {Proceedings of the 17th ACM SIGKDD international conference on Knowledge
+	discovery and data mining},
+  year = {2011},
+  series = {KDD '11},
+  pages = {1145--1153},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {2020586},
+  doi = {10.1145/2020408.2020586},
+  isbn = {978-1-4503-0813-7},
+  keywords = {graphical models, measurement models, text mining},
+  location = {San Diego, California, USA},
+  numpages = {9},
+  url = {http://doi.acm.org/10.1145/2020408.2020586}
+}
+
+@INPROCEEDINGS{Lopez2009,
+  author = {Lopez, Patrice and Romary, Laurent},
+  title = {PATATRAS: retrieval model combination and regression models for prior
+	art search},
+  year = {2009},
+  series = {CLEF'09},
+  pages = {430--437},
+  address = {Berlin, Heidelberg},
+  publisher = {Springer-Verlag},
+  acmid = {1887426},
+  isbn = {3-642-15753-X, 978-3-642-15753-0},
+  location = {Corfu, Greece},
+  numpages = {8},
+  url = {http://dl.acm.org/citation.cfm?id=1887364.1887426}
+}
+
+@PHDTHESIS{Magdy2012,
+  author = {Walid Magdy},
+  title = {{Toward Higher Effectiveness for Recall-Oriented Information Retrieval:
+	A Patent Retrieval Case Study}},
+  school = {Dublin City University School of Computing},
+  year = {2012},
+  owner = {rbouadjenek},
+  timestamp = {2013.09.24}
+}
+
+@INPROCEEDINGS{Magdy2011,
+  author = {Magdy, Walid and Jones, Gareth J.F.},
+  title = {A study on query expansion methods for patent retrieval},
+  booktitle = {PaIR},
+  year = {2011},
+  acmid = {2064982},
+  doi = {10.1145/2064975.2064982},
+  isbn = {978-1-4503-0955-4},
+  keywords = {patent retrieval, query expansion, synset},
+  location = {Glasgow, Scotland, UK},
+  numpages = {6},
+  url = {http://doi.acm.org/10.1145/2064975.2064982}
+}
+
+@INPROCEEDINGS{Magdy2010a,
+  author = {Magdy, Walid and Jones, Gareth J.F.},
+  title = {{PRES: A Score Metric for Evaluating Recall-oriented Information
+	Retrieval Applications}},
+  booktitle = {SIGIR},
+  year = {2010},
+  pages = {611--618},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {1835551},
+  doi = {10.1145/1835449.1835551},
+  isbn = {978-1-4503-0153-4},
+  keywords = {PRES, evaluation metric, patent retrieval, recall-oriented information
+	retrieval},
+  location = {Geneva, Switzerland},
+  numpages = {8},
+  url = {http://doi.acm.org/10.1145/1835449.1835551}
+}
+
+@INPROCEEDINGS{Mahdabi2012,
+  author = {Mahdabi, Parvaz and Andersson, Linda and Keikha, Mostafa and Crestani,
+	Fabio},
+  title = {Automatic refinement of patent queries using concept importance predictors},
+  booktitle = {SIGIR},
+  year = {2012},
+  pages = {505--514},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {2348353},
+  doi = {10.1145/2348283.2348353},
+  isbn = {978-1-4503-1472-5},
+  keywords = {patent search, query generation, relevance model},
+  location = {Portland, Oregon, USA},
+  numpages = {10},
+  url = {http://doi.acm.org/10.1145/2348283.2348353}
+}
+
+@INCOLLECTION{Mahdabi2012a,
+  author = {Mahdabi, Parvaz and Crestani, Fabio},
+  title = {Learning-Based Pseudo-Relevance Feedback for Patent Retrieval},
+  booktitle = {Multidisciplinary Information Retrieval},
+  publisher = {Springer Berlin Heidelberg},
+  year = {2012},
+  editor = {Salampasis, Michail and Larsen, Birger},
+  volume = {7356},
+  series = {Lecture Notes in Computer Science},
+  pages = {1-11},
+  doi = {10.1007/978-3-642-31274-8_1},
+  isbn = {978-3-642-31273-1},
+  keywords = {Patent Retrieval; Pseudo-Relevance Feedback; Query Modeling; Prior-art
+	Search},
+  url = {http://dx.doi.org/10.1007/978-3-642-31274-8_1}
+}
+
+@INPROCEEDINGS{Mahdabi2013,
+  author = {Mahdabi, Parvaz and Gerani, Shima and Huang, Jimmy Xiangji and Crestani,
+	Fabio},
+  title = {Leveraging conceptual lexicon: query disambiguation using proximity
+	information for patent retrieval},
+  booktitle = {SIGIR},
+  year = {2013},
+  acmid = {2484056},
+  doi = {10.1145/2484028.2484056},
+  isbn = {978-1-4503-2034-4},
+  keywords = {patent search, proximity information, query expansion},
+  location = {Dublin, Ireland},
+  numpages = {10},
+  url = {http://doi.acm.org/10.1145/2484028.2484056}
+}
+
+@INPROCEEDINGS{Mahdabi2011,
+  author = {Mahdabi, Parvaz and Keikha, Mostafa and Gerani, Shima and Landoni,
+	Monica and Crestani, Fabio},
+  title = {Building queries for prior-art search},
+  booktitle = {Proceedings of the Second international conference on Multidisciplinary
+	information retrieval facility},
+  year = {2011},
+  series = {IRFC'11},
+  pages = {3--15},
+  address = {Berlin, Heidelberg},
+  publisher = {Springer-Verlag},
+  acmid = {2018146},
+  isbn = {978-3-642-21352-6},
+  location = {Vienna, Austria},
+  numpages = {13},
+  url = {http://dl.acm.org/citation.cfm?id=2018142.2018146}
+}
+
+@BOOK{Manning2008,
+  title = {Introduction to Information Retrieval},
+  publisher = {Cambridge University Press},
+  year = {2008},
+  author = {Manning, Christopher D. and Raghavan, Prabhakar and Sch\"{u}tze,
+	Hinrich},
+  isbn = {0521865719, 9780521865715}
+}
+
+@BOOK{McCandless2010,
+  title = {Lucene in Action, Second Edition: Covers Apache Lucene 3.0},
+  publisher = {Manning Publications Co.},
+  year = {2010},
+  author = {McCandless, Michael and Hatcher, Erik and Gospodnetic, Otis},
+  address = {Greenwich, CT, USA},
+  isbn = {1933988177, 9781933988177},
+  owner = {rbouadjenek},
+  timestamp = {2012.08.07}
+}
+
+@INPROCEEDINGS{Meij2009,
+  author = {Meij, Edgar and Weerkamp, Wouter and de Rijke, Maarten},
+  title = {A query model based on normalized log-likelihood},
+  booktitle = {Proceedings of the 18th ACM conference on Information and knowledge
+	management},
+  year = {2009},
+  series = {CIKM '09},
+  pages = {1903--1906},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {1646261},
+  doi = {10.1145/1645953.1646261},
+  isbn = {978-1-60558-512-3},
+  keywords = {language modeling, query models, relevance feedback},
+  location = {Hong Kong, China},
+  numpages = {4},
+  url = {http://doi.acm.org/10.1145/1645953.1646261}
+}
+
+@INPROCEEDINGS{Piroi2011,
+  author = {Florina Piroi and Mihai Lupu and Allan Hanbury and Veronika Zenz},
+  title = {CLEF-IP 2011: Retrieval in the Intellectual Property Domain},
+  booktitle = {CLEF (Notebook Papers/Labs/Workshop)},
+  year = {2011},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@INBOOK{Porter1997,
+  pages = {313--316},
+  title = {An algorithm for suffix stripping},
+  publisher = {Morgan Kaufmann Publishers Inc.},
+  year = {1997},
+  author = {Porter, M. F.},
+  address = {San Francisco, CA, USA},
+  acmid = {275705},
+  book = {Readings in information retrieval},
+  isbn = {1-55860-454-5},
+  numpages = {4},
+  owner = {rbouadjenek},
+  timestamp = {2013.09.18},
+  url = {http://portal.acm.org/citation.cfm?id=275537.275705}
+}
+
+@ARTICLE{Robertson1976,
+  author = {Robertson, S. E. and Jones, K. Sparck},
+  title = {{Relevance Weighting of Search Terms}},
+  journal = {J. Am. Soc. Inf. Sci.},
+  year = {1976},
+  volume = {27},
+  pages = {129--146},
+  number = {3},
+  abstract = {{This paper examines statistical techniques for exploiting relevance
+	information to weight search terms. These techniques are presented
+	as a natural extension of weighting methods using information about
+	the distribution of index terms in documents in general. A series
+	of relevance weighting functions is derived and is justified by theoretical
+	considerations. In particular, it is shown that specific weighted
+	search methods are implied by a general probabilistic theory of retrieval.
+	Different applications of relevance weighting are illustrated by
+	experimental results for test collections.}},
+  address = {School of Library, Archive and Information Studies University College
+	London London WC1E 6BT, England; Computer Laboratory University of
+	Cambridge Cambridge CB2 3QG, England},
+  citeulike-article-id = {1839956},
+  citeulike-linkout-0 = {http://dx.doi.org/10.1002/asi.4630270302},
+  citeulike-linkout-1 = {http://www3.interscience.wiley.com/cgi-bin/abstract/114197810/ABSTRACT},
+  doi = {10.1002/asi.4630270302},
+  issn = {1097-4571},
+  keywords = {model, probabalistic, retrieval},
+  owner = {rbouadjenek},
+  posted-at = {2009-04-14 02:00:48},
+  publisher = {Wiley Subscription Services, Inc., A Wiley Company},
+  timestamp = {2013.09.18},
+  url = {http://dx.doi.org/10.1002/asi.4630270302}
+}
+
+@INPROCEEDINGS{Robertson1993,
+  author = {Stephen E. Robertson and Steve Walker and Susan Jones and Micheline
+	Hancock-Beaulieu and Mike Gatford},
+  title = {Okapi at TREC-2},
+  booktitle = {TREC},
+  year = {1993},
+  pages = {21-34},
+  bibsource = {DBLP, http://dblp.uni-trier.de},
+  ee = {http://trec.nist.gov/pubs/trec2/papers/ps/city.ps}
+}
+
+@INCOLLECTION{Roda2009,
+  author = {Roda, Giovanna and Tait, John and Piroi, Florina and Zenz, Veronika},
+  title = {CLEF-IP 2009: Retrieval Experiments in the Intellectual Property
+	Domain},
+  booktitle = {Multilingual Information Access Evaluation I. Text Retrieval Experiments},
+  publisher = {Springer Berlin Heidelberg},
+  year = {2009},
+  editor = {Peters, Carol and Nunzio, GiorgioMaria and Kurimo, Mikko and Mandl,
+	Thomas and Mostefa, Djamel and Penas, Anselmo and Roda, Giovanna},
+  volume = {6241},
+  series = {Lecture Notes in Computer Science},
+  pages = {385-409},
+  doi = {10.1007/978-3-642-15754-7_47},
+  isbn = {978-3-642-15753-0},
+  url = {http://dx.doi.org/10.1007/978-3-642-15754-7_47}
+}
+
+@BOOK{Salton1971,
+  title = {{The SMART Retrieval System: Experiments in Automatic Document Processing}},
+  publisher = {Prentice-Hall, Inc.},
+  year = {1971},
+  author = {Salton, G.},
+  address = {Upper Saddle River, NJ, USA}
+}
+
+@ARTICLE{Salton1975,
+  author = {Salton, G. and Wong, A. and Yang, C. S.},
+  title = {A Vector Space Model for Automatic Indexing},
+  journal = {Comm. ACM},
+  year = {1975},
+  volume = {18},
+  pages = {613--620},
+  number = {11},
+  month = {nov.},
+  acmid = {361220},
+  address = {New York, NY, USA},
+  doi = {10.1145/361219.361220},
+  issn = {0001-0782},
+  issue_date = {Nov. 1975},
+  keywords = {automatic indexing, automatic information retrieval, content analysis,
+	document space},
+  numpages = {8},
+  publisher = {ACM},
+  url = {http://doi.acm.org/10.1145/361219.361220}
+}
+
+@INPROCEEDINGS{Tang2012,
+  author = {Tang, Jie and Wang, Bo and Yang, Yang and Hu, Po and Zhao, Yanting
+	and Yan, Xinyu and Gao, Bo and Huang, Minlie and Xu, Peng and Li,
+	Weichang and Usadi, Adam K.},
+  title = {PatentMiner: topic-driven patent analysis and mining},
+  booktitle = {Proceedings of the 18th ACM SIGKDD international conference on Knowledge
+	discovery and data mining},
+  year = {2012},
+  series = {KDD '12},
+  pages = {1366--1374},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {2339741},
+  doi = {10.1145/2339530.2339741},
+  isbn = {978-1-4503-1462-6},
+  keywords = {company ranking, competitor analysis, patent analysis, social network},
+  location = {Beijing, China},
+  numpages = {9},
+  url = {http://doi.acm.org/10.1145/2339530.2339741}
+}
+
+@INPROCEEDINGS{Verma2011,
+  author = {Verma, Manisha and Varma, Vasudeva},
+  title = {Patent search using IPC classification vectors},
+  booktitle = {PaIR},
+  year = {2011},
+  acmid = {2064980},
+  doi = {10.1145/2064975.2064980},
+  isbn = {978-1-4503-0955-4},
+  keywords = {keyphrase extraction, patent retrieval},
+  location = {Glasgow, Scotland, UK},
+  numpages = {4},
+  url = {http://doi.acm.org/10.1145/2064975.2064980}
+}
+
+@INPROCEEDINGS{Zhai2001,
+  author = {Zhai, Chengxiang and Lafferty, John},
+  title = {A study of smoothing methods for language models applied to Ad Hoc
+	information retrieval},
+  booktitle = {Proceedings of the 24th annual international ACM SIGIR conference
+	on Research and development in information retrieval},
+  year = {2001},
+  series = {SIGIR '01},
+  pages = {334--342},
+  address = {New York, NY, USA},
+  publisher = {ACM},
+  acmid = {384019},
+  doi = {10.1145/383952.384019},
+  isbn = {1-58113-331-6},
+  location = {New Orleans, Louisiana, USA},
+  numpages = {9},
+  url = {http://doi.acm.org/10.1145/383952.384019}
+}
+

@@ -1,0 +1,159 @@
+clear
+reset
+set encoding iso_8859_1
+set xtics nomirror rotate by -45
+set xlabel "Number of terms" font "Helvetica,22"
+#set ylabel "PRES" font "Helvetica,22"
+set size 0.55,0.5
+set grid
+set term postscript eps enhanced color "Courier,17"
+#--------------------------------------
+set key right top
+set output "qTitle-sDescription_PRES_2010.eps" 
+plot "plots-CLEF-IP-2010/test/mmrqr/qTitle-sDescription.txt" using 1:2 title "MMRQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/mmrqr/qTitle-sDescription.txt" using 1:4 title "MMRQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qTitle-sDescription.txt" using 1:2 title "RocchioQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qTitle-sDescription.txt" using 1:4 title "RocchioQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qTitle-sDescription.txt" using 1:2 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qTitle-sDescription.txt" using 1:4 title "LMQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qTitle-sCodes.txt" using 1:2 title "IPC-Codes BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qTitle-sCodes.txt" using 1:4 title "IPC-Codes VSM"   with linespoints lw 4
+
+#--------------------------------------
+set key right top
+set output "qTitle-sDescription_MAP_2010.eps" 
+plot "plots-CLEF-IP-2010/test/mmrqr/qTitle-sDescription.txt" using 1:3 title "MMRQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/mmrqr/qTitle-sDescription.txt" using 1:5 title "MMRQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qTitle-sDescription.txt" using 1:3 title "RocchioQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qTitle-sDescription.txt" using 1:5 title "RocchioQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qTitle-sDescription.txt" using 1:3 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qTitle-sDescription.txt" using 1:5 title "LMQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qTitle-sCodes.txt" using 1:3 title "IPC-Codes BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qTitle-sCodes.txt" using 1:5 title "IPC-Codes VSM"   with linespoints lw 4
+#--------------------------------------
+set key left bottom
+set output "qAbstract-sDescription_PRES_2010.eps" 
+plot "plots-CLEF-IP-2010/test/mmrqr/qAbstract-sDescription.txt" using 1:2 title "MMRQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/mmrqr/qAbstract-sDescription.txt" using 1:4 title "MMRQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qAbstract-sDescription.txt" using 1:2 title "RocchioQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qAbstract-sDescription.txt" using 1:4 title "RocchioQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qAbstract-sDescription.txt" using 1:2 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qAbstract-sDescription.txt" using 1:4 title "LMQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qAbstract-sCodes.txt" using 1:2 title "IPC-Codes BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qAbstract-sCodes.txt" using 1:4 title "IPC-Codes VSM"   with linespoints lw 4
+#--------------------------------------
+set key left bottom
+set output "qAbstract-sDescription_MAP_2010.eps" 
+plot "plots-CLEF-IP-2010/test/mmrqr/qAbstract-sDescription.txt" using 1:3 title "MMRQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/mmrqr/qAbstract-sDescription.txt" using 1:5 title "MMRQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qAbstract-sDescription.txt" using 1:3 title "RocchioQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qAbstract-sDescription.txt" using 1:5 title "RocchioQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qAbstract-sDescription.txt" using 1:3 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qAbstract-sDescription.txt" using 1:5 title "LMQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qAbstract-sCodes.txt" using 1:3 title "IPC-Codes BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qAbstract-sCodes.txt" using 1:5 title "IPC-Codes VSM"   with linespoints lw 4
+#--------------------------------------
+set key left bottom
+set output "qClaims-sDescription_PRES_2010.eps" 
+plot "plots-CLEF-IP-2010/test/mmrqr/qClaims-sDescription.txt" using 1:2 title "MMRQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/mmrqr/qClaims-sDescription.txt" using 1:4 title "MMRQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qClaims-sDescription.txt" using 1:2 title "RocchioQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qClaims-sDescription.txt" using 1:4 title "RocchioQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qClaims-sDescription.txt" using 1:2 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qClaims-sDescription.txt" using 1:4 title "LMQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qClaims-sCodes.txt" using 1:2 title "IPC-Codes BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qClaims-sCodes.txt" using 1:4 title "IPC-Codes VSM"   with linespoints lw 4
+#--------------------------------------
+set key left bottom
+set output "qClaims-sDescription_MAP_2010.eps" 
+plot "plots-CLEF-IP-2010/test/mmrqr/qClaims-sDescription.txt" using 1:3 title "MMRQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/mmrqr/qClaims-sDescription.txt" using 1:5 title "MMRQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qClaims-sDescription.txt" using 1:3 title "RocchioQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qClaims-sDescription.txt" using 1:5 title "RocchioQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qClaims-sDescription.txt" using 1:3 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qClaims-sDescription.txt" using 1:5 title "LMQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qClaims-sCodes.txt" using 1:3 title "IPC-Codes BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qClaims-sCodes.txt" using 1:5 title "IPC-Codes VSM"   with linespoints lw 4
+#--------------------------------------
+set key left bottom
+set output "qDescription-sDescription_PRES_2010.eps" 
+plot "plots-CLEF-IP-2010/test/mmrqr/qDescription-sDescription.txt" using 1:2 title "MMRQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/mmrqr/qDescription-sDescription.txt" using 1:4 title "MMRQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qDescription-sDescription.txt" using 1:2 title "RocchioQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qDescription-sDescription.txt" using 1:4 title "RocchioQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qDescription-sDescription.txt" using 1:2 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qDescription-sDescription.txt" using 1:4 title "LMQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qDescription-sCodes.txt" using 1:2 title "IPC-Codes BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qDescription-sCodes.txt" using 1:4 title "IPC-Codes VSM"   with linespoints lw 4
+#--------------------------------------
+set key left bottom
+set output "qDescription-sDescription_MAP_2010.eps" 
+plot "plots-CLEF-IP-2010/test/mmrqr/qDescription-sDescription.txt" using 1:3 title "MMRQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/mmrqr/qDescription-sDescription.txt" using 1:5 title "MMRQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qDescription-sDescription.txt" using 1:3 title "RocchioQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/rocchioqr/qDescription-sDescription.txt" using 1:5 title "RocchioQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qDescription-sDescription.txt" using 1:3 title "LMQR BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/magdyqr/qDescription-sDescription.txt" using 1:5 title "LMQR VSM"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qDescription-sCodes.txt" using 1:3 title "IPC-Codes BM25"   with linespoints lw 4,\
+"plots-CLEF-IP-2010/test/codeqr/qDescription-sCodes.txt" using 1:5 title "IPC-Codes VSM"   with linespoints lw 4
+
+#--------------------------------------
+
+
+reset
+set style fill   solid 1.00 border -1
+set style histogram clustered gap 1 title  offset character 0, 0, 0
+set size 0.5,0.36
+set grid
+#set yrange [0:0.38]
+set format x ""
+unset key #outside center top horizontal
+set style data histograms
+#set xtics   ("Sreda" 0.00000)
+set offset -0.5,-0.5,0,0
+set term postscript eps enhanced color "Courier,17"
+
+set output "qTitle-PRES-CLEF-IP2010.eps" 
+plot 'plots-CLEF-IP-2010/test/qTitle-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
+#,'' u 10 ti col ls 1 lc 9 lw 5
+
+
+set output "qTitle-MAP-CLEF-IP2010.eps" 
+plot 'plots-CLEF-IP-2010/test/qTitle-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 10 ti col ls 1 lc 8 lw 5
+#,'' u 10 ti col ls 1 lc 9 lw 5
+
+
+set output "qAbstract-PRES-CLEF-IP2010.eps" 
+plot 'plots-CLEF-IP-2010/test/qAbstract-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 10 ti col ls 1 lc 8 lw 5
+#,'' u 10 ti col ls 1 lc 9 lw 5
+
+
+set output "qAbstract-MAP-CLEF-IP2010.eps" 
+plot 'plots-CLEF-IP-2010/test/qAbstract-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 10 ti col ls 1 lc 8 lw 5
+#,'' u 10 ti col ls 1 lc 9 lw 5
+
+set output "qClaims-PRES-CLEF-IP2010.eps" 
+plot 'plots-CLEF-IP-2010/test/qClaims-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 10 ti col ls 1 lc 8 lw 5
+#,'' u 10 ti col ls 1 lc 9 lw 5
+
+
+set output "qClaims-MAP-CLEF-IP2010.eps" 
+plot 'plots-CLEF-IP-2010/test/qClaims-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 10 ti col ls 1 lc 8 lw 5
+#,'' u 10 ti col ls 1 lc 9 lw 5
+
+set output "qDescription-PRES-CLEF-IP2010.eps" 
+plot 'plots-CLEF-IP-2010/test/qDescription-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 10 ti col ls 1 lc 8 lw 5
+#,'' u 10 ti col ls 1 lc 9 lw 5
+
+
+set output "qDescription-MAP-CLEF-IP2010.eps" 
+plot 'plots-CLEF-IP-2010/test/qDescription-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 10 ti col ls 1 lc 8 lw 5
+#,'' u 10 ti col ls 1 lc 9 lw 5
+
+
+
+
+
+
+
+
