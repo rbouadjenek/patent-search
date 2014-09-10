@@ -398,7 +398,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qTitle-CLEF-IP2010.eps
-	width 3.5cm
+	width 3cm
 
 \end_inset
 
@@ -429,7 +429,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010.eps
-	width 3.5cm
+	width 3cm
 
 \end_inset
 
@@ -451,10 +451,6 @@ Abstract query.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -464,7 +460,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qClaims-CLEF-IP2010.eps
-	width 3.5cm
+	width 3cm
 
 \end_inset
 
@@ -495,7 +491,7 @@ status collapsed
 \align center
 \begin_inset Graphics
 	filename Results-CIKM2014/jaccard-qDescription-CLEF-IP2010.eps
-	width 3.5cm
+	width 3cm
 
 \end_inset
 
@@ -7998,10 +7994,6 @@ reference "fig:DivImpactMMRQR"
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement h
 wide false
@@ -8012,32 +8004,28 @@ status open
 \align center
 \begin_inset Graphics
 	filename mmrqrResults-lambda/qAbstract-sDescription_MAP_2010.eps
-	width 4.3cm
+	width 3cm
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename mmrqrResults-lambda/qAbstract-sDescription_PRES_2010.eps
-	width 4.3cm
+	width 3cm
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset Graphics
 	filename mmrqrResults-lambda/qClaims-sDescription_MAP_2010.eps
-	width 4.3cm
+	width 3cm
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename mmrqrResults-lambda/qClaims-sDescription_PRES_2010.eps
-	width 4.3cm
+	width 3cm
 
 \end_inset
 
