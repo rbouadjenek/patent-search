@@ -73,7 +73,7 @@ public static void main(String[] args) throws IOException {
 		EvaluateResults er = new EvaluateResults();
 //		er.evaluatePatents("PAC-1149", "TP");
 			
-		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*/"PAC-1012";
+		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*//*"PAC-1012"*/"PAC-1216";
 		
 		ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
 		ArrayList<String> fps = er.evaluatePatents(queryid, "FP");
