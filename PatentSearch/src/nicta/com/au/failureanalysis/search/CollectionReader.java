@@ -118,6 +118,9 @@ public class CollectionReader {
 		int b = reader.getDocId(docName, filenamefield);
 //		System.out.println("document Id: " + b);
 		Terms terms = ir.getTermVector(b, field)/* getTermVectors(b)*/;
+//		System.out.println(terms);
+		
+		if(terms == null){return null;}
 		TermsEnum termsEnum = terms.iterator(null);
 		
 		 BytesRef text;
@@ -138,7 +141,7 @@ public class CollectionReader {
 //		String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
 
 		try {
-			String docName = "UN-EP-0802230";
+			String docName = "UN-EP-0802230" /*"UN-EP-0663270"*/;
 			String filenamefield =  PatentDocument.FileName;
 			
 			String term = /*"methyl" */"resin"/*"excel"*/ /*"mixtur"*/ /*"mona"*//*"adhesiveport"*/;
@@ -151,12 +154,15 @@ public class CollectionReader {
 			System.out.println(a);*/
 
 //			reader.termFreqInDocs(field, term);
-			ArrayList<String> terms = reader.getDocTerms(docName, field);
-			boolean bool = terms.contains("mona"/*"work"*/);
-			System.out.println(bool);
-			for(String t : terms){
-				System.out.println(t);
-			}
+//			System.out.println(reader.getDocTerms(docName, field));
+			if(reader.getDocTerms(docName, field)!=null){
+				ArrayList<String> terms = reader.getDocTerms(docName, field);
+				boolean bool = terms.contains("mona"/*"work"*/);
+				System.out.println("Word exists: " + bool);
+				for(String t : terms){
+					System.out.println(t);
+				}
+			}else{System.out.println("this file does not exist!");}
 			
 						
 			
