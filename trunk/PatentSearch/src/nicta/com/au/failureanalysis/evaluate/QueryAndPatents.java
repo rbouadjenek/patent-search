@@ -131,11 +131,13 @@ public class QueryAndPatents {
 			i++;
 			ArrayList<String> patents = _querypatents.get(k.getKey());
 			// System.out.println(patents.size());
-//			System.out.println(" [" + i + "] " + k.getKey() + " , " + patents);
+			System.out.println(" [" + i + "] " + k.getKey() + " , " + patents);
 //			ps.println(" [" + i + "] " + k.getKey() + " , " + patents);
 		}
+		
+/*---------------Uncomment below to test retrieved documents and the ranks---------------*/
 
-		HashMap<String, HashMap<String, String>> _docranks = qps
+		/*HashMap<String, HashMap<String, String>> _docranks = qps
 				.GetQueryPatentsRanks("output/results/results-lmdir-desc-100.txt");
 		
 		
@@ -147,7 +149,7 @@ public class QueryAndPatents {
 			System.out.println(" [" + j + "] " + dr.getKey() + " , "
 					+ _docranks.get(dr.getKey()));
 		}
-
+*/
 	}
 
 }
