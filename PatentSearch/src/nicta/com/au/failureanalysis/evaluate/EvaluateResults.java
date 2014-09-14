@@ -14,7 +14,7 @@ public class EvaluateResults {
 		ArrayList<String> TPs = new ArrayList<>();
 		ArrayList<String> FPs = new ArrayList<>();
 		ArrayList<String> FNs = new ArrayList<>();
-		
+
 		String resultsfile = "output/results/" + /*"results-lmdir-desc-1000.txt"*/ 
 				/*"results-lmdir-desc-200.txt"*/ 
 				"results-lmdir-desc-100.txt";
@@ -31,8 +31,10 @@ public class EvaluateResults {
 
 		ArrayList<String> relevantdocs = _reldocs.get(_queryID);
 		ArrayList<String> retrieveddocs = _retdocs.get(_queryID);
+		/*System.out.println(relevantdocs.size() + "  " + relevantdocs);
+		System.out.println(retrieveddocs.size() + "  " + retrieveddocs);*/
 
-		if(retrieveddocs != null){
+		/*if(retrieveddocs != null){
 			for (String ret : retrieveddocs) {
 				for (String rel : relevantdocs) {
 
@@ -43,18 +45,33 @@ public class EvaluateResults {
 					}
 				}
 			}
+		}*/
+
+		if(retrieveddocs != null){
+			for (String rel : relevantdocs) {
+				if(retrieveddocs.contains(rel)){TPs.add(rel);
+				}					
+			}
 		}
 
-		for (String tp : TPs) {
-			retrieveddocs.remove(tp);
-			FPs = retrieveddocs;
+		if(TPs.size() != 0){
+			for (String tp : TPs) {
+				retrieveddocs.remove(tp);
+				FPs = retrieveddocs;
+			}
+		}else{
+			FPs = retrieveddocs;		
 		}
 
-		for (String tp : TPs) {
-			relevantdocs.remove(tp);
+		if(TPs.size() != 0){
+			for (String tp : TPs) {
+				relevantdocs.remove(tp);
+				FNs = relevantdocs;
+			}
+		}else{
 			FNs = relevantdocs;
 		}
-		
+
 
 		if (select.equals("TP")) {
 			return TPs;
@@ -67,55 +84,55 @@ public class EvaluateResults {
 		}
 
 	}
-	
-public static void main(String[] args) throws IOException {
-		
+
+	public static void main(String[] args) throws IOException {
+
 		EvaluateResults er = new EvaluateResults();
-//		er.evaluatePatents("PAC-1149", "TP");
-			
-		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*//*"PAC-1012"*//*"PAC-1216"*/"PAC-1036";
-		
+		//		er.evaluatePatents("PAC-1149", "TP");
+
+		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*//*"PAC-1012"*//*"PAC-1216"*/"PAC-1036"/*"PAC-1008"*/;
+
 		ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
 		ArrayList<String> fps = er.evaluatePatents(queryid, "FP");
 		ArrayList<String> fns = er.evaluatePatents(queryid, "FN");
-		
-		System.out.println(" ");
+
+		System.out.println(queryid);
 		System.out.println("----------------------------------------------------------------------");
 		System.out.println("----------- TPs: Relevant patents, retrieved at top 100 ------------ ");
 		System.out.println("----------------------------------------------------------------------");
 		int n = 0; 
-		  for (String tp : tps) { 
-			  n++; 
-			  			  			  
-			  System.out.print(" [" + n + "] [" + tp + "], "); 
-			  }			 
-		
-		 /* System.out.println();
-		  System.out.println("----------------------------------------------------------------");
-		  System.out.println("------- FPs: Non-relevant patents, retrieved at top 100 -------");
-		  System.out.println("----------------------------------------------------------------");
-		  
-		  
-		  int m = 0; 
-		  for (String fp : fps) { 
-			  m++; 
-			  			  			  
-			  System.out.print(" [" + m + "] [" + fp + "],"); 
-			  }	*/
-		  
-		  System.out.println(" ");
-		  System.out.println();
-		  System.out.println("-------------------------------------------------------------");
-		  System.out.println("------ FNs: Relevant patents, not retrieved at top 100 ------");
-		  System.out.println("-------------------------------------------------------------");
-		  int k = 0; 
-		  for (String fn : fns) { 
-			  k++; 			  
-			  
-			  System.out.print(" [" + k + "] [" + fn + "],"); 
-			  }		 
+		for (String tp : tps) { 
+			n++; 
+
+			System.out.print(" [" + n + "] [" + tp + "], "); 
+		}			 
+
+		System.out.println();
+		System.out.println("----------------------------------------------------------------");
+		System.out.println("------- FPs: Non-relevant patents, retrieved at top 100 -------");
+		System.out.println("----------------------------------------------------------------");
 
 
-		}
+		int m = 0; 
+		for (String fp : fps) { 
+			m++; 
+
+			System.out.print(" [" + m + "] [" + fp + "],"); 
+		}	
+
+		System.out.println(" ");
+		System.out.println();
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("------ FNs: Relevant patents, not retrieved at top 100 ------");
+		System.out.println("-------------------------------------------------------------");
+		int k = 0; 
+		for (String fn : fns) { 
+			k++; 			  
+
+			System.out.print(" [" + k + "] [" + fn + "],"); 
+		}		 
+
+
+	}
 
 }
