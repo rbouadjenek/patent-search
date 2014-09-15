@@ -163,8 +163,8 @@ public class CalculateTermOverlapTPs {
 		CalculateTermOverlapTPs ctotps = new CalculateTermOverlapTPs();
 
 
-		//		ctotps.TPsTermOverlapAllQueries(reader);
-		ctotps.FPsTermOverlapAllQueries(reader);
+				ctotps.TPsTermOverlapAllQueries(reader);
+//		ctotps.FPsTermOverlapAllQueries(reader);
 
 	}
 
