@@ -16,11 +16,10 @@ public class CalculateAvgEnFN {
 	public static void main(String[] args) throws IOException {
 
 		String path = "data/CLEF-IP-2010/PAC_test/topics/";
-		String queryid = "PAC-1216"/*"PAC-1604"*//*"PAC-1142"*//*"PAC-1379"*//*"PAC-1087"*//*"PAC-1035"*//*"PAC-825"*/;
-		String queryfile = "PAC-1216_EP-1749865-A1.xml"/*"PAC-1604_EP-1705241-A1.xml"*//*"PAC-1142_EP-1345275-A1.xml"*//*"PAC-1379_EP-1304229-A2.xml"*//*"PAC-1087_EP-1666549-A1.xml"*//*"PAC-1035_EP-1378908-A2.xml"*/ /*"PAC-825_EP-1267369-A2.xml"*/;
+		String queryid = "PAC-1653"/*"PAC-1279"*//*"PAC-1937"*//*"PAC-1216"*//*"PAC-1604"*//*"PAC-1142"*//*"PAC-1379"*//*"PAC-1087"*//*"PAC-1035"*//*"PAC-825"*/;
+		String queryfile = "PAC-1653_EP-1634758-A1.xml"/*"PAC-1279_EP-1578120-A2.xml"*//*"PAC-1937_EP-1313103-A1.xml"*//*"PAC-1216_EP-1749865-A1.xml"*//*"PAC-1604_EP-1705241-A1.xml"*//*"PAC-1142_EP-1345275-A1.xml"*//*"PAC-1379_EP-1304229-A2.xml"*//*"PAC-1087_EP-1666549-A1.xml"*//*"PAC-1035_EP-1378908-A2.xml"*/ /*"PAC-825_EP-1267369-A2.xml"*/;
 
-		String outputfilename =  queryid + "_TEST_avgfreq_testthendelete.txt"; 
-		//	String outputfile = "C:/Users/Mona/workspace/PatentSearch/output/CommonTerms/" + outputfilename;
+		String outputfilename =  queryid + "_avgfreq.txt"; 
 		String outputfile = "./output/AvgEnFNFreq/" + outputfilename;
 
 		/*------------- Write in outputfile. ----------------*/
