@@ -22,7 +22,7 @@ public class OptimisedTermOverlap {
 	public void FNsTermOverlapAllQueries(CollectionReader reader) throws IOException{
 
 		/*--------------------------- Write in output file. -Mona ------------------------*/
-		String outputfile = "./output/TermOverlap/termoverlp-FNs-Optimized.txt";
+		String outputfile = "./output/TermOverlap/termoverlp-FNs-Optimized-sep.15.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
