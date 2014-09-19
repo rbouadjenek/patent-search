@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -32,7 +33,7 @@ public class CalculateTermOverlapTPs {
 		EvaluateResults er = new EvaluateResults();
 		//		AnalyseFNs afn = new AnalyseFNs();
 
-		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml");
+		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-test2.xml");
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 
 			String queryid = topic.getKey();
@@ -56,7 +57,9 @@ public class CalculateTermOverlapTPs {
 					querydocintersection = 0;
 					//							System.out.println(doc);	
 
-					ArrayList<String> terms = reader.getDocTerms("UN-"+doc, field);
+					HashSet<String> terms = reader.getDocTerms("UN-"+doc, field);
+					/*HashSet<String> claimsterms = reader.getDocTerms("UN-"+doc, PatentDocument.Claims);
+					System.err.println(claimsterms);*/
 					for(Entry<String, Integer> t : qterms.entrySet()){
 						if(terms != null){
 							exists = terms.contains(t.getKey());}
@@ -122,7 +125,7 @@ public class CalculateTermOverlapTPs {
 
 					for (String doc : fps) { 
 						querydocintersection = 0;			
-						ArrayList<String> terms = reader.getDocTerms("UN-"+doc, field);
+						HashSet<String> terms = reader.getDocTerms("UN-"+doc, field);
 
 						for(Entry<String, Integer> t : qterms.entrySet()){
 							if(terms != null){

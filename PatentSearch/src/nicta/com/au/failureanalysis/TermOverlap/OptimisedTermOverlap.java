@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -22,7 +23,7 @@ public class OptimisedTermOverlap {
 	public void FNsTermOverlapAllQueries(CollectionReader reader) throws IOException{
 
 		/*--------------------------- Write in output file. -Mona ------------------------*/
-		String outputfile = "./output/TermOverlap/termoverlp-FNs-Optimized-sep.15.txt";
+		String outputfile = "./output/TermOverlap/termoverlp-FNs-Optimized-sep.15-test.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
@@ -31,7 +32,7 @@ public class OptimisedTermOverlap {
 		EvaluateResults er = new EvaluateResults();
 		AnalyseFNs afn = new AnalyseFNs();
 
-		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml");
+		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-test.xml");
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 
 			String queryid = topic.getKey();
@@ -43,6 +44,7 @@ public class OptimisedTermOverlap {
 
 			QueryGneration query = new QueryGneration(querypath + queryfile, 0, 1, 0, 0, 0, 0, true, true);
 			Map<String, Integer> qterms = query.getSectionTerms(field);
+			int querysize = qterms.size();
 
 			float sum =0;
 			float avg = 0;
@@ -50,11 +52,16 @@ public class OptimisedTermOverlap {
 			int querydocintersection;
 			if(n_enfns != 0){
 
+				System.out.println(queryid);
+				System.out.println("---------------------------------------------------------");
+				System.out.println("FN patent ID" + "\t" + "overlap" + "\t" + "|Q|" + "\t" + "|D|" + "\t" + "overlap/|Q|");
+				System.out.println("---------------------------------------------------------");
 				for (String doc : enfns) { 
 					querydocintersection = 0;
 					//							System.out.println(doc);					
-					ArrayList<String> terms = reader.getDocTerms("UN-"+doc, field);
+					HashSet<String> terms = reader.getDocTerms("UN-"+doc, field);
 					//						boolean bool = terms.contains("mona"/*"work"*/);
+					int docsize = terms.size();
 
 					for(Entry<String, Integer> t : qterms.entrySet()){
 						boolean exists = terms.contains(t.getKey());						
@@ -62,19 +69,17 @@ public class OptimisedTermOverlap {
 							querydocintersection++;	
 						}
 					}
-
-
-					int querysize = qterms.size();
+					
 					overlapratio = (float)querydocintersection/querysize;
 					sum = sum + overlapratio;
-
-					System.out.println(doc + "\t" + querydocintersection + "\t" + querysize + "\t" + overlapratio + "\t" + sum);
+					
+					System.out.println(doc + "\t" + querydocintersection + "\t" + querysize + "\t" + docsize + "\t" + overlapratio /*+ "\t" + sum*/);
 				}
 
 				avg = (float)sum/n_enfns;
 				System.out.println("---------------------------------------------------------");
-				System.out.println(queryid + "\t" + avg);
-				System.out.println("---------------------------------------------------------");
+				System.out.println("Average Term Overlap: " +  avg);
+				System.out.println();
 				ps.println(queryid + "\t" + avg);
 				
 				

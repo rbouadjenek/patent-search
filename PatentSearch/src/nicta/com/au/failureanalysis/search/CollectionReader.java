@@ -3,6 +3,7 @@ package nicta.com.au.failureanalysis.search;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import nicta.com.au.main.Functions;
 import nicta.com.au.patent.document.PatentDocument;
@@ -108,9 +109,9 @@ public class CollectionReader {
 		return 0;	
 	}
 	
-	public ArrayList<String> getDocTerms(String docName, String field) throws IOException {
+	public HashSet<String> getDocTerms(String docName, String field) throws IOException {
 		
-		ArrayList<String> termsindoc = new ArrayList<>();
+		HashSet<String> termsindoc = new HashSet<>();
 		
 		String filenamefield =  PatentDocument.FileName;
 		CollectionReader reader = new CollectionReader(indexDir);
@@ -156,7 +157,7 @@ public class CollectionReader {
 //			reader.termFreqInDocs(field, term);
 //			System.out.println(reader.getDocTerms(docName, field));
 			if(reader.getDocTerms(docName, field)!=null){
-				ArrayList<String> terms = reader.getDocTerms(docName, field);
+				HashSet<String> terms = reader.getDocTerms(docName, field);
 				boolean bool = terms.contains("mona"/*"work"*/);
 				System.out.println("Word exists: " + bool);
 				for(String t : terms){
