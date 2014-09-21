@@ -17,6 +17,14 @@ import nicta.com.au.failureanalysis.search.CollectionReader;
 import nicta.com.au.patent.document.PatentDocument;
 import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 
+/**
+ * @author mona
+ * For calculating Term Overlap, we applied different conditions:
+ * 1) [overlap(queryDesc,docTitle)+overlap(queryDesc,docAbs)+overlap(queryDesc,docDesc)+overlap(queryDesc, docClaims)]/|qDesc|
+ * 2) [overlap(queryDesc,docTitle)/|qDesc U docTitle|+overlap(queryDesc,docAbs)/|qDesc U docAbs|+overlap(queryDesc,docDesc)/|qDesc U docDesc|+overlap(queryDesc, docClaims)/|qDesc U docClaims|]
+ * 3) [overlap(queryDesc, (docTitle U docAbs U docDesc U docClaims))]/|qDesc|]
+ * 4) [overlap(queryDesc, (docTitle U docAbs U docDesc U docClaims))]/|qDesc U ((docTitle U docAbs U docDesc U docClaims))|]
+ */
 public class DifferentDenominators {
 	static String querypath = "data/CLEF-IP-2010/PAC_test/topics/";	
 	static String indexDir = "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
@@ -70,9 +78,17 @@ public class DifferentDenominators {
 		}		
 	}
 	
+	/**
+	 * @param reader
+	 * @throws IOException
+	 * 2) [overlap(queryDesc,docTitle)/|qDesc U docTitle| + 
+	 * overlap(queryDesc,docAbs)/|qDesc U docAbs| +
+	 * overlap(queryDesc,docDesc)/|qDesc U docDesc| +
+	 * overlap(queryDesc, docClaims)/|qDesc U docClaims|]
+	 */
 	public void FNsOverlapSeperateSections(CollectionReader reader) throws IOException {
 		/*--------------------------- Write in output file. -Mona ------------------------*/
-		String outputfile = "./output/TermOverlap/termoverlp-FNs-seperatesections.txt";
+		String outputfile = "./output/TermOverlap/termoverlp-FNs-config(2):seperatesections.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
@@ -173,7 +189,8 @@ public class DifferentDenominators {
 						}
 					}
 					
-					SectionsSumOverlap = querytitleoverlap + queryabsoverlap + querydescoverlap + queryclaimsoverlap;
+					SectionsSumOverlap = querytitleoverlap + queryabsoverlap 
+							+ querydescoverlap + queryclaimsoverlap;
 					
 //					dminusoverlap = docsize - querydocintersection;
 					titleminusoverlap = titlesize - querytitleoverlap;
@@ -181,7 +198,7 @@ public class DifferentDenominators {
 					descminusoverlap = descsize - querydescoverlap;
 					claimsminusoverlap = claimssize - queryclaimsoverlap;
 					
-					union = querysize + dminusoverlap;
+//					union = querysize + dminusoverlap;
 					titleunion = querysize + titleminusoverlap;
 					absunion = querysize + absminusoverlap;
 					descunion = querysize + descminusoverlap;
@@ -189,11 +206,14 @@ public class DifferentDenominators {
 
 					overlapratio = (float)SectionsSumOverlap/querysize;
 //					overlapratio = (float)querydocintersection/querysize;
-					uoverlapratio = (float)querydocintersection/union;
+					uoverlapratio = (float)((querytitleoverlap/titleminusoverlap)
+							+(queryabsoverlap/absunion)+(querydescoverlap/descunion)
+							+(queryclaimsoverlap/claimsunion));
+//					uoverlapratio = (float)querydocintersection/union;
 					sum = sum + overlapratio;
 					usum = usum + uoverlapratio;
 					
-					/*System.out.println(doc + "\t" + querydocintersection + "\t" + querysize + "\t" + docsize + "\t" + dminusoverlap + "\t"+ union + "\t" + overlapratio + "\t" + uoverlapratio + "\t" + usum);*/
+					/*System.out.println(doc + "\t" + SectionsSumOverlap  + "\t" + querysize + "\t" + titlesize + "\t" + titleminusoverlap + "\t"+ union + "\t" + overlapratio + "\t" + uoverlapratio + "\t" + usum);*/
 				}
 
 				avg = (float)sum/n_enfns;
@@ -209,11 +229,8 @@ public class DifferentDenominators {
 				System.out.println(queryid+"\t" + "No FN for this query");
 				ps.println(queryid+"\t"+ "No FN for this query");
 
-			}
-
-			//    		System.out.println(queryid + "\t" + queryfile);
-		}
-			
+			}			
+		}			
 	}
 	
 	public void FNsOverlapUnionOfSections(CollectionReader reader) throws IOException {
