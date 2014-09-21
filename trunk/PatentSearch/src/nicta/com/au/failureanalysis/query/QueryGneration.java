@@ -489,6 +489,73 @@ public class QueryGneration {
 			String p2 = st.nextToken();
 /*------------- hashset contains no duplicate elements. ---------------*/
 			codes.add(p1);
+//			System.out.println(p1 + "\t" + p1.charAt(0));
+			
+			fullClassCodes.add(p1 + p2);
+		}
+		
+//		System.out.println(codes);
+		for (String code : codes) {
+			if (!ipc.contains(code)) {				
+				ipc += code + " ";
+				
+			}
+		}
+//		System.out.println(ipc);
+		return ipc;
+	}
+	
+	public String getIpc1stElement() throws IOException {
+		String ipc = "";
+
+		// ********************************************************************
+		// leveraging IPC Codes
+		// ********************************************************************
+		Set<String> codes = new HashSet<>();
+		for (ClassificationIpcr ipcCode : pt.getTechnicalData()
+				.getClassificationIpcr()) {
+//			System.out.println(ipcCode.getContent());
+			StringTokenizer st = new StringTokenizer(ipcCode.getContent());
+			
+			String p1 = st.nextToken();
+//			System.out.println(p1);
+			String p2 = st.nextToken();
+/*------------- hashset contains no duplicate elements. ---------------*/
+			codes.add(p1.substring(0, 1));
+			/*System.out.println(p1 + "\t" + p1.substring(0,1));*/
+			
+			fullClassCodes.add(p1 + p2);
+		}
+		
+//		System.out.println(codes);
+		for (String code : codes) {
+			if (!ipc.contains(code)) {				
+				ipc += code + " ";
+				
+			}
+		}
+//		System.out.println(ipc);
+		return ipc;
+	}
+	
+	public String getIpc1stTwoElement() throws IOException {
+		String ipc = "";
+
+		// ********************************************************************
+		// leveraging IPC Codes
+		// ********************************************************************
+		Set<String> codes = new HashSet<>();
+		for (ClassificationIpcr ipcCode : pt.getTechnicalData()
+				.getClassificationIpcr()) {
+//			System.out.println(ipcCode.getContent());
+			StringTokenizer st = new StringTokenizer(ipcCode.getContent());
+			
+			String p1 = st.nextToken();
+//			System.out.println(p1);
+			String p2 = st.nextToken();
+/*------------- hashset contains no duplicate elements. ---------------*/
+			codes.add(p1.substring(0, 3));
+			/*System.out.println(p1 + "\t" + p1.substring(0,1));*/
 			
 			fullClassCodes.add(p1 + p2);
 		}
@@ -560,11 +627,7 @@ public class QueryGneration {
 		return list;
 	}
 
-    /**
-     * @param args the command line arguments
-     * @throws org.apache.lucene.queryparser.classic.ParseException
-     * @throws java.io.IOException
-     */
+    
     public static void main(String[] args) throws ParseException, IOException {//PAC_1913_EP-1691238-A2.xml
         // TODO code application logic here
     	String path = "data/CLEF-IP-2010/PAC_test/topics/" /*"/media/mona/MyProfesion/EP/000000/96/81/18/"*/;
@@ -585,9 +648,12 @@ public class QueryGneration {
 		System.out.println("-----------------------------Testing getTitle() & getIpc() methods----------------------------");
 		System.out.println("----------------------------------------------------------------------------------------------");
 		System.out.println(query.getTitle()); 
-		System.out.println(query.getIpc()); 
+		System.out.println(query.getIpc());
+		System.out.println(query.getIpc1stElement());
+		System.out.println(query.getIpc1stTwoElement()); 
 					
 		List<String> ipclists = query.getIpclist();
+		
 		/*System.out.println("----------------------------");
 		System.out.println(ipclists.get(0));
 		System.out.println("----------------------------");*/
@@ -598,6 +664,8 @@ public class QueryGneration {
 		
 		
 		System.out.println("Main IPC COde: " + query.getmainIpc());
+		System.out.println(query.getmainIpc().substring(0, 1));
+		System.out.println(query.getmainIpc().substring(1,3));
 		System.out.println(query.getDescLangOrMising());
 
     }
