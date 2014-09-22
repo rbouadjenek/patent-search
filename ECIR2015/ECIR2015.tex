@@ -81,6 +81,13 @@ art search is a recall-oriented task, where the primary focus is to
 retrieve all relevant documents at early ranks, in contrast to text
 and web search that are precision-oriented, where the primary goal
 is to retrieve a subset of relevant documents.
+Another important characteristic about patent patent prior art search
+is that, in contrast to scientific and technical writers, patent
+writers tend to generalize and maximize the scope of what is protected
+by a patent,
+%by using a combination of abstract and specific terminology, 
+and try to make sure that finding any relevant prior
+work by the patent examiner is a hard job.
 
 While much of the literature inspired by the evaluation framework
 of the CLEF-IP competition has aimed to assist patent examiners in
@@ -113,7 +120,9 @@ documents ranked by BM25~\cite{Robertson1993}). We show results
 for the top 100 and bottom 100 queries (100 queries that perform the
 best, and 100 queries that perform the worst) of CLEP-IP 2010 evaluated
 according to Mean Average Precision (MAP).
-% There are three notable trends here: (i) term overlap increases from title to description since the query size grows accordingly; (ii) the bottom 100 performing queries tend to have much smaller term overlap with the relevant documents than the top 100 queries; and (iii) the best overlap for any relevant document set for any set of queries is less than one in four terms.
+Note that, while the title section is usually composed by an average of six terms, the
+other sections are longer, ranging from ten to thousands of terms.
+
 
 \begin{figure}[!th]
 \begin{centering}
@@ -148,14 +157,22 @@ sets for different queries. }
 \label{fig:FailureAnalysis}} 
 \end{figure}
 
-While the title is usually composed by an average of six terms, the
-other sections are longer, ranging from ten to thousands of terms.
-The results point out that the term overlap between the queries and the relevant documents
-can be very low, see (a), (b), (c). We also observed that when the query is long, for example, 
-(d), the overlap between the queries and relevant documents is quite high. 
+
+There are three notable trends here: (i) term overlap increases from title to description since the query size grows accordingly; (ii) the bottom 100 performing queries tend to have much smaller term overlap with the relevant documents than the top 100 queries; and (iii) the best overlap for any relevant document set for any set of queries is less than one in four terms.
 Therefore, we suggest an investigation of \emph{query
 reformulation} \cite{Baeza-Yates2010} methods as a means for improving
-the term overlap between queries and relevant documents.
+the term overlap between queries that represent partial patent applications and relevant documents, with the
+objective of assessing not only the performance of standard query
+reformulation methods, but also the effectiveness of query reformulation
+methods that exploit patent-specific characteristics. 
+
+The rest of the paper is organized as follows: 
+in Section \label{sec:relatedworks} we present the related work,
+in Section \ref{sec:QueryReformulationForPatents}
+we present query reformulation frameworks; in Section \ref{sec:evaluation}
+we present our evaluation framework and results analysis; and in Section
+\ref{sec:conclusion} we conclude with possible directions for future
+work.
 
 %Query Reformulation is the process of transforming an initial query $Q$ to another query $Q'$. This transformation may be either a reduction or an expansion of the query. \emph{Query Reduction} (QR) \cite{Kumaran2009} reduces the query such that superfluous information is removed, while \emph{Query Expansion} (QE) \cite{Efthimiadis1996} enhance the query with additional terms likely to occur in relevant documents. 
 
@@ -167,19 +184,7 @@ the term overlap between queries and relevant documents.
 % reviewers... term coverage and recall are more direct and simple
 % arguments.
 
-%Moreover, 
-QR motivation
-In contrast to scientific and technical writers, patent
-writers tend to generalize and maximize the scope of what is protected
-by a patent, and try to make sure that finding any relevant prior
-work by the patent examiner is a hard job.
 
-
-In this paper, we carry out an intensive study about query reformulation for
-patent prior art search with partial patent applications, with the
-objective of assessing not only the performance of standard query
-reformulation methods, but also the effectiveness of query reformulation
-methods that exploit patent-specific characteristics. 
 
 %In summary, the contributions of this paper are the following:  
 %\begin{enumerate}
@@ -189,17 +194,15 @@ methods that exploit patent-specific characteristics.
 %query expansion and reduction in patent prior-art search on standardized
 %datasets of CLEF-IP. 
 %\end{enumerate}
-The rest of the paper is organized as follows: in Section \ref{sec:QueryReformulationForPatents}
-we present query reformulation frameworks; in Section \ref{sec:evaluation}
-we present our evaluation framework and results analysis; and in Section
-\ref{sec:conclusion} we conclude with possible directions for future
-work.
+
 
 
 \section{Related work}
 \label{sec:relatedworks}
 
 {\color{red} Gaby said: this section should be shorter}
+
+Query Reformulation is the process of transforming an initial query $Q$ to another query $Q'$. This transformation may be either a reduction or an expansion of the query. \emph{Query Reduction} (QR) \cite{Kumaran2009} reduces the query such that superfluous information is removed, while \emph{Query Expansion} (QE) \cite{Efthimiadis1996} enhance the query with additional terms likely to occur in relevant documents. 
 
 %The major contributions in patent search has focused on query formulation, where the objective is to find the best terms to represent a patent application as a query to achieve high retrieval effectiveness by retrieving all possible relevant documents at high ranks \cite{Magdy2012}. 
 
@@ -248,7 +251,6 @@ used to select expansion terms that are focused on the query topic.
 
 Also query reduction methods have been applied in order to deal with long queries, 
 which are composed by full patent applications \cite{Ganguly2011,Itoh2003}. Even these methods are interesting, they are not suited to deal with short queries (partial patent applications).
-
 \cite{Ganguly2011} technique decomposes a query
 (a patent section) into constituent text segments and computes the
 Language Modeling (LM) similarities by calculating the probability
@@ -262,15 +264,16 @@ implemented as its authors already point out its poor performance.
 
 
 
-\section{Query Reformulation for Patents}
-\label{sec:QueryReformulationForPatents}
 
-Query Reformulation is the process of transforming an initial query $Q$ to another query $Q'$. This transformation may be either a reduction or an expansion of the query. \emph{Query Reduction} (QR) \cite{Kumaran2009} reduces the query such that superfluous information is removed, while \emph{Query Expansion} (QE) \cite{Efthimiadis1996} enhance the query with additional terms likely to occur in relevant documents. 
+\section{Query Reformulation for patents}
+\label{sec:reformulation}
 
 %In this section, we first present the requirements of a query expansion method in Sections \ref{sec:FrameworkQE}, then, we introduce a novel term selection method for query expansion in Section \ref{sec:MMRQE}. Next, in Section \ref{sec:FrameworkQR} we introduce the motivations behind the benefit of query reduction, and a new approach of query reduction in Section \ref{sec:MMRQR}.
 During the exploration of query reformulation for patent search with
 partial patent applications, there are many configuration options
-and associated questions that we can consider: 
+and associated questions that we considered: 
+
+
 \begin{description}
 \item [{Query type:}] We consider that a query of a partial patent application
 consist of either the title, the abstract, the claims or the description
@@ -284,46 +287,76 @@ by the popular BM25~\cite{Robertson1993} algorithm, as well as a
 vector space model (VSM) approach, TF-IDF~\cite{Salton1975}. A natural
 question is which relevance model works best for query reformulation
 for patent prior art search? 
+
 \item [{Query expansion source:}] We consider the title, abstract, claims,
 and description sections as different term sources to determine which
 section offers the best source of expansion terms, e.g., are the title
-words of particularly high value as expansion terms? Note that this
-only applies to query expansion methods. 
+words of particularly high value as expansion terms? 
+In addition we included two
+other patent specific QE methods as baselines. Motivated by \cite{Mahdabi2013},
+we used the text definitions of the International Patent Classification
+(IPC) codes assigned to a patent application as a source for query
+expansion --- this is denoted as \textbf{IPC Codes}. We also implemented
+the two variants of the QE approach proposed in \cite{Magdy2011}, which automatically generates candidate synonyms sets (SynSet) for terms, and use it as
+a source of expansion terms, which are denoted as \textbf{WSynSet}) and 
+\textbf{USynSet}). Note that this only applies to query expansion methods. 
+
+
 \item [{Term selection method:}] We consider different term selection
 methods for query reformulation. We evaluate the performance of term
 selection using Rocchio~\cite{Salton1971} and new term selection
 methods that we propose in the next sections. %,which is intended to address the high-recall nature of patent prior art search. 
- Then a natural question is, which term selection method works best,
+Then a natural question is, which term selection method works best,
 and with which configuration, i.e. query type, retrieval model, and
 term source for query expansion methods? 
+
+\item[{Query reduction method:}] As a general QR method, we proposed to adapt the Rocchio method for query pruning. Basically, the idea is once we have computed the Rocchio
+modified query vector, we take only terms of the initial query that
+appear in this vector and rank them using the Rocchio score. Then,
+we remove $n$ terms with the lower score. We refer to this approach
+as \textbf{RocchioQR}. 
+We also proposed a baseline method that use IPC codes for query reduction
+as follows: (i) For each patent application, we take the definitions
+of the IPC codes which are associated to it. Then, (ii) we rank the
+terms of the query according to both their frequency in the class
+code definition, and their frequency in the query. Finally, (iii)
+we remove bottom terms of this ranking from the query (i.e. good terms
+are terms that occur a lot in the query, and few in the class code
+definition, whereas bad terms are those that occur few in the query,
+and a lot in the class code definition). The intuition is that, terms
+in the IPC code definition may represent \textquotedbl{}stopwords\textquotedbl{},
+especially if they are rare (infrequent in the patent application).
+We denote this approach \textbf{StopIPC Codes}.
 \end{description}
 
 
+In summary, .....
+
+\begin{itemize}
+\item \textbf{\footnotesize{}{}Query type:}{\footnotesize{}{} $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$ }{\footnotesize \par}
+
+\item \textbf{\footnotesize{}{}Relevance model:}{\footnotesize{}{} $\{\mathrm{BM25},\mbox{Vector-Space Model}\}$ }{\footnotesize \par}
+
+\item \textbf{\footnotesize{}{}Query expansion source:}{\footnotesize{}{}
+$\{\mathrm{Title},\mathrm{Abs.},\mathrm{Claims},\mathrm{Description},
+\mathrm{IPC}, \mathrm{WSynSet, USynSet}\}$ }{\footnotesize \par}
+
+\item \textbf{\footnotesize{}{}Query reformulation method:}{\footnotesize{}{}
+$\{\mathrm{Rocchio, RocchioQR, LMQR, StopIPC}\}$ }{\footnotesize \par}
+\end{itemize}
 
 
-\begin{comment}
-\begin{figure}[!h]
-\begin{centering}
-\includegraphics[width=4cm]{analysis/precision-recall_ByField-CLEF-IP_2010}\includegraphics[width=4cm]{analysis/MAP-MRR_ByField-CLEF-IP_2010}
-\caption{The utility of query reduction for 1304 abstract queries of the CLEF-IP
-2010 dataset. }
-\par\end{centering}
-\begin{centering}
-{\footnotesize{}\label{fig:QRUtility}}
-\par\end{centering}{\footnotesize \par}
-{\footnotesize{}%different queries (representing the title, abstract, or claims of a patent application)
-%and the labeled (ir)relevant documents for the best (top) and worst (bottom) performing
-%queries from CLEF-IP 2010 w.r.t. MAP.}
-}
-\end{figure}
-\end{comment}
+For all methods, their parameters were fixed to their optimal values,
+which were estimated using the CLEF-IP training queries.
 
-In the next section, we propose a deep evaluation of query reformulation methods  for patent search, and we attempt to answer the questions we asked
-in the beginning of this section.
+In the next section, we propose a deep evaluation of query reformulation methods...
 
+%for patent search, and we attempt to answer the questions we asked in the beginning of this section.
 
 
 \section{Experimental Setup}
+\label{setup}
+
 We used the Lucene IR System%
 \footnote{We used the LucQE module, which provides an implementation of the
 Rocchio QE method for Lucene. \\ \texttt{http://lucene-qe.sourceforge.net/}%
@@ -349,6 +382,25 @@ than MAP. We report the evaluation metrics on the top 1000 results.
 
 {\color{red}Gabi said: a review from ckim commented that the ipc filter could be too restricted taking into account that patent applications usually dont contained revised ipc codes. But, if I remembered correctly, when you turn off the filter the results were no significant different and you decided to keep the filter on, since the systems works faster. Is that true? . If yes, we should commmented in the paper.}
 
+
+\begin{comment}
+\begin{figure}[!h]
+\begin{centering}
+\includegraphics[width=4cm]{analysis/precision-recall_ByField-CLEF-IP_2010}\includegraphics[width=4cm]{analysis/MAP-MRR_ByField-CLEF-IP_2010}
+\caption{The utility of query reduction for 1304 abstract queries of the CLEF-IP
+2010 dataset. }
+\par\end{centering}
+\begin{centering}
+{\footnotesize{}\label{fig:QRUtility}}
+\par\end{centering}{\footnotesize \par}
+{\footnotesize{}%different queries (representing the title, abstract, or claims of a patent application)
+%and the labeled (ir)relevant documents for the best (top) and worst (bottom) performing
+%queries from CLEF-IP 2010 w.r.t. MAP.}
+}
+\end{figure}
+\end{comment}
+
+
 %\begin{figure}
 %\begin{centering}
 %\includegraphics[width=8cm]{img/matching}
@@ -358,56 +410,6 @@ than MAP. We report the evaluation metrics on the top 1000 results.
 %\end{figure}
 
 
-\subsubsection{Query Expansion Baselines}
-
-In addition to the general Rocchio approach for QE, we included two
-other patent specific QE methods as baselines. Motivated by \cite{Mahdabi2013},
-we used the text definitions of the International Patent Classification
-(IPC) codes assigned to a patent application as a source for query
-expansion --- this is denoted as \textbf{IPC Codes}. We also implemented
-the two variants of the QE approach proposed in \cite{Magdy2011}, which automatically generates candidate synonyms sets (SynSet) for terms, and use it as
-a source of expansion terms, which are denoted as \textbf{WSynSet}) and 
-\textbf{USynSet}).
-
-\subsubsection{Query Reduction Baselines}
-
-As a general QR method, we proposed to adapt the Rocchio method for
-query pruning. Basically, the idea is once we have computed the Rocchio
-modified query vector, we take only terms of the initial query that
-appear in this vector and rank them using the Rocchio score. Then,
-we remove $n$ terms with the lower score. We refer to this approach
-as \textbf{RocchioQR}.
-
-We also proposed a baseline method that use IPC codes for query reduction
-as follows: (i) For each patent application, we take the definitions
-of the IPC codes which are associated to it. Then, (ii) we rank the
-terms of the query according to both their frequency in the class
-code definition, and their frequency in the query. Finally, (iii)
-we remove bottom terms of this ranking from the query (i.e. good terms
-are terms that occur a lot in the query, and few in the class code
-definition, whereas bad terms are those that occur few in the query,
-and a lot in the class code definition). The intuition is that, terms
-in the IPC code definition may represent \textquotedbl{}stopwords\textquotedbl{},
-especially if they are rare (infrequent in the patent application).
-We denote this approach \textbf{StopIPC Codes}.
-
-For all methods, their parameters were fixed to their optimal values,
-which were estimated using the CLEF-IP training queries.
-
-Some intro here
-
-\begin{itemize}
-\item \textbf{\footnotesize{}{}Query type:}{\footnotesize{}{} $\{\mathrm{Title},\mathrm{Abstract},\mathrm{Claims},\mathrm{Description}\}$ }{\footnotesize \par}
-
-\item \textbf{\footnotesize{}{}Query expansion source:}{\footnotesize{}{}
-$\{\mathrm{Title},\mathrm{Abs.},\mathrm{Claims},\mathrm{Description},
-\mathrm{IPC}, \mathrm{WSynSet, USynSet}\}$ }{\footnotesize \par}
-
-\item \textbf{\footnotesize{}{}Relevance model:}{\footnotesize{}{} $\{\mathrm{BM25},\mbox{Vector-Space Model}\}$ }{\footnotesize \par}
-
-\item \textbf{\footnotesize{}{}Query reformulation method:}{\footnotesize{}{}
-$\{\mathrm{Rocchio, RocchioQR, LMQR, StopIPC}\}$ }{\footnotesize \par}
-\end{itemize}
 
 
 
