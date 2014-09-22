@@ -184,8 +184,6 @@ work.
 % reviewers... term coverage and recall are more direct and simple
 % arguments.
 
-
-
 %In summary, the contributions of this paper are the following:  
 %\begin{enumerate}
 %\item Novel contributions for query expansion and reduction that leverage
@@ -380,7 +378,7 @@ we report MAP, and PRES, which combines Recall with the quality of
 ranking and weights relevant documents lower in the ranking more highly
 than MAP. We report the evaluation metrics on the top 1000 results.
 
-{\color{red}Gabi said: a review from ckim commented that the ipc filter could be too restricted taking into account that patent applications usually dont contained revised ipc codes. But, if I remembered correctly, when you turn off the filter the results were no significant different and you decided to keep the filter on, since the systems works faster. Is that true? . If yes, we should commmented in the paper.}
+{\color{red}Gabi said: a review from ckim commented that the ipc filter could be too restricted taking into account that patent applications usually dont contained revised ipc codes. But, if I remembered correctly, when you turn off the filter the results were no significant different and you decided to keep the filter on, since the systems works faster. Is that true? . If yes, we should commented in the paper.}
 
 
 \begin{comment}
@@ -416,7 +414,10 @@ than MAP. We report the evaluation metrics on the top 1000 results.
 \section{Experimental Evaluation}
 \label{sec:evaluation}
 In this section, we discuss the results of the evaluation performed
-on the query reformulation methods described above.
+on the query reformulation methods described above. First, we present results
+of the Query Expansion experiments. Then, the experiments results for Query Reduction methods.
+
+\subsection{Query Expansion results}
 
 Figure \ref{fig:QE-qClaims-sAbstract-CLEF-2010} shows the results
 obtained in terms of MAP and PRES for CLEF-IP 2010 for different numbers
@@ -424,14 +425,14 @@ of expanded terms $k$ on the x-axis (with $k=0$ using no QE, just
 the baseline retrieval model). For lack of space we show only the
 results of queries extracted from the claims and the abstract used
 as source of query expansion. From these results, we make the following
-observations: (i) for the two retrieval models (VSM and BM25), MMRQE
-provides the best performance for both MAP and PRES (except for MAP,
-where Rocchio BM25 provides better performance than MMRQE BM25), (ii)
-for both MMRQE and Rocchio, the best performance is obtained while
+observations: (i) for all the methods, the best performance is obtained while
 adding no more than 50 terms to the original queries (adding more
-terms may have no effect, or decrease the performance), and (iii)
+terms may have no effect, or decrease the performance), and (ii)
 exploiting external sources for query expansion provides poor performance
-(IPC code definition and SynSets).
+(IPC code definition and SynSets), (iii) {\color{red}say something about Rocchio bm25 vs. Rocchio VSM.}
+
+
+%(i) for the two retrieval models (VSM and BM25), MMRQE provides the best performance for both MAP and PRES (except for MAP, where Rocchio BM25 provides better performance than MMRQE BM25), (ii) for both MMRQE and Rocchio, the best performance is obtained while adding no more than 50 terms to the original queries (adding more terms may have no effect, or decrease the performance), and (iii) exploiting external sources for query expansion provides poor performance (IPC code definition and SynSets).
 
 \begin{center}
 \begin{figure}[h]
@@ -477,12 +478,11 @@ We also notice that using external sources for expansion such as the IPC code de
 synsets from Wordnet gave poor performance.
 
 
-
-\subsubsection{Discussion}
+\subsection{Query Reduction results}
 
 As recommended in \cite{Ganguly2011}
 and confirmed in our own experimentation (not shown due to lack of
-space), best QR performance results are also obtained when using few
+space), best Query Reduction performance results are also obtained when using few
 documents in the PRF set (in our case, the top five gave the best
 results).
 
@@ -510,16 +510,12 @@ MMRQR on the CLEF-IP 2010 dataset.}
 \end{figure}
 \end{comment}
 
-
-
 Figure \ref{fig:QR-qDescription-CLEF-2010} shows the results obtained
 in terms of MAP and PRES for CLEF-IP 2010 for different numbers of
 removed terms $k$ on the x-axis (with $k=0$ using no QR, just the
 baseline retrieval model). For lack of space we show only the results
-of queries extracted from the description. These results tell us mainly
-two things: (i) for the two retrieval models, MMRQR provides the best
-performance for both MAP and PRES, and (ii) for almost all methods,
-the best performance is obtained when removing about 30 terms from
+of queries extracted from the description. These results tell us that for
+almost all methods, the best performance is obtained when removing about 30 terms from
 the original queries (in the case where the description is used for
 querying). Removing more terms will decrease significantly the performance.
 
@@ -536,9 +532,6 @@ since no QR method outperforms significantly the baseline (i.e. No
 QR), (ii) when dealing with very long query (i.e. description), BM25
 based QR methods perform better than VSM based QR methods
 %, and (iii) in general, MMRQR provides better performance than the other methods.
-
-
-
 
 
 
@@ -562,7 +555,7 @@ the CLEF-IP 2010 dataset.}
 
 \label{sec:conclusion}
 
-In this paper we analyzed general and specific QE and QR methods for
+In this paper we analyzed general and specific query reformulation methods for
 patent prior art search for partial (incomplete) patent applications
 on two patent retrieval corpora, namely CLEF-IP 2010 and CLEF-IP 2011.
 We demonstrated that QE methods are critical for short queries, i.e.
@@ -571,26 +564,16 @@ the description section. We also showed that claims is the best section
 that works with QE both to query with and to use as a source of query
 expansion terms, suggesting that claims should be written at early
 stages of the patent application drafting so that they can be use
-to performed patent prior art search. We also demonstrate that the
-novel MMRQE method improves QE results in many cases. Future work
-can look at more patent-specific methods of QE for prior art search
-with partial patent applications and how they can be integrated with
-methods like MMRQE.
-
+to performed patent prior art search. 
+In the same vein, we also found that the patent specific fields are more suited as a source for expansion than external sources such as synonym dictionaries. 
 Regarding QR methods, we showed that these techniques are effective
 to some extent for claims and description sections, which are considered
-the longest sections in a patent application. We also demonstrated
-that our new QR method MMRQR improve both recall and precision in
-many cases. Future work may consist of exploiting query quality predictors
-to identify useless terms in a query using machine learning methods.
+the longest sections in a patent application. 
 
-%We demonstrated that it reasonable to do prior art search 
-%with partial applications, especially when combined with query expansion methods. 
-%We also found that the patent specific fields are more suited as a source for expansion than other sources.
-%We plan to further refine our approach by using
-%a term weighting scheme for MMRQE. Other future work direction is to used MMR
-%during query reduction to remove terms, which are not diversified
-%in the query.
+Still, the performance of patent prior art is quite low...
+
+For future work we plan to further exploit patent specific meta-data such as
+inventor and citation networks.
 
 
 
