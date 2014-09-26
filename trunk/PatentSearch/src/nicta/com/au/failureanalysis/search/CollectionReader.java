@@ -26,12 +26,12 @@ public class CollectionReader {
 
 	private static IndexReader ir;
 	static String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
-//	private final int topK;
+	//	private final int topK;
 
 	public CollectionReader(String indexDir/*, String similarity, int topK*/)
 			throws IOException {
 		ir = DirectoryReader.open(FSDirectory.open(new File(indexDir)));
-		
+
 	}
 
 	/**
@@ -44,6 +44,7 @@ public class CollectionReader {
 		DocsEnum de = MultiFields.getTermDocsEnum(ir, MultiFields.getLiveDocs(ir), field, new BytesRef(term));
 
 		int num = 0;
+		System.out.println(de);
 		while ((de.nextDoc()) != DocsEnum.NO_MORE_DOCS) {
 			num++;
 			// if(de.freq() >= 4){
@@ -51,15 +52,15 @@ public class CollectionReader {
 					+ num
 					+ ") "
 					+ ir.document(de.docID()).get(PatentDocument.FileName)
-							.substring(3) + "  " + de.freq() + "  "
+					.substring(3) + "  " + de.freq() + "  "
 					+ de.docID());
 			// }
 
 		}
-//		ir.close();
+		//		ir.close();
 
 	}
-	
+
 	/**
 	 * @param field
 	 * @param term
@@ -68,14 +69,14 @@ public class CollectionReader {
 	public int getTFreq(String field, String term, String filename) throws IOException {
 
 		int termfreq = 0;
-		
+
 		DocsEnum de = MultiFields.getTermDocsEnum(ir, MultiFields.getLiveDocs(ir), field, new BytesRef(term));
 
-         	
-//		int num = 0;
+
+		//		int num = 0;
 		if (de != null){
 			while ((de.nextDoc()) != DocsEnum.NO_MORE_DOCS) {
-//							num++;
+				//							num++;
 
 				if(ir.document(de.docID()).get(PatentDocument.FileName).contains(filename)){
 					// .substring(3).equals(filename)
@@ -85,7 +86,7 @@ public class CollectionReader {
 				}
 			}
 		}
-//		ir.close();
+		//		ir.close();
 		return 0;		
 
 	}
@@ -102,74 +103,65 @@ public class CollectionReader {
 		while ((de.nextDoc()) != DocsEnum.NO_MORE_DOCS) {
 			int docid = de.docID();
 			return docid;
-
 		}
-		
-//		ir.close();
+
+		//		ir.close();
 		return 0;	
 	}
-	
+
 	public HashSet<String> getDocTerms(String docName, String field) throws IOException {
-		
+
 		HashSet<String> termsindoc = new HashSet<>();
-		
+
 		String filenamefield =  PatentDocument.FileName;
 		CollectionReader reader = new CollectionReader(indexDir);
-		
+
 		int b = reader.getDocId(docName, filenamefield);
-//		System.out.println("document Id: " + b);
+		//		System.out.println("document Id: " + b);
 		Terms terms = ir.getTermVector(b, field)/* getTermVectors(b)*/;
-//		System.out.println(terms);
-		
+		//		System.out.println(terms);
+
 		if(terms == null){return null;}
 		TermsEnum termsEnum = terms.iterator(null);
-		
-		 BytesRef text;
-		    while((text = termsEnum.next()) != null) {
-		    	String k = text.utf8ToString();
-		    	 if (!Functions.isNumeric(k)) {
-		    		 termsindoc.add(k);
-//		      System.out.println(k);
-		    	 }
-		  }		
-		
+
+		BytesRef text;
+		while((text = termsEnum.next()) != null) {
+			String k = text.utf8ToString();
+			if (!Functions.isNumeric(k)) {
+				termsindoc.add(k);
+				//		      System.out.println(k);
+			}
+		}		
+
 		return termsindoc;
-		
+
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
-//		String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
+		//		String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
 
-		try {
-			String docName = "UN-EP-0802230" /*"UN-EP-0663270"*/;
-			String filenamefield =  PatentDocument.FileName;
-			
-			String term = /*"methyl" */"resin"/*"excel"*/ /*"mixtur"*/ /*"mona"*//*"adhesiveport"*/;
-			String field = /* PatentDocument.Classification */PatentDocument.Description;
-			String filename = "EP-0415270";
+		String docName = "UN-EP-0802230" /*"UN-EP-0663270"*/;
+		String filenamefield =  PatentDocument.FileName;
 
-			CollectionReader reader = new CollectionReader(indexDir);			
-			
-			/*int a = reader.getTFreq(field, term, filename);
+		String term = /*"methyl" */"resin"/*"excel"*/ /*"mixtur"*/ /*"mona"*//*"adhesiveport"*/;
+		String field = /* PatentDocument.Classification */PatentDocument.Description;
+		String filename = "EP-0415270";
+
+		CollectionReader reader = new CollectionReader(indexDir);			
+
+		/*int a = reader.getTFreq(field, term, filename);
 			System.out.println(a);*/
 
-//			reader.termFreqInDocs(field, term);
-//			System.out.println(reader.getDocTerms(docName, field));
-			if(reader.getDocTerms(docName, field)!=null){
-				HashSet<String> terms = reader.getDocTerms(docName, field);
-				boolean bool = terms.contains("mona"/*"work"*/);
-				System.out.println("Word exists: " + bool);
-				for(String t : terms){
-					System.out.println(t);
-				}
-			}else{System.out.println("this file does not exist!");}
-			
-						
-			
-
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
+//					reader.termFreqInDocs(field, term);
+			//			System.out.println(reader.getDocTerms(docName, field));
+		if(reader.getDocTerms(docName, field)!=null){
+			HashSet<String> terms = reader.getDocTerms(docName, field);
+			boolean bool = terms.contains("mona"/*"work"*/);
+			System.out.println("Word exists: " + bool);
+			/*for(String t : terms){
+				System.out.println(t);
+			}*/
+		}else{System.out.println("this file does not exist!");}		
 	}
 }

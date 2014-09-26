@@ -631,7 +631,7 @@ public class QueryGneration {
     public static void main(String[] args) throws ParseException, IOException {//PAC_1913_EP-1691238-A2.xml
         // TODO code application logic here
     	String path = "data/CLEF-IP-2010/PAC_test/topics/" /*"/media/mona/MyProfesion/EP/000000/96/81/18/"*/;
-    	String queryfile = "PAC-1134_EP-1783182-A1.xml"/*"PAC-1064_EP-1426187-A2.xml"*//*"PAC-1216_EP-1749865-A1.xml"*//*"PAC-825_EP-1267369-A2.xml"*/ /*"UN-EP-0968118.xml"*/;
+    	String queryfile = /*"PAC-1134_EP-1783182-A1.xml"*/"PAC-1644_EP-1369232-A1.xml"/*"PAC-1064_EP-1426187-A2.xml"*//*"PAC-1216_EP-1749865-A1.xml"*//*"PAC-825_EP-1267369-A2.xml"*/ /*"UN-EP-0968118.xml"*/;
 		
     	QueryGneration query = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
     	/*Map<String, Integer> terms = query.getSectionTerms("title""abstract""description""claims");   
