@@ -49,8 +49,8 @@ public class DescSecOverlapDisplay {
 		String docName;
 		HashSet<String> indexedpataents= new HashSet<>();
 		Bits liveDocs = MultiFields.getLiveDocs(ir);
-		System.out.println(ir.maxDoc());
-		System.out.println("----------------------");
+		/*System.out.println(ir.maxDoc());
+		System.out.println("----------------------");*/
 		for (int i=0; i<ir.maxDoc(); i++) {
 		    if (liveDocs != null && !liveDocs.get(i))
 		        continue;
@@ -82,7 +82,7 @@ public class DescSecOverlapDisplay {
 			if(descterms!=null){descsize = descterms.size();}else{descsize=-1;}
 			if(claimsterms!=null){claimssize = claimsterms.size();}else{claimssize=-1;}
 			
-			System.out.println(titlesize +"\t"+ abssize + "\t" + descsize + "\t" + claimssize);
+			/*System.out.println(titlesize +"\t"+ abssize + "\t" + descsize + "\t" + claimssize);*/
 			if(descterms!=null){
 //			System.out.println(descterms);
 				if(titleterms!=null){
@@ -108,14 +108,16 @@ public class DescSecOverlapDisplay {
 //				System.out.println(a + "\t"+ descterms.contains(a));
 			}}else{claimsexists = 2;}
 					
-			System.out.println((titlexists + "\t" + absexists + "\t" + claimsexists));
-			System.out.println(docName+ "\t"+(float)titlexists/titlesize + "\t" + (float)absexists/abssize + "\t" + (float)claimsexists/claimssize);
+//			System.out.println((titlexists + "\t" + absexists + "\t" + claimsexists));
+			/*System.out.println(docName+ "\t"+(float)titlexists/titlesize + "\t" + (float)absexists/abssize + "\t" + (float)claimsexists/claimssize);*/
 			ps.println(docName+ "\t"+(float)titlexists/titlesize + "\t" + (float)absexists/abssize + "\t" + (float)claimsexists/claimssize);
-			System.out.println("----------------------------------------------------");
+			/*System.out.println("----------------------------------------------------");*/
 			
-			}else{System.out.println(docName + "\t"+"no desc");
-			ps.println(docName + "\t"+"no desc");
-			System.out.println("-----------------------------------------------------");}
+			}else{
+				/*System.out.println(docName + "\t"+"no desc");*/
+				ps.println(docName + "\t"+"no desc");
+				/*System.out.println("-----------------------------------------------------");*/
+			}
 		    
 		    
 		    
