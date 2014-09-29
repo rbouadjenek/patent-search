@@ -5,7 +5,6 @@
 \usepackage[latin9]{inputenc}
 \usepackage{color}
 \usepackage{array}
-\usepackage{verbatim}
 \usepackage{url}
 \usepackage{graphicx}
 \PassOptionsToPackage{normalem}{ulem}
@@ -39,13 +38,13 @@ has aimed to assist patent examiners in assessing prior art for complete
 patent applications, less of this work has focused on patent search
 with queries representing (partial) applications to help inventors
 to assess the patentability of their ideas prior to writing a full
-application. Hence, in this context, a query is much longer than in
-other standard IR tasks. It can take the form of a long paragraph,
-or even a very long document. This has led the research to focus on
-query reformulation for patent search. Therefore, in this paper, we
-carry out an intensive study and evaluation of both patent specific
-and standard query reformulation methods for patent prior art search
-with partial patent applications. We intend to mainly answer the following
+application. In this context, a query is much longer than in other
+standard IR tasks. It can take the form of a long paragraph, or even
+a very long document. This has led the research to focus on query
+reformulation for patent search. Therefore, in this paper, we carry
+out an intensive study and evaluation of both patent specific and
+standard query reformulation methods for patent prior art search with
+partial patent applications. We intend to mainly answer the following
 questions: \emph{What are these query reformulation methods? How do
 they work? What is the best section in a patent application to use
 as a query? What is the best query reformulation method? }
@@ -76,8 +75,8 @@ prior art search is a recall-oriented task, where the primary focus
 is to retrieve all relevant documents at early ranks, in contrast
 to text and web search that are precision-oriented, where the primary
 goal is to retrieve a subset of documents that satisfy the query intent.
-Another important characteristic about patent patent prior art search
-is that, in contrast to scientific and technical writers, patent writers
+Another important characteristic about patent prior art search is
+that, in contrast to scientific and technical writers, patent writers
 tend to generalize and maximize the scope of what is protected by
 a patent using a combination of abstract and specific terminology,
 which make also hard to find any relevant prior work by the patent
@@ -145,9 +144,8 @@ sections are longer, ranging from ten to thousands of terms. There
 are three notable trends here: (i) term overlap increases from title
 to description since the query size grows accordingly; (ii) the bottom
 100 performing queries tend to have much smaller term overlap with
-the relevant documents than the top 100 queries; and (iii) the the
-overlap of any relevant document set for any set of queries is less
-than one.
+the relevant documents than the top 100 queries; and (iii) the overlap
+of any relevant document set for any set of queries is less than one.
 
 While these results suggest the description section is the best part
 of a partial patent application to use as query, they also point out
@@ -166,7 +164,7 @@ effectiveness of query reformulation methods that exploit patent-specific
 characteristics. In summary, the contributions of this paper are the
 following: 
 \begin{enumerate}
-\item A review of the of both patent specific and standard query reformulation
+\item A review of both patent specific and standard query reformulation
 methods for patent prior art search with partial patent applications.
 \item A thorough comparative analysis of these query reformulation methods
 along several dimensions (including query type, IR model, term expansion
@@ -188,13 +186,13 @@ $Q$ to another query $Q'$. This transformation may be either an
 expansion or a reduction of the query.\emph{ Query Expansion} (QE)
 \cite{Efthimiadis1996} enhances the query with additional terms likely
 to occur in relevant documents. Hence, given a query representation
-$Q$, QE aims to select an optimal subset of $k$ terms $T_{k}$ relevant
-to $Q$, then build $Q'$ such as $Q'=Q\cup T_{k}$. As for \emph{Query
-Reduction} (QR) \cite{Kumaran2009}, it is the process that reduces
-the query such that superfluous information is removed. Hence, given
-a query representation $Q$, QR aims to select an optimal subset of
-$k$ terms $T_{k}\subset Q$ relevant to $Q$, then build $Q'$ such
-as $Q'=T_{k}$.
+$Q$, QE aims to select an optimal subset $T_{k}$ of $k$ terms,
+which are relevant to $Q$, then build $Q'$ such as $Q'=Q\cup T_{k}$.
+As for \emph{Query Reduction} (QR) \cite{Kumaran2009}, it is the
+process that reduces the query such that superfluous information is
+removed. Hence, given a query representation $Q$, QR aims to select
+an optimal subset $T_{k}\subset Q$ of $k$ terms, which are relevant
+to $Q$, then build $Q'$ such as $Q'=T_{k}$.
 
 In the following, in Section \ref{sec:StandardQRMethods} we first
 describe standard query reformulation methods, then, in Section \ref{sec:SpecificQRMethods},
@@ -222,20 +220,19 @@ to build $\overrightarrow{Q'}$. We refer to this method as RocchioQE%
 Rocchio method for Lucene. \texttt{http://lucene-qe.sourceforge.net/}%
 }.
 
-On the other hand, Rocchio we can think to use Rocchio as a QR method.
-Basically, the idea is once we have computed the Rocchio modified
-query vector, we take only terms that appear in the initial query
-$Q$ and rank them using the Rocchio score. Then, we select top $k$
-terms with the highest score to build $Q'$. We refer to this approach
-as RocchioQR.
+On the other hand, we can think to use Rocchio as a QR method. Basically,
+the idea is once we have computed the Rocchio modified query vector,
+we take only terms that appear in the initial query $Q$ and rank
+them using the Rocchio score. Then, we select top $k$ terms with
+the highest score to build $Q'$. We refer to this approach as RocchioQR.
 
 
 \subsubsection{Maximal Marginal Relevance for Query Reformulation}
 
 As a general method for query reformulation, we also consider a method
-of ``diverse'' term selection --- such as the \emph{Maximal Marginal
-Relevance} (MMR)~\cite{Carbonell1998} algorithm for result set diversification.
-The idea is to use MMR for diverse term selection. 
+of ``diverse'' term selection --- an adaptation of the \emph{Maximal
+Marginal Relevance} (MMR)~\cite{Carbonell1998} algorithm for result
+set diversification. The idea is to use MMR for diverse term selection. 
 
 %\subsubsection{MMR Query Expansion (MMRQE)}
 %\label{sec:MMRQE}
@@ -261,7 +258,7 @@ In the case of query expansion, we call this method MMR Query Expansion
 (MMRQE). MMRQE takes as input a PRF set, which is used to build a
 document-term matrix of $n$ documents and $m$ terms as shown in
 Figure~\ref{fig:Notation} (the TF-IDF is used to populate the matrix
-for each document vector). To represent the query $Q$ is the documents'
+for each document vector). To represent the query $Q$ in the documents'
 dimension as in Figure~\ref{fig:Notation}, we use the BM25 or TF-IDF
 score between each document $d_{i}$ and the query. Hence, given a
 query representation $Q$, MMRQE aims to select an optimal subset
@@ -276,15 +273,15 @@ criterion.
 Similarly, we can imagine greedily rebuild the query from scratch,
 while choosing diversified terms (i.e. terms of the query). Here,
 we call this approach MMR Query Reduction (MMRQR). Formally, given
-a query representation $Q$, we aim to select an optimal subset of
-$k$ terms $T_{k}^{*}\subset Q$ (where $|T_{k}^{*}|=k$ and $k<|Q|$)
+a query representation $Q$, MMRQR aims to select an optimal subset
+of $k$ terms $T_{k}^{*}\subset Q$ (where $|T_{k}^{*}|=k$ and $k<|Q|$)
 relevant to $Q$ but inherently different from each other (i.e., diverse).
 This can be achieved by building $T_{k}^{*}$ in a greedy manner by
 choosing the next optimal term $t_{k}^{*}$ given the previous set
 of optimal term selections $T_{k-1}^{*}=\{t_{1}^{*},\ldots,t_{k-1}^{*}\}$
 (assuming $T_{0}^{*}=\emptyset$) using an adaptation of the MMR diverse
-selection criterion. Note that the we used all the sections of the
-patent documents of the PRF set to built the document-term matrix
+selection criterion. Note that the we use all the sections of the
+patent documents in the PRF set to built the document-term matrix
 of $n$ documents and $m$ terms shown in Figure~\ref{fig:Notation}.
 
 
@@ -303,49 +300,36 @@ which automatically generates candidate synonyms sets (SynSet) for
 terms, and use it as a source of expansion terms. The idea for generating
 the SynSet comes from the characteristics of the CLEF-IP patent collection,
 where some of the sections in some patents are translated into three
-languages (English, French, and German). The idea is to use these
-parallel manual translations to create possible synonyms sets. Hence,
-for a word $w$ in one language which has possible translations to
-a set of words in another language ${w_{1},w_{2},\ldots,w_{n}}$,
-this set of words can be considered as synonyms or at least related
-to each other. The generated SynSet is used for query expansion in
-two ways: (i) The first one use the probability associated with the
-SynSet entries as a weight for each expanded term in the query (denoted
-WSynSet). Therefore, each term was replaced with its SynSet entries
-with the probability of each item in the SynSet acting as a weight
-to the term within the query. (ii) The second one neglected this associated
-probability and used uniform weighting for all synonyms of a given
-term (denoted USynSet). This strategy is similar to adding synonyms
-from WordNet where no probability is assigned.
+languages (English, French, and German). They used these parallel
+manual translations to create possible synonyms sets. Hence, for a
+word $w$ in one language which has possible translations to a set
+of words in another language ${w_{1},w_{2},\ldots,w_{n}}$, this set
+of words can be considered as synonyms or at least related to each
+other. The generated SynSet is used for query expansion in two ways:
+(i) The first one use the probability associated with the SynSet entries
+as a weight for each expanded term in the query (denoted WSynSet).
+Therefore, each term was replaced with its SynSet entries with the
+probability of each item in the SynSet acting as a weight to the term
+within the query. (ii) The second one neglected this associated probability
+and used uniform weighting for all synonyms of a given term (denoted
+USynSet).
 
 
-\subsubsection{Patent Lexicon for Query Reformulation}
+\subsubsection{Patent Lexicon for Query Expansion}
 
 Mahdabi et al. \cite{Mahdabi2013} proposed to build a query-specific
 patent lexicon based on definitions of the International Patent Classification
 (IPC). The lexicon is simply build by removing general and patent
-stop-words from the text of IPC definition pages. Each entry in our
+stop-words from the text of IPC definition pages. Each entry in the
 lexicon is composed of a key and a value. The key is an IPC class
 and the value is a set of terms representing the mentioned class.
 Then, the lexicon build is used to extract expansion concepts related
 to the context of the information need of a given query patent. To
 this end, the IPC class of the query patent is searched in the lexicon
 and the terms matching this class are considered as candidate expansion
-terms. %
-\begin{comment}
-Query expansion using the lexicon is expected to solve the two problems:
-(i) The first problem is related to the fact that the usage of words
-is sensitive to the topic domain; In different domains, the same word
-may be used to indicate different meanings. We aim at finding the
-correct sense of a word, by associating relevant terms from the topic
-domain to the given query terms for each query patent. (ii) The second
-problem is related to the term mismatch. The vocabulary of the query
-patent is tailored by the language usage of the author (a non-standard
-terminology), while conceptual lexicon provides a more standard terminology.
-\end{comment}
-{} The approach proposed tries to combine these two complementary vocabularies.
-In this paper we refer to this patent query expansion method as IPC
-Codes.
+terms. The approach proposed tries to combine these two complementary
+vocabularies. In this paper we refer to this patent query expansion
+method as IPC Codes.
 
 
 \subsubsection{Language Model for Query Reduction}
@@ -355,7 +339,7 @@ which decomposes a query (a patent section) into constituent text
 segments and computes a Language Modeling (LM) similarities by calculating
 the probability of generating each segment from the top ranked documents
 (PRF set). Then, the query is reduced by removing the least similar
-segments from the query. We refer to this method by LMQR.
+segments from the query. We refer to this method as LMQR.
 
 
 \subsubsection{IPC Codes for Query Reduction}
@@ -410,6 +394,76 @@ we report MAP, and PRES, which combines Recall with the quality of
 ranking and weights relevant documents lower in the ranking more highly
 than MAP. We report the evaluation metrics on the top 1000 results.
 
+
+\subsection{Query Expansion Results}
+
+\label{sec:QEResults}
+
+In this section, we discuss the results of the evaluation performed
+on the QE methods described in Section \ref{sec:QueryReformulation}.
+During the exploration of query expansion for patent search with partial
+patent applications, there are many configuration options and associated
+questions that we can consider: 
+\begin{itemize}
+\item \textbf{Partial patent query type:} We consider that a query of a
+partial patent application consist of either the title, the abstract,
+the claims or the description section. Critical questions are: what
+part of a partial application an inventor should write to obtain the
+best search results? and what part of a partial application suits
+the best for QE?
+\item \textbf{Query expansion source:} We consider the abstract, claims,
+and description sections as different term sources to determine which
+section offers the best source of expansion terms, e.g., are the claims
+words of particularly high value as expansion terms? Note that we
+consider that there is no interest to use the title as source for
+the expansion since there are only few terms that we can collect from
+the title field in the PRF set.
+\item \textbf{Relevance model:} For initial retrieval of documents in the
+\emph{pseudo-relevant} feedback set (PRF) and subsequent re-retrieval,
+there are various options for the relevance ranking model. In this
+work, we explore a probabilistic approach represented by the popular
+BM25~\cite{Robertson1993} algorithm, as well as a vector space model
+(VSM) approach, TF-IDF~\cite{Salton1975}. A natural question is
+which relevance model works best for query expansion for patent prior
+art search? 
+\item \textbf{Term selection method:} We consider the different query expansion
+methods described above, i.e. RocchioQE, MMRQE, IPC Codes, WSynSet,
+USynSet. What is the best QE method for patent search?
+\end{itemize}
+To summarize all the results obtained over all the above configurations,
+Figure \ref{fig:PRES-CLEF2010} shows the PRES obtained for all the
+QE methods, while selecting the optimal number of terms used for the
+expansion (number of terms that maximizes the performance for each
+method). From these results, we make the following observations:
+\begin{enumerate}
+\item The best section to use for querying is the description section (see
+Figure \ref{fig:qDescription-PRES-CLEF-IP2010}). We attribute this
+to the fact that the description section has more content along with
+relevant terms that define the invention since a detailed summary
+of the invention is described therein.
+\item The best source for query expansion is the claims section. We attribute
+this to the fact that, the claims contain not only relevant, but also,
+specific terminology, since the scope of the invention is described
+therein. However, when querying using the claims, other sources of
+query expansion provided better performance. This may be because claims
+are very similar between them and contained specific terms; consequently,
+the queries lack of diversity and general terms or synonyms that are
+used to describe similar inventions. 
+\item The description section is not either a good source for expansion,
+since its content is too broad; therefore, it contains many irrelevant
+terms that hurt the performance.
+\item Query expansion is not useful for very long queries (i.e. description),
+indicating that in advanced stages of the patent application process,
+QE is not relevant. 
+\item When dealing with more mid-long queries such as abstract or claims,
+MMRQE is more effective than Rocchio, which suggest that diverse term
+selection is not crucial for short queries. 
+\item Using the IPC code definitions (as suggested by \cite{Mahdabi2013})
+and SynSet (method of \cite{Magdy2011}) as a source of expansion,
+gave poor performance (see IPC Codes and SynSet bars along the Figures). 
+\item Finally, regarding the best term selection method, we conclude that
+in general, MMRQE provides the best performance, followed by RocchioQE.
+\end{enumerate}
 \begin{figure*}[t]
 \begin{centering}
 \includegraphics[width=12cm]{img/legendQE} 
@@ -446,76 +500,6 @@ than MAP. We report the evaluation metrics on the top 1000 results.
 \end{figure*}
 
 
-
-\subsection{Query Expansion Results}
-
-\label{sec:QEResults}
-
-In this section, we discuss the results of the evaluation performed
-on the QE methods described in Section \ref{sec:QueryReformulation}.
-During the exploration of query expansion for patent search with partial
-patent applications, there are many configuration options and associated
-questions that we can consider: 
-\begin{itemize}
-\item \textbf{Partial patent query type:} We consider that a query of a
-partial patent application consist of either the title, the abstract,
-the claims or the description section. Critical questions are: what
-part of a partial application an inventor should write to obtain the
-best search results? and what part of a partial application suits
-the best for QE?
-\item \textbf{Query expansion source:} We consider the abstract, claims,
-and description sections as different term sources to determine which
-section offers the best source of expansion terms, e.g., are the claims
-words of particularly high value as expansion terms? Note that we
-consider that there is no interest to use the title as source for
-the expansion since there is only few terms that we can collect from
-the title field in the PRF set.
-\item \textbf{Relevance model:} For initial retrieval of documents in the
-\emph{pseudo-relevant} feedback set (PRF) and subsequent re-retrieval,
-there are various options for the relevance ranking model. In this
-work, we explore a probabilistic approach represented by the popular
-BM25~\cite{Robertson1993} algorithm, as well as a vector space model
-(VSM) approach, TF-IDF~\cite{Salton1975}. A natural question is
-which relevance model works best for query expansion for patent prior
-art search? 
-\item \textbf{Term selection method:} We consider the different query expansion
-methods described above, i.e. RocchioQE, MMRQE, IPC Codes, WSynSet,
-USynSet. What is the best QE method for patent search?
-\end{itemize}
-To summarize all the results obtained over all the above configurations,
-Figure \ref{fig:PRES-CLEF2010} shows the PRES obtained for all the
-QE methods, while selecting the optimal number of terms used for the
-expansion (number of terms that maximizes the performance for each
-method). From these results, we make the following observations:
-\begin{enumerate}
-\item The best section to use for querying is the description section (see
-Figure \ref{fig:qDescription-PRES-CLEF-IP2010}). We attribute this
-to the fact that the description section has more content along with
-relevant terms that define the invention since a detailed summary
-of the invention is described therein.
-\item The best source for query expansion is the claims section. We attribute
-this to the fact that, the claims contain not only relevant, but also,
-specific terminology, since the scope of the invention is described
-therein. However, when querying using the claims, other sources of
-query expansion provided better performance. This may be because claims
-are very similar between them and contained specific terms; consequently,
-the queries lack of diversity and general terms or synonyms that are
-used to describe similar inventions. 
-\item The description section is not either a good source for expansion,
-since its content is too broad, therefore, it contains many irrelevant
-terms that hurt the performance.
-\item Query expansion is not useful for very long queries (i.e. description),
-indicating that in advanced stages of the patent application process,
-QE is not relevant. 
-\item When dealing with more mid-long queries such as abstract or claims,
-MMRQE is more effective than Rocchio, which suggest that diverse term
-selection is not crucial for short queries. 
-\item Using the IPC code definitions (as suggested by \cite{Mahdabi2013})
-and SynSet (method of \cite{Magdy2011}) as a source of expansion,
-gave poor performance (see IPC Codes and SynSet bars along the Figures). 
-\item Finally, regarding the best term selection method, we conclude that
-in general, MMRQE provides the best performance, followed by RocchioQE.
-\end{enumerate}
 To give an insight of the effect of MMRQE and Rocchio over the performance,
 Table \ref{tbl:QESampleQueries} shows two queries where QE methods
 improved the performance. First of all, it is interesting to notice
@@ -674,7 +658,7 @@ mouth (4). Radiating apertures (6 or 6') corresponding to...}\tabularnewline
 \protect\caption{MAP for QR methods on CLEF-IP 2011.}
 
 
-\label{fig:QR-PRES-CLEF-IP2011} 
+\label{fig:QR-PRES-CLEF-IP2011}
 \end{figure*}
 
 
@@ -717,11 +701,11 @@ Similarly, we carry out comprehensive experiments with the following
 specific options and associated questions: 
 \begin{itemize}
 \item \textbf{Partial patent query type:} We apply QR methods to a query
-of a partial patent application, which consist of either the abstract,
-the claims or the description section. A critical question is what
-part of a partial application suits the best for QR? Note that we
-consider that there is no interest in reducing a title query since
-it contains only few terms. 
+of a partial patent application, which consist of the abstract, the
+claims or the description sections. A critical question is what part
+of a partial application suits the best for QR? Note that we consider
+that there is no interest in reducing a title query since it contains
+only few terms. 
 \item \textbf{Term selection method:} We consider the different query reduction
 methods described above, i.e. RocchioQR, MMRQR, LMQR, IPC Codes. What
 is the best QR method for patent search?
@@ -731,14 +715,14 @@ Figures \ref{fig:QR-PRES-CLEF-IP2011}, and \ref{fig:QR-MAP-CLEF-IP2011}
 show the performance obtained for all the QR methods, when selecting
 the optimal number of terms removed from the original queries (number
 of terms removed that maximizes the performance for each method).
-
 From these results, we make the following observations: 
 \begin{enumerate}
 \item Query reduction is often useful for mid-long queries (i.e. abstract
 and claims), but not useful for very long queries since no method
 outperforms the baseline (i.e. No QR). Since many confusing terms
-are used in the description part, probably QR methods failed to distinguish
-useless terms to be removed. 
+are used in the description part, probably current QR methods failed
+to distinguish useless terms to be removed. This can be an interesting
+research direction to investigate for future work. 
 \item Dealing with mid-long queries, VSM performs better than BM25, while
 for very long query (i.e. description), BM25 based QR methods perform
 better than VSM based QR methods. \textcolor{blue}{(Reda: Any suggestion
@@ -873,7 +857,7 @@ air conditioning the interior of a compartment includes a compressor
 \label{sec:Conclusion}
 
 In this paper we analyzed general and specific query reformulation
-methods for patent prior art search for partial (incomplete) patent
+methods for patent prior art search with partial (incomplete) patent
 applications on two patent retrieval corpora, namely CLEF-IP 2010
 and CLEF-IP 2011. We demonstrated that QE methods are critical for
 short queries, i.e. title, abstract, and claims, but useless for very
