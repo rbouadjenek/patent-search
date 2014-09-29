@@ -858,24 +858,36 @@ air conditioning the interior of a compartment includes a compressor
 
 In this paper we analyzed general and specific query reformulation
 methods for patent prior art search with partial (incomplete) patent
-applications on two patent retrieval corpora, namely CLEF-IP 2010
-and CLEF-IP 2011. We demonstrated that QE methods are critical for
-short queries, i.e. title, abstract, and claims, but useless for very
-long queries, i.e. the description section. We also showed that claims
-is the best section that works with QE both to query with and to use
-as a source of query expansion terms, suggesting that claims should
-be written at early stages of the patent application drafting so that
-they can be use to performed patent prior art search. In the same
+applications on patent retrieval corpuses of CLEF-IP. We demonstrated
+that QE methods are critical for short queries, i.e. title, abstract,
+and claims, but useless for very long queries, i.e. the description
+section. We also showed that the description is the best section that
+works with QE to query with, followed by the claims, the abstract,
+then the title section. As for the source of query expansion terms,
+the claims seems to be the best section since it provides terms and
+terminology specific to the patent application domain. In the same
 vein, we also found that the patent specific fields are more suited
-as a source for expansion than external sources such as synonym dictionaries.
-Here, future work concerns how can we exploit patent specific meta-data
-such as inventor and citation networks for query expansion
+as a source for expansion than external sources such as synonym dictionaries,
+or IPC codes. For QE, future work concerns how can we exploit patent
+specific meta-data such as inventor and citation networks to retrieve
+more relevant terms to the query.
 
 Regarding QR methods, we showed that these techniques are effective
-to some extent for claims and description sections, which are considered
-the longest sections in a patent application. Future work may consist
-of exploiting query quality predictors to identify useless terms in
-a query using machine learning methods.
+to some extent especially for the abstract and claims sections, which
+are considered as mid-long sections in a patent application. The improvement
+of QR method on the description section is not that significant. Future
+work may consist of exploiting query quality predictors to identify
+useless terms in a query using machine learning methods.
+
+Finally, it is clear that for a patent examiner, using the description
+section of a patent application with perhaps a QR method like MMRQR
+or RocchioQR will help to find the most relevant documents (to invalidate
+the application). However, for inventors, before investing too much
+time in writing a full patent application, we believe that it's better
+to first write a brief description of their invention in the form
+of an abstract. Then, use Rocchio with expanded terms coming from
+the claims to get the most relevant documents to make a prior art
+search task (to position the current invention with related work).
 
 {\scriptsize{} \bibliographystyle{abbrv}
 \bibliography{biblio}
