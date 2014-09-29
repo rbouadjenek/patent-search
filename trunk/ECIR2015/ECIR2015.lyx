@@ -3732,7 +3732,7 @@ load
 placement t
 wide true
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -4206,7 +4206,7 @@ PRES:
 
 \series bold
 \size scriptsize
-LMQR removed terms: 
+RocchioQR removed terms: 
 \series default
 \bar under
 minim
@@ -4883,7 +4883,7 @@ PRES:
 
 \series bold
 \size scriptsize
-LMQR removed terms: 
+RocchioQR removed terms: 
 \series default
 \bar under
 compart
