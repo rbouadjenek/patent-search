@@ -63,7 +63,7 @@ public class AnalyseFNs {
 		
 		
 		/*--------------------------- Write in outputfile. ------------------------*/
-		String outputfile = "./output/AnalysisFNs/AnalyzeFNs-test.txt";
+		String outputfile = "./output/AnalysisFNs/AnalyzeFNs-k1000-sep27.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
@@ -104,13 +104,13 @@ public class AnalyseFNs {
 				GetPatentFile gpf = new GetPatentFile();
 				String path = gpf.GetPatentPath(fn);
 
-				QueryGneration query = new QueryGneration(_rootpath + path, 0, 0, 1, 0, 0, 0, true, true);
+				QueryGneration fndoc = new QueryGneration(_rootpath + path, 0, 0, 1, 0, 0, 0, true, true);
 
 				//			System.out.println(" [" + k + "] [" + fn + "], " + query.getDescLangOrMising()); 
 
-				if(query.getDescLangOrMising().equals("en")){en++;}
-				if(query.getDescLangOrMising().equals("non-en")){nen++;}
-				if(query.getDescLangOrMising().equals("missing")){miss++;}
+				if(fndoc.getDescLangOrMising().equals("en")){en++;}
+				if(fndoc.getDescLangOrMising().equals("non-en")){nen++;}
+				if(fndoc.getDescLangOrMising().equals("missing")){miss++;}
 			}
 			//		System.out.println("QueryId" + "\t\t" + "En%" + "\t\t" + "Non-En%" + "\t\t" + "missing%" + "\t" + "FN size");
 			if(k != 0){

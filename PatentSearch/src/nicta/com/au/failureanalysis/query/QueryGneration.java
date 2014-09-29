@@ -456,7 +456,7 @@ public class QueryGneration {
 	}
     
     public String getDescLangOrMising() throws IOException {
-    	
+
     	String status = null;
     	if(pt.getDescription() != null) {
     		if (pt.getDescription().getLang().toLowerCase().equals("en")){
@@ -469,7 +469,6 @@ public class QueryGneration {
     	}
 
     	return status;
-
     }
 
 	public String getIpc() throws IOException {
