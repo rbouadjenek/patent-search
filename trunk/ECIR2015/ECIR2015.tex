@@ -93,8 +93,7 @@ Another important characteristic about patent prior art search is
 that, in contrast to scientific and technical writers, patent writers
 tend to generalize and maximize the scope of what is protected by
 a patent using a combination of abstract and specific terminology,
-which make also hard to find any relevant prior work by the patent
-examiner.
+which make also hard to find any relevant prior work by prior art searchers.
 
 While much of the literature inspired by the evaluation framework
 of the CLEF-IP competition has aimed to assist patent examiners in
@@ -176,7 +175,7 @@ and relevant documents, with the objective of assessing not only the
 performance of standard query reformulation methods, but also the
 effectiveness of query reformulation methods that exploit patent-specific
 characteristics. In summary, the contributions of this paper are the
-following: 
+followings: 
 \begin{enumerate}
 \item A review of both patent specific and standard query reformulation
 methods for patent prior art search with partial patent applications.
@@ -208,13 +207,11 @@ removed. Hence, given a query representation $Q$, QR aims to select
 an optimal subset $T_{k}\subset Q$ of $k$ terms, which are relevant
 to $Q$, then build $Q'$ such as $Q'=T_{k}$.
 
-In the following, in Section \ref{sec:StandardQRMethods} we first
-describe standard query reformulation methods, then, in Section \ref{sec:SpecificQRMethods},
-we describe few patent specific query reformulation methods.
+In the following sections, we describe the standard and patent specific 
+query reformulation methods that we experiment with.
 
 
 \subsection{Standard Query Reformulation Methods}
-
 \label{sec:StandardQRMethods}
 
 
@@ -285,7 +282,7 @@ t_{k}^{*}=\argmax_{t_{k}\notin T_{k-1}^{*}}\hspace{-0.3mm}[\lambda\cos(Q,t_{k})-
 
 Here, the first cosine similarity term measures relevance between
 the query $Q$ and possible expansion term $t_{k}$ while the second
-term penalizes the possible expansion term according to it's cosine
+term penalizes the possible expansion term according to it is cosine
 similarity with any currently selected term in $T_{k-1}^{*}$. The
 parameter $\lambda\in[0,1]$ trades off relevance and diversity.
 For MMRQE, we found that $\lambda=0.5$ generally provide the best results, according to our experiments on the CLEF-IP training dataset collection.
@@ -313,12 +310,9 @@ selection that covers more documents for a fixed expansion budget
 $k$ and ideally, higher recall.
 
 \subsection{Patent Specific Query Reformulation Methods}
-
 \label{sec:SpecificQRMethods}
 
-In this section, we first describe two patent specific query expansion
-methods, then, we describe two patent specific query reduction methods.
-
+%In this section, we first describe two patent specific query expansionmethods, then, we describe two patent specific query reduction methods.
 
 \subsubsection{Synonyms Sets for Patent Query Expansion:}
 
@@ -385,9 +379,9 @@ query, and a lot in the class code definition). In the evaluation
 section we denote this approach IPC-StopWords. \\
 
 We are aware that other patent specific methods have been explored
-for patent prior art search \cite{Magdy2011,Bashir2010,Verma2011,Mahdabi2013}. These approaches have not been implemented 
+for patent prior art search \cite{Bashir2010,Verma2011,Mahdabi2013}. These approaches have not been implemented 
 because of the following reasons:
-(i) their authors already pointed out about their poor performance \cite{Magdy2011,Mahdabi2013}; 
+(i) their authors already pointed out about their poor performance \cite{Mahdabi2013}; 
 (ii) throughout our experiments,
 we concluded that relying on other terms to form a query rather than
 those in the patent application, leads to poor retrieval quality \cite{Magdy2011,Verma2011}; and 
@@ -410,7 +404,7 @@ and \ref{sec:QRResults} respectively.
 
 For our experiments we used used the Lucene IR System%
 \footnote{\texttt{http://lucene.apache.org/}%
-} to index the English subset of CLEF-IP 2010 dataset%
+} to index the English subset of CLEF-IP 2010 and CLEF-IP 2011 datasets%
 \footnote{\texttt{\url{http://www.ifs.tuwien.ac.at/~clef-ip/}}%
 }~\cite{Piroi2011,Roda2009} with the default stemming and stop-word
 removal. We removed patent specific stop-words as described in \cite{Magdy2012}.
@@ -429,7 +423,7 @@ it is sensible to use all available content.
 We also used the patent classification (IPC) for filtering the results
 by constraining them to have common classifications with the patent
 topic as suggested in previous works \cite{Lopez2009,Roda2009}. Finally,
-we report MAP, and PRES, which combines Recall with the quality of
+we report MAP, and PRES (Patent Retrieval Evaluation Score). The PRES metric combines Recall with the quality of
 ranking and weights relevant documents lower in the ranking more highly
 than MAP. We report the evaluation metrics on the top 1000 results.
 
@@ -473,17 +467,17 @@ USynSet. What is the best QE method for patent search?
 
 
 To summarize all the results obtained over all the above configurations,
-Figure \ref{fig:PRES-CLEF2010} shows the PRES obtained for all the
+Figure \ref{fig:PRES-CLEF2010} and Figure \ref{fig:MAP-CLEF2010} shows the PRES and MAP obtained for all the
 QE methods, while selecting the optimal number of terms used for the
 expansion (number of terms that maximizes the performance for each
 method). From these results, we make the following observations:\
 
 \begin{enumerate}
-\item The best section to use for querying is the description section (see
+\item For QE methods, the best section to use for querying is the description section (see
 Figure \ref{fig:qDescription-PRES-CLEF-IP2010}). We attribute this
 to the fact that the description section has more content along with
 relevant terms that define the invention since a detailed summary
-of the invention is described therein.
+of the invention is described therein. Another good choice is to query with the abstract, since we observed the mayor improvement over the baseline (i.e. No QE).
 
 \item The best source for query expansion is the claims section. We attribute
 this to the fact that, the claims contain not only relevant, but also,
@@ -512,6 +506,9 @@ gave poor performance (see IPC Codes and SynSet bars along the Figures).
 \item Finally, regarding the best term selection method, we conclude that
 in general, MMRQE provides the best performance, followed by RocchioQE.
 \end{enumerate}
+
+
+
 
 \begin{figure*}[t]
 \begin{centering}
@@ -543,7 +540,7 @@ in general, MMRQE provides the best performance, followed by RocchioQE.
 \par\end{centering}
 
 \protect\caption{MAP for QE methods on CLEF-IP 2010.}
-\label{fig:PRES-CLEF2010} 
+\label{fig:MAP-CLEF2010} 
 \end{figure*}
 
 
@@ -653,6 +650,11 @@ claims or the description sections. A critical question is what part
 of a partial application suits the best for QR? Note that we consider
 that there is no interest in reducing a title query since it contains
 only few terms. 
+\item \textbf{Relevance model:} We explored a probabilistic approach represented by the popular
+BM25~\cite{Robertson1993} algorithm, as well as a vector space model
+(VSM) approach, TF-IDF~\cite{Salton1975}. A natural question is
+which relevance model works best for query reduction for patent prior
+art search? 
 \item \textbf{Term selection method:} We consider the different query reduction
 methods described above, i.e. RocchioQR, MMRQR, LMQR, IPC-StopWords. What
 is the best QR method for patent search?
@@ -662,9 +664,8 @@ is the best QR method for patent search?
 To summarize all the results obtained over all the above configurations,
 Figures \ref{fig:QR-PRES-CLEF-IP2010}, and \ref{fig:QR-MAP-CLEF-IP2011}
 show the performance obtained for all the QR methods, when selecting
-the optimal number of terms removed from the original queries (number
-of terms removed that maximizes the performance for each method).
-From these results, we make the following observations: 
+the optimal number of terms removed from the original queries (the number
+of terms removed that maximizes the performance for each method was found to be 30). From these results, we make the following observations: 
 
 \begin{enumerate}
 \item Query reduction is often useful for mid-long queries (i.e. abstract
@@ -673,131 +674,17 @@ outperforms the baseline significantly (i.e. No QR). Since many confusing terms
 are used in the description part, probably current QR methods failed
 to distinguish useless terms to be removed. This can be an interesting
 research direction to investigate for future work. 
-\item Dealing with mid-long queries, VSM performs better than BM25, while
+\item When dealing with mid-long queries, VSM performs better than BM25, while
 for very long query (i.e. description), BM25 based QR methods perform
 better than VSM based QR methods. \textcolor{blue}{(Reda: Any suggestion
 to explain that?)}
-\item In general, RocchioQR and MMRQR provide better performance than the
-other methods.
+\item The term selection methods that provide the best performance are, in general, RocchioQR and MMRQR.
 \end{enumerate}
 
 
-% To give an insight of the effect of MMRQR and RocchioQR over the performance, Table \ref{tbl:QRSampleQueries} shows some queries where QR methods are helpful. First, we notice that even if there is common terms removed from the  original queries by both MMRQR and RocchioQR, the lists of MMRQR contain more similar terms (e.g. \textit{laser, light, interferometer} for the first example). For the first example, MMRQR removed similar terms from the queries, which favor finding more diverse patent relevant to the patent applications. However, for the third query, MMRQR removed the main terms from the query (\textit{motor}, and thermal \textit{load}), which likely decrease the quality of the query.
-
-\begin{comment}
-\begin{table*}[t]
-\protect\caption{Samples of queries extracted from CLEF-IP 2011, where MMRQR and RocchioQR
-improve the performance. (P: Precision, R: Recall, AP: Average Precision,
-PRES: Patent Retrieval Evaluation Score). }
-\label{tbl:QRSampleQueries}
-
-\centering{}%
-\begin{tabular}{|>{\raggedright}p{12cm}|}
-\hline 
-\textbf{\scriptsize{}1- Topic: }{\scriptsize{}EP-1424597-A2}\tabularnewline
-\hline 
-\textbf{\scriptsize{}Abstract:}{\scriptsize{} Measurements of an interferometric
-measurement system are corrected for variations of atmospheric conditions
-such as pressure, temperature and turbulence using measurements from
-a second harmonic interferometer (10). A ramp, representing the dependence
-of...}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{12cm}}
-{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.022} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.648}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}MMRQR removed terms: temperatur}{\scriptsize{},
-}\textbf{\scriptsize{}detector}{\scriptsize{}, }\textbf{\scriptsize{}path}{\scriptsize{},
-}\textbf{\scriptsize{}laser}{\scriptsize{}, }\textbf{\scriptsize{}light}{\scriptsize{},
-}\textbf{\scriptsize{}interferometr}{\scriptsize{}, }\textbf{\scriptsize{}brewster}{\scriptsize{},
-}\textbf{\scriptsize{}sensit}{\scriptsize{}, }\textbf{\scriptsize{}repres}{\scriptsize{},
-}\textbf{\scriptsize{}sourc}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{12cm}}
-{\scriptsize{}MMRQR performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.100} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.166} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.053} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.761}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}RocchioQR removed terms: }{\scriptsize{}\uline{minim}}{\scriptsize{},
-}{\scriptsize{}\uline{conduct}}{\scriptsize{}, }{\scriptsize{}\uline{variat}}{\scriptsize{},
-}{\scriptsize{}\uline{shi}}{\scriptsize{}, }{\scriptsize{}\uline{turbul}}{\scriptsize{},
-}{\scriptsize{}\uline{condit}}{\scriptsize{}, }{\scriptsize{}\uline{pressur}}{\scriptsize{},
-}{\scriptsize{}\uline{remov}}{\scriptsize{}, }{\scriptsize{}\uline{ramp}}{\scriptsize{},
-}{\scriptsize{}\uline{thick}}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{12cm}}
-{\scriptsize{}RocchioQR performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.000} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.036} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.724}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\hline 
-\textbf{\scriptsize{}3- Topic: }{\scriptsize{}EP-1314594-A1}\tabularnewline
-\hline 
-\textbf{\scriptsize{}Abstract:}{\scriptsize{} An air conditioner for
-air conditioning the interior of a compartment includes a compressor
-(C) and an electric motor (84). The compressor (C) compresses refrigerant...}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{12cm}}
-{\scriptsize{}Baseline performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.600} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.307} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.301} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.777}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}MMRQR removed terms:}{\scriptsize{} }\textbf{\scriptsize{}\uline{refer}}{\scriptsize{},
-}\textbf{\scriptsize{}motor}{\scriptsize{}, }\textbf{\scriptsize{}\uline{current}}{\scriptsize{},
-}\textbf{\scriptsize{}\uline{relat}}{\scriptsize{}, }\textbf{\scriptsize{}condit}{\scriptsize{},
-}\textbf{\scriptsize{}constant}{\scriptsize{}, }\textbf{\scriptsize{}\uline{suppli}}{\scriptsize{},
-}\textbf{\scriptsize{}\uline{compress}}{\scriptsize{}, }\textbf{\scriptsize{}load}{\scriptsize{},
-}\textbf{\scriptsize{}\uline{match}}\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{12cm}}
-{\scriptsize{}MMRQR performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.500} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.384} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.221} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.774}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\textbf{\scriptsize{}RocchioQR removed terms: }{\scriptsize{}\uline{compart}}{\scriptsize{},
-}\textbf{\scriptsize{}\uline{suppli}}{\scriptsize{}, }\textbf{\scriptsize{}\uline{current}}{\scriptsize{},
-}{\scriptsize{}\uline{ga}}{\scriptsize{}, }\textbf{\scriptsize{}\uline{refer}}{\scriptsize{},
-}\textbf{\scriptsize{}\uline{compress}}{\scriptsize{}, }\textbf{\scriptsize{}\uline{relat}}{\scriptsize{},
-}{\scriptsize{}\uline{interior}}{\scriptsize{}, }{\scriptsize{}\uline{thermal}}{\scriptsize{},
-}\textbf{\scriptsize{}\uline{match}}{\scriptsize{}, }\tabularnewline
-\hline 
-\begin{tabular}{>{\centering}p{12cm}}
-{\scriptsize{}RocchioQR performance:}~{\scriptsize{}}%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-\hline 
-\textbf{\scriptsize{}P@5:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}P@10:} & {\scriptsize{}0.400} & \textbf{\scriptsize{}R@10:} & {\scriptsize{}0.307} & \textbf{\scriptsize{}AP:} & {\scriptsize{}0.266} & \textbf{\scriptsize{}PRES:} & {\scriptsize{}0.802}\tabularnewline
-\hline 
-\end{tabular}\tabularnewline
-\end{tabular}\tabularnewline
-\hline 
-\end{tabular}
-\end{table*}
-\end{comment}
 
 
 \section{Conclusion and Future Work}
-
 \label{sec:Conclusion}
 
 In this paper we analyzed general and specific query reformulation
