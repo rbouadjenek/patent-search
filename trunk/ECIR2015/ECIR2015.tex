@@ -40,25 +40,42 @@
 Patents are used by entities to legally protect their inventions and
 represent a multi-billion dollar industry of licensing and litigation.
 In 2013, 302,948 patent applications were approved in the US alone --
-a number that has doubled in the past 15 years. While much of the
-literature inspired by the evaluation framework of the CLEF-IP
-competition has aimed to assist patent examiners in assessing prior
-art for complete patent applications, less of this work has focused on
-patent search with queries representing (partial) applications to help
-inventors to assess the patentability of their ideas prior to writing
-a full application. In this context, a query is much longer than in
-other standard IR tasks. It can take the form of a sentence
-(i.e. title) or several paragraphs with thousands of words (i.e. the
-description).  This has led the research to focus on query
-reformulation for patent search.  In this paper, we carry out an
-intensive study of both patent specific and standard query
-reformulation methods for patent prior art search with partial patent
-applications.  We found that query expansion methods are useful for
-short queries (title, abstract and claims), and query reduction
-methods are often useful for mid-long sections (abstract and claims).
-We also shown that the abstract is a good section to query with,
-suggesting that writing the abstract is useful in the early stages of
-a patent drafting.
+a number that has doubled in the past 15 years and which makes prior
+art search a daunting, but necessary task in the patent application
+process.  In this work, we seek to investigate the efficacy of prior
+art search strategies from the perspective of the inventor who wishes
+to assess the patentability of their ideas prior to writing a full
+application.  While much of the literature inspired by the evaluation
+framework of the CLEF-IP competition has aimed to assist patent
+examiners in assessing prior art for complete patent applications,
+less of this work has focused on patent search with queries
+representing partial applications.  In the (partial) patent search
+setting, a query is often much longer than in other standard IR tasks,
+e.g., a claims section may contain hundreds or even thousands of
+words.  While the length of such queries may suggest query reduction
+strategies to remove irrelevant terms, intentional obfuscation and
+general language used in patents also suggests that it may help to
+expand queries with additionally relevant terms.  To aid the patent
+inventor in developing an effective pre-application prior art search
+strategy, we comparatively evaluate a variety of partial application
+search and query reformulation methods.  Among numerous findings,
+querying with a full description in conjunction with generic
+(non-patent specific) query reduction methods is recommended for best
+performance.  However, we also find that querying with an abstract
+represents the best trade-off in terms of writing effort vs. retrieval
+efficacy (i.e., querying with the claims or description sections only
+lead to marginal improvements) and that for such relatively short
+queries, generic query expansion methods help.
+%This has led the research to focus on query
+%reformulation for patent search.  In this paper, we carry out an
+%intensive study of both patent specific and standard query
+%reformulation methods for patent prior art search with partial patent
+%applications.  We found that query expansion methods are useful for
+%short queries (title, abstract and claims), and query reduction
+%methods are often useful for medium-length sections (abstract and claims).
+%We also shown that the abstract is a good section to query with,
+%suggesting that writing the abstract is useful in the early stages of
+%a patent drafting.
 
 %We intend to mainly answer the following questions: \emph{What are these query reformulation methods? How do they work? What is the best section in a patent application to use as a query? What is the best query reformulation method? }
 
@@ -495,7 +512,7 @@ terms that hurt the performance.
 \item Query expansion is not useful for very long queries (i.e. description) since no method outperforms the baseline. This indicates that in advanced stages of the patent preparation process,
 QE is not relevant (see Figure \ref{fig:qDescription-MAP-CLEF-IP2010} and Figure \ref{fig:qDescription-PRES-CLEF-IP2010}).
 
-\item When dealing with more mid-long queries such as abstract or claims,
+\item When dealing with more medium-length queries such as abstract or claims,
 MMRQE is more effective than Rocchio, which suggest that diverse term
 selection is not crucial for short queries. 
 
@@ -668,13 +685,13 @@ the optimal number of terms removed from the original queries (the number
 of terms removed that maximizes the performance for each method was found to be 30). From these results, we make the following observations: 
 
 \begin{enumerate}
-\item Query reduction is often useful for mid-long queries (i.e. abstract
+\item Query reduction is often useful for medium-length queries (i.e. abstract
 and claims), but not useful for very long queries since no method
 outperforms the baseline significantly (i.e. No QR). Since many confusing terms
 are used in the description part, probably current QR methods failed
 to distinguish useless terms to be removed. This can be an interesting
 research direction to investigate for future work. 
-\item When dealing with mid-long queries, VSM performs better than BM25, while
+\item When dealing with medium-length queries, VSM performs better than BM25, while
 for very long query (i.e. description), BM25 based QR methods perform
 better than VSM based QR methods. \textcolor{blue}{(Reda: Any suggestion
 to explain that?)}
@@ -705,7 +722,7 @@ more relevant terms to the query.
 
 Regarding QR methods, we showed that these techniques are effective
 to some extent especially for the abstract and claims sections, which
-are considered as mid-long sections in a patent application. The improvement
+are considered as medium-length sections in a patent application. The improvement
 of QR method on the description section is not that significant. Future
 work may consist of exploiting query quality predictors to identify
 useless terms in a query using machine learning methods.
