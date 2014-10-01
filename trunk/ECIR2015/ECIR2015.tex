@@ -12,7 +12,11 @@
 \usepackage{algorithmic}
 \usepackage{epstopdf} 
 \usepackage{comment}
+\usepackage{amsmath,amsfonts,amssymb}
 
+% Define argmin, argmax
+\def\argmax{\operatornamewithlimits{arg\,max}}
+\def\argmin{\operatornamewithlimits{arg\,min}}
 
 \makeatletter
 
@@ -35,26 +39,26 @@
 \begin{abstract}
 Patents are used by entities to legally protect their inventions and
 represent a multi-billion dollar industry of licensing and litigation.
-In 2012, 276,788 patent applications were approved in the US alone
--- a number that has doubled in the past 15 years. While much of the
-literature inspired by the evaluation framework of the CLEF-IP competition
-has aimed to assist patent examiners in assessing prior art for complete
-patent applications, less of this work has focused on patent search
-with queries representing (partial) applications to help inventors
-to assess the patentability of their ideas prior to writing a full
-application. In this context, a query is much longer than in other
-standard IR tasks. It can take the form of a sentence (i.e. title)
-or several paragraphs with thousands of words (i.e. the description). 
-This has led the research to focus on query
-reformulation for patent search.
-In this paper, we carry
-out an intensive study of both patent specific and
-standard query reformulation methods for patent prior art search with
-partial patent applications. 
-We found that query expansion methods are useful for short queries
-(title, abstract and claims),  
-and query reduction methods are often useful for mid-long sections (abstract and claims).
-We also shown that the abstract is a good section to query with, suggesting that writing the abstract is useful in the early stages of a patent drafting.
+In 2013, 302,948 patent applications were approved in the US alone --
+a number that has doubled in the past 15 years. While much of the
+literature inspired by the evaluation framework of the CLEF-IP
+competition has aimed to assist patent examiners in assessing prior
+art for complete patent applications, less of this work has focused on
+patent search with queries representing (partial) applications to help
+inventors to assess the patentability of their ideas prior to writing
+a full application. In this context, a query is much longer than in
+other standard IR tasks. It can take the form of a sentence
+(i.e. title) or several paragraphs with thousands of words (i.e. the
+description).  This has led the research to focus on query
+reformulation for patent search.  In this paper, we carry out an
+intensive study of both patent specific and standard query
+reformulation methods for patent prior art search with partial patent
+applications.  We found that query expansion methods are useful for
+short queries (title, abstract and claims), and query reduction
+methods are often useful for mid-long sections (abstract and claims).
+We also shown that the abstract is a good section to query with,
+suggesting that writing the abstract is useful in the early stages of
+a patent drafting.
 
 %We intend to mainly answer the following questions: \emph{What are these query reformulation methods? How do they work? What is the best section in a patent application to use as a query? What is the best query reformulation method? }
 
@@ -67,7 +71,8 @@ We also shown that the abstract is a good section to query with, suggesting that
 
 \noindent Patents are used by entities to legally protect their inventions
 and represent a multi-billion dollar industry of licensing and litigation.
-In 2012, 276,788 patent applications were approved in the US alone,
+In 2013, 302,948 patent applications were approved in the US 
+alone\footnote{\texttt{http://www.uspto.gov/web/offices/ac/ido/oeip/taf/us\_stat.htm}},
 a number that has doubled in the past 15 years. Hence, helping both
 inventors and patent examiners assess the patentability of a given
 patent application through a patent prior art search is a critical
