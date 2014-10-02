@@ -2872,7 +2872,7 @@ The description section does not appear to be a good source for expansion,
 \begin_layout Enumerate
 When dealing with short and medium-length queries (i.e., title, abstract,
  and claims), VSM performs better than BM25, while for very long queries
- (i.e., description), BM25 performs.
+ (i.e., description), BM25 performs the best.
  
 \end_layout
 
