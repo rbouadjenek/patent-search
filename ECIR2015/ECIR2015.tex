@@ -55,13 +55,13 @@ setting, a query is often much longer than in other standard IR tasks,
 e.g., a claims section may contain hundreds or even thousands of
 words.  While the length of such queries may suggest query reduction
 strategies to remove irrelevant terms, intentional obfuscation and
-general language used in patents also suggests that it may help to
-expand queries with additionally relevant terms.  To aid the patent
-inventor in developing an effective pre-application prior art search
-strategy, we comparatively evaluate a variety of partial application
+general language used in patents suggests that it may help to
+expand queries with additionally relevant terms.  To assess the
+trade-offs among all of these pre-application prior art search
+strategies, we comparatively evaluate a variety of partial application
 search and query reformulation methods.  Among numerous findings,
-querying with a full description in conjunction with generic
-(non-patent specific) query reduction methods is recommended for best
+querying with a full description, perhaps in conjunction with generic
+(non-patent specific) query reduction methods, is recommended for best
 performance.  However, we also find that querying with an abstract
 represents the best trade-off in terms of writing effort vs. retrieval
 efficacy (i.e., querying with the claims or description sections only
@@ -747,11 +747,11 @@ observations:
   claims), VSM performs better than BM25, while for very long queries
   (i.e., description), BM25-based QR methods perform better than
   VSM-based QR methods.
-\item In comparison to the corresponding MAP and PRES results
+\item In comparison to the MAP and PRES results
   for QE from Figure \ref{fig:MAP-CLEF2010} and Figure
   \ref{fig:PRES-CLEF2010}, the best QE and QR methods perform comparably
   for abstract and claims queries, whereas for description queries, the best QR 
-  method slightly outperforms the best QE method.  Hence, the best
+  method slightly outperforms the best QE method and No QR.  Hence, the best
   overall retrieval result in this work in terms of both MAP and PRES
   comes from a description query with a generic (non-patent specific) QR method.
 \end{enumerate}
@@ -763,7 +763,7 @@ In this paper, we analyzed various query strategies for patent prior
 art search with partial (incomplete) applications along with generic
 and patent-specific query reformulation (expansion and reduction)
 methods.  We performed a comprehensive comparative evaluation of these
-methods on the CLEF-IP patent retrieval corpus.
+methods on the CLEF-IP patent corpus for prior art search.
 
 We showed that the description is the best partial application section
 to query with, followed by the claims, the abstract, and lastly the
@@ -789,11 +789,12 @@ specialized expansion sources such as synonym lexicons or IPC code definitions.
 %meta-data such as inventor and citation networks to better exploit
 %specialized domains of discourse relevant to patent subfields.
 
-Regarding query reduction (QR) methods, we showed that these
-techniques are generally most effective in comparison to QE for the
-description section (the longest section used as a partial application
-query).  Indeed, the best overall retrieval performance results in this work are
-achieved with generic (non-patent specific) QR methods for a description query.
+Regarding query reduction (QR) methods, we showed these
+techniques are generally most effective compared to QE 
+for the description section (the longest section used as a partial
+application query).  Albeit by a slim margin over No QR, the overall
+best retrieval performance results in this work are achieved with
+generic (non-patent specific) QR methods for description queries.
 
 %Finally, it is clear that for a patent examiner, using the description
 %section of a patent application with perhaps a QR method like MMRQR
@@ -806,12 +807,12 @@ achieved with generic (non-patent specific) QR methods for a description query.
 %
 %These observations does not contradict with the  
 
-In conclusion, returning to our initial objective to aid the patent
-inventor in developing an effective pre-application prior art search
-strategy, our evaluation reveals that while querying with a
-full description in conjunction with generic (non-patent specific)
-query reduction methods yields best overall retrieval performance, querying with
-just an abstract in conjunction with generic QE methods may yield the best
+In conclusion, we return to our initial objective to aid the patent
+inventor in identifying an effective pre-application prior art search
+strategy.  Our evaluation reveals the critical insight that while
+querying with a full description, perhaps combined with generic query
+reduction methods, yields strong overall retrieval performance, querying
+with just an abstract and using generic QE methods may yield the best
 trade-off in terms of writing effort vs. retrieval performance.
 %Future work should investigate whether QE methods for abstract queries
 %can rival the best methods for description queries --- if such a result
