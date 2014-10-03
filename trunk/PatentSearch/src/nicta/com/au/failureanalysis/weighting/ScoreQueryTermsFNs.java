@@ -1,4 +1,9 @@
-package nicta.com.au.failureanalysis.query.test;
+/*package nicta.com.au.failureanalysis.weighting;
+
+public class ScoreQueryTermsTPs {
+
+}*/
+package nicta.com.au.failureanalysis.weighting;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +25,8 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
 
+import com.sun.org.apache.bcel.internal.generic.FNEG;
+
 import nicta.com.au.failureanalysis.evaluate.AnalyseFNs;
 import nicta.com.au.failureanalysis.evaluate.EvaluateResults;
 import nicta.com.au.failureanalysis.query.QueryGneration;
@@ -30,7 +37,7 @@ import nicta.com.au.patent.document.PatentDocument;
 import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 import nicta.com.au.patent.pac.search.PACSearcher;
 
-public class TopQueryTerms {
+public class ScoreQueryTermsFNs {
 
 	static String querypath = "data/CLEF-IP-2010/PAC_test/topics/";	
 	static String indexDir = "data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
@@ -43,24 +50,25 @@ public class TopQueryTerms {
 
 		PACSearcher searcher = new PACSearcher(indexDir, similarity, topK);
 		EvaluateResults er = new EvaluateResults();
-//		AnalyseFNs afn = new AnalyseFNs();
+		AnalyseFNs afn = new AnalyseFNs();
 		
 		CollectionSearcher collsearcher = new CollectionSearcher(indexDir, similarity, topK);
-		System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
+//		System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
 
 		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-test2.xml");
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 
 			String queryid = topic.getKey();
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
-			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
-//			ArrayList<String> enfns = afn.getEnglishFNs(queryid);
+//			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
+			ArrayList<String> enfns = afn.getEnglishFNs(queryid);
+			int fn_size = enfns.size();
 			
 			QueryGneration query = new QueryGneration(querypath + queryfile, 0, 1, 0, 0, 0, 0, true, true);
 			Map<String, Integer> qterms = query.getSectionTerms(field);
 			HashMap<String, Float> termscores = new HashMap<String, Float>();
 
-			System.out.println(qterms.size());
+//			System.out.println(qterms.size());
 			System.out.println(topic.getValue().getUcid());
 			for(Entry<String, Integer> t : qterms.entrySet()){
 				String qterm = t.getKey();				
@@ -93,11 +101,14 @@ public class TopQueryTerms {
 			//	        System.out.println("unsorted map: " + termscores);			
 			sortedtermscores.putAll(termscores);
 			//	        System.out.println("sorted map: " + sortedtermscores);
-			for (String doc : tps) {
+			float avg = 0;
+			float sumdoctermscore = 0;
+			for (String doc : enfns) {
 //				System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
 				int i=0;
 				int j=0;
 				float sumtopqtermsscore = 0;
+				sumdoctermscore = 0;
 				HashSet<String> dterms = reader.getDocTerms("UN-" + doc, field);
 				System.out.println(doc+"\t"+dterms);
 				for( Entry<String, Float> topscoreterm : sortedtermscores.entrySet()){
@@ -108,29 +119,34 @@ public class TopQueryTerms {
 						sumtopqtermsscore = sumtopqtermsscore + toptermscore;
 						if(dterms!=null && dterms.contains(topterm)){
 							j++;
-//							collsearcher.getscore(field, term, filename)
+							float doctermscore = collsearcher.getscore(field, topterm, doc);
 							System.out.println("["+ j + "]\t" + topterm + "\t" + toptermscore + "\t" 
-									+ collsearcher.getscore(field, topterm, doc));
+									+ doctermscore);
+							sumdoctermscore = sumdoctermscore + doctermscore;
 						}
 //						System.out.println("["+ i + "]\t" + topterm + "\t" + toptermscore);	
 					}			
 				}
-				System.out.println(sumtopqtermsscore);
+				System.out.println(sumtopqtermsscore + "\t" + j + "\t" + sumdoctermscore );
+				avg = avg + sumdoctermscore;
 			}
+			avg = avg/fn_size;
+			System.out.println(avg);
 		}
+		
 	}
 
 	public static void main(String[] args) throws IOException {
 
 		CollectionReader reader = new CollectionReader(indexDir); 
 
-		TopQueryTerms toptrtms = new TopQueryTerms();
+		ScoreQueryTermsFNs toptrtms = new ScoreQueryTermsFNs();
 		toptrtms.getTopQTerms(reader);
 
 	}
 }
 
-class ValueComparator implements Comparator<String> {
+/*class ValueComparator implements Comparator<String> {
 
 	Map<String, Float> base;
 	public ValueComparator(Map<String, Float> base) {
@@ -146,3 +162,4 @@ class ValueComparator implements Comparator<String> {
 		} // returning 0 would merge keys
 	}
 }
+*/

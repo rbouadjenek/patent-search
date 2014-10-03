@@ -1,4 +1,9 @@
-package nicta.com.au.failureanalysis.query.test;
+/*package nicta.com.au.failureanalysis.weighting;
+
+public class ScoreQueryTermsTPs {
+
+}*/
+package nicta.com.au.failureanalysis.weighting;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +35,7 @@ import nicta.com.au.patent.document.PatentDocument;
 import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 import nicta.com.au.patent.pac.search.PACSearcher;
 
-public class TopQueryTerms {
+public class ScoreQueryTermsTPs {
 
 	static String querypath = "data/CLEF-IP-2010/PAC_test/topics/";	
 	static String indexDir = "data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
@@ -54,6 +59,7 @@ public class TopQueryTerms {
 			String queryid = topic.getKey();
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
 			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
+			int tps_size = tps.size();
 //			ArrayList<String> enfns = afn.getEnglishFNs(queryid);
 			
 			QueryGneration query = new QueryGneration(querypath + queryfile, 0, 1, 0, 0, 0, 0, true, true);
@@ -93,11 +99,13 @@ public class TopQueryTerms {
 			//	        System.out.println("unsorted map: " + termscores);			
 			sortedtermscores.putAll(termscores);
 			//	        System.out.println("sorted map: " + sortedtermscores);
+			float avg = 0;
 			for (String doc : tps) {
 //				System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
 				int i=0;
 				int j=0;
 				float sumtopqtermsscore = 0;
+				float sumdoctermscore = 0;
 				HashSet<String> dterms = reader.getDocTerms("UN-" + doc, field);
 				System.out.println(doc+"\t"+dterms);
 				for( Entry<String, Float> topscoreterm : sortedtermscores.entrySet()){
@@ -108,15 +116,18 @@ public class TopQueryTerms {
 						sumtopqtermsscore = sumtopqtermsscore + toptermscore;
 						if(dterms!=null && dterms.contains(topterm)){
 							j++;
-//							collsearcher.getscore(field, term, filename)
+							float doctermscore = collsearcher.getscore(field, topterm, doc);
 							System.out.println("["+ j + "]\t" + topterm + "\t" + toptermscore + "\t" 
-									+ collsearcher.getscore(field, topterm, doc));
-						}
-//						System.out.println("["+ i + "]\t" + topterm + "\t" + toptermscore);	
+									+ doctermscore);
+							sumdoctermscore = sumdoctermscore + doctermscore;
+						}						
 					}			
 				}
-				System.out.println(sumtopqtermsscore);
+				System.out.println(sumtopqtermsscore + "\t" + j + "\t" + sumdoctermscore );
+				avg = avg + sumdoctermscore;
 			}
+			avg = avg/tps_size;
+			System.out.println(avg);
 		}
 	}
 
@@ -124,7 +135,7 @@ public class TopQueryTerms {
 
 		CollectionReader reader = new CollectionReader(indexDir); 
 
-		TopQueryTerms toptrtms = new TopQueryTerms();
+		ScoreQueryTermsTPs toptrtms = new ScoreQueryTermsTPs();
 		toptrtms.getTopQTerms(reader);
 
 	}

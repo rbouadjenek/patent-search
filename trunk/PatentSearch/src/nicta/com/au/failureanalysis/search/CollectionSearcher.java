@@ -78,7 +78,8 @@ public class CollectionSearcher {
 		this.topK = topK;
 	}
 
-	public boolean termExists(String field, String term, String filename) throws IOException {
+	
+	public float getscore(String field, String term, String filename) throws IOException {
 		TermQuery query = new TermQuery(new Term(field, term));
 		TopDocs topdocs = is.search(query, topK);
 		/*System.err.println("'" + term + "'"
@@ -90,7 +91,31 @@ public class CollectionSearcher {
 			if(doc.get(PatentDocument.FileName).contains(filename)){
 				// .substring(3).equals(filename)
 				//				termfreq = de.freq();
+//				System.out.println(scoreDoc.score);
+				return scoreDoc.score;
+				
+			}
+			//			doc.get(PatentDocument.FileName).substring(3);
+		}
+		return (float) 0;
+	}
+
+	
+	public boolean termExists(String field, String term, String filename) throws IOException {
+		TermQuery query = new TermQuery(new Term(field, term));
+		TopDocs topdocs = is.search(query, topK);
+		System.err.println("'" + term + "'"
+				+ " appeared in " + topdocs.totalHits
+				+ " documents:");
+		for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
+			Document doc = is.doc(scoreDoc.doc);
+			//			System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName).substring(3) + " " + scoreDoc.score);
+			if(doc.get(PatentDocument.FileName).contains(filename)){
+				// .substring(3).equals(filename)
+				//				termfreq = de.freq();
+				System.out.println(scoreDoc.score);
 				return true;
+				
 			}
 			//			doc.get(PatentDocument.FileName).substring(3);
 		}
@@ -174,13 +199,14 @@ public class CollectionSearcher {
 		String indexDir = args[0];
 
 
-		String term = /*"film"*//*"print"*//*"G03F"*/"C04B" /*"G06F"*//*"b32b" *//* "h01l"*/ /*"methyl" */ /*"mona"*/ /*"resin"*/;
+		String term = "hammer"/*"film"*//*"print"*//*"G03F"*//*"C04B"*/ /*"G06F"*//*"b32b" *//* "h01l"*/ /*"methyl" */ /*"mona"*/ /*"resin"*/;
 		String wildcardterm = "G03?";
 		String prefixterm = "G03";
-		String field = PatentDocument.Classification /*PatentDocument.Description*/;
-		String filename = "EP-0415270";
+		String field = /*PatentDocument.Classification*/ PatentDocument.Description;
+		String filename = /*"EP-0415270"*/ "EP-0426633" /*"EP-0388383"*/;
 
-		CollectionSearcher searcher = new CollectionSearcher(indexDir, "bm25ro", 1000000);
+		CollectionSearcher searcher = new CollectionSearcher(indexDir, "bm25ro", 10000000);
+		System.out.println(searcher.getscore(field, term, filename));
 
 		/*---------------------Testing SingleTermSEarch method---------------------*/
 		System.out.println(searcher.termExists(field, term, filename));
@@ -190,19 +216,21 @@ public class CollectionSearcher {
 
 		/*ArrayList<String>*/HashSet<String> returned_docs = searcher.singleTermSearch(field , term.toLowerCase()); 
 
+		
+		/*---------------------wildcard and prefix search ---------------------*/
 		int n = 0;
 		/*for (String d : returned_docs) {
 				n++;
 				System.out.println("[" + n + "] " + d);
 			}*/
 
-		HashSet<String> wilds = searcher.wildcardSearch(field, wildcardterm.toLowerCase());
+		/*HashSet<String> wilds = searcher.wildcardSearch(field, wildcardterm.toLowerCase());
 		for (String d : wilds) {
 			n++;
 			System.out.println("[" + n + "] " + d);
 		}
 		System.out.println(wilds);
-		searcher.prefixQuerySearch(field, prefixterm.toLowerCase());	
+		searcher.prefixQuerySearch(field, prefixterm.toLowerCase());	*/
 
 	}
 }
