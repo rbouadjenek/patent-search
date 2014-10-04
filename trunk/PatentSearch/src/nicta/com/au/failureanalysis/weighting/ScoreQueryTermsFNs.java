@@ -5,7 +5,9 @@ public class ScoreQueryTermsTPs {
 }*/
 package nicta.com.au.failureanalysis.weighting;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -17,13 +19,18 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.Explanation;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.util.Version;
 
 import com.sun.org.apache.bcel.internal.generic.FNEG;
 
@@ -46,7 +53,18 @@ public class ScoreQueryTermsFNs {
 	int topK =1000000;
 
 
-	public void getTopQTerms(CollectionReader reader) throws IOException{
+	public void getTopQTermsFNs(CollectionReader reader) throws IOException, ParseException{
+		
+		/*--------------------------- Write in output file. ------------------------*/
+		String outputfile = "./output/weighting/scoreFNs.txt";
+
+		FileOutputStream out = new FileOutputStream(outputfile);
+		PrintStream ps = new PrintStream(out);
+		/*-------------------------------------------------------------------------------*/
+		
+		ps.println("=============================================================");
+		ps.println( "Query Id/Name" + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
+		ps.println("=============================================================");
 
 		PACSearcher searcher = new PACSearcher(indexDir, similarity, topK);
 		EvaluateResults er = new EvaluateResults();
@@ -59,21 +77,32 @@ public class ScoreQueryTermsFNs {
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 
 			String queryid = topic.getKey();
+			String queryName = topic.getKey() + "_" + topic.getValue().getUcid();
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
 //			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
 			ArrayList<String> enfns = afn.getEnglishFNs(queryid);
-			int fn_size = enfns.size();
+			int size = enfns.size();
+			float sumtopqtermsscore=0;
 			
+			if(size != 0){
 			QueryGneration query = new QueryGneration(querypath + queryfile, 0, 1, 0, 0, 0, 0, true, true);
 			Map<String, Integer> qterms = query.getSectionTerms(field);
 			HashMap<String, Float> termscores = new HashMap<String, Float>();
 
 //			System.out.println(qterms.size());
-			System.out.println(topic.getValue().getUcid());
+			System.out.println("=========================================");
+			System.out.println(queryName);
 			for(Entry<String, Integer> t : qterms.entrySet()){
 				String qterm = t.getKey();				
 				IndexSearcher is = searcher.getIndexSearch();
+/*--------------------------------- Search over all fields ----------------------------*/
+				/*MultiFieldQueryParser queryParser = new MultiFieldQueryParser(
+						Version.LUCENE_48, 
+		                new String[]{PatentDocument.Title, PatentDocument.Abstract, PatentDocument.Description, PatentDocument.Claims},
+		                new StandardAnalyzer(Version.LUCENE_48));
 
+				Query q = queryParser.parse(qterm);*/
+/*------------------------------------------------------------------------------------*/		
 				TermQuery q = new TermQuery(new Term(field, qterm));
 
 				TopDocs topdocs = is.search(q, topK);
@@ -102,15 +131,21 @@ public class ScoreQueryTermsFNs {
 			sortedtermscores.putAll(termscores);
 			//	        System.out.println("sorted map: " + sortedtermscores);
 			float avg = 0;
+			int ol =0;
 			float sumdoctermscore = 0;
 			for (String doc : enfns) {
 //				System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
 				int i=0;
 				int j=0;
-				float sumtopqtermsscore = 0;
+				sumtopqtermsscore = 0;
 				sumdoctermscore = 0;
 				HashSet<String> dterms = reader.getDocTerms("UN-" + doc, field);
-				System.out.println(doc+"\t"+dterms);
+				dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Title));
+				dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract));
+				dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Claims));
+				System.out.println("----------------------------------------");
+				System.out.println(doc/*+"\t"+dterms*/);
+				System.out.println("----------------------------------------");
 				for( Entry<String, Float> topscoreterm : sortedtermscores.entrySet()){
 					String topterm = topscoreterm.getKey();
 					Float toptermscore = topscoreterm.getValue();
@@ -119,6 +154,7 @@ public class ScoreQueryTermsFNs {
 						sumtopqtermsscore = sumtopqtermsscore + toptermscore;
 						if(dterms!=null && dterms.contains(topterm)){
 							j++;
+//							float doctermscore = collsearcher.getscoreinMultipleFields(topterm, doc);
 							float doctermscore = collsearcher.getscore(field, topterm, doc);
 							System.out.println("["+ j + "]\t" + topterm + "\t" + toptermscore + "\t" 
 									+ doctermscore);
@@ -129,37 +165,32 @@ public class ScoreQueryTermsFNs {
 				}
 				System.out.println(sumtopqtermsscore + "\t" + j + "\t" + sumdoctermscore );
 				avg = avg + sumdoctermscore;
+				ol = ol + j;
 			}
-			avg = avg/fn_size;
-			System.out.println(avg);
-		}
-		
+			avg = avg/size;
+			ol = ol/size;
+//			System.out.println(avg);
+			System.out.println("=============================================================");
+			System.out.println( "Query Id/Name" + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
+			System.out.println("=============================================================");
+			System.out.println( queryName + "\t" + sumtopqtermsscore + "\t" + ol + "\t" + avg);
+			ps.println( queryName + "\t" + sumtopqtermsscore + "\t" + ol + "\t" + avg);
+			System.out.println("=============================================================");
+			}else{
+				System.out.println(queryid+"\t" + "No FN for this query");
+				ps.println(queryid+"\t"+ "No FN for this query");
+
+			}			
+		}		
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ParseException {
 
 		CollectionReader reader = new CollectionReader(indexDir); 
 
 		ScoreQueryTermsFNs toptrtms = new ScoreQueryTermsFNs();
-		toptrtms.getTopQTerms(reader);
+		toptrtms.getTopQTermsFNs(reader);
 
 	}
 }
 
-/*class ValueComparator implements Comparator<String> {
-
-	Map<String, Float> base;
-	public ValueComparator(Map<String, Float> base) {
-		this.base = base;
-	}
-
-	// Note: this comparator imposes orderings that are inconsistent with equals.    
-	public int compare(String a, String b) {
-		if (base.get(a) >= base.get(b)) {
-			return -1;
-		} else {
-			return 1;
-		} // returning 0 would merge keys
-	}
-}
-*/

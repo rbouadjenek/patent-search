@@ -9,9 +9,12 @@ import nicta.com.au.main.Searcher;
 import nicta.com.au.patent.document.PatentDocument;
 import nicta.com.au.patent.pac.search.BM25Rocchio;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -30,6 +33,7 @@ import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.search.*;
+import org.apache.lucene.util.Version;
 
 /**
  * @author mona
@@ -76,6 +80,35 @@ public class CollectionSearcher {
 		is = new IndexSearcher(DirectoryReader.open(dir));
 		is.setSimilarity(getSimilarity(similarity));
 		this.topK = topK;
+	}
+
+	public float getscoreinMultipleFields(/*String field,*/ String term, String filename) throws IOException, ParseException {
+		
+		MultiFieldQueryParser queryParser = new MultiFieldQueryParser(
+				Version.LUCENE_48, 
+                new String[]{PatentDocument.Title, PatentDocument.Abstract, PatentDocument.Description, PatentDocument.Claims},
+                new StandardAnalyzer(Version.LUCENE_48));
+
+		Query query = queryParser.parse(term);
+
+//		TermQuery query = new TermQuery(new Term(field, term));
+		TopDocs topdocs = is.search(query, topK);
+		/*System.err.println("'" + term + "'"
+				+ " appeared in " + topdocs.totalHits
+				+ " documents:");*/
+		for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
+			Document doc = is.doc(scoreDoc.doc);
+			//			System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName).substring(3) + " " + scoreDoc.score);
+			if(doc.get(PatentDocument.FileName).contains(filename)){
+				// .substring(3).equals(filename)
+				//				termfreq = de.freq();
+//				System.out.println(scoreDoc.score);
+				return scoreDoc.score;
+				
+			}
+			//			doc.get(PatentDocument.FileName).substring(3);
+		}
+		return (float) 0;
 	}
 
 	
@@ -194,7 +227,7 @@ public class CollectionSearcher {
 	}
 	
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ParseException {
 
 		String indexDir = args[0];
 
@@ -206,7 +239,9 @@ public class CollectionSearcher {
 		String filename = /*"EP-0415270"*/ "EP-0426633" /*"EP-0388383"*/;
 
 		CollectionSearcher searcher = new CollectionSearcher(indexDir, "bm25ro", 10000000);
+		System.out.println(searcher.getscoreinMultipleFields(term, filename));
 		System.out.println(searcher.getscore(field, term, filename));
+		
 
 		/*---------------------Testing SingleTermSEarch method---------------------*/
 		System.out.println(searcher.termExists(field, term, filename));
