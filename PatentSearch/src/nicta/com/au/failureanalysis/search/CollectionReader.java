@@ -141,7 +141,7 @@ public class CollectionReader {
 
 		//		String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
 
-		String docName = "UN-EP-0802230" /*"UN-EP-0663270"*/;
+		String docName = "EP-0663270"/*"UN-EP-0802230"*/ /*"UN-EP-0663270"*/;
 		String filenamefield =  PatentDocument.FileName;
 
 		String term = /*"methyl" */"resin"/*"excel"*/ /*"mixtur"*/ /*"mona"*//*"adhesiveport"*/;

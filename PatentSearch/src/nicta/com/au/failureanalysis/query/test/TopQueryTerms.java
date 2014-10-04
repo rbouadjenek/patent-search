@@ -33,7 +33,7 @@ import nicta.com.au.patent.pac.search.PACSearcher;
 public class TopQueryTerms {
 
 	static String querypath = "data/CLEF-IP-2010/PAC_test/topics/";	
-	static String indexDir = "data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
+	static String indexDir = /*"data/DocPLusQueryINDEX"*/"data/QINDEX";
 	static String field = PatentDocument.Description;
 	String similarity = /*"tfidf"*/"lmdir"/*"bm25ro"*/;
 	int topK =1000000;
