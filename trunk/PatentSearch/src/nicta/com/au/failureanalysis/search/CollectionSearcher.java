@@ -118,9 +118,7 @@ public class CollectionSearcher {
 				
 		TermQuery query = new TermQuery(new Term(field, term));
 		TopDocs topdocs = is.search(query, topK);
-		/*System.err.println("'" + term + "'"
-				+ " appeared in " + topdocs.totalHits
-				+ " documents:");*/
+		
 		for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
 			Document doc = is.doc(scoreDoc.doc);
 			//			System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName).substring(3) + " " + scoreDoc.score);

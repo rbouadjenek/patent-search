@@ -25,7 +25,7 @@ import org.apache.lucene.util.BytesRef;
 public class CollectionReader {
 
 	private static IndexReader ir;
-	static String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
+	static String indexDir = "data/DocPLusQueryINDEX" /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/;
 	//	private final int topK;
 
 	public CollectionReader(String indexDir/*, String similarity, int topK*/)
@@ -117,7 +117,7 @@ public class CollectionReader {
 		CollectionReader reader = new CollectionReader(indexDir);
 
 		int b = reader.getDocId(docName, filenamefield);
-		//		System.out.println("document Id: " + b);
+//				System.out.println("document Id: " + b);
 		Terms terms = ir.getTermVector(b, field)/* getTermVectors(b)*/;
 		//		System.out.println(terms);
 
@@ -141,12 +141,12 @@ public class CollectionReader {
 
 		//		String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
 
-		String docName = "EP-0663270"/*"UN-EP-0802230"*/ /*"UN-EP-0663270"*/;
+		String docName = /*"UN-EP-0415270"*//*"UN-EP-0802230"*/ "UN-EP-0663270";
 		String filenamefield =  PatentDocument.FileName;
 
 		String term = /*"methyl" */"resin"/*"excel"*/ /*"mixtur"*/ /*"mona"*//*"adhesiveport"*/;
 		String field = /* PatentDocument.Classification */PatentDocument.Description;
-		String filename = "EP-0415270";
+		String filename = "EP-0388383"/*"EP-0415270"*/;
 
 		CollectionReader reader = new CollectionReader(indexDir);			
 
@@ -155,8 +155,8 @@ public class CollectionReader {
 
 //					reader.termFreqInDocs(field, term);
 			//			System.out.println(reader.getDocTerms(docName, field));
-		if(reader.getDocTerms(docName, field)!=null){
-			HashSet<String> terms = reader.getDocTerms(docName, field);
+		if(reader.getDocTerms("UN-"+filename, field)!=null){
+			HashSet<String> terms = reader.getDocTerms("UN-"+filename, field);
 			boolean bool = terms.contains("mona"/*"work"*/);
 			System.out.println("Word exists: " + bool);
 			/*for(String t : terms){
