@@ -76,6 +76,7 @@ public class ScoreQueryTermsFNs {
 		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-test2.xml");
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 
+			String qUcid = topic.getValue().getUcid();
 			String queryid = topic.getKey();
 			String queryName = topic.getKey() + "_" + topic.getValue().getUcid();
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
@@ -84,6 +85,10 @@ public class ScoreQueryTermsFNs {
 			int size = enfns.size();
 			float sumtopqtermsscore=0;
 			
+//			CollectionReader reader = new CollectionReader(indexDir);
+			int qindxId = reader.getDocId(qUcid, PatentDocument.FileName);
+			IndexSearcher is = searcher.getIndexSearch();
+			
 			if(size != 0){
 			QueryGneration query = new QueryGneration(querypath + queryfile, 0, 1, 0, 0, 0, 0, true, true);
 			Map<String, Integer> qterms = query.getSectionTerms(field);
@@ -91,10 +96,10 @@ public class ScoreQueryTermsFNs {
 
 //			System.out.println(qterms.size());
 			System.out.println("=========================================");
-			System.out.println(queryName);
+			System.out.println(queryName + "\t" +qUcid);
 			for(Entry<String, Integer> t : qterms.entrySet()){
 				String qterm = t.getKey();				
-				IndexSearcher is = searcher.getIndexSearch();
+//				IndexSearcher is = searcher.getIndexSearch();
 /*--------------------------------- Search over all fields ----------------------------*/
 				/*MultiFieldQueryParser queryParser = new MultiFieldQueryParser(
 						Version.LUCENE_48, 
@@ -104,23 +109,11 @@ public class ScoreQueryTermsFNs {
 				Query q = queryParser.parse(qterm);*/
 /*------------------------------------------------------------------------------------*/		
 				TermQuery q = new TermQuery(new Term(field, qterm));
-
-				TopDocs topdocs = is.search(q, topK);
-				/*System.err.println("'" + qterm + "'"
-						+ " appeared in " + topdocs.totalHits
-						+ " documents:");*/
-
-				for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
-					Document doc = is.doc(scoreDoc.doc);
-					//					System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName) + " " + scoreDoc.score);
-					float s = scoreDoc.score; 
-					if(doc.get(PatentDocument.FileName).contains(topic.getValue().getUcid())){
-						//						System.out.println(doc.get(PatentDocument.FileName) + "\t" + topic.getValue().getUcid());
-						//						System.out.println(/*doc.get(PatentDocument.FileName) + "\t" + */qterm + "\t" + s/*coreDoc.score*/ /*+ "\t" + scoreDoc.doc*/);
-						termscores.put(qterm, s);
-
-					}					
-				}
+		
+				Explanation explain = is.explain(q, qindxId);
+				float qscore = explain.getValue();
+				termscores.put(qterm, qscore);
+				
 			}
 
 			System.out.println("=========================================");
@@ -140,9 +133,9 @@ public class ScoreQueryTermsFNs {
 				sumtopqtermsscore = 0;
 				sumdoctermscore = 0;
 				HashSet<String> dterms = reader.getDocTerms("UN-" + doc, field);
-				dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Title));
+				/*dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Title));
 				dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract));
-				dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Claims));
+				dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Claims));*/
 				System.out.println("----------------------------------------");
 				System.out.println(doc/*+"\t"+dterms*/);
 				System.out.println("----------------------------------------");
@@ -155,7 +148,14 @@ public class ScoreQueryTermsFNs {
 						if(dterms!=null && dterms.contains(topterm)){
 							j++;
 //							float doctermscore = collsearcher.getscoreinMultipleFields(topterm, doc);
-							float doctermscore = collsearcher.getscore(field, topterm, doc);
+							int dindxId = reader.getDocId("UN-"+doc, PatentDocument.FileName);
+							TermQuery dq = new TermQuery(new Term(field, topterm));
+							Explanation explain = is.explain(dq, dindxId);
+							float doctermscore = explain.getValue();
+							
+//							float doctermscore = collsearcher.getscore(field, topterm, doc);
+							
+							
 							System.out.println("["+ j + "]\t" + topterm + "\t" + toptermscore + "\t" 
 									+ doctermscore);
 							sumdoctermscore = sumdoctermscore + doctermscore;
