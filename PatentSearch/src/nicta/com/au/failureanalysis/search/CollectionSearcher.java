@@ -40,6 +40,8 @@ import org.apache.lucene.util.Version;
  * 
  */
 public class CollectionSearcher {
+	
+	static String indexDir = "data/DocPLusQueryINDEX"/*"data/QINDEX"*/;/*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010" *//*args[0]*/;
 
 	private final IndexSearcher is;
 	private final int topK;
@@ -113,6 +115,7 @@ public class CollectionSearcher {
 
 	
 	public float getscore(String field, String term, String filename) throws IOException {
+				
 		TermQuery query = new TermQuery(new Term(field, term));
 		TopDocs topdocs = is.search(query, topK);
 		/*System.err.println("'" + term + "'"
@@ -228,9 +231,6 @@ public class CollectionSearcher {
 	
 
 	public static void main(String[] args) throws IOException, ParseException {
-
-		String indexDir = args[0];
-
 
 		String term = "hammer"/*"film"*//*"print"*//*"G03F"*//*"C04B"*/ /*"G06F"*//*"b32b" *//* "h01l"*/ /*"methyl" */ /*"mona"*/ /*"resin"*/;
 		String wildcardterm = "G03?";

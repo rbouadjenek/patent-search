@@ -12,7 +12,9 @@ import nicta.com.au.patent.pac.search.BM25Rocchio;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.DocsEnum;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.MultiFields;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.Explanation;
 import org.apache.lucene.search.IndexSearcher;
@@ -32,9 +34,10 @@ import org.apache.lucene.search.similarities.Normalization;
 import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.util.BytesRef;
 
 public class TestExpalin {
-	static String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
+	static String indexDir =  "data/DocPLusQueryINDEX"/*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/;
 
 	private static IndexReader ir;
 	
@@ -92,7 +95,16 @@ public class TestExpalin {
 				+ " appeared in " + topdocs.totalHits
 				+ " documents:");*/
 		
-		System.out.println(ir.docFreq(t3));
+//		System.out.println(ir.docFreq(t3));
+		
+		
+		/*DocsEnum de = MultiFields.getTermDocsEnum(ir, MultiFields.getLiveDocs(ir), field, new BytesRef(filename));
+
+		while ((de.nextDoc()) != DocsEnum.NO_MORE_DOCS) {
+			int docid = de.docID();
+			System.out.println(docid);	}*/		
+			
+			
 				
 		for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
 			Document doc = is.doc(scoreDoc.doc);
@@ -102,6 +114,9 @@ public class TestExpalin {
 				//				termfreq = de.freq();
 				System.out.println(doc.get(PatentDocument.FileName) + "\t" + term + "\t" + scoreDoc.score + "\t" + scoreDoc.doc);
 				 Explanation explanation = is.explain(query, scoreDoc.doc);
+				 
+				 float a = explanation.getValue();
+				 System.out.println(a);
 				 System.out.println(explanation.toString());
 			}
 			//			doc.get(PatentDocument.FileName).substring(3);
@@ -143,9 +158,9 @@ public class TestExpalin {
 		String field = /*PatentDocument.Classification*/ PatentDocument.Description;
 		String filename = "EP-0415270";
 
-		TestExpalin searcher = new TestExpalin(indexDir, "tfidf"/*"lmdir"*//*"bm25ro"*/, 100000);
+		TestExpalin searcher = new TestExpalin(indexDir, /*"tfidf"*/"lmdir"/*"bm25ro"*/, 100000);
 				
-		System.out.println(ir.maxDoc());
+//		System.out.println(ir.maxDoc());
 		
 		/*---------------------Testing SingleTermSEarch method---------------------*/
 		searcher.termScoreInDoc(field, term, filename);
@@ -153,7 +168,7 @@ public class TestExpalin {
 		/*-------------------------------------------------------------------------*/
 
 		DefaultSimilarity ds	=  new DefaultSimilarity();
-		System.out.println(ds.idf(27, 1331157));
+//		System.out.println(ds.idf(27, 1331157));
 		/*---------------------Testing SingleTermSEarch method---------------------*/
 
 		HashSet<String> returned_docs = searcher.singleTermSearch(field , term.toLowerCase()); 
