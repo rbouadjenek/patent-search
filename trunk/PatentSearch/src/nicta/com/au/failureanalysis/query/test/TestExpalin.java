@@ -97,12 +97,20 @@ public class TestExpalin {
 		
 //		System.out.println(ir.docFreq(t3));
 		
+		CollectionReader reader = new CollectionReader(indexDir);
+		int docid = reader.getDocId("UN-"+filename, PatentDocument.FileName);
+		Explanation explanationtest = is.explain(query, docid);
+		System.out.println("Score for '"+term+ "' : "+explanationtest.getValue());
+		System.out.println("Document ID : " +docid);
 		
-		/*DocsEnum de = MultiFields.getTermDocsEnum(ir, MultiFields.getLiveDocs(ir), field, new BytesRef(filename));
+/*
+		int docid = reader.getDocId("UN-EP-0663270", field);
+		System.out.println(docid);*/
+		/*DocsEnum de = MultiFields.getTermDocsEnum(ir, MultiFields.getLiveDocs(ir), field, new BytesRef("UN-" + filename));
 
 		while ((de.nextDoc()) != DocsEnum.NO_MORE_DOCS) {
 			int docid = de.docID();
-			System.out.println(docid);	}*/		
+			System.out.println(docid);	}		*/
 			
 			
 				
@@ -156,7 +164,8 @@ public class TestExpalin {
 
 		String term = "film"/*"print"*//*"G03F"*//*"C04B"*/ /*"G06F"*//*"b32b" *//* "h01l"*/ /*"methyl" */ /*"mona"*/ /*"resin"*/;
 		String field = /*PatentDocument.Classification*/ PatentDocument.Description;
-		String filename = "EP-0415270";
+		String filename = /*"EP-0663270"*/"EP-0415270";
+		String docName = "UN-EP-0663270";
 
 		TestExpalin searcher = new TestExpalin(indexDir, /*"tfidf"*/"lmdir"/*"bm25ro"*/, 100000);
 				
