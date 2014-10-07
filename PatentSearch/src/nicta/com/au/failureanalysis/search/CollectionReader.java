@@ -145,8 +145,8 @@ public class CollectionReader {
 		String filenamefield =  PatentDocument.FileName;
 
 		String term = /*"methyl" */"resin"/*"excel"*/ /*"mixtur"*/ /*"mona"*//*"adhesiveport"*/;
-		String field = /* PatentDocument.Classification */PatentDocument.Description;
-		String filename = "EP-0388383"/*"EP-0415270"*/;
+		String field = /* PatentDocument.Classification *//*PatentDocument.Description*/PatentDocument.Title;
+		String filename = "EP-0663270"/*"EP-0388383"*//*"EP-0415270"*/;
 
 		CollectionReader reader = new CollectionReader(indexDir);			
 
@@ -157,6 +157,7 @@ public class CollectionReader {
 			//			System.out.println(reader.getDocTerms(docName, field));
 		if(reader.getDocTerms("UN-"+filename, field)!=null){
 			HashSet<String> terms = reader.getDocTerms("UN-"+filename, field);
+			System.out.println(terms);
 			boolean bool = terms.contains("mona"/*"work"*/);
 			System.out.println("Word exists: " + bool);
 			/*for(String t : terms){

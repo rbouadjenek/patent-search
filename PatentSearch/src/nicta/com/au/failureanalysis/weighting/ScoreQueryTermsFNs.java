@@ -63,7 +63,7 @@ public class ScoreQueryTermsFNs {
 		/*-------------------------------------------------------------------------------*/
 		
 		ps.println("=============================================================");
-		ps.println( "Query Id/Name" + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
+		ps.println( "Query Id/Name    " + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
 		ps.println("=============================================================");
 
 		PACSearcher searcher = new PACSearcher(indexDir, similarity, topK);
@@ -73,7 +73,7 @@ public class ScoreQueryTermsFNs {
 		CollectionSearcher collsearcher = new CollectionSearcher(indexDir, similarity, topK);
 //		System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
 
-		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-test2.xml");
+		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml");
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 
 			String qUcid = topic.getValue().getUcid();
@@ -133,9 +133,9 @@ public class ScoreQueryTermsFNs {
 				sumtopqtermsscore = 0;
 				sumdoctermscore = 0;
 				HashSet<String> dterms = reader.getDocTerms("UN-" + doc, field);
-				/*dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Title));
-				dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract));
-				dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Claims));*/
+				if(reader.getDocTerms("UN-" + doc, PatentDocument.Title)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Title));}
+				if(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract));}
+				if(reader.getDocTerms("UN-" + doc, PatentDocument.Claims)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Claims));}
 				System.out.println("----------------------------------------");
 				System.out.println(doc/*+"\t"+dterms*/);
 				System.out.println("----------------------------------------");
@@ -149,13 +149,19 @@ public class ScoreQueryTermsFNs {
 							j++;
 //							float doctermscore = collsearcher.getscoreinMultipleFields(topterm, doc);
 							int dindxId = reader.getDocId("UN-"+doc, PatentDocument.FileName);
-							TermQuery dq = new TermQuery(new Term(field, topterm));
+							
+							MultiFieldQueryParser queryParser = new MultiFieldQueryParser(
+									Version.LUCENE_48, 
+									new String[]{PatentDocument.Title, PatentDocument.Abstract, PatentDocument.Description, PatentDocument.Claims},
+									new StandardAnalyzer(Version.LUCENE_48));
+
+							Query dq = queryParser.parse(topterm);
+							
+							
+//							TermQuery dq = new TermQuery(new Term(field, topterm));
 							Explanation explain = is.explain(dq, dindxId);
 							float doctermscore = explain.getValue();
-							
-//							float doctermscore = collsearcher.getscore(field, topterm, doc);
-							
-							
+						
 							System.out.println("["+ j + "]\t" + topterm + "\t" + toptermscore + "\t" 
 									+ doctermscore);
 							sumdoctermscore = sumdoctermscore + doctermscore;
@@ -171,7 +177,7 @@ public class ScoreQueryTermsFNs {
 			ol = ol/size;
 //			System.out.println(avg);
 			System.out.println("=============================================================");
-			System.out.println( "Query Id/Name" + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
+			System.out.println( "Query Id/Name        " + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
 			System.out.println("=============================================================");
 			System.out.println( queryName + "\t" + sumtopqtermsscore + "\t" + ol + "\t" + avg);
 			ps.println( queryName + "\t" + sumtopqtermsscore + "\t" + ol + "\t" + avg);
