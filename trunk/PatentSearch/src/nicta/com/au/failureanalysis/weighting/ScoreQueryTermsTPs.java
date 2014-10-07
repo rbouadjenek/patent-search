@@ -19,13 +19,18 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.search.Explanation;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.util.Version;
 
 import nicta.com.au.failureanalysis.evaluate.AnalyseFNs;
 import nicta.com.au.failureanalysis.evaluate.EvaluateResults;
@@ -46,8 +51,7 @@ public class ScoreQueryTermsTPs {
 	int topK =1000000;
 
 
-	public void getTopQTermsTPs(CollectionReader reader) throws IOException{
-		
+	public void TopQTermsOverlapTPs(CollectionReader reader) throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
 		String outputfile = "./output/weighting/scoreTPs.txt";
 
@@ -56,7 +60,7 @@ public class ScoreQueryTermsTPs {
 		/*-------------------------------------------------------------------------------*/
 		
 		ps.println("=============================================================");
-		ps.println( "Query Id/Name" + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
+		ps.println( "Query Id/Name    " + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
 		ps.println("=============================================================");
 
 		PACSearcher searcher = new PACSearcher(indexDir, similarity, topK);
@@ -64,11 +68,11 @@ public class ScoreQueryTermsTPs {
 //		AnalyseFNs afn = new AnalyseFNs();
 		
 		CollectionSearcher collsearcher = new CollectionSearcher(indexDir, similarity, topK);
-//		System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
 
-		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-test2.xml");
+		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml");
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 
+			String qUcid = topic.getValue().getUcid();
 			String queryid = topic.getKey();
 			String queryName = topic.getKey() + "_" + topic.getValue().getUcid();
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
@@ -77,6 +81,10 @@ public class ScoreQueryTermsTPs {
 			int size = tps.size();
 			float sumtopqtermsscore=0;
 			
+//			CollectionReader reader = new CollectionReader(indexDir);
+			int qindxId = reader.getDocId(qUcid, PatentDocument.FileName);
+			IndexSearcher is = searcher.getIndexSearch();
+			
 			if(size != 0){
 			QueryGneration query = new QueryGneration(querypath + queryfile, 0, 1, 0, 0, 0, 0, true, true);
 			Map<String, Integer> qterms = query.getSectionTerms(field);
@@ -84,10 +92,10 @@ public class ScoreQueryTermsTPs {
 
 //			System.out.println(qterms.size());
 			System.out.println("=========================================");
-			System.out.println(queryName);
+			System.out.println(queryName + "\t" +qUcid);
 			for(Entry<String, Integer> t : qterms.entrySet()){
 				String qterm = t.getKey();				
-				IndexSearcher is = searcher.getIndexSearch();
+//				IndexSearcher is = searcher.getIndexSearch();
 /*--------------------------------- Search over all fields ----------------------------*/
 				/*MultiFieldQueryParser queryParser = new MultiFieldQueryParser(
 						Version.LUCENE_48, 
@@ -97,23 +105,11 @@ public class ScoreQueryTermsTPs {
 				Query q = queryParser.parse(qterm);*/
 /*------------------------------------------------------------------------------------*/		
 				TermQuery q = new TermQuery(new Term(field, qterm));
-
-				TopDocs topdocs = is.search(q, topK);
-				/*System.err.println("'" + qterm + "'"
-						+ " appeared in " + topdocs.totalHits
-						+ " documents:");*/
-
-				for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
-					Document doc = is.doc(scoreDoc.doc);
-					//					System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName) + " " + scoreDoc.score);
-					float s = scoreDoc.score; 
-					if(doc.get(PatentDocument.FileName).contains(topic.getValue().getUcid())){
-						//						System.out.println(doc.get(PatentDocument.FileName) + "\t" + topic.getValue().getUcid());
-						//						System.out.println(/*doc.get(PatentDocument.FileName) + "\t" + */qterm + "\t" + s/*coreDoc.score*/ /*+ "\t" + scoreDoc.doc*/);
-						termscores.put(qterm, s);
-
-					}					
-				}
+		
+				Explanation explain = is.explain(q, qindxId);
+				float qscore = explain.getValue();
+				termscores.put(qterm, qscore);
+				
 			}
 
 			System.out.println("=========================================");
@@ -132,10 +128,19 @@ public class ScoreQueryTermsTPs {
 				int j=0;
 				sumtopqtermsscore = 0;
 				sumdoctermscore = 0;
-				HashSet<String> dterms = reader.getDocTerms("UN-" + doc, field);
+				HashSet<String> dterms = new HashSet<String>();
+				dterms = reader.getDocTerms("UN-" + doc, field);
+				/*System.out.println(reader.getDocTerms("UN-" + doc, PatentDocument.Title));
+				System.out.println(dterms);*/
+				if(dterms!=null){
 				if(reader.getDocTerms("UN-" + doc, PatentDocument.Title)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Title));}
 				if(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract));}
-				if(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Claims));}
+				if(reader.getDocTerms("UN-" + doc, PatentDocument.Claims)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Claims));}
+				}else{
+					dterms = reader.getDocTerms("UN-" + doc, PatentDocument.Title);
+					if(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract));}
+					if(reader.getDocTerms("UN-" + doc, PatentDocument.Claims)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Claims));}
+					}
 				System.out.println("----------------------------------------");
 				System.out.println(doc/*+"\t"+dterms*/);
 				System.out.println("----------------------------------------");
@@ -147,8 +152,18 @@ public class ScoreQueryTermsTPs {
 						sumtopqtermsscore = sumtopqtermsscore + toptermscore;
 						if(dterms!=null && dterms.contains(topterm)){
 							j++;
-//							float doctermscore = collsearcher.getscoreinMultipleFields(topterm, doc);
-							float doctermscore = collsearcher.getscore(field, topterm, doc);
+							int dindxId = reader.getDocId("UN-"+doc, PatentDocument.FileName);
+							
+							MultiFieldQueryParser queryParser = new MultiFieldQueryParser(
+									Version.LUCENE_48, 
+									new String[]{PatentDocument.Title, PatentDocument.Abstract, PatentDocument.Description, PatentDocument.Claims},
+									new StandardAnalyzer(Version.LUCENE_48));
+
+							Query dq = queryParser.parse(topterm);
+
+							Explanation explain = is.explain(dq, dindxId);
+							float doctermscore = explain.getValue();
+						
 							System.out.println("["+ j + "]\t" + topterm + "\t" + toptermscore + "\t" 
 									+ doctermscore);
 							sumdoctermscore = sumdoctermscore + doctermscore;
@@ -164,127 +179,162 @@ public class ScoreQueryTermsTPs {
 			ol = ol/size;
 //			System.out.println(avg);
 			System.out.println("=============================================================");
-			System.out.println( "Query Id/Name" + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
+			System.out.println( "Query Id/Name        " + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
 			System.out.println("=============================================================");
 			System.out.println( queryName + "\t" + sumtopqtermsscore + "\t" + ol + "\t" + avg);
 			ps.println( queryName + "\t" + sumtopqtermsscore + "\t" + ol + "\t" + avg);
 			System.out.println("=============================================================");
 			}else{
-				System.out.println(queryid+"\t" + "No FN for this query");
-				ps.println(queryid+"\t"+ "No FN for this query");
+				System.out.println(queryid+"\t" + "No TP for this query");
+				ps.println(queryid+"\t"+ "No TP for this query");
 
 			}			
 		}				
 	}
+//	public void getTopQTermsTPs(CollectionReader reader) throws IOException{
+//		
+//		/*--------------------------- Write in output file. ------------------------*/
+//		String outputfile = "./output/weighting/scoreTPs.txt";
+//
+//		FileOutputStream out = new FileOutputStream(outputfile);
+//		PrintStream ps = new PrintStream(out);
+//		/*-------------------------------------------------------------------------------*/
+//		
+//		ps.println("=============================================================");
+//		ps.println( "Query Id/Name" + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
+//		ps.println("=============================================================");
+//
+//		PACSearcher searcher = new PACSearcher(indexDir, similarity, topK);
+//		EvaluateResults er = new EvaluateResults();
+////		AnalyseFNs afn = new AnalyseFNs();
+//		
+//		CollectionSearcher collsearcher = new CollectionSearcher(indexDir, similarity, topK);
+////		System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
+//
+//		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-test2.xml");
+//		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
+//
+//			String queryid = topic.getKey();
+//			String queryName = topic.getKey() + "_" + topic.getValue().getUcid();
+//			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
+//			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
+////			ArrayList<String> enfns = afn.getEnglishFNs(queryid);
+//			int size = tps.size();
+//			float sumtopqtermsscore=0;
+//			
+//			if(size != 0){
+//			QueryGneration query = new QueryGneration(querypath + queryfile, 0, 1, 0, 0, 0, 0, true, true);
+//			Map<String, Integer> qterms = query.getSectionTerms(field);
+//			HashMap<String, Float> termscores = new HashMap<String, Float>();
+//
+////			System.out.println(qterms.size());
+//			System.out.println("=========================================");
+//			System.out.println(queryName);
+//			for(Entry<String, Integer> t : qterms.entrySet()){
+//				String qterm = t.getKey();				
+//				IndexSearcher is = searcher.getIndexSearch();
+///*--------------------------------- Search over all fields ----------------------------*/
+//				/*MultiFieldQueryParser queryParser = new MultiFieldQueryParser(
+//						Version.LUCENE_48, 
+//		                new String[]{PatentDocument.Title, PatentDocument.Abstract, PatentDocument.Description, PatentDocument.Claims},
+//		                new StandardAnalyzer(Version.LUCENE_48));
+//
+//				Query q = queryParser.parse(qterm);*/
+///*------------------------------------------------------------------------------------*/		
+//				TermQuery q = new TermQuery(new Term(field, qterm));
+//
+//				TopDocs topdocs = is.search(q, topK);
+//				/*System.err.println("'" + qterm + "'"
+//						+ " appeared in " + topdocs.totalHits
+//						+ " documents:");*/
+//
+//				for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
+//					Document doc = is.doc(scoreDoc.doc);
+//					//					System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName) + " " + scoreDoc.score);
+//					float s = scoreDoc.score; 
+//					if(doc.get(PatentDocument.FileName).contains(topic.getValue().getUcid())){
+//						//						System.out.println(doc.get(PatentDocument.FileName) + "\t" + topic.getValue().getUcid());
+//						//						System.out.println(/*doc.get(PatentDocument.FileName) + "\t" + */qterm + "\t" + s/*coreDoc.score*/ /*+ "\t" + scoreDoc.doc*/);
+//						termscores.put(qterm, s);
+//
+//					}					
+//				}
+//			}
+//
+//			System.out.println("=========================================");
+//			ValueComparator bvc =  new ValueComparator(termscores);
+//			TreeMap<String,Float> sortedtermscores = new TreeMap<String,Float>(bvc);
+//
+//			//	        System.out.println("unsorted map: " + termscores);			
+//			sortedtermscores.putAll(termscores);
+//			//	        System.out.println("sorted map: " + sortedtermscores);
+//			float avg = 0;
+//			int ol =0;
+//			float sumdoctermscore = 0;
+//			for (String doc : tps) {
+////				System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
+//				int i=0;
+//				int j=0;
+//				sumtopqtermsscore = 0;
+//				sumdoctermscore = 0;
+//				HashSet<String> dterms = reader.getDocTerms("UN-" + doc, field);
+//				if(reader.getDocTerms("UN-" + doc, PatentDocument.Title)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Title));}
+//				if(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Abstract));}
+//				if(reader.getDocTerms("UN-" + doc, PatentDocument.Claims)!=null){dterms.addAll(reader.getDocTerms("UN-" + doc, PatentDocument.Claims));}
+//				System.out.println("----------------------------------------");
+//				System.out.println(doc);
+//				System.out.println("----------------------------------------");
+//				for( Entry<String, Float> topscoreterm : sortedtermscores.entrySet()){
+//					String topterm = topscoreterm.getKey();
+//					Float toptermscore = topscoreterm.getValue();
+//					i++;
+//					if(i <= 100){						
+//						sumtopqtermsscore = sumtopqtermsscore + toptermscore;
+//						if(dterms!=null && dterms.contains(topterm)){
+//							j++;
+////							float doctermscore = collsearcher.getscoreinMultipleFields(topterm, doc);
+//							float doctermscore = collsearcher.getscore(field, topterm, doc);
+//							System.out.println("["+ j + "]\t" + topterm + "\t" + toptermscore + "\t" 
+//									+ doctermscore);
+//							sumdoctermscore = sumdoctermscore + doctermscore;
+//						}
+////						System.out.println("["+ i + "]\t" + topterm + "\t" + toptermscore);	
+//					}			
+//				}
+//				System.out.println(sumtopqtermsscore + "\t" + j + "\t" + sumdoctermscore );
+//				avg = avg + sumdoctermscore;
+//				ol = ol + j;
+//			}
+//			avg = avg/size;
+//			ol = ol/size;
+////			System.out.println(avg);
+//			System.out.println("=============================================================");
+//			System.out.println( "Query Id/Name" + "\t" + "Q Topscore" + "\t" + "olap" + "\t" + "Avg. D Score");
+//			System.out.println("=============================================================");
+//			System.out.println( queryName + "\t" + sumtopqtermsscore + "\t" + ol + "\t" + avg);
+//			ps.println( queryName + "\t" + sumtopqtermsscore + "\t" + ol + "\t" + avg);
+//			System.out.println("=============================================================");
+//			}else{
+//				System.out.println(queryid+"\t" + "No FN for this query");
+//				ps.println(queryid+"\t"+ "No TP for this query");
+//
+//			}			
+//		}				
+//	}
 	
-	/*------------ comment this method. it is not useful -----------------*/
-	public void getTopQTerms(CollectionReader reader) throws IOException{
+	
 
-		PACSearcher searcher = new PACSearcher(indexDir, similarity, topK);
-		EvaluateResults er = new EvaluateResults();
-//		AnalyseFNs afn = new AnalyseFNs();
-		
-		CollectionSearcher collsearcher = new CollectionSearcher(indexDir, similarity, topK);
-//		System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
-
-		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-test2.xml");
-		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
-
-			String queryid = topic.getKey();
-			String queryName = topic.getKey() + "_" + topic.getValue().getUcid();
-			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
-			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
-			int tps_size = tps.size();
-//			ArrayList<String> enfns = afn.getEnglishFNs(queryid);
-			
-			QueryGneration query = new QueryGneration(querypath + queryfile, 0, 1, 0, 0, 0, 0, true, true);
-			Map<String, Integer> qterms = query.getSectionTerms(field);
-			HashMap<String, Float> termscores = new HashMap<String, Float>();
-
-//			System.out.println(qterms.size());
-			System.out.println("=========================================");
-			System.out.println(queryName);
-			for(Entry<String, Integer> t : qterms.entrySet()){
-				String qterm = t.getKey();				
-				IndexSearcher is = searcher.getIndexSearch();
-
-				TermQuery q = new TermQuery(new Term(field, qterm));
-
-				TopDocs topdocs = is.search(q, topK);
-				/*System.err.println("'" + qterm + "'"
-						+ " appeared in " + topdocs.totalHits
-						+ " documents:");*/
-
-				for (ScoreDoc scoreDoc : topdocs.scoreDocs) {
-					Document doc = is.doc(scoreDoc.doc);
-					//					System.out.println(scoreDoc.doc + " " + doc.get(PatentDocument.FileName) + " " + scoreDoc.score);
-					float s = scoreDoc.score; 
-					if(doc.get(PatentDocument.FileName).contains(topic.getValue().getUcid())){
-						//						System.out.println(doc.get(PatentDocument.FileName) + "\t" + topic.getValue().getUcid());
-						//						System.out.println(/*doc.get(PatentDocument.FileName) + "\t" + */qterm + "\t" + s/*coreDoc.score*/ /*+ "\t" + scoreDoc.doc*/);
-						termscores.put(qterm, s);
-
-					}					
-				}
-			}
-
-			System.out.println("=========================================");
-			ValueComparator bvc =  new ValueComparator(termscores);
-			TreeMap<String,Float> sortedtermscores = new TreeMap<String,Float>(bvc);
-
-			//	        System.out.println("unsorted map: " + termscores);			
-			sortedtermscores.putAll(termscores);
-			//	        System.out.println("sorted map: " + sortedtermscores);
-			float avg = 0;
-			int ol =0;
-//			int n=0;
-			for (String doc : tps) {
-				//				System.out.println(collsearcher.getscore(field, "hammer", "EP-0426633"));
-				int i=0;
-				int j=0;				
-				float sumtopqtermsscore = 0;
-				float sumdoctermscore = 0;
-				HashSet<String> dterms = reader.getDocTerms("UN-" + doc, field);
-//				if(dterms==null){n++;}
-				System.out.println("-------------------------");
-				System.out.println(doc+"\t"+dterms);
-				System.out.println("-------------------------");
-				for( Entry<String, Float> topscoreterm : sortedtermscores.entrySet()){
-					String topterm = topscoreterm.getKey();
-					Float toptermscore = topscoreterm.getValue();
-					i++;
-					if(i <= 100){						
-						sumtopqtermsscore = sumtopqtermsscore + toptermscore;						
-						if(dterms!=null && dterms.contains(topterm)){							
-							j++;
-							float doctermscore = collsearcher.getscore(field, topterm, doc);
-							System.out.println("["+ j + "]\t" + topterm + "\t" + toptermscore + "\t" 
-									+ doctermscore);
-							sumdoctermscore = sumdoctermscore + doctermscore;
-						}						
-					}			
-				}
-				System.out.println(sumtopqtermsscore + "\t" + j + "\t" + sumdoctermscore );
-				avg = avg + sumdoctermscore;
-				ol = ol + j;
-			}
-//			System.out.println(n);
-//			int size = tps_size;
-//			System.out.println(size);
-			avg = avg/tps_size;
-			System.out.println(avg);
-		}
-	}
-
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ParseException {
 
 		CollectionReader reader = new CollectionReader(indexDir); 
 
 		ScoreQueryTermsTPs toptrtms = new ScoreQueryTermsTPs();
-		toptrtms. getTopQTermsTPs(reader);
+		toptrtms.TopQTermsOverlapTPs(reader);
 
 	}
 }
+
+
 
 class ValueComparator implements Comparator<String> {
 
