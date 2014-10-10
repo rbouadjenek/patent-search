@@ -3,6 +3,7 @@ package nicta.com.au.failureanalysis.search;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 import nicta.com.au.main.Functions;
@@ -15,6 +16,8 @@ import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.MultiFields;
 import org.apache.lucene.index.Terms;
 import org.apache.lucene.index.TermsEnum;
+import org.apache.lucene.search.DocIdSetIterator;
+import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.BytesRef;
 
@@ -31,8 +34,11 @@ public class CollectionReader {
 	public CollectionReader(String indexDir/*, String similarity, int topK*/)
 			throws IOException {
 		ir = DirectoryReader.open(FSDirectory.open(new File(indexDir)));
-
 	}
+	
+	 public IndexReader getIndexReader() {
+	        return ir;
+	    }
 
 	/**
 	 * @param field
@@ -134,18 +140,40 @@ public class CollectionReader {
 		}		
 
 		return termsindoc;
+	}
+	
 
+	public HashMap<String, Integer> gettermfreqpair( String docName, String field) throws IOException {
+		String filenamefield =  PatentDocument.FileName;
+		HashMap<String, Integer> termfreqs = new HashMap<String, Integer>();
+		CollectionReader reader = new CollectionReader(indexDir);
+
+		int docid = reader.getDocId(docName, filenamefield);
+		Terms terms = ir.getTermVector(docid, field); //get terms vectors for one document and one field
+		if (terms != null && terms.size() > 0) {
+		    TermsEnum termsEnum = terms.iterator(null); // access the terms for this field
+		    BytesRef text = null;
+		    while ((text = termsEnum.next()) != null) {// explore the terms for this field
+		        
+		    	String term = text.utf8ToString();
+		        int freq = (int) termsEnum.totalTermFreq();
+		        if (!Functions.isNumeric(term)) {
+		        termfreqs.put(term, freq);
+		        System.out.println(term +"\t"+freq);}
+		    }
+		}
+		return termfreqs;		
 	}
 
 	public static void main(String[] args) throws IOException {
 
 		//		String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
 
-		String docName = /*"UN-EP-0415270"*//*"UN-EP-0802230"*/ "UN-EP-0663270";
+		String docName = /*"UN-EP-0415270"*/"UN-EP-0802230" /*"UN-EP-0663270"*/;
 		String filenamefield =  PatentDocument.FileName;
 
 		String term = /*"methyl" */"resin"/*"excel"*/ /*"mixtur"*/ /*"mona"*//*"adhesiveport"*/;
-		String field = /* PatentDocument.Classification *//*PatentDocument.Description*/PatentDocument.Title;
+		String field = /* PatentDocument.Classification */PatentDocument.Description/*PatentDocument.Title*/;
 		String filename = "EP-0663270"/*"EP-0388383"*//*"EP-0415270"*/;
 
 		CollectionReader reader = new CollectionReader(indexDir);			
@@ -163,6 +191,9 @@ public class CollectionReader {
 			/*for(String t : terms){
 				System.out.println(t);
 			}*/
-		}else{System.out.println("this file does not exist!");}		
+		}else{System.out.println("this file does not exist!");}	
+		
+		reader.gettermfreqpair(docName, field);
+		
 	}
 }
