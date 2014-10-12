@@ -335,6 +335,7 @@ public class ScoreQueryTermsTPs {
 }
 
 
+/*-------------- This class is used to sort a hashmap --------------*/
 
 class ValueComparator implements Comparator<String> {
 

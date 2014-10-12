@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map.Entry;
 
 import nicta.com.au.main.Functions;
 import nicta.com.au.patent.document.PatentDocument;
@@ -159,9 +160,50 @@ public class CollectionReader {
 		        int freq = (int) termsEnum.totalTermFreq();
 		        if (!Functions.isNumeric(term)) {
 		        termfreqs.put(term, freq);
-		        System.out.println(term +"\t"+freq);}
+//		        System.out.println(term +"\t"+freq);
+		        }
 		    }
 		}
+//		System.out.println(termfreqs.size() + " " + termfreqs);
+		return termfreqs;		
+	}
+	
+	public HashMap<String, Integer> gettermfreqpairAllsecs( String docName) throws IOException {
+		String filenamefield =  PatentDocument.FileName;
+		HashMap<String, Integer> termfreqs = new HashMap<String, Integer>();
+		HashMap<String, Integer> titletermfreqs = new HashMap<String, Integer>();
+		HashMap<String, Integer> abstermfreqs = new HashMap<String, Integer>();
+		HashMap<String, Integer> claimstermfreqs = new HashMap<String, Integer>();
+		CollectionReader reader = new CollectionReader(indexDir);
+
+		termfreqs = reader.gettermfreqpair(docName, PatentDocument.Description);
+//		System.out.println("--- T ---");
+		titletermfreqs=reader.gettermfreqpair(docName, PatentDocument.Title);
+//		System.out.println("--- A ---");
+		abstermfreqs=reader.gettermfreqpair(docName, PatentDocument.Abstract);
+//		System.out.println("--- C --");
+		claimstermfreqs=reader.gettermfreqpair(docName, PatentDocument.Claims);
+		if(termfreqs!=null){
+			for(Entry<String, Integer> ttf:titletermfreqs.entrySet()){
+				if(termfreqs.containsKey(ttf.getKey())){
+//					System.out.println(ttf.getKey()+" "+ (ttf.getValue()+termfreqs.get(ttf.getKey())));
+					termfreqs.put(ttf.getKey(), ttf.getValue()+termfreqs.get(ttf.getKey()));
+				}else{termfreqs.put(ttf.getKey(), ttf.getValue());}
+			}
+			for(Entry<String, Integer> atf:abstermfreqs.entrySet()){
+				if(termfreqs.containsKey(atf.getKey())){
+//					System.out.println(ttf.getKey()+" "+ (ttf.getValue()+termfreqs.get(ttf.getKey())));
+					termfreqs.put(atf.getKey(), atf.getValue()+termfreqs.get(atf.getKey()));
+				}else{termfreqs.put(atf.getKey(), atf.getValue());}
+			}
+			for(Entry<String, Integer> ctf:claimstermfreqs.entrySet()){
+				if(termfreqs.containsKey(ctf.getKey())){
+//					System.out.println(ttf.getKey()+" "+ (ttf.getValue()+termfreqs.get(ttf.getKey())));
+					termfreqs.put(ctf.getKey(), ctf.getValue()+termfreqs.get(ctf.getKey()));
+				}else{termfreqs.put(ctf.getKey(), ctf.getValue());}
+			}
+		}
+//		System.out.println(termfreqs.size() + " " + termfreqs);		
 		return termfreqs;		
 	}
 
@@ -169,12 +211,12 @@ public class CollectionReader {
 
 		//		String indexDir =  "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010";
 
-		String docName = /*"UN-EP-0415270"*/"UN-EP-0802230" /*"UN-EP-0663270"*/;
+		String docName = /*"UN-EP-0415270"*//*"UN-EP-0802230"*/ /*"UN-EP-0663270"*/ /*"UN-EP-0578623"*/"UN-EP-0426633";
 		String filenamefield =  PatentDocument.FileName;
 
 		String term = /*"methyl" */"resin"/*"excel"*/ /*"mixtur"*/ /*"mona"*//*"adhesiveport"*/;
 		String field = /* PatentDocument.Classification */PatentDocument.Description/*PatentDocument.Title*/;
-		String filename = "EP-0663270"/*"EP-0388383"*//*"EP-0415270"*/;
+		String filename = "EP-0802230" /*"EP-0663270"*//*"EP-0388383"*//*"EP-0415270"*/;
 
 		CollectionReader reader = new CollectionReader(indexDir);			
 
@@ -183,17 +225,18 @@ public class CollectionReader {
 
 //					reader.termFreqInDocs(field, term);
 			//			System.out.println(reader.getDocTerms(docName, field));
-		if(reader.getDocTerms("UN-"+filename, field)!=null){
+		/*if(reader.getDocTerms("UN-"+filename, field)!=null){
 			HashSet<String> terms = reader.getDocTerms("UN-"+filename, field);
 			System.out.println(terms);
-			boolean bool = terms.contains("mona"/*"work"*/);
+			boolean bool = terms.contains("mona""work");
 			System.out.println("Word exists: " + bool);
-			/*for(String t : terms){
+			for(String t : terms){
 				System.out.println(t);
-			}*/
-		}else{System.out.println("this file does not exist!");}	
+			}
+		}else{System.out.println("this file does not exist!");}	*/
 		
-		reader.gettermfreqpair(docName, field);
+//		reader.gettermfreqpair(docName, field);
+		reader.gettermfreqpairAllsecs(docName);
 		
 	}
 }
