@@ -52,7 +52,9 @@ public class GoodTerms {
 			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
 			ArrayList<String> fps = er.evaluatePatents(queryid, "FP");
 			HashMap<String, Float> /*TFreqs*/ termsscores = new HashMap<>();
-			
+			tps.add(qUcid);
+//			System.out.println(tps);
+//			int tpsize = tps.size()+1;
 			
 /*--------------------------------- Query Words -------------------------------*/
 //			HashMap<String, Integer> query_termsfreqspair = reader.gettermfreqpair(qUcid, PatentDocument.Description);
@@ -120,10 +122,6 @@ public class GoodTerms {
 //					System.out.println("["+ i +"]" + scoresorted.getKey()+"\t"+scoresorted.getValue());
 ////				}
 //			}
-			
-			
-			
-
 			
 		}
 		return termsscoressorted;			
