@@ -25,7 +25,7 @@ public class OverlapWithQuery {
 
 	public /*TreeMap<String, Float>*/void getTopnTermsOverlapWithQuery() throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/score/test.txt";
+		String outputfile = "./output/score/test3.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
