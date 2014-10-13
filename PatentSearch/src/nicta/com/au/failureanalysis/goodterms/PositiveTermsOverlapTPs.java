@@ -25,7 +25,7 @@ public class PositiveTermsOverlapTPs {
 	
 	public static void main(String[] args) throws IOException, ParseException {
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/score/termoverlp-TPs.txt";
+		String outputfile = "./output/score/termoverlp-TPs2.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
@@ -44,15 +44,17 @@ public class PositiveTermsOverlapTPs {
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
 			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
 
-			System.out.println("=========================================");
+			int tpssize = tps.size();
+			if(tpssize != 0){
+			/*System.out.println("=========================================");
 			System.out.println(queryName + "\t" +qUcid);
-			System.out.println("=========================================");
+			System.out.println("=========================================");*/
 
 			Map<String, Float> tspairs = olap.getTermsScoresPair(queryid, qUcid);
 			HashMap<String, Float> tshashes = new HashMap<>();
 			tshashes.putAll(tspairs);
 			
-			System.out.println(tspairs.size() + "\t" + tspairs);
+//			System.out.println(tspairs.size() + "\t" + tspairs);
 //			System.out.println(tshashes.size() + "\t" + tshashes.get("piston")+ "\t" + tshashes);
 
 			/*ArrayList<String> enfns = afn.getEnglishFNs(queryid);
@@ -65,7 +67,7 @@ public class PositiveTermsOverlapTPs {
 			//			System.out.println(query_termsfreqspair.size() +"\t"+ query_termsfreqspair);
 			//			System.out.println(query_terms.size() + "\t" + query_terms);
 
-			int tpssize = tps.size();
+			
 			int usefuloverlap;
 			int nonusefuloverlap;
 			int overlap;
@@ -109,6 +111,11 @@ public class PositiveTermsOverlapTPs {
 			System.out.println(queryName+"\t"+usefulavg+"\t"+nonusefulavg+"\t"+avg);
 			ps.println(queryName+"\t"+usefulavg+"\t"+nonusefulavg+"\t"+avg);
 		}
+		}/*else{
+			System.out.println(queryName+"\t" + "No TP for this query");
+			ps.println(queryName+"\t"+ "No TP for this query");
+
+		}*/
 	}
 
 }
