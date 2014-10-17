@@ -122,22 +122,22 @@ public class QueryAndPatents {
 		/*-------------------------------------------------------------------------*/
 
 		QueryAndPatents qps = new QueryAndPatents();
-		HashMap<String, ArrayList<String>> _querypatents = qps
-//						.GetQueryPatents("output/results/results-lmdir-desc-100.txt");
-		 .GetQueryPatents("data/qrel/PAC_test_rels.txt");
-		
-		int i = 0;
-		for (Entry<String, ArrayList<String>> k : _querypatents.entrySet()) {
-			i++;
-			ArrayList<String> patents = _querypatents.get(k.getKey());
-			// System.out.println(patents.size());
-			System.out.println(" [" + i + "] " + k.getKey() + " , " + patents);
-//			ps.println(" [" + i + "] " + k.getKey() + " , " + patents);
-		}
+//		HashMap<String, ArrayList<String>> _querypatents = qps
+////						.GetQueryPatents("output/results/results-lmdir-desc-100.txt");
+//		 .GetQueryPatents("data/qrel/PAC_test_rels.txt");
+//		
+//		int i = 0;
+//		for (Entry<String, ArrayList<String>> k : _querypatents.entrySet()) {
+//			i++;
+//			ArrayList<String> patents = _querypatents.get(k.getKey());
+//			// System.out.println(patents.size());
+//			System.out.println(" [" + i + "] " + k.getKey() + " , " + patents);
+////			ps.println(" [" + i + "] " + k.getKey() + " , " + patents);
+//		}
 		
 /*---------------Uncomment below to test retrieved documents and the ranks---------------*/
 
-		/*HashMap<String, HashMap<String, String>> _docranks = qps
+		HashMap<String, HashMap<String, String>> _docranks = qps
 				.GetQueryPatentsRanks("output/results/results-lmdir-desc-100.txt");
 		
 		
@@ -149,7 +149,9 @@ public class QueryAndPatents {
 			System.out.println(" [" + j + "] " + dr.getKey() + " , "
 					+ _docranks.get(dr.getKey()));
 		}
-*/
+		
+//		System.out.println(_docranks.get("PAC-191").get("EP-1006760"));
+
 	}
 
 }

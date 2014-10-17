@@ -22,7 +22,7 @@ public class PositiveTermsOverlapFPs {
 
 	public static void main(String[] args) throws IOException, ParseException {
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/relevancefeedback-score/termoverlp-FPs3.txt";
+		String outputfile = "./output/relevancefeedback-score/test-termoverlp-FPs6.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);

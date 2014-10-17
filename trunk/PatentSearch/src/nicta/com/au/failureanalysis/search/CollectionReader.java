@@ -177,28 +177,35 @@ public class CollectionReader {
 		CollectionReader reader = new CollectionReader(indexDir);
 
 		termfreqs = reader.gettermfreqpair(docName, PatentDocument.Description);
+//		System.out.println(termfreqs.size() +" "+ termfreqs);
 //		System.out.println("--- T ---");
 		titletermfreqs=reader.gettermfreqpair(docName, PatentDocument.Title);
+//		System.out.println(titletermfreqs.size()+" "+ titletermfreqs);
 //		System.out.println("--- A ---");
 		abstermfreqs=reader.gettermfreqpair(docName, PatentDocument.Abstract);
+//		System.out.println(abstermfreqs.size()+" "+ abstermfreqs);
 //		System.out.println("--- C --");
 		claimstermfreqs=reader.gettermfreqpair(docName, PatentDocument.Claims);
+//		System.out.println(claimstermfreqs.size() +" "+claimstermfreqs);
 		if(termfreqs!=null){
+//			System.out.println("--- T ---");
 			for(Entry<String, Integer> ttf:titletermfreqs.entrySet()){
 				if(termfreqs.containsKey(ttf.getKey())){
 //					System.out.println(ttf.getKey()+" "+ (ttf.getValue()+termfreqs.get(ttf.getKey())));
 					termfreqs.put(ttf.getKey(), ttf.getValue()+termfreqs.get(ttf.getKey()));
 				}else{termfreqs.put(ttf.getKey(), ttf.getValue());}
 			}
+//			System.out.println("--- A ---");
 			for(Entry<String, Integer> atf:abstermfreqs.entrySet()){
 				if(termfreqs.containsKey(atf.getKey())){
-//					System.out.println(ttf.getKey()+" "+ (ttf.getValue()+termfreqs.get(ttf.getKey())));
+//					System.out.println(atf.getKey()+" "+ (atf.getValue()+termfreqs.get(atf.getKey())));
 					termfreqs.put(atf.getKey(), atf.getValue()+termfreqs.get(atf.getKey()));
 				}else{termfreqs.put(atf.getKey(), atf.getValue());}
 			}
+//			System.out.println("--- C --");
 			for(Entry<String, Integer> ctf:claimstermfreqs.entrySet()){
 				if(termfreqs.containsKey(ctf.getKey())){
-//					System.out.println(ttf.getKey()+" "+ (ttf.getValue()+termfreqs.get(ttf.getKey())));
+//					System.out.println(ctf.getKey()+" "+ (ctf.getValue()+termfreqs.get(ctf.getKey())));
 					termfreqs.put(ctf.getKey(), ctf.getValue()+termfreqs.get(ctf.getKey()));
 				}else{termfreqs.put(ctf.getKey(), ctf.getValue());}
 			}

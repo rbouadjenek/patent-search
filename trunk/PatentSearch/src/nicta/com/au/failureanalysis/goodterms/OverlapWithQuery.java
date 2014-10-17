@@ -35,7 +35,7 @@ public class OverlapWithQuery {
 		CollectionReader reader = new CollectionReader(indexDir); 
 		IndexReader ir = reader.getIndexReader();		
 
-		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-omit-PAC-1094.xml");
+		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-test2.xml"/*omit-PAC-1094.xml"*/);
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 			String qUcid = topic.getValue().getUcid();
 			String queryid = topic.getKey();
@@ -100,7 +100,7 @@ public class OverlapWithQuery {
 			ValueComparator bvc =  new ValueComparator(termsscores);
 			termsscoressorted = new TreeMap<String,Float>(bvc);			
 			termsscoressorted.putAll(termsscores);
-//			System.out.println(termsscoressorted.size() + "\t" + termsscoressorted.keySet());
+			System.out.println(queryid + "\t"+ termsscoressorted.size() + "\t" + termsscoressorted/*.keySet()*/);
 			int overlap = 0;
 			int i = 0;
 			for(Entry<String, Float> scoresorted:termsscoressorted.entrySet()){
@@ -112,9 +112,8 @@ public class OverlapWithQuery {
 				}
 			}	
 			System.out.println(queryName + "\t"+overlap);
-			ps.println(queryName + "\t"+overlap);
+//			ps.println(queryName + "\t"+overlap);
 		}
-
 	}
 	
 	

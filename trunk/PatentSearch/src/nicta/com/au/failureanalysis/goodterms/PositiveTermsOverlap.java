@@ -33,8 +33,10 @@ public class PositiveTermsOverlap {
 		ArrayList<String> fps = er.evaluatePatents(queryid, "FP");
 		int fpsize = fps.size();
 		HashMap<String, Float> termsscores = new HashMap<>();
-		tps.add(qUcid);
+/*-------------------------- Uncomment if you want to add query terms to the score -------------------*/
+//		tps.add(qUcid);
 //		System.out.println(tps);
+/*----------------------------------------------------------------------------------------------------*/		
 		int tpsize = tps.size();
 		
 		for (String tp : tps) {
@@ -122,7 +124,7 @@ public class PositiveTermsOverlap {
 //			System.out.println(query_terms.size() + "\t" + query_terms);
 			
 			
-			if(n_enfns != 0){
+			/*if(n_enfns != 0){
 
 				System.out.println("---------------------------------------------------------");
 				System.out.println("FN patent ID" + "\t" + "overlap" + "\t" + "|Q|" + "\t" + "|D|" + "\t" + "overlap/|Q|");
@@ -130,7 +132,7 @@ public class PositiveTermsOverlap {
 				for (String doc : enfns) { 
 					
 				}
-			}
+			}*/
 
 		}
 	}
