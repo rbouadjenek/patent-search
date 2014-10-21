@@ -22,7 +22,7 @@ import org.apache.lucene.queryparser.classic.ParseException;
 public class PositiveTermsOverlap {
 	static String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
 	
-	public TreeMap<String, Float> getTermsScoresPair(String queryid, String qUcid) throws IOException, ParseException{
+	public TreeMap<String, Float> getTermsScoresPair(String queryid) throws IOException, ParseException{
 		
 		TreeMap<String,Float> termsscoressorted = null;
 		CollectionReader reader = new CollectionReader(indexDir); 
@@ -111,7 +111,7 @@ public class PositiveTermsOverlap {
 			System.out.println(queryName + "\t" +qUcid);
 			System.out.println("=========================================");
 
-			TreeMap<String, Float> tspair = olap.getTermsScoresPair(queryid, qUcid);
+			TreeMap<String, Float> tspair = olap.getTermsScoresPair(queryid);
 			System.out.println(tspair.size() + "\t" + tspair);
 			
 			ArrayList<String> enfns = afn.getEnglishFNs(queryid);

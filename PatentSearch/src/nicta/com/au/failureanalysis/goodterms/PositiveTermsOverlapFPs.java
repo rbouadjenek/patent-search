@@ -47,7 +47,7 @@ public class PositiveTermsOverlapFPs {
 			System.out.println(queryName + "\t" +qUcid);
 			System.out.println("=========================================");*/
 
-				Map<String, Float> tspairs = olap.getTermsScoresPair(queryid, qUcid);
+				Map<String, Float> tspairs = olap.getTermsScoresPair(queryid);
 				HashMap<String, Float> tshashes = new HashMap<>();
 				tshashes.putAll(tspairs);
 
