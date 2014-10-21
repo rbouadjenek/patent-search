@@ -23,7 +23,7 @@ public class OverlapWithQueryDiffCriteria {
 
 	public void overlapWithQuerytop100pos() throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/relevancefeedback-score/termoverlp-postop100-tophalf.txt";
+		String outputfile = "./output/relevancefeedback-score/termoverlp-postop100-tophalf1.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
