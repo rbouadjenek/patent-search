@@ -1,73 +1,324 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- You may freely edit this file. See commented blocks below for -->
-<!-- some examples of how to customize the build. -->
-<!-- (If you delete it and reopen the project it will be recreated.) -->
-<!-- By default, only the Clean and Build commands use this build script. -->
-<!-- Commands such as Run, Debug, and Test only use this build script if -->
-<!-- the Compile on Save feature is turned off for the project. -->
-<!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
-<!-- in the project's Project Properties dialog box.-->
-<project name="PatentSearch" default="default" basedir=".">
-    <description>Builds, tests, and runs the project PatentSearch.</description>
-    <import file="nbproject/build-impl.xml"/>
-    <!--
-
-    There exist several targets which are by default empty and which can be 
-    used for execution of your tasks. These targets are usually executed 
-    before and after some main targets. They are: 
-
-      -pre-init:                 called before initialization of project properties
-      -post-init:                called after initialization of project properties
-      -pre-compile:              called before javac compilation
-      -post-compile:             called after javac compilation
-      -pre-compile-single:       called before javac compilation of single file
-      -post-compile-single:      called after javac compilation of single file
-      -pre-compile-test:         called before javac compilation of JUnit tests
-      -post-compile-test:        called after javac compilation of JUnit tests
-      -pre-compile-test-single:  called before javac compilation of single JUnit test
-      -post-compile-test-single: called after javac compilation of single JUunit test
-      -pre-jar:                  called before JAR building
-      -post-jar:                 called after JAR building
-      -post-clean:               called after cleaning build products
-
-    (Targets beginning with '-' are not intended to be called on their own.)
-
-    Example of inserting an obfuscator after compilation could look like this:
-
-        <target name="-post-compile">
-            <obfuscate>
-                <fileset dir="${build.classes.dir}"/>
-            </obfuscate>
-        </target>
-
-    For list of available properties check the imported 
-    nbproject/build-impl.xml file. 
-
-
-    Another way to customize the build is by overriding existing main targets.
-    The targets of interest are: 
-
-      -init-macrodef-javac:     defines macro for javac compilation
-      -init-macrodef-junit:     defines macro for junit execution
-      -init-macrodef-debug:     defines macro for class debugging
-      -init-macrodef-java:      defines macro for class execution
-      -do-jar:                  JAR building
-      run:                      execution of project 
-      -javadoc-build:           Javadoc generation
-      test-report:              JUnit report generation
-
-    An example of overriding the target for project execution could look like this:
-
-        <target name="run" depends="PatentSearch-impl.jar">
-            <exec dir="bin" executable="launcher.exe">
-                <arg file="${dist.jar}"/>
-            </exec>
-        </target>
-
-    Notice that the overridden target depends on the jar target and not only on 
-    the compile target as the regular run target does. Again, for a list of available 
-    properties which you can use, check the target you are overriding in the
-    nbproject/build-impl.xml file. 
-
-    -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="PatentSearch">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="PatentSearch.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/commons-lang3-3.1.jar"/>
+        <pathelement location="lib/commons-math3-3.2.jar"/>
+        <pathelement location="lib/lucene-analyzers-common-4.8.1.jar"/>
+        <pathelement location="lib/lucene-codecs-4.8.1.jar"/>
+        <pathelement location="lib/lucene-core-4.8.1.jar"/>
+        <pathelement location="lib/lucene-misc-4.8.1.jar"/>
+        <pathelement location="lib/lucene-queryparser-4.8.1.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="myExecuteTopics">
+        <java classname="nicta.com.au.failureanalysis.reusedcodes.myExecuteTopics" failonerror="true" fork="yes">
+            <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/ data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml 100 bm25 0 0 1 0 0 0 true true false false"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="QueryAndPatents">
+        <java classname="nicta.com.au.failureanalysis.evaluate.QueryAndPatents" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="GetPatentFile (1)">
+        <java classname="nicta.com.au.failureanalysis.utility.GetPatentFile" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="OverlapWithQueryDiffCriteria">
+        <java classname="nicta.com.au.failureanalysis.goodterms.OverlapWithQueryDiffCriteria" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="CalculateAverage">
+        <java classname="nicta.com.au.failureanalysis.evaluate.CalculateAverage" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="ExecuteTopics">
+        <java classname="nicta.com.au.patent.pac.evaluation.ExecuteTopics" failonerror="true" fork="yes">
+            <jvmarg line="-Xms6000M -Xmx6000M"/>
+            <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/ data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml 1000 lmj 0 0 1 0 0 0 true true false false"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="DifferentDenominators">
+        <java classname="nicta.com.au.failureanalysis.TermOverlap.DifferentDenominators" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="GoodTerms">
+        <java classname="nicta.com.au.failureanalysis.goodterms.GoodTerms" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="ScoreQueryTermsTPs">
+        <java classname="nicta.com.au.failureanalysis.weighting.ScoreQueryTermsTPs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="GetPatentTerms">
+        <java classname="nicta.com.au.analysis.GetPatentTerms" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="QueryGeneration">
+        <java classname="nicta.com.au.failureanalysis.query.QueryGeneration" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="GetSectionTerms (1)">
+        <java classname="nicta.com.au.analysis.GetSectionTerms" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="CompareQueryDoc">
+        <java classname="nicta.com.au.utilities.CompareQueryDoc" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="DocsContainQuerySplittedIpc">
+        <java classname="nicta.com.au.failureanalysis.ipccode.DocsContainQuerySplittedIpc" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TopQueryTerms">
+        <java classname="nicta.com.au.failureanalysis.query.test.TopQueryTerms" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="DescSectionsOverlap">
+        <java classname="nicta.com.au.failureanalysis.SectionOverlap.DescSectionsOverlap" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PACSearcher">
+        <java classname="nicta.com.au.patent.pac.search.PACSearcher" failonerror="true" fork="yes">
+            <arg line="/home/mona/workspace/PatentSearch/data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/ /home/mona/workspace/PatentSearch/data/CLEF-IP-2010/PAC_test/topics/PAC-100_EP-1462146-A1.xml"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="Test">
+        <java classname="nicta.com.au.main.Test" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PatentQuery">
+        <java classname="nicta.com.au.patent.pac.search.PatentQuery" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="DocsContainQueryIpc">
+        <java classname="nicta.com.au.failureanalysis.ipccode.DocsContainQueryIpc" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PositiveTermsOverlapFPs">
+        <java classname="nicta.com.au.failureanalysis.goodterms.PositiveTermsOverlapFPs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="GetTrueFalseRanks">
+        <java classname="nicta.com.au.utilities.GetTrueFalseRanks" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="CollectionSearcher (1)">
+        <java classname="nicta.com.au.failureanalysis.search.CollectionSearcher" failonerror="true" fork="yes">
+            <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010 data/CLEF-IP 2010/PAC_test/topics/"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TermOverlapNormToQueryDoc">
+        <java classname="nicta.com.au.failureanalysis.TermOverlap.TermOverlapNormToQueryDoc" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TestQTermScoring">
+        <java classname="nicta.com.au.failureanalysis.query.test.TestQTermScoring" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="OptimisedTermOverlap">
+        <java classname="nicta.com.au.failureanalysis.TermOverlap.OptimisedTermOverlap" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="OverlapWithQuery">
+        <java classname="nicta.com.au.failureanalysis.goodterms.OverlapWithQuery" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="CollectionReader">
+        <java classname="nicta.com.au.failureanalysis.search.CollectionReader" failonerror="true" fork="yes">
+            <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010 data/CLEF-IP 2010/PAC_test/topics/"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="CalculateTermOverlapTPs">
+        <java classname="nicta.com.au.failureanalysis.TermOverlap.CalculateTermOverlapTPs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="CalculateAvgEnFN">
+        <java classname="nicta.com.au.failureanalysis.evaluate.CalculateAvgEnFN" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="CalculateTermOverlap">
+        <java classname="nicta.com.au.failureanalysis.TermOverlap.CalculateTermOverlap" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PositiveTermsOverlapTPs">
+        <java classname="nicta.com.au.failureanalysis.goodterms.PositiveTermsOverlapTPs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="test (2)">
+        <java classname="nicta.com.au.analysis.test" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="DescSecOverlapDisplay">
+        <java classname="nicta.com.au.failureanalysis.SectionOverlap.DescSecOverlapDisplay" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TermFrequency">
+        <java classname="nicta.com.au.utilities.TermFrequency" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="IPCcodeOverlap">
+        <java classname="nicta.com.au.failureanalysis.ipccode.IPCcodeOverlap" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TestExpalin">
+        <java classname="nicta.com.au.failureanalysis.query.test.TestExpalin" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PatentQueryOld">
+        <java classname="nicta.com.au.patent.pac.search.PatentQueryOld" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="DescSecOverlapFNs">
+        <java classname="nicta.com.au.failureanalysis.SectionOverlap.DescSecOverlapFNs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TopicsInMemory">
+        <java classname="nicta.com.au.patent.pac.evaluation.TopicsInMemory" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PACIndexer">
+        <java classname="nicta.com.au.patent.pac.index.PACIndexer" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TermFrequency1">
+        <java classname="nicta.com.au.utilities.TermFrequency1" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="DocumentsWithQueryIpc">
+        <java classname="nicta.com.au.failureanalysis.ipccode.DocumentsWithQueryIpc" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PositiveTermsOverlap">
+        <java classname="nicta.com.au.failureanalysis.goodterms.PositiveTermsOverlap" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="AnalyseFNs">
+        <java classname="nicta.com.au.failureanalysis.evaluate.AnalyseFNs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="CalculateAvgTFreq">
+        <java classname="nicta.com.au.failureanalysis.evaluate.CalculateAvgTFreq" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="test (1)">
+        <java classname="nicta.com.au.erroranalysis.test" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="QueryGneration">
+        <java classname="nicta.com.au.failureanalysis.query.QueryGneration" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="EvaluateResults">
+        <java classname="nicta.com.au.failureanalysis.evaluate.EvaluateResults" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PerformanceOverAllQueries">
+        <java classname="nicta.com.au.failureanalysis.evaluate.PerformanceOverAllQueries" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="QueryVsDocuments">
+        <java classname="nicta.com.au.utilities.QueryVsDocuments" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="ScoreQueryTermsFNs">
+        <java classname="nicta.com.au.failureanalysis.weighting.ScoreQueryTermsFNs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
 </project>
