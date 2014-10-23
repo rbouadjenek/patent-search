@@ -23,7 +23,7 @@ public class OverlapWithQueryDiffCriteria {
 
 	public void overlapWithQuerytop100pos() throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/relevancefeedback-score/termoverlp-postop100-tophalf2.txt";
+		String outputfile = "./output/relevancefeedback-score/termoverlp-postop100-tophalf4.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
@@ -92,8 +92,8 @@ public class OverlapWithQueryDiffCriteria {
 	
 	public /*HashMap<String, Float>*/void overlapWithQueryMedian() throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/relevancefeedback-score/termoverlp-tophalf-all4.txt";
-
+		String outputfile = "./output/relevancefeedback-score/test.txt";/*termoverlp-tophalf-all4.txt";
+*/
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
 		/*-------------------------------------------------------------------------------*/
@@ -130,13 +130,13 @@ public class OverlapWithQueryDiffCriteria {
 			for(Entry<String, Float> tspair : termsscores_sorted.entrySet()){
 				String term = tspair.getKey();
 				Float score = tspair.getValue();
-				if (score>1 && query_terms.contains(term)){
+				if (score>10 && query_terms.contains(term)){
 					overlap1++;
 				}
-				if (score>1){
+				if (score>10){
 					count1++;
 				}
-				if (score>0 && query_terms.contains(term)){
+				/*if (score>0 && query_terms.contains(term)){
 					overlap2++;
 				}
 				if (score>0){
@@ -154,10 +154,10 @@ public class OverlapWithQueryDiffCriteria {
 					if(query_terms.contains(term)){
 						overlap4++;
 					}					
-				}			
+				}	*/		
 			}			
 			
-			HashMap<String, Float> useful_terms = new HashMap<>();
+			/*HashMap<String, Float> useful_terms = new HashMap<>();
 			HashMap<String, Float> non_useful_terms = new HashMap<>();
 			for(Entry<String, Float> scoresorted:termsscores_sorted.entrySet()){
 				if(scoresorted.getValue()>0){				
@@ -182,13 +182,14 @@ public class OverlapWithQueryDiffCriteria {
 						overlap_median++;
 					}						
 				}
-			}
+			}*/
 			float o1 = (float)overlap1/count1;
-			float o2 = (float)overlap2/count2;
+			/*float o2 = (float)overlap2/count2;
 			float o3 = (float)overlap3/100;
-			float o5 = (float)overlap_median/median;
-			System.out.println(median +"\t"+ queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" /*+ overlap4 + "\t"*/ + o5);
-			ps.println(queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" +/* overlap4 + "\t" +*/ o5);
+			float o5 = (float)overlap_median/median;*/
+			/*System.out.println(median +"\t"+ queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o5);
+			ps.println(queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o5);*/
+			System.out.println(queryid + "\t" + o1);
 		}					
 	}
 	
@@ -278,8 +279,8 @@ public class OverlapWithQueryDiffCriteria {
 	public static void main(String[] args) throws IOException, ParseException {
 		OverlapWithQueryDiffCriteria olap = new OverlapWithQueryDiffCriteria();
 //		olap.overlapWithQueryAll();
-//		olap.overlapWithQueryMedian();
-		olap.overlapWithQuerytop100pos();
+		olap.overlapWithQueryMedian();
+//		olap.overlapWithQuerytop100pos();
 	}
 }
 
