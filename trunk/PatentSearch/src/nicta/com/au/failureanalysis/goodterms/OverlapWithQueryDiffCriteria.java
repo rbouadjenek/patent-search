@@ -90,7 +90,7 @@ public class OverlapWithQueryDiffCriteria {
 		}					
 	}
 	
-	public /*HashMap<String, Float>*/void overlapWithQueryMedian() throws IOException, ParseException{
+	public void overlapWithQueryMedian() throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
 		String outputfile = "./output/relevancefeedback-score/test.txt";/*termoverlp-tophalf-all4.txt";
 */
@@ -122,6 +122,8 @@ public class OverlapWithQueryDiffCriteria {
 			int overlap2=0;
 			int overlap3=0;
 			int overlap4=0;
+			int overlap10=0;
+			int count10=0;
 			int count1=0;
 			int count2=0;
 			int i =0;
@@ -131,12 +133,18 @@ public class OverlapWithQueryDiffCriteria {
 				String term = tspair.getKey();
 				Float score = tspair.getValue();
 				if (score>10 && query_terms.contains(term)){
-					overlap1++;
+					overlap10++;
 				}
 				if (score>10){
-					count1++;
+					count10++;
 				}
-				/*if (score>0 && query_terms.contains(term)){
+				if (score>1 && query_terms.contains(term)){
+					overlap10++;
+				}
+				if (score>1){
+					count10++;
+				}
+				if (score>0 && query_terms.contains(term)){
 					overlap2++;
 				}
 				if (score>0){
@@ -154,10 +162,10 @@ public class OverlapWithQueryDiffCriteria {
 					if(query_terms.contains(term)){
 						overlap4++;
 					}					
-				}	*/		
+				}			
 			}			
 			
-			/*HashMap<String, Float> useful_terms = new HashMap<>();
+			HashMap<String, Float> useful_terms = new HashMap<>();
 			HashMap<String, Float> non_useful_terms = new HashMap<>();
 			for(Entry<String, Float> scoresorted:termsscores_sorted.entrySet()){
 				if(scoresorted.getValue()>0){				
@@ -182,14 +190,14 @@ public class OverlapWithQueryDiffCriteria {
 						overlap_median++;
 					}						
 				}
-			}*/
+			}
 			float o1 = (float)overlap1/count1;
-			/*float o2 = (float)overlap2/count2;
+			float o2 = (float)overlap2/count2;
 			float o3 = (float)overlap3/100;
-			float o5 = (float)overlap_median/median;*/
-			/*System.out.println(median +"\t"+ queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o5);
-			ps.println(queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o5);*/
-			System.out.println(queryid + "\t" + o1);
+			float o_med = (float)overlap_median/median;
+			float o10 = (float)overlap10/count10;
+			System.out.println(median +"\t"+ queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" /*+ overlap4 + "\t"*/ + o_med);
+			ps.println(queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" +/* overlap4 + "\t" +*/ o_med+ "\t" + o10);
 		}					
 	}
 	
@@ -279,8 +287,8 @@ public class OverlapWithQueryDiffCriteria {
 	public static void main(String[] args) throws IOException, ParseException {
 		OverlapWithQueryDiffCriteria olap = new OverlapWithQueryDiffCriteria();
 //		olap.overlapWithQueryAll();
-		olap.overlapWithQueryMedian();
-//		olap.overlapWithQuerytop100pos();
+//		olap.overlapWithQueryMedian();
+		olap.overlapWithQuerytop100pos();
 	}
 }
 
