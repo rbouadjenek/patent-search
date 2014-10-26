@@ -210,7 +210,7 @@ public class WeightHistogram {
 	
 	public void weightPerQueryFPs() throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/weighting/weightHisto_FPs2.txt";
+		String outputfile = "./output/weighting/weightHisto_FPs2-test.txt";
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
 		/*-------------------------------------------------------------------------------*/
@@ -219,8 +219,8 @@ public class WeightHistogram {
 
 		EvaluateResults er = new EvaluateResults();
 		System.out.println("queryid" + "\t" + "wr_avg" + "\t" + "or_avg"+ "\t" + "w_avg" + "\t" + "o_avg");
-		System.out.println("---------------------------------------------------------");
-		ps.println("queryid" + "\t" + "wr_avg" + "\t" + "or_avg"+ "\t" + "w_avg" + "\t" + "o_avg");
+//		System.out.println("---------------------------------------------------------");
+//		ps.println("queryid" + "\t" + "wr_avg" + "\t" + "or_avg"+ "\t" + "w_avg" + "\t" + "o_avg");
 		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-omit-PAC-1094.xml");/*PAC_topics-omit-PAC-1094.xml");
 */		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
 			String queryid = topic.getKey();
@@ -294,7 +294,7 @@ public class WeightHistogram {
 			ps.println(queryid + "\t" + wr_avg + "\t" + or_avg+ "\t" + w_avg + "\t" + o_avg);
 			}else{
 				System.out.println(queryid+"\t" + "No FP for this query");
-				ps.println(queryid+"\t"+ "No FP for this query");
+//				ps.println(queryid+"\t"+ "No FP for this query");
 			}
 		}
 	}
