@@ -51,7 +51,7 @@ public class PositiveTermsOverlap {
 			
 			for(Entry<String, Integer> tfTP:termsfreqsTP.entrySet()){
 				if(termsscores.containsKey(tfTP.getKey())){
-					termsscores.put(tfTP.getKey(), termsscores.get(tfTP.getKey()) + (float)tfTP.getValue()/tps.size());
+					termsscores.put(tfTP.getKey(), termsscores.get(tfTP.getKey()) + (float)tfTP.getValue()/tpsize);
 				}else{
 //					float test = (float)t.getValue()/tpsize;
 //					System.out.println(test);
