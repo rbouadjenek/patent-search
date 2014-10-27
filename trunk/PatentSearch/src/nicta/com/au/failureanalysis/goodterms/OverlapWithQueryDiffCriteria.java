@@ -206,7 +206,7 @@ public class OverlapWithQueryDiffCriteria {
 			float o10 = (float)overlap10/count10;*/
 			float o5 = (float)overlap5/count5;
 			
-			ps.println(queryid + "\t" + o5 + "\t" + overlap5);
+			/*ps.println(queryid + "\t" + o5 + "\t" + overlap5);*/
 			System.out.println(queryid + "\t" + o5 + "\t" + overlap5);
 			/*System.out.println(median +"\t"+ queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o_med);
 			ps.println(queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o_med+ "\t" + o10);*/
