@@ -92,7 +92,7 @@ public class OverlapWithQueryDiffCriteria {
 	
 	public void overlapWithQueryMedian() throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/relevancefeedback-score/greater5.txt";/*termoverlp-tophalf-all4.txt";
+		String outputfile = "./output/relevancefeedback-score/greater5-2.txt";/*termoverlp-tophalf-all4.txt";
 */
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
