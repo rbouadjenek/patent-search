@@ -24,6 +24,11 @@ public class Functions {
         );
     }
 
+    public static boolean isSpecialCahr(String str) {
+    	return str.indexOf(".") >= 0 || str.indexOf(":")>=0 || str.indexOf(";")>=0 || str.indexOf("/")>=0 || str.indexOf("\\")>=0 || str.indexOf("^")>=0; 
+//        return /*str.matches("-?\\d+(\\.\\d+)?") || */str.matches("[\\-\\+\\.\\^:,]");  //match a special character.
+    }
+    
     public static boolean isNumeric(String str) {
         return str.matches("-?\\d+(\\.\\d+)?") || str.matches("-?\\d+(\\,\\d+)?");  //match a number with optional '-' and decimal.
     }

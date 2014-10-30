@@ -19,6 +19,10 @@ import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryparser.classic.ParseException;
 
+/**
+ * @author mona
+ *
+ */
 public class GoodTerms {
 	static String querypath = "data/CLEF-IP-2010/PAC_test/topics/";	
 	static String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
