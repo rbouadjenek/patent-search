@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package nicta.com.au.failureanalysis.reusedcodes;
+package nicta.com.au.failureanalysis.optimalquery;
 
 import com.hrstc.lucene.queryexpansion.PatentClassCodeBasedQueryExpansion;
 import com.hrstc.lucene.queryexpansion.PatentQueryExpansion;
@@ -20,6 +20,8 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
+import nicta.com.au.failureanalysis.query.QueryGneration;
 import nicta.com.au.main.Functions;
 import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 import nicta.com.au.patent.pac.search.PACSearcher;
@@ -38,7 +40,9 @@ import org.apache.lucene.search.TopDocs;
  *
  * @author rbouadjenetopK
  */
-public final class myExecuteTopics {
+public final class OptExecuteTopics {
+	static String path = "data/CLEF-IP-2010/PAC_test/topics/";
+
 	
 /*--------------------------- Write in output file. -Mona ------------------------*/
 //	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
@@ -50,7 +54,7 @@ public final class myExecuteTopics {
 /*-------------------------------------------------------------------------------*/
 
     private final File topicFile;
-    private final myPACSearcher searcher;
+    private final OptPACSearcher searcher;
     private final Map<String, Float> boosts;
     private final boolean filter;
     private final boolean stopWords;
@@ -60,7 +64,7 @@ public final class myExecuteTopics {
     private PatentQueryExpansion pqe;
     private final String startingPoint;
 
-    public myExecuteTopics(String indexDir, String topicFile, int topK, String similarity, float titleBoost, float abstractBoost,
+    public OptExecuteTopics(String indexDir, String topicFile, int topK, String similarity, float titleBoost, float abstractBoost,
             float descriptionBoost, float descriptionP5Boost, float claimsBoost, float claims1Boost, boolean filter, boolean stopWords,
             boolean rewrite, String termsImpactFilename, boolean expansion, String algo, String classCodesIndexDir, int nbrDocs, int nbrTerms, int source, float alpha, float beta, float gamma, String decay) throws IOException, Exception {
         this.topicFile = new File(topicFile);
@@ -76,7 +80,7 @@ public final class myExecuteTopics {
         this.stopWords = stopWords;
         this.rewrite = rewrite;
         this.rewriteQuery = new RewriteQuery(termsImpactFilename);
-        searcher = new myPACSearcher(indexDir, similarity, topK);
+        searcher = new OptPACSearcher(indexDir, similarity, topK);
         this.expansion = expansion;
         startingPoint = decay;
         if (startingPoint.equals("-1")) {
@@ -268,6 +272,87 @@ public final class myExecuteTopics {
         long millis = (end - start);
         System.err.println("#Global Execution time: " + Functions.getTimer(millis) + ".");
     }
+    
+    public void myexecute() throws IOException, Exception {
+        TopicsInMemory topics = new TopicsInMemory(topicFile);
+        long start = System.currentTimeMillis();
+        int j = 0;
+        boolean startP = false;
+        CreateOptimalQuery oq = new CreateOptimalQuery();
+        for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
+        	
+        	String qUcid = e.getValue().getUcid();
+			String queryid = e.getKey();
+			String queryName = e.getKey() + "_" + e.getValue().getUcid();
+			String queryfile = e.getKey() + "_" + e.getValue().getUcid() + ".xml";
+			String optquery = oq.generateOptimalQuery(queryid);
+			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
+			String ipcfilter = g.getIpc();
+//			if(optquery!=null){
+			Query q = oq.parse(optquery, ipcfilter);
+//				System.err.println(q);
+//			}else{System.err.println("no optimal query for this query paetent");}
+			
+			
+            j++;
+//            String queryid = e.getKey();
+            if (startingPoint.equals("-1")) {
+                startP = true;
+            } else if (startingPoint.equals(queryid)) {
+                startP = true;
+                continue;
+            }
+            if (!startP) {
+                continue;
+            }
+            PatentDocument pt = e.getValue();
+            System.err.print(j + "- " + queryid + " -> " + pt.getUcid());
+            System.err.println(q);
+            long start2 = System.currentTimeMillis();
+            TopDocs hits;
+            if (rewrite) {
+                Query query = searcher.rewrite(queryid, pt, rewriteQuery, boosts, filter, stopWords);
+                hits = searcher.search(query);
+            } else if (expansion) {
+                PatentQuery pq = new PatentQuery(pt, boosts, filter, stopWords);
+//                System.err.println("");
+//                System.err.println("---------------------------------------------------------------------------------------------------");
+//                System.err.println("Original query: " + pq.parse());
+//                System.err.println("---------------------------------------------------------------------------------------------------");
+                Query query = pqe.expandQuery(pq);
+//                System.err.println("Expanded query: " + query);
+                hits = searcher.search(query);
+            } else {
+            	hits = searcher.search(q);
+//                hits = searcher.search(pt, boosts, filter, stopWords);
+            }
+            long end2 = System.currentTimeMillis();
+            System.err.println(" - Found " + hits.totalHits
+                    + " document(s) has matched query " + pt.getUcid() + ". Processed in " + Functions.getTimer(end2 - start2) + ".");
+
+//            System.err.println(queryid + "\t" + hits.totalHits);
+            int i = 0;
+            if (hits.totalHits == 0) {
+                System.out.println(queryid + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
+            }
+            for (ScoreDoc scoreDoc : hits.scoreDocs) {
+                i++;
+                Document doc = searcher.getIndexSearch().doc(scoreDoc.doc);
+             // TODO: uncomment to print the result on console  
+                System.out.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+
+/*-------------------------------- Write the retrieved results in output text file. -Mona ----------------------- */                
+                
+//                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+          
+/*------------------------------------------------------------------------------------------------------------------*/        
+            }
+        }
+        long end = System.currentTimeMillis();
+        long millis = (end - start);
+        System.err.println("#Global Execution time: " + Functions.getTimer(millis) + ".");
+    }
+
 
     /**
      * @param args the command line arguments
@@ -370,10 +455,10 @@ public final class myExecuteTopics {
                 decay = args[j + 8];
             }
             try {
-                myExecuteTopics ex = new myExecuteTopics(indexDir, topicFile, topK, sim, titleBoost, abstractBoost,
+                OptExecuteTopics ex = new OptExecuteTopics(indexDir, topicFile, topK, sim, titleBoost, abstractBoost,
                         descriptionBoost, descriptionP5Boost, claimsBoost, claims1Boost, filter, stopWords, rewrite, termsImpactFilename,
                         expansion, algo, classCodesIndexDir, nbrDocs, nbrTerms, source, alpha, beta, gamma, decay);
-                ex.execute();
+                ex.myexecute();
             } catch (IOException ex) {
                 ex.printStackTrace();
             } catch (Exception ex) {

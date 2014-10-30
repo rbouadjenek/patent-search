@@ -42,6 +42,10 @@ import nicta.com.au.patent.document.PatentDocument;
 import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 import nicta.com.au.patent.pac.search.PACSearcher;
 
+/**
+ * @author mona
+ *
+ */
 public class ScoreQueryTermsTPs {
 
 	static String querypath = "data/CLEF-IP-2010/PAC_test/topics/";	
