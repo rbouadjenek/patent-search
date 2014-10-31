@@ -46,7 +46,7 @@ public final class OptExecuteTopics {
 	
 /*--------------------------- Write in output file. -Mona ------------------------*/
 //	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
-	public String outputfile = "./output/results/test.txt";
+	public String outputfile = "./output/results/result_optquery2.txt";
 
 	
 	public FileOutputStream out = new FileOutputStream(outputfile);
@@ -259,11 +259,11 @@ public final class OptExecuteTopics {
                 i++;
                 Document doc = searcher.getIndexSearch().doc(scoreDoc.doc);
              // TODO: uncomment to print the result on console  
-                System.out.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+//                System.out.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
 
 /*-------------------------------- Write the retrieved results in output text file. -Mona ----------------------- */                
                 
-//                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
           
 /*------------------------------------------------------------------------------------------------------------------*/        
             }
@@ -334,6 +334,7 @@ public final class OptExecuteTopics {
             int i = 0;
             if (hits.totalHits == 0) {
                 System.out.println(queryid + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
+//                ps.println(queryid + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
             }
             for (ScoreDoc scoreDoc : hits.scoreDocs) {
                 i++;
