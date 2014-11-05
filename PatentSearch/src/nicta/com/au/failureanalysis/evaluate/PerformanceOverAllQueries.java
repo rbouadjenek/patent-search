@@ -20,6 +20,66 @@ public class PerformanceOverAllQueries {
 	AnalyseFNs afn = new AnalyseFNs();
 	QueryAndPatents qps = new QueryAndPatents();
 	
+	public void calculateRecallAPrecision() throws IOException {
+		/*--------------------------- Write in output file. ------------------------*/
+		String outputfile = "./output/Performance/performance-all.txt";
+
+		FileOutputStream out = new FileOutputStream(outputfile);
+		PrintStream ps = new PrintStream(out);
+		/*-------------------------------------------------------------------------------*/
+		
+		TreeMap<String,Integer> TPs_ranks_sorted = null;
+		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml");
+		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
+			String qUcid = topic.getValue().getUcid();
+			String queryid = topic.getKey();
+			String queryName = topic.getKey() + "_" + topic.getValue().getUcid();
+			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
+			
+			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
+			ArrayList<String> filteredfns = afn.getFilteredFNs(queryid, queryfile);
+		
+			int filteredfnsize = filteredfns.size();			
+		    int tpsize = tps.size();
+		    int excludedqrelsize = tpsize + filteredfnsize;
+			
+		    float filteredfnrecall = (float)tpsize/excludedqrelsize;
+		    
+		    HashMap<String, HashMap<String, String>> _docranks = qps.GetQueryPatentsRanks(
+		    		"output/results/results-lmdir-desc-100.txt"
+		    		/*"output/optimalquery/optquery_result_lmdir_100.txt"*/);
+		    Map<String, Integer> TPs_ranks = new HashMap<String, Integer>();
+//			Map<String, String> treeMap = new TreeMap<String, String>();
+			for(String tp:tps){
+				TPs_ranks.put(tp, Integer.parseInt(_docranks.get(queryid).get(tp)));
+				
+//				System.out.println(tp+"\t"+_docranks.get(queryid).get(tp));
+			}
+			ValueComparator bvc =  new ValueComparator(TPs_ranks);
+			TPs_ranks_sorted = new TreeMap<String,Integer>(bvc);
+			TPs_ranks_sorted.putAll(TPs_ranks);
+//			System.out.println(TPs_ranks_sorted);
+			
+			int j = 0;
+			float sum = 0;
+			for( Entry<String, Integer> tp_rank : TPs_ranks_sorted.entrySet()){
+				j++;
+				Integer rank = tp_rank.getValue();
+				float prec_at = (float)j/rank;
+//				System.out.println(rank +"\t"+prec_at);
+				sum = sum + prec_at;
+			}
+			float avg_precision_excluded = (float)sum/excludedqrelsize;
+//			float avg_precision = (float)sum/qrelsize; 
+//			System.out.println(queryid + "\t" + avg_precision_excluded /*+ "\t" + avg_precision*/); 
+//			ps.println(queryid + "\t" + avg_precision_excluded /*+ "\t" + avg_precision*/); 	    
+		    
+			System.out.println(queryid + "\t" + filteredfnrecall + "\t" + avg_precision_excluded );
+			ps.println(queryid + "\t" + + filteredfnrecall + "\t" + avg_precision_excluded);
+			
+		}		
+	}
+	
 	public void calculateRecall() throws IOException {
 		/*--------------------------- Write in output file. ------------------------*/
 		String outputfile = "./output/Performance/recallfinal.txt";
@@ -129,7 +189,8 @@ public class PerformanceOverAllQueries {
 	public static void main(String[] args) throws IOException {
 		PerformanceOverAllQueries performance = new PerformanceOverAllQueries();
 //		performance.calculateRecall();
-		performance.calculateAvgPrecision();
+//		performance.calculateAvgPrecision();
+		performance.calculateRecallAPrecision();
 	}
 }
 

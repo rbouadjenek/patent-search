@@ -17,14 +17,17 @@ public class EvaluateResults {
 
 		String resultsfile = "output/results/" + /*"results-lmdir-desc-1000.txt"*/ 
 				/*"results-lmdir-desc-200.txt"*/ 
-				"results-lmdir-desc-100.txt";
+				"results-lmdir-desc-100.txt"
+				;
 
 		_queryID = queryID.toUpperCase();
 
 		QueryAndPatents qps = new QueryAndPatents();
 
 		HashMap<String, ArrayList<String>> _reldocs = qps
-				.GetQueryPatents("data/qrel/PAC_test_rels.txt");
+				.GetQueryPatents("data/qrel/"
+						+ "filtered-qrelfile-original.txt"
+						/*+ "PAC_test_rels.txt"*/);
 
 		HashMap<String, ArrayList<String>> _retdocs = qps
 				.GetQueryPatents(resultsfile);
@@ -68,8 +71,7 @@ public class EvaluateResults {
 				relevantdocs.remove(tp);
 				FNs = relevantdocs;
 			}
-		}else{
-			FNs = relevantdocs;
+		}else{if(!relevantdocs.contains("XXXXXXXXXX")){FNs = relevantdocs;}
 		}
 
 
@@ -90,7 +92,7 @@ public class EvaluateResults {
 		EvaluateResults er = new EvaluateResults();
 		//		er.evaluatePatents("PAC-1149", "TP");
 
-		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*//*"PAC-1012"*//*"PAC-1216"*/"PAC-1036"/*"PAC-1008"*/;
+		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*//*"PAC-1012"*//*"PAC-1216"*//*"PAC-9"*//*"PAC-1036"*//*"PAC-1008"*/"PAC-992";
 
 		ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
 		ArrayList<String> fps = er.evaluatePatents(queryid, "FP");
