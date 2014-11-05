@@ -496,8 +496,7 @@ public class QueryGneration {
 //		System.out.println(codes);
 		for (String code : codes) {
 			if (!ipc.contains(code)) {				
-				ipc += code + " ";
-				
+				ipc += code + " ";				
 			}
 		}
 //		System.out.println(ipc);
