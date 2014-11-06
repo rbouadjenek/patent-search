@@ -26,8 +26,8 @@ public class EvaluateResults {
 
 		HashMap<String, ArrayList<String>> _reldocs = qps
 				.GetQueryPatents("data/qrel/"
-						+ "filtered-qrelfile-original.txt"
-						/*+ "PAC_test_rels.txt"*/);
+						/*+ "filtered-qrelfile-original.txt"*/
+						+ "PAC_test_rels.txt");
 
 		HashMap<String, ArrayList<String>> _retdocs = qps
 				.GetQueryPatents(resultsfile);
