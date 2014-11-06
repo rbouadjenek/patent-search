@@ -55,6 +55,11 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+    <target name="GenerateFilteredQrel">
+        <java classname="nicta.com.au.failureanalysis.evaluate.GenerateFilteredQrel" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="myExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.reusedcodes.myExecuteTopics" failonerror="true" fork="yes">
             <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/ data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml 100 bm25 0 1 0 0 0 0 true true false false"/>
@@ -201,6 +206,11 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="OptPatentQuery">
+        <java classname="nicta.com.au.failureanalysis.optimalquery.OptPatentQuery" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="CalculateTermOverlapTPs">
         <java classname="nicta.com.au.failureanalysis.TermOverlap.CalculateTermOverlapTPs" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
@@ -228,6 +238,11 @@
     </target>
     <target name="DescSecOverlapDisplay">
         <java classname="nicta.com.au.failureanalysis.SectionOverlap.DescSecOverlapDisplay" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="deleteLine">
+        <java classname="nicta.com.au.failureanalysis.evaluate.deleteLine" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -276,6 +291,11 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="CreateOptimalQuery">
+        <java classname="nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="DocumentsWithQueryIpc">
         <java classname="nicta.com.au.failureanalysis.ipccode.DocumentsWithQueryIpc" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
@@ -298,7 +318,7 @@
     </target>
     <target name="OptExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.optimalquery.OptExecuteTopics" failonerror="true" fork="yes">
-            <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/ data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml 100 bm25 0 1 0 0 0 0 true true false false"/>
+            <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/ data/CLEF-IP-2010/PAC_test/topics/PAC_topics-omit-PAC-1094.xml 100 lmj 0 0 1 0 0 0 true true false false"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -339,16 +359,6 @@
     </target>
     <target name="ScoreQueryTermsFNs">
         <java classname="nicta.com.au.failureanalysis.weighting.ScoreQueryTermsFNs" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="CreateOptimalQuery">
-        <java classname="nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="OptPatentQuery">
-        <java classname="nicta.com.au.failureanalysis.optimalquery.OptPatentQuery" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>

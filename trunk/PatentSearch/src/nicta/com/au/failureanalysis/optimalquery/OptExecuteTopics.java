@@ -46,11 +46,11 @@ public final class OptExecuteTopics {
 	
 /*--------------------------- Write in output file. -Mona ------------------------*/
 //	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
-	public String outputfile = "./output/results/result_optquery2.txt";
+	/*public String outputfile = "./output/results/result_optquery2.txt";
 
 	
 	public FileOutputStream out = new FileOutputStream(outputfile);
-	public PrintStream ps = new PrintStream(out);
+	public PrintStream ps = new PrintStream(out);*/
 /*-------------------------------------------------------------------------------*/
 
     private final File topicFile;
@@ -263,7 +263,7 @@ public final class OptExecuteTopics {
 
 /*-------------------------------- Write the retrieved results in output text file. -Mona ----------------------- */                
                 
-                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+//                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
           
 /*------------------------------------------------------------------------------------------------------------------*/        
             }
