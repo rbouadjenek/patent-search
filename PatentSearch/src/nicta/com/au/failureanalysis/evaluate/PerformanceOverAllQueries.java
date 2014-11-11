@@ -20,9 +20,12 @@ public class PerformanceOverAllQueries {
 	AnalyseFNs afn = new AnalyseFNs();
 	QueryAndPatents qps = new QueryAndPatents();
 	
+	/**
+	 * @throws IOException
+	 */
 	public void calculateRecallAPrecision() throws IOException {
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/Performance/performance-all.txt";
+		String outputfile = "./output/Performance/test-performance-optquery-equalweight-filtered.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
@@ -36,7 +39,7 @@ public class PerformanceOverAllQueries {
 			String queryName = topic.getKey() + "_" + topic.getValue().getUcid();
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
 			
-			ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
+			ArrayList<String> tps = er.evaluatePatents(queryid, "TP", "output/results/results_optquery_equalweight.txt");
 			ArrayList<String> filteredfns = afn.getFilteredFNs(queryid, queryfile);
 		
 			int filteredfnsize = filteredfns.size();			
@@ -46,7 +49,8 @@ public class PerformanceOverAllQueries {
 		    float filteredfnrecall = (float)tpsize/excludedqrelsize;
 		    
 		    HashMap<String, HashMap<String, String>> _docranks = qps.GetQueryPatentsRanks(
-		    		"output/results/results-lmdir-desc-100.txt"
+//		    		"output/results/results-lmdir-desc-100.txt"
+		    		"output/results/results_optquery_equalweight.txt"
 		    		/*"output/optimalquery/optquery_result_lmdir_100.txt"*/);
 		    Map<String, Integer> TPs_ranks = new HashMap<String, Integer>();
 //			Map<String, String> treeMap = new TreeMap<String, String>();
@@ -74,8 +78,8 @@ public class PerformanceOverAllQueries {
 //			System.out.println(queryid + "\t" + avg_precision_excluded /*+ "\t" + avg_precision*/); 
 //			ps.println(queryid + "\t" + avg_precision_excluded /*+ "\t" + avg_precision*/); 	    
 		    
-			System.out.println(queryid + "\t" + filteredfnrecall + "\t" + avg_precision_excluded );
-			ps.println(queryid + "\t" + + filteredfnrecall + "\t" + avg_precision_excluded);
+			System.out.println(queryid + "\t" + avg_precision_excluded  + "\t" + filteredfnrecall);
+			ps.println(queryid + "\t" + avg_precision_excluded  + "\t" + filteredfnrecall);
 			
 		}		
 	}

@@ -140,7 +140,7 @@ public class OverlapWithQueryDiffCriteria {
 				if (score>5){
 					count5++;
 				}
-			/*	if (score>10 && query_terms.contains(term)){
+				if (score>10 && query_terms.contains(term)){
 					overlap10++;
 				}
 				if (score>10){
@@ -170,10 +170,10 @@ public class OverlapWithQueryDiffCriteria {
 					if(query_terms.contains(term)){
 						overlap4++;
 					}					
-				}	*/		
+				}			
 			}			
 			
-			/*HashMap<String, Float> useful_terms = new HashMap<>();
+			HashMap<String, Float> useful_terms = new HashMap<>();
 			HashMap<String, Float> non_useful_terms = new HashMap<>();
 			for(Entry<String, Float> scoresorted:termsscores_sorted.entrySet()){
 				if(scoresorted.getValue()>0){				
@@ -198,18 +198,18 @@ public class OverlapWithQueryDiffCriteria {
 						overlap_median++;
 					}						
 				}
-			}*/
-			/*float o1 = (float)overlap1/count1;
+			}
+			float o1 = (float)overlap1/count1;
 			float o2 = (float)overlap2/count2;
 			float o3 = (float)overlap3/100;
 			float o_med = (float)overlap_median/median;
-			float o10 = (float)overlap10/count10;*/
+			float o10 = (float)overlap10/count10;
 			float o5 = (float)overlap5/count5;
 			
 			/*ps.println(queryid + "\t" + o5 + "\t" + overlap5);*/
-			System.out.println(queryid + "\t" + o5 + "\t" + overlap5);
-			/*System.out.println(median +"\t"+ queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o_med);
-			ps.println(queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o_med+ "\t" + o10);*/
+			/*System.out.println(queryid + "\t" + o5 + "\t" + overlap5);*/
+			System.out.println(median +"\t"+ queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o_med);
+			ps.println(queryid + "\t" + o1 + "\t" + o2+ "\t" + o3 + "\t" + overlap4 + "\t" + o_med+ "\t" + o10);
 		}					
 	}
 	

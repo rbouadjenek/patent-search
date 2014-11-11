@@ -7,6 +7,87 @@ import java.util.HashMap;
 public class EvaluateResults {
 
 	public String _queryID = null;
+	
+	public ArrayList<String> evaluatePatents(String queryID, String select, String resultsfile)
+			throws IOException {
+
+		ArrayList<String> TPs = new ArrayList<>();
+		ArrayList<String> FPs = new ArrayList<>();
+		ArrayList<String> FNs = new ArrayList<>();
+
+//		String resultsfile = "output/results/" + /*"results-lmdir-desc-1000.txt"*/ 
+//				/*"results-lmdir-desc-200.txt"*/ 
+////				"results-lmdir-desc-100.txt"
+//				"results_optquery_equalweight.txt"
+//				;
+
+		_queryID = queryID.toUpperCase();
+
+		QueryAndPatents qps = new QueryAndPatents();
+
+		HashMap<String, ArrayList<String>> _reldocs = qps
+				.GetQueryPatents("data/qrel/"
+						/*+ "filtered-qrelfile-original.txt"*/
+						+ "PAC_test_rels.txt");
+
+		HashMap<String, ArrayList<String>> _retdocs = qps
+				.GetQueryPatents(resultsfile);
+
+		ArrayList<String> relevantdocs = _reldocs.get(_queryID);
+		ArrayList<String> retrieveddocs = _retdocs.get(_queryID);
+		/*System.out.println(relevantdocs.size() + "  " + relevantdocs);
+		System.out.println(retrieveddocs.size() + "  " + retrieveddocs);*/
+
+		/*if(retrieveddocs != null){
+			for (String ret : retrieveddocs) {
+				for (String rel : relevantdocs) {
+
+					if (ret.equals(rel)) {
+						// System.out.println(" matched: " + rel);
+						TPs.add(rel);
+						break;
+					}
+				}
+			}
+		}*/
+
+		if(retrieveddocs != null){
+			for (String rel : relevantdocs) {
+				if(retrieveddocs.contains(rel)){TPs.add(rel);
+				}					
+			}
+		}
+
+		if(TPs.size() != 0){
+			for (String tp : TPs) {
+				retrieveddocs.remove(tp);
+				FPs = retrieveddocs;
+			}
+		}else{
+			FPs = retrieveddocs;		
+		}
+
+		if(TPs.size() != 0){
+			for (String tp : TPs) {
+				relevantdocs.remove(tp);
+				FNs = relevantdocs;
+			}
+		}else{if(!relevantdocs.contains("XXXXXXXXXX")){FNs = relevantdocs;}
+		}
+
+
+		if (select.equals("TP")) {
+			return TPs;
+		} else {
+			if (select.equals("FP")) {
+				return FPs;
+			} else {
+				return FNs;
+			}
+		}
+
+	}
+
 
 	public ArrayList<String> evaluatePatents(String queryID, String select)
 			throws IOException {
@@ -18,6 +99,7 @@ public class EvaluateResults {
 		String resultsfile = "output/results/" + /*"results-lmdir-desc-1000.txt"*/ 
 				/*"results-lmdir-desc-200.txt"*/ 
 				"results-lmdir-desc-100.txt"
+//				"results_optquery_equalweight.txt"
 				;
 
 		_queryID = queryID.toUpperCase();
