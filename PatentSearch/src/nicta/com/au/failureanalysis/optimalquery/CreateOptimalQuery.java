@@ -43,7 +43,7 @@ public class CreateOptimalQuery {
 	private Map<String, Float> boosts = null;
 	 
 
-	public String generateOptimalQuery(String queryid) throws IOException, ParseException{
+	public String generateOptimalQuery(String queryid, int tau) throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
 		String outputfile = "./output/optimalquery/results.txt";
 
@@ -51,13 +51,8 @@ public class CreateOptimalQuery {
 		PrintStream ps = new PrintStream(out);
 		/*-------------------------------------------------------------------------------*/
 
-		CollectionReader reader = new CollectionReader(indexDir); 
 		PositiveTermsOverlap olap = new PositiveTermsOverlap();
-		//		EvaluateResults er = new EvaluateResults();
-		//		AnalyseFNs afn = new AnalyseFNs();
-
-
-
+		
 		Map<String, Float> tspairs = olap.getTermsScoresPair(queryid);
 		//				HashMap<String, Float> tshashes = new HashMap<>();
 		//				tshashes.putAll(tspairs);
@@ -65,18 +60,18 @@ public class CreateOptimalQuery {
 //		System.out.println(/*tspairs.size() + "\t" + */tspairs );
 		String optimal_query = "";
 		int i = 0;
-		for(Entry<String, Float> ts:tspairs.entrySet()){
+		for(Entry<String, Float> ts : tspairs.entrySet()){
 			String tskey = ts.getKey();
 			Float tsvalue = ts.getValue();
-			if(tsvalue>0){	
+			if(tsvalue > tau){	
 				i++;
 				if (!Functions.isNumeric(tskey) && !Functions.isSpecialCahr(tskey)) {
 //					optimal_query += tskey + "^" + tsvalue + " ";
 					optimal_query += tskey + "^" + 1 + " ";
-				}
-				
+				}				
 			}
 		}
+		
 //		System.err.println(i);
 		if(i == 0){
 			System.err.println("There is no optimal query");
@@ -142,6 +137,8 @@ public class CreateOptimalQuery {
 	
 
 	public static void main(String[] args) throws IOException, ParseException {
+		int tau = 0;
+		
 		CreateOptimalQuery oq = new CreateOptimalQuery();
 		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-omit-PAC-1094.xml");  /*test1.xml");*/
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
@@ -149,7 +146,7 @@ public class CreateOptimalQuery {
 			String queryid = topic.getKey();
 			String queryName = topic.getKey() + "_" + topic.getValue().getUcid();
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
-			String optquery = oq.generateOptimalQuery(queryid);
+			String optquery = oq.generateOptimalQuery(queryid, tau);
 			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
 			String ipcfilter = g.getIpc();
 			if(optquery!=null){

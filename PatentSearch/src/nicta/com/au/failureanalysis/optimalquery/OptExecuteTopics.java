@@ -274,6 +274,8 @@ public final class OptExecuteTopics {
     }
     
     public void myexecute() throws IOException, Exception {
+    	int tau = 0;
+    	
         TopicsInMemory topics = new TopicsInMemory(topicFile);
         long start = System.currentTimeMillis();
         int j = 0;
@@ -285,7 +287,7 @@ public final class OptExecuteTopics {
 			String queryid = e.getKey();
 			String queryName = e.getKey() + "_" + e.getValue().getUcid();
 			String queryfile = e.getKey() + "_" + e.getValue().getUcid() + ".xml";
-			String optquery = oq.generateOptimalQuery(queryid);
+			String optquery = oq.generateOptimalQuery(queryid, tau);
 			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
 			String ipcfilter = g.getIpc();
 //			if(optquery!=null){
