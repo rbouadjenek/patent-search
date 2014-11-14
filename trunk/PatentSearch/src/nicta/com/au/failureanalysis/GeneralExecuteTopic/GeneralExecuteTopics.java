@@ -5,10 +5,13 @@
 package nicta.com.au.failureanalysis.GeneralExecuteTopic;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Map;
 
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
+import nicta.com.au.failureanalysis.pseudorelevancefeedback.CreatPRFquery;
 import nicta.com.au.failureanalysis.query.QueryGneration;
 import nicta.com.au.main.Functions;
 import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
@@ -29,8 +32,7 @@ public final class GeneralExecuteTopics {
 
 	/*--------------------------- Write in output file. -Mona ------------------------*/
 	//	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
-	/*public String outputfile = "./output/results/result_optquery2.txt";
-
+	/*public String outputfile = "./output/result_prfquery-test.txt";
 
 	public FileOutputStream out = new FileOutputStream(outputfile);
 	public PrintStream ps = new PrintStream(out);*/
@@ -54,28 +56,49 @@ public final class GeneralExecuteTopics {
 	}
 
 
-	public void execute(int tau) throws IOException, Exception {
-//		int tau = 5;
+	public void execute(int tau, int querysize) throws IOException, Exception {
+		int Tau = tau;
+		int Qsize = querysize;
 		
 		TopicsInMemory topics = new TopicsInMemory(topicFile);
 		long start = System.currentTimeMillis();
 		int j = 0;
 		boolean startP = false;
 		CreateOptimalQuery oq = new CreateOptimalQuery();
+		CreatPRFquery prfq = new CreatPRFquery();
+		GeneralParseQuery pq = new GeneralParseQuery();
 		
 		for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
 			String queryid = e.getKey();
 			String queryfile = e.getKey() + "_" + e.getValue().getUcid() + ".xml";
 		
-			/*----------------------------- Create optimal query -------------------------*/
-			String optquery = oq.generateOptimalQuery(queryid, tau);
+			/*----------------------------- Create optimal query(query-size) -------------------------*/
+			String optquery = oq.generateOptQuerySize(queryid, Qsize);
 			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
 			String ipcfilter = g.getIpc();
 			//			if(optquery!=null){
 			Query q = oq.parse(optquery, ipcfilter);
 			//				System.err.println(q);
 			//			}else{System.err.println("no optimal query for this query paetent");}
-			/*--------------------------------------------------------------------*/
+			/*--------------------------------------------------------------------------------------------*/
+			
+			/*----------------------------- Create optimal query(score-threshold) -------------------------*/
+//			String optquery = oq.generateOptimalQuery(queryid, Tau);
+//			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
+//			String ipcfilter = g.getIpc();
+//			//			if(optquery!=null){
+//			Query q = oq.parse(optquery, ipcfilter);
+//			//				System.err.println(q);
+//			//			}else{System.err.println("no optimal query for this query paetent");}
+			/*--------------------------------------------------------------------------------------------*/
+			
+			/*--------------------------------- Create PRF query -----------------------------*/
+//			String PRFquery = prfq.generatePRFQuery(queryid, tau);
+//			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
+//			String ipcfilter = g.getIpc();
+//
+//			Query q = pq.parse(PRFquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
 			
 			j++;			
 			if (startingPoint.equals("-1")) {
@@ -113,7 +136,7 @@ public final class GeneralExecuteTopics {
 
 				/*-------------------------------- Write the retrieved results in output text file. -Mona ----------------------- */                
 
-				//                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+//				                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
 
 				/*------------------------------------------------------------------------------------------------------------------*/        
 			}
@@ -139,10 +162,11 @@ public final class GeneralExecuteTopics {
 		topK = 100;
 		sim = "lmdir";
 		int tau = Integer.parseInt(args[0]);
+		int querysize = Integer.parseInt(args[1]);
 
 		try {
 			GeneralExecuteTopics ex = new GeneralExecuteTopics(indexDir, topicFile, topK, sim, decay);
-			ex.execute(tau);
+			ex.execute(tau, querysize);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} catch (Exception ex) {

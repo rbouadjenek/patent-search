@@ -41,14 +41,34 @@ public class CreateOptimalQuery {
 	private final boolean filter = true;
 	private static final String[] fields = {PatentDocument.Classification, PatentDocument.Title, PatentDocument.Abstract, PatentDocument.Description, PatentDocument.Claims};
 	private Map<String, Float> boosts = null;
-	 
-
+	
+	public String generateOptQuerySize(String queryid, int querysize) throws IOException, ParseException{
+		PositiveTermsOverlap olap = new PositiveTermsOverlap();
+		Map<String, Float> tspairs = olap.getTermsScoresPair(queryid);
+		
+		String optimal_query = "";
+		int k = 0;
+		for(Entry<String, Float> ts : tspairs.entrySet()){
+			String termkey = ts.getKey();
+			Float scorevalue = ts.getValue();
+			k++;
+			if(k <= querysize && scorevalue>0){	
+				
+				if (!Functions.isNumeric(termkey) && !Functions.isSpecialCahr(termkey)) {
+//					optimal_query += termkey + "^" + tsvalue + " ";
+					optimal_query += termkey + "^" + 1 + " ";
+				}				
+			}
+		}
+		return optimal_query;
+	}
+	
 	public String generateOptimalQuery(String queryid, int tau) throws IOException, ParseException{
-		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/optimalquery/results.txt";
+		/*--------------------------- Write in output file. ------------------------
+		String outputfile = "./output/optimalquery/results-test.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
-		PrintStream ps = new PrintStream(out);
+		PrintStream ps = new PrintStream(out);*/
 		/*-------------------------------------------------------------------------------*/
 
 		PositiveTermsOverlap olap = new PositiveTermsOverlap();
