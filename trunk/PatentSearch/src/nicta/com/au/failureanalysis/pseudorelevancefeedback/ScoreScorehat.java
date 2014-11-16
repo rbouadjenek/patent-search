@@ -140,8 +140,10 @@ public class ScoreScorehat {
 	}
 
 	public static void main(String[] args) throws IOException, ParseException {
+		int tau = Integer.parseInt(args[0]);
+		
 		ScoreScorehat s = new ScoreScorehat();
 //		s.ScoreRFScorePRF(10);
-		s.ScoreRFTopRFPRFTerms(10);
+		s.ScoreRFTopRFPRFTerms(tau);
 	}
 }
