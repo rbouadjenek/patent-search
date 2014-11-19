@@ -455,6 +455,21 @@ public class QueryGneration {
 		return title;
 	}
     
+    public String getAbstract () throws IOException {
+		String abs = "";		
+
+		//********************************************************************
+        // leveraging Abstract
+        //********************************************************************
+        if(pt.getAbstrac().getLang() != null){
+        	if (pt.getAbstrac().getLang().toLowerCase().equals("en")) {
+        		abs = pt.getAbstrac().getContent();
+        	}
+        }
+		
+		return abs;
+	}
+    
     public String getDescLangOrMising() throws IOException {
 
     	String status = null;

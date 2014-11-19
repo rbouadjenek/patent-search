@@ -58,7 +58,7 @@ public class ScoreScorehat {
 			for(Entry<String, Float> rftspair : RFtermsScores.entrySet()){
 				String rfterm = rftspair.getKey();
 				Float rfscore = rftspair.getValue();
-				if (rfscore>tau){
+				if (rfscore > tau){
 					i++;
 //					Float a = RFhash.get(prfterm);
 					sumscore = sumscore + rfscore;
