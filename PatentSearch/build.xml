@@ -169,6 +169,11 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="CreatPRFquery">
+        <java classname="nicta.com.au.failureanalysis.pseudorelevancefeedback.CreatPRFquery" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="PositiveTermsOverlapFPs">
         <java classname="nicta.com.au.failureanalysis.goodterms.PositiveTermsOverlapFPs" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
@@ -188,6 +193,11 @@
     <target name="CollectionSearcher (1)">
         <java classname="nicta.com.au.failureanalysis.search.CollectionSearcher" failonerror="true" fork="yes">
             <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010 data/CLEF-IP 2010/PAC_test/topics/"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="GeneralParseQuery">
+        <java classname="nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralParseQuery" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -304,6 +314,7 @@
     </target>
     <target name="ScoreScorehat">
         <java classname="nicta.com.au.failureanalysis.pseudorelevancefeedback.ScoreScorehat" failonerror="true" fork="yes">
+            <arg line="0"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -378,13 +389,8 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
-    <target name="CreatPRFquery">
-        <java classname="nicta.com.au.failureanalysis.pseudorelevancefeedback.CreatPRFquery" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="GeneralParseQuery">
-        <java classname="nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralParseQuery" failonerror="true" fork="yes">
+    <target name="AbsVsGoodTerm">
+        <java classname="nicta.com.au.failureanalysis.goodterms.AbsVsGoodTerm" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
