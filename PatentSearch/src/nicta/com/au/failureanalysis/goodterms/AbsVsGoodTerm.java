@@ -17,7 +17,7 @@ import org.apache.lucene.queryparser.classic.ParseException;
 public class AbsVsGoodTerm {
 	static String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX";
 
-	public void getAbsGoodTerms() throws IOException, ParseException{
+	public void getAbsGoodTerms(String tau) throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
 //		String outputfile = "./output/AbstractTerms/abstractterms.txt";
 //
@@ -54,7 +54,7 @@ public class AbsVsGoodTerm {
 				String term = tspair.getKey();
 				Float score = tspair.getValue();
 
-				if (score > 5){
+				if (score > 10){
 					System.out.print(term + ", ");
 //					ps.print(term + ", ");
 				}
@@ -67,8 +67,9 @@ public class AbsVsGoodTerm {
 	}
 
 	public static void main(String[] args) throws IOException, ParseException {
+		String tau = args[0];
 		AbsVsGoodTerm at = new AbsVsGoodTerm();
-		at.getAbsGoodTerms();
+		at.getAbsGoodTerms(tau);
 	}
 
 }
