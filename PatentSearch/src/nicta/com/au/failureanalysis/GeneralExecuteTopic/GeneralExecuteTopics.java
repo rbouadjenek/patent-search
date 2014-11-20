@@ -80,21 +80,21 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*----------------------------- Create optimal query(score-threshold) -------------------------*/
-//			String optquery = oq.generateOptimalQuery(queryid, Tau);
-//			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
-//			String ipcfilter = g.getIpc();
-//			//			if(optquery!=null){
-//			Query q = oq.parse(optquery, ipcfilter);
-//			//				System.err.println(q);
-//			//			}else{System.err.println("no optimal query for this query paetent");}
+			String optquery = oq.generateOptimalQuery(queryid, Tau);
+			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
+			String ipcfilter = g.getIpc();
+			//			if(optquery!=null){
+			Query q = oq.parse(optquery, ipcfilter);
+			//				System.err.println(q);
+			//			}else{System.err.println("no optimal query for this query paetent");}
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- Create PRF query -----------------------------*/
-			String PRFquery = prfq.generatePRFQuery(queryid, tau);
-			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
-			String ipcfilter = g.getIpc();
-
-			Query q = pq.parse(PRFquery, ipcfilter);
+//			String PRFquery = prfq.generatePRFQuery(queryid, tau);
+//			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
+//			String ipcfilter = g.getIpc();
+//
+//			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			j++;			

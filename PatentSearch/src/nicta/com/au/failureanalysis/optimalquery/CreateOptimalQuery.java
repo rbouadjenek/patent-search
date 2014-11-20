@@ -87,6 +87,7 @@ public class CreateOptimalQuery {
 				i++;
 				if (!Functions.isNumeric(tskey) && !Functions.isSpecialCahr(tskey)) {
 //					optimal_query += tskey + "^" + tsvalue + " ";
+//					System.out.print(tskey + "^" + tsvalue + " ");
 					optimal_query += tskey + "^" + 1 + " ";
 				}				
 			}
