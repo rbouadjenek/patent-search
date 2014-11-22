@@ -88,13 +88,13 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- Create PRF query(score-threshold) -----------------------------*/
-			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
-			Query q = pq.parse(PRFquery, ipcfilter);
+//			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
+//			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- Create PRF query(query-size) -----------------------------*/
-//			String PRFquery = prfq.generatePRFQuerysize(queryid, Qsize);	
-//			Query q = pq.parse(PRFquery, ipcfilter);
+			String PRFquery = prfq.generatePRFQuerysize(queryid, Qsize);	
+			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 
 			/*--------------------------------- Create patent query -----------------------------*/
