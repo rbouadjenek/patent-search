@@ -14,15 +14,30 @@ import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 public class CreatPRFquery {
+	
+	public String generatePRFQuerysize(String queryid, int querysize) throws IOException, ParseException{
+
+		PRFTermsScores prf = new PRFTermsScores();
+		Map<String, Float> tspairs = prf.getTermsScoresPairPRF(queryid);
+
+		String prf_query = "";
+		int k = 0;
+		for(Entry<String, Float> ts : tspairs.entrySet()){
+			String termkey = ts.getKey();
+			Float scorevalue = ts.getValue();
+			k++;
+			if(k <= querysize && scorevalue > 0){	
+				if (!Functions.isNumeric(termkey) && !Functions.isSpecialCahr(termkey)) {
+					//					prf_query += termkey + "^" + scorevalue + " ";
+					prf_query += termkey + "^" + 1 + " ";
+				}				
+			}
+		}
+		return prf_query;
+	}
 
 	public String generatePRFQuery(String queryid, int tau) throws IOException, ParseException{
-		/*--------------------------- Write in output file. ------------------------*/
-		/*String outputfile = "./output/optimalquery/results-test.txt";
-
-		FileOutputStream out = new FileOutputStream(outputfile);
-		PrintStream ps = new PrintStream(out);*/
-		/*-------------------------------------------------------------------------------*/
-
+		
 		PRFTermsScores prf = new PRFTermsScores();
 		Map<String, Float> tspairs = prf.getTermsScoresPairPRF(queryid);
 

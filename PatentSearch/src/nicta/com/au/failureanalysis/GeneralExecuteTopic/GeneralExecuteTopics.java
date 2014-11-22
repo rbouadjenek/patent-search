@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Map;
 
+import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
 import nicta.com.au.failureanalysis.pseudorelevancefeedback.CreatPRFquery;
 import nicta.com.au.failureanalysis.query.QueryGneration;
@@ -31,11 +32,11 @@ public final class GeneralExecuteTopics {
 	static String path = "data/CLEF-IP-2010/PAC_test/topics/";
 
 	/*--------------------------- Write in output file. -Mona ------------------------*/
-	//	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
-	/*public String outputfile = "./output/result_prfquery-test.txt";
-
-	public FileOutputStream out = new FileOutputStream(outputfile);
-	public PrintStream ps = new PrintStream(out);*/
+//	//	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
+//	public String outputfile = "./output/result_optPatentQuery_tau10.txt";
+//
+//	public FileOutputStream out = new FileOutputStream(outputfile);
+//	public PrintStream ps = new PrintStream(out);
 	/*-------------------------------------------------------------------------------*/
 
 	private final File topicFile;
@@ -67,34 +68,38 @@ public final class GeneralExecuteTopics {
 		CreateOptimalQuery oq = new CreateOptimalQuery();
 		CreatPRFquery prfq = new CreatPRFquery();
 		GeneralParseQuery pq = new GeneralParseQuery();
+		CreateOptimalPatentQuery optpatentq = new CreateOptimalPatentQuery();
 		
 		for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
+			String qUcid = e.getValue().getUcid();
 			String queryid = e.getKey();
 			String queryfile = e.getKey() + "_" + e.getValue().getUcid() + ".xml";
 		
+			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
+			String ipcfilter = g.getIpc();
 			/*----------------------------- Create optimal query(query-size) -------------------------*/
 //			String optquery = oq.generateOptQuerySize(queryid, Qsize);
-//			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
-//			String ipcfilter = g.getIpc();
 //			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*----------------------------- Create optimal query(score-threshold) -------------------------*/
-			String optquery = oq.generateOptimalQuery(queryid, Tau);
-			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
-			String ipcfilter = g.getIpc();
-			//			if(optquery!=null){
-			Query q = oq.parse(optquery, ipcfilter);
-			//				System.err.println(q);
-			//			}else{System.err.println("no optimal query for this query paetent");}
+//			String optquery = oq.generateOptimalQuery(queryid, Tau);
+//			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
 			
-			/*--------------------------------- Create PRF query -----------------------------*/
-//			String PRFquery = prfq.generatePRFQuery(queryid, tau);
-//			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
-//			String ipcfilter = g.getIpc();
-//
+			/*--------------------------------- Create PRF query(score-threshold) -----------------------------*/
+			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
+			Query q = pq.parse(PRFquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+			
+			/*--------------------------------- Create PRF query(query-size) -----------------------------*/
+//			String PRFquery = prfq.generatePRFQuerysize(queryid, Qsize);	
 //			Query q = pq.parse(PRFquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+
+			/*--------------------------------- Create patent query -----------------------------*/
+//			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
+//			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			j++;			
@@ -123,7 +128,7 @@ public final class GeneralExecuteTopics {
 			int i = 0;
 			if (hits.totalHits == 0) {
 				System.out.println(queryid + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
-				//                ps.println(queryid + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
+//				                ps.println(queryid + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
 			}
 			for (ScoreDoc scoreDoc : hits.scoreDocs) {
 				i++;
@@ -155,7 +160,7 @@ public final class GeneralExecuteTopics {
 		String decay = "-1";
 
 		indexDir = "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/";
-		topicFile = "data/CLEF-IP-2010/PAC_test/topics/PAC_topics-omit-PAC-1094.xml";
+		topicFile = "data/CLEF-IP-2010/PAC_test/topics/PAC_topics-filtered.xml"; /*PAC_topics-omit-PAC-1094.xml*/
 		topK = 100;
 		sim = "lmdir";
 		int tau = Integer.parseInt(args[0]);
