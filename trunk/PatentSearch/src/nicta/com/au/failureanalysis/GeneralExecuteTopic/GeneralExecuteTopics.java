@@ -33,7 +33,7 @@ public final class GeneralExecuteTopics {
 
 	/*--------------------------- Write in output file. -Mona ------------------------*/
 	//	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
-	public String outputfile = "./output/result_PRFQuery-size-50.txt";
+	public String outputfile = "./output/result_patentquery-tau10-2.txt";
 
 	public FileOutputStream out = new FileOutputStream(outputfile);
 	public PrintStream ps = new PrintStream(out);
@@ -160,7 +160,7 @@ public final class GeneralExecuteTopics {
 		String decay = "-1";
 
 		indexDir = "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/";
-		topicFile = "data/CLEF-IP-2010/PAC_test/topics/PAC_topics-filtered.xml"; /*PAC_topics-omit-PAC-1094.xml*/
+		topicFile = "data/CLEF-IP-2010/PAC_test/topics/PAC_topics-filtered.xml"; /*PAC_topics-omit-PAC-1094.xml -omitted*/
 		topK = 100;
 		sim = "lmdir";
 		int tau = Integer.parseInt(args[0]);
