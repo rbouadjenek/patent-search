@@ -32,11 +32,11 @@ public final class GeneralExecuteTopics {
 	static String path = "data/CLEF-IP-2010/PAC_test/topics/";
 
 	/*--------------------------- Write in output file. -Mona ------------------------*/
-	//	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
-	public String outputfile = "./output/result_patentquery-tau10-2.txt";
-
-	public FileOutputStream out = new FileOutputStream(outputfile);
-	public PrintStream ps = new PrintStream(out);
+//	//	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
+//	public String outputfile = "./output/result_PRFquery-tau10-test.txt";
+//
+//	public FileOutputStream out = new FileOutputStream(outputfile);
+//	public PrintStream ps = new PrintStream(out);
 	/*-------------------------------------------------------------------------------*/
 
 	private final File topicFile;
@@ -88,8 +88,8 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- Create PRF query(score-threshold) -----------------------------*/
-			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
-			Query q = pq.parse(PRFquery, ipcfilter);
+//			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
+//			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- Create PRF query(query-size) -----------------------------*/
@@ -98,8 +98,8 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 
 			/*--------------------------------- Create patent query -----------------------------*/
-//			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
-//			Query q = pq.parse(patentquery, ipcfilter);
+			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
+			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			j++;			
@@ -128,7 +128,7 @@ public final class GeneralExecuteTopics {
 			int i = 0;
 			if (hits.totalHits == 0) {
 				System.out.println(queryid + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
-				                ps.println(queryid + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
+//				                ps.println(queryid + " Q0 XXXXXXXXXX 1 0.0 STANDARD");
 			}
 			for (ScoreDoc scoreDoc : hits.scoreDocs) {
 				i++;
@@ -138,7 +138,7 @@ public final class GeneralExecuteTopics {
 
 				/*-------------------------------- Write the retrieved results in output text file. -Mona ----------------------- */                
 
-				                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+//				                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
 
 				/*------------------------------------------------------------------------------------------------------------------*/        
 			}
@@ -160,7 +160,7 @@ public final class GeneralExecuteTopics {
 		String decay = "-1";
 
 		indexDir = "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/";
-		topicFile = "data/CLEF-IP-2010/PAC_test/topics/PAC_topics-filtered.xml"; /*PAC_topics-omit-PAC-1094.xml -omitted*/
+		topicFile = "data/CLEF-IP-2010/PAC_test/topics/PAC_topics-filtered.xml"; /*PAC_topics-omit-PAC-1094.xml */
 		topK = 100;
 		sim = "lmdir";
 		int tau = Integer.parseInt(args[0]);
