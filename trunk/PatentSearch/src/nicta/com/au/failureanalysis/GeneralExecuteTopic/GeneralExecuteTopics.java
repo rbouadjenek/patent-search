@@ -57,8 +57,8 @@ public final class GeneralExecuteTopics {
 	}
 
 
-	public void execute(int tau, int querysize) throws IOException, Exception {
-		int Tau = tau;
+	public void execute(float tau, int querysize) throws IOException, Exception {
+		float Tau = tau;
 		int Qsize = querysize;
 		
 		TopicsInMemory topics = new TopicsInMemory(topicFile);
@@ -77,15 +77,17 @@ public final class GeneralExecuteTopics {
 		
 			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
 			String ipcfilter = g.getIpc();
+						
+			/*----------------------------- Create optimal query(score-threshold) -------------------------*/
+			String optquery = oq.generateOptimalQuery(queryid, Tau);
+			Query q = oq.parse(optquery, ipcfilter);
+			/*--------------------------------------------------------------------------------------------*/
+			
 			/*----------------------------- Create optimal query(query-size) -------------------------*/
 //			String optquery = oq.generateOptQuerySize(queryid, Qsize);
 //			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
-			
-			/*----------------------------- Create optimal query(score-threshold) -------------------------*/
-//			String optquery = oq.generateOptimalQuery(queryid, Tau);
-//			Query q = oq.parse(optquery, ipcfilter);
-			/*--------------------------------------------------------------------------------------------*/
+
 			
 			/*--------------------------------- Create PRF query(score-threshold) -----------------------------*/
 //			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
@@ -98,8 +100,8 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 
 			/*--------------------------------- Create patent query -----------------------------*/
-			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
-			Query q = pq.parse(patentquery, ipcfilter);
+//			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
+//			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			j++;			
@@ -163,7 +165,7 @@ public final class GeneralExecuteTopics {
 		topicFile = "data/CLEF-IP-2010/PAC_test/topics/PAC_topics-filtered.xml"; /*PAC_topics-omit-PAC-1094.xml */
 		topK = 100;
 		sim = "lmdir";
-		int tau = Integer.parseInt(args[0]);
+		float tau = Float.parseFloat(args[0]);
 		int querysize = Integer.parseInt(args[1]);
 
 		try {
