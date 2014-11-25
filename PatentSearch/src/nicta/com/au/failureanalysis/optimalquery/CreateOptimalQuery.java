@@ -63,7 +63,7 @@ public class CreateOptimalQuery {
 		return optimal_query;
 	}
 	
-	public String generateOptimalQuery(String queryid, int tau) throws IOException, ParseException{
+	public String generateOptimalQuery(String queryid, float tau) throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------
 		String outputfile = "./output/optimalquery/results-test.txt";
 
