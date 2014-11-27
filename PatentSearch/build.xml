@@ -128,6 +128,11 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="GetDocFrequency">
+        <java classname="nicta.com.au.failureanalysis.goodterms.GetDocFrequency" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="CompareQueryDoc">
         <java classname="nicta.com.au.utilities.CompareQueryDoc" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
@@ -181,7 +186,7 @@
     </target>
     <target name="GeneralExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralExecuteTopics" failonerror="true" fork="yes">
-            <arg line="0 10"/>
+            <arg line="-0.1 50"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -343,6 +348,12 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="CreateOptimalPatentQuery">
+        <java classname="nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery" failonerror="true" fork="yes">
+            <arg line="0"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="OptExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.optimalquery.OptExecuteTopics" failonerror="true" fork="yes">
             <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/ data/CLEF-IP-2010/PAC_test/topics/PAC_topics-omit-PAC-1094.xml 100 lmdir 0 0 1 0 0 0 true true false false"/>
@@ -384,13 +395,14 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
-    <target name="ScoreQueryTermsFNs">
-        <java classname="nicta.com.au.failureanalysis.weighting.ScoreQueryTermsFNs" failonerror="true" fork="yes">
+    <target name="AbsVsGoodTerm">
+        <java classname="nicta.com.au.failureanalysis.goodterms.AbsVsGoodTerm" failonerror="true" fork="yes">
+            <arg line="10"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
-    <target name="AbsVsGoodTerm">
-        <java classname="nicta.com.au.failureanalysis.goodterms.AbsVsGoodTerm" failonerror="true" fork="yes">
+    <target name="ScoreQueryTermsFNs">
+        <java classname="nicta.com.au.failureanalysis.weighting.ScoreQueryTermsFNs" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
