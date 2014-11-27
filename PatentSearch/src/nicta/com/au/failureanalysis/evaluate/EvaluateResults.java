@@ -8,6 +8,19 @@ public class EvaluateResults {
 
 	public String _queryID = null;
 	
+	public ArrayList<String> getRetrievedPatents(String queryID, String resultsfile)
+			throws IOException {
+		_queryID = queryID.toUpperCase();
+
+		QueryAndPatents qps = new QueryAndPatents();
+
+		HashMap<String, ArrayList<String>> _retdocs = qps
+				.GetQueryPatents(resultsfile);
+
+		ArrayList<String> retrieveddocs = _retdocs.get(_queryID);
+		return retrieveddocs;
+	}	
+	
 	public ArrayList<String> evaluatePatents(String queryID, String select, String resultsfile)
 			throws IOException {
 
@@ -35,6 +48,7 @@ public class EvaluateResults {
 
 		ArrayList<String> relevantdocs = _reldocs.get(_queryID);
 		ArrayList<String> retrieveddocs = _retdocs.get(_queryID);
+		
 		/*System.out.println(relevantdocs.size() + "  " + relevantdocs);
 		System.out.println(retrieveddocs.size() + "  " + retrieveddocs);*/
 
@@ -85,7 +99,6 @@ public class EvaluateResults {
 				return FNs;
 			}
 		}
-
 	}
 
 
@@ -174,7 +187,7 @@ public class EvaluateResults {
 		EvaluateResults er = new EvaluateResults();
 		//		er.evaluatePatents("PAC-1149", "TP");
 
-		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*//*"PAC-1012"*//*"PAC-1216"*//*"PAC-9"*//*"PAC-1036"*//*"PAC-1008"*/"PAC-992";
+		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*//*"PAC-1012"*//*"PAC-1216"*//*"PAC-9"*//*"PAC-1036"*//*"PAC-1008"*//*"PAC-992"*/"PAC-1347";
 
 		ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
 		ArrayList<String> fps = er.evaluatePatents(queryid, "FP");
