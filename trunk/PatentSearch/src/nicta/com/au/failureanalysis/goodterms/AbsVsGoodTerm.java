@@ -65,7 +65,7 @@ public class AbsVsGoodTerm {
 
 				if (score > tau){
 					System.out.print(term + ": "+ score + ", ");
-//					ps.print(term + ", ");
+//					ps.print(term + ": "+ score + ", ");
 				}
 			}	
 			System.out.println();
@@ -80,7 +80,7 @@ public class AbsVsGoodTerm {
 
 				if (PRFscore > tau){
 					System.out.print(PRFterm + ": " + RFhash.get(PRFterm) + ", ");
-//					ps.print(term + ", ");
+//					ps.print(PRFterm + ": " + RFhash.get(PRFterm) + ", ");
 				}
 			}	
 			
