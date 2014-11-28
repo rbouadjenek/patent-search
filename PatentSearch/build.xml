@@ -186,7 +186,7 @@
     </target>
     <target name="GeneralExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralExecuteTopics" failonerror="true" fork="yes">
-            <arg line="-0.1 50"/>
+            <arg line="5 50"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -403,6 +403,11 @@
     </target>
     <target name="ScoreQueryTermsFNs">
         <java classname="nicta.com.au.failureanalysis.weighting.ScoreQueryTermsFNs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="CreatePatQueryRemoveDFwords">
+        <java classname="nicta.com.au.failureanalysis.optimalquery.CreatePatQueryRemoveDFwords" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
