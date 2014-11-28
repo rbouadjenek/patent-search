@@ -98,8 +98,8 @@ public class AnalyseFNs {
 		
 		/*-------------- Test English FN patents ---------------*/
 		
-		String _queryId = "PAC-1347"/*"PAC-1531"*//*"PAC-1559"*//*"PAC-1216"*/ /*"PAC-1604" "PAC-1035" "PAC-1142""PAC-1087""PAC-1379""PAC-1035""PAC-1012""PAC-544" "PAC-825" "PAC-1149""PAC-1460"*/;
-		String _queryfile = "PAC-1347_EP-1416028-A1.xml" /*"PAC-1531_EP-1925447-A1.xml"*//*"PAC-1559_EP-1322057-A1.xml"*//*"PAC-1216_EP-1749865-A1.xml"*/;
+		String _queryId = "PAC-100"/*"PAC-1347"*//*"PAC-1531"*//*"PAC-1559"*//*"PAC-1216"*/ /*"PAC-1604" "PAC-1035" "PAC-1142""PAC-1087""PAC-1379""PAC-1035""PAC-1012""PAC-544" "PAC-825" "PAC-1149""PAC-1460"*/;
+		String _queryfile = "PAC-100_EP-1462146-A1.xml"/*"PAC-1347_EP-1416028-A1.xml" *//*"PAC-1531_EP-1925447-A1.xml"*//*"PAC-1559_EP-1322057-A1.xml"*//*"PAC-1216_EP-1749865-A1.xml"*/;
 		EvaluateResults er = new EvaluateResults();
 		ArrayList<String> fns = er.evaluatePatents(_queryId, "FN");
 		AnalyseFNs afn = new AnalyseFNs();

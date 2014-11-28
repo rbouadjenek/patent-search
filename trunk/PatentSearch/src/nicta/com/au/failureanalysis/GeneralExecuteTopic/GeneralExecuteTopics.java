@@ -12,6 +12,7 @@ import java.util.Map;
 
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
+import nicta.com.au.failureanalysis.optimalquery.CreatePatQueryRemoveDFwords;
 import nicta.com.au.failureanalysis.pseudorelevancefeedback.CreatPRFquery;
 import nicta.com.au.failureanalysis.query.QueryGneration;
 import nicta.com.au.main.Functions;
@@ -69,6 +70,7 @@ public final class GeneralExecuteTopics {
 		CreatPRFquery prfq = new CreatPRFquery();
 		GeneralParseQuery pq = new GeneralParseQuery();
 		CreateOptimalPatentQuery optpatentq = new CreateOptimalPatentQuery();
+		CreatePatQueryRemoveDFwords c = new CreatePatQueryRemoveDFwords();
 		
 		for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
 			String qUcid = e.getValue().getUcid();
@@ -79,8 +81,8 @@ public final class GeneralExecuteTopics {
 			String ipcfilter = g.getIpc();
 						
 			/*----------------------------- Create optimal query(score-threshold) -------------------------*/
-			String optquery = oq.generateOptimalQuery(queryid, Tau);
-			Query q = oq.parse(optquery, ipcfilter);
+//			String optquery = oq.generateOptimalQuery(queryid, Tau);
+//			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*----------------------------- Create optimal query(query-size) -------------------------*/
@@ -102,6 +104,11 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------- Create patent query -----------------------------*/
 //			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
 //			Query q = pq.parse(patentquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+			
+			/*------------------ Create patent query minus frequent words in top-100 -----------------*/
+			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau);
+			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			j++;			
@@ -138,7 +145,7 @@ public final class GeneralExecuteTopics {
 				// TODO: uncomment to print the result on console  
 				System.out.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
 
-				/*-------------------------------- Write the retrieved results in output text file. -Mona ----------------------- */                
+				/*-------------------------------- Write the retrieved results in output text file. ----------------------- */                
 
 //				                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
 

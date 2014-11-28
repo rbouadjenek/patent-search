@@ -187,7 +187,7 @@ public class EvaluateResults {
 		EvaluateResults er = new EvaluateResults();
 		//		er.evaluatePatents("PAC-1149", "TP");
 
-		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*//*"PAC-1012"*//*"PAC-1216"*//*"PAC-9"*//*"PAC-1036"*//*"PAC-1008"*//*"PAC-992"*/"PAC-1347";
+		String queryid = /*"PAC-1149"*//*"PAC-544"*//*"PAC-825"*//*"PAC-1012"*//*"PAC-1216"*//*"PAC-9"*//*"PAC-1036"*//*"PAC-1008"*//*"PAC-992"*//*"PAC-1347"*/"PAC-499";
 
 		ArrayList<String> tps = er.evaluatePatents(queryid, "TP");
 		ArrayList<String> fps = er.evaluatePatents(queryid, "FP");
