@@ -12,7 +12,7 @@ import java.util.Map;
 
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
-import nicta.com.au.failureanalysis.optimalquery.CreatePatQueryRemoveDFwords;
+import nicta.com.au.failureanalysis.optimalquery.CreateQueryRemoveDFwords;
 import nicta.com.au.failureanalysis.pseudorelevancefeedback.CreatPRFquery;
 import nicta.com.au.failureanalysis.query.QueryGneration;
 import nicta.com.au.main.Functions;
@@ -70,7 +70,7 @@ public final class GeneralExecuteTopics {
 		CreatPRFquery prfq = new CreatPRFquery();
 		GeneralParseQuery pq = new GeneralParseQuery();
 		CreateOptimalPatentQuery optpatentq = new CreateOptimalPatentQuery();
-		CreatePatQueryRemoveDFwords c = new CreatePatQueryRemoveDFwords();
+		CreateQueryRemoveDFwords c = new CreateQueryRemoveDFwords();
 		
 		for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
 			String qUcid = e.getValue().getUcid();
