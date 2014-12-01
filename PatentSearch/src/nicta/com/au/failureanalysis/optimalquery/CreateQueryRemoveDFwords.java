@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import nicta.com.au.failureanalysis.goodterms.GetDocFrequency;
@@ -29,25 +30,29 @@ public class CreateQueryRemoveDFwords {
 			qterms.add(qterm);
 		}
 		
-		/*System.out.println
-		(queryid + " " + query_terms.size() + " " + query_terms);		
-		System.out.println();*/
+		System.out.println(queryid);	
+		System.out.println("query term/freq: " + query_terms.size() + " " + query_terms);		
+		System.out.println();
 		
 		GetDocFrequency df = new GetDocFrequency();
 		HashMap<String, Float> df_tspairs = df.getTermDocFreqScorePair(queryid);
-		/*System.out.println(queryid + " " + df_tspairs.size() + " " + df_tspairs);
-		System.out.println();*/
+		System.out.println(queryid);
+		System.out.println("Top-100 termfreq: " + df_tspairs.size() + " " + df_tspairs);
+		System.out.println();
 		
 		int size = 0;
 		String new_query = "";
-		
-		for(String qt : query_terms.keySet()){
+
+		for(Entry<String, Integer> qtpair : query_terms.entrySet()){
+			String qt = qtpair.getKey();
+			Integer qfreq = qtpair.getValue();
 			if(df_tspairs.keySet().contains(qt)){
-				if(df_tspairs.get(qt) > tau){
-					if (!Functions.isNumeric(qt) && !Functions.isSpecialCahr(qt)) {
+//								if(df_tspairs.get(qt) > tau){
+				if(df_tspairs.get(qt) > tau && qfreq <= 8){
+//					if (!Functions.isNumeric(qt) && !Functions.isSpecialCahr(qt)) {
 						size++;						
 						qterms.remove(qt);
-					}				
+//					}				
 				}
 			}
 		}
@@ -58,60 +63,16 @@ public class CreateQueryRemoveDFwords {
 //							new_query += term + "^" + score + " ";		
 				new_query += newterm + "^" + 1 + " ";
 			}	
-		}		
-		/*System.out.println(queryid + " " + qterms.size() + " " + qterms);				
-		System.out.println(" (" + size + ")   " + k + " " + new_query);		
-		System.out.println();*/
+		}	
+		System.out.println(queryid);
+		System.out.println(" new queryterms: " + qterms.size() + " " + qterms);	
+		System.out.println();
+		System.out.println(" (" + size + ")    " + k + " " + new_query);		
+		System.out.println();
+		
 		return new_query;		
 	}
 	
-/*public String GeneratePRFQueryRemoveDFs(String queryid, String qUcid, double tau) throws IOException, ParseException{
-		
-		CollectionReader reader = new CollectionReader(indexDir); 
-		
-		ArrayList<String> qterms = new ArrayList<String>();
-		
-		HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid);
-		Set<String> qts = query_terms.keySet();
-		for(String qterm : query_terms.keySet()){
-			qterms.add(qterm);
-		}
-		
-		System.out.println
-		(queryid + " " + query_terms.size() + " " + query_terms);		
-		System.out.println();
-		
-		GetDocFrequency df = new GetDocFrequency();
-		HashMap<String, Float> df_tspairs = df.getTermDocFreqScorePair(queryid);
-		System.out.println(queryid + " " + df_tspairs.size() + " " + df_tspairs);
-		System.out.println();
-		
-		int size = 0;
-		String new_query = "";
-		
-		for(String qt : query_terms.keySet()){
-			if(df_tspairs.keySet().contains(qt)){
-				if(df_tspairs.get(qt) > tau){
-					if (!Functions.isNumeric(qt) && !Functions.isSpecialCahr(qt)) {
-						size++;						
-						qterms.remove(qt);
-					}				
-				}
-			}
-		}
-		int k = 0;
-		for(String newterm : qterms){
-			if (!Functions.isNumeric(newterm) && !Functions.isSpecialCahr(newterm)) {
-				k++;
-//							new_query += term + "^" + score + " ";		
-				new_query += newterm + "^" + 1 + " ";
-			}	
-		}		
-		System.out.println(queryid + " " + qterms.size() + " " + qterms);				
-		System.out.println(" (" + size + ")   " + k + " " + new_query);		
-		System.out.println();
-		return new_query;		
-	}*/
 
 	public static void main(String[] args) throws IOException, ParseException {
 		double tau = 1/*Integer.parseInt(args[0])*/;
@@ -124,7 +85,8 @@ public class CreateQueryRemoveDFwords {
 			String queryName = topic.getKey() + "_" + topic.getValue().getUcid();
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
 			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau);
-			System.out.println(queryid + " --> " + newquery);
+//			System.out.println(queryid + " --> " + newquery);
+			System.out.println();
 		}
 	}
 }
