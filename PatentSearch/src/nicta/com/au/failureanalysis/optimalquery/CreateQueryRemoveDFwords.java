@@ -30,15 +30,15 @@ public class CreateQueryRemoveDFwords {
 			qterms.add(qterm);
 		}
 		
-		System.out.println(queryid);	
+		/*System.out.println(queryid);	
 		System.out.println("query term/freq: " + query_terms.size() + " " + query_terms);		
-		System.out.println();
+		System.out.println();*/
 		
 		GetDocFrequency df = new GetDocFrequency();
 		HashMap<String, Float> df_tspairs = df.getTermDocFreqScorePair(queryid);
-		System.out.println(queryid);
+		/*System.out.println(queryid);
 		System.out.println("Top-100 termfreq: " + df_tspairs.size() + " " + df_tspairs);
-		System.out.println();
+		System.out.println();*/
 		
 		int size = 0;
 		String new_query = "";
@@ -64,11 +64,11 @@ public class CreateQueryRemoveDFwords {
 				new_query += newterm + "^" + 1 + " ";
 			}	
 		}	
-		System.out.println(queryid);
+		/*System.out.println(queryid);
 		System.out.println(" new queryterms: " + qterms.size() + " " + qterms);	
 		System.out.println();
 		System.out.println(" (" + size + ")    " + k + " " + new_query);		
-		System.out.println();
+		System.out.println();*/
 		
 		return new_query;		
 	}
