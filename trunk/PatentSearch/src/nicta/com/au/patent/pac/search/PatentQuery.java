@@ -255,8 +255,8 @@ public class PatentQuery {
         for (String k : m.keySet()) {
             if (m.get(k) >= treshold) {
                 if (!Functions.isNumeric(k)) {
-//                    q += k + "^" + m.get(k) + " ";
-                    q += k + "^" + 1/*m.get(k)*/ + " ";
+                    q += k + "^" + m.get(k) + " ";
+//                    q += k + "^" + 1/*m.get(k)*/ + " ";
 //                    System.out.println(k);
                 }
             }
