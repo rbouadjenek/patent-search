@@ -5,12 +5,16 @@
 package nicta.com.au.main;
 
 import com.hrstc.lucene.queryexpansion.GenerateClassCodesQuery;
+
 import static com.hrstc.lucene.queryexpansion.GenerateClassCodesQuery.generateQuery;
+
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import nicta.com.au.patent.document.PatentDocument;
 import nicta.com.au.patent.pac.search.PatentQuery;
+
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.search.Explanation;
@@ -37,10 +41,10 @@ public class Test {
         
         IndexSearcher is = new IndexSearcher(DirectoryReader.open(dir));
 //        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1028_EP-1652736-A1.xml", 1, 0, 0, 0, 0, 0, true, true);
-//        PatentQuery query = new PatentQuery("./data/CLEF-IP-2010/PAC_test/topics/PAC-1028_EP-1652736-A1.xml", 1, 0, 0, 0, 0, 0, true, true);
-        PatentQuery query = new PatentQuery("/media/mona/MyProfesion/EP/000000/96/81/18/UN-EP-0968118.xml", 1, 0, 0, 0, 0, 0, true, true);
+        PatentQuery query = new PatentQuery("./data/CLEF-IP-2010/PAC_test/topics/PAC-1279_EP-1578120-A2.xml", 1, 0, 0, 0, 0, 0, true, true);
+//        PatentQuery query = new PatentQuery("/media/mona/MyProfesion/EP/000000/96/81/18/UN-EP-0968118.xml", 1, 0, 0, 0, 0, 0, true, true);
         long start = System.currentTimeMillis();
-        TopDocs hits = is.search(GenerateClassCodesQuery.generateQuery(query.getFullClassCodes()), 10);
+        TopDocs hits = is.search(GenerateClassCodesQuery.generateQuery(query.getFullClassCodes()), 20);
         long end = System.currentTimeMillis();
         System.err.println("Query: " + GenerateClassCodesQuery.generateQuery(query.getFullClassCodes()));
         System.err.println("Found " + hits.totalHits
@@ -49,8 +53,11 @@ public class Test {
         for (ScoreDoc scoreDoc : hits.scoreDocs) {
             i++;
             Document doc = is.doc(scoreDoc.doc);
-            System.out.println(i+"- "+doc.get(PatentDocument.Classification)+"\t"+doc.get(PatentDocument.Title));
-
+            String code = doc.get(PatentDocument.Classification);
+            
+//            System.out.println(i+"- "+doc.get(PatentDocument.Classification)+"\t"+doc.get(PatentDocument.Title));
+            if(code.length()>12){System.out.println(i+"- "+doc.get(PatentDocument.Classification)+"\t"+doc.get(PatentDocument.Title));}
+//            System.out.println(code.length());
         }
     }
 }

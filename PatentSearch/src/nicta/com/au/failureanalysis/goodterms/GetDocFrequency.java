@@ -60,7 +60,7 @@ public class GetDocFrequency {
 	
 	public static void main(String[] args) throws IOException, ParseException {
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/score/PAC-1041-rf-df-score.txt";
+		String outputfile = "./output/score/PAC-1041-rf-df-score-test.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
