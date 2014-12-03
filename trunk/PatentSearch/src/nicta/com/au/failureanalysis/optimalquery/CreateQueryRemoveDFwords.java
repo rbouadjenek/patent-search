@@ -48,7 +48,7 @@ public class CreateQueryRemoveDFwords {
 			Integer qfreq = qtpair.getValue();
 			if(df_tspairs.keySet().contains(qt)){
 //								if(df_tspairs.get(qt) > tau){
-				if(df_tspairs.get(qt) > tau && qfreq <= 8){
+				if(df_tspairs.get(qt) > 1 && qfreq <= tau){ //Discarding criteria: df_tspairs.get(qt) > tau && qfreq <= 8
 //					if (!Functions.isNumeric(qt) && !Functions.isSpecialCahr(qt)) {
 						size++;						
 						qterms.remove(qt);
