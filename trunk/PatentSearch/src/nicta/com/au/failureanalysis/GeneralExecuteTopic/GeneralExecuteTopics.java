@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Map;
 
+import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPs;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateQueryRemoveDFwords;
@@ -71,6 +72,7 @@ public final class GeneralExecuteTopics {
 		GeneralParseQuery pq = new GeneralParseQuery();
 		CreateOptimalPatentQuery optpatentq = new CreateOptimalPatentQuery();
 		CreateQueryRemoveDFwords c = new CreateQueryRemoveDFwords();
+		TopRankedTPs t = new TopRankedTPs();
 		
 		for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
 			String qUcid = e.getValue().getUcid();
@@ -107,7 +109,12 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ Create patent query minus frequent words in top-100 -----------------*/
-			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau);
+//			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau);
+//			Query q = pq.parse(newquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+			
+			/*------------------ Create RF query with top k TPs -----------------*/
+			String newquery = t.generateTopRFQuery(queryid, Tau, querysize);
 			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			

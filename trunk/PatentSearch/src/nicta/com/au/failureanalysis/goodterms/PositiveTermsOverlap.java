@@ -49,7 +49,7 @@ public class PositiveTermsOverlap {
 				termsfreqsTP = reader.gettermfreqpairAllsecs(tp);
 			}
 			
-			for(Entry<String, Integer> tfTP:termsfreqsTP.entrySet()){
+			for(Entry<String, Integer> tfTP : termsfreqsTP.entrySet()){
 				if(termsscores.containsKey(tfTP.getKey())){
 					termsscores.put(tfTP.getKey(), termsscores.get(tfTP.getKey()) + (float)tfTP.getValue()/tpsize);
 				}else{
@@ -90,10 +90,10 @@ public class PositiveTermsOverlap {
 	
 	public static void main(String[] args) throws IOException, ParseException {
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/score/termoverlp-FNs.txt";
-
-		FileOutputStream out = new FileOutputStream(outputfile);
-		PrintStream ps = new PrintStream(out);
+//		String outputfile = "./output/score/termoverlp-FNs.txt";
+//
+//		FileOutputStream out = new FileOutputStream(outputfile);
+//		PrintStream ps = new PrintStream(out);
 		/*-------------------------------------------------------------------------------*/
 		
 		CollectionReader reader = new CollectionReader(indexDir); 
@@ -114,8 +114,8 @@ public class PositiveTermsOverlap {
 			TreeMap<String, Float> tspair = olap.getTermsScoresPair(queryid);
 			System.out.println(tspair.size() + "\t" + tspair);
 			
-			ArrayList<String> enfns = afn.getEnglishFNs(queryid);
-			int n_enfns = enfns.size();
+			/*ArrayList<String> enfns = afn.getEnglishFNs(queryid);
+			int n_enfns = enfns.size();*/
 			
 			/*--------------------------------- Query Words -------------------------------*/			
 //			HashMap<String, Integer> query_termsfreqspair = reader.gettermfreqpair(qUcid, PatentDocument.Description);
