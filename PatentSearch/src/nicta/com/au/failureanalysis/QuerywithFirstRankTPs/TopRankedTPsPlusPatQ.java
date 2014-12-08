@@ -1,23 +1,15 @@
 package nicta.com.au.failureanalysis.QuerywithFirstRankTPs;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.TreeMap;
-
-import org.apache.lucene.queryparser.classic.ParseException;
-import org.apache.lucene.search.Query;
+import java.util.Map.Entry;
 
 import nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralParseQuery;
 import nicta.com.au.failureanalysis.evaluate.EvaluateResults;
 import nicta.com.au.failureanalysis.evaluate.QueryAndPatents;
-import nicta.com.au.failureanalysis.goodterms.PositiveTermsOverlap;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.query.QueryGneration;
 import nicta.com.au.failureanalysis.search.CollectionReader;
@@ -25,16 +17,14 @@ import nicta.com.au.main.Functions;
 import nicta.com.au.patent.document.PatentDocument;
 import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 
+import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.search.Query;
 
-/**
- * @author mona
- *
- */
-public class TopRankedTPs {
+public class TopRankedTPsPlusPatQ {
 	static String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
 	TreeMap<String,Float> termsscoressorted = null;
 
-	public TreeMap<String, Float> getRFtermscores(String queryid, int topk) throws IOException {
+	public TreeMap<String, Float> getRFtermscores(String queryid, String qUcid ,int topk) throws IOException {
 		int fpsize = 0 ;
 
 		ArrayList<String> FPs = new ArrayList<>();
@@ -65,14 +55,26 @@ public class TopRankedTPs {
 		tprankssorted = new TreeMap<String, Integer>(bvc1);
 		tprankssorted.putAll(tp_ranks);
 
-		//		System.out.println(tprankssorted);		
+//				System.out.println(tprankssorted);		
 
-		int tpsize = topk;
+		int tpsize = topk + 1;
+		ArrayList<String> tpspluspatq = new ArrayList<String>();
 		int b = 0;
-		HashMap<String, Float> termsscores = new HashMap<>();
 		if(tprankssorted.keySet().size() != 0){
 			for (String tp : tprankssorted.keySet()) {
+				tpspluspatq.add(tp);
 				b++;
+				if(b == topk)break;
+			}
+		}
+		tpspluspatq.add(qUcid);
+//		System.out.println(tpspluspatq);
+		
+			
+		HashMap<String, Float> termsscores = new HashMap<>();
+		if(tprankssorted.keySet().size() != 0){
+			for (String tp : tpspluspatq) {
+//				b++;
 				//			System.out.println(tp);
 				retrieveddocs.remove(tp);
 				FPs = retrieveddocs;
@@ -97,12 +99,13 @@ public class TopRankedTPs {
 					}
 				}
 				//			System.out.println(termsscores.size() + " " + tpsize + " " + termsscores);		
-				if(b == topk)break;
+//				if(b == topk)break;
 			}
 		}else{
 			FPs = retrieveddocs;		
 		}
 
+//		System.out.println(FPs.size() + " " + FPs);
 		fpsize = FPs.size();
 		for (String fp : FPs) {
 			HashMap<String, Integer> termsfreqsFP = reader.gettermfreqpairAllsecs("UN-" + fp);
@@ -126,10 +129,10 @@ public class TopRankedTPs {
 		//		return tprankssorted;
 	}
 
-	public String generateTopRFQuery(String queryid, float tau, int topk) throws IOException, ParseException{
+	public String generateTopRFQuery(String queryid, String qUcid, float tau, int topk) throws IOException, ParseException{
 
-		TopRankedTPs t = new TopRankedTPs();
-		TreeMap<String, Float> tspairs = t.getRFtermscores(queryid, topk);
+		TopRankedTPsPlusPatQ t = new TopRankedTPsPlusPatQ();
+		TreeMap<String, Float> tspairs = t.getRFtermscores(queryid, qUcid, topk);
 
 		//		System.out.println(/*tspairs.size() + "\t" + */tspairs );
 		String optimal_query = "";
@@ -144,46 +147,17 @@ public class TopRankedTPs {
 				}				
 			}
 		}
+		System.out.println(optimal_query);
 		return optimal_query;
 	}
 
-	public String selectTopRFQTerms(String queryid, String qUcid, float tau, int topk) throws IOException, ParseException{
-		CollectionReader reader = new CollectionReader(indexDir); 
-		TopRankedTPs t = new TopRankedTPs();
-		TreeMap<String, Float> tspairs = t.getRFtermscores(queryid, topk);
-
-		/*--------------------------------- Query Words -------------------------------*/
-		//			HashMap<String, Integer> query_termsfreqspair = reader.gettermfreqpair(qUcid, PatentDocument.Description);
-		HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid); /*reader.getDocTerms(, PatentDocument.Description);*/
-		int querysize = query_terms.size();
-		//			System.out.println(query_termsfreqspair.size() +"\t"+ query_termsfreqspair);
-//		System.out.println(queryid + " (" + querysize + ") " + query_terms);
-		/*-----------------------------------------------------------------------------*/			
-
-
-		//		System.out.println(/*tspairs.size() + "\t" + */tspairs );
-		String optimal_query = "";
-
-		for(Entry<String, Float> ts : tspairs.entrySet()){
-			String term = ts.getKey();
-			Float score = ts.getValue();
-			if(score > tau){
-				if(query_terms.keySet().contains(term)){
-					if (!Functions.isNumeric(term) && !Functions.isSpecialCahr(term)) {
-						//					optimal_query += tskey + "^" + tsvalue + " ";
-						optimal_query += term + "^" + 1 + " ";
-					}
-				}
-			}
-		}
-		return optimal_query;
-	}
+	
 
 	public static void main(String[] args) throws IOException, ParseException {
 		//		String queryid = /*"PAC-1006"*/"PAC-191";
-		int topk = 1;
+		int topk = 3;
 
-		TopRankedTPs t = new TopRankedTPs();
+		TopRankedTPsPlusPatQ tpatq = new TopRankedTPsPlusPatQ();
 
 		String path = "data/CLEF-IP-2010/PAC_test/topics/";
 
@@ -205,58 +179,20 @@ public class TopRankedTPs {
 			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
 			String ipcfilter = g.getIpc();
 
-			String query = t.generateTopRFQuery(queryid, tau, topk); 
-			System.out.println(queryid + " Top RF Terms: (" + query + ") ");
+//			t.getRFtermscores(queryid, qUcid, topk);
+			String query = tpatq.generateTopRFQuery(queryid, qUcid, tau, topk);
 			Query q = pq.parse(query, ipcfilter);
-			//			System.out.println(queryid + " (" + q + ") ");
-			String query2 = t.selectTopRFQTerms(queryid, qUcid, tau, topk); 
-			System.out.println(queryid + " Top RF QTerms: (" + query2 + ") ");
-			Query q2 = pq.parse(query2, ipcfilter);
-			//			System.out.println(queryid + " (" + q + ") ");
+			System.out.println(queryid + " (" + q + ") ");
+//			
+//			String query = t.generateTopRFQuery(queryid, tau, topk); 
+//			System.out.println(queryid + " Top RF Terms: (" + query + ") ");
+//			Query q = pq.parse(query, ipcfilter);
+//			//			System.out.println(queryid + " (" + q + ") ");
+//			String query2 = t.selectTopRFQTerms(queryid, qUcid, tau, topk); 
+//			System.out.println(queryid + " Top RF QTerms: (" + query2 + ") ");
+//			Query q2 = pq.parse(query2, ipcfilter);
+//			//			System.out.println(queryid + " (" + q + ") ");
 			System.out.println();
 		}
 	}
 }
-
-
-
-
-
-/*-------------- This class is used to sort a hashmap --------------*/
-
-class ValueComparator1 implements Comparator<String> {
-
-	Map<String, Integer> base;
-	public ValueComparator1(Map<String, Integer> base) {
-		this.base = base;
-	}
-
-	// Note: this comparator imposes orderings that are inconsistent with equals.    
-	public int compare(String a, String b) {
-		if (base.get(b) >= base.get(a)) {
-			return -1;
-		} else {
-			return 1;
-		} // returning 0 would merge keys
-	}
-}
-
-/*-------------- This class is used to sort a hashmap --------------*/
-
-class ValueComparator implements Comparator<String> {
-
-	Map<String, Float> base;
-	public ValueComparator(Map<String, Float> base) {
-		this.base = base;
-	}
-
-	// Note: this comparator imposes orderings that are inconsistent with equals.    
-	public int compare(String a, String b) {
-		if (base.get(a) >= base.get(b)) {
-			return -1;
-		} else {
-			return 1;
-		} // returning 0 would merge keys
-	}
-}
-
