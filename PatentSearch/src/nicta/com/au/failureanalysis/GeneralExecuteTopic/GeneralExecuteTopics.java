@@ -96,8 +96,8 @@ public final class GeneralExecuteTopics {
 
 			
 			/*--------------------------------- Create PRF query(score-threshold) -----------------------------*/
-//			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
-//			Query q = pq.parse(PRFquery, ipcfilter);
+			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
+			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- Create PRF query(query-size) -----------------------------*/
@@ -129,8 +129,8 @@ public final class GeneralExecuteTopics {
 			
 			/*------------------ Create partial RF query with top k TPs plus query patent -----------------*/
 			/*--------- Attention: querysize used for k -----------*/
-			String newquery = tpatq.generateTopRFQuery(queryid, qUcid, Tau, querysize); 
-			Query q = pq.parse(newquery, ipcfilter);
+//			String newquery = tpatq.generateTopRFQuery(queryid, qUcid, Tau, querysize); 
+//			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			j++;			
