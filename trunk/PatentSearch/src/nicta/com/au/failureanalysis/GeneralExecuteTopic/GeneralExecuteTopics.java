@@ -11,6 +11,7 @@ import java.io.PrintStream;
 import java.util.Map;
 
 import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPs;
+import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPsPlusPatQ;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateQueryRemoveDFwords;
@@ -73,6 +74,7 @@ public final class GeneralExecuteTopics {
 		CreateOptimalPatentQuery optpatentq = new CreateOptimalPatentQuery();
 		CreateQueryRemoveDFwords c = new CreateQueryRemoveDFwords();
 		TopRankedTPs t = new TopRankedTPs();
+		TopRankedTPsPlusPatQ tpatq = new TopRankedTPsPlusPatQ();
 		
 		for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
 			String qUcid = e.getValue().getUcid();
@@ -113,15 +115,21 @@ public final class GeneralExecuteTopics {
 //			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*------------------ Create RF query with top k TPs -----------------*/
+			/*------------------ Create Partial RF query with top k TPs -----------------*/
 			/*--------- Attention: querysize used for k -----------*/
 //			String newquery = t.generateTopRFQuery(queryid, Tau, querysize);
 //			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*------------------ Create RF query with top k TPs -----------------*/
+			/*------------------ Create patent query with RF top k TPs -----------------*/
 			/*------------------ Attention: querysize used for k ----------------*/
-			String newquery = t.selectTopRFQTerms(queryid, qUcid, Tau, querysize); 
+//			String newquery = t.selectTopRFQTerms(queryid, qUcid, Tau, querysize); 
+//			Query q = pq.parse(newquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+			
+			/*------------------ Create partial RF query with top k TPs plus query patent -----------------*/
+			/*--------- Attention: querysize used for k -----------*/
+			String newquery = tpatq.generateTopRFQuery(queryid, qUcid, Tau, querysize); 
 			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
