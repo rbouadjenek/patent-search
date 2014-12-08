@@ -147,7 +147,7 @@ public class TopRankedTPsPlusPatQ {
 				}				
 			}
 		}
-		System.out.println(optimal_query);
+//		System.out.println(optimal_query);
 		return optimal_query;
 	}
 
