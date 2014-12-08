@@ -36,7 +36,7 @@ public class CreatPRFquery {
 		return prf_query;
 	}
 
-	public String generatePRFQuery(String queryid, int tau) throws IOException, ParseException{
+	public String generatePRFQuery(String queryid, float tau) throws IOException, ParseException{
 		
 		PRFTermsScores prf = new PRFTermsScores();
 		Map<String, Float> tspairs = prf.getTermsScoresPairPRF(queryid);
@@ -49,8 +49,8 @@ public class CreatPRFquery {
 			if(tsvalue > tau){	
 				i++;
 				if (!Functions.isNumeric(tskey) && !Functions.isSpecialCahr(tskey)) {
-//					prf_query += tskey + "^" + tsvalue + " ";
-					prf_query += tskey + "^" + 1 + " ";
+					prf_query += tskey + "^" + tsvalue + " ";
+//					prf_query += tskey + "^" + 1 + " ";
 				}				
 			}
 		}
@@ -63,7 +63,7 @@ public class CreatPRFquery {
 	}
 
 	public static void main(String[] args) throws IOException, ParseException {
-		int tau = 0;
+		float tau = 0;
 		CreatPRFquery prfquery = new CreatPRFquery();
 
 		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-omit-PAC-1094.xml");  /*test1.xml");*/
