@@ -114,7 +114,14 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ Create RF query with top k TPs -----------------*/
-			String newquery = t.generateTopRFQuery(queryid, Tau, querysize);
+			/*--------- Attention: querysize used for k -----------*/
+//			String newquery = t.generateTopRFQuery(queryid, Tau, querysize);
+//			Query q = pq.parse(newquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+			
+			/*------------------ Create RF query with top k TPs -----------------*/
+			/*------------------ Attention: querysize used for k ----------------*/
+			String newquery = t.selectTopRFQTerms(queryid, qUcid, Tau, querysize); 
 			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
