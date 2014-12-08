@@ -186,7 +186,7 @@
     </target>
     <target name="GeneralExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralExecuteTopics" failonerror="true" fork="yes">
-            <arg line="1 3"/>
+            <arg line="1 1"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -433,6 +433,11 @@
     </target>
     <target name="TopRankedTPs">
         <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TopRankedTPsPlusPatQ">
+        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPsPlusPatQ" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
