@@ -3,12 +3,14 @@ package nicta.com.au.failureanalysis.goodterms;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Map.Entry;
 
+import nicta.com.au.failureanalysis.optimalquery.IpcDefinition;
 import nicta.com.au.failureanalysis.pseudorelevancefeedback.PRFTermsScores;
 import nicta.com.au.failureanalysis.query.QueryGneration;
 import nicta.com.au.patent.document.PatentDocument;
@@ -21,10 +23,10 @@ public class AbsVsGoodTerm {
 
 	public void getAbsGoodTerms(int tau) throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
-//		String outputfile = "./output/AbstractTerms/abstractterms.txt";
-//
-//		FileOutputStream out = new FileOutputStream(outputfile);
-//		PrintStream ps = new PrintStream(out);
+		String outputfile = "./output/AbstractTerms/abstractterms-IPCdef.txt";
+
+		FileOutputStream out = new FileOutputStream(outputfile);
+		PrintStream ps = new PrintStream(out);
 		/*-------------------------------------------------------------------------------*/
 		String _qrootpath = "data/CLEF-IP-2010/PAC_test/topics/";
 		PositiveTermsOverlap olap = new PositiveTermsOverlap();
@@ -51,13 +53,13 @@ public class AbsVsGoodTerm {
 			System.out.println(queryid);
 			System.out.println("Abstract: " + abstractcontent);
 			
-//			ps.println(queryid);
-//			ps.println("Abstract: " + abstractcontent);	
+			ps.println(queryid);
+			ps.println("Abstract: " + abstractcontent);	
 			System.out.println();
-//			ps.println();
+			ps.println();
 
 			System.out.print("RF Terms: ");
-//			ps.print("RF Terms: ");
+			ps.print("RF Terms: ");
 			
 			for(Entry<String, Float> tspair : RFtermsscores.entrySet()){
 				String term = tspair.getKey();
@@ -65,29 +67,43 @@ public class AbsVsGoodTerm {
 
 				if (score > tau){
 					System.out.print(term + ": "+ score + ", ");
-//					ps.print(term + ": "+ score + ", ");
+					ps.print(term + ": "+ score + ", ");
 				}
 			}	
 			System.out.println();
-//			ps.println();
+			ps.println();
 			System.out.println();
-//			ps.println();
+			ps.println();
 			System.out.print("PRF Terms: ");
-//			ps.print("PRF Terms: ");
+			ps.print("PRF Terms: ");
 			for(Entry<String, Float> tspair : PRFtermsscores.entrySet()){
 				String PRFterm = tspair.getKey();
 				Float PRFscore = tspair.getValue();
 
 				if (PRFscore > tau){
 					System.out.print(PRFterm + ": " + RFhash.get(PRFterm) + ", ");
-//					ps.print(PRFterm + ": " + RFhash.get(PRFterm) + ", ");
+					ps.print(PRFterm + ": " + RFhash.get(PRFterm) + ", ");
 				}
 			}	
 			
 			System.out.println();
-//			ps.println();
+			ps.println();
 			System.out.println();
-//			ps.println();
+			ps.println();
+			System.out.print("IPC def Terms: ");
+			ps.print("IPC def Terms: ");
+			
+			IpcDefinition df = new IpcDefinition();
+			ArrayList<String> ipcdefs = df.GetIpcDefWords(queryfile);
+			for(String ipcterm:ipcdefs){
+				System.out.print(ipcterm + ": " + RFhash.get(ipcterm) + ", ");
+				ps.print(ipcterm + ": " + RFhash.get(ipcterm) + ", ");
+			}
+			
+			System.out.println();
+			ps.println();
+			System.out.println();
+			ps.println();
 		}
 	}
 

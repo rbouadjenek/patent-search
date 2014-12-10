@@ -53,9 +53,9 @@ public class IpcDefinition {
 		long start = System.currentTimeMillis();
 		TopDocs hits = is.search(GenerateClassCodesQuery.generateQuery(query.getFullClassCodes()), 20);
 		long end = System.currentTimeMillis();
-		System.err.println("Query: " + GenerateClassCodesQuery.generateQuery(query.getFullClassCodes()));
+		/*System.err.println("Query: " + GenerateClassCodesQuery.generateQuery(query.getFullClassCodes()));
 		System.err.println("Found " + hits.totalHits
-				+ " document(s) has matched query. Processed in " + Functions.getTimer(end - start) + ".");
+				+ " document(s) has matched query. Processed in " + Functions.getTimer(end - start) + ".");*/
 		int i = 0;
 		ArrayList<String> ipcdeflists = new ArrayList<>();
 		for (ScoreDoc scoreDoc : hits.scoreDocs) {
