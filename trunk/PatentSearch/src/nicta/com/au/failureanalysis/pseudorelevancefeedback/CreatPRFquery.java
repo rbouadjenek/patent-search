@@ -49,8 +49,8 @@ public class CreatPRFquery {
 			if(tsvalue > tau){	
 				i++;
 				if (!Functions.isNumeric(tskey) && !Functions.isSpecialCahr(tskey)) {
-					prf_query += tskey + "^" + tsvalue + " ";
-//					prf_query += tskey + "^" + 1 + " ";
+//					prf_query += tskey + "^" + tsvalue + " ";
+					prf_query += tskey + "^" + 1 + " ";
 				}				
 			}
 		}
