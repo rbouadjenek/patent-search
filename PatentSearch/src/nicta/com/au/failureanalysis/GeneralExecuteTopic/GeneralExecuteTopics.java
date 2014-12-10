@@ -85,8 +85,8 @@ public final class GeneralExecuteTopics {
 			String ipcfilter = g.getIpc();
 						
 			/*----------------------------- Create optimal query(score-threshold) -------------------------*/
-//			String optquery = oq.generateOptimalQuery(queryid, Tau);
-//			Query q = oq.parse(optquery, ipcfilter);
+			String optquery = oq.generateOptimalQuery(queryid, Tau);
+			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*----------------------------- Create optimal query(query-size) -------------------------*/
@@ -96,8 +96,8 @@ public final class GeneralExecuteTopics {
 
 			
 			/*--------------------------------- Create PRF query(score-threshold) -----------------------------*/
-			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
-			Query q = pq.parse(PRFquery, ipcfilter);
+//			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
+//			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- Create PRF query(query-size) -----------------------------*/
