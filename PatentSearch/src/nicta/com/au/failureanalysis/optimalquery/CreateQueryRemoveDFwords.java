@@ -18,7 +18,7 @@ import org.apache.lucene.queryparser.classic.ParseException;
 public class CreateQueryRemoveDFwords {
 	static String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
 
-	public String GeneratePatQueryRemoveDFs(String queryid, String qUcid, double tau) throws IOException, ParseException{
+	public String GeneratePatQueryRemoveDFs(String queryid, String qUcid, double tau, double delta) throws IOException, ParseException{
 
 		CollectionReader reader = new CollectionReader(indexDir); 
 
@@ -48,7 +48,7 @@ public class CreateQueryRemoveDFwords {
 			Integer qfreq = qtpair.getValue();
 			if(df_tspairs.keySet().contains(qt)){
 				//								if(df_tspairs.get(qt) > tau){
-				if(df_tspairs.get(qt) > 1 && qfreq <= 10){ //Discarding criteria: df_tspairs.get(qt) > tau && qfreq <= 8
+				if(df_tspairs.get(qt) > tau && qfreq <= delta){ //Discarding criteria: df_tspairs.get(qt) > tau && qfreq <= 8
 					//					if (!Functions.isNumeric(qt) && !Functions.isSpecialCahr(qt)) {
 					size++;						
 					qterms.remove(qt);
@@ -60,8 +60,8 @@ public class CreateQueryRemoveDFwords {
 		for(String newterm : qterms){
 			if (!Functions.isNumeric(newterm) && !Functions.isSpecialCahr(newterm)) {
 				k++;
-				//							new_query += term + "^" + score + " ";		
-				new_query += newterm + "^" + 1 + " ";
+				new_query += newterm + "^" + query_terms.get(newterm) + " ";		
+//				new_query += newterm + "^" + 1 + " ";
 			}	
 		}	
 		/*System.out.println(queryid);
