@@ -118,8 +118,8 @@ public class CreateQueryRemoveDFwords {
 		for(String newterm : qterms){
 			if (!Functions.isNumeric(newterm) && !Functions.isSpecialCahr(newterm)) {
 				k++;
-				//							new_query += term + "^" + score + " ";		
-				new_query += newterm + "^" + 1 + " ";
+				new_query += newterm + "^" + query_terms.get(newterm) + " ";		
+//				new_query += newterm + "^" + 1 + " ";
 			}	
 		}	
 		/*System.out.println(queryid);
@@ -144,6 +144,7 @@ public class CreateQueryRemoveDFwords {
 			String queryfile = topic.getKey() + "_" + topic.getValue().getUcid() + ".xml";
 //			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau);
 			String newquery = c.GeneratePatQueryRemDFs3Conditions(queryid, qUcid, queryfile, tau, delta);
+//			System.out.println(newquery);
 			//			System.out.println(queryid + " --> " + newquery);
 			System.out.println();
 		}
