@@ -85,8 +85,8 @@ public final class GeneralExecuteTopics {
 			String ipcfilter = g.getIpc();
 						
 			/*----------------------------- Create optimal query(score-threshold) -------------------------*/
-			String optquery = oq.generateOptimalQuery(queryid, Tau);
-			Query q = oq.parse(optquery, ipcfilter);
+//			String optquery = oq.generateOptimalQuery(queryid, Tau);
+//			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*----------------------------- Create optimal query(query-size) -------------------------*/
@@ -113,6 +113,12 @@ public final class GeneralExecuteTopics {
 			/*------------------ Create patent query minus frequent words in top-100 -----------------*/
 //			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau);
 //			Query q = pq.parse(newquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+			
+			/*------------------ Create patent query minus frequent words in top-100, keep ipc def and QTF(t) > delta -----------------*/
+			int delta = Qsize;
+			String newquery = c.GeneratePatQueryRemDFs3Conditions(queryid, qUcid, queryfile, tau, delta);
+			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ Create Partial RF query with top k TPs -----------------*/

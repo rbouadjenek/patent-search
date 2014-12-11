@@ -98,8 +98,8 @@ public class IpcDefinition {
 	public static void main(String[] args) throws IOException, ParseException {
 		String queryfile = "PAC-1041_EP-1285768-A2.xml";
 		
-		IpcDefinition df = new IpcDefinition();
-		ArrayList<String> ipcdefs = df.GetIpcDefWords(queryfile);
+		IpcDefinition def = new IpcDefinition();
+		ArrayList<String> ipcdefs = def.GetIpcDefWords(queryfile);
 		System.out.println(ipcdefs.size()+ " " + ipcdefs);
 	}
 
