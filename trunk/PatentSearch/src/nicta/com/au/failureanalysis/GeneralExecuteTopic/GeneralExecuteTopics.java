@@ -16,6 +16,7 @@ import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateQueryRemoveDFwords;
 import nicta.com.au.failureanalysis.pseudorelevancefeedback.CreatPRFquery;
+import nicta.com.au.failureanalysis.pseudorelevancefeedback.PRFPatQueryTermSelection;
 import nicta.com.au.failureanalysis.query.QueryGneration;
 import nicta.com.au.main.Functions;
 import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
@@ -72,6 +73,7 @@ public final class GeneralExecuteTopics {
 		CreatPRFquery prfq = new CreatPRFquery();
 		GeneralParseQuery pq = new GeneralParseQuery();
 		CreateOptimalPatentQuery optpatentq = new CreateOptimalPatentQuery();
+		PRFPatQueryTermSelection PRFts = new PRFPatQueryTermSelection();
 		CreateQueryRemoveDFwords c = new CreateQueryRemoveDFwords();
 		TopRankedTPs t = new TopRankedTPs();
 		TopRankedTPsPlusPatQ tpatq = new TopRankedTPsPlusPatQ();
@@ -105,15 +107,20 @@ public final class GeneralExecuteTopics {
 //			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 
-			/*--------------------------------- Create patent query -----------------------------*/
+			/*--------------------------------- Create patent query(PQ term selection based on RF score) -----------------------------*/
 //			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
 //			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
+			/*--------------------------------- Create patent query(PQ term selection based on PRF score) -----------------------------*/
+			String patentquery = PRFts.GeneratePRFtPatentQuery(queryid, qUcid, tau);  
+			Query q = pq.parse(patentquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+			
 			/*------------------ Create patent query minus frequent words in top-100 -----------------*/
-			int delta = Qsize;
-			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
-			Query q = pq.parse(newquery, ipcfilter);
+//			int delta = Qsize;
+//			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
+//			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ Create patent query minus frequent words in top-100, keep ipc def and QTF(t) > delta -----------------*/

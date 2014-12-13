@@ -24,7 +24,7 @@ import org.apache.lucene.search.Query;
 public class CreateOptimalPatentQuery {
 	static String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
 
-	public String GenerateOptPatentQuery(String queryid, String qUcid, int tau) throws IOException, ParseException{
+	public String GenerateOptPatentQuery(String queryid, String qUcid, float tau) throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
 		//		String outputfile = "./output/relevancefeedback-score/termoverlp-postop100-tophalf4.txt";
 		//
