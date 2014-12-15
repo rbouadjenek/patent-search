@@ -7,8 +7,6 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralParseQuery;
-import nicta.com.au.failureanalysis.goodterms.PositiveTermsOverlap;
-import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.query.QueryGneration;
 import nicta.com.au.failureanalysis.search.CollectionReader;
 import nicta.com.au.main.Functions;
@@ -50,8 +48,8 @@ public class PRFPatQueryTermSelection {
 				if(query_terms.keySet().contains(term)){
 					if (!Functions.isNumeric(term) && !Functions.isSpecialCahr(term)) {
 						size++;
-//						optimal_query += term + "^" + query_terms.get(term) + " ";
-						optimal_query += term + "^" + 1 + " ";
+						optimal_query += term + "^" + query_terms.get(term) + " ";
+//						optimal_query += term + "^" + 1 + " ";
 					}	
 //											System.out.println(term);
 				}					
