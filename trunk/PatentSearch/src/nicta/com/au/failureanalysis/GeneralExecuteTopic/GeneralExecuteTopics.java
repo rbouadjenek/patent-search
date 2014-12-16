@@ -113,10 +113,16 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- Create patent query(PQ term selection based on PRF score) -----------------------------*/
-			String patentquery = PRFts.GeneratePRFtPatentQuery(queryid, qUcid, tau);  
-			Query q = pq.parse(patentquery, ipcfilter);
+//			String patentquery = PRFts.GeneratePRFtPatentQuery(queryid, qUcid, tau);  
+//			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
+			/*--------------------------------- Create PRF query minus doc frequent words -----------------------------*/
+			
+			String patentquery = PRFts.GeneratePRFQueryMinusDF(queryid, qUcid/*, Tau*/);   
+			Query q = pq.parse(patentquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+						
 			/*------------------ Create patent query minus frequent words in top-100 -----------------*/
 //			int delta = Qsize;
 //			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
