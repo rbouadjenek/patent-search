@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Map;
 
+import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.ScoreQtermsWrtRetDocs;
 import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPs;
 import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPsPlusPatQ;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
@@ -76,6 +77,7 @@ public final class GeneralExecuteTopics {
 		PRFPatQueryTermSelection PRFts = new PRFPatQueryTermSelection();
 		CreateQueryRemoveDFwords c = new CreateQueryRemoveDFwords();
 		TopRankedTPs t = new TopRankedTPs();
+		ScoreQtermsWrtRetDocs s = new ScoreQtermsWrtRetDocs();
 		TopRankedTPsPlusPatQ tpatq = new TopRankedTPsPlusPatQ();
 		
 		for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
@@ -118,9 +120,9 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- Create PRF query minus doc frequent words -----------------------------*/
-			
-			String patentquery = PRFts.GeneratePRFQueryMinusDF(queryid, qUcid/*, Tau*/);   
-			Query q = pq.parse(patentquery, ipcfilter);
+			/*------------------ the results were bad --------------------*/
+//			String patentquery = PRFts.GeneratePRFQueryMinusDF(queryid, qUcid/*, Tau*/);   
+//			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 						
 			/*------------------ Create patent query minus frequent words in top-100 -----------------*/
@@ -151,6 +153,12 @@ public final class GeneralExecuteTopics {
 			/*--------- Attention: querysize used for k -----------*/
 //			String newquery = tpatq.generateTopRFQuery(queryid, qUcid, Tau, querysize); 
 //			Query q = pq.parse(newquery, ipcfilter);
+			/*--------------------------------------------------------------------------------*/
+			
+			/*------------------ Create Partial RF query with top k TPs -----------------*/
+			int bottomk = querysize;
+			String newquery = s.generateRFPatQuery(queryid, qUcid, Tau, bottomk); 
+			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			j++;			

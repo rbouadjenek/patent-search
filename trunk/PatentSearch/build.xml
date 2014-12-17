@@ -143,6 +143,11 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="Test (2)">
+        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.Test" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="TopQueryTerms">
         <java classname="nicta.com.au.failureanalysis.query.test.TopQueryTerms" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
@@ -186,7 +191,7 @@
     </target>
     <target name="GeneralExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralExecuteTopics" failonerror="true" fork="yes">
-            <arg line="1 5"/>
+            <arg line="1 0"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -232,6 +237,12 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="PRFPatQueryTermSelection">
+        <java classname="nicta.com.au.failureanalysis.pseudorelevancefeedback.PRFPatQueryTermSelection" failonerror="true" fork="yes">
+            <arg line="0"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="OptPatentQuery">
         <java classname="nicta.com.au.failureanalysis.optimalquery.OptPatentQuery" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
@@ -259,6 +270,11 @@
     </target>
     <target name="PositiveTermsOverlapTPs">
         <java classname="nicta.com.au.failureanalysis.goodterms.PositiveTermsOverlapTPs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="Test (1)">
+        <java classname="FirstRankTPs.Test" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -317,6 +333,11 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="TopRankedTPs">
+        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="TermFrequency1">
         <java classname="nicta.com.au.utilities.TermFrequency1" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
@@ -355,6 +376,11 @@
     </target>
     <target name="PositiveTermsOverlap">
         <java classname="nicta.com.au.failureanalysis.goodterms.PositiveTermsOverlap" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TopRankedTPsPlusPatQ">
+        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPsPlusPatQ" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -421,29 +447,8 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
-    <target name="Test (1)">
-        <java classname="FirstRankTPs.Test" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="Test (2)">
-        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.Test" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="TopRankedTPs">
-        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPs" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="TopRankedTPsPlusPatQ">
-        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPsPlusPatQ" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="PRFPatQueryTermSelection">
-        <java classname="nicta.com.au.failureanalysis.pseudorelevancefeedback.PRFPatQueryTermSelection" failonerror="true" fork="yes">
-            <arg line="1"/>
+    <target name="ScoreQtermsWrtRetDocs">
+        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.ScoreQtermsWrtRetDocs" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
