@@ -1,0 +1,4111 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass sig-alternate
+\begin_preamble
+\usepackage{subfigure}
+\usepackage{algorithmic}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\subfour}[1]{\vspace*{3mm}{\noindent\bf #1}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+title{An Evaluation of Query Expansion for Patent Prior Art Search}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+title{Query Expansion Methods for Patent Prior Art Search with Partial Applicati
+ons}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+title{Query Expansion Methods for Prior Art Search with Partial Patent Applicati
+ons}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+title{A Study of Query Reformulation for Patent Prior Art Search with Partial
+ Patent Applications}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+title{ A Study of Query Reformulation for Patent Prior Art Search}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+numberofauthors{1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+alignauthor
+\end_layout
+
+\begin_layout Plain Layout
+
+%Mohamed Reda Bouadjenek$^{
+\backslash
+dag}$
+\backslash
+titlenote{This work has been mainly %done when the author was visiting NICTA,
+ Canberra, Australia.}, Scott %Sanner$^{
+\backslash
+ddag}$, Gabriela Ferraro$^{
+\backslash
+ddag}$
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%$^{
+\backslash
+dag}$
+\backslash
+affaddr{INRIA 
+\backslash
+& LIRMM University of Montpellier France, %reda.bouadjenek@inria.fr}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%		$^{
+\backslash
+ddag}$
+\backslash
+affaddr{NICTA, Australian National University, %
+\backslash
+{scott.sanner, gabriela.ferraro
+\backslash
+}@nicta.com.au}
+\end_layout
+
+\begin_layout Plain Layout
+
+%Reda Bouadjenek
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+affaddr{INRIA 
+\backslash
+& LIRMM}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%		
+\backslash
+affaddr{France}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+email{reda.bouadjenek@inria.fr}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+alignauthor
+\end_layout
+
+\begin_layout Plain Layout
+
+%Scott Sanner
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+affaddr{NICTA 
+\backslash
+& ANU}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%		
+\backslash
+affaddr{Australia}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+email{scott.sanner@nicta.com.au}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+alignauthor
+\end_layout
+
+\begin_layout Plain Layout
+
+%Gabriela Ferraro
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+affaddr{NICTA 
+\backslash
+& ANU}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%		
+\backslash
+affaddr{Australia}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%       
+\backslash
+email{gabriela.ferraro@nicta.com.au}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newtheorem{proposition}{Proposition}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+Patents are used by entities to legally protect their inventions and represent
+ a multi-billion dollar industry of licensing and litigation.
+ In 2013, 302,948 patent applications were approved in the US alone -- a
+ number that has doubled in the past 15 years and which makes prior art
+ search a daunting, but necessary task in the patent application process.
+ In this work, we seek to investigate the efficacy of prior art search strategie
+s from the perspective of the inventor who wishes to assess the patentability
+ of their ideas prior to writing a full application.
+ While much of the literature inspired by the evaluation framework of the
+ CLEF-IP competition has aimed to assist patent examiners in assessing prior
+ art for complete patent applications, less of this work has focused on
+ patent search with queries representing partial applications.
+ In the (partial) patent search setting, a query is often much longer than
+ in other standard IR tasks, e.g., a claims section may contain hundreds or
+ even thousands of words.
+ While the length of such queries may suggest query reduction strategies
+ to remove irrelevant terms, intentional obfuscation and general language
+ used in patents suggests that it may help to expand queries with additionally
+ relevant terms.
+ To assess the trade-offs among all of these pre-application prior art search
+ strategies, we comparatively evaluate a variety of partial application
+ search and query reformulation methods.
+ Among numerous findings, querying with a full description, perhaps in conjuncti
+on with generic (non-patent specific) query reduction methods, is recommended
+ for best performance.
+ However, we also find that querying with an abstract represents the best
+ trade-off in terms of writing effort vs.
+ retrieval efficacy (i.e., querying with the claims or description sections
+ only lead to marginal improvements) and that for such relatively short
+ queries, generic query expansion methods help.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%This has led the research to focus on query
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%reformulation for patent search.
+  In this paper, we carry out an
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%intensive study of both patent-specific and standard query
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%reformulation methods for patent prior art search with partial patent
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%applications.
+  We found that query expansion methods are useful for
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%short queries (title, abstract and claims), and query reduction
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%methods are often useful for medium-length sections (abstract and claims).
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%We also shown that the abstract is a good section to query with,
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%suggesting that writing the abstract is useful in the early stages of
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%a patent drafting.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%We intend to mainly answer the following questions: 
+\backslash
+emph{What are these query reformulation methods? How do they work? What
+ is the best section in a patent application to use as a query? What is
+ the best query reformulation method? }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+bf Categories and Subject Descriptors:} H.3.3 {[Information Systems]}: {Informatio
+n Storage and Retrieval, Information Search and Retrieval}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+bf General Terms:} Algorithms, Experimentation.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+bf Keywords:} Query Reformulation, Patent Search.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+\noindent
+Patents are used by entities to legally protect their inventions and represent
+ a multi-billion dollar industry of licensing and litigation.
+ In 2013, 302,948 patent applications were approved in the US alone
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\family typewriter
+http://www.uspto.gov/web/offices/ac/ido/oeip/taf/us_stat.htm
+\end_layout
+
+\end_inset
+
+, a number that has doubled in the past 15 years.
+ Given that a single existing patent may invalidate a new patent application,
+ helping inventors assess the patentability of an idea through a patent
+ prior art search before writing a complete patent application is an important
+ task.
+\end_layout
+
+\begin_layout Standard
+Patent prior art search involves finding previously granted patents that
+ may be relevant to a new patent application.
+ The objective and challenges of standard formulations of patent prior art
+ search are different from those of standard text and web search since
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2012"
+
+\end_inset
+
+: (i) queries are (partial) patent applications, which consist of documents
+ with hundreds or thousands of words organized into several sections, while
+ typical queries in text and web search constitute only a few words; and
+ (ii) patent prior art search is a recall-oriented task, where the primary
+ focus is to retrieve all relevant documents at early ranks, in contrast
+ to text and web search that are precision-oriented, where the primary goal
+ is to retrieve a subset of documents that satisfy the query intent.
+ Another important characteristic of patent prior art search is that, in
+ contrast to scientific and technical writers, patent writers tend to generalize
+ and maximize the scope of what is protected by a patent, which further
+ complicates the task of formulating effective queries.
+\end_layout
+
+\begin_layout Standard
+While much of the literature inspired by the evaluation framework of the
+ CLEF-IP competition has aimed to assist patent examiners in assessing prior
+ art for complete patent applications, less work has focused on assessing
+ the patentability of inventions before writing a full patent application.
+ Furthermore, prior art search with queries that represent unfinished patent
+ applications is generally desirable, since writing a full application is
+ time-consuming and costly, especially if lawyers are hired to assist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%However prior art search with partial applications is much different than
+ queries with a full application -- namely because the queries are much
+ shorter and represent only parts of a patent application.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%NOTE: start a paragaph with the key idea%A patent application is organized
+ in, at least, four sections: title,%abstract, claims and description.
+ We assumed that a partial application%consist in one of the mentioned sections.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement !th
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../PatentSearch/CIKM2014/img/legend.eps
+	width 4.5cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Title query.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qTitle-CLEF-IP2010.eps
+	width 3.5cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Abstract query.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010.eps
+	width 3.5cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Claims query.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qClaims-CLEF-IP2010.eps
+	width 3.5cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Description query.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qDescription-CLEF-IP2010.eps
+	width 3.5cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average Jaccard similarity between fields of topics and the corresponding
+ (ir)relevant documents for different sets of top and bottom performing
+ queries.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%different queries (representing the title, abstract, or claims of a patent
+ application)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%and the labeled (ir)relevant documents for the best (top) and worst (bottom)
+ performing
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%queries from CLEF-IP 2010 w.r.t.
+ MAP.}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\size default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:FailureAnalysis"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+To assess the difficulty of querying with partial patent applications, we
+ refer to Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:FailureAnalysis"
+
+\end_inset
+
+.
+ Here we show an analysis of the average Jaccard similarity
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The Jaccard similarity is used to measure the term overlap between two sets.
+ Before applying the Jaccard similarity, patent-specific stopwords were
+ removed, as suggested by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahdabi2012"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ between different queries (representing the title, abstract, claims, or
+ descriptions of partial patent applications) and the labeled relevant (all)
+ and irrelevant documents (top 10 irrelevant documents ranked by BM25
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Robertson1993"
+
+\end_inset
+
+).
+ We show results for the top 100 and bottom 100 queries (100 queries that
+ perform the best, and 100 queries that perform the worst) of CLEP-IP 2010
+ evaluated according to Mean Average Precision (MAP).
+ Note that while the title section is usually composed of an average of
+ six terms, the other sections are longer, ranging from tens to thousands
+ of terms.
+ There are three notable trends here: (i) term overlap increases from title
+ to description since the query size grows accordingly; (ii) the bottom
+ 100 performing queries tend to have much smaller term overlap with the
+ relevant documents than the top 100 queries; and (iii) even in the best
+ case of querying with very long description sections, the average term
+ overlap indicates many terms of relevant documents are not found in the
+ query.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%**Highly redundant with above content**
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%While these results suggest the description section is the best part
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%of a partial patent application to use as query, they also point out
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%that the term overlap between the queries and the relevant documents
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%can be very low.
+ Also, in this context, a query is much longer than
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%in other standard IR tasks.
+ It can take the form of a long paragraph
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%(e.g.
+ the case of the abstract used for querying), or even a very
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%long document (e.g.
+ the case of claims or the description used for
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%querying).
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similar observations in the general patent prior art search literature
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2011"
+
+\end_inset
+
+ have led to a research focus on query reformulation.
+ Therefore, we suggest an investigation of 
+\emph on
+query reformulation
+\emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Baeza-Yates2010"
+
+\end_inset
+
+ methods as a means for improving the term overlap between queries that
+ represent partial patent applications and relevant documents, with the
+ objective of assessing not only the performance of standard query reformulation
+ methods, but also the effectiveness of query reformulation methods that
+ exploit patent-specific characteristics.
+\end_layout
+
+\begin_layout Standard
+In summary, to aid the patent inventor in developing an effective pre-applicatio
+n prior art search strategy, we seek to answer the following questions in
+ this work: 
+\end_layout
+
+\begin_layout Itemize
+What parts of a patent application should a patent inventor write first
+ to achieve effective prior art search? What are the trade-offs in section
+ writing effort vs.
+ the retrieval performance of querying with that section? 
+\end_layout
+
+\begin_layout Itemize
+In query expansion, do any sections of patents serve as better sources of
+ expansion terms? What expansion methods work best, and in what settings?
+ 
+\end_layout
+
+\begin_layout Itemize
+For query reformulation (both query expansion and reduction), which methods
+ work best, and in what settings? Do patent-specific reformulation methods
+ offer advantages over more generic IR reformulation methods? 
+\end_layout
+
+\begin_layout Standard
+To answer these questions, we perform a thorough comparative analysis of
+ partial patent application query strategies and reformulation methods on
+ the CLEF-IP patent prior art search datasets.
+\end_layout
+
+\begin_layout Standard
+The rest of the paper is organized as follows: in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:QueryReformulation"
+
+\end_inset
+
+, we present a variety of generic and patent-specific query reformulation
+ methods; in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Evaluation"
+
+\end_inset
+
+, we present the evaluation results and analysis to answer the above questions;
+ and in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusion"
+
+\end_inset
+
+, we conclude with key observations from this evaluation that lead to concrete
+ recommendations for patent prior art search with partial applications.
+\end_layout
+
+\begin_layout Section
+Query Reformulation for Patents
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:QueryReformulation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Query Reformulation is the process of transforming an initial query 
+\begin_inset Formula $Q$
+\end_inset
+
+ to another query 
+\begin_inset Formula $Q'$
+\end_inset
+
+.
+ This transformation may be either an expansion or a reduction of the query.
+
+\emph on
+ Query Expansion
+\emph default
+ (QE) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Efthimiadis1996"
+
+\end_inset
+
+ enhances the query with additional terms likely to occur in relevant documents.
+ Hence, given a query representation 
+\begin_inset Formula $Q$
+\end_inset
+
+, QE aims to select an optimal subset 
+\begin_inset Formula $T_{k}$
+\end_inset
+
+ of 
+\begin_inset Formula $k$
+\end_inset
+
+ terms, which are relevant to 
+\begin_inset Formula $Q$
+\end_inset
+
+, then build 
+\begin_inset Formula $Q'$
+\end_inset
+
+ such as 
+\begin_inset Formula $Q'=Q\cup T_{k}$
+\end_inset
+
+.
+ As for 
+\emph on
+Query Reduction
+\emph default
+ (QR) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Kumaran2009"
+
+\end_inset
+
+, it is the process that reduces the query such that superfluous information
+ is removed.
+ Hence, given a query representation 
+\begin_inset Formula $Q$
+\end_inset
+
+, QR aims to select an optimal subset 
+\begin_inset Formula $T_{k}\subset Q$
+\end_inset
+
+ of 
+\begin_inset Formula $k$
+\end_inset
+
+ terms, which are relevant to 
+\begin_inset Formula $Q$
+\end_inset
+
+, then build 
+\begin_inset Formula $Q'$
+\end_inset
+
+ such as 
+\begin_inset Formula $Q'=T_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the following sections, we describe the standard and patent-specific
+ query reformulation methods that we evaluate in Section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Evaluation"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Generic Query Reformulation Methods
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:StandardQRMethods"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfour
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+The Rocchio Algorithm for Relevance Feedback:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ The Rocchio algorithm 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Salton1971"
+
+\end_inset
+
+ is a classic algorithm of relevance feedback used mainly for query expansion.
+ In brief, it provides a method of incorporating relevance feedback information
+ into the vector space model representing a query 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Manning2008"
+
+\end_inset
+
+.
+ The underlying theory behind Rocchio is to find a query vector 
+\begin_inset Formula $\overrightarrow{Q'}$
+\end_inset
+
+, that maximizes similarity with relevant documents while minimizing similarity
+ with irrelevant documents.
+ Typically, a pseudo-relevance feedback (PRF) set of 
+\begin_inset Formula $k$
+\end_inset
+
+ top ranked documents obtained after an initial run of the query is considered
+ as the set of relevant documents to build 
+\begin_inset Formula $\overrightarrow{Q'}$
+\end_inset
+
+.
+ We refer to this method as RocchioQE.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+We used the LucQE module, which provides an implementation of the Rocchio
+ method for Lucene.
+ 
+\family typewriter
+http://lucene-qe.sourceforge.net/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly, Rocchio can be used as a QR method.
+ Basically, the idea is that once the Rocchio-modified query vector has
+ been computed, it is possible to select only the terms that appear in the
+ initial query 
+\begin_inset Formula $Q$
+\end_inset
+
+ and rank them using the Rocchio score and finally, select the top 
+\begin_inset Formula $k$
+\end_inset
+
+ terms with the highest score to build 
+\begin_inset Formula $Q'$
+\end_inset
+
+.
+ We refer to this approach as RocchioQR.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfour
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Maximal Marginal Relevance for Query Reformulation:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ As a general method for query reformulation, we also consider a method
+ of 
+\begin_inset Quotes eld
+\end_inset
+
+diverse
+\begin_inset Quotes erd
+\end_inset
+
+ term selection --- an adaptation of the 
+\emph on
+Maximal Marginal Relevance
+\emph default
+ (MMR)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Carbonell1998"
+
+\end_inset
+
+ algorithm for result set diversification.
+ But, rather than use MMR for diverse document selection (as typically used),
+ it is used here for diverse term selection --- the hypothesis being that
+ diverse term selection may improve coverage of relevant terms in the PRF
+ set.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%The idea is to use MMR for diverse term selection.
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+subfour{MMR Query Expansion (MMRQE)}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+label{sec:MMRQE}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement !t
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/matrix.eps
+	width 5cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Notation used in MMR QE/QR.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Notation"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the case of QE, we call this diversified expansion method MMR Query Expansion
+ (MMRQE).
+ MMRQE takes as input a PRF set, which is used to build a document-term
+ matrix of 
+\begin_inset Formula $n$
+\end_inset
+
+ documents and 
+\begin_inset Formula $m$
+\end_inset
+
+ terms as shown in Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Notation"
+
+\end_inset
+
+ (the TF-IDF is used to populate the matrix for each document vector).
+ To represent the query 
+\begin_inset Formula $Q$
+\end_inset
+
+ in the documents' dimension as in Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Notation"
+
+\end_inset
+
+, we use the BM25 or TF-IDF score between each document 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+ and the query.
+ Hence, given a query representation 
+\begin_inset Formula $Q$
+\end_inset
+
+, MMRQE aims to select an optimal subset of 
+\begin_inset Formula $k$
+\end_inset
+
+ terms 
+\begin_inset Formula $T_{k}^{*}\subset D$
+\end_inset
+
+ (where 
+\begin_inset Formula $|T_{k}^{*}|=k$
+\end_inset
+
+ and 
+\begin_inset Formula $k\ll|m|$
+\end_inset
+
+) relevant to 
+\begin_inset Formula $Q$
+\end_inset
+
+ but inherently different from each other (i.e., diverse).
+ This can be achieved by building 
+\begin_inset Formula $T_{k}^{*}$
+\end_inset
+
+ in a greedy manner by choosing the next optimal term 
+\begin_inset Formula $t_{k}^{*}$
+\end_inset
+
+ given the previous set of optimal term selections 
+\begin_inset Formula $T_{k-1}^{*}=\{t_{1}^{*},\ldots,t_{k-1}^{*}\}$
+\end_inset
+
+ (assuming 
+\begin_inset Formula $T_{0}^{*}=\emptyset$
+\end_inset
+
+) using the MMR diverse selection criterion:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+t_{k}^{*}=\argmax_{t_{k}\notin T_{k-1}^{*}}\hspace{-0.3mm}[\lambda\cos(Q,t_{k})-\hspace{-0.3mm}(1-\lambda)\max_{t_{j}\in T_{k-1}^{*}}\cos(t_{j},t_{k})]\label{eq:MMRQE-QR}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here, the first cosine similarity term measures relevance between the query
+ 
+\begin_inset Formula $Q$
+\end_inset
+
+ and possible expansion term 
+\begin_inset Formula $t_{k}$
+\end_inset
+
+ while the second term penalizes the possible expansion term according to
+ its cosine similarity with any currently selected term in 
+\begin_inset Formula $T_{k-1}^{*}$
+\end_inset
+
+.
+ The parameter 
+\begin_inset Formula $\lambda\in[0,1]$
+\end_inset
+
+ trades off relevance and diversity.
+ For MMRQE, we found that 
+\begin_inset Formula $\lambda=0.5$
+\end_inset
+
+ generally provide the best results, according to our experiments on the
+ CLEF-IP training dataset collection.
+\end_layout
+
+\begin_layout Standard
+For QR, we can greedily rebuild the query from scratch, while choosing diversifi
+ed terms from the query itself.
+ Here, we call this approach MMR Query Reduction (MMRQR).
+ Formally, given a query representation 
+\begin_inset Formula $Q$
+\end_inset
+
+, MMRQR aims to select an optimal subset of 
+\begin_inset Formula $k$
+\end_inset
+
+ terms 
+\begin_inset Formula $T_{k}^{*}\subset Q$
+\end_inset
+
+ (where 
+\begin_inset Formula $|T_{k}^{*}|=k$
+\end_inset
+
+ and 
+\begin_inset Formula $k<|Q|$
+\end_inset
+
+) relevant to 
+\begin_inset Formula $Q$
+\end_inset
+
+ but inherently different from each other (i.e., diverse).
+ This can be achieved by building 
+\begin_inset Formula $T_{k}^{*}$
+\end_inset
+
+ in a greedy manner by choosing the next optimal term 
+\begin_inset Formula $t_{k}^{*}$
+\end_inset
+
+ given the previous set of optimal term selections 
+\begin_inset Formula $T_{k-1}^{*}=\{t_{1}^{*},\ldots,t_{k-1}^{*}\}$
+\end_inset
+
+ (assuming 
+\begin_inset Formula $T_{0}^{*}=\emptyset$
+\end_inset
+
+) using an adaptation of the MMR diverse selection criterion.
+ Note that we use all the sections of the patent documents in the PRF set
+ to built the document-term matrix of 
+\begin_inset Formula $n$
+\end_inset
+
+ documents and 
+\begin_inset Formula $m$
+\end_inset
+
+ terms shown in Figure
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Notation"
+
+\end_inset
+
+.
+ For MMRQR, we found that 
+\begin_inset Formula $\lambda=0.8$
+\end_inset
+
+ generally provide the best results in our experiments on the CLEF-IP dataset
+ collection.
+\end_layout
+
+\begin_layout Standard
+The key insight we want to highlight is that MMRQE does not select expansion
+ terms independently as in practical usage of Rocchio, but rather it selects
+ terms that have uncorrelated usage patterns across documents, thus hopefully
+ encouraging diverse term selection that covers more documents for a fixed
+ expansion budget 
+\begin_inset Formula $k$
+\end_inset
+
+ and ideally, higher recall.
+\end_layout
+
+\begin_layout Subsection
+Patent-specific Query Reformulation Methods
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:SpecificQRMethods"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%In this section, we first describe two patent-specific query expansionmethods,
+ then, we describe two patent-specific query reduction methods.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfour
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Synonym Sets for Patent Query Expansion:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ Magdy et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2011"
+
+\end_inset
+
+ proposed a patent query expansion method, which automatically generates
+ candidate synonym sets (SynSet) for terms to use as a source of expansion
+ terms.
+ The idea for generating the SynSet comes from the characteristics of the
+ CLEF-IP patent collection, where some of the sections in some patents are
+ translated into three languages (English, French, and German).
+ They used these parallel manual translations to create possible synonyms
+ sets.
+ Hence, for a word 
+\begin_inset Formula $w$
+\end_inset
+
+ in one language which has possible translations to a set of words in another
+ language 
+\begin_inset Formula ${w_{1},w_{2},\ldots,w_{n}}$
+\end_inset
+
+, this set of words can be considered as synonyms or at least related to
+ each other.
+ The generated SynSet is used for query expansion in two ways: (i) The first
+ one used the probability associated with the SynSet entries as a weight
+ for each expanded term in the query (denoted WSynSet).
+ Therefore, each term was replaced with its SynSet entries with the probability
+ of each item in the SynSet acting as a weight to the term within the query.
+ (ii) The second one neglected this associated probability and used uniform
+ weighting for all synonyms of a given term (denoted USynSet).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfour
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Patent Lexicon for Query Expansion:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ Mahdabi et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahdabi2013"
+
+\end_inset
+
+ proposed to build a query-specific patent lexicon based on definitions
+ of the International Patent Classification (IPC).
+ The lexicon is simply built by removing general and patent-specific stop-words
+ from the text of IPC definition pages.
+ Each entry in the lexicon is composed of a key and a value.
+ The key is an IPC class and the value is a set of terms representing the
+ mentioned class.
+ Then, the lexicon is used to extract expansion concepts related to the
+ context of the information need of a given query patent.
+ To this end, the IPC class of the query patent is searched in the lexicon
+ and the terms matching this class are considered as candidate expansion
+ terms.
+ The proposed approach tries to combine these two complementary vocabularies.
+ In this paper we refer to this patent query expansion method as IPC Codes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfour
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Language Model for Query Reduction:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ganguly2011"
+
+\end_inset
+
+, the authors proposed a query reduction technique, which decomposes a query
+ (a patent section) into constituent text segments and computes Language
+ Model (LM) similarities by calculating the probability of generating each
+ segment from the top ranked documents (PRF set).
+ Then, the query is reduced by removing the least similar segments from
+ the query.
+ We refer to this method as LMQR.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfour
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+IPC Codes for Query Reduction:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ Based on the intuition that, terms in the IPC code definition may represent
+ "stop-words", especially if they are rare (infrequent in the patent application
+), one can think to reduce a patent query as follows: (i) For each patent
+ application, take the definitions of the IPC codes which are associated
+ to it.
+ Then, (ii) rank the terms of the query according to the difference in their
+ frequency in the query and their frequency in the class code definition.
+ Finally, (iii) remove bottom terms of this ranking from the query (i.e.
+ good terms are terms that occur a lot in the query, and few in the class
+ code definition, whereas bad terms are those that occur few in the query,
+ and a lot in the class code definition).
+ In the evaluation section we denote this approach IPC-StopWords.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%% Reviewers may point out that we should have compared...
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfour
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Further Afield:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ While some more complex patent-specific methods have also been explored
+ for general patent prior art search
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bashir2010,Verma2011,Mahdabi2013"
+
+\end_inset
+
+, space limitations preclude an exhaustive comparison to all available methods.
+ Notwithstanding this, we believe the above outlined patent-specific query
+ reformulation methods circumscribe a range of patent-specific approaches
+ spanning synonym lexicons, specially derived language models, and IPC code
+ resources; hence our evaluation supports the objective of identifying general
+ query reformulation methods from the novel perspective of partial patent
+ application prior art search that may be deserving of further investigation
+ in future work.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%we do
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%do not show comparisons with these methods here for the following reasons:
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%(i) their authors already pointed out their poor performance 
+\backslash
+cite{Mahdabi2013}; 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%(ii) as reflected in our existing experiments, patent-specific lexicons
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%have not tended to yield significantly better query reformulation results
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%in comparison to generic methods~
+\backslash
+cite{Magdy2011,Verma2011}; and 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%(iii) the method is computational too expensive 
+\backslash
+cite{Bashir2010}.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Experimental Evaluation
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Evaluation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section we first explain the experimental setup for evaluating the
+ effectiveness of patent prior art search with partial applications.
+ Then, we discuss the results of QE and QR methods in Sections
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:QEResults"
+
+\end_inset
+
+ and
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:QRResults"
+
+\end_inset
+
+ respectively.
+\end_layout
+
+\begin_layout Subsection
+Experimental Setup
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Setup"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For our experiments, we used used the Lucene IR System
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\family typewriter
+http://lucene.apache.org/
+\end_layout
+
+\end_inset
+
+ to index the English subset of CLEF-IP 2010 and CLEF-IP 2011 datasets
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\family typewriter
+http://www.ifs.tuwien.ac.at/~clef-ip/
+\end_layout
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Piroi2011,Roda2009"
+
+\end_inset
+
+ with the default settings for stemming and stop-word removal.
+ We also removed patent-specific stop-words as described in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Magdy2012"
+
+\end_inset
+
+.
+ CLEF-IP 2010 contains 2.6 million patent documents, and the English test
+ sets of CLEF-IP 2010 correspond to 1303 topic sources of partial patent
+ application queries.
+ We also experimented with the CLEF-IP 2011 dataset, but observed the same
+ overall trends as for CLEF-IP 2010 and hence omit these redundant results
+ due to space limitations.
+\end_layout
+
+\begin_layout Standard
+In our implementation, each section of a patent (title, abstract, claims,
+ and description) is indexed in a separate field so that different sections
+ can be used, for example, as source of expansion terms.
+ However, when a query is processed, all indexed fields are targeted, since
+ this generally offers best retrieval performance.
+ As suggested in previous work
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lopez2009,Roda2009"
+
+\end_inset
+
+ and found to yield best results in our experiments, we used the patent
+ classification (IPC) codes assigned to the query topics to filter search
+ results to match at least one of the query IPC codes.
+\end_layout
+
+\begin_layout Standard
+We report both MAP and PRES (Patent Retrieval Evaluation Score).
+ The PRES metric places more emphasis on high-recall retrieval by weighting
+ relevant documents lower in the ranking more highly than MAP.
+ We report these ranking evaluation metrics on the top 1000 results.
+\end_layout
+
+\begin_layout Subsection
+Query Expansion Results
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:QEResults"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this section, we discuss the results of partial patent queries with the
+ QE methods described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:QueryReformulation"
+
+\end_inset
+
+.
+ In doing this experimentation, there are many configuration options and
+ associated questions to consider:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Partial patent query type:
+\series default
+ We consider a query of a partial patent application to consist of either
+ the title, the abstract, the claims, or the description section.
+ Critical questions are: what part of a partial application an inventor
+ should write to obtain the best search results? And what QE methods work
+ best for each type of query? 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Query expansion source:
+\series default
+ We consider the abstract, claims, and description sections as different
+ term sources to determine which section offers the best source of expansion
+ terms, e.g., are words in the claims of particularly high value as expansion
+ terms? We omit the use of the title as a source of expansion terms noting
+ that this configuration performed poorly due to the relative sparsity of
+ useful expansion terms in the titles of the PRF set.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Relevance model:
+\series default
+ For initial retrieval of documents in the 
+\emph on
+pseudo-relevant
+\emph default
+ feedback set (PRF) and subsequent re-retrieval, there are various options
+ for the relevance ranking model.
+ In this work, we explore a probabilistic approach represented by the popular
+ BM25
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Robertson1993"
+
+\end_inset
+
+ algorithm, as well as a vector space model (VSM) approach, TF-IDF
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Salton1975"
+
+\end_inset
+
+.
+ A natural question is which relevance model works best for query expansion
+ for patent prior art search? 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Term selection method:
+\series default
+ We consider the different query expansion methods described above, i.e.
+ RocchioQE, MMRQE, IPC Codes, WSynSet, USynSet and ask what is the best
+ QE method for patent search? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement tb
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQE.eps
+	width 12cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Title.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-MAP-CLEF-IP2010.eps
+	width 6cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Abstract.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-MAP-CLEF-IP2010.eps
+	width 6cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Claims.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-MAP-CLEF-IP2010.eps
+	width 6cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Description.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-MAP-CLEF-IP2010.eps
+	width 6cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MAP for QE methods on CLEF-IP 2010.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:MAP-CLEF2010"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:qDescription-MAP-CLEF-IP2010"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement tb
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQE.eps
+	width 12cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Title.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-PRES-CLEF-IP2010.eps
+	width 6cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Abstract.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-PRES-CLEF-IP2010.eps
+	width 6cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Claims.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qClaims-PRES-CLEF-IP2010.eps
+	width 6cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Description.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-PRES-CLEF-IP2010.eps
+	width 6cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PRES for QE methods on CLEF-IP 2010.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PRES-CLEF2010"
+
+\end_inset
+
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:qDescription-PRES-CLEF-IP2010"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To summarize all the results obtained over all the above configurations,
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:MAP-CLEF2010"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PRES-CLEF2010"
+
+\end_inset
+
+ show the MAP and PRES obtained for all the QE methods, while selecting
+ the optimal number of terms used for the expansion (the number of terms
+ that maximizes the performance for each method).
+ From these results, we make the following observations:
+\end_layout
+
+\begin_layout Enumerate
+The best partial application section to use for querying is the description
+ section.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%(see Figure 
+\backslash
+ref{fig:qDescription-PRES-CLEF-IP2010}).
+ 
+\end_layout
+
+\end_inset
+
+ We attribute this to the fact that the description section has more content
+ along with relevant terms that define the invention since a detailed summary
+ of the invention is described therein.
+ 
+\end_layout
+
+\begin_layout Enumerate
+However, perhaps a better trade-off in terms of effort vs.
+ retrieval performance is to query with the abstract.
+ Relative to the description, it takes much less effort to write the abstract.
+ Further, querying with the abstract provides a substantial boost in retrieval
+ performance compared to the title (about 165% for MAP).
+ In contrast, querying with the claims and description offer only marginal
+ performance gains (about 10% to 30% for MAP) compared to using the abstract.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Query expansion is not useful for very long queries (i.e.
+ description) since no method outperforms the baseline.
+ This indicates that in advanced writing stages of the patent preparation
+ process, QE is not useful.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% (see Figure
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+ref{fig:qDescription-MAP-CLEF-IP2010} and Figure
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+ref{fig:qDescription-PRES-CLEF-IP2010}).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+When dealing with short queries such as the title or abstract, MMRQE is
+ less effective than Rocchio, whereas it appears to provide slightly better
+ comparative results for the longer claims query.
+ This suggests diverse term selection may be helpful for long queries.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%% I don't think the results clearly support the following statements...
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%% just omit since they aren't crucial for the paper.
+  -Scott
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+item The best source for query expansion is the claims section.
+ We
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  attribute this to the fact that, the claims contain not only
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  relevant, but also, specific terminology, since the scope of the
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  invention is described therein.
+ However, when querying using the
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  claims, other sources of query expansion provided better
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  performance.
+ This may be because claims are very similar between
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  them and contained specific terms; consequently, the queries lack of
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  diversity and general terms or synonyms that are used to describe
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  similar inventions.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The description section does not appear to be a good source for expansion,
+ likely since its content is too broad and it contains many irrelevant terms.
+ 
+\end_layout
+
+\begin_layout Enumerate
+When dealing with short and medium-length queries (i.e., title, abstract,
+ and claims), VSM performs better than BM25, while for very long queries
+ (i.e., description), BM25 performs the best.
+ 
+\end_layout
+
+\begin_layout Enumerate
+In general, generic QE methods like Rocchio tend to outperform patent-specific
+ QE methods, although among patent-specific methods, the IPC Codes approach
+ seemed to work best.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+item Using the IPC code definitions (as suggested by
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  
+\backslash
+cite{Mahdabi2013}) and SynSet (method of 
+\backslash
+cite{Magdy2011}) as a
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  source of expansion, gave poor performance (see IPC Codes and SynSet
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  bars along the Figures).
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+item Finally, regarding the best term selection method, we conclude
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  that in general, MMRQE provides the best performance, followed by
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%  RocchioQE.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%To give an insight of the effect of MMRQE and Rocchio over the performance,
+ Table 
+\backslash
+ref{tbl:QESampleQueries} shows two queries where QE methods improved the
+ performance.
+ First of all, it is interesting to notice that even if there are common
+ terms selected to expand the queries by both MMRQE and Rocchio, the lists
+ of MMRQE contain more diversified terms (at least in the first example).
+ For the first example, relevant patents talk about a similar idea than
+ the application, but using different complex and ambiguous terms.
+ Hence, for the first query, key terms  like: 
+\backslash
+textit{rotor, blend, and suction}, were able to capture the scope of the
+ relevant patents to allow either retrieving them (improving PRES), or pushing
+ them to the top of the ranking (improving MAP).
+ As for the second query, MMRQE expand the query with general terms, e.g.
+ 
+\backslash
+textit{result, includ, extend, plural}, which probably encourage retrieving
+ irrelevant patents.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement tb
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQR.eps
+	width 12cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Abstract.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-MAP-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Claims.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qClaims-MAP-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Description.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-MAP-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MAP for QR methods on CLEF-IP 2010.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-MAP-CLEF-IP2010"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement tb
+wide true
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQR.eps
+	width 12cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Abstract.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-PRES-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Claims.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qClaims-PRES-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Description.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-PRES-CLEF-IP2010.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PRES for QR methods on CLEF 2010.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-PRES-CLEF-IP2011"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Query Reduction Results
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:QRResults"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next we discuss the results of the evaluation performed on the QR methods
+ described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:QueryReformulation"
+
+\end_inset
+
+.
+ As for QE, we carry out comprehensive experiments with the following configurat
+ion options and associated questions to consider:
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Partial patent query type:
+\series default
+ We apply QR methods to a query of a partial patent application, consisting
+ of the abstract, the claims or the description sections.
+ A critical question is what part of a partial application is best suited
+ for QR? Note that we consider that there is no interest in reducing a title
+ query since it already contains very few terms.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Relevance model:
+\series default
+ We explore a probabilistic approach represented by the popular BM25
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Robertson1993"
+
+\end_inset
+
+ algorithm, as well as a vector space model (VSM) approach, TF-IDF
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Salton1975"
+
+\end_inset
+
+.
+ A natural question is which relevance model works best for query reduction
+ for patent prior art search? 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Term selection method:
+\series default
+ We consider the different query reduction methods described above, i.e.
+ RocchioQR, MMRQR, LMQR, IPC-StopWords and ask what is the best QR method
+ for patent search? Further, how do these results compare to QE for the
+ same queries? 
+\end_layout
+
+\begin_layout Standard
+To summarize all the results obtained over all the above configurations,
+ Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QR-MAP-CLEF-IP2010"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QR-PRES-CLEF-IP2011"
+
+\end_inset
+
+ show the respective MAP and PRES performance obtained for all QR methods,
+ when selecting the optimal number of terms removed from the original queries.
+ From these results, we make the following observations:
+\end_layout
+
+\begin_layout Enumerate
+The best performing QR methods show benefits vs.
+ No QR for all queries (i.e., abstract, claims, and description).
+ 
+\end_layout
+
+\begin_layout Enumerate
+The term selection methods that provide the best performance are, in general,
+ RocchioQR and MMRQR.
+ 
+\end_layout
+
+\begin_layout Enumerate
+When dealing with medium-length queries (i.e., abstract and claims), VSM performs
+ better than BM25, while for very long queries (i.e., description), BM25-based
+ QR methods perform better than VSM-based QR methods.
+ 
+\end_layout
+
+\begin_layout Enumerate
+In comparison to the MAP and PRES results for QE from Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:MAP-CLEF2010"
+
+\end_inset
+
+ and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PRES-CLEF2010"
+
+\end_inset
+
+, the best QE and QR methods perform comparably for abstract and claims
+ queries, whereas for description queries, the best QR method slightly outperfor
+ms the best QE method and No QR.
+ Hence, the best overall retrieval result in this work in terms of both
+ MAP and PRES comes from a description query with a generic (non-patent
+ specific) QR method.
+ 
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this paper, we analyzed various query strategies for patent prior art
+ search with partial (incomplete) applications along with generic and patent-spe
+cific query reformulation (expansion and reduction) methods.
+ We performed a comprehensive comparative evaluation of these methods on
+ the CLEF-IP patent corpus for prior art search.
+\end_layout
+
+\begin_layout Standard
+We showed that the description is the best partial application section to
+ query with, followed by the claims, the abstract, and lastly the title
+ section.
+ However, the largest boost in performance (about 165% for MAP) comes when
+ switching from a title query to an abstract query; smaller relative boosts
+ are given by querying instead with the claims or description (about 10%
+ to 30% for MAP).
+ This is a critical insight since it is substantially easier for the patent
+ inventor to draft an abstract rather than a full patent description and
+ in doing so, still manage to retrieve the majority of prior art that would
+ have been retrieved with the full description.
+\end_layout
+
+\begin_layout Standard
+We observed that query expansion (QE) methods are useful for short to medium
+ length queries (i.e., title, abstract, and claims), but useless for very
+ long queries (i.e., the description section).
+ We also showed that the description section does not provide the best source
+ of expansion terms for QE, rather the claims or the abstract tend to offer
+ better candidate terms for QE.
+ In the same vein, we also found traditional IR methods like Rocchio or
+ variations to work just as well for QE (and generally better) in comparison
+ to patent-specific methods using specialized expansion sources such as
+ synonym lexicons or IPC code definitions.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%For QE, future work should investigate how can we exploit patent-specific
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%meta-data such as inventor and citation networks to better exploit
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%specialized domains of discourse relevant to patent subfields.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Regarding query reduction (QR) methods, we showed these techniques are generally
+ most effective compared to QE for the description section (the longest
+ section used as a partial application query).
+ Albeit by a slim margin over No QR, the overall best retrieval performance
+ results in this work are achieved with generic (non-patent specific) QR
+ methods for description queries.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%Finally, it is clear that for a patent examiner, using the description
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%section of a patent application with perhaps a QR method like MMRQR
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%or RocchioQR will help to find the most relevant documents (to invalidate
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%the application).
+ However, for inventors, before investing too much
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%time in writing a full patent application, we believe that it is better
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%to first write the abstract.
+ Then, use Rocchio with expanded terms coming from
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%the claims to get the most relevant documents to make a prior art
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%search task (to position the current invention with related work).
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%These observations does not contradict with the  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In conclusion, we return to our initial objective to aid the patent inventor
+ in identifying an effective pre-application prior art search strategy.
+ Our evaluation reveals the critical insight that while querying with a
+ full description, perhaps combined with generic query reduction methods,
+ yields strong overall retrieval performance, querying with just an abstract
+ and using generic QE methods may yield the best trade-off in terms of writing
+ effort vs.
+ retrieval performance.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%Future work should investigate whether QE methods for abstract queries
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%can rival the best methods for description queries --- if such a result
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%were possible, it would significantly reduce the effort required on
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%behalf of the patent inventor to identify potentially invalidating
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%prior art for a new patent idea.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "biblio"
+options "abbrv"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
