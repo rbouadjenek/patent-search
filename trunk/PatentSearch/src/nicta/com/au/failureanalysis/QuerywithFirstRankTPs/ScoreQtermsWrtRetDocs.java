@@ -97,8 +97,8 @@ public class ScoreQtermsWrtRetDocs {
 			if(tsvalue > tau){	
 				if (!Functions.isNumeric(tskey) && !Functions.isSpecialCahr(tskey)) {
 					//					new_query += tskey + "^" + tsvalue + " ";
-//					new_query += tskey + "^" + query_terms.get(tskey) + " ";
-					new_query += tskey + "^" + 1 + " ";
+					new_query += tskey + "^" + query_terms.get(tskey) + " ";
+//					new_query += tskey + "^" + 1 + " ";
 				}				
 			}
 		}
