@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 
 import nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralParseQuery;
 import nicta.com.au.failureanalysis.evaluate.QueryAndPatents;
-import nicta.com.au.failureanalysis.pseudorelevancefeedback.PRFTermsScores;
 import nicta.com.au.failureanalysis.query.QueryGneration;
 import nicta.com.au.failureanalysis.search.CollectionReader;
 import nicta.com.au.main.Functions;
@@ -83,7 +82,7 @@ public class ScoreQtermsWrtRetDocs {
 		CollectionReader reader = new CollectionReader(indexDir);
 		/*--------------------------------- Query Words -------------------------------*/		
 		HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid); 
-
+		
 		ScoreQtermsWrtRetDocs s = new ScoreQtermsWrtRetDocs();
 		
 //		System.out.println(s.RFscorePatQuery(queryid, qUcid, 0));
@@ -98,8 +97,8 @@ public class ScoreQtermsWrtRetDocs {
 			if(tsvalue > tau){	
 				if (!Functions.isNumeric(tskey) && !Functions.isSpecialCahr(tskey)) {
 					//					new_query += tskey + "^" + tsvalue + " ";
-					new_query += tskey + "^" + query_terms.get(tskey) + " ";
-//					new_query += tskey + "^" + 1 + " ";
+//					new_query += tskey + "^" + query_terms.get(tskey) + " ";
+					new_query += tskey + "^" + 1 + " ";
 				}				
 			}
 		}
@@ -126,9 +125,10 @@ public class ScoreQtermsWrtRetDocs {
 			String ipcfilter = g.getIpc();
 
 			ScoreQtermsWrtRetDocs s = new ScoreQtermsWrtRetDocs();
-			System.out.println();
+			s.generateRFPatQuery(queryid, qUcid, 1, 0);
+			/*System.out.println();
 			System.out.println(s.RFscorePatQuery(queryid, qUcid, 0));
-			System.out.println();
+			System.out.println();*/
 		}
 	}
 }

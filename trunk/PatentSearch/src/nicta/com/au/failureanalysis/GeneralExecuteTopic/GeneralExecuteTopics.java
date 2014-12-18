@@ -155,7 +155,7 @@ public final class GeneralExecuteTopics {
 //			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*------------------ Create Partial RF query with top k TPs -----------------*/
+			/*------------------ Create RF patent query, take patent query as a TP then remove terms in top-100 or bottom k -----------------*/
 			int bottomk = querysize;
 			String newquery = s.generateRFPatQuery(queryid, qUcid, Tau, bottomk); 
 			Query q = pq.parse(newquery, ipcfilter);
