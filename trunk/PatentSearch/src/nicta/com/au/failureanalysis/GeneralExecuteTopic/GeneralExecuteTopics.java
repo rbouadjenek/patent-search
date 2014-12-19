@@ -13,6 +13,7 @@ import java.util.Map;
 import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.ScoreQtermsWrtRetDocs;
 import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPs;
 import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPsPlusPatQ;
+import nicta.com.au.failureanalysis.SectionBasedAnalysis.RFScoreSections;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateQueryRemoveDFwords;
@@ -62,7 +63,7 @@ public final class GeneralExecuteTopics {
 	}
 
 
-	public void execute(float tau, int querysize) throws IOException, Exception {
+	public void execute(float tau, int querysize, String field) throws IOException, Exception {
 		float Tau = tau;
 		int Qsize = querysize;
 		
@@ -78,6 +79,7 @@ public final class GeneralExecuteTopics {
 		CreateQueryRemoveDFwords c = new CreateQueryRemoveDFwords();
 		TopRankedTPs t = new TopRankedTPs();
 		ScoreQtermsWrtRetDocs s = new ScoreQtermsWrtRetDocs();
+		RFScoreSections sec = new RFScoreSections();
 		TopRankedTPsPlusPatQ tpatq = new TopRankedTPsPlusPatQ();
 		
 		for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
@@ -88,78 +90,88 @@ public final class GeneralExecuteTopics {
 			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
 			String ipcfilter = g.getIpc();
 						
-			/*----------------------------- Create optimal query(score-threshold) -------------------------*/
+			/*----------------------------- 1-Create optimal query(score-threshold) -------------------------*/
 //			String optquery = oq.generateOptimalQuery(queryid, Tau);
 //			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
 			
-			/*----------------------------- Create optimal query(query-size) -------------------------*/
+			/*----------------------------- 2-Create optimal query(query-size) -------------------------*/
 //			String optquery = oq.generateOptQuerySize(queryid, Qsize);
 //			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
 
 			
-			/*--------------------------------- Create PRF query(score-threshold) -----------------------------*/
+			/*--------------------------------- 3-Create PRF query(score-threshold) -----------------------------*/
 //			String PRFquery = prfq.generatePRFQuery(queryid, tau);	
 //			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*--------------------------------- Create PRF query(query-size) -----------------------------*/
+			/*--------------------------------- 4-Create PRF query(query-size) -----------------------------*/
 //			String PRFquery = prfq.generatePRFQuerysize(queryid, Qsize);	
 //			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 
-			/*--------------------------------- Create patent query(PQ term selection based on RF score) -----------------------------*/
+			/*--------------------------------- 5-Create patent query(PQ term selection based on RF score) -----------------------------*/
 //			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
 //			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*--------------------------------- Create patent query(PQ term selection based on PRF score) -----------------------------*/
+			/*--------------------------------- 6-Create patent query(PQ term selection based on PRF score) -----------------------------*/
 //			String patentquery = PRFts.GeneratePRFtPatentQuery(queryid, qUcid, tau);  
 //			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*--------------------------------- Create PRF query minus doc frequent words -----------------------------*/
+			/*--------------------------------- 7-Create PRF query minus doc frequent words -----------------------------*/
 			/*------------------ the results were bad --------------------*/
 //			String patentquery = PRFts.GeneratePRFQueryMinusDF(queryid, qUcid/*, Tau*/);   
 //			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 						
-			/*------------------ Create patent query minus frequent words in top-100 -----------------*/
+			/*------------------ 8-Create patent query minus frequent words in top-100 -----------------*/
 //			int delta = Qsize;
 //			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
 //			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*------------------ Create patent query minus frequent words in top-100, keep ipc def and QTF(t) > delta -----------------*/
+			/*------------------ 9-Create patent query minus frequent words in top-100, keep ipc def and QTF(t) > delta -----------------*/
 //			int delta = Qsize;
 //			String newquery = c.GeneratePatQueryRemDFs3Conditions(queryid, qUcid, queryfile, tau, delta);
 //			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*------------------ Create Partial RF query with top k TPs -----------------*/
+			/*------------------ 10-Create Partial RF query with top k TPs -----------------*/
 			/*--------- Attention: querysize used for k -----------*/
 //			String newquery = t.generateTopRFQuery(queryid, Tau, querysize);
 //			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*------------------ Create patent query with RF top k TPs -----------------*/
+			/*------------------ 11-Create patent query with RF top k TPs -----------------*/
 			/*------------------ Attention: querysize used for k ----------------*/
 //			String newquery = t.selectTopRFQTerms(queryid, qUcid, Tau, querysize); 
 //			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*------------------ Create partial RF query with top k TPs plus query patent -----------------*/
+			/*------------------ 12-Create partial RF query with top k TPs plus query patent -----------------*/
 			/*--------- Attention: querysize used for k -----------*/
 //			String newquery = tpatq.generateTopRFQuery(queryid, qUcid, Tau, querysize); 
 //			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
-			/*------------------ Create RF patent query, take patent query as a TP then remove terms in top-100 or bottom k -----------------*/
-			int bottomk = querysize;
-			String newquery = s.generateRFPatQuery(queryid, qUcid, Tau, bottomk); 
-			Query q = pq.parse(newquery, ipcfilter);
+			/*------------------ 13-Create RF patent query, take patent query as a TP then remove terms in top-100 or bottom k -----------------*/
+//			int bottomk = querysize;
+//			String newquery = s.generateRFPatQuery(queryid, qUcid, Tau, bottomk); 
+//			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------ SECTION-BASED ANALYSIS --------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+			
+			/*----------------------- 14-Create RF query based on sections ---------------------*/			
+			String newquery = sec.createRFSectionbasedQuery(queryid, Tau, field); 
+			Query q = pq.parse(newquery, ipcfilter);
+			/*----------------------------------------------------------------------------------*/
+			
 			
 			j++;			
 			if (startingPoint.equals("-1")) {
@@ -225,9 +237,14 @@ public final class GeneralExecuteTopics {
 		float tau = Float.parseFloat(args[0]);
 		int querysize = Integer.parseInt(args[1]);
 
+		String titlefield = PatentDocument.Title;
+		String absfield = PatentDocument.Abstract;
+		String descfield = PatentDocument.Description;
+		String claimsfield = PatentDocument.Claims;
+		
 		try {
 			GeneralExecuteTopics ex = new GeneralExecuteTopics(indexDir, topicFile, topK, sim, decay);
-			ex.execute(tau, querysize);
+			ex.execute(tau, querysize, claimsfield);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} catch (Exception ex) {

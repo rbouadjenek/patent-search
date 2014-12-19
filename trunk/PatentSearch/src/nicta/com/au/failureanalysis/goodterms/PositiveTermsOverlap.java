@@ -74,7 +74,8 @@ public class PositiveTermsOverlap {
 		}
 		
 		/*--------------------------- Sort terms scores pair------------------------------------*/
-		ValueComparator bvc =  new ValueComparator(termsscores);
+		ValueComparator bvc = new ValueComparator(termsscores);
+//		ValueComparator bvc =  new ValueComparator(termsscores);
 		termsscoressorted = new TreeMap<String,Float>(bvc);
 		termsscoressorted.putAll(termsscores);
 		
