@@ -191,7 +191,7 @@
     </target>
     <target name="GeneralExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralExecuteTopics" failonerror="true" fork="yes">
-            <arg line="1 0"/>
+            <arg line="0 0"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -449,6 +449,21 @@
     </target>
     <target name="ScoreQtermsWrtRetDocs">
         <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.ScoreQtermsWrtRetDocs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="TermAnalysis">
+        <java classname="nicta.com.au.failureanalysis.goodterms.TermAnalysis" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PRFScoreSections">
+        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.PRFScoreSections" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="RFScoreSections">
+        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.RFScoreSections" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
