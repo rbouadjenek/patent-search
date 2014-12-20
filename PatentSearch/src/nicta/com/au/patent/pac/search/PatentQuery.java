@@ -122,25 +122,25 @@ public class PatentQuery {
         //********************************************************************
         // leveraging Abstract
         //********************************************************************
-        if(pt.getAbstrac().getLang() != null){
-        	if (pt.getAbstrac().getLang().toLowerCase().equals("en")) {
-        		abstrac = pt.getAbstrac().getContent();
-        	}
+        if (pt.getAbstrac().getLang() != null) {
+            if (pt.getAbstrac().getLang().toLowerCase().equals("en")) {
+                abstrac = pt.getAbstrac().getContent();
+            }
         }
         //********************************************************************
         // leveraging Description
         //********************************************************************
         if (pt.getDescription() != null) {
-        	if (pt.getDescription().getLang().toLowerCase().equals("en")) {
-        		for (P p : pt.getDescription().getP()) {
-        			if (Integer.parseInt(p.getNum()) == 1 || Integer.parseInt(p.getNum()) == 2
-        					|| Integer.parseInt(p.getNum()) == 3 || Integer.parseInt(p.getNum()) == 4
-        					|| Integer.parseInt(p.getNum()) == 5) { // Leveraging first 5 paragraphes
-        				descriptionP5 += p.getContent() + " ";
-        			}
-        			description += p.getContent() + " ";
-        		}
-        	}
+            if (pt.getDescription().getLang().toLowerCase().equals("en")) {
+                for (P p : pt.getDescription().getP()) {
+                    if (Integer.parseInt(p.getNum()) == 1 || Integer.parseInt(p.getNum()) == 2
+                            || Integer.parseInt(p.getNum()) == 3 || Integer.parseInt(p.getNum()) == 4
+                            || Integer.parseInt(p.getNum()) == 5) { // Leveraging first 5 paragraphes
+                        descriptionP5 += p.getContent() + " ";
+                    }
+                    description += p.getContent() + " ";
+                }
+            }
         }
         //********************************************************************
         // leveraging Claims
@@ -166,21 +166,21 @@ public class PatentQuery {
         Map<String, Analyzer> analyzerPerField = new HashMap<>();
         if (stopWords) {
             /*analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.TITLE_ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ABSTRACT_ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.DESCRIPTION_ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.CLAIMS_ENGLISH_STOP_WORDS_SET));*/
-            
-            analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
+             analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ABSTRACT_ENGLISH_STOP_WORDS_SET));
+             analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.DESCRIPTION_ENGLISH_STOP_WORDS_SET));
+             analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.CLAIMS_ENGLISH_STOP_WORDS_SET));*/
+
+            analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
         } else {
-            analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
         }
-        analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LUCENE_48), analyzerPerField);
+        analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LUCENE_4_10_2), analyzerPerField);
 
         boolean oneNumber = false;
         int j = -1;
@@ -218,6 +218,15 @@ public class PatentQuery {
             queries[6] = "";
         } else {
             String[] qText = queries;
+            // querying with the whole query
+            String newQuery = "";
+            for (int i = 1; i < qText.length; i++) {
+                newQuery += qText[i] + " ";
+            }
+            for (int i = 1; i < qText.length; i++) {
+                qText[i] = newQuery;
+            }
+            //----
             String q = transformation(analyzer.tokenStream(PatentDocument.Title, qText[1]), titleTreshold, PatentDocument.Title);
             queries[1] = q;
             q = transformation(analyzer.tokenStream(PatentDocument.Abstract, qText[2]), abstractTreshold, PatentDocument.Abstract);
@@ -374,11 +383,11 @@ public class PatentQuery {
      */
     public static void main(String[] args) throws ParseException, IOException {//PAC_1913_EP-1691238-A2.xml
         // TODO code application logic here
-//        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/query/PAC-132_EP-1550834-A1.xml", 0, 1, 0, 0, 0, 0, true, true);
-//        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1001_EP-1233512-A2.xml", 1, 1, 1, 1, 1, 1, true, true);
-    	PatentQuery query = new PatentQuery("data/CLEF-IP-2010/PAC_test/topics/PAC-544_EP-1405720-A1.xml", 1, 1, 1, 1, 1, 1, true, true);
-       
-    	System.out.println(query.parse());
+//        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/query/PAC-132_EP-1550834-A1.xml", 1, 1, 1, 1, 1, 1, true, true);
+        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1_EP-1244079-A2.xml", 1, 1, 1, 0, 1, 0, true, true);
+//    	PatentQuery query = new PatentQuery("data/CLEF-IP-2010/PAC_test/topics/PAC-544_EP-1405720-A1.xml", 1, 1, 1, 1, 1, 1, true, true);
+
+        System.out.println(query.parse());
 
     }
 

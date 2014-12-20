@@ -5,10 +5,12 @@
  */
 package com.hrstc.lucene.queryexpansion;
 
+import java.io.IOException;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import nicta.com.au.patent.document.PatentDocument;
+import nicta.com.au.patent.pac.search.PatentQuery;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
@@ -62,8 +64,10 @@ public class GenerateClassCodesQuery {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
+        PatentQuery query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1028_EP-1652736-A1.xml", 1, 0, 0, 0, 0, 0, true, true);
+        System.out.println(generateQuery(query.getFullClassCodes()));
     }
 
 }

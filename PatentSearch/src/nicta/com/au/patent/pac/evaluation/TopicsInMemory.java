@@ -11,11 +11,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import nicta.com.au.patent.document.PatentDocument;
+import nicta.com.au.patent.pac.search.PatentQuery;
 
 /**
  *
@@ -91,14 +93,19 @@ public final class TopicsInMemory {
 //            TopicsInMemory topics = new TopicsInMemory("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_training/topics/PAC_topics.xml");
             TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml");
             System.out.println(topics.getTopics().size());
-            QrelsInMemory qrels = new QrelsInMemory("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_training/PACt_training_rels.txt");
+            QrelsInMemory qrels = new QrelsInMemory("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2011/PAC_test/PAC_test_rels.txt");
 
-            for (String queryid : topics.getTopics().keySet()) {
-                for (Map.Entry<String, Integer> e : qrels.getRelevantPatents(queryid).entrySet()) {
-                    String docid = e.getKey();
-                    int rel = e.getValue();
-                    System.out.println(queryid + " 0 " + docid + " " + rel);
-                }
+            Map<String, Float> boosts = new HashMap<>();
+            boosts.put(PatentDocument.Classification, new Float(0));
+            boosts.put(PatentDocument.Title, new Float(0));
+            boosts.put(PatentDocument.Abstract, new Float(1));
+            boosts.put(PatentDocument.Description, new Float(0));
+            boosts.put("descriptionP5", new Float(0));
+            boosts.put(PatentDocument.Claims, new Float(0));
+            boosts.put("claims1", new Float(0));
+            for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
+                PatentQuery pt = new PatentQuery(e.getValue(), boosts, true, true);
+                System.out.println(e.getKey() + "\t" + pt.getAbstractSize()+ "\t" +qrels.getNumberOfRelevantPatent(e.getKey()));
 
             }
 

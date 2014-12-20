@@ -72,7 +72,7 @@ public class CreateAntiQrels {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        CreateAntiQrels antiQrels = new CreateAntiQrels("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/PAC_test_rels.txt", "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Evaluations/results-CLEF-IP-2010/qTitle-sClaims-5-0.txt", 10);
+        CreateAntiQrels antiQrels = new CreateAntiQrels("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/PAC_test_rels.txt", "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/samples/qDescription.txt", 10);
         antiQrels.createAntiQrels();
     }
 

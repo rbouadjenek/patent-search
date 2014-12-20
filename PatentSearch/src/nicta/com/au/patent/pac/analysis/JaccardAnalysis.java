@@ -141,9 +141,9 @@ public class JaccardAnalysis {
         boolean specificStopWords;
         if (args.length == 0) {
             indexDir = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/indexWithoutSW-Vec-CLEF-IP2010-2.0/";
-            queriesFilename = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/analysis/bottomClaims-CLEF-IP-2010.txt";
+            queriesFilename = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/analysis/bottomDescription-CLEF-IP-2010.txt";
             topicsFilename = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC_topics.xml";
-            qrels = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/PAC-Claims_Anti_qrels_EN.txt";
+            qrels = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/PAC-Description_Anti_qrels_EN.txt";
             specificStopWords = true;
         } else {
             indexDir = args[0];

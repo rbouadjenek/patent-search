@@ -201,11 +201,11 @@ public class PatentRocchioQueryExpansion extends PatentQueryExpansion {
             query = new PatentQuery(args[1], 0, 1, 0, 0, 0, 0, true, true);
             System.err.println(query.parse());
         } else {
-            indexDir = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/indexWithoutSW-Vec-CLEF-IP2010/";
-            query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1001_EP-1233512-A2.xml", 0, 1, 0, 0, 0, 0, true, true);
+            indexDir = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/indexWithoutSW-Vec-CLEF-IP2011/";
+            query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2011/PAC_test/topics/EP-1754935-A1.xml", 0, 1, 0, 0, 0, 0, true, true);
             System.err.println(query.parse());
         }
-        PatentRocchioQueryExpansion pqe = new PatentRocchioQueryExpansion(indexDir, 5, 0, 2, 1, (float) 0.5, (float) 0., 0);
+        PatentRocchioQueryExpansion pqe = new PatentRocchioQueryExpansion(indexDir, 5, 20, 2, 1, (float) 0.5, (float) 0., 0);
         System.err.println(pqe.expandQuery(query));
     }
 }

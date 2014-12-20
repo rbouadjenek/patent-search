@@ -213,11 +213,11 @@ public class PatentMMRQueryExpansion extends PatentQueryExpansion {
             query = new PatentQuery(args[1], 1, 0, 0, 0, 0, 0, true, true);
             System.err.println(query.parse());
         } else {
-            indexDir = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/indexWithoutSW-Vec-CLEF-IP2010/";
-            query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1001_EP-1233512-A2.xml", 0, 1, 0, 0, 0, 0, true, true);
+            indexDir = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/indexWithoutSW-Vec-CLEF-IP2011/";
+            query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2011/PAC_test/topics/EP-1754935-A1.xml", 0, 1, 0, 0, 0, 0, true, true);
             System.err.println(query.parse());
         }
-        PatentMMRQueryExpansion mmrqe = new PatentMMRQueryExpansion(indexDir, "bm25", 5, 5, 2, (float) 0.5, (float) 0.5);
+        PatentMMRQueryExpansion mmrqe = new PatentMMRQueryExpansion(indexDir, "bm25", 5, 20, 2, (float) 0.5, (float) 0.5);
         System.err.println(mmrqe.expandQuery(query));
     }
 }

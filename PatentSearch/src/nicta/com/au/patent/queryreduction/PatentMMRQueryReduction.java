@@ -159,7 +159,7 @@ public class PatentMMRQueryReduction extends PatentQueryExpansion {
 //                    bQueryFields.add(q, BooleanClause.Occur.MUST);
 //                }
                 if (expandedQuery == null) {
-                    expandedQuery = qe.expandQuery(q, PatentQuery.getFields()[i]);
+                    expandedQuery = qe.reduceQuery(q, PatentQuery.getFields()[i]);
                 } else {
                     BooleanQuery bq = ((BooleanQuery) expandedQuery).clone();
                     BooleanQuery bq2 = new BooleanQuery();
@@ -199,11 +199,11 @@ public class PatentMMRQueryReduction extends PatentQueryExpansion {
             query = new PatentQuery(args[1], 1, 0, 0, 0, 0, 0, true, true);
             System.err.println(query.parse());
         } else {
-            indexDir = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/indexWithoutSW-Vec-CLEF-IP2010/";
-            query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1001_EP-1233512-A2.xml", 1, 0, 0, 0, 0, 0, true, true);
+            indexDir = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/indexWithoutSW-Vec-CLEF-IP2011/";
+            query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2011/PAC_test/topics/EP-1314594-A1.xml", 0, 1, 0, 0, 0, 0, true, true);
             System.err.println(query.parse());
         }
-        PatentMMRQueryReduction mmrqe = new PatentMMRQueryReduction(indexDir, "bm25", 5,3, 2, (float) 0.5);
+        PatentMMRQueryReduction mmrqe = new PatentMMRQueryReduction(indexDir, "bm25", 5,10, 5, (float) 0.6);
         System.err.println(mmrqe.expandQuery(query));
     }
 }

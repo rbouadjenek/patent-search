@@ -230,10 +230,8 @@ public class PatentDocument implements Comparable<PatentDocument> {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-
         PatentDocument pt = new PatentDocument("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_training/topics/PACt-2_EP-1306721-A2.xml");
         System.out.println(pt.getTechnicalData().classificationIpcr.get(0).content);
-
     }
 
 }

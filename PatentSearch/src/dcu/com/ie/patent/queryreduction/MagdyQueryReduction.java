@@ -93,7 +93,7 @@ public final class MagdyQueryReduction {
      * @throws IOException
      * @throws ParseException
      */
-    public Query expandQuery(Query query, String currentField) throws IOException, ParseException {
+    public Query reduceQuery(Query query, String currentField) throws IOException, ParseException {
 
         // Create combine documents term vectors - sum ( rel term vectors )
         TermFreqVector queryTermsVector = new TermFreqVector(query);
@@ -149,14 +149,22 @@ public final class MagdyQueryReduction {
             for (TermFreqVector r_i : docsTermVectorReldocs.values()) {
                 LMSim += LMSim(t1, r_i);
             }
-            
+
             termQuery.setBoost(LMSim);
             l.add(termQuery);
         }
         Comparator comparator = new QueryBoostComparator();
         Collections.sort(l, comparator);
+
         if (Nbr_Terms <= l.size()) {
+            List<TermQuery> l2 = l.subList(l.size() - Nbr_Terms , l.size());
+
+            for (TermQuery t : l2) {
+                System.err.print(t.getTerm().text() + ", ");
+            }
+            System.err.println("MagdyQR");
             l = l.subList(0, l.size() - Nbr_Terms);
+
         } else {
             l.clear();
         }

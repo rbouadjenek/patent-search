@@ -32,8 +32,6 @@ import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.util.Version;
 
-import com.sun.org.apache.bcel.internal.generic.FNEG;
-
 import nicta.com.au.failureanalysis.evaluate.AnalyseFNs;
 import nicta.com.au.failureanalysis.evaluate.EvaluateResults;
 import nicta.com.au.failureanalysis.query.QueryGneration;
