@@ -60,12 +60,12 @@ public class PatentQuery {
         this.pt = new PatentDocument(queryFileName);
         boosts = new HashMap<>();
         boosts.put(PatentDocument.Classification, new Float(0));
-        boosts.put(PatentDocument.Title, new Float(titleBoost));
-        boosts.put(PatentDocument.Abstract, new Float(abstractBoost));
-        boosts.put(PatentDocument.Description, new Float(descriptionBoost));
-        boosts.put("descriptionP5", new Float(descriptionP5Boost));
-        boosts.put(PatentDocument.Claims, new Float(claimsBoost));
-        boosts.put("claims1", new Float(claims1Boost));
+        boosts.put(PatentDocument.Title, titleBoost);
+        boosts.put(PatentDocument.Abstract, abstractBoost);
+        boosts.put(PatentDocument.Description, descriptionBoost);
+        boosts.put("descriptionP5", descriptionP5Boost);
+        boosts.put(PatentDocument.Claims, claimsBoost);
+        boosts.put("claims1", claims1Boost);
         this.filter = filter;
         this.stopWords = stopWords;
         analyze();
