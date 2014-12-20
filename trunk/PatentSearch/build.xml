@@ -467,4 +467,9 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="PRFScoreSection">
+        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.PRFScoreSection" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
 </project>

@@ -13,6 +13,7 @@ import java.util.Map;
 import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.ScoreQtermsWrtRetDocs;
 import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPs;
 import nicta.com.au.failureanalysis.QuerywithFirstRankTPs.TopRankedTPsPlusPatQ;
+import nicta.com.au.failureanalysis.SectionBasedAnalysis.PRFScoreSection;
 import nicta.com.au.failureanalysis.SectionBasedAnalysis.RFScoreSections;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalPatentQuery;
 import nicta.com.au.failureanalysis.optimalquery.CreateOptimalQuery;
@@ -80,6 +81,7 @@ public final class GeneralExecuteTopics {
 		TopRankedTPs t = new TopRankedTPs();
 		ScoreQtermsWrtRetDocs s = new ScoreQtermsWrtRetDocs();
 		RFScoreSections sec = new RFScoreSections();
+		PRFScoreSection PRFsec = new PRFScoreSection();
 		TopRankedTPsPlusPatQ tpatq = new TopRankedTPsPlusPatQ();
 		
 		for (Map.Entry<String, PatentDocument> e : topics.getTopics().entrySet()) {
@@ -168,7 +170,12 @@ public final class GeneralExecuteTopics {
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
 			
 			/*----------------------- 14-Create RF query based on sections ---------------------*/			
-			String newquery = sec.createRFSectionbasedQuery(queryid, Tau, field); 
+			//String newquery = sec.createRFSectionbasedQuery(queryid, Tau, field); 
+			//Query q = pq.parse(newquery, ipcfilter);
+			/*----------------------------------------------------------------------------------*/
+			
+		   /*----------------------- 15-Create PRF query based on sections ---------------------*/			
+			String newquery = PRFsec.createPRFSectionbasedQuery(queryid, Tau, field); 
 			Query q = pq.parse(newquery, ipcfilter);
 			/*----------------------------------------------------------------------------------*/
 			
@@ -244,7 +251,7 @@ public final class GeneralExecuteTopics {
 		
 		try {
 			GeneralExecuteTopics ex = new GeneralExecuteTopics(indexDir, topicFile, topK, sim, decay);
-			ex.execute(tau, querysize, titlefield);
+			ex.execute(tau, querysize, claimsfield);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} catch (Exception ex) {
