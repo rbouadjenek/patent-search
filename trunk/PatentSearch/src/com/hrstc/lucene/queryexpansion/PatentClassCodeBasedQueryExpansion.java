@@ -145,7 +145,7 @@ public class PatentClassCodeBasedQueryExpansion extends PatentQueryExpansion {
 //                }
 //                System.out.println("*************************************");
         Query expandedQuery = null;
-        ClassCodeBasedQueryExpansion queryExpansion = new ClassCodeBasedQueryExpansion(hits,ir, parameters,Nbr_Terms);
+        ClassCodeBasedQueryExpansion queryExpansion = new ClassCodeBasedQueryExpansion(hits, ir, parameters, Nbr_Terms);
         for (int i = 1; i < PatentQuery.getFields().length; i++) {
             if (query.getQueries()[i] != null && !query.getQueries()[i].equals("") && (i != 4 || i != 6) && query.getBoosts().get(PatentQuery.getFields()[i]) != 0) {
                 QueryParser qp = new QueryParser(Version.LUCENE_48, PatentQuery.getFields()[i],

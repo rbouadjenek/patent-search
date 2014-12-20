@@ -157,7 +157,7 @@ public class PatentMagdyQueryReduction extends PatentQueryExpansion {
 //                    bQueryFields.add(q, BooleanClause.Occur.MUST);
 //                }
                 if (expandedQuery == null) {
-                    expandedQuery = qe.expandQuery(q, PatentQuery.getFields()[i]);
+                    expandedQuery = qe.reduceQuery(q, PatentQuery.getFields()[i]);
                 } else {
                     BooleanQuery bq = ((BooleanQuery) expandedQuery).clone();
                     BooleanQuery bq2 = new BooleanQuery();
@@ -189,7 +189,7 @@ public class PatentMagdyQueryReduction extends PatentQueryExpansion {
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println("MAGDY RD");
+        System.out.println("MAGDY QR");
         PatentQuery query;
         String indexDir;
         if (args.length != 0) {
@@ -197,11 +197,11 @@ public class PatentMagdyQueryReduction extends PatentQueryExpansion {
             query = new PatentQuery(args[1], 1, 0, 0, 0, 0, 0, true, true);
             System.err.println(query.parse());
         } else {
-            indexDir = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/indexWithoutSW-Vec-CLEF-IP2010/";
-            query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/topics/PAC-1001_EP-1233512-A2.xml", 1, 0, 0, 0, 0, 0, true, true);
+            indexDir = "/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/Dev/indexWithoutSW-Vec-CLEF-IP2011/";
+            query = new PatentQuery("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2011/PAC_test/topics/EP-1314594-A1.xml", 0, 1, 0, 0, 0, 0, true, true);
             System.err.println(query.parse());
         }
-        PatentMagdyQueryReduction mmrqe = new PatentMagdyQueryReduction(indexDir, "bm25", 5,1, 2);
+        PatentMagdyQueryReduction mmrqe = new PatentMagdyQueryReduction(indexDir, "bm25", 5,10, 5);
         System.err.println(mmrqe.expandQuery(query));
     }
 }

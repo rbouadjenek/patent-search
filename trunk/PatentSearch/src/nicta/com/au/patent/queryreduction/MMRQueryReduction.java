@@ -100,7 +100,7 @@ public final class MMRQueryReduction {
      * @throws IOException
      * @throws ParseException
      */
-    public Query expandQuery(Query query, String currentField) throws IOException, ParseException {
+    public Query reduceQuery(Query query, String currentField) throws IOException, ParseException {
 
         // Create combine documents term vectors - sum ( rel term vectors )
         TermFreqVector queryTermsVector = new TermFreqVector(query);
@@ -204,6 +204,12 @@ public final class MMRQueryReduction {
 //            System.out.println(term.getTerm().text() + "\t" + term.getBoost());
 //            System.out.println("******************");
         }
+        for (String t1 : queryTermsVector.getTerms()) {
+            if (!terms.containsKey(t1)) {
+                System.err.print(t1 + ", ");
+            }
+        }
+        System.err.println("MMRQR");
 //        System.out.println("===========================");
 //        for (Map.Entry<String, TermQuery> e : terms.entrySet()) {
 //            System.out.println(e.getKey() + "\t" + e.getValue().getBoost());

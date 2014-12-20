@@ -170,7 +170,7 @@ public final class MMRQueryExpansion {
 
     public Map<String, TermQuery> mmrqeAlgorithm(PRFMatrix prfMatrix, ArrayRealVector mappedQuery, String currentField)
             throws IOException {
-        Map<String, TermQuery> terms = new HashMap<>();
+        LinkedHashMap<String, TermQuery> terms = new LinkedHashMap<>();
         // mmrqeAlgorithm for each of the terms of each of the docs
         while (terms.size() < Nbr_Terms && terms.size() < prfMatrix.getColumnDimension()) {
             List<TermQuery> l = new ArrayList<>();
@@ -221,9 +221,9 @@ public final class MMRQueryExpansion {
 //            System.out.println("******************");
         }
 //        System.out.println("-----------------");
-//        for (Map.Entry<String, TermQuery> e : terms.entrySet()) {
-//            System.out.println(e.getKey() + "\t" + e.getValue().getBoost());
-//        }
+        for (Map.Entry<String, TermQuery> e : terms.entrySet()) {
+            System.out.print(e.getKey() + ", ");
+        }
         return terms;
     }
 

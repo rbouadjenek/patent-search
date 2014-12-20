@@ -60,7 +60,7 @@ public class PACIndexer {
 //        analyzer = new StandardAnalyzer(Version.LUCENE_48);
         IndexWriterConfig conf = new IndexWriterConfig(Version.LUCENE_48, aWrapper);
         conf.setUseCompoundFile(false);
-//        conf.setCodec(new SimpleTextCodec());
+        conf.setCodec(new SimpleTextCodec());
         writer = new IndexWriter(FSDirectory.open(indexDirFile), conf);
     }
 
@@ -148,6 +148,7 @@ public class PACIndexer {
         System.out.println(writer.numDocs() + 1 + "- Indexing " + f.getCanonicalPath());
         PatentDocument patent = new PatentDocument(f);
         writer.addDocument(this.getDocument(patent));
+//        writer.addDocument(new Document());
     }
 
     /**

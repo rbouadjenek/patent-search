@@ -48,7 +48,7 @@ import org.apache.lucene.util.Version;
  */
 public final class FieldsJaccardSimilarities {
 
-    private final Map<String, Integer>[] pt1FieldsVectors;
+    private final Map<String, Integer>[] ptAppicationFieldsVectors;
     private final Map<String, Integer> pt2FieldsVectors = new HashMap<>();
     private final boolean specificStopWords;
     private final IndexSearcher is;
@@ -59,7 +59,7 @@ public final class FieldsJaccardSimilarities {
         is = new IndexSearcher(DirectoryReader.open(dir));
         this.specificStopWords = specificStopWords;
         PatentDocument pt1 = new PatentDocument(PatentApplication);
-        pt1FieldsVectors = this.parse(pt1);
+        ptAppicationFieldsVectors = this.parse(pt1);
         initialize(GrantedPatent);
     }
 
@@ -67,7 +67,7 @@ public final class FieldsJaccardSimilarities {
         this.is = is;
         this.specificStopWords = specificStopWords;
         PatentDocument pt1 = PatentApplication;
-        pt1FieldsVectors = this.parse(pt1);
+        ptAppicationFieldsVectors = this.parse(pt1);
         initialize(GrantedPatent);
     }
 
@@ -148,18 +148,18 @@ public final class FieldsJaccardSimilarities {
         ptFields[4] = claims;
         Map<String, Analyzer> analyzerPerField = new HashMap<>();
         if (specificStopWords == true) {
-            analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_44, PatentsStopWords.TITLE_ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_44, PatentsStopWords.ABSTRACT_ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_44, PatentsStopWords.DESCRIPTION_ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_44, PatentsStopWords.CLAIMS_ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.TITLE_ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ABSTRACT_ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.DESCRIPTION_ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.CLAIMS_ENGLISH_STOP_WORDS_SET));
         } else {
-            analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_44, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_44, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_44, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
-            analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_44, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
+            analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.ENGLISH_STOP_WORDS_SET));
 
         }
-        PerFieldAnalyzerWrapper analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LUCENE_44), analyzerPerField);
+        PerFieldAnalyzerWrapper analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LUCENE_48), analyzerPerField);
         Map<String, Integer> m0 = transformation(analyzer.tokenStream(PatentDocument.Title, ptFields[0]));
         Map<String, Integer> m2 = transformation(analyzer.tokenStream(PatentDocument.Abstract, ptFields[2]));
         Map<String, Integer> m3 = transformation(analyzer.tokenStream(PatentDocument.Description, ptFields[3]));
@@ -188,11 +188,11 @@ public final class FieldsJaccardSimilarities {
     }
 
     public void computeJaccardSimilarities() {
-        fieldsJaccardSimilarity[0] = this.jaccard(pt1FieldsVectors[0], pt2FieldsVectors);
-        fieldsJaccardSimilarity[1] = this.jaccard(pt1FieldsVectors[1], pt2FieldsVectors);
-        fieldsJaccardSimilarity[2] = this.jaccard(pt1FieldsVectors[2], pt2FieldsVectors);
-        fieldsJaccardSimilarity[3] = this.jaccard(pt1FieldsVectors[3], pt2FieldsVectors);
-        fieldsJaccardSimilarity[4] = this.jaccard(pt1FieldsVectors[4], pt2FieldsVectors);
+        fieldsJaccardSimilarity[0] = this.jaccard(ptAppicationFieldsVectors[0], pt2FieldsVectors);
+        fieldsJaccardSimilarity[1] = this.jaccard(ptAppicationFieldsVectors[1], pt2FieldsVectors);
+        fieldsJaccardSimilarity[2] = this.jaccard(ptAppicationFieldsVectors[2], pt2FieldsVectors);
+        fieldsJaccardSimilarity[3] = this.jaccard(ptAppicationFieldsVectors[3], pt2FieldsVectors);
+        fieldsJaccardSimilarity[4] = this.jaccard(ptAppicationFieldsVectors[4], pt2FieldsVectors);
     }
 
     public double jaccard(Map<String, Integer> v1, Map<String, Integer> v2) {

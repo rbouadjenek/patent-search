@@ -158,6 +158,7 @@ public final class RocchioQueryExpansion {
         for (int i = 0; i < termCount; i++) {
             TermQuery tq = expandedQueryTerms.get(i);
             relevantDocsTerms.put(tq.getTerm().text(), tq);
+            System.out.print(tq.getTerm().text()+", ");
         }
         TermFreqVector queryTermsVector = new TermFreqVector(query);
         Map<String, TermQuery> queryTerms;

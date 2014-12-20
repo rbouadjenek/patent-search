@@ -148,8 +148,7 @@ public final class QrelsInMemory {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-//        QrelsInMemory qrels = new QrelsInMemory("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2010/PAC_test/PAC_test_rels.txt");
-        QrelsInMemory qrels = new QrelsInMemory("data/qrel/PAC_test_rels.txt");
+        QrelsInMemory qrels = new QrelsInMemory("/Volumes/Macintosh HD/Users/rbouadjenek/Documents/Patent-Project/CLEF-IP 2011/PAC_test/PAC_test_rels.txt");
         System.out.println(qrels.qrelsPerQuery.size());
         System.out.println(qrels.getNumberOfRelevantPatent("PAC-1001"));
 
