@@ -13,11 +13,11 @@
         <pathelement location="bin"/>
         <pathelement location="lib/commons-lang3-3.1.jar"/>
         <pathelement location="lib/commons-math3-3.2.jar"/>
-        <pathelement location="lib/lucene-analyzers-common-4.8.1.jar"/>
-        <pathelement location="lib/lucene-codecs-4.8.1.jar"/>
-        <pathelement location="lib/lucene-core-4.8.1.jar"/>
-        <pathelement location="lib/lucene-misc-4.8.1.jar"/>
-        <pathelement location="lib/lucene-queryparser-4.8.1.jar"/>
+        <pathelement location="lib/lucene-analyzers-common-4.10.2.jar"/>
+        <pathelement location="lib/lucene-codecs-4.10.2.jar"/>
+        <pathelement location="lib/lucene-core-4.10.2.jar"/>
+        <pathelement location="lib/lucene-misc-4.10.2.jar"/>
+        <pathelement location="lib/lucene-queryparser-4.10.2.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -133,6 +133,11 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="TermAnalysis">
+        <java classname="nicta.com.au.failureanalysis.goodterms.TermAnalysis" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="CompareQueryDoc">
         <java classname="nicta.com.au.utilities.CompareQueryDoc" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
@@ -174,6 +179,11 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="PRFScoreSections">
+        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.PRFScoreSections" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="DocsContainQueryIpc">
         <java classname="nicta.com.au.failureanalysis.ipccode.DocsContainQueryIpc" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
@@ -197,6 +207,11 @@
     </target>
     <target name="GetTrueFalseRanks">
         <java classname="nicta.com.au.utilities.GetTrueFalseRanks" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="RFScoreSections">
+        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.RFScoreSections" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -234,6 +249,11 @@
     <target name="CollectionReader">
         <java classname="nicta.com.au.failureanalysis.search.CollectionReader" failonerror="true" fork="yes">
             <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010 data/CLEF-IP 2010/PAC_test/topics/"/>
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="ScoreQtermsWrtRetDocs">
+        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.ScoreQtermsWrtRetDocs" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -315,6 +335,11 @@
     </target>
     <target name="DescSecOverlapFNs">
         <java classname="nicta.com.au.failureanalysis.SectionOverlap.DescSecOverlapFNs" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="PRFScoreSection">
+        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.PRFScoreSection" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -444,31 +469,6 @@
     </target>
     <target name="ScoreQueryTermsFNs">
         <java classname="nicta.com.au.failureanalysis.weighting.ScoreQueryTermsFNs" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="ScoreQtermsWrtRetDocs">
-        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.ScoreQtermsWrtRetDocs" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="TermAnalysis">
-        <java classname="nicta.com.au.failureanalysis.goodterms.TermAnalysis" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="PRFScoreSections">
-        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.PRFScoreSections" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="RFScoreSections">
-        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.RFScoreSections" failonerror="true" fork="yes">
-            <classpath refid="PatentSearch.classpath"/>
-        </java>
-    </target>
-    <target name="PRFScoreSection">
-        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.PRFScoreSection" failonerror="true" fork="yes">
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
