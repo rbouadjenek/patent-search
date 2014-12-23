@@ -251,7 +251,7 @@ public final class GeneralExecuteTopics {
 		
 		try {
 			GeneralExecuteTopics ex = new GeneralExecuteTopics(indexDir, topicFile, topK, sim, decay);
-			ex.execute(tau, querysize, absfield);
+			ex.execute(tau, querysize, titlefield);
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} catch (Exception ex) {
