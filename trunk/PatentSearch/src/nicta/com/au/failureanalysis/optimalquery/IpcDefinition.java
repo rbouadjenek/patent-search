@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import nicta.com.au.main.Functions;
 import nicta.com.au.patent.document.PatentDocument;
@@ -40,11 +42,11 @@ public class IpcDefinition {
 		Directory dir = FSDirectory.open(new File("data/INDEX/codeIndex/"));
 
 		Map<String, Analyzer> analyzerPerField = new HashMap<>();
-		analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
-		analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
-		analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
-		analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_48, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
-		analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LUCENE_48), analyzerPerField);
+		analyzerPerField.put(PatentDocument.Title, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
+		analyzerPerField.put(PatentDocument.Abstract, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
+		analyzerPerField.put(PatentDocument.Description, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
+		analyzerPerField.put(PatentDocument.Claims, new EnglishAnalyzer(Version.LUCENE_4_10_2, PatentsStopWords.UNIFIED_PATENT__ENGLISH_STOP_WORDS_SET));
+		analyzer = new PerFieldAnalyzerWrapper(new StandardAnalyzer(Version.LUCENE_4_10_2), analyzerPerField);
 
 		IndexSearcher is = new IndexSearcher(DirectoryReader.open(dir));
 
@@ -58,6 +60,10 @@ public class IpcDefinition {
 				+ " document(s) has matched query. Processed in " + Functions.getTimer(end - start) + ".");*/
 		int i = 0;
 		ArrayList<String> ipcdeflists = new ArrayList<>();
+
+		 String regex = "(.)*(\\d)(.)*";   //remove words that contain digits.   
+		 Pattern pattern = Pattern.compile(regex);
+
 		for (ScoreDoc scoreDoc : hits.scoreDocs) {
 			i++;
 			Document doc = is.doc(scoreDoc.doc);
@@ -80,7 +86,11 @@ public class IpcDefinition {
 				while (ts.incrementToken()) {
 					String term = charTermAttribute.toString().replace(":", "\\:");
 					q += term + " ";
-					if (!ipcdeflists.contains(term)) {
+
+					Matcher matcher = pattern.matcher(term);
+					boolean isMatched = matcher.matches();
+
+					if (!ipcdeflists.contains(term) && !(isMatched)) {
 						ipcdeflists.add(term);
 					} 
 				}
@@ -100,7 +110,10 @@ public class IpcDefinition {
 		
 		IpcDefinition def = new IpcDefinition();
 		ArrayList<String> ipcdefs = def.GetIpcDefWords(queryfile);
-		System.out.println(ipcdefs.size()+ " " + ipcdefs);
+		
+		ArrayList<String> finalwords = new ArrayList<>();
+		finalwords.addAll(ipcdefs); 
+		System.out.println(ipcdefs.size()+ " " + ipcdefs);		 
 	}
 
 }
