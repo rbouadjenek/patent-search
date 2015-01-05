@@ -170,13 +170,13 @@ public final class GeneralExecuteTopics {
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
 			
 			/*----------------------- 14-Create RF query based on sections ---------------------*/			
-			//String newquery = sec.createRFSectionbasedQuery(queryid, Tau, field); 
-			//Query q = pq.parse(newquery, ipcfilter);
+			String newquery = sec.createRFSectionbasedQuery(queryid, Tau, field); 
+			Query q = pq.parse(newquery, ipcfilter);
 			/*----------------------------------------------------------------------------------*/
 			
 		   /*----------------------- 15-Create PRF query based on sections ---------------------*/			
-			String newquery = PRFsec.createPRFSectionbasedQuery(queryid, Tau, field); 
-			Query q = pq.parse(newquery, ipcfilter);
+//			String newquery = PRFsec.createPRFSectionbasedQuery(queryid, Tau, field); 
+//			Query q = pq.parse(newquery, ipcfilter);
 			/*----------------------------------------------------------------------------------*/
 			
 			
