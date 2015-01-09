@@ -141,10 +141,14 @@ public final class GeneralExecuteTopics {
 //			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------- Partial RF -------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------------------------*/			
+			
 			/*------------------ 10-Create Partial RF query with top k TPs -----------------*/
 			/*--------- Attention: querysize used for k -----------*/
-//			String newquery = t.generateTopRFQuery(queryid, Tau, querysize);
-//			Query q = pq.parse(newquery, ipcfilter);
+			String newquery = t.generateTopRFQuery(queryid, Tau, querysize);
+			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ 11-Create patent query with RF top k TPs -----------------*/
@@ -170,8 +174,8 @@ public final class GeneralExecuteTopics {
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
 			
 			/*----------------------- 14-Create RF query based on sections ---------------------*/			
-			String newquery = sec.createRFSectionbasedQuery(queryid, Tau, field); 
-			Query q = pq.parse(newquery, ipcfilter);
+//			String newquery = sec.createRFSectionbasedQuery(queryid, Tau, field); 
+//			Query q = pq.parse(newquery, ipcfilter);
 			/*----------------------------------------------------------------------------------*/
 			
 		   /*----------------------- 15-Create PRF query based on sections ---------------------*/			
