@@ -3,9 +3,15 @@
 \documentclass[english]{sig-alternate-2013}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+\usepackage{array}
 \usepackage{graphicx}
 
 \makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage{subfigure}
 \usepackage{algorithmic}
@@ -136,20 +142,13 @@ the claims section to be more likely to be written by a patent attorney.
 
 %NOTE: start a paragaph with the key idea%A patent application is organized in, at least, four sections: title,%abstract, claims and description. We assumed that a partial application%consist in one of the mentioned sections. 
 
-\begin{figure}[!th]
+\begin{figure*}[!th]
 \begin{centering}
-\includegraphics[width=4.5cm]{img/legend} 
+\includegraphics[width=6cm]{img/legend} 
 \par\end{centering}
 
 \begin{centering}
-\subfigure[Title query.]{\includegraphics[width=5cm]{Results-CIKM2014/jaccard-qTitle-CLEF-IP2010}}
-\par\end{centering}
-
-\begin{centering}
-\subfigure[Abstract query.]{\includegraphics[width=5cm]{Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010}} 
-\par\end{centering}
-
-\begin{centering}
+\subfigure[Title query.]{\includegraphics[width=5cm]{Results-CIKM2014/jaccard-qTitle-CLEF-IP2010}}\subfigure[Abstract query.]{\includegraphics[width=5cm]{Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010}}
 \subfigure[Description query.]{\includegraphics[width=5cm]{Results-CIKM2014/jaccard-qDescription-CLEF-IP2010}}
 \protect\caption{Average Jaccard similarity between fields of topics and the corresponding
 (ir)relevant documents for different sets of top and bottom performing
@@ -161,7 +160,7 @@ queries.}
 %and the labeled (ir)relevant documents for the best (top) and worst (bottom) performing
 %queries from CLEF-IP 2010 w.r.t. MAP.}
 }\label{fig:FailureAnalysis} 
-\end{figure}
+\end{figure*}
 
 
 
@@ -245,8 +244,122 @@ removed. Hence, given a query representation $Q$, QR aims to select
 an optimal subset $T_{k}\subset Q$ of $k$ terms, which are relevant
 to $Q$, then build $Q'$ such as $Q'=T_{k}$.
 
-In the following sections, we describe the standard and patent-specific
-query reformulation methods that we evaluate in Section~\ref{sec:Evaluation}.
+In the following sections, we first give a motivation behind using
+query reduction for patent search in Section \ref{sec:UtilityQR},
+then, we describe the standard and patent-specific query reformulation
+methods that we evaluate in Section \ref{sec:Evaluation}.
+
+
+\subsection{Utility of Query Reduction for Patents}
+
+\label{sec:UtilityQR}
+
+While the title is usually composed by an average of six terms, the
+other sections are longer, ranging from ten to thousands of terms.
+Therefore, we investigate the impact of query reduction methods only
+when querying with long sections such as abstract or description.
+
+Table \ref{tbl:queryPAC-1019} provides insight into the utility of
+query reduction for the abstract section of the Topic PAC-1019 from
+the CLEF-IP 2010 data collection. The baseline query, which is the
+original query (provided in the header row) after stemming and patent
+specific stopword removal, had an Average Precision (AP) of 0.280
+and a Patent Retrieval Evaluation Score (PRES) \cite{Magdy2010a}
+of 0.777 (its performance are provided in the footer row). We show
+the evaluation performance of the query after removing each term from
+the original query. The removed terms have been sorted in the order
+of decreasing PRES. We can observe that there are ten terms (highlighted
+in boldface) that if they are (individually) removed from the query,
+we increase PRES of the original long query.
+
+\begin{table}[t]
+\begin{centering}
+\protect\caption{Sample of terms removed from the abstract section of CLEP-IP2010 Topic
+PAC-1019. }
+
+\par\end{centering}
+
+\begin{centering}
+{\footnotesize{}\label{tbl:queryPAC-1019}}
+\par\end{centering}{\footnotesize \par}
+
+\centering{}{\scriptsize{}}%
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline 
+\multicolumn{6}{|>{\raggedright}p{8cm}|}{\textbf{\scriptsize{}Topic:}{\scriptsize{} PAC-1019}}\tabularnewline
+\hline 
+\multicolumn{6}{|>{\raggedright}p{8cm}|}{\textbf{\scriptsize{}Abstract:}{\scriptsize{} A 5-aminolevulinic acid
+salt which is useful in fields of microorganisms, fermentation, animals,
+medicaments, plants and the like; a process for producing the same;
+a medical composition comprising the same; and a plant activator composition
+comprising the same.}}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}Term removed} & \textbf{\scriptsize{}P@5} & \textbf{\scriptsize{}P@10} & \textbf{\scriptsize{}R@10} & \textbf{\scriptsize{}AP} & \textbf{\scriptsize{}PRES}\tabularnewline
+\hline 
+{\scriptsize{}composit...} & \textbf{\scriptsize{}0.600} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & \textbf{\scriptsize{}0.360} & \textbf{\scriptsize{}0.829}\tabularnewline
+\hline 
+{\scriptsize{}activ...} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & {\scriptsize{}0.277} & \textbf{\scriptsize{}0.809}\tabularnewline
+\hline 
+{\scriptsize{}anim...} & \textbf{\scriptsize{}0.600} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & \textbf{\scriptsize{}0.345} & \textbf{\scriptsize{}0.798}\tabularnewline
+\hline 
+{\scriptsize{}produc...} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & \textbf{\scriptsize{}0.286} & \textbf{\scriptsize{}0.797}\tabularnewline
+\hline 
+{\scriptsize{}ferment...} & {\scriptsize{}0.200} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & \textbf{\scriptsize{}0.283} & \textbf{\scriptsize{}0.796}\tabularnewline
+\hline 
+{\scriptsize{}microorgan...} & \textbf{\scriptsize{}0.600} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & \textbf{\scriptsize{}0.333} & \textbf{\scriptsize{}0.793}\tabularnewline
+\hline 
+{\scriptsize{}compris...} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & {\scriptsize{}0.271} & \textbf{\scriptsize{}0.790}\tabularnewline
+\hline 
+{\scriptsize{}medica...} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & \textbf{\scriptsize{}0.297} & \textbf{\scriptsize{}0.789}\tabularnewline
+\hline 
+{\scriptsize{}medic...} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & \textbf{\scriptsize{}0.297} & \textbf{\scriptsize{}0.787}\tabularnewline
+\hline 
+{\scriptsize{}field...} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & \textbf{\scriptsize{}0.282} & \textbf{\scriptsize{}0.782}\tabularnewline
+\hline 
+{\scriptsize{}plant...} & {\scriptsize{}0.200} & {\scriptsize{}0.200} & {\scriptsize{}0.285} & {\scriptsize{}0.114} & {\scriptsize{}0.774}\tabularnewline
+\hline 
+{\scriptsize{}process...} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & {\scriptsize{}0.279} & {\scriptsize{}0.764}\tabularnewline
+\hline 
+{\scriptsize{}acid...} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & {\scriptsize{}0.252} & {\scriptsize{}0.693}\tabularnewline
+\hline 
+{\scriptsize{}salt...} & {\scriptsize{}0.200} & {\scriptsize{}0.200} & {\scriptsize{}0.285} & {\scriptsize{}0.216} & {\scriptsize{}0.663}\tabularnewline
+\hline 
+{\scriptsize{}aminolevulin...} & {\scriptsize{}0.000} & {\scriptsize{}0.100} & {\scriptsize{}0.142} & {\scriptsize{}0.026} & {\scriptsize{}0.352}\tabularnewline
+\hline 
+\hline 
+\textbf{\scriptsize{}Baseline} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & {\scriptsize{}0.280} & {\scriptsize{}0.777}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+Figure \ref{fig:QRUtility} shows the summary upper-bound performance
+for precision, recall, MAP, Mean Reciprocal Rank (MRR), and PRES that
+can be achieved for a set of 1304 abstract queries from the CLEF-IP
+2010 data collection. ``Baseline\textquotedblright{} refers to a
+probabilistic BM25 retrieval model \cite{Robertson1993} run using
+the Lucene search engine \cite{McCandless2010} and the original long
+query. ``Oracle\textquotedblright{} refers to the situation where
+all terms with negative impact are removed from the original long
+query following the previous process. This gives us an upper bound
+on the performance that can be realized through query reduction for
+this set of queries. It is this statistically significant improvement
+in performance through query reduction that we target in this second
+part of our work for all query sections, i.e.: title, abstract, claims,
+and description.
+
+\begin{figure}[!h]
+\begin{centering}
+\includegraphics[width=4.3cm]{../PatentSearch/CIKM2014/analysis/precision-recall_ByField-CLEF-IP_2010}\includegraphics[width=4.3cm]{../PatentSearch/CIKM2014/analysis/MAP-MRR_ByField-CLEF-IP_2010}
+\protect\caption{The utility of query reduction for 1304 abstract queries of the CLEF-IP
+2010 dataset. }
+
+\par\end{centering}
+
+\centering{}{\footnotesize{}\label{fig:QRUtility}}
+\end{figure}
+
 
 
 \subsection{Generic Query Reformulation Methods}
@@ -278,7 +391,7 @@ to this approach as RocchioQR.
 \subfour{Maximal Marginal Relevance for Query Reformulation:} As
 a general method for query reformulation, we also consider a method
 of ``diverse'' term selection --- an adaptation of the \emph{Maximal
-Marginal Relevance} (MMR)~\cite{Carbonell1998} algorithm for result
+Marginal Relevance} (MMR) \cite{Carbonell1998} algorithm for result
 set diversification. But, rather than use MMR for diverse document
 selection (as typically used), it is used here for diverse term selection
 --- the hypothesis being that diverse term selection may improve coverage
