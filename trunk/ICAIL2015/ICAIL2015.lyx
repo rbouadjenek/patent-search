@@ -361,8 +361,8 @@ s from the perspective of the inventor who wishes to assess the patentability
  art for complete patent applications, less of this work has focused on
  patent search with queries representing partial applications.
  In the (partial) patent search setting, a query is often much longer than
- in other standard IR tasks, e.g., a claims section may contain hundreds or
- even thousands of words.
+ in other standard IR tasks, e.g., the description section may contain hundreds
+ or even thousands of words.
  While the length of such queries may suggest query reduction strategies
  to remove irrelevant terms, intentional obfuscation and general language
  used in patents suggests that it may help to expand queries with additionally
@@ -375,9 +375,9 @@ on with generic (non-patent specific) query reduction methods, is recommended
  for best performance.
  However, we also find that querying with an abstract represents the best
  trade-off in terms of writing effort vs.
- retrieval efficacy (i.e., querying with the claims or description sections
- only lead to marginal improvements) and that for such relatively short
- queries, generic query expansion methods help.
+ retrieval efficacy (i.e., querying with the description sections only lead
+ to marginal improvements) and that for such relatively short queries, generic
+ query expansion methods help.
  
 \begin_inset ERT
 status collapsed
@@ -513,7 +513,7 @@ emph{What are these query reformulation methods? How do they work? What
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -610,9 +610,7 @@ Patents are used by entities to legally protect their inventions and represent
 status collapsed
 
 \begin_layout Plain Layout
-
-\family typewriter
-http://www.uspto.gov/web/offices/ac/ido/oeip/taf/us_stat.htm
+http://www.uspto.gov/web/offices/ac/ido/oeip/taf/ us_stat.htm
 \end_layout
 
 \end_inset
@@ -628,11 +626,7 @@ http://www.uspto.gov/web/offices/ac/ido/oeip/taf/us_stat.htm
 Patent prior art search involves finding previously granted patents that
  may be relevant to a new patent application.
  The objective and challenges of standard formulations of patent prior art
- search are different from those of standard text and web search since
-\begin_inset space ~
-\end_inset
-
-
+ search are different from those of standard text and web search since 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Magdy2012"
@@ -660,6 +654,10 @@ While much of the literature inspired by the evaluation framework of the
  Furthermore, prior art search with queries that represent unfinished patent
  applications is generally desirable, since writing a full application is
  time-consuming and costly, especially if lawyers are hired to assist.
+ Hence, in this paper we consider only sections which are more likely to
+ be written by the inventor namely the title, the abstract, and the description
+ section, while we consider the claims section to be more likely to be written
+ by a patent attorney.
 \end_layout
 
 \begin_layout Standard
@@ -705,7 +703,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename ../PatentSearch/CIKM2014/img/legend.eps
+	filename img/legend.eps
 	width 4.5cm
 
 \end_inset
@@ -729,8 +727,8 @@ subfigure[Title query.]{
 
 
 \begin_inset Graphics
-	filename ../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qTitle-CLEF-IP2010.eps
-	width 3.5cm
+	filename Results-CIKM2014/jaccard-qTitle-CLEF-IP2010.eps
+	width 5cm
 
 \end_inset
 
@@ -746,6 +744,10 @@ status collapsed
 \end_inset
 
 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status collapsed
 
@@ -760,8 +762,8 @@ subfigure[Abstract query.]{
 
 
 \begin_inset Graphics
-	filename ../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010.eps
-	width 3.5cm
+	filename Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010.eps
+	width 5cm
 
 \end_inset
 
@@ -788,37 +790,6 @@ status collapsed
 
 
 \backslash
-subfigure[Claims query.]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename ../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qClaims-CLEF-IP2010.eps
-	width 3.5cm
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
 subfigure[Description query.]{
 \end_layout
 
@@ -826,8 +797,8 @@ subfigure[Description query.]{
 
 
 \begin_inset Graphics
-	filename ../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qDescription-CLEF-IP2010.eps
-	width 3.5cm
+	filename Results-CIKM2014/jaccard-qDescription-CLEF-IP2010.eps
+	width 5cm
 
 \end_inset
 
@@ -940,11 +911,7 @@ name "fig:FailureAnalysis"
 
 \begin_layout Standard
 To assess the difficulty of querying with partial patent applications, we
- refer to Figure
-\begin_inset space ~
-\end_inset
-
-
+ refer to Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:FailureAnalysis"
@@ -971,13 +938,9 @@ key "Mahdabi2012"
 
 \end_inset
 
- between different queries (representing the title, abstract, claims, or
- descriptions of partial patent applications) and the labeled relevant (all)
- and irrelevant documents (top 10 irrelevant documents ranked by BM25
-\begin_inset space ~
-\end_inset
-
-
+ between different queries (representing the title, abstract, or descriptions
+ of partial patent applications) and the labeled relevant (all) and irrelevant
+ documents (top 10 irrelevant documents ranked by BM25 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Robertson1993"
@@ -1108,11 +1071,7 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-Similar observations in the general patent prior art search literature
-\begin_inset space ~
-\end_inset
-
-
+Similar observations in the general patent prior art search literature 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Magdy2011"
@@ -1124,11 +1083,7 @@ key "Magdy2011"
 \emph on
 query reformulation
 \emph default
-
-\begin_inset space ~
-\end_inset
-
-
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Baeza-Yates2010"
@@ -1174,11 +1129,7 @@ To answer these questions, we perform a thorough comparative analysis of
 \end_layout
 
 \begin_layout Standard
-The rest of the paper is organized as follows: in Section
-\begin_inset space ~
-\end_inset
-
-
+The rest of the paper is organized as follows: in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:QueryReformulation"
@@ -1186,11 +1137,7 @@ reference "sec:QueryReformulation"
 \end_inset
 
 , we present a variety of generic and patent-specific query reformulation
- methods; in Section
-\begin_inset space ~
-\end_inset
-
-
+ methods; in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Evaluation"
@@ -1198,11 +1145,7 @@ reference "sec:Evaluation"
 \end_inset
 
 , we present the evaluation results and analysis to answer the above questions;
- and in Section
-\begin_inset space ~
-\end_inset
-
-
+ and in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Conclusion"
@@ -2310,22 +2253,14 @@ name "sec:Evaluation"
 \begin_layout Standard
 In this section we first explain the experimental setup for evaluating the
  effectiveness of patent prior art search with partial applications.
- Then, we discuss the results of QE and QR methods in Sections
-\begin_inset space ~
-\end_inset
-
-
+ Then, we discuss the results of QE and QR methods in Sections 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:QEResults"
 
 \end_inset
 
- and
-\begin_inset space ~
-\end_inset
-
-
+ and 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:QRResults"
@@ -2374,11 +2309,7 @@ http://www.ifs.tuwien.ac.at/~clef-ip/
 
 \end_inset
 
-
-\begin_inset space ~
-\end_inset
-
-
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Piroi2011,Roda2009"
@@ -2408,11 +2339,7 @@ In our implementation, each section of a patent (title, abstract, claims,
  can be used, for example, as source of expansion terms.
  However, when a query is processed, all indexed fields are targeted, since
  this generally offers best retrieval performance.
- As suggested in previous work
-\begin_inset space ~
-\end_inset
-
-
+ As suggested in previous work 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Lopez2009,Roda2009"
@@ -2497,22 +2424,14 @@ pseudo-relevant
  feedback set (PRF) and subsequent re-retrieval, there are various options
  for the relevance ranking model.
  In this work, we explore a probabilistic approach represented by the popular
- BM25
-\begin_inset space ~
-\end_inset
-
-
+ BM25 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Robertson1993"
 
 \end_inset
 
- algorithm, as well as a vector space model (VSM) approach, TF-IDF
-\begin_inset space ~
-\end_inset
-
-
+ algorithm, as well as a vector space model (VSM) approach, TF-IDF 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Salton1975"

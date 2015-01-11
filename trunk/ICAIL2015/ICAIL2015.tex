@@ -60,21 +60,21 @@ framework of the CLEF-IP competition has aimed to assist patent examiners
 in assessing prior art for complete patent applications, less of this
 work has focused on patent search with queries representing partial
 applications. In the (partial) patent search setting, a query is often
-much longer than in other standard IR tasks, e.g., a claims section
-may contain hundreds or even thousands of words. While the length
-of such queries may suggest query reduction strategies to remove irrelevant
-terms, intentional obfuscation and general language used in patents
-suggests that it may help to expand queries with additionally relevant
-terms. To assess the trade-offs among all of these pre-application
+much longer than in other standard IR tasks, e.g., the description
+section may contain hundreds or even thousands of words. While the
+length of such queries may suggest query reduction strategies to remove
+irrelevant terms, intentional obfuscation and general language used
+in patents suggests that it may help to expand queries with additionally
+relevant terms. To assess the trade-offs among all of these pre-application
 prior art search strategies, we comparatively evaluate a variety of
 partial application search and query reformulation methods. Among
 numerous findings, querying with a full description, perhaps in conjunction
 with generic (non-patent specific) query reduction methods, is recommended
 for best performance. However, we also find that querying with an
 abstract represents the best trade-off in terms of writing effort
-vs. retrieval efficacy (i.e., querying with the claims or description
-sections only lead to marginal improvements) and that for such relatively
-short queries, generic query expansion methods help. %This has led the research to focus on query%reformulation for patent search.  In this paper, we carry out an%intensive study of both patent-specific and standard query%reformulation methods for patent prior art search with partial patent%applications.  We found that query expansion methods are useful for%short queries (title, abstract and claims), and query reduction%methods are often useful for medium-length sections (abstract and claims).%We also shown that the abstract is a good section to query with,%suggesting that writing the abstract is useful in the early stages of%a patent drafting.
+vs. retrieval efficacy (i.e., querying with the description sections
+only lead to marginal improvements) and that for such relatively short
+queries, generic query expansion methods help. %This has led the research to focus on query%reformulation for patent search.  In this paper, we carry out an%intensive study of both patent-specific and standard query%reformulation methods for patent prior art search with partial patent%applications.  We found that query expansion methods are useful for%short queries (title, abstract and claims), and query reduction%methods are often useful for medium-length sections (abstract and claims).%We also shown that the abstract is a good section to query with,%suggesting that writing the abstract is useful in the early stages of%a patent drafting.
 
 %We intend to mainly answer the following questions: \emph{What are these query reformulation methods? How do they work? What is the best section in a patent application to use as a query? What is the best query reformulation method? }
 \end{abstract}
@@ -97,7 +97,7 @@ short queries, generic query expansion methods help. %This has led the research 
 \noindent Patents are used by entities to legally protect their inventions
 and represent a multi-billion dollar industry of licensing and litigation.
 In 2013, 302,948 patent applications were approved in the US alone%
-\footnote{\texttt{http://www.uspto.gov/web/offices/ac/ido/oeip/taf/us\_stat.htm}%
+\footnote{http://www.uspto.gov/web/offices/ac/ido/oeip/taf/ us\_stat.htm%
 }, a number that has doubled in the past 15 years. Given that a single
 existing patent may invalidate a new patent application, helping inventors
 assess the patentability of an idea through a patent prior art search
@@ -106,7 +106,7 @@ before writing a complete patent application is an important task.
 Patent prior art search involves finding previously granted patents
 that may be relevant to a new patent application. The objective and
 challenges of standard formulations of patent prior art search are
-different from those of standard text and web search since~\cite{Magdy2012}:
+different from those of standard text and web search since \cite{Magdy2012}:
 (i) queries are (partial) patent applications, which consist of documents
 with hundreds or thousands of words organized into several sections,
 while typical queries in text and web search constitute only a few
@@ -127,7 +127,10 @@ focused on assessing the patentability of inventions before writing
 a full patent application. Furthermore, prior art search with queries
 that represent unfinished patent applications is generally desirable,
 since writing a full application is time-consuming and costly, especially
-if lawyers are hired to assist.
+if lawyers are hired to assist. Hence, in this paper we consider only
+sections which are more likely to be written by the inventor namely
+the title, the abstract, and the description section, while we consider
+the claims section to be more likely to be written by a patent attorney.
 
 %However prior art search with partial applications is much different than queries with a full application -- namely because the queries are much shorter and represent only parts of a patent application.
 
@@ -135,15 +138,19 @@ if lawyers are hired to assist.
 
 \begin{figure}[!th]
 \begin{centering}
-\includegraphics[width=4.5cm]{../PatentSearch/CIKM2014/img/legend} 
+\includegraphics[width=4.5cm]{img/legend} 
 \par\end{centering}
 
 \begin{centering}
-\subfigure[Title query.]{\includegraphics[width=3.5cm]{../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qTitle-CLEF-IP2010}}\subfigure[Abstract query.]{\includegraphics[width=3.5cm]{../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010}} 
+\subfigure[Title query.]{\includegraphics[width=5cm]{Results-CIKM2014/jaccard-qTitle-CLEF-IP2010}}
 \par\end{centering}
 
 \begin{centering}
-\subfigure[Claims query.]{\includegraphics[width=3.5cm]{../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qClaims-CLEF-IP2010}}\subfigure[Description query.]{\includegraphics[width=3.5cm]{../PatentSearch/CIKM2014/Results-CIKM2014/jaccard-qDescription-CLEF-IP2010}}
+\subfigure[Abstract query.]{\includegraphics[width=5cm]{Results-CIKM2014/jaccard-qAbstract-CLEF-IP2010}} 
+\par\end{centering}
+
+\begin{centering}
+\subfigure[Description query.]{\includegraphics[width=5cm]{Results-CIKM2014/jaccard-qDescription-CLEF-IP2010}}
 \protect\caption{Average Jaccard similarity between fields of topics and the corresponding
 (ir)relevant documents for different sets of top and bottom performing
 queries.}
@@ -160,37 +167,38 @@ queries.}
 
 
 To assess the difficulty of querying with partial patent applications,
-we refer to Figure~\ref{fig:FailureAnalysis}. Here we show an analysis
+we refer to Figure \ref{fig:FailureAnalysis}. Here we show an analysis
 of the average Jaccard similarity%
 \footnote{The Jaccard similarity is used to measure the term overlap between
 two sets. Before applying the Jaccard similarity, patent-specific
 stopwords were removed, as suggested by \cite{Mahdabi2012}.%
-} between different queries (representing the title, abstract, claims,
-or descriptions of partial patent applications) and the labeled relevant
-(all) and irrelevant documents (top 10 irrelevant documents ranked
-by BM25~\cite{Robertson1993}). We show results for the top 100 and
-bottom 100 queries (100 queries that perform the best, and 100 queries
-that perform the worst) of CLEP-IP 2010 evaluated according to Mean
-Average Precision (MAP). Note that while the title section is usually
-composed of an average of six terms, the other sections are longer,
-ranging from tens to thousands of terms. There are three notable trends
-here: (i) term overlap increases from title to description since the
-query size grows accordingly; (ii) the bottom 100 performing queries
-tend to have much smaller term overlap with the relevant documents
-than the top 100 queries; and (iii) even in the best case of querying
-with very long description sections, the average term overlap indicates
-many terms of relevant documents are not found in the query.
+} between different queries (representing the title, abstract, or descriptions
+of partial patent applications) and the labeled relevant (all) and
+irrelevant documents (top 10 irrelevant documents ranked by BM25 \cite{Robertson1993}).
+We show results for the top 100 and bottom 100 queries (100 queries
+that perform the best, and 100 queries that perform the worst) of
+CLEP-IP 2010 evaluated according to Mean Average Precision (MAP).
+Note that while the title section is usually composed of an average
+of six terms, the other sections are longer, ranging from tens to
+thousands of terms. There are three notable trends here: (i) term
+overlap increases from title to description since the query size grows
+accordingly; (ii) the bottom 100 performing queries tend to have much
+smaller term overlap with the relevant documents than the top 100
+queries; and (iii) even in the best case of querying with very long
+description sections, the average term overlap indicates many terms
+of relevant documents are not found in the query.
 
 %**Highly redundant with above content**%While these results suggest the description section is the best part%of a partial patent application to use as query, they also point out%that the term overlap between the queries and the relevant documents%can be very low. Also, in this context, a query is much longer than%in other standard IR tasks. It can take the form of a long paragraph%(e.g. the case of the abstract used for querying), or even a very%long document (e.g. the case of claims or the description used for%querying). 
 
-Similar observations in the general patent prior art search literature~\cite{Magdy2011}
-have led to a research focus on query reformulation. Therefore, we
-suggest an investigation of \emph{query reformulation}~\cite{Baeza-Yates2010}
-methods as a means for improving the term overlap between queries
-that represent partial patent applications and relevant documents,
-with the objective of assessing not only the performance of standard
-query reformulation methods, but also the effectiveness of query reformulation
-methods that exploit patent-specific characteristics.
+Similar observations in the general patent prior art search literature
+\cite{Magdy2011} have led to a research focus on query reformulation.
+Therefore, we suggest an investigation of \emph{query reformulation}
+\cite{Baeza-Yates2010} methods as a means for improving the term
+overlap between queries that represent partial patent applications
+and relevant documents, with the objective of assessing not only the
+performance of standard query reformulation methods, but also the
+effectiveness of query reformulation methods that exploit patent-specific
+characteristics.
 
 In summary, to aid the patent inventor in developing an effective
 pre-application prior art search strategy, we seek to answer the following
@@ -211,13 +219,13 @@ To answer these questions, we perform a thorough comparative analysis
 of partial patent application query strategies and reformulation methods
 on the CLEF-IP patent prior art search datasets.
 
-The rest of the paper is organized as follows: in Section~\ref{sec:QueryReformulation},
+The rest of the paper is organized as follows: in Section \ref{sec:QueryReformulation},
 we present a variety of generic and patent-specific query reformulation
-methods; in Section~\ref{sec:Evaluation}, we present the evaluation
-results and analysis to answer the above questions; and in Section~\ref{sec:Conclusion},
-we conclude with key observations from this evaluation that lead to
-concrete recommendations for patent prior art search with partial
-applications.
+methods; in Section \ref{sec:Evaluation}, we present the evaluation
+results and analysis to answer the above questions; and in Section
+\ref{sec:Conclusion}, we conclude with key observations from this
+evaluation that lead to concrete recommendations for patent prior
+art search with partial applications.
 
 
 \section{Query Reformulation for Patents}
@@ -429,8 +437,8 @@ be deserving of further investigation in future work.
 
 In this section we first explain the experimental setup for evaluating
 the effectiveness of patent prior art search with partial applications.
-Then, we discuss the results of QE and QR methods in Sections~\ref{sec:QEResults}
-and~\ref{sec:QRResults} respectively.
+Then, we discuss the results of QE and QR methods in Sections \ref{sec:QEResults}
+and \ref{sec:QRResults} respectively.
 
 
 \subsection{Experimental Setup}
@@ -441,7 +449,7 @@ For our experiments, we used used the Lucene IR System%
 \footnote{\texttt{http://lucene.apache.org/}%
 } to index the English subset of CLEF-IP 2010 and CLEF-IP 2011 datasets%
 \footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}%
-}~\cite{Piroi2011,Roda2009} with the default settings for stemming
+} \cite{Piroi2011,Roda2009} with the default settings for stemming
 and stop-word removal. We also removed patent-specific stop-words
 as described in \cite{Magdy2012}. CLEF-IP 2010 contains 2.6 million
 patent documents, and the English test sets of CLEF-IP 2010 correspond
@@ -455,10 +463,10 @@ claims, and description) is indexed in a separate field so that different
 sections can be used, for example, as source of expansion terms. However,
 when a query is processed, all indexed fields are targeted, since
 this generally offers best retrieval performance. As suggested in
-previous work~\cite{Lopez2009,Roda2009} and found to yield best
-results in our experiments, we used the patent classification (IPC)
-codes assigned to the query topics to filter search results to match
-at least one of the query IPC codes.
+previous work \cite{Lopez2009,Roda2009} and found to yield best results
+in our experiments, we used the patent classification (IPC) codes
+assigned to the query topics to filter search results to match at
+least one of the query IPC codes.
 
 We report both MAP and PRES (Patent Retrieval Evaluation Score). The
 PRES metric places more emphasis on high-recall retrieval by weighting
@@ -491,10 +499,10 @@ expansion terms in the titles of the PRF set.
 \emph{pseudo-relevant} feedback set (PRF) and subsequent re-retrieval,
 there are various options for the relevance ranking model. In this
 work, we explore a probabilistic approach represented by the popular
-BM25~\cite{Robertson1993} algorithm, as well as a vector space model
-(VSM) approach, TF-IDF~\cite{Salton1975}. A natural question is
-which relevance model works best for query expansion for patent prior
-art search? 
+BM25 \cite{Robertson1993} algorithm, as well as a vector space model
+(VSM) approach, TF-IDF \cite{Salton1975}. A natural question is which
+relevance model works best for query expansion for patent prior art
+search? 
 \item \textbf{Term selection method:} We consider the different query expansion
 methods described above, i.e. RocchioQE, MMRQE, IPC Codes, WSynSet,
 USynSet and ask what is the best QE method for patent search? 
