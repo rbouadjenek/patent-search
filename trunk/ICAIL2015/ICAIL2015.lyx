@@ -348,8 +348,8 @@ maketitle
 \end_layout
 
 \begin_layout Abstract
-Patents are used by entities to legally protect their inventions and represent
- a multi-billion dollar industry of licensing and litigation.
+Patents are used by legal entities to legally protect their inventions and
+ represent a multi-billion dollar industry of licensing and litigation.
  In 2013, 302,948 patent applications were approved in the US alone -- a
  number that has doubled in the past 15 years and which makes prior art
  search a daunting, but necessary task in the patent application process.
@@ -603,8 +603,8 @@ Introduction
 
 \begin_layout Standard
 \noindent
-Patents are used by entities to legally protect their inventions and represent
- a multi-billion dollar industry of licensing and litigation.
+Patents are used by legal entities to legally protect their inventions and
+ represent a multi-billion dollar industry of licensing and litigation.
  In 2013, 302,948 patent applications were approved in the US alone
 \begin_inset Foot
 status collapsed
@@ -1259,7 +1259,8 @@ reference "sec:UtilityQR"
 
 \end_inset
 
-, then, we describe the standard and patent-specific query reformulation
+.
+ Then, we describe the standard and patent-specific query reformulation
  methods that we evaluate in Section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1268,6 +1269,15 @@ reference "sec:Evaluation"
 \end_inset
 
 .
+ Finally, in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:FurtherAfield"
+
+\end_inset
+
+ we provide a brief description of other patent-specific query reformulation
+ methods, which are not considered in this paper.
 \end_layout
 
 \begin_layout Subsection
@@ -2726,8 +2736,8 @@ Oracle” refers to the situation where all terms with negative impact are
  This gives us an upper bound on the performance that can be realized through
  query reduction for this set of queries.
  It is this statistically significant improvement in performance through
- query reduction that we target in this second part of our work for all
- query sections, i.e.: title, abstract, claims, and description.
+ query reduction that we can target for the abstract and the description
+ sections.
 \end_layout
 
 \begin_layout Standard
@@ -3101,11 +3111,7 @@ In the case of QE, we call this diversified expansion method MMR Query Expansion
 \begin_inset Formula $m$
 \end_inset
 
- terms as shown in Figure
-\begin_inset space ~
-\end_inset
-
-
+ terms as shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Notation"
@@ -3117,11 +3123,7 @@ reference "fig:Notation"
 \begin_inset Formula $Q$
 \end_inset
 
- in the documents' dimension as in Figure
-\begin_inset space ~
-\end_inset
-
-
+ in the documents' dimension as in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Notation"
@@ -3153,7 +3155,11 @@ reference "fig:Notation"
 \begin_inset Formula $k\ll|m|$
 \end_inset
 
-) relevant to 
+, and 
+\begin_inset Formula $D$
+\end_inset
+
+ is the PRD set) relevant to 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -3459,7 +3465,10 @@ key "Mahdabi2013"
  To this end, the IPC class of the query patent is searched in the lexicon
  and the terms matching this class are considered as candidate expansion
  terms.
- The proposed approach tries to combine these two complementary vocabularies.
+ The proposed approach tries to combine these two complementary vocabularies
+ (i.e.
+ terms of the query and the IPC codes).
+ Note that all the levels of the IPC codes are used to build the lexicon.
  In this paper we refer to this patent query expansion method as IPC Codes.
 \end_layout
 
@@ -3599,61 +3608,133 @@ status collapsed
 
 \end_layout
 
+\begin_layout Subsection
+Further Afield
+\end_layout
+
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:FurtherAfield"
 
-\begin_layout Plain Layout
+\end_inset
 
 
-\backslash
-subfour
 \end_layout
 
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
+\begin_layout Standard
+We believe the above outlined patent-specific query reformulation methods
+ circumscribe a range of patent-specific approaches spanning synonym lexicons,
+ specially derived language models, and IPC code resources; hence our evaluation
+ supports the objective of identifying general query reformulation methods
+ from the novel perspective of partial patent application prior art search
+ that may be deserving of further investigation in future work.
 \end_layout
 
-\end_inset
-
-Further Afield:
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- While some more complex patent-specific methods have also been explored
- for general patent prior art search
-\begin_inset space ~
-\end_inset
-
-
+\begin_layout Standard
+However, some more complex patent-specific methods have also been explored
+ for general patent prior art search.
+ The scenario of patent prior art search consists of manually form queries
+ by selecting high frequency terms from patent application.
+ Hence, in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Bashir2010,Verma2011,Mahdabi2013"
+key "Itoh2003"
 
 \end_inset
 
-, space limitations preclude an exhaustive comparison to all available methods.
- Notwithstanding this, we believe the above outlined patent-specific query
- reformulation methods circumscribe a range of patent-specific approaches
- spanning synonym lexicons, specially derived language models, and IPC code
- resources; hence our evaluation supports the objective of identifying general
- query reformulation methods from the novel perspective of partial patent
- application prior art search that may be deserving of further investigation
- in future work.
+, authors proposed a new term selection method using different term frequencies
+ depending on the genre in the NTCIR-3 Patent Retrieval Task.
+\end_layout
+
+\begin_layout Standard
+Also, Xue and Croft 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xue:2009:TPP:1571941.1572139"
+
+\end_inset
+
+ advocates the use of the full patent application as the query to reduce
+ the burden on patent examiners.
+ They conducted a series of experiments in order to examine the effect of
+ different patent fields, and concludes with the observation that the best
+ Mean Average Precision (MAP) is achieved using the text from the description
+ section of the query patent with raw term frequencies.
+ Also, Fuji 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fujii:2007:EPR:1277741.1277912"
+
+\end_inset
+
+ showed that retrieval effectiveness can be improved by combining IR methods
+ with the result of citation extraction.
+\end_layout
+
+\begin_layout Standard
+Bashir et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Bashir2010"
+
+\end_inset
+
+ propose a query expansion with pseudo-relevance feedback.
+ Query expansion terms are selected using a using a machine learning approach,
+ by picking terms that may have a potential positive impact on the retrieval
+ effectiveness.
+ However, this approach can be computational expensive, since the presented
+ features are complicated to compute, e.g.
+ Pair-wise Terms Proximity features.
+ Verma and Varma 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Verma2011"
+
+\end_inset
+
+ propose a different approach, which instead of using the patent text to
+ query, use its International Patent Classification (IPC) codes, which are
+ expanded using the citation network.
+ The formed query is used to perform an initial search.
+ The results are then re-ranked using queries constructed from patent text.
+ Throughout our experiments, we concluded that relying on other terms to
+ form a query rather than those in the patent application, leads to poor
+ retrieval quality.
+ Lastly, a more recent work by Mahdabi et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahdabi:2014:PQF:2684820.2651363"
+
+\end_inset
+
+ propose a unified framework for query expansion which incorporates bibliographi
+c information, IPC classifications, and temporal features to improve the
+ initial query built from the query patent.
+ They used the link-based structure of the citation graph together with
+ the term distribution of cited documents and built a query model from the
+ citation graph.
+ They used the publication dates associated with the patents to adapt the
+ query model to the change of vocabulary over time.
+ The results showed the advantage of using the term distribution of the
+ cited documents together with the publication dates.
+\end_layout
+
+\begin_layout Standard
+Finally, other works investigated query suggestion for patent prior art
+ search, which reflect real-life scenario of examiners, who form reproducible
+ boolean queries 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Adams2011,Azzopardi2010,Kim2011"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -3834,9 +3915,7 @@ key "Magdy2012"
  CLEF-IP 2010 contains 2.6 million patent documents, and the English test
  sets of CLEF-IP 2010 correspond to 1303 topic sources of partial patent
  application queries.
- We also experimented with the CLEF-IP 2011 dataset, but observed the same
- overall trends as for CLEF-IP 2010 and hence omit these redundant results
- due to space limitations.
+ We also experimented with the CLEF-IP 2011 dataset.
 \end_layout
 
 \begin_layout Standard
@@ -3898,8 +3977,10 @@ reference "sec:QueryReformulation"
 Partial patent query type:
 \series default
  We consider a query of a partial patent application to consist of either
- the title, the abstract, the claims, or the description section.
- Critical questions are: what part of a partial application an inventor
+ the title, the abstract, or the description section.
+ Recall that we don't consider the Claim section, since it is more likely
+ to be written by a lawyer than the inventor.
+ Hence, critical questions are: what part of a partial application an inventor
  should write to obtain the best search results? And what QE methods work
  best for each type of query? 
 \end_layout
@@ -3960,22 +4041,10 @@ Term selection method:
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
-
-\end_inset
-
-
 \begin_inset Float figure
-placement tb
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4052,41 +4121,6 @@ status collapsed
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[Query Claims.]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-MAP-CLEF-IP2010.eps
-	width 6cm
-
-\end_inset
-
- 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
 \begin_inset ERT
 status collapsed
 
@@ -4140,13 +4174,6 @@ name "fig:MAP-CLEF2010"
 \end_inset
 
 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:qDescription-MAP-CLEF-IP2010"
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -4155,36 +4182,10 @@ name "fig:qDescription-MAP-CLEF-IP2010"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
-
-\end_inset
-
-
 \begin_inset Float figure
-placement tb
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4261,41 +4262,6 @@ status collapsed
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[Query Claims.]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename Results-CIKM2014/qClaims-PRES-CLEF-IP2010.eps
-	width 6cm
-
-\end_inset
-
- 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
 \begin_inset ERT
 status collapsed
 
@@ -4349,9 +4315,143 @@ name "fig:PRES-CLEF2010"
 \end_inset
 
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQE.eps
+	width 12cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Title.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-MAP-CLEF-IP2011.eps
+	width 6cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Abstract.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-MAP-CLEF-IP2011.eps
+	width 6cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Description.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-MAP-CLEF-IP2011.eps
+	width 6cm
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MAP for QE methods on CLEF-IP 2011.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:qDescription-PRES-CLEF-IP2010"
+name "fig:MAP-CLEF2011"
 
 \end_inset
 
@@ -4364,12 +4464,2681 @@ name "fig:qDescription-PRES-CLEF-IP2010"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQE.eps
+	width 12cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
 \begin_inset ERT
 status collapsed
 
 \begin_layout Plain Layout
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\backslash
+subfigure[Query Title.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qTitle-PRES-CLEF-IP2011.eps
+	width 6cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Abstract.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qAbstract-PRES-CLEF-IP2011.eps
+	width 6cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Description.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Results-CIKM2014/qDescription-PRES-CLEF-IP2011.eps
+	width 6cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PRES for QE methods on CLEF-IP 2011.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PRES-CLEF2011"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Samples of queries extracted from CLEF-IP 2011, where QE improves the performanc
+e (P: Precision, R: Recall, RR: Reciprocal Rank, AP: Average Precision,
+ PRES: Patent Retrieval Evaluation Score).
+ MMRQE improves the two first examples, while Rocchio improves the third.
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tbl:QESampleQueries"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="21" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="17.5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+1- Topic:
+\series default
+ EP-1921264-A2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Abstract:
+\series default
+ An article of manufacture having a nominal profile substantially in accordance
+ with Cartesian coordinate values of X, Y and Z set forth in a TABLE 1.
+ Wherein X and Y are distances in inches which, when connected by smooth
+ continuing arcs, define airfoil profile sections at each distance Z in
+ inches.
+ The profile sections at the Z distances being joined smoothly with one
+ another to form a complete airfoil shape (22,23).
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Baseline performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.066
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.043
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.777
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+MMRQE expanded terms:
+\series default
+ 
+\series bold
+\bar under
+airfoil
+\series default
+\bar default
+, 
+\series bold
+rotor
+\series default
+, 
+\series bold
+blend
+\series default
+, 
+\series bold
+substanti
+\series default
+, 
+\series bold
+\bar under
+root
+\series default
+\bar default
+, 
+\series bold
+\bar under
+portion
+\series default
+\bar default
+, 
+\series bold
+includ
+\series default
+, 
+\series bold
+suction
+\series default
+, 
+\series bold
+\bar under
+form
+\series default
+\bar default
+, 
+\series bold
+tip
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQE performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.666
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.142
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.124
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.872
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Rocchio expanded terms:
+\series default
+\shape italic
+ 
+\series bold
+\shape default
+\bar under
+airfoil
+\series default
+\bar default
+, 
+\bar under
+trail
+\bar default
+, 
+\bar under
+edg
+\bar default
+, 
+\bar under
+cool
+\bar default
+, 
+\series bold
+\bar under
+form
+\series default
+\bar default
+, 
+\bar under
+blade
+\bar default
+, 
+\bar under
+side
+\bar default
+, 
+\series bold
+\bar under
+portion
+\series default
+\bar default
+, 
+\series bold
+\bar under
+root
+\series default
+\bar default
+, 
+\bar under
+lead
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Rocchio performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.333
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.142
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.822
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+2- Topic: 
+\series default
+EP-1707587-A1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Abstract:
+\series default
+ It is intended to provide a crosslinked polyrotaxane formed by crosslinking
+ polyrotaxane moleculesvia chemical bonds which exhibits excellent optical
+ properties in water or in an aqueous solution of sodium chloride; a compound
+ having this crosslinked polyrotaxane; and a process for producing the same.
+ The above object can be achieved by a crosslinked polyrotaxane having at
+ least two polyrotaxane molecules, wherein linear molecules are included
+ in a skewered-like state at the opening of cyclodextrin molecules and blocking
+ groups are provided at both ends of the linear molecules, so as to prevent
+ the cyclodextrin molecules from leaving, and cyclodextrin molecules in
+ at least two polyrotaxane molecules being bonded to each other via chemical
+ bond, characterized in that hydroxyl (-OH) groups in the cyclodextrin molecules
+ are partly substituted with non-ionic groups.
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Baseline performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.477
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.784
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+MMRQE expanded terms: 
+\bar under
+bond
+\series default
+\bar default
+, 
+\series bold
+\bar under
+includ
+\series default
+\bar default
+, 
+\series bold
+\bar under
+thereof
+\series default
+\bar default
+, 
+\series bold
+convent
+\series default
+, 
+\series bold
+\bar under
+crosslink
+\series default
+\bar default
+, 
+\series bold
+\bar under
+plural
+\series default
+\bar default
+, 
+\series bold
+polyrotaxan
+\series default
+, 
+\series bold
+substanc
+\series default
+, 
+\series bold
+gelatin
+\series default
+, 
+\series bold
+fractur
+\series default
+, 
+\series bold
+realiz
+\series default
+, 
+\series bold
+uniform
+\series default
+, 
+\series bold
+chemic
+\series default
+, 
+\series bold
+physic
+\series default
+, 
+\series bold
+rotat
+\series default
+, 
+\series bold
+biodegrad
+\series default
+, 
+\series bold
+expans
+\series default
+, 
+\series bold
+resist
+\series default
+, 
+\series bold
+elast
+\series default
+, 
+\series bold
+entrop
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQE performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.577
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.797
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Rocchio expanded terms: 
+\series default
+\bar under
+form
+\bar default
+, 
+\bar under
+present
+\bar default
+, 
+\bar under
+cyclodextrin
+\bar default
+, 
+\bar under
+compris
+\bar default
+, 
+\bar under
+molecul
+\bar default
+, 
+\bar under
+polym
+\bar default
+, 
+\series bold
+\bar under
+includ
+\series default
+\bar default
+, 
+\series bold
+\bar under
+crosslink
+\series default
+\bar default
+, 
+\bar under
+group
+\bar default
+, 
+\bar under
+compound
+\bar default
+, 
+\bar under
+relat
+\bar default
+, 
+\bar under
+contact
+\bar default
+, 
+\bar under
+water
+\bar default
+, 
+\bar under
+monom
+\bar default
+, 
+\bar under
+linear
+\bar default
+, 
+\bar under
+composit
+\bar default
+, 
+\series bold
+\bar under
+thereof
+\series default
+\bar default
+, 
+\bar under
+materi
+\bar default
+, 
+\series bold
+\bar under
+plural
+\series default
+\bar default
+, 
+\series bold
+\bar under
+bond
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Rocchio performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.455
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.770
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+3- Topic: 
+\series default
+EP-1754935-A1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Abstract:
+\series default
+ The fire-rated recessed downlight includes a mantle.
+ A radiating mouth (4) is defined in the mantle.
+ A dilatable fireproof piece (5) is fixed in the radiating mouth (4).
+ Radiating apertures (6 or 6') corresponding to the radiating mouth (4)
+ is defined in the dilatable fireproof piece (5) or between edges of the
+ dilatable fireproof piece (5) and edges of the radiating mouth (4).
+ The radiating mouth (4) of the mantle and the dilatable fireproof piece
+ (5) could help to radiate the heat in ordinary situation and the dilatable
+ fireproof piece (5) will expand rapidly to close the radiating mouth (4)
+ when on fire, therefore the fire inside the mantle will not spread to the
+ outside.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Baseline performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.111
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.086
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.801
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+MMRQE expanded terms: 
+\bar under
+mmateri
+\series default
+\bar default
+, 
+\series bold
+\bar under
+adapt
+\series default
+\bar default
+, 
+\series bold
+\bar under
+2
+\series default
+\bar default
+, 
+\series bold
+\bar under
+hous
+\series default
+\bar default
+, 
+\series bold
+\bar under
+light
+\series default
+\bar default
+, 
+\series bold
+\bar under
+compris
+\series default
+\bar default
+, 
+\series bold
+result
+\series default
+, 
+\series bold
+\bar under
+form
+\series default
+\bar default
+, 
+\series bold
+\bar under
+support
+\series default
+\bar default
+, 
+\series bold
+includ
+\series default
+, 
+\series bold
+\bar under
+side
+\series default
+\bar default
+, 
+\series bold
+\bar under
+mount
+\series default
+\bar default
+, 
+\series bold
+\bar under
+4
+\series default
+\bar default
+, 
+\series bold
+\bar under
+3
+\series default
+\bar default
+, 
+\series bold
+\bar under
+5
+\series default
+\bar default
+, 
+\series bold
+plural
+\series default
+, 
+\series bold
+fit
+\series default
+, 
+\series bold
+\bar under
+1
+\series default
+\bar default
+, 
+\series bold
+extend
+\series default
+, 
+\series bold
+\bar under
+recess
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQE performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.111
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.044
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.767
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Rocchio expanded terms:
+\bar under
+materi
+\series default
+\bar default
+, 
+\series bold
+\bar under
+2
+\series default
+\bar default
+, 
+\series bold
+\bar under
+compris
+\series default
+\bar default
+, 
+\series bold
+\bar under
+light
+\series default
+\bar default
+, 
+\series bold
+\bar under
+adapt
+\series default
+\bar default
+, 
+\series bold
+\bar under
+support
+\series default
+\bar default
+, 
+\series bold
+\bar under
+form
+\series default
+\bar default
+, 
+\series bold
+\bar under
+3
+\series default
+\bar default
+, 
+\series bold
+\bar under
+1
+\series default
+\bar default
+, 
+\bar under
+surfac
+\bar default
+, 
+\series bold
+\bar under
+5
+\series default
+\bar default
+, 
+\series bold
+\bar under
+4
+\series default
+\bar default
+, 
+\series bold
+\bar under
+side
+\series default
+\bar default
+, 
+\series bold
+\bar under
+recess
+\series default
+\bar default
+, 
+\series bold
+\bar under
+hous
+\series default
+\bar default
+, 
+\bar under
+fire
+\bar default
+, 
+\bar under
+10
+\bar default
+, 
+\series bold
+\bar under
+mount
+\series default
+\bar default
+, 
+\bar under
+resist
+\bar default
+, 
+\bar under
+wall
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Rocchio performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.222
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.333
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.146
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.821
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4379,17 +7148,31 @@ status collapsed
 
 \begin_layout Standard
 To summarize all the results obtained over all the above configurations,
- Figure 
+ Figures 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:MAP-CLEF2010"
 
 \end_inset
 
- and Figure 
+, 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:PRES-CLEF2010"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:MAP-CLEF2011"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PRES-CLEF2011"
 
 \end_inset
 
@@ -4428,8 +7211,8 @@ However, perhaps a better trade-off in terms of effort vs.
  Relative to the description, it takes much less effort to write the abstract.
  Further, querying with the abstract provides a substantial boost in retrieval
  performance compared to the title (about 165% for MAP).
- In contrast, querying with the claims and description offer only marginal
- performance gains (about 10% to 30% for MAP) compared to using the abstract.
+ In contrast, querying with the description offer only marginal performance
+ gains (about 10% to 30% for MAP) compared to using the abstract.
  
 \end_layout
 
@@ -4480,7 +7263,7 @@ ref{fig:qDescription-PRES-CLEF-IP2010}).
 \begin_layout Enumerate
 When dealing with short queries such as the title or abstract, MMRQE is
  less effective than Rocchio, whereas it appears to provide slightly better
- comparative results for the longer claims query.
+ comparative results for the longer description query.
  This suggests diverse term selection may be helpful for long queries.
  
 \begin_inset ERT
@@ -4630,9 +7413,9 @@ The description section does not appear to be a good source for expansion,
 \end_layout
 
 \begin_layout Enumerate
-When dealing with short and medium-length queries (i.e., title, abstract,
- and claims), VSM performs better than BM25, while for very long queries
- (i.e., description), BM25 performs the best.
+When dealing with short length queries (i.e., title and abstract), VSM performs
+ better than BM25, while for very long queries (i.e., description), BM25 performs
+ the best.
  
 \end_layout
 
@@ -4729,32 +7512,45 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%To give an insight of the effect of MMRQE and Rocchio over the performance,
+To give an insight of the effect of MMRQE and Rocchio over the performance,
  Table 
-\backslash
-ref{tbl:QESampleQueries} shows two queries where QE methods improved the
- performance.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tbl:QESampleQueries"
+
+\end_inset
+
+ shows some queries where QE methods improved the performance.
  First of all, it is interesting to notice that even if there are common
  terms selected to expand the queries by both MMRQE and Rocchio, the lists
- of MMRQE contain more diversified terms (at least in the first example).
- For the first example, relevant patents talk about a similar idea than
- the application, but using different complex and ambiguous terms.
- Hence, for the first query, key terms  like: 
-\backslash
-textit{rotor, blend, and suction}, were able to capture the scope of the
- relevant patents to allow either retrieving them (improving PRES), or pushing
- them to the top of the ranking (improving MAP).
- As for the second query, MMRQE expand the query with general terms, e.g.
+ of MMRQE contain more diversified terms (at least in the two first examples).
+ For the two first examples, relevant patents talk about a similar idea
+ than the applications, but using different examples and applications (the
+ writers of a patent use complex and ambiguous terms to generalize the coverage
+ of the invention).
+ Hence, for the first query, key terms like: 
+\shape italic
+rotor, blend, and suction
+\shape default
+, were able to capture the scope of the relevant patents to allow either
+ retrieving them (improving PRES), or pushing them to the top of the ranking
+ (improving MAP).
+ As for the third query, MMRQE expand the query with general terms, e.g.
  
-\backslash
-textit{result, includ, extend, plural}, which probably encourage retrieving
- irrelevant patents.
+\shape italic
+result, includ, extend, plural
+\shape default
+, which probably encourage retrieving irrelevant patents.
 \end_layout
+
+\begin_layout Subsection
+Query Reduction Results
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:QRResults"
 
 \end_inset
 
@@ -4762,28 +7558,87 @@ textit{result, includ, extend, plural}, which probably encourage retrieving
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
+Next we discuss the results of the evaluation performed on the QR methods
+ described in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:QueryReformulation"
 
 \end_inset
 
+.
+ As for QE, we carry out comprehensive experiments with the following configurat
+ion options and associated questions to consider:
+\end_layout
 
+\begin_layout Itemize
+
+\series bold
+Partial patent query type:
+\series default
+ We apply QR methods to a query of a partial patent application, consisting
+ of the abstract or the description sections.
+ A critical question is what part of a partial application is best suited
+ for QR? Note that we consider that there is no interest in reducing a title
+ query since it already contains very few terms.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Relevance model:
+\series default
+ We explore a probabilistic approach represented by the popular BM25
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Robertson1993"
+
+\end_inset
+
+ algorithm, as well as a vector space model (VSM) approach, TF-IDF
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Salton1975"
+
+\end_inset
+
+.
+ A natural question is which relevance model works best for query reduction
+ for patent prior art search? 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Term selection method:
+\series default
+ We consider the different query reduction methods described above, i.e.
+ RocchioQR, MMRQR, LMQR, IPC-StopWords and ask what is the best QR method
+ for patent search? Further, how do these results compare to QE for the
+ same queries? 
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset Float figure
-placement tb
-wide true
+wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename img/legendQR.eps
-	width 12cm
+	width 9cm
 
 \end_inset
 
@@ -4807,37 +7662,6 @@ subfigure[Query Abstract.]{
 
 \begin_inset Graphics
 	filename mmrqrResults/qAbstract-MAP-CLEF-IP2010.eps
-	width 4cm
-
-\end_inset
-
- 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[Query Claims.]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qClaims-MAP-CLEF-IP2010.eps
 	width 4cm
 
 \end_inset
@@ -4912,45 +7736,16 @@ name "fig:QR-MAP-CLEF-IP2010"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
-
-\end_inset
-
-
 \begin_inset Float figure
-placement tb
-wide true
+wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename img/legendQR.eps
-	width 12cm
+	width 9cm
 
 \end_inset
 
@@ -4974,37 +7769,6 @@ subfigure[Query Abstract.]{
 
 \begin_inset Graphics
 	filename mmrqrResults/qAbstract-PRES-CLEF-IP2010.eps
-	width 4cm
-
-\end_inset
-
- 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-subfigure[Query Claims.]{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename mmrqrResults/qClaims-PRES-CLEF-IP2010.eps
 	width 4cm
 
 \end_inset
@@ -5082,6 +7846,237 @@ PRES for QR methods on CLEF 2010.
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
+name "fig:QR-PRES-CLEF-IP2010"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQR.eps
+	width 9cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Abstract.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-MAP-CLEF-IP2011.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Description.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-MAP-CLEF-IP2011.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MAP for QR methods on CLEF-IP 2011.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:QR-MAP-CLEF-IP2011"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQR.eps
+	width 9cm
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Abstract.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qAbstract-PRES-CLEF-IP2011.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfigure[Query Description.]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename mmrqrResults/qDescription-PRES-CLEF-IP2011.eps
+	width 4cm
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+protect
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PRES for QR methods on CLEF 2011.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
 name "fig:QR-PRES-CLEF-IP2011"
 
 \end_inset
@@ -5095,104 +8090,6 @@ name "fig:QR-PRES-CLEF-IP2011"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-Query Reduction Results
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:QRResults"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Next we discuss the results of the evaluation performed on the QR methods
- described in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:QueryReformulation"
-
-\end_inset
-
-.
- As for QE, we carry out comprehensive experiments with the following configurat
-ion options and associated questions to consider:
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Partial patent query type:
-\series default
- We apply QR methods to a query of a partial patent application, consisting
- of the abstract, the claims or the description sections.
- A critical question is what part of a partial application is best suited
- for QR? Note that we consider that there is no interest in reducing a title
- query since it already contains very few terms.
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Relevance model:
-\series default
- We explore a probabilistic approach represented by the popular BM25
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Robertson1993"
-
-\end_inset
-
- algorithm, as well as a vector space model (VSM) approach, TF-IDF
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Salton1975"
-
-\end_inset
-
-.
- A natural question is which relevance model works best for query reduction
- for patent prior art search? 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-Term selection method:
-\series default
- We consider the different query reduction methods described above, i.e.
- RocchioQR, MMRQR, LMQR, IPC-StopWords and ask what is the best QR method
- for patent search? Further, how do these results compare to QE for the
- same queries? 
-\end_layout
-
-\begin_layout Standard
 To summarize all the results obtained over all the above configurations,
  Figures 
 \begin_inset CommandInset ref
@@ -5201,7 +8098,21 @@ reference "fig:QR-MAP-CLEF-IP2010"
 
 \end_inset
 
-, and 
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QR-PRES-CLEF-IP2010"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:QR-MAP-CLEF-IP2011"
+
+\end_inset
+
+ and 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:QR-PRES-CLEF-IP2011"
@@ -5215,7 +8126,7 @@ reference "fig:QR-PRES-CLEF-IP2011"
 
 \begin_layout Enumerate
 The best performing QR methods show benefits vs.
- No QR for all queries (i.e., abstract, claims, and description).
+ No QR for all queries (i.e., abstract and description).
  
 \end_layout
 
@@ -5226,9 +8137,9 @@ The term selection methods that provide the best performance are, in general,
 \end_layout
 
 \begin_layout Enumerate
-When dealing with medium-length queries (i.e., abstract and claims), VSM performs
- better than BM25, while for very long queries (i.e., description), BM25-based
- QR methods perform better than VSM-based QR methods.
+When dealing with medium-length queries (i.e., abstract), VSM performs better
+ than BM25, while for very long queries (i.e., description), BM25-based QR
+ methods perform better than VSM-based QR methods.
  
 \end_layout
 
@@ -5247,13 +8158,2387 @@ reference "fig:PRES-CLEF2010"
 
 \end_inset
 
-, the best QE and QR methods perform comparably for abstract and claims
- queries, whereas for description queries, the best QR method slightly outperfor
-ms the best QE method and No QR.
+, the best QE and QR methods perform comparably for abstract queries, whereas
+ for description queries, the best QR method slightly outperforms the best
+ QE method and No QR.
  Hence, the best overall retrieval result in this work in terms of both
  MAP and PRES comes from a description query with a generic (non-patent
  specific) QR method.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement t
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Samples of queries extracted from CLEF-IP 2011, where MMRQR improves the
+ performance.
+ (P: Precision, R: Recall, RR: Reciprocal Rank, AP: Average Precision, PRES:
+ Patent Retrieval Evaluation Score).
+ MMRQR improves the two first examples, while LMQR improves the third.
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tbl:QRSampleQueries"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="21" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="left" valignment="top" width="17.5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+1- Topic: 
+\series default
+EP-1424597-A2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Abstract:
+\series default
+ Measurements of an interferometric measurement system are corrected for
+ variations of atmospheric conditions such as pressure, temperature and
+ turbulence using measurements from a second harmonic interferometer (10).
+ A ramp, representing the dependence of the SHI data on path length, is
+ removed before use of the SHI data.
+ The SHI may use a passive Q-switched laser (11) as a light source and Brewster
+ prisms (142,144) in the receiver module.
+ Optical fibers may be used to conduct light to the detectors (145-147).
+ A mirror reflecting the measurement beams has a coating of a thickness
+ selected to minimize the sensitivity of the SHI data to changes in coating
+ thickness.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Baseline performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.037
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.022
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.648
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+MMRQR removed terms: temperatur
+\series default
+, 
+\series bold
+detector
+\series default
+, 
+\series bold
+path
+\series default
+, 
+\series bold
+laser
+\series default
+, 
+\series bold
+light
+\series default
+, 
+\series bold
+interferometr
+\series default
+, 
+\series bold
+brewster
+\series default
+, 
+\series bold
+sensit
+\series default
+, 
+\series bold
+repres
+\series default
+, 
+\series bold
+sourc
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQR performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.166
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.111
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.053
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.761
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+LMQR removed terms: 
+\series default
+\bar under
+minim
+\bar default
+, 
+\bar under
+conduct
+\bar default
+, 
+\bar under
+variat
+\bar default
+, 
+\bar under
+shi
+\bar default
+, 
+\bar under
+turbul
+\bar default
+, 
+\bar under
+condit
+\bar default
+, 
+\bar under
+pressur
+\bar default
+, 
+\bar under
+remov
+\bar default
+, 
+\bar under
+ramp
+\bar default
+, 
+\bar under
+thick
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+LMQR performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.076
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.036
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.724
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+2- Topic: 
+\series default
+EP-1498393-A1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Abstract:
+\series default
+ In methods for recovering and recycling helium and unreacted chlorine from
+ a process for manufacturing optical fiber an exhaust gas is recovered typically
+ from a consolidation furnace and is separated into helium-rich and chlorine-ric
+h gas streams.
+ The helium-rich stream is typically dried and blended with make-up helium
+ and the chlorine-rich stream is typically purified and blended with make-up
+ chlorine so that both may be reused in the optical fiber production process.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Baseline performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.125
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.060
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.481
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+MMRQR removed terms: stream
+\series default
+, 
+\series bold
+\bar under
+rich
+\series default
+\bar default
+, 
+\series bold
+fiber
+\series default
+, 
+\series bold
+\bar under
+reus
+\series default
+\bar default
+, 
+\series bold
+\bar under
+product
+\series default
+\bar default
+, 
+\series bold
+\bar under
+dri
+\series default
+\bar default
+, 
+\series bold
+separ
+\series default
+, 
+\series bold
+exhaust
+\series default
+, 
+\series bold
+\bar under
+method
+\series default
+\bar default
+, 
+\series bold
+\bar under
+make
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQR performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.106
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.604
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+LMQR removed terms: 
+\bar under
+dri
+\series default
+\bar default
+, 
+\series bold
+\bar under
+rich
+\series default
+\bar default
+, 
+\bar under
+process
+\bar default
+, 
+\series bold
+\bar under
+product
+\series default
+\bar default
+, 
+\series bold
+\bar under
+make
+\series default
+\bar default
+, 
+\series bold
+\bar under
+reus
+\series default
+\bar default
+, 
+\bar under
+unreact
+\bar default
+, 
+\bar under
+typic
+\bar default
+, 
+\bar under
+blend
+\bar default
+, 
+\series bold
+\bar under
+method
+\series default
+\bar default
+, 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+LMQR performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.250
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.200
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.097
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.552
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+3- Topic: 
+\series default
+EP-1314594-A1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+Abstract:
+\series default
+ An air conditioner for air conditioning the interior of a compartment includes
+ a compressor (C) and an electric motor (84).
+ The compressor (C) compresses refrigerant gas and changes the displacement.
+ The electric motor (84) drives the compressor (C).
+ A motor controller (72) rotates the motor (84) at a constant reference
+ speed.
+ A detection device (92) detects information related to the thermal load
+ on the air conditioner.
+ A current sensor (97) detects the value of current supplied to the electric
+ motor.
+ A controller (72) controls the compressor based on the detected thermal
+ load information and the detected current value.
+ The controller (72) computes a target torque of the compressor based on
+ the thermal load information.
+ In accordance with the computed target torque, the controller (72) computes
+ a target current value to be supplied to the electric motor.
+ The controller (72) further controls the displacement of the compressor
+ such that the detected current value matches the target current value.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+Baseline performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.600
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.307
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.301
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.777
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+MMRQR removed terms:
+\series default
+ 
+\series bold
+\bar under
+refer
+\series default
+\bar default
+, 
+\series bold
+motor
+\series default
+, 
+\series bold
+\bar under
+current
+\series default
+\bar default
+, 
+\series bold
+\bar under
+relat
+\series default
+\bar default
+, 
+\series bold
+condit
+\series default
+, 
+\series bold
+constant
+\series default
+, 
+\series bold
+\bar under
+suppli
+\series default
+\bar default
+, 
+\series bold
+\bar under
+compress
+\series default
+\bar default
+, 
+\series bold
+load
+\series default
+, 
+\series bold
+\bar under
+match
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+MMRQR performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.384
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR
+\series default
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.221
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.774
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+LMQR removed terms: 
+\series default
+\bar under
+compart
+\bar default
+, 
+\series bold
+\bar under
+suppli
+\series default
+\bar default
+, 
+\series bold
+\bar under
+current
+\series default
+\bar default
+, 
+\bar under
+ga
+\bar default
+, 
+\series bold
+\bar under
+refer
+\series default
+\bar default
+, 
+\series bold
+\bar under
+compress
+\series default
+\bar default
+, 
+\series bold
+\bar under
+relat
+\series default
+\bar default
+, 
+\bar under
+interior
+\bar default
+, 
+\bar under
+thermal
+\bar default
+, 
+\series bold
+\bar under
+match
+\series default
+\bar default
+, 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="16.5cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+LMQR performance:
+\size default
+
+\begin_inset space ~
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="12">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@5:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+P@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+R@10:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.307
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+RR:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+1.000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+AP:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.266
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size scriptsize
+PRES:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+0.802
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, to give an insight of the effect of MMRQR and LMQR over the performance
+, Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tbl:QRSampleQueries"
+
+\end_inset
+
+ shows some queries where QR methods are helpful.
+ First, we notice that even if there is common terms removed from the original
+ queries by both MMRQR and LMQR, the lists of MMRQR contain more similar
+ terms (e.g.
+ 
+\shape italic
+laser, light, interferometer
+\shape default
+ for the first example).
+ For the two first examples, for MMRQR, similar terms were removed from
+ the queries, which favor finding more diverse patent relevant to the patent
+ applications.
+ However, for the third query, MMRQR removed the main terms from the query
+ (
+\shape italic
+motor
+\shape default
+, and thermal 
+\shape italic
+load
+\shape default
+), which likely decrease the quality of the query.
 \end_layout
 
 \begin_layout Section
@@ -5280,12 +10565,11 @@ cific query reformulation (expansion and reduction) methods.
 
 \begin_layout Standard
 We showed that the description is the best partial application section to
- query with, followed by the claims, the abstract, and lastly the title
- section.
+ query with, followed by the the abstract, and lastly the title section.
  However, the largest boost in performance (about 165% for MAP) comes when
  switching from a title query to an abstract query; smaller relative boosts
- are given by querying instead with the claims or description (about 10%
- to 30% for MAP).
+ are given by querying instead with the description (about 10% to 30% for
+ MAP).
  This is a critical insight since it is substantially easier for the patent
  inventor to draft an abstract rather than a full patent description and
  in doing so, still manage to retrieve the majority of prior art that would
@@ -5294,11 +10578,11 @@ We showed that the description is the best partial application section to
 
 \begin_layout Standard
 We observed that query expansion (QE) methods are useful for short to medium
- length queries (i.e., title, abstract, and claims), but useless for very
- long queries (i.e., the description section).
+ length queries (i.e., title and abstract), but useless for very long queries
+ (i.e., the description section).
  We also showed that the description section does not provide the best source
- of expansion terms for QE, rather the claims or the abstract tend to offer
- better candidate terms for QE.
+ of expansion terms for QE, rather the abstract tend to offer better candidate
+ terms for QE.
  In the same vein, we also found traditional IR methods like Rocchio or
  variations to work just as well for QE (and generally better) in comparison
  to patent-specific methods using specialized expansion sources such as
@@ -5520,8 +10804,6 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-
-\size scriptsize
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "biblio"
