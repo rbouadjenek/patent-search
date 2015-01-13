@@ -7,6 +7,8 @@
 \usepackage{graphicx}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
+\usepackage{epstopdf}
+\usepackage{color}
 
 \makeatletter
 
@@ -126,8 +128,8 @@ where the primary goal is to retrieve a subset of documents that satisfy
 the query intent. Another important characteristic of patent prior
 art search is that, in contrast to scientific and technical writers,
 patent writers tend to generalize and maximize the scope of what is
-protected by a patent, which further complicates the task of formulating
-effective queries.
+protected {\color{red} by a patent and potentially discourage further innovation by third parties, which further complicates the task of formulating
+effective queries. For instance, abstract and vague terms are sometimes pre-referred to concrete ones, i.e., recording means vs. recording apparatus; resources vs. battery life; machines located at point of sale locations vs. vending machines, etc.}
 
 While much of the literature inspired by the evaluation framework
 of the CLEF-IP competition has aimed to assist patent examiners in
@@ -181,7 +183,7 @@ We show results for the top 100 and bottom 100 queries (100 queries
 that perform the best, and 100 queries that perform the worst) of
 CLEP-IP 2010 evaluated according to Mean Average Precision (MAP).
 Note that while the title section is usually composed of an average
-of six terms, the other sections are longer, ranging from tens to
+of six terms, the other sections are longer, ranging from ten to
 thousands of terms. There are three notable trends here: (i) term
 overlap increases from title to description since the query size grows
 accordingly; (ii) the bottom 100 performing queries tend to have much
@@ -204,17 +206,19 @@ characteristics.
 
 In summary, to aid the patent inventor in developing an effective
 pre-application prior art search strategy, we seek to answer the following
-questions in this work: 
+questions:
+%in this work: 
 \begin{itemize}
 \item What parts of a patent application should a patent inventor write
 first to achieve effective prior art search? What are the trade-offs
 in section writing effort vs. the retrieval performance of querying
 with that section? 
-\item In query expansion, do any sections of patents serve as better sources
-of expansion terms? What expansion methods work best, and in what
+\item In query expansion, which patent section is the better source for term expansion?
+%do any sections of patents serve as better sources of expansion terms? 
+Which expansion methods work best, and in which
 settings? 
 \item For query reformulation (both query expansion and reduction), which
-methods work best, and in what settings? Do patent-specific reformulation
+methods work best, and in which settings? Do patent-specific reformulation
 methods offer advantages over more generic IR reformulation methods? 
 \end{itemize}
 To answer these questions, we perform a thorough comparative analysis
@@ -247,14 +251,15 @@ removed. Hence, given a query representation $Q$, QR aims to select
 an optimal subset $T_{k}\subset Q$ of $k$ terms, which are relevant
 to $Q$, then build $Q'$ such as $Q'=T_{k}$.
 
-In the following sections, we first give a motivation behind using
-query reduction for patent search in Section \ref{sec:UtilityQR}.
+The outline of the following subsections is as follows: 
+Section \ref{sec:UtilityQR} motivates query reduction for patent prior art search. 
 Then, we describe the standard and patent-specific query reformulation
 methods that we evaluate in Section \ref{sec:Evaluation}. Finally,
 in Section \ref{sec:FurtherAfield} we provide a brief description
 of other patent-specific query reformulation methods, which are not
 considered in this paper.
 
+%In the following subsections, we first give a motivation behind using query reduction for patent search in Section \ref{sec:UtilityQR}.
 
 \subsection{Utility of Query Reduction for Patents}
 
@@ -270,13 +275,16 @@ query reduction for the abstract section of the Topic PAC-1019 from
 the CLEF-IP 2010 data collection. The baseline query, which is the
 original query (provided in the header row) after stemming and patent
 specific stopword removal, had an Average Precision (AP) of 0.280
-and a Patent Retrieval Evaluation Score (PRES) \cite{Magdy2010a}
+and a Patent Retrieval Evaluation Score (PRES) \cite{Magdy2010a} {\color{red} define PRES here, maybe a footnote is enough!!}
 of 0.777 (its performance are provided in the footer row). We show
 the evaluation performance of the query after removing each term from
 the original query. The removed terms have been sorted in the order
 of decreasing PRES. We can observe that there are ten terms (highlighted
 in boldface) that if they are (individually) removed from the query,
 we increase PRES of the original long query.
+
+{\color{red} the highlighting is confusing because the terms are not in boldface but the scores are, maybe highlight both!!}
+
 
 \begin{table}[t]
 \begin{centering}
@@ -525,7 +533,9 @@ query. We refer to this method as LMQR.
 \subfour{IPC Codes for Query Reduction:} Based on the intuition
 that, terms in the IPC code definition may represent \textquotedbl{}stop-words\textquotedbl{},
 especially if they are rare (infrequent in the patent application),
-one can think to reduce a patent query as follows: (i) For each patent
+a query can be reduced as follows:
+%one can think to reduce a patent query as follows:
+(i) For each patent
 application, take the definitions of the IPC codes which are associated
 to it. Then, (ii) rank the terms of the query according to the difference
 in their frequency in the query and their frequency in the class code
@@ -542,6 +552,8 @@ In the evaluation section we denote this approach IPC-StopWords.
 
 \label{sec:FurtherAfield}
 
+{\color{red} not sure is further afield is a correct term to use here, I never see it before in a paper. You can instead put related work!}
+
 We believe the above outlined patent-specific query reformulation
 methods circumscribe a range of patent-specific approaches spanning
 synonym lexicons, specially derived language models, and IPC code
@@ -549,6 +561,9 @@ resources; hence our evaluation supports the objective of identifying
 general query reformulation methods from the novel perspective of
 partial patent application prior art search that may be deserving
 of further investigation in future work.
+
+{\color{red} not sure what you want to say in the above paragraph. 
+maybe the second time you mentioned \textbf{patent-specific} you meant  \textbf{general methods}?}
 
 However, some more complex patent-specific methods have also been
 explored for general patent prior art search. The scenario of patent
@@ -646,12 +661,12 @@ these ranking evaluation metrics on the top 1000 results.
 
 In this section, we discuss the results of partial patent queries
 with the QE methods described in Section \ref{sec:QueryReformulation}.
-In doing this experimentation, there are many configuration options
-and associated questions to consider:
+The configuration options and associated questions that were considered are the followings:
+%In doing this experimentation, there are many configuration options and associated questions to consider:
 \begin{itemize}
 \item \textbf{Partial patent query type:} We consider a query of a partial
 patent application to consist of either the title, the abstract, or
-the description section. Recall that we don't consider the Claim section,
+the description section. Recall that we do not consider the Claim section,
 since it is more likely to be written by a lawyer than the inventor.
 Hence, critical questions are: what part of a partial application
 an inventor should write to obtain the best search results? And what
@@ -899,7 +914,7 @@ mantle will not spread to the outside.}\tabularnewline
 \end{tabular}\tabularnewline
 \end{tabular}\tabularnewline
 \hline 
-\textbf{\scriptsize{}MMRQE expanded terms: }\textbf{\scriptsize{}\uline{mmateri}}{\scriptsize{},
+\textbf{\scriptsize{}MMRQE expanded terms: }\textbf{\scriptsize{}\uline{materi}}{\scriptsize{},
 }\textbf{\scriptsize{}\uline{adapt}}{\scriptsize{}, }\textbf{\scriptsize{}\uline{2}}{\scriptsize{},
 }\textbf{\scriptsize{}\uline{hous}}{\scriptsize{}, }\textbf{\scriptsize{}\uline{light}}{\scriptsize{},
 }\textbf{\scriptsize{}\uline{compris}}{\scriptsize{}, }\textbf{\scriptsize{}result}{\scriptsize{},
@@ -945,6 +960,8 @@ mantle will not spread to the outside.}\tabularnewline
 \end{table*}
 
 
+
+
 To summarize all the results obtained over all the above configurations,
 Figures \ref{fig:MAP-CLEF2010}, \ref{fig:PRES-CLEF2010}, \ref{fig:MAP-CLEF2011}
 and \ref{fig:PRES-CLEF2011} show the MAP and PRES obtained for all
@@ -968,10 +985,14 @@ with the description offer only marginal performance gains (about
 since no method outperforms the baseline. This indicates that in advanced
 writing stages of the patent preparation process, QE is not useful.% (see Figure
 %\ref{fig:qDescription-MAP-CLEF-IP2010} and Figure %\ref{fig:qDescription-PRES-CLEF-IP2010}).
-\item When dealing with short queries such as the title or abstract, MMRQE
-is less effective than Rocchio, whereas it appears to provide slightly
-better comparative results for the longer description query. This
-suggests diverse term selection may be helpful for long queries. %% I don't think the results clearly support the following statements...%% just omit since they aren't crucial for the paper.  -Scott%%%\item The best source for query expansion is the claims section. We%  attribute this to the fact that, the claims contain not only%  relevant, but also, specific terminology, since the scope of the%  invention is described therein. However, when querying using the%  claims, other sources of query expansion provided better%  performance. This may be because claims are very similar between%  them and contained specific terms; consequently, the queries lack of%  diversity and general terms or synonyms that are used to describe%  similar inventions.
+\item {\color{red} As for query expansion, MMRQE is less effective than Rocchio for short queries such as title or abstract, whereas it appears to provide slightly better comparative results for the longer description query. This
+suggests diverse term selection may be helpful for long queries. } 
+
+% when dealing with short queries such as the title or abstract, MMRQE is less effective than Rocchio, whereas it appears to provide slightly better comparative results for the longer description query. This suggests diverse term selection may be helpful for long queries. 
+
+
+
+%% I don't think the results clearly support the following statements...%% just omit since they aren't crucial for the paper.  -Scott%%%\item The best source for query expansion is the claims section. We%  attribute this to the fact that, the claims contain not only%  relevant, but also, specific terminology, since the scope of the%  invention is described therein. However, when querying using the%  claims, other sources of query expansion provided better%  performance. This may be because claims are very similar between%  them and contained specific terms; consequently, the queries lack of%  diversity and general terms or synonyms that are used to describe%  similar inventions.
 \item The description section does not appear to be a good source for expansion,
 likely since its content is too broad and it contains many irrelevant
 terms. 
@@ -997,6 +1018,9 @@ patents to allow either retrieving them (improving PRES), or pushing
 them to the top of the ranking (improving MAP). As for the third query,
 MMRQE expand the query with general terms, e.g. \textit{result, includ,
 extend, plural}, which probably encourage retrieving irrelevant patents.
+
+{\color{red} Table 2 have terms with underlines and others in boldface, but those highlighting are not refereed in the explanation, use them or remove them}
+
 
 
 \subsection{Query Reduction Results}
@@ -1302,7 +1326,7 @@ current value.}\tabularnewline
 
 Finally, to give an insight of the effect of MMRQR and LMQR over the
 performance, Table \ref{tbl:QRSampleQueries} shows some queries where
-QR methods are helpful. First, we notice that even if there is common
+QR methods are helpful. First, we notice that even if there are common
 terms removed from the original queries by both MMRQR and LMQR, the
 lists of MMRQR contain more similar terms (e.g. \textit{laser, light,
 interferometer} for the first example). For the two first examples,
@@ -1311,6 +1335,16 @@ finding more diverse patent relevant to the patent applications. However,
 for the third query, MMRQR removed the main terms from the query (\textit{motor},
 and thermal \textit{load}), which likely decrease the quality of the
 query.
+
+{\color{red} NOT CLEAR FOR ME, MAYBE YOU DID WANT TO SAY THE FOLLOWING? First, we notice that even there are common
+terms removed from the original queries by both MMRQR and LMQR, the
+terms removed by MMRQR tend to be similar between them (e.g., \textit{laser, light, interferometer}, in 1-Topic) which favour
+finding diverse relevant terms to the patent applications. However,
+for the 3-Topic, MMRQR removed the main terms from the query (\textit{motor},
+and thermal \textit{load}), which likely decrease the quality of the
+query.}
+
+{\color{red}Table 3 highlighting is confusion as in table 2!}
 
 
 \section{Conclusions}
@@ -1341,7 +1375,7 @@ that the description section does not provide the best source of expansion
 terms for QE, rather the abstract tend to offer better candidate terms
 for QE. In the same vein, we also found traditional IR methods like
 Rocchio or variations to work just as well for QE (and generally better)
-in comparison to patent-specific methods using specialized expansion
+in comparison with patent-specific methods that used specialized expansion
 sources such as synonym lexicons or IPC code definitions. %For QE, future work should investigate how can we exploit patent-specific%meta-data such as inventor and citation networks to better exploit%specialized domains of discourse relevant to patent subfields.
 
 Regarding query reduction (QR) methods, we showed these techniques
@@ -1360,6 +1394,8 @@ with a full description, perhaps combined with generic query reduction
 methods, yields strong overall retrieval performance, querying with
 just an abstract and using generic QE methods may yield the best trade-off
 in terms of writing effort vs. retrieval performance. %Future work should investigate whether QE methods for abstract queries%can rival the best methods for description queries --- if such a result%were possible, it would significantly reduce the effort required on%behalf of the patent inventor to identify potentially invalidating%prior art for a new patent idea.
+
+{\color{red} We claim that standard IR methods are better than patent specific ones. Do you know how other patent specific approaches (for example, the ones mentioned in the related work section) perform in comparison with standard methods like Rocchio?}
 
 \bibliographystyle{abbrv}
 \bibliography{biblio}
