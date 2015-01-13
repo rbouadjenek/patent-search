@@ -10521,7 +10521,8 @@ We observed that query expansion (QE) methods are useful for short to medium
  In the same vein, we also found traditional IR methods like Rocchio or
  variations to work just as well for QE (and generally better) in comparison
  with patent-specific methods that used specialized expansion sources such
- as synonym lexicons or IPC code definitions.
+ as synonym lexicons or IPC code definitions (at least for the methods that
+ we evaluated).
  For QE, future work should investigate how can we exploit patent-specific
  meta-data such as inventor and citation networks to better exploit specialized
  domains of discourse relevant to patent subfields.
@@ -10574,10 +10575,10 @@ In conclusion, we return to our initial objective to aid the patent inventor
 
 \begin_layout Standard
 Finally, we believe that future work should investigate whether QE methods
- for abstract queries can rival the best methods for description queries
- --- if such a result were possible, it would significantly reduce the effort
- required on behalf of the patent inventor to identify potentially invalidating
- prior art for a new patent idea.
+ for abstract of extended abstract queries can rival the best methods for
+ description queries --- if such a result were possible, it would significantly
+ reduce the effort required on behalf of the patent inventor to identify
+ potentially invalidating prior art for a new patent idea.
 \end_layout
 
 \begin_layout Standard
