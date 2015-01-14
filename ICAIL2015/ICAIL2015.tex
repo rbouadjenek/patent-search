@@ -9,6 +9,8 @@
 \usepackage{graphicx}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
+\usepackage{epstopdf}
+
 
 \makeatletter
 
@@ -292,7 +294,7 @@ footer row). We show the evaluation performance of the query after
 removing each term from the original query. The removed terms have
 been sorted in the order of decreasing PRES. We can observe that there
 are ten terms (highlighted in boldface) that if they are (individually)
-removed from the query, we increase PRES of the original long query.
+removed from the query, the PRES of the original long query increased.
 
 \begin{table}[t]
 \begin{centering}
@@ -1411,10 +1413,12 @@ In conclusion, we return to our initial objective to aid the patent
 inventor in identifying an effective pre-application prior art search
 strategy. Our evaluation reveals the critical insight that while querying
 with a full description, perhaps combined with generic query reduction
-methods, yields strong overall retrieval performance, querying with
-just an abstract or and extended abstract and using generic query
-reformulation methods may yield the best trade-off in terms of writing
-effort vs. retrieval performance. 
+methods, yields strong overall retrieval performance
+However, we also find
+that querying with an abstract and using generic query
+reformulation methods represents the best trade-off
+in terms of writing effort vs. retrieval efficacy (i.e., querying
+with the description sections only lead to marginal improvements).
 
 Finally, we believe that future work should investigate whether QE
 methods for abstract of extended abstract queries can rival the best
