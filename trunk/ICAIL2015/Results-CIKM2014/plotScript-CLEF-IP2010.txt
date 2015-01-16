@@ -315,49 +315,49 @@ unset key #outside center top horizontal
 set style data histograms
 set xtics   ( "source abstract" 0.00000, "source claims" 1.00000, "source Description" 2.00000)
 set offset -0.5,-0.5,0,0
-
+#set xtics border in scale 1,0.5 nomirror rotate by -45  offset character 0, 0, 0 
 set term postscript eps enhanced color "Courier,24"
 set ytics font "Verdana,40" 
 
 
 
-set yrange [0:0.60] 
+set yrange [0.35:0.60] 
 set output "qTitle-PRES-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qTitle-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
-set yrange [0:0.14] 
+set yrange [0.04:0.14] 
 set output "qTitle-MAP-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qTitle-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
-set yrange [0:0.60] 
+set yrange [0.35:0.60] 
 set output "qAbstract-PRES-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qAbstract-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
-set yrange [0:0.14] 
+set yrange [0.04:0.14] 
 set output "qAbstract-MAP-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qAbstract-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
-set yrange [0:0.60] 
+set yrange [0.35:0.60] 
 set output "qClaims-PRES-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qClaims-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
-set yrange [0:0.14] 
+set yrange [0.04:0.14] 
 set output "qClaims-MAP-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qClaims-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
-set yrange [0:0.60] 
+set yrange [0.30:0.60] 
 set output "qDescription-PRES-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qDescription-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
-set yrange [0:0.14] 
+set yrange [0.04:0.14] 
 set output "qDescription-MAP-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qDescription-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
-set yrange [0:0.60] 
+set yrange [0.30:0.60] 
 set output "qExtAbstract-PRES-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qExtAbstract-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
-set yrange [0:0.14] 
+set yrange [0.04:0.14] 
 set output "qExtAbstract-MAP-CLEF-IP2010.eps" 
 plot 'plots-CLEF-IP-2010-ICAIL2015/test/qExtAbstract-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
 
