@@ -60,8 +60,8 @@ public class GetDocFrequency {
 
 
 	public static void main(String[] args) throws IOException, ParseException {
-		String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
-		String queryid = /*"PAC-100"*//*"PAC-499"*//*"PAC-1041"*//*"PAC-1347"*/"PAC-1612"/*"PAC-1904"*/;	
+		String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*//*"data/DocPLusQueryINDEX"*/"data/QINDEX";
+		String queryid = /*"PAC-100"*//*"PAC-499"*//*"PAC-1041"*//*"PAC-1347"*//*"PAC-1612"*/"PAC-1904";	
 		String qUcid = /*"EP-1462146-A1"*//*"EP-1477423-A1"*//*"EP-1285768-A2"*//*"EP-1416028-A1"*/"EP-1507371-A2"/*"EP-1329768-A1"*/; 
 		String queryfile = queryid + "_" + qUcid + ".xml";
 		
@@ -157,7 +157,6 @@ public class GetDocFrequency {
 ////				ps.println(term + "\t" + "0" + "\t" + "0");
 			}
 		}
-
 
 	}
 }
