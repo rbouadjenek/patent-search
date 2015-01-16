@@ -61,13 +61,14 @@ public class GetDocFrequency {
 
 	public static void main(String[] args) throws IOException, ParseException {
 		String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
-		String queryid = /*"PAC-100"*//*"PAC-499"*//*"PAC-1041"*//*"PAC-1347"*//*"PAC-1612"*/"PAC-1904";	
-		String qUcid = /*"EP-1462146-A1"*//*"EP-1477423-A1"*//*"EP-1285768-A2"*//*"EP-1416028-A1"*//*"EP-1507371-A2"*/"EP-1329768-A1"; 
+		String queryid = /*"PAC-100"*//*"PAC-499"*//*"PAC-1041"*//*"PAC-1347"*/"PAC-1612"/*"PAC-1904"*/;	
+		String qUcid = /*"EP-1462146-A1"*//*"EP-1477423-A1"*//*"EP-1285768-A2"*//*"EP-1416028-A1"*/"EP-1507371-A2"/*"EP-1329768-A1"*/; 
 		String queryfile = queryid + "_" + qUcid + ".xml";
 		
 		/*--------------------------- Write in output file. ------------------------*/
 //		String outputfile = "./output/score/" + queryid + "-rf-qtf-score.txt";
-		String outputfile = "./output/score/" + queryid + "-ipcdef-rf-qtf-score.txt";
+		String outputfile = "./output/score/" + queryid + "-ipcdef-rf-df-qtf-score.txt";
+//		String outputfile = "./output/score/" + queryid + "_qtermsgreaterthan5-RF-DF.txt"/*"-Qterms-rf-df-score.txt"*/;
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
@@ -91,6 +92,23 @@ public class GetDocFrequency {
 		/*System.out.println("Document Frequency Score");
 		System.out.println(df_tspairs.size() + " " + df_tspairs);		*/
 
+		//------------ Uncoment to plot Qterms, DF(t), RF(t) ---------------
+//		HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid);
+//		System.out.println("word\tRFscore  \tDFscore");
+//		for( Entry<String, Integer> query_termfreq : query_terms.entrySet()){
+//			String qterm = query_termfreq.getKey();
+//			Integer qscore = query_termfreq.getValue();
+//			if(qscore > 5){
+//				if(rf_tspairs_hash.get(qterm)!=null){
+//					System.out.println(qterm + "\t" + rf_tspairs_hash.get(qterm) + "\t" + df_tspairs.get(qterm) + "\t" + qscore);
+//					ps.println(rf_tspairs_hash.get(qterm) + "\t" + df_tspairs.get(qterm)+ "\t" + qscore);
+//				}else{
+//					System.out.println(qterm + "\t" + 0 + "\t" + 0 + "\t" + qscore);
+//					ps.println(0 + "\t" + 0 + "\t" + qscore);
+//				}
+//			}
+//		}	
+		
 		//------------ Uncoment to plot DF(t) vs. QTF(t) ---------------
 
 		/*System.out.println("word\tRFscore  \tDFscore");
@@ -117,7 +135,7 @@ public class GetDocFrequency {
 			}
 		}*/
 
-		//------------ Uncoment to plot RF and QTF score for  ---------------
+		//------------ Uncoment to plot RF and QTF score for ipc def. ---------------
 
 		HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid);
 		
@@ -125,15 +143,15 @@ public class GetDocFrequency {
 		ArrayList<String> ipcdefs = def.GetIpcDefWords(queryfile);
 		System.out.println(ipcdefs.size()+ " " + ipcdefs);
 
-		System.out.println("word\tRFscore  \tQTFscore");
+		System.out.println("word\tRFscore  \tDFscore  \tQTFscore");
 		for(String term : ipcdefs){
 //		for( Entry<String, Float> rftspair : rf_tspairs.entrySet()){
 //			String term = rftspair.getKey();
 //			Float rf_score = rftspair.getValue();
 //			if(query_terms.containsKey(term) || rf_tspairs_hash.containsKey(term)){
 			if(rf_tspairs_hash.containsKey(term)){
-				System.out.println(term + "\t" + rf_tspairs_hash.get(term) + "\t" + query_terms.get(term));
-				ps.println(/*term + "\t" + */rf_tspairs_hash.get(term) + "\t" + query_terms.get(term));
+				System.out.println(term + "\t" + rf_tspairs_hash.get(term) + "\t" + df_tspairs.get(term) + "\t" + query_terms.get(term));
+				ps.println(/*term + "\t" + */rf_tspairs_hash.get(term) + "\t" + df_tspairs.get(term) + "\t" + query_terms.get(term));
 //			}else {
 //				System.out.println(term + "\t" + "0" + "\t" + "0");
 ////				ps.println(term + "\t" + "0" + "\t" + "0");
