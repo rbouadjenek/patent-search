@@ -556,6 +556,17 @@ key "Magdy2012"
  contrast to scientific and technical writers, patent writers tend to generalize
  and maximize the scope of what is protected
 \color red
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
  
 \color inherit
 by a patent and potentially discourage further innovation by third parties,
@@ -983,23 +994,24 @@ What parts of a patent application should a patent inventor write first
  writing effort vs.
  the retrieval performance of querying with that section? We assume the
  writing effort to be a function of word number.
+ 
 \end_layout
 
 \begin_layout Itemize
-In query expansion, which patent section is the better source for term expansion
-? 
+In query expansion, which patent section is the best source for term expansion?
+ 
 \begin_inset ERT
 status collapsed
 
 \begin_layout Plain Layout
 
 %do any sections of patents serve as better sources of expansion terms?
- 
+  Which expansion methods work best, and in which settings? 
 \end_layout
 
 \end_inset
 
-Which expansion methods work best, and in which settings? 
+
 \end_layout
 
 \begin_layout Itemize
@@ -1246,8 +1258,8 @@ key "Magdy2010a"
  from the original query.
  The removed terms have been sorted in the order of decreasing PRES.
  We can observe that there are ten terms (highlighted in boldface) that
- if they are (individually) removed from the query, we increase PRES of
- the original long query.
+ if they are (individually) removed from the query, the PRES of the original
+ long query increased.
 \end_layout
 
 \begin_layout Standard
@@ -3475,12 +3487,12 @@ status collapsed
 
 \begin_layout Plain Layout
 
-%one can think to reduce a patent query as follows:
+%one can think to reduce a patent query as follows:(i)
 \end_layout
 
 \end_inset
 
-(i) For each patent application, take the definitions of the IPC codes which
+For each patent application, take the definitions of the IPC codes which
  are associated to it.
  Then, (ii) rank the terms of the query according to the difference in their
  frequency in the query and their frequency in the class code definition.
@@ -3621,6 +3633,7 @@ key "Lopez2009,Roda2009"
  and found to yield best results in our experiments, we used the patent
  classification (IPC) codes assigned to the query topics to filter search
  results to match at least one of the query IPC codes.
+ 
 \end_layout
 
 \end_inset
@@ -7026,7 +7039,7 @@ ref{fig:qDescription-PRES-CLEF-IP2010}).
 
 \end_inset
 
- We attribute this to the fact that the description section has more content
+We attribute this to the fact that the description section has more content
  along with relevant terms that define the invention since a detailed summary
  of the invention is described therein.
  
@@ -7056,18 +7069,7 @@ status collapsed
 
 \begin_layout Plain Layout
 
-% (see Figure
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%
+% (see Figure%
 \backslash
 ref{fig:qDescription-MAP-CLEF-IP2010} and Figure %
 \backslash
@@ -7085,6 +7087,7 @@ As for query expansion, MMRQE is less effective than Rocchio for short queries
  comparative results for the medium length queries (i.e., abstract) and long
  query (i.e., description ).
  This suggests diverse term selection may be helpful for long queries.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -7300,6 +7303,7 @@ The best performing QR methods show benefits vs.
 \begin_layout Enumerate
 The term selection methods that provide the best performance are, in general,
  MMRQR followed by RocchioQR.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -7331,38 +7335,6 @@ reference "fig:PRES-CLEF2010"
  MAP and PRES comes from a description query with a generic (non-patent
  specific) QR method.
  
-\end_layout
-
-\begin_layout Standard
-Finally, to give an insight of the effect of MMRQR and LMQR over the performance
-, Table 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tbl:QRSampleQueries"
-
-\end_inset
-
- shows some queries where QR methods are helpful.
- Terms in bold are terms removed by MMRQR, whereas terms underlined are
- terms removed by Rocchio.
- Terms removed by the two methods are both in bold and underlined.
- First, we notice that even there are common terms removed from the original
- queries by both MMRQR and LMQR, the terms removed by MMRQR tend to be similar
- between them (e.g., 
-\shape italic
-laser, light, interferometer
-\shape default
-, in 1-Topic), which favor retaining diverse relevant terms in the query.
- However, for the third topic, MMRQR removed the main terms from the query
- (
-\shape italic
-motor
-\shape default
-, and thermal 
-\shape italic
-load
-\shape default
-), which probably decreases the quality of the query.
 \end_layout
 
 \begin_layout Standard
@@ -7668,6 +7640,84 @@ name "fig:QR-PRES-CLEF-IP2010"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Finally, to give an insight of the effect of MMRQR and LMQR over the performance
+, Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tbl:QRSampleQueries"
+
+\end_inset
+
+ shows some queries where QR methods are helpful.
+ Terms in bold are terms removed by MMRQR, whereas terms underlined are
+ terms removed by Rocchio.
+ Terms removed by the two methods are both in bold and underlined.
+ First, we notice that even there are common terms removed from the original
+ queries by both MMRQR and LMQR, the terms removed by MMRQR tend to be similar
+ between them (e.g., 
+\shape italic
+laser, light, interferometer
+\shape default
+, in 1-Topic), which favor retaining diverse relevant terms in the query.
+ However, for the third topic, MMRQR removed the main terms from the query
+ (
+\shape italic
+motor
+\shape default
+, and thermal 
+\shape italic
+load
+\shape default
+), which probably decreases the quality of the query.
+\end_layout
+
+\begin_layout Section
+Related work
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:RelatedWork"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We believe the outlined patent-specific query reformulation methods described
+ in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:QueryReformulation"
+
+\end_inset
+
+ circumscribe a range of patent-specific approaches spanning synonym lexicons,
+ specially derived language models, and IPC code resources; hence our evaluation
+ supported the objective of identifying general query reformulation methods
+ from the novel perspective of partial patent application prior art search
+ that may be deserving of further investigation in future work.
+\end_layout
+
+\begin_layout Standard
+However, some more complex patent-specific methods have also been explored
+ for general patent prior art search.
+ The scenario of patent prior art search consists of manually form queries
+ by selecting high frequency terms from patent application.
+ Hence, in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Itoh2003"
+
+\end_inset
+
+, authors proposed a new term selection method using different term frequencies
+ depending on the genre in the NTCIR-3 Patent Retrieval Task.
 \end_layout
 
 \begin_layout Standard
@@ -7977,12 +8027,37 @@ name "fig:QR-PRES-CLEF-IP2011"
 \end_layout
 
 \begin_layout Standard
+Also, Xue and Croft 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Xue:2009:TPP:1571941.1572139"
+
+\end_inset
+
+ advocates the use of the full patent application as the query to reduce
+ the burden on patent examiners.
+ They conducted a series of experiments in order to examine the effect of
+ different patent fields, and concludes with the observation that the best
+ Mean Average Precision (MAP) is achieved using the text from the description
+ section of the query patent with raw term frequencies.
+ Also, Fuji 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Fujii:2007:EPR:1277741.1277912"
+
+\end_inset
+
+ showed that retrieval effectiveness can be improved by combining IR methods
+ with the result of citation extraction.
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Float table
 placement t
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10318,77 +10393,6 @@ PRES:
 
 \end_layout
 
-\begin_layout Section
-Related work
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:RelatedWork"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-We believe the outlined patent-specific query reformulation methods described
- in Section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:QueryReformulation"
-
-\end_inset
-
- circumscribe a range of patent-specific approaches spanning synonym lexicons,
- specially derived language models, and IPC code resources; hence our evaluation
- supported the objective of identifying general query reformulation methods
- from the novel perspective of partial patent application prior art search
- that may be deserving of further investigation in future work.
-\end_layout
-
-\begin_layout Standard
-However, some more complex patent-specific methods have also been explored
- for general patent prior art search.
- The scenario of patent prior art search consists of manually form queries
- by selecting high frequency terms from patent application.
- Hence, in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Itoh2003"
-
-\end_inset
-
-, authors proposed a new term selection method using different term frequencies
- depending on the genre in the NTCIR-3 Patent Retrieval Task.
-\end_layout
-
-\begin_layout Standard
-Also, Xue and Croft 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Xue:2009:TPP:1571941.1572139"
-
-\end_inset
-
- advocates the use of the full patent application as the query to reduce
- the burden on patent examiners.
- They conducted a series of experiments in order to examine the effect of
- different patent fields, and concludes with the observation that the best
- Mean Average Precision (MAP) is achieved using the text from the description
- section of the query patent with raw term frequencies.
- Also, Fuji 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Fujii:2007:EPR:1277741.1277912"
-
-\end_inset
-
- showed that retrieval effectiveness can be improved by combining IR methods
- with the result of citation extraction.
-\end_layout
-
 \begin_layout Standard
 Bashir et al.
  
@@ -10434,10 +10438,36 @@ c information, IPC classifications, and temporal features to improve the
  They used the link-based structure of the citation graph together with
  the term distribution of cited documents and built a query model from the
  citation graph.
- They used the publication dates associated with the patents to adapt the
- query model to the change of vocabulary over time.
+ They also used the publication dates associated with the patents to adapt
+ the query model to the change of vocabulary over time.
  The results showed the advantage of using the term distribution of the
  cited documents together with the publication dates.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahdabi:2014:ECA:2673721.2673730"
+
+\end_inset
+
+ authors propose to build a topic dependent citation graph, starting from
+ the initially retrieved set of feedback documents and utilizing citation
+ links of feedback documents to expand the set.
+ They identify the important documents in the topic dependent citation graph
+ using a citation analysis measure.
+ Then, they use the term distribution of the documents in the citation graph
+ to estimate a query model by identifying the distinguishing terms.
+ Then, they use these terms to expand the original query.
+ Finally, in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mahdabi:2014:QMC:2661829.2661899"
+
+\end_inset
+
+ authors propose a method based on a random walk in a network of patent
+ citations, to find influential documents in the citation network of a query
+ patent, which can serve as candidates for drawing query terms and bigrams
+ for query refinement.
 \end_layout
 
 \begin_layout Standard
@@ -10495,7 +10525,7 @@ name "sec:Conclusion"
 In this paper, we analyzed various query strategies for patent prior art
  search with partial (incomplete) applications along with generic and patent-spe
 cific query reformulation (expansion and reduction) methods.
- Hence in this scenario of partial patent application, we considered only
+ Hence, in this scenario of partial patent application, we considered only
  sections, which are more likely to be written by the inventor (i.e., the
  title, the abstract, the description section, and an extended abstract).
  We performed a comprehensive comparative evaluation of these methods on
@@ -10571,11 +10601,12 @@ In conclusion, we return to our initial objective to aid the patent inventor
  in identifying an effective pre-application prior art search strategy.
  Our evaluation reveals the critical insight that while querying with a
  full description, perhaps combined with generic query reduction methods,
- yields strong overall retrieval performance, querying with just an abstract
- or and extended abstract and using generic query reformulation methods
- may yield the best trade-off in terms of writing effort vs.
- retrieval performance.
- 
+ yields strong overall retrieval performance.
+ Nonetheless, we also find that querying with an abstract or an extended
+ abstract and using generic query reformulation methods represents the best
+ trade-off in terms of writing effort vs.
+ retrieval efficacy (i.e., querying with the description sections only lead
+ to marginal improvements).
 \end_layout
 
 \begin_layout Standard
@@ -10584,64 +10615,6 @@ Finally, we believe that future work should investigate whether QE methods
  description queries --- if such a result were possible, it would significantly
  reduce the effort required on behalf of the patent inventor to identify
  potentially invalidating prior art for a new patent idea.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%Future work should investigate whether QE methods for abstract queries
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%can rival the best methods for description queries --- if such a result
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%were possible, it would significantly reduce the effort required on
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%behalf of the patent inventor to identify potentially invalidating
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-%prior art for a new patent idea.
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
