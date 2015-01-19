@@ -25,9 +25,9 @@
 \contentsline {section}{\numberline {2.5}Summary}{7}{section.2.5}
 \contentsline {chapter}{\numberline {3}Baseline Framework}{9}{chapter.3}
 \contentsline {section}{\numberline {3.1}Test Collection}{9}{section.3.1}
-\contentsline {section}{\numberline {3.2}Data Curation Error Analysis}{9}{section.3.2}
+\contentsline {section}{\numberline {3.2}Data Curation Errors}{9}{section.3.2}
 \contentsline {section}{\numberline {3.3}IPC Filter Errors}{9}{section.3.3}
-\contentsline {section}{\numberline {3.4}Baseline}{9}{section.3.4}
+\contentsline {section}{\numberline {3.4}Baseline and Experimental Settings}{9}{section.3.4}
 \contentsline {section}{\numberline {3.5}Evaluation Metrics}{9}{section.3.5}
 \contentsline {chapter}{\numberline {4}Term Analysis}{11}{chapter.4}
 \contentsline {section}{\numberline {4.1}Term Mismatch}{11}{section.4.1}
