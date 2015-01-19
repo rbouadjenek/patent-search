@@ -1,0 +1,34 @@
+\BOOKMARK [0][-]{chapter*.1}{Acknowledgments}{}% 1
+\BOOKMARK [0][-]{chapter*.2}{Abstract}{}% 2
+\BOOKMARK [0][-]{tocmark.0}{Contents}{}% 3
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 4
+\BOOKMARK [1][-]{section.1.1}{Thesis Statement}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Introduction}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.3}{Thesis Outline}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{background}{}% 8
+\BOOKMARK [0][-]{chapter.3}{Baseline Framework}{}% 9
+\BOOKMARK [1][-]{section.3.1}{Test Collection}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.2}{Data Curation Error Analysis}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.3}{IPC Filter Errors}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.4}{Baseline}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.5}{Evaluation Metrics}{chapter.3}% 14
+\BOOKMARK [0][-]{chapter.4}{Term Analysis}{}% 15
+\BOOKMARK [1][-]{section.4.1}{Term Matching between Query and Relevant Patents}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.2}{Relevance Feedback}{chapter.4}% 17
+\BOOKMARK [2][-]{subsection.4.2.1}{Discriminative Words}{section.4.2}% 18
+\BOOKMARK [2][-]{subsection.4.2.2}{RF Optimal Query Formulation}{section.4.2}% 19
+\BOOKMARK [2][-]{subsection.4.2.3}{Query Reduction Using RF}{section.4.2}% 20
+\BOOKMARK [1][-]{section.4.3}{Pseudo Relevance Feedback}{chapter.4}% 21
+\BOOKMARK [2][-]{subsection.4.3.1}{PRF Query}{section.4.3}% 22
+\BOOKMARK [2][-]{subsection.4.3.2}{Query Reduction Using RF}{section.4.3}% 23
+\BOOKMARK [1][-]{section.4.4}{Section-based Analysis}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.5}{Noisy words}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.5.1}{Document Frequent Words}{section.4.5}% 26
+\BOOKMARK [2][-]{subsection.4.5.2}{IPC Code Definition}{section.4.5}% 27
+\BOOKMARK [1][-]{section.4.6}{Summary}{chapter.4}% 28
+\BOOKMARK [0][-]{chapter.5}{Improve the Performance by Users' Minimum Efforts}{}% 29
+\BOOKMARK [0][-]{chapter.6}{Conclusions}{}% 30
+\BOOKMARK [1][-]{section.6.1}{Overview}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.2}{Summary}{chapter.6}% 32
+\BOOKMARK [1][-]{section.6.3}{Contributions}{chapter.6}% 33
+\BOOKMARK [1][-]{section.6.4}{Future Work}{chapter.6}% 34

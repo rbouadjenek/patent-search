@@ -1,0 +1,560 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  21 NOV 2013 10:06
+entering extended mode
+ restricted \write18 enabled.
+ Source specials enabled.
+ %&-line parsing enabled.
+**document.tex
+(./document.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
+lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
+welsh, loaded.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip43
+\bibsep=\skip44
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count87
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count88
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+\epsfxsize=\dimen105
+\epsfysize=\dimen106
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip45
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks15
+\ex@=\dimen107
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen108
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen109
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks16
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks17
+\eqnshift@=\dimen110
+\alignsep@=\dimen111
+\tagshift@=\dimen112
+\tagwidth@=\dimen113
+\totwidth@=\dimen114
+\lineht@=\dimen115
+\@envbody=\toks18
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(./document.aux)
+\openout1 = `document.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 44.
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+) (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count101
+\scratchdimen=\dimen116
+\scratchbox=\box28
+\nofMPsegments=\count102
+\nofMParguments=\count103
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count104
+\MPscratchDim=\dimen117
+\MPnumerator=\count105
+\makeMPintoPDFobject=\count106
+\everyMPtoPDFconversion=\toks21
+) (/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 47.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 47.
+
+[1
+
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 50.
+
+(./abstract.tex) [2]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 55.
+ (./document.toc
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
+)
+\tf@toc=\write3
+\openout3 = `document.toc'.
+
+ [3] (./intro.tex
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 16.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
+
+Overfull \hbox (23.57512pt too wide) in paragraph at lines 21--24
+[][]\OT1/ptm/b/n/12 E-Commerce \OT1/ptm/m/n/12 : On-line E-Commerce sites like 
+Ama-zon [Lin-den et al., 2003], eBay [Zhang
+ []
+
+[1
+
+]) (./background.tex [2] [3]
+Overfull \hbox (0.40436pt too wide) in paragraph at lines 76--82
+[][]\OT1/ptm/m/it/12 Implicit \OT1/ptm/m/n/12 bi-nary feed-backs are in-ferred 
+from user-item in-ter-ac-tion be-hav-ior rather
+ []
+
+[4] (./rec_class.tex [5] (./content_based.tex
+Missing character: There is no Õ in font ptmr7t!
+) (./CF.tex [6]
+(./neighborhood_detail.tex
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--19
+
+ []
+
+[7] [8] [9]) (./cf_detail.tex (./mf_detail.tex
+<images/MF.pdf, id=51, 682.55pt x 248.93pt>
+File: images/MF.pdf Graphic file (type pdf)
+ <use images/MF.pdf>
+Package pdftex.def Info: images/MF.pdf used on input line 12.
+(pdftex.def)             Requested size: 341.43306pt x 124.52545pt.
+ [10 <./images/MF.pdf>]
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 37--49
+[]
+ []
+
+
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 57--66
+[]
+ []
+
+[11] [12] [13]) (./rbm_detail.tex [14]
+<images/RBM.pdf, id=133, 255.90997pt x 119.87735pt>
+File: images/RBM.pdf Graphic file (type pdf)
+ <use images/RBM.pdf>
+Package pdftex.def Info: images/RBM.pdf used on input line 35.
+(pdftex.def)             Requested size: 341.43306pt x 159.93971pt.
+
+[15]))) (./scf_detail.tex
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+ [16 <./images/RBM.pdf>] [17] [18]
+Overfull \hbox (2.4794pt too wide) in paragraph at lines 80--85
+\OT1/ptm/m/n/12 ex-ploit feature-based sim-i-lar-ity, learn user-to-user in-for
+-ma-tion dif-fu-sion and co-preferences. 
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 147--154
+
+ []
+
+[20])) (./cold_start.tex [21])) (./direction.tex (./socialFuture.tex [22])
+(./extMF.tex [23]
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 63--65
+[] 
+ []
+
+
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 71--73
+[] 
+ []
+
+) (./realtime_reco.tex) [24] (./deepReco.tex
+<images/RBMNEW.pdf, id=4905, 578.16pt x 242.9075pt>
+File: images/RBMNEW.pdf Graphic file (type pdf)
+ <use images/RBMNEW.pdf>
+Package pdftex.def Info: images/RBMNEW.pdf used on input line 53.
+(pdftex.def)             Requested size: 284.52756pt x 119.54091pt.
+
+[25 <./images/RBMNEW.pdf>]) (./soc_neighbor.tex) (./ltor.tex [26]) [27]
+(./largeRecommendation.tex)) (./logistics.tex [28]) (./conclusion.tex)
+(./document.bbl
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 21.
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [29]
+Underfull \hbox (badness 1389) in paragraph at lines 79--85
+[][]\OT1/ptm/m/n/10 S. Brin and L. Page.  The anatomy of a large-scale hy-per-t
+ex-tual web search en-gine.  In \OT1/ptm/m/it/10 Pro-
+ []
+
+
+Underfull \hbox (badness 1057) in paragraph at lines 79--85
+\OT1/ptm/m/n/10 Am-s-ter-dam, The Nether-lands, The Nether-lands, 1998. El-se-v
+ier Sci-ence Pub-lish-ers B. V.  URL
+ []
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 108--116
+[][]\OT1/ptm/m/n/10 J. David-son, B. Liebald, J. Liu, P. Nandy, T. Van Vleet, U
+. Gargi, S. Gupta, Y. He, M. Lam-
+ []
+
+[30]
+Underfull \hbox (badness 1137) in paragraph at lines 118--126
+\OT1/ptm/m/n/10 York, NY, USA, 2005. ACM.  ISBN 1-59593-140-6.  doi: 10.1145/10
+99554.1099689.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--132
+[][]\OT1/ptm/m/n/10 S. Funk.  Net-flix up-date: Try this at home.  2006.  URL
+ []
+
+
+Underfull \hbox (badness 2469) in paragraph at lines 134--143
+[][]\OT1/ptm/m/n/10 R. Gemulla, E. Ni-jkamp, P. J. Haas, and Y. Sis-ma-nis.  La
+rge-scale ma-trix fac-tor-iza-tion with
+ []
+
+
+Underfull \hbox (badness 2865) in paragraph at lines 134--143
+\OT1/ptm/m/n/10 dis-tributed stochas-tic gra-di-ent de-scent.  In \OT1/ptm/m/it
+/10 Pro-ceed-ings of the 17th ACM SIGKDD in-ter-na-
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 134--143
+\OT1/ptm/m/n/10 NY, USA, 2011. ACM.  ISBN 978-1-4503-0813-7.  doi: 10.1145/2020
+408.2020426.  URL
+ []
+
+
+Underfull \hbox (badness 3168) in paragraph at lines 168--176
+[][]\OT1/ptm/m/n/10 P. Gupta, A. Goel, J. Lin, A. Sharma, D. Wang, and R. Zadeh
+.  Wtf: the who to fol-
+ []
+
+
+Underfull \hbox (badness 2027) in paragraph at lines 168--176
+\OT1/ptm/m/n/10 low ser-vice at twit-ter.  In \OT1/ptm/m/it/10 Pro-ceed-ings of
+ the 22nd in-ter-na-tional con-fer-ence on World Wide
+ []
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 168--176
+\OT1/ptm/m/it/10 Web\OT1/ptm/m/n/10 , WWW '13, pages 505--514, Re-pub-lic and C
+an-ton of Geneva, Switzer-land, 2013. In-ter-
+ []
+
+
+Underfull \hbox (badness 1275) in paragraph at lines 168--176
+\OT1/ptm/m/n/10 na-tional World Wide Web Con-fer-ences Steer-ing Com-mit-tee.  
+ISBN 978-1-4503-2035-1.  URL
+ []
+
+[31]
+Underfull \hbox (badness 2790) in paragraph at lines 248--256
+[][]\OT1/ptm/m/n/10 A. Karat-zoglou, X. Am-a-tri-ain, L. Bal-trunas, and N. Oli
+ver.  Mul-ti-verse rec-om-men-da-tion: n-
+ []
+
+
+Underfull \hbox (badness 3492) in paragraph at lines 248--256
+\OT1/ptm/m/n/10 dimensional ten-sor fac-tor-iza-tion for context-aware col-lab-
+o-ra-tive fil-ter-ing.  In \OT1/ptm/m/it/10 Pro-ceed-ings of
+ []
+
+
+Underfull \hbox (badness 2245) in paragraph at lines 248--256
+\OT1/ptm/m/it/10 the fourth ACM con-fer-ence on Rec-om-mender sys-tems\OT1/ptm/
+m/n/10 , Rec-Sys '10, pages 79--86, New York,
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 248--256
+\OT1/ptm/m/n/10 NY, USA, 2010. ACM.  ISBN 978-1-60558-906-0.  doi: 10.1145/1864
+708.1864727.  URL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--276
+[][]\OT1/ptm/m/n/10 Y. Ko-ren.  Col-lab-o-ra-tive fil-ter-ing with tem-po-ral d
+y-nam-ics.  \OT1/ptm/m/it/10 Com-mun. ACM\OT1/ptm/m/n/10 , 53(4):
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--276
+\OT1/ptm/m/n/10 89--97, Apr. 2010a.  ISSN 0001-0782.  doi: 10.1145/1721654.1721
+677.  URL
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 341--347
+[][]\OT1/ptm/m/n/10 W.-J. Li and D.-Y. Ye-ung.  Re-la-tion reg-u-lar-ized ma-tr
+ix fac-tor-iza-tion.  In \OT1/ptm/m/it/10 Pro-ceed-
+ []
+
+
+Underfull \hbox (badness 8151) in paragraph at lines 341--347
+\OT1/ptm/m/it/10 ings of the 21st in-ter-na-tional jont con-fer-ence on Ar-tif-
+i-cal in-tel-li-gence\OT1/ptm/m/n/10 , IJ-CAI'09, pages
+ []
+
+
+Underfull \hbox (badness 7379) in paragraph at lines 341--347
+\OT1/ptm/m/n/10 1126--1131, San Fran-cisco, CA, USA, 2009. Mor-gan Kauf-mann Pu
+b-lish-ers Inc.  URL
+ []
+
+[33]
+Underfull \hbox (badness 1014) in paragraph at lines 439--447
+[][]\OT1/ptm/m/n/10 A. Narayanan and V. Shmatikov.  De-anonymizing so-cial net-
+works.  In \OT1/ptm/m/it/10 Pro-ceed-ings of the 2009
+ []
+
+
+Underfull \hbox (badness 1681) in paragraph at lines 439--447
+\OT1/ptm/m/n/10 2009. IEEE Com-puter So-ci-ety.  ISBN 978-0-7695-3633-0.  doi: 
+10.1109/SP.2009.22.  URL
+ []
+
+[34]
+Underfull \hbox (badness 1112) in paragraph at lines 470--476
+[][]\OT1/ptm/m/n/10 M. J. Paz-zani and D. Bill-sus.  The adap-tive web.  chap-t
+er Content-based Rec-om-men-da-tion Sys-
+ []
+
+
+Underfull \hbox (badness 5431) in paragraph at lines 514--521
+[][]\OT1/ptm/m/n/10 S. Ren-dle.  Fac-tor-iza-tion ma-chines with libfm.  \OT1/p
+tm/m/it/10 ACM Trans. In-tell. Syst. Tech-nol.\OT1/ptm/m/n/10 , 3(3):
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--521
+\OT1/ptm/m/n/10 57:1--57:22, May 2012.  ISSN 2157-6904.  doi: 10.1145/2168752.2
+168771.  URL
+ []
+
+[35] [36]
+Underfull \hbox (badness 1824) in paragraph at lines 644--652
+[][]\OT1/ptm/m/n/10 Y. Shi, A. Karat-zoglou, L. Bal-trunas, M. Lar-son, N. Oliv
+er, and A. Han-jalic.  Climf: learn-
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 644--652
+\OT1/ptm/m/n/10 ing to max-i-mize re-cip-ro-cal rank with col-lab-o-ra-tive les
+s-is-more fil-ter-ing.  In \OT1/ptm/m/it/10 Pro-ceed-ings of
+ []
+
+
+Underfull \hbox (badness 1735) in paragraph at lines 644--652
+\OT1/ptm/m/it/10 the sixth ACM con-fer-ence on Rec-om-mender sys-tems\OT1/ptm/m
+/n/10 , Rec-Sys '12, pages 139--146, New York,
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 644--652
+\OT1/ptm/m/n/10 NY, USA, 2012. ACM.  ISBN 978-1-4503-1270-7.  doi: 10.1145/2365
+952.2365981.  URL
+ []
+
+[37] [38]) [39] (./document.aux) ) 
+Here is how much of TeX's memory you used:
+ 2979 strings out of 493488
+ 41483 string characters out of 3141326
+ 101901 words of memory out of 3000000
+ 6165 multiletter control sequences out of 15000+200000
+ 35433 words of font info for 69 fonts, out of 3000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,14n,23p,316b,403s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2012/texmf-dist/fonts/enc
+/dvips/base/8r.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmex10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfon
+ts/cmextra/cmex8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+6.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.p
+fb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/t
+exlive/2012/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/201
+2/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2012/texmf-di
+st/fonts/type1/urw/times/utmri8a.pfb>
+Output written on document.pdf (42 pages, 1427274 bytes).
+PDF statistics:
+ 5202 PDF objects out of 6186 (max. 8388607)
+ 2659 compressed objects within 27 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+
