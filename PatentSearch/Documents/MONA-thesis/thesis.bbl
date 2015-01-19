@@ -1,0 +1,129 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Arampatzis et~al.(2007)Arampatzis, Kamps, Koolen, and
+  Nussbaum}]{arampatzis2007access}
+\textsc{Arampatzis, A.; Kamps, J.; Koolen, M.; and Nussbaum, N.}, 2007.
+\newblock Access to legal documents: Exact match, best match, and combinations.
+\newblock  (2007).
+
+\bibitem[{Fujii et~al.(2004)Fujii, Iwayama, and Kando}]{fujii2004overview}
+\textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2004.
+\newblock Overview of patent retrieval task at ntcir-4.
+\newblock In \emph{Proceedings of the Fourth NTCIR Workshop on Research in
+  Information Access Technologies Information Retrieval, Question Answering and
+  Summarization}, 232--241.
+
+\bibitem[{Fujii et~al.(2007)Fujii, Iwayama, and Kando}]{fujii2007overview}
+\textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2007.
+\newblock Overview of the patent retrieval task at the ntcir-6 workshop.
+\newblock In \emph{Proceedings of the Sixth NTCIR Workshop Meeting}, 359--365.
+
+\bibitem[{Iwayama et~al.(2003)Iwayama, Fujii, Kando, and
+  Takano}]{iwayama2003overview}
+\textsc{Iwayama, M.; Fujii, A.; Kando, N.; and Takano, A.}, 2003.
+\newblock Overview of patent retrieval task at ntcir-3.
+\newblock In \emph{Proceedings of the ACL-2003 workshop on Patent corpus
+  processing-Volume 20}, 24--32. Association for Computational Linguistics.
+
+\bibitem[{Joho et~al.(2010)Joho, Azzopardi, and
+  Vanderbauwhede}]{joho2010survey}
+\textsc{Joho, H.; Azzopardi, L.~A.; and Vanderbauwhede, W.}, 2010.
+\newblock A survey of patent users: an analysis of tasks, behavior, search
+  functionality and system requirements.
+\newblock In \emph{Proceedings of the third symposium on Information
+  interaction in context}, 13--24. ACM.
+
+\bibitem[{Leong(2001)}]{leong2001patent}
+\textsc{Leong, M.}, 2001.
+\newblock Patent data for ir research and evaluation.
+\newblock In \emph{Proceedings of the 2nd NTCIR Workshop Meeting on Evaluation
+  of Information Access Technologies: Information Retrieval, Question Answering
+  and Cross-lingual Information Access, Tokyo, Japan}, 359--365.
+
+\bibitem[{Lieberman and Hewitt(1983)}]{LH:83}
+\textsc{Lieberman, H. and Hewitt, C.}, 1983.
+\newblock A real-time garbage collector based on the lifetimes of objects.
+\newblock \emph{Communications of the ACM}, 26, 6  (Jun. 1983), 419--429.
+\newblock \doi{10.1145/358141.358147}.
+
+\bibitem[{Lupu et~al.(2013)Lupu, Hanbury et~al.}]{lupu2013patent}
+\textsc{Lupu, M.; Hanbury, A.; et~al.}, 2013.
+\newblock Patent retrieval.
+\newblock \emph{Foundations and Trends in Information Retrieval}, 7, 1  (2013),
+  1--97.
+
+\bibitem[{Magdy and Jones(2010)}]{magdy2010pres}
+\textsc{Magdy, W. and Jones, G.~J.}, 2010.
+\newblock Pres: a score metric for evaluating recall-oriented information
+  retrieval applications.
+\newblock In \emph{Proceedings of the 33rd international ACM SIGIR conference
+  on Research and development in information retrieval}, 611--618. ACM.
+
+\bibitem[{Magdy and Jones(2011)}]{magdy2011study}
+\textsc{Magdy, W. and Jones, G.~J.}, 2011.
+\newblock A study on query expansion methods for patent retrieval.
+\newblock In \emph{Proceedings of the 4th workshop on Patent information
+  retrieval}, 19--24. ACM.
+
+\bibitem[{Magdy et~al.(2010)Magdy, Leveling, and Jones}]{magdy2010exploring}
+\textsc{Magdy, W.; Leveling, J.; and Jones, G.~J.}, 2010.
+\newblock Exploring structured documents and query formulation techniques for
+  patent retrieval.
+\newblock In \emph{Multilingual Information Access Evaluation I. Text Retrieval
+  Experiments}, 410--417. Springer.
+
+\bibitem[{Moon(1984)}]{Moon:84}
+\textsc{Moon, D.~A.}, 1984.
+\newblock Garbage collection in a large {LISP} system.
+\newblock In  LFP '84: \emph{Proceedings of the 1984 ACM Symposium on LISP and
+  Functional Programming} (Austin, Texas, USA, Aug. 1984), 235--246. ACM, New
+  York, New York, USA.
+\newblock \doi{10.1145/800055.802040}.
+
+\bibitem[{Piroi et~al.(2013{\natexlab{a}})Piroi, Lupu, and
+  Hanbury}]{piroi2013overview}
+\textsc{Piroi, F.; Lupu, M.; and Hanbury, A.}, 2013{\natexlab{a}}.
+\newblock Overview of clef-ip 2013 lab.
+\newblock In \emph{Information Access Evaluation. Multilinguality,
+  Multimodality, and Visualization}, 232--249. Springer.
+
+\bibitem[{Piroi et~al.(2013{\natexlab{b}})Piroi, Lupu, and
+  Hanbury}]{piroi2013passage}
+\textsc{Piroi, F.; Lupu, M.; and Hanbury, A.}, 2013{\natexlab{b}}.
+\newblock Passage retrieval starting from patent claims. a clef-ip 2013 task
+  overview.
+\newblock In \emph{CLEF (Online Working Notes/Labs/Workshop)}.
+
+\bibitem[{Piroi et~al.(2012)Piroi, Lupu, Hanbury, Sexton, Magdy, and
+  Filippov}]{DBLP:conf/clef/PiroiLHSMF12}
+\textsc{Piroi, F.; Lupu, M.; Hanbury, A.; Sexton, A.~P.; Magdy, W.; and
+  Filippov, I.~V.}, 2012.
+\newblock Clef-ip 2012: Retrieval experiments in the intellectual property
+  domain.
+\newblock In \emph{CLEF (Online Working Notes/Labs/Workshop)}.
+
+\bibitem[{Roda et~al.(2010)Roda, Tait, Piroi, and Zenz}]{roda2010clef}
+\textsc{Roda, G.; Tait, J.; Piroi, F.; and Zenz, V.}, 2010.
+\newblock Clef-ip 2009: retrieval experiments in the intellectual property
+  domain.
+\newblock In \emph{Multilingual Information Access Evaluation I. Text Retrieval
+  Experiments}, 385--409. Springer.
+
+\bibitem[{Ungar(1984)}]{Ungar:84}
+\textsc{Ungar, D.}, 1984.
+\newblock Generation scavenging: A non-disruptive high performance storage
+  reclamation algorithm.
+\newblock In  SDE 1: \emph{Proceedings of the 1st ACM SIGSOFT/SIGPLAN Software
+  Engineering Symposium on Practical Software Development Environments}
+  (Pittsburgh, Pennsylvania, USA, Apr. 1984), 157--167. ACM, New York, New
+  York, USA.
+\newblock \doi{10.1145/800020.808261}.
+
+\end{thebibliography}
