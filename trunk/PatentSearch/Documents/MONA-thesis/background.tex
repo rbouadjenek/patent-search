@@ -1,5 +1,113 @@
 \chapter{Background and Related Work}
 \label{cha:background}
+
+
+\section{General Information Retrieval (IR)}
+In general, an information retrieval system assists users in finding the information they need, Fig. \ref{fig:generalir} illustrates the general IR process. First, a repository of indexed documents is created from a collection of documents to be searched for. Users formulate the information they need as a query. In the matching process, the query and documents representations are compared and the result would be a ranked list of documents.  
+\begin{figure}[htpb]
+   \centering
+   \includegraphics[width=.60\textwidth,height=50mm]{figs/generalIR.jpg}
+   \caption{Simple illustration of the process in a general IR system.}  
+   \label{fig:generalir} 
+\end{figure}
+\FloatBarrier 
+
+\subsection{Retrieval Models}
+\label{subsub:retmodels}
+%\input{ret-models}
+
+
+\subsection{The Study of Retrievablity}
+%\input{retrievability}
+\label{subsub:retrievability}
+
+\subsection{Query Expansion (QE)}
+%\input{query_exp}
+
+\subsection{Query Reduction (QR)}
+%\input{query_reduc}
+%\subsubsection{Query Reformulation}
+%\input{query_reform}
+
+\subsection{IR Evaluation Metrics}
+%\input{metrics}
+
+%------------------- Patent-specific IR ---------------------
+
+\section{Patent-specific IR}
+\label{subsec:patentir}
+
+\subsection{The Study of Retrievablity for patents}
+%\input{retrievability-p}
+
+\subsection{Query Formulation}
+%\input{query_formul-p}
+
+\subsection{Query Expansion for Patents}
+%\input{query-exp-p}
+
+\subsection{Query Reduction for Patents}
+%\input{query-reduc-p}
+
+%\subsubsection{Query Reformulation for Patents}
+%\input{query-reform-p}
+
+\subsection{The Use of Metadata}
+%\input{metadata}
+\label{sec:metadata}
+
+\subsection{Multilinguality}
+%\input{multilinguality}
+
+\subsection{Multi-stage Retrieval}
+It is common to use patent meta-data and non-textual features as pre and post processing steps of text-based retrieval techniques~\citep{lopez2009multiple}. Many patent retrieval tasks re-rank the top retrieved documents from initial retrieval stage based on additional patent feature ~\citep{lopez2010experiments}, claim structure ~\citep{mase2005proposal}, and considering IPC information of patent and its neighbours to retrieve similar patents~\citep{verma2011exploring}. 
+
+\subsection{Evaluation Metrics for Patent Retrieval}
+%\input{metrics-p}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 At the begging of each chapter, please introduce the motivation and high-level
 picture of the chapter. You also have to introduce sections in the
 chapter. \\
