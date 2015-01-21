@@ -113,6 +113,7 @@ public class IpcDefinition {
 		
 		ArrayList<String> finalwords = new ArrayList<>();
 		finalwords.addAll(ipcdefs); 
+		System.out.println(queryfile);
 		System.out.println(ipcdefs.size()+ " " + ipcdefs);		 
 	}
 
