@@ -82,7 +82,8 @@ public class Test {
 //            System.out.println(title1);
                         
 //            System.out.println(i+"- "+doc.get(PatentDocument.Classification)+"\t"+doc.get(PatentDocument.Title));
-            if(code.length()>11){System.out.println(i+"- "+ code +"\t"+ title);
+//            if(code.length()>11){
+            System.out.println(i+"- "+ code +"\t"+ title);
             TokenStream ts = analyzer.tokenStream(PatentDocument.Title, title);
             String q = "";
             CharTermAttribute charTermAttribute = ts.addAttribute(CharTermAttribute.class);
@@ -99,7 +100,7 @@ public class Test {
             ts.close();
             System.err.println(q);           
             System.out.println(m);
-            }
+//            }
 //            System.out.println(code.length());
         }
         System.out.println(m.size() + " " + m);
