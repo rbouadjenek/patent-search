@@ -1,15 +1,5 @@
 \begin{thebibliography}{1}
 
-@inproceedings{joho2010survey,
-  title={A survey of patent users: an analysis of tasks, behavior, search functionality and system requirements},
-  author={Joho, Hideo and Azzopardi, Leif A and Vanderbauwhede, Wim},
-  booktitle={Proceedings of the third symposium on Information interaction in context},
-  pages={13--24},
-  year={2010},
-  organization={ACM}
-}
-
-
 \bibitem{bowman:reasoning}
 M.~Bowman, S.~K. Debray, and L.~L. Peterson.
 \newblock Reasoning about naming systems.
@@ -31,6 +21,13 @@ M.~Clark.
 M.~Herlihy.
 \newblock A methodology for implementing highly concurrent data objects.
 \newblock {\em ACM Trans. Program. Lang. Syst.}, 15(5):745--770, November 1993.
+
+\bibitem{joho2010survey}
+H.~Joho, L.~A. Azzopardi, and W.~Vanderbauwhede.
+\newblock A survey of patent users: an analysis of tasks, behavior, search
+  functionality and system requirements.
+\newblock In {\em Proceedings of the third symposium on Information interaction
+  in context}, pages 13--24. ACM, 2010.
 
 \bibitem{Lamport:LaTeX}
 L.~Lamport.
