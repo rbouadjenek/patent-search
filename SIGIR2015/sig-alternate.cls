@@ -49,6 +49,15 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+
+
+%\usepackage{subcaption}
+%\usepackage{subfig}
+\usepackage{booktabs}
+\newcommand{\bftab}{\fontseries{b}\selectfont}
+
+%\usepackage{booktabs}
+
 % Need this for accents in Arial/Helvetica
 %\usepackage[T1]{fontenc}  % Gerry March 12, 2007 - causes Type 3 problems (body text)
 %\usepackage{textcomp}
