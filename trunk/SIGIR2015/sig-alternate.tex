@@ -107,12 +107,12 @@
 % e-mail address with \email.
 %
 % 1st. author
-%\alignauthor
-%Ben Trovato\titlenote{Dr.~Trovato insisted his name be first.}\\
-%       \affaddr{Institute for Clarity in Documentation}\\
-%       \affaddr{1932 Wallamaloo Lane}\\
-%       \affaddr{Wallamaloo, New Zealand}\\
-%       \email{trovato@corporation.com}
+\alignauthor
+XXXX YYYYYYYY\\%\titlenote{Dr.~Trovato insisted his name be first.}\\
+       \affaddr{Institute for Clarity in Documentation}\\
+       \affaddr{1932 Wallamaloo Lane}\\
+       \affaddr{Wallamaloo, New Zealand}\\
+       \email{trovato@corporation.com}
 % 2nd. author
 %\alignauthor
 %G.K.M. Tobin\titlenote{The secretary disavows
@@ -204,7 +204,7 @@ We hypothesize that a query formulated by {\em useful terms} is optimal since th
   \end{center}  
 \end{table}
 
-It can be seen that `MAP' jumps from 0.1618 to \textbf{0.5075} which is about \%35 increase. We use a score threshold($\tau$) to formulate the RF query(we select the terms with $ score(t)>\tau $). Fig. 1-a indicates two important facts. First, it shows that increasing the threshold results in the lower performance. Second, the system is over-sensitive to the {\em noisy words}($ \tau<0 $).  Fig. 1-b shows that formulating a query with up to 200 {\em useful words} helps performance whereas the performance improves slightly by adding more than 200 words. 
+It can be seen that `MAP' jumps from 0.1618 to \textbf{0.5075} which is about \%35 increase. We use a score threshold($\tau$) to formulate the RF query(we select the terms with $ score(t)>\tau $). Fig. (1-a) indicates two important facts. First, it shows that increasing the threshold results in the lower performance. Second, the system is over-sensitive to the {\em noisy words}($ \tau<0 $).  Fig. (1-b) shows that formulating a query with up to 200 {\em useful words} helps performance whereas the performance improves slightly by adding more than 200 words. 
 %Fig. 1 indicates how the score threshold and the query size control the performance. 
 
 %\begin{figure}[htpb]
@@ -213,65 +213,93 @@ It can be seen that `MAP' jumps from 0.1618 to \textbf{0.5075} which is about \%
 %\caption{A sample black and white graphic (.eps format).}
 %\end{figure}
 
-\begin{figure}[htpb]
+\begin{figure*}[htpb]
 \begin{center}
-\noindent\begin{minipage}[b]{0.5\linewidth}
+\noindent\begin{minipage}[b]{0.3\linewidth}
 \includegraphics[width=\linewidth]{figs/extended-optquery-tau.eps}
 \end{minipage}%
 \hfill
 %\hspace{7mm}
-\begin{minipage}[b]{0.5\linewidth}
+\begin{minipage}[b]{0.3\linewidth}
 \includegraphics[width=\linewidth]{figs/opt-query-qsize.eps}
 \end{minipage}
-\vspace{-3mm}\\
-(a) \hspace{30mm}(b)
+%\vspace{-3mm}\\
+%(a) \hspace{30mm}(b)\\
 \hfill
 %\hspace{7mm}
-\begin{minipage}[b]{0.5\linewidth}
-\includegraphics[width=\linewidth]{figs/opt-query-qsize.eps}
+\begin{minipage}[b]{0.3\linewidth}
+\includegraphics[width=\linewidth]{figs/opt-patentquery-tau.eps}
 \end{minipage}
-\vspace{-3mm}\\
-(c)
+\vspace{-0.5mm}\\
+ \hspace{2mm}(a) \hspace{55mm}(b) \hspace{58mm} (c)
 \caption{\footnotesize
 How score threshold($\tau$) and query size controls the performance.
-(a) Performance versus the score threshold. (b) Performance versus the query size.}
-\label{fig:mom2}
+(a) Performance versus the score threshold. (b) Performance versus the query size. (c) System performance when we reduced the query by RF: $ query = Q\cap (useful \; terms) $, where $ Q $ is the patent query and $ useful\; terms = \{t| score_{RF}(t)>\tau\} $.}
 \vspace{-4mm}
 \end{center}
 \label{fig:control}
-\end{figure}
-%\noindent\begin{minipage}[b]{.25\textwidth}
+\end{figure*}
+
+%\begin{figure}[htpb]
+%\begin{center}
+%\noindent\begin{minipage}[b]{0.5\linewidth}
 %\includegraphics[width=\linewidth]{figs/extended-optquery-tau.eps}
-%Some text.
 %\end{minipage}%
 %\hfill
-%\begin{minipage}[b]{.52\linewidth}
-%\includegraphics[width=\textwidth]{figs/opt-query-qsize.eps}
-%Some more text.
+%%\hspace{7mm}
+%\begin{minipage}[b]{0.5\linewidth}
+%\includegraphics[width=\linewidth]{figs/opt-query-qsize.eps}
 %\end{minipage}
-
+%\vspace{-3mm}\\
+%(a) \hspace{30mm}(b)\\
+%%\hfill
+%%\hspace{7mm}
+%\begin{minipage}[b]{0.5\linewidth}
+%\includegraphics[width=\linewidth]{figs/opt-patentquery-tau.eps}
+%\end{minipage}
+%\vspace{-3mm}\\
+%(c)
+%\caption{\footnotesize
+%How score threshold($\tau$) and query size controls the performance.
+%(a) Performance versus the score threshold. (b) Performance versus the query size. (c) System performance when we reduced the query by RF: $ query = Q\cap (useful \; terms) $, where $ Q $ is the patent query and $ useful\; terms = \{t| score_{RF}(t)>\tau\} $.}
+%\label{fig:mom2}
+%\vspace{-4mm}
+%\end{center}
+%\label{fig:control}
+%\end{figure}
 
 \subsubsection{Query Reduction by Relevance Feedback}
-\begin{figure}[htpb]
-   \centering
-   \includegraphics[width=0.50\textwidth,height=55mm]{figs/opt-patentquery-tau.eps}
-   \caption{Optimal patent query performance vs. score threshold of useful terms to select patent query terms. $ query = Q\cap (useful \; terms) $, where $ Q $ is the patent query and $ useful\; terms = \{t| score_{RF}(t)>\tau\} $..}   
-   \label{fig:optpatentquery} 
-\end{figure}
+Our experiments led us to another hypothesis that a patent query contains sufficient words matched with the relevant patents and the {\em noisy words} are the main cause of the low effectiveness. Therefore, we use RF {\em useful terms} to reduce the patent query terms by selecting terms such that: $ t \in \{ Q\cap (useful \; terms)\} $. Fig. (1-c) explicitly shows that a patent query contains sufficient words to retrieve relevant patents at top of the list. We only need to keep the {\em useful terms} and prune out the {\em noisy words}.
 %\begin{figure}[htpb]
-%\centering
-%\epsfig{file=figs/extended-optquery-tau.eps, height=2in, width=3.1in}
-%\caption{A sample black and white graphic (.eps format).}
+%   \centering
+%   \includegraphics[width=0.3\textwidth,height=35mm]{figs/opt-patentquery-tau.eps}
+%   \caption{Optimal patent query performance vs. score threshold of useful terms to select patent query terms. $ query = Q\cap (useful \; terms) $, where $ Q $ is the patent query and $ useful\; terms = \{t| score_{RF}(t)>\tau\} $..}   
+%   \label{fig:optpatentquery} 
 %\end{figure}
-This result explicitly demonstrates that the {\em noisy words} are the main cause of  the low effectiveness not the insufficient term match. 
 
 \subsection{What did not Work}
+We achieved a high 'MAP' by relevance feedback, however, it will cost to have relevance feedback since our users are professional patent examiners and recognizing a relevant patent is a time-taking and demanding task. 
+\subsubsection{Identify the Noisy Words}
 
 \subsubsection{Pseudo Relevance Feedback}
 
-\subsubsection{Identify the Noisy Words}
 
 \subsection{Improvement by Minimum User Effort}
+We showed that our attempts to improve the effectiveness without using the relevance feedback did not work. In this experiment, we select query terms using only the first relevant patent document based on the hypothesis that it will take the minimum effort for the examiner to recognize the first relevant patent at top-5. 
+\begin{table}[htpb]
+  \begin{center}
+   \caption{System performance when only the first relevant patent used for query reduction.}
+  \input table/partialRFtermselect.tex   
+  \label{tab:firstrel}
+  \end{center}  
+\end{table}
+
+\begin{figure}[htpb]
+   \centering
+   \includegraphics[width=0.30\textwidth,height=30mm]{figs/FirstTPRank.eps}
+   \caption{The distribution of the first relevant document rank over test queries which have TPs}   
+   \label{fig:FirstTPRankHisto} 
+\end{figure}
 
 \section{Related Work}
 
