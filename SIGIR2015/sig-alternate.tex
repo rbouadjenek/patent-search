@@ -189,9 +189,9 @@ score(t,Q)=Rel(t)-Irr(t)
  \label{eq:score}
 \end{equation}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
-Where $ Rel(t) $ is the average term frequency in retrieved relevant patents and $ Irr(t) $ is the average term frequency in retrieved irrelevant patents. Words with a positive score consider {\em useful terms} since they are more frequent in relevant patents. 
+Where $ Rel(t) $ is the average term frequency in retrieved relevant patents and $ Irr(t) $ is the average term frequency in retrieved irrelevant patents. Words with a positive score consider {\em useful words} since they are more frequent in relevant patents while the words with negative score are {\em noisy words} as they appeared more frequently in irrelevant patents. 
 
-Surprisingly, we could not find any correlation between the percentage of {\em useful terms} and the performance. We expected a higher performance for the queries with more {\em useful terms}. 
+Surprisingly, we could not find any correlation between the percentage of {\em useful words} and the performance. We expected a higher performance for the queries with more {\em useful words}. 
 
 \subsubsection{Optimal RF\protect\footnote{Relevance Feedback} Query Formulation}
 We hypothesize that a query formulated by {\em useful terms} is optimal since they are all frequent in relevant patents and rare in irrelevant ones. Table \ref{tab:optquery} compares the performance for baseline where the query is the full patent query both weighted and unweighed with the performance for optimal RF query weighted with the score of each term(formula \ref{eq:score}) and unweighed. 
@@ -204,7 +204,8 @@ We hypothesize that a query formulated by {\em useful terms} is optimal since th
   \end{center}  
 \end{table}
 
-It can be seen that `MAP' jumps from 0.1618 to \textbf{0.5075} which is about \%35 increase. Fig. ... shows 
+It can be seen that `MAP' jumps from 0.1618 to \textbf{0.5075} which is about \%35 increase. We use a score threshold($\tau$) to formulate the RF query(we select the terms with $ score(t)>\tau $). Fig. 1-a indicates two important facts. First, it shows that increasing the threshold results in the lower performance. Second, the system is over-sensitive to the {\em noisy words}($ \tau<0 $).  Fig. 1-b shows that formulating a query with up to 200 {\em useful words} helps performance whereas the performance improves slightly by adding more than 200 words. 
+%Fig. 1 indicates how the score threshold and the query size control the performance. 
 
 %\begin{figure}[htpb]
 %\centering
@@ -212,95 +213,57 @@ It can be seen that `MAP' jumps from 0.1618 to \textbf{0.5075} which is about \%
 %\caption{A sample black and white graphic (.eps format).}
 %\end{figure}
 
-%\begin{figure}[htpb]
-%\begin{center}
-%\begin{minipage}{\linewidth/2}
-%%\begin{center}
-%%\vspace{-1mm}
-%%\quad
-%%\begin{subfigure}{0.19\linewidth}
-%\includegraphics[width=0.8\linewidth]{figs/extended-optquery-tau.eps}
-%%\\ \begin{center}(b)\end{center}%\caption{}
-%%\label{fig:mom0}
-%% \end{subfigure}%
-%\end{minipage}
+\begin{figure}[htpb]
+\begin{center}
+\noindent\begin{minipage}[b]{0.5\linewidth}
+\includegraphics[width=\linewidth]{figs/extended-optquery-tau.eps}
+\end{minipage}%
+\hfill
 %\hspace{7mm}
-%\begin{minipage}{\linewidth/2}
-%%\qquad
-%%\begin{subfigure}{0.52\linewidth}
-%\includegraphics[width=0.80\linewidth]{figs/opt-query-qsize.eps}
-%%\\ \begin{center}(b)\end{center}%\caption{}
-%%\label{fig:mom00}
-%% \end{subfigure}%
-%%\end{center}
+\begin{minipage}[b]{0.5\linewidth}
+\includegraphics[width=\linewidth]{figs/opt-query-qsize.eps}
+\end{minipage}
+\vspace{-3mm}\\
+(a) \hspace{30mm}(b)
+\hfill
+%\hspace{7mm}
+\begin{minipage}[b]{0.5\linewidth}
+\includegraphics[width=\linewidth]{figs/opt-query-qsize.eps}
+\end{minipage}
+\vspace{-3mm}\\
+(c)
+\caption{\footnotesize
+How score threshold($\tau$) and query size controls the performance.
+(a) Performance versus the score threshold. (b) Performance versus the query size.}
+\label{fig:mom2}
+\vspace{-4mm}
+\end{center}
+\label{fig:control}
+\end{figure}
+%\noindent\begin{minipage}[b]{.25\textwidth}
+%\includegraphics[width=\linewidth]{figs/extended-optquery-tau.eps}
+%Some text.
+%\end{minipage}%
+%\hfill
+%\begin{minipage}[b]{.52\linewidth}
+%\includegraphics[width=\textwidth]{figs/opt-query-qsize.eps}
+%Some more text.
 %\end{minipage}
-%\vspace{3mm}\\
-%(a) \hspace{30mm}(b)
-%%\vspace{-1mm}
-%\caption{\footnotesize
-%Collision of masses $M_1$ and $M_2$ with velocities $V_1$ and $V_2$ and momenta $P_1$ and $P_2$.
-%(a) Collision happens if and only if $V_1>V_2$. (b) Corresponding Bayesian network. The non-filled and filled Filled circles represent stochastic and deterministic random variables respectively.}
-%\label{fig:mom2}
-%\vspace{-4mm}
-%
-%\end{center}
-%\end{figure}
 
 
-\begin{figure}
-\centering
-\subfloat[]{\includegraphics[width=3.1in]{figs/extended-optquery-tau.eps}} 
-\subfloat[]{\includegraphics[width=3.1in]{figs/opt-query-qsize.eps}}
-\caption{Potential for 0.5 V bias.} 
-\label{fig:EcUND} 
-\end{figure} 
-
+\subsubsection{Query Reduction by Relevance Feedback}
+\begin{figure}[htpb]
+   \centering
+   \includegraphics[width=0.50\textwidth,height=55mm]{figs/opt-patentquery-tau.eps}
+   \caption{Optimal patent query performance vs. score threshold of useful terms to select patent query terms. $ query = Q\cap (useful \; terms) $, where $ Q $ is the patent query and $ useful\; terms = \{t| score_{RF}(t)>\tau\} $..}   
+   \label{fig:optpatentquery} 
+\end{figure}
 %\begin{figure}[htpb]
 %\centering
-%\begin{subfigure}[htpb]{.50\linewidth}
-%\centering
-%\includegraphics[width=1\textwidth,height=52mm]{figs/extended-optquery-tau.eps}
-%\caption{Optimal RF query performance versus the score threshold to select optimal query terms.}%
-%\label{fig:thresh1}
-%\end{subfigure}%
-%\centering
-%\begin{subfigure}[htpb]{.5\linewidth}
-%\centering
-%\includegraphics[width=1\textwidth,height=52mm]{figs/opt-query-qsize.eps}
-%\caption{Optimal RF query performance versus the query size.}
-%\label{fig:qsize}
-%\end{subfigure}\\[1ex]%
-%%\begin{subfigure}[htpb]{.5\linewidth}
-%%\centering
-%%\includegraphics[width=1\textwidth,height=52mm]{figs/greaterthan1-r.eps}
-%%\caption{Useful terms: $ score(t_{i})>1 $}
-%%\label{fig:greater1r}
-%%\end{subfigure}%
-%%\centering
-%%\begin{subfigure}[htpb]{.5\linewidth}
-%%\centering
-%%\includegraphics[width=1\textwidth,height=52mm]{figs/top100-r.eps}
-%%\caption{Useful terms: top 100 high-scored terms}
-%%\label{fig:top100r}
-%%\end{subfigure}\\[1ex]%
-%%\begin{subfigure}[htpb]{.5\linewidth}
-%%\centering
-%%\includegraphics[width=1\textwidth,height=52mm]{figs/greaterthan5-r.eps}
-%%\caption{Useful terms: $ score(t_{i})>5 $}
-%%\label{fig:greater1r}
-%%\end{subfigure}%
-%%\centering
-%%\begin{subfigure}[htpb]{.5\linewidth}
-%%\centering
-%%\includegraphics[width=1\textwidth,height=52mm]{figs/greaterthan10-r.eps}
-%%\caption{Useful terms: $ score(t_{i})>10 $}
-%%\label{fig:greater0r}
-%%\end{subfigure}
-%\caption{Comparing the optimal query performance versus the $score_{RF}$ threshold and query size(weight:1).}
-%\label{fig:querysizeandthreshold}
+%\epsfig{file=figs/extended-optquery-tau.eps, height=2in, width=3.1in}
+%\caption{A sample black and white graphic (.eps format).}
 %\end{figure}
-
-\subsubsection{Query Reduction by RF}
+This result explicitly demonstrates that the {\em noisy words} are the main cause of  the low effectiveness not the insufficient term match. 
 
 \subsection{What did not Work}
 
