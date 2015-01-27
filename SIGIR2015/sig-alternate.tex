@@ -55,7 +55,7 @@
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
-\title{ Facts behind the Words of a Patent Query
+\title{Patent Prior-art search Failure  Analysis
 %\titlenote{(Produces the permission block, and
 %copyright information). For use with
 %SIG-ALTERNATE.CLS. Supported by ACM.}
@@ -285,10 +285,10 @@ We achieved a high 'MAP' by relevance feedback, however, it will cost to have re
 
 
 \subsection{Improvement by Minimum User Effort}
-We showed that our attempts to improve the effectiveness without using the relevance feedback did not work. In this experiment, we select query terms using only the first relevant patent document based on the hypothesis that it will take the minimum effort for the examiner to recognize the first relevant patent at top-5. 
+We could not improve the effectiveness without accessing the relevance feedback. In this experiment, we select query terms using only the first relevant patent document based on the hypothesis that a patent examiner can recognize the first relevant patent with minimum effort at top-5.  Table \ref{tab:firstrel} shows that we can double the 'MAP' by using only the first-ranked relevant document.
 \begin{table}[htpb]
   \begin{center}
-   \caption{System performance when only the first relevant patent used for query reduction.}
+   \caption{System performance when only the first relevant patent used for query reduction. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved documents.}
   \input table/partialRFtermselect.tex   
   \label{tab:firstrel}
   \end{center}  
