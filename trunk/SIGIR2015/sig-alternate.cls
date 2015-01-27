@@ -50,7 +50,13 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 
+\usepackage{graphicx}
+% \usepackage{float}% not needed with `caption'
+%\usepackage{caption}
+%\usepackage{subcaption}
 
+%\usepackage{mwe}    % loads »blindtext« and »graphicx«
+% \usepackage{subfig}% not needed with `subcaption'
 %\usepackage{subcaption}
 %\usepackage{subfig}
 \usepackage{booktabs}
