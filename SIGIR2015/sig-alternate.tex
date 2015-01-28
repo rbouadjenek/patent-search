@@ -91,7 +91,7 @@
 % without further effort on your part as the last section in
 % the body of your article BEFORE References or any Appendices.
 
-%\numberofauthors{8} %  in this sample file, there are a *total*
+\numberofauthors{3} %  in this sample file, there are a *total*
 % of EIGHT authors. SIX appear on the 'first-page' (for formatting
 % reasons) and the remaining two appear in the \additionalauthors section.
 %
@@ -108,26 +108,26 @@
 %
 % 1st. author
 \alignauthor
-XXXX YYYYYYYY\\%\titlenote{Dr.~Trovato insisted his name be first.}\\
-       \affaddr{Institute for Clarity in Documentation}\\
-       \affaddr{1932 Wallamaloo Lane}\\
-       \affaddr{Wallamaloo, New Zealand}\\
-       \email{trovato@corporation.com}
+Sean Fogarty\\%\titlenote{Dr.~Trovato insisted his name be first.}\\
+       \affaddr{NICTA \& ANU}\\
+       \affaddr{Canberra, Australia}\\
+       %\affaddr{Wallamaloo, New Zealand}\\
+       \email{\scriptsize name.surname@nicta.com.au}
 % 2nd. author
-%\alignauthor
-%G.K.M. Tobin\titlenote{The secretary disavows
+\alignauthor
+G.K.M. Tobin\\%\titlenote{The secretary disavows
 %any knowledge of this author's actions.}\\
-%       \affaddr{Institute for Clarity in Documentation}\\
-%       \affaddr{P.O. Box 1212}\\
-%       \affaddr{Dublin, Ohio 43017-6221}\\
-%       \email{webmaster@marysville-ohio.com}
-%% 3rd. author
-%\alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
+       \affaddr{NICTA \& ANU}\\
+       \affaddr{Canberra, Australia}\\
+       %\affaddr{Dublin, Ohio 43017-6221}\\
+       \email{\scriptsize name.surname@nicta.com.au}
+% 3rd. author
+\alignauthor Lars Th{\o}rv{\"a}ld\\%\titlenote{This author is the
 %one who did all the really hard work.}\\
-%       \affaddr{The Th{\o}rv{\"a}ld Group}\\
-%       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
-%       \affaddr{Hekla, Iceland}\\
-%       \email{larst@affiliation.org}
+       \affaddr{NICTA \& ANU}\\
+       \affaddr{Canberra, Australia}\\
+      % \affaddr{Hekla, Iceland}\\
+       \email{\scriptsize name.surname@nicta.com.au}
 %\and  % use '\and' if you need 'another row' of author names
 % 4th. author
 %\alignauthor Lawrence P. Leipuner\\
@@ -278,8 +278,20 @@ Our experiments led us to another hypothesis that a patent query contains suffic
 %\end{figure}
 
 \subsection{What did not Work}
-We achieved a high 'MAP' by relevance feedback, however, it will cost to have relevance feedback since our users are professional patent examiners and recognizing a relevant patent is a time-taking and demanding task. 
+We achieved a high 'MAP' by relevance feedback, however, it will cost to have relevance feedback since our users are professional patent examiners and recognizing a relevant patent is a time-taking and demanding task. So, we tried ways to refine the best query out of the patent query. 
 \subsubsection{Identify the Noisy Words}
+First, we attempted to identify the noisy words. We hypothesized that the noisy words are frequent in top-100 retrieved documents. So, we calculate the average term frequency of each term as follows:
+\begin{equation}
+score_{DF}(t)= \frac{1}{100}\sum_{t\in \lbrace Top-100\rbrace} TF(t)  
+ \label{eq:dfscore}
+\end{equation}
+where TF(t) is term frequency of each term in top-100 retrieved patent document.
+\begin{figure}[htpb]
+   \centering
+   \includegraphics[width=0.40\textwidth,height=50mm]{figs/front.eps}
+   \caption{Anecdotal example: Scatter plot of RF score and Document Frequency(DF) score of words in top-100 retrieved documents. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. Red point are query words with term frequency higher than 5($ QTF(t)>5 $).}   
+   \label{fig:dfrf} 
+\end{figure}
 
 \subsubsection{Pseudo Relevance Feedback}
 
@@ -296,7 +308,7 @@ We could not improve the effectiveness without accessing the relevance feedback.
 
 \begin{figure}[htpb]
    \centering
-   \includegraphics[width=0.30\textwidth,height=30mm]{figs/FirstTPRank.eps}
+   \includegraphics[width=0.40\textwidth,height=45mm]{figs/FirstTPRank.eps}
    \caption{The distribution of the first relevant document rank over test queries which have TPs}   
    \label{fig:FirstTPRankHisto} 
 \end{figure}
