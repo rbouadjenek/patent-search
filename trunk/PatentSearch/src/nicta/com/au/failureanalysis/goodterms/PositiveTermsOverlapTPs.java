@@ -21,11 +21,11 @@ import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 import org.apache.lucene.queryparser.classic.ParseException;
 
 public class PositiveTermsOverlapTPs {
-	static String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
+	static String indexDir =/* "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*//*"data/DocPLusQueryINDEX"*/"data/QINDEX";
 
 	public static void main(String[] args) throws IOException, ParseException {
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/score/termoverlp-TPs2.txt";
+		String outputfile = "./output/score/test-termoverlp-TPs2.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);

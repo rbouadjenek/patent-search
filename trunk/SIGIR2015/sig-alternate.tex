@@ -175,8 +175,8 @@ G.K.M. Tobin\\%\titlenote{The secretary disavows
 \keywords{patent search, Query Reformulation, Data Analysis}
 
 \section{Introduction}
-
-\section{Baseline}
+In this work, we looked into patent prior-art problem from data analysis perspective.
+\section{Experimental Set ups}
 
 \section{Term Analysis}
 The main complain about patent search is insufficient match between the content of patent queries and relevant
@@ -278,26 +278,43 @@ Our experiments led us to another hypothesis that a patent query contains suffic
 %\end{figure}
 
 \subsection{What did not Work}
-We achieved a high 'MAP' by relevance feedback, however, it will cost to have relevance feedback since our users are professional patent examiners and recognizing a relevant patent is a time-taking and demanding task. So, we tried ways to refine the best query out of the patent query. 
+We achieved considerable improvement in performance using relevance feedback, however, it will cost to have a relevance feedback from our users who are professional patent examiners and recognizing a relevant patent is too demanding and time-taking. So, we tried other ways to refine the best query out of the patent query without an extended interaction. 
 \subsubsection{Identify the Noisy Words}
 First, we attempted to identify the noisy words. We hypothesized that the noisy words are frequent in top-100 retrieved documents. So, we calculate the average term frequency of each term as follows:
 \begin{equation}
 score_{DF}(t)= \frac{1}{100}\sum_{t\in \lbrace Top-100\rbrace} TF(t)  
  \label{eq:dfscore}
 \end{equation}
-where TF(t) is term frequency of each term in top-100 retrieved patent document.
+where TF(t) is term frequency of each term in top-100 retrieved patent document. Fig. \ref{fig:dfrf} shows a scatter plot of RF score and Document Frequency(DF) score of words in top-100 retrieved documents.\vspace*{-2ex}
 \begin{figure}[htpb]
    \centering
-   \includegraphics[width=0.40\textwidth,height=50mm]{figs/front.eps}
-   \caption{Anecdotal example: Scatter plot of RF score and Document Frequency(DF) score of words in top-100 retrieved documents. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. Red point are query words with term frequency higher than 5($ QTF(t)>5 $).}   
+   \includegraphics[width=0.30\textwidth,height=40mm]{figs/df-rf-tauline.eps}
+   \caption{Anecdotal example: Scatter plot of $ score_{RF}(t) $ versus $ score_{DF}(t) $ for the words in top-100 retrieved documents. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. Points highlighted in red are query words with term frequency higher than 5($ QTF(t)>5 $).}   
    \label{fig:dfrf} 
 \end{figure}
 
-\subsubsection{Pseudo Relevance Feedback}
+\subsubsection{Pseudo Relevance Feedback(PRF)}
+Pseudo relevance feedback or a blind feedback is precious since it is an automated process without user interaction which assumes that the top k ranked documents are relevant and the others are irrelevant. It has been found to improve performance in many applications, however we did not achieve the RF results by PRF. In fact, The results for PRF query formulation and query term selection using PRF were below the baseline. Fig. \ref{fig:anecdotal} explains the reason; it is an anecdotal example of a sample query with its abstract and a pair of PRF terms, with $ score_{PRF}(t)>10 $), and RF score of each term. It can be seen that terms with high PRF score are considered noise since their RF score is negative. Fig. \ref{fig:anecdotal} combined with Fig. 1-a can justify that terms from PRF are not useful at all because they contain sufficient noisy words to destruct the retrieval effectiveness. 
+\begin{figure}[htpb]
+\begin{framed}
+\vspace*{-2ex}
+  \centering
+    %\lstinputlisting[frame=single, basicstyle=\scriptsize\ttfamily , linewidth=\columnwidth,breaklines=true]{code/anecdotale.tex}\vspace*{-2ex}
+ \begin{lstlisting}[basicstyle=\tiny\ttfamily , linewidth=\columnwidth,breaklines=true] 
+PAC-1612
+Abstract: A wireless communication method for transmitting data from at least one master to one or more slaves positioned at various spatial locations and configured for generally simultaneous reception of the data. The method includes dividing the data into a number of portions, transmitting at least some of the portions using different transmission configurations for the different portions, having one or more of the slaves measure the quality of transmission associated with the group of different transmission configurations, and processing the quality measurements to determine new transmission configurations for use in transmitting the data.
 
-
+PRF Terms: <@\textcolor{red}{commun:-69.43159}@>, <@\textcolor{red}{transmiss:-58.168427}@>, <@\textcolor{red}{wireless:-7.68421}@>, <@\textcolor{red}{telephon:-25.17895}@>, <@\textcolor{red}{recept:-37.810528}@>, <@\textcolor{red}{slave:-31.0421}@>, <@\textcolor{red}{deleg:-22.368422}@>, <@\textcolor{red}{turn:-18.536846}@>, <@\textcolor{red}{master:-35.778954}@>, <@\textcolor{red}{origin:-4.7473674}@>, <@\textcolor{blue}{schedul:12.852628}@>, <@\textcolor{red}{control:-14.842104}@>, <@\textcolor{blue}{frequenc:60.34737}@>, <@\textcolor{red}{station:-76.26316}@>, <@\textcolor{red}{electron:-8.442106}@>, <@\textcolor{red}{perform:-9.71579}@>, <@\textcolor{blue}{band:16.789476}@>, <@\textcolor{red}{termin:-40.04211}@>, <@\textcolor{blue}{indic:3.6210496}@>, <@\textcolor{red}{reason:-6.642107}@>, <@\textcolor{red}{apparatus:-6.2421055}@>, <@\textcolor{red}{determin:-8.97895}@>, <@\textcolor{red}{complet:-8.842103}@>, <@\textcolor{red}{prohibit:-3.8947372}@>, <@\textcolor{red}{state:-9.557897}@>, <@\textcolor{blue}{link:1.1157892}@>, <@\textcolor{blue}{hop:24.378946}@>, <@\textcolor{red}{lan:-8.3368435}@>, <@\textcolor{red}{assign:-9.68421}@>, <@\textcolor{blue}{f1:14.926317}@>, <@\textcolor{red}{short:-3.6000004}@>, <@\textcolor{blue}{pattern:17.58947}@>, <@\textcolor{blue}{paramet:1.5473672}@>, <@\textcolor{red}{serv:-4.5684214}@>, <@\textcolor{blue}{permit:0.62105286}@>
+ \end{lstlisting} 
+ \vspace*{-2ex}
+\end{framed}
+ \vspace*{-2ex}
+  \caption{Anecdotal example: it shows the abstract and $ PRF term: \; score_{RF}(PRF term) $ pair of a sample query. Useful terms are highlighted in blue and the noisy ones in red.}
+  \label{fig:anecdotal}  
+\end{figure}
+\vspace*{-2ex}
 \subsection{Improvement by Minimum User Effort}
-We could not improve the effectiveness without accessing the relevance feedback. In this experiment, we select query terms using only the first relevant patent document based on the hypothesis that a patent examiner can recognize the first relevant patent with minimum effort at top-5.  Table \ref{tab:firstrel} shows that we can double the 'MAP' by using only the first-ranked relevant document.
+We could not improve the effectiveness without accessing the relevance feedback. In this experiment, we select query terms using only the first relevant patent document based on the hypothesis that a patent examiner can recognize the first relevant patent with minimum effort at top-5. Table \ref{tab:firstrel} shows that we can double the 'MAP' by using only the first-ranked relevant document.
 \begin{table}[htpb]
   \begin{center}
    \caption{System performance when only the first relevant patent used for query reduction. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved documents.}
@@ -308,7 +325,7 @@ We could not improve the effectiveness without accessing the relevance feedback.
 
 \begin{figure}[htpb]
    \centering
-   \includegraphics[width=0.40\textwidth,height=45mm]{figs/FirstTPRank.eps}
+   \includegraphics[width=0.35\textwidth,height=40mm]{figs/FirstTPRank.eps}
    \caption{The distribution of the first relevant document rank over test queries which have TPs}   
    \label{fig:FirstTPRankHisto} 
 \end{figure}
@@ -321,6 +338,10 @@ We could not improve the effectiveness without accessing the relevance feedback.
 
 %ACKNOWLEDGMENTS are optional
 \section{Acknowledgments}
+NICTA is funded by the Australian Government as represented
+by the Department of Broadband, Communications and the Digi-
+tal Economy and the Australian Research Council through the ICT
+Centre of Excellence program.
 
 
 %
