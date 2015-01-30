@@ -1,0 +1,31 @@
+%Regressors & \multicolumn{3}{c}{Model 1} & \multicolumn{3}{c}{Model 2}\\
+%
+%    & Coefficient & Lower limit & Upper Limit
+%    & Coefficient & Lower limit & Upper Limit  \\
+
+{
+%\scriptsize
+%\sffamily
+\ttfamily\scriptsize
+ \begin{tabular}{lllll}
+ \hline\noalign{\smallskip} 
+& \multicolumn{1}{l}{Pat.Query}&\multicolumn{1}{l}{Pat.Query}&\multicolumn{1}{l}{Opt.RFQuery}&\multicolumn{1}{l}{Opt.RFQuery}\\ 
+& Weight:TF               & Weight:1                       & Weight:Score(t)                   & Weight:1                          \\
+ \noalign{\smallskip} 
+ \hline
+\noalign{\smallskip} 
+\vtop{\hbox{\strut PRES}\hbox{\strut MAP}\hbox{\strut A. Recall}} 
+& \vtop{\hbox{\strut 0.5355}\hbox{\strut 0.1618}\hbox{\strut 0.5491}} 
+& \vtop{\hbox{\strut 0.4268}\hbox{\strut 0.1181}\hbox{\strut 0.4385}}
+& \vtop{\hbox{\strut 0.6086}\hbox{\strut  \bfseries 0.4617}\hbox{\strut 0.6129}} 
+& \vtop{\hbox{\strut 0.6087}\hbox{\strut  \bfseries 0.5075}\hbox{\strut 0.6118}} \\ \hline
+
+%\bottomrule 
+
+ \end{tabular} 
+ 
+}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

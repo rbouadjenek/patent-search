@@ -50,7 +50,12 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{listings}
+\lstset{escapeinside={<@}{@>}}
 \usepackage{graphicx}
+\usepackage{courier}
 % \usepackage{float}% not needed with `caption'
 %\usepackage{caption}
 %\usepackage{subcaption}

@@ -2,7 +2,7 @@
 \citation{magdy2012toward}
 \citation{mahdabi2013leveraging}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{\thepage }}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Baseline}{\thepage }}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Experimental Set ups}{\thepage }}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Term Analysis}{\thepage }}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Discriminative Words}{\thepage }}
 \newlabel{eq:score}{{1}{\thepage }}
@@ -10,23 +10,25 @@
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces .}}{\thepage }}
 \newlabel{tab:optquery}{{1}{\thepage }}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Query Reduction by Relevance Feedback}{\thepage }}
-\bibstyle{abbrv}
-\bibdata{sigproc}
-\bibcite{magdy2012toward}{1}
-\bibcite{mahdabi2013leveraging}{2}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \relax \fontsize  {9}{9pt}\selectfont  \abovedisplayskip 6.4pt plus 2pt minus 4pt\belowdisplayskip \abovedisplayskip \abovedisplayshortskip \z@ plus 1pt\belowdisplayshortskip 2.7pt plus 1pt minus 2pt \def \leftmargin \leftmargini \parsep 3.6pt plus 2pt minus 1pt\topsep 7.2pt plus 2pt minus 4pt\itemsep 3.6pt plus 2pt minus 1pt{\leftmargin \leftmargini \topsep 3pt plus 1pt minus 1pt\parsep 2pt plus 1pt minus 1pt \itemsep \parsep }How score threshold($\tau $) and query size controls the performance. (a) Performance versus the score threshold. (b) Performance versus the query size. (c) System performance when we reduced the query by RF: $ query = Q\cap (useful \tmspace  +\thickmuskip {.2777em} terms) $, where $ Q $ is the patent query and $ useful\tmspace  +\thickmuskip {.2777em} terms = \{t| score_{RF}(t)>\tau \} $.}}{\thepage }}
 \newlabel{fig:control}{{3.1.1}{\thepage }}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}What did not Work}{\thepage }}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Identify the Noisy Words}{\thepage }}
 \newlabel{eq:dfscore}{{2}{\thepage }}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Anecdotal example: Scatter plot of RF score and Document Frequency(DF) score of words in top-100 retrieved documents. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. Red point are query words with term frequency higher than 5($ QTF(t)>5 $).}}{\thepage }}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Anecdotal example: Scatter plot of $ score_{RF}(t) $ versus $ score_{DF}(t) $ for the words in top-100 retrieved documents. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. Points highlighted in red are query words with term frequency higher than 5($ QTF(t)>5 $).}}{\thepage }}
 \newlabel{fig:dfrf}{{2}{\thepage }}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Pseudo Relevance Feedback}{\thepage }}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Pseudo Relevance Feedback(PRF)}{\thepage }}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Anecdotal example: it shows the abstract and $ PRF term: \tmspace  +\thickmuskip {.2777em} score_{RF}(PRF term) $ pair of a sample query. Useful terms are highlighted in blue and the noisy ones in red.}}{\thepage }}
+\newlabel{fig:anecdotal}{{3}{\thepage }}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Improvement by Minimum User Effort}{\thepage }}
+\bibstyle{abbrv}
+\bibdata{sigproc}
+\bibcite{magdy2012toward}{1}
+\bibcite{mahdabi2013leveraging}{2}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces System performance when only the first relevant patent used for query reduction. $\tau $ is RF score threshold, and $k$ indicates the number of first relevant retrieved documents.}}{\thepage }}
 \newlabel{tab:firstrel}{{2}{\thepage }}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The distribution of the first relevant document rank over test queries which have TPs}}{\thepage }}
-\newlabel{fig:FirstTPRankHisto}{{3}{\thepage }}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The distribution of the first relevant document rank over test queries which have TPs}}{\thepage }}
+\newlabel{fig:FirstTPRankHisto}{{4}{\thepage }}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Related Work}{\thepage }}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{\thepage }}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Acknowledgments}{\thepage }}
