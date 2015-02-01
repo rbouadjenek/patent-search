@@ -170,13 +170,15 @@ G.K.M. Tobin\\%\titlenote{The secretary disavows
 %A category including the fourth, optional field follows...
 %\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
 
-\terms{Theory}
+%\terms{Theory}
 
-\keywords{patent search, Query Reformulation, Data Analysis}
+\keywords{Patent search, Query Reformulation, Data Analysis}
 
 \section{Introduction}
+Patents are exclusive rights granted to an inventor to protect their invention for a limited period of time. An important requirement for a patent to be granted is that the invention, it describes, is novel. The novelty of an invention is checked through a search called `prior art searches' by patent offices as well as other Intellectual Property (IP) service providers. 
+
 In this work, we looked into patent prior-art problem from data analysis perspective.
-\section{Experimental Set ups}
+\section{Experimental Setups}
 
 \section{Term Analysis}
 The main complain about patent search is insufficient match between the content of patent queries and relevant
@@ -187,7 +189,7 @@ For our initial experiments, we identified the {\em discriminative words} by pos
 \begin{equation}
 score(t,Q)=Rel(t)-Irr(t) 
  \label{eq:score}
-\end{equation}
+\end{equation}\vspace*{-5ex}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 Where $ Rel(t) $ is the average term frequency in retrieved relevant patents and $ Irr(t) $ is the average term frequency in retrieved irrelevant patents. Words with a positive score consider {\em useful words} since they are more frequent in relevant patents while the words with negative score are {\em noisy words} as they appeared more frequently in irrelevant patents. 
 
@@ -277,24 +279,35 @@ Our experiments led us to another hypothesis that a patent query contains suffic
 %   \label{fig:optpatentquery} 
 %\end{figure}
 
-\subsection{What did not Work}
-We achieved considerable improvement in performance using relevance feedback, however, it will cost to have a relevance feedback from our users who are professional patent examiners and recognizing a relevant patent is too demanding and time-taking. So, we tried other ways to refine the best query out of the patent query without an extended interaction. 
+\subsection{What did not Work/Correlation with RF}
+We achieved considerable improvement in performance using relevance feedback, however, it will cost to have a relevance feedback from our users who are professional patent examiners. Recognizing a relevant patent is also a demanding and time-taking task. So, we tried other ways to refine the best query out of the patent query without an extended interaction. 
+
+Overall, we made RF score as a standard for the useful and the noisy words. Then we tried to find available features, for example top retrieved documents and pseudo relevance feedback, that correlates with relevance feedback. 
 \subsubsection{Identify the Noisy Words}
 First, we attempted to identify the noisy words. We hypothesized that the noisy words are frequent in top-100 retrieved documents. So, we calculate the average term frequency of each term as follows:
 \begin{equation}
 score_{DF}(t)= \frac{1}{100}\sum_{t\in \lbrace Top-100\rbrace} TF(t)  
  \label{eq:dfscore}
 \end{equation}
-where TF(t) is term frequency of each term in top-100 retrieved patent document. Fig. \ref{fig:dfrf} shows a scatter plot of RF score and Document Frequency(DF) score of words in top-100 retrieved documents.\vspace*{-2ex}
+where TF(t) is term frequency of each term in top-100 retrieved patent documents. 
+ %\vspace*{-2ex}
 \begin{figure}[htpb]
    \centering
    \includegraphics[width=0.30\textwidth,height=40mm]{figs/df-rf-tauline.eps}
    \caption{Anecdotal example: Scatter plot of $ score_{RF}(t) $ versus $ score_{DF}(t) $ for the words in top-100 retrieved documents. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. Points highlighted in red are query words with term frequency higher than 5($ QTF(t)>5 $).}   
    \label{fig:dfrf} 
 \end{figure}
+Fig. \ref{fig:dfrf} shows a scatter plot of RF score and Document Frequency(DF) score of words in top-100 retrieved documents. A negative correlation shows that these two scores have opposite trends. Fig. \ref{fig:dfrf} is divided into four areas: 
+(a) $score_{DF}(t)>\gamma$ and $score_{RF}(t)<0$ 
+(b) $score_{DF}(t)>\gamma$ and $score_{RF}(t)>0$ 
+(c) $score_{DF}(t)<\gamma$ and $score_{RF}(t)<0$
+(d) $score_{DF}(t)>\gamma$ and $score_{RF}(t)>0$. 
+If we remove document frequent words: $score_{DF}(t)>\gamma$, areas `a' and `d' are desirable because we are removing the noisy words in the area `a' while we are keeping useful words in the area `d'.  Whereas, the areas `b' and `c' are not desirable because many noisy words are kept in area `c' while useful terms are removed in area `b'. To keep useful terms in area `b', we added the second condition to keep words: [$ score_{DF}(t)<\gamma \mbox{ \& } QTF(t)>\delta$]. Even the best result, obtained with the $ \gamma = 0.01 $ and $ \delta = 5 $, could not beat the baseline. If we remove document frequent words but keep Query words with term frequency higher than 5(highlighted with red in Fig. \ref{fig:dfrf}), there will be still sufficient noisy words with the frequency higher than 5 in the patent query which can skew the effectiveness down. 
 
+%(a)(b)(c (d)\\
+%Removing words with the $score_{DF}(t)>\gamma$  from the patent query is desirable for the words with $ score_{RF}(t)<0 $ while it is not desired for the words with the $ score_{RF}(t)>0 $. On the other hand, keeping noisy words is harm    
 \subsubsection{Pseudo Relevance Feedback(PRF)}
-Pseudo relevance feedback or a blind feedback is precious since it is an automated process without user interaction which assumes that the top k ranked documents are relevant and the others are irrelevant. It has been found to improve performance in many applications, however we did not achieve the RF results by PRF. In fact, The results for PRF query formulation and query term selection using PRF were below the baseline. Fig. \ref{fig:anecdotal} explains the reason; it is an anecdotal example of a sample query with its abstract and a pair of PRF terms, with $ score_{PRF}(t)>10 $), and RF score of each term. It can be seen that terms with high PRF score are considered noise since their RF score is negative. Fig. \ref{fig:anecdotal} combined with Fig. 1-a can justify that terms from PRF are not useful at all because they contain sufficient noisy words to destruct the retrieval effectiveness. 
+Pseudo relevance feedback or a blind feedback is precious since it is an automated process without user interaction which assumes that the top k ranked documents are relevant and the others are irrelevant. It has been found to improve performance in many applications, however we did not achieve the RF results by PRF. The results for PRF query formulation and query term selection using PRF were below the baseline. In fact, we could not find any heuristic correlates between  $ score_{RF}(t)$ and $ score_{PRF}(t)$. Fig. \ref{fig:anecdotal} explains the reason; it is an anecdotal example of a sample query with its abstract and a pair of PRF terms, with $ score_{PRF}(t)>10 $), and RF score of each term. It can be seen that terms with high PRF score are considered noise since their RF score is negative. Fig. \ref{fig:anecdotal} combined with Fig. 1-a can justify that terms from PRF are not useful at all because they contain sufficient noisy words to destruct the retrieval effectiveness. Document frequent words that 
 \begin{figure}[htpb]
 \begin{framed}
 \vspace*{-2ex}
@@ -309,11 +322,11 @@ PRF Terms: <@\textcolor{red}{commun:-69.43159}@>, <@\textcolor{red}{transmiss:-5
  \vspace*{-2ex}
 \end{framed}
  \vspace*{-2ex}
-  \caption{Anecdotal example: it shows the abstract and $ PRF term: \; score_{RF}(PRF term) $ pair of a sample query. Useful terms are highlighted in blue and the noisy ones in red.}
+  \caption{Anecdotal example: it shows the abstract and $ PRF \; term: \; score_{RF}(PRF \; term) $ pair of a sample query. Useful terms are highlighted in blue and the noisy ones in red.}
   \label{fig:anecdotal}  
 \end{figure}
-\vspace*{-2ex}
-\subsection{Improvement by Minimum User Effort}
+%\vspace*{-2ex}
+\section{Improvement by Minimum User Effort}
 We could not improve the effectiveness without accessing the relevance feedback. In this experiment, we select query terms using only the first relevant patent document based on the hypothesis that a patent examiner can recognize the first relevant patent with minimum effort at top-5. Table \ref{tab:firstrel} shows that we can double the 'MAP' by using only the first-ranked relevant document.
 \begin{table}[htpb]
   \begin{center}
