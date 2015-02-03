@@ -60,6 +60,11 @@
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
+    <target name="Get1stTPRank">
+        <java classname="nicta.com.au.failureanalysis.QuerywithFirstRankTPs.Get1stTPRank" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
     <target name="myExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.reusedcodes.myExecuteTopics" failonerror="true" fork="yes">
             <arg line="data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/ data/CLEF-IP-2010/PAC_test/topics/PAC_topics.xml 100 bm25 0 1 0 0 0 0 true true false false"/>
@@ -201,7 +206,7 @@
     </target>
     <target name="GeneralExecuteTopics">
         <java classname="nicta.com.au.failureanalysis.GeneralExecuteTopic.GeneralExecuteTopics" failonerror="true" fork="yes">
-            <arg line="0 0"/>
+            <arg line="0 1"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
@@ -391,6 +396,12 @@
     </target>
     <target name="myPatentQuery">
         <java classname="nicta.com.au.failureanalysis.reusedcodes.myPatentQuery" failonerror="true" fork="yes">
+            <classpath refid="PatentSearch.classpath"/>
+        </java>
+    </target>
+    <target name="UsefulTermsInSections">
+        <java classname="nicta.com.au.failureanalysis.SectionBasedAnalysis.UsefulTermsInSections" failonerror="true" fork="yes">
+            <arg line="1"/>
             <classpath refid="PatentSearch.classpath"/>
         </java>
     </target>
