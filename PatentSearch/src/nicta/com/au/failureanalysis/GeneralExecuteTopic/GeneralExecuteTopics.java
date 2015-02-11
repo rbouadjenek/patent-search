@@ -130,9 +130,9 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 						
 			/*------------------ 8-Create patent query minus frequent words in top-100 -----------------*/
-//			int delta = Qsize;
-//			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
-//			Query q = pq.parse(newquery, ipcfilter);
+			int delta = Qsize;
+			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
+			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ 9-Create patent query minus frequent words in top-100, keep ipc def and QTF(t) > delta -----------------*/
@@ -153,8 +153,8 @@ public final class GeneralExecuteTopics {
 			
 			/*------------------ 11-Create patent query with RF top k TPs -----------------*/
 			/*------------------ Attention: querysize used for k ----------------*/
-			String newquery = t.selectTopRFQTerms(queryid, qUcid, Tau, querysize); 
-			Query q = pq.parse(newquery, ipcfilter);
+//			String newquery = t.selectTopRFQTerms(queryid, qUcid, Tau, querysize); 
+//			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ 12-Create partial RF query with top k TPs plus query patent -----------------*/
