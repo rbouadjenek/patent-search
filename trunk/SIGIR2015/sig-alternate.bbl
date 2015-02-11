@@ -1,4 +1,48 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{bashir2010improving}
+S.~Bashir and A.~Rauber.
+\newblock Improving retrievability of patents in prior-art search.
+\newblock In {\em Advances in Information Retrieval}, pages 457--470. Springer,
+  2010.
+
+\bibitem{ganguly2011patent}
+D.~Ganguly, J.~Leveling, W.~Magdy, and G.~J. Jones.
+\newblock Patent query reduction using pseudo relevance feedback.
+\newblock In {\em Proceedings of the 20th ACM international conference on
+  Information and knowledge management}, pages 1953--1956. ACM, 2011.
+
+\bibitem{kim2014diversifying}
+Y.~Kim and W.~B. Croft.
+\newblock Diversifying query suggestions based on query documents.
+\newblock In {\em Proceedings of the 37th international ACM SIGIR conference on
+  Research \& development in information retrieval}, pages 891--894. ACM, 2014.
+
+\bibitem{kumaran2009reducing}
+G.~Kumaran and V.~R. Carvalho.
+\newblock Reducing long queries using query quality predictors.
+\newblock In {\em Proceedings of the 32nd international ACM SIGIR conference on
+  Research and development in information retrieval}, pages 564--571. ACM,
+  2009.
+
+\bibitem{lopez2010patatras}
+P.~Lopez and L.~Romary.
+\newblock Patatras: Retrieval model combination and regression models for prior
+  art search.
+\newblock In {\em Multilingual Information Access Evaluation I. Text Retrieval
+  Experiments}, pages 430--437. Springer, 2010.
+
+\bibitem{lupu2013patent}
+M.~Lupu, A.~Hanbury, et~al.
+\newblock Patent retrieval.
+\newblock {\em Foundations and Trends in Information Retrieval}, 7(1):1--97,
+  2013.
+
+\bibitem{lupu2013evaluating}
+M.~Lupu, F.~Piroi, and A.~Hanbury.
+\newblock Evaluating flowchart recognition for patent retrieval.
+\newblock In {\em The Fifth International Workshop on Evaluating Information
+  Access (EVIA)}, pages 37--44, 2013.
 
 \bibitem{magdy2012toward}
 W.~Magdy.
@@ -6,12 +50,48 @@ W.~Magdy.
   retrieval: A patent retrieval case study}.
 \newblock PhD thesis, Dublin City University, 2012.
 
-\bibitem{mahdabi2013leveraging}
+\bibitem{magdy2011study}
+W.~Magdy and G.~J. Jones.
+\newblock A study on query expansion methods for patent retrieval.
+\newblock In {\em Proceedings of the 4th workshop on Patent information
+  retrieval}, pages 19--24. ACM, 2011.
+
+\bibitem{magdy2014studying}
+W.~Magdy and G.~J. Jones.
+\newblock Studying machine translation technologies for large-data clir tasks:
+  a patent prior-art search case study.
+\newblock {\em Information Retrieval}, 17(5-6):492--519, 2014.
+
+\bibitem{mahdabi2014patent}
+P.~Mahdabi and F.~Crestani.
+\newblock Patent query formulation by synthesizing multiple sources of
+  relevance evidence.
+\newblock {\em ACM Transactions on Information Systems (TOIS)}, 32(4):16, 2014.
+
+\bibitem{Mahdabi2013}
 P.~Mahdabi, S.~Gerani, J.~X. Huang, and F.~Crestani.
 \newblock Leveraging conceptual lexicon: query disambiguation using proximity
   information for patent retrieval.
+\newblock In {\em SIGIR}, 2013.
+
+\bibitem{maxwell2013compact}
+K.~T. Maxwell and W.~B. Croft.
+\newblock Compact query term selection using topically related text.
 \newblock In {\em Proceedings of the 36th international ACM SIGIR conference on
-  Research and development in information retrieval}, pages 113--122. ACM,
+  Research and development in information retrieval}, pages 583--592. ACM,
   2013.
+
+\bibitem{piroi2013overview}
+F.~Piroi, M.~Lupu, and A.~Hanbury.
+\newblock Overview of clef-ip 2013 lab.
+\newblock In {\em Information Access Evaluation. Multilinguality,
+  Multimodality, and Visualization}, pages 232--249. Springer, 2013.
+
+\bibitem{xue2009transforming}
+X.~Xue and W.~B. Croft.
+\newblock Transforming patents into prior-art queries.
+\newblock In {\em Proceedings of the 32nd international ACM SIGIR conference on
+  Research and development in information retrieval}, pages 808--809. ACM,
+  2009.
 
 \end{thebibliography}

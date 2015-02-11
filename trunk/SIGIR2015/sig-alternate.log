@@ -1,40 +1,40 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.25)  1 FEB 2015 23:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  6 FEB 2015 20:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **sig-alternate.tex
 (./sig-alternate.tex
-LaTeX2e <2014/05/01>
-Babel <3.9k> and hyphenation patterns for 78 languages loaded.
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
 (./sig-alternate.cls
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/epsfig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count79
@@ -45,10 +45,10 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen104
 \epsfysize=\dimen105
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks15
 \symAMSa=\mathgroup4
@@ -56,24 +56,24 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip41
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen106
 ))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen107
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count80
@@ -114,10 +114,27 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/sidecap/sidecap.sty
+Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\SC@BOXWD=\dimen115
+\SC@CAPWD=\dimen116
+\SC@tempdima=\dimen117
+\SC@tempdimb=\dimen118
+\c@SC@C=\count92
+\SC@BOX=\box28
+)
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/color.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -131,63 +148,63 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/framed/framed.sty
+(/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip44
-\fb@frw=\dimen115
-\fb@frh=\dimen116
-\FrameRule=\dimen117
-\FrameSep=\dimen118
+\fb@frw=\dimen119
+\fb@frh=\dimen120
+\FrameRule=\dimen121
+\FrameSep=\dimen122
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count92
-\lst@gtempboxa=\box28
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count93
+\lst@gtempboxa=\box29
 \lst@token=\toks21
-\lst@length=\count93
-\lst@currlwidth=\dimen119
-\lst@column=\count94
-\lst@pos=\count95
-\lst@lostspace=\dimen120
-\lst@width=\dimen121
-\lst@newlines=\count96
-\lst@lineno=\count97
+\lst@length=\count94
+\lst@currlwidth=\dimen123
+\lst@column=\count95
+\lst@pos=\count96
+\lst@lostspace=\dimen124
+\lst@width=\dimen125
+\lst@newlines=\count97
+\lst@lineno=\count98
 \abovecaptionskip=\skip45
 \belowcaptionskip=\skip46
-\lst@maxwidth=\dimen122
+\lst@maxwidth=\dimen126
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
-\c@lstnumber=\count98
-\lst@skipnumbers=\count99
-\lst@framebox=\box29
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
+\c@lstnumber=\count99
+\lst@skipnumbers=\count100
+\lst@framebox=\box30
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2014/03/04 1.5c listings configuration
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/06/27 1.5pre1 listings configuration
 ))
-Package: listings 2014/03/04 1.5c (Carsten Heinz)
+Package: listings 2013/07/10 1.5 (Carsten Heinz)
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/courier.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/courier.sty
 Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/booktabs/booktabs.sty
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen123
-\lightrulewidth=\dimen124
-\cmidrulewidth=\dimen125
-\belowrulesep=\dimen126
-\belowbottomsep=\dimen127
-\aboverulesep=\dimen128
-\abovetopsep=\dimen129
-\cmidrulesep=\dimen130
-\cmidrulekern=\dimen131
-\defaultaddspace=\dimen132
-\@cmidla=\count100
-\@cmidlb=\count101
-\@aboverulesep=\dimen133
-\@belowrulesep=\dimen134
-\@thisruleclass=\count102
-\@lastruleclass=\count103
-\@thisrulewidth=\dimen135
+\heavyrulewidth=\dimen127
+\lightrulewidth=\dimen128
+\cmidrulewidth=\dimen129
+\belowrulesep=\dimen130
+\belowbottomsep=\dimen131
+\aboverulesep=\dimen132
+\abovetopsep=\dimen133
+\cmidrulesep=\dimen134
+\cmidrulekern=\dimen135
+\defaultaddspace=\dimen136
+\@cmidla=\count101
+\@cmidlb=\count102
+\@aboverulesep=\dimen137
+\@belowrulesep=\dimen138
+\@thisruleclass=\count103
+\@lastruleclass=\count104
+\@thisrulewidth=\dimen139
 )
 Document Class 'sig-alternate' <23rd. May '12>. Modified by G.K.M. Tobin/Gerry 
 Murray
@@ -198,71 +215,74 @@ Excerpts were taken from (Journal Style) 'esub2acm.cls'.
 m.org ******
 Questions on the style, SIGS policies, etc. to Adrienne Griscti griscti@acm.org
 
-\footheight=\dimen136
-\@maxsep=\dimen137
-\@dblmaxsep=\dimen138
-\aucount=\count104
-\originalaucount=\count105
-\auwidth=\dimen139
-\auskip=\dimen140
-\auskipcount=\count106
-\auskip=\dimen141
-\allauboxes=\dimen142
+\footheight=\dimen140
+\@maxsep=\dimen141
+\@dblmaxsep=\dimen142
+\aucount=\count105
+\originalaucount=\count106
+\auwidth=\dimen143
+\auskip=\dimen144
+\auskipcount=\count107
+\auskip=\dimen145
+\allauboxes=\dimen146
 \addauthors=\toks22
-\addauflag=\count107
+\addauflag=\count108
 \subtitletext=\toks23
-\savesection=\count108
-\sectioncntr=\count109
-\c@figure=\count110
-\c@table=\count111
+\savesection=\count109
+\sectioncntr=\count110
+\c@figure=\count111
+\c@table=\count112
 \titleboxnotes=\toks24
-\titleboxnoteflag=\count112
+\titleboxnoteflag=\count113
 Document Class: sig-alternate 2012/05/23 - V2.5 - based on acmproc.cls V1.3 <No
 v. 30 '99>
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/latexsym.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
 )
-\@acmtitlebox=\box30
-\titlenotecount=\count113
+\@acmtitlebox=\box31
+\titlenotecount=\count114
 \tntoks=\toks25
 \tntokstwo=\toks26
 \tntoksthree=\toks27
 \tntoksfour=\toks28
 \tntoksfive=\toks29
-\catcount=\count114
+\catcount=\count115
 \copyrightnotice=\toks30
 \conf=\toks31
 \confinfo=\toks32
-\c@part=\count115
-\c@section=\count116
-\c@subsection=\count117
-\c@subsubsection=\count118
-\c@paragraph=\count119
+\c@part=\count116
+\c@section=\count117
+\c@subsection=\count118
+\c@subsubsection=\count119
+\c@paragraph=\count120
 
 Using 'Abbrev' bibliography style
-LaTeX Info: Redefining \cite on input line 1231.
-\bibindent=\dimen143
-\colcntr=\count120
-\saveb@x=\box31
+LaTeX Info: Redefining \cite on input line 1233.
+\bibindent=\dimen147
+\colcntr=\count121
+\saveb@x=\box32
 \copyrtyr=\toks33
 \acmcopyr=\toks34
 \boilerplate=\toks35
 \copyrightetc=\toks36
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 )
 LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/ae/t1aer.fd
+(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 )))
+(/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
 (./sig-alternate.aux)
 \openout1 = `sig-alternate.aux'.
 
@@ -279,28 +299,28 @@ LaTeX Font Info:    ... okay on input line 50.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
 
-(/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count121
-\scratchdimen=\dimen144
-\scratchbox=\box32
-\nofMPsegments=\count122
-\nofMParguments=\count123
+\scratchcounter=\count122
+\scratchdimen=\dimen148
+\scratchbox=\box33
+\nofMPsegments=\count123
+\nofMParguments=\count124
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count124
-\MPscratchDim=\dimen145
-\MPnumerator=\count125
-\makeMPintoPDFobject=\count126
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen149
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
 \everyMPtoPDFconversion=\toks38
-) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
@@ -309,22 +329,22 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
 ))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -336,32 +356,154 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count127
+(/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 126.
+)
+\CenteringLeftskip=\skip47
+\RaggedLeftLeftskip=\skip48
+\RaggedRightLeftskip=\skip49
+\CenteringRightskip=\skip50
+\RaggedLeftRightskip=\skip51
+\RaggedRightRightskip=\skip52
+\CenteringParfillskip=\skip53
+\RaggedLeftParfillskip=\skip54
+\RaggedRightParfillskip=\skip55
+\JustifyingParfillskip=\skip56
+\CenteringParindent=\skip57
+\RaggedLeftParindent=\skip58
+\RaggedRightParindent=\skip59
+\JustifyingParindent=\skip60
+)
+\c@lstlisting=\count128
 LaTeX Font Info:    Try loading font information for U+msa on input line 163.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 163.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 163.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-(./table/optquery.tex
-LaTeX Font Info:    Try loading font information for T1+aett on input line 9.
+Overfull \hbox (1.37535pt too wide) in paragraph at lines 165--166
+\T1/aer/m/n/9 Patent prior-art search aims to find all rel-e-vant patents which
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/ae/t1aett.fd
+ []
+
+
+Overfull \hbox (2.76161pt too wide) in paragraph at lines 182--183
+[]\T1/aer/m/n/9 Patent re-trieval has three main char-ac-ter-is-tics which make
+s
+ []
+
+LaTeX Font Info:    Try loading font information for T1+aett on input line 195.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
+Underfull \hbox (badness 10000) in paragraph at lines 198--198
+[][]\T1/aett/m/n/9 For an ac-cu-rate term anal-y-sis, we pruned out the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--198
+\T1/aett/m/n/9 source of er-rors re-lated to data cu-ra-tion such as
+ []
+
+Package epstopdf Info: Source file: <figs/extended-optquery-tau.eps>
+(epstopdf)                    date: 2014-11-26 21:06:49
+(epstopdf)                    size: 10990 bytes
+(epstopdf)             Output file: <figs/extended-optquery-tau-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2015-01-29 10:08:38
+(epstopdf)                    size: 9380 bytes
+(epstopdf)             Command: <repstopdf --outfile=figs/extended-optquery-tau
+-eps-converted-to.pdf figs/extended-optquery-tau.eps>
+(epstopdf)             \includegraphics on input line 202.
+Package epstopdf Info: Output file is already uptodate.
+
+<figs/extended-optquery-tau-eps-converted-to.pdf, id=1, 421.575pt x 317.185pt>
+File: figs/extended-optquery-tau-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figs/extended-optquery-tau-eps-converted-to.pdf>
+Package pdftex.def Info: figs/extended-optquery-tau-eps-converted-to.pdf used o
+n input line 202.
+(pdftex.def)             Requested size: 151.20154pt x 113.76059pt.
+Package epstopdf Info: Source file: <figs/opt-query-qsize.eps>
+(epstopdf)                    date: 2014-11-17 14:55:15
+(epstopdf)                    size: 10869 bytes
+(epstopdf)             Output file: <figs/opt-query-qsize-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2015-01-29 10:08:39
+(epstopdf)                    size: 8499 bytes
+(epstopdf)             Command: <repstopdf --outfile=figs/opt-query-qsize-eps-c
+onverted-to.pdf figs/opt-query-qsize.eps>
+(epstopdf)             \includegraphics on input line 207.
+Package epstopdf Info: Output file is already uptodate.
+
+<figs/opt-query-qsize-eps-converted-to.pdf, id=2, 421.575pt x 317.185pt>
+File: figs/opt-query-qsize-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figs/opt-query-qsize-eps-converted-to.pdf>
+Package pdftex.def Info: figs/opt-query-qsize-eps-converted-to.pdf used on inpu
+t line 207.
+(pdftex.def)             Requested size: 151.20154pt x 113.76059pt.
+Package epstopdf Info: Source file: <figs/opt-patentquery-tau.eps>
+(epstopdf)                    date: 2014-11-26 21:03:35
+(epstopdf)                    size: 11407 bytes
+(epstopdf)             Output file: <figs/opt-patentquery-tau-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2015-01-29 10:12:19
+(epstopdf)                    size: 9075 bytes
+(epstopdf)             Command: <repstopdf --outfile=figs/opt-patentquery-tau-e
+ps-converted-to.pdf figs/opt-patentquery-tau.eps>
+(epstopdf)             \includegraphics on input line 214.
+Package epstopdf Info: Output file is already uptodate.
+
+<figs/opt-patentquery-tau-eps-converted-to.pdf, id=3, 421.575pt x 317.185pt>
+File: figs/opt-patentquery-tau-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figs/opt-patentquery-tau-eps-converted-to.pdf>
+Package pdftex.def Info: figs/opt-patentquery-tau-eps-converted-to.pdf used on 
+input line 214.
+(pdftex.def)             Requested size: 151.20154pt x 113.76059pt.
+
+Overfull \hbox (5.03787pt too wide) in paragraph at lines 193--225
+\T1/aer/m/n/9 Eu-ro-pean patent doc-u-ments and 1303 En-glish top-ics(queries).
+
+ []
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
+Overfull \hbox (2.07768pt too wide) in paragraph at lines 229--230
+[]\T1/aer/m/n/9 We start our ex-per-i-ments with term anal-y-sis of both patent
+
+ []
+
+
+Overfull \hbox (22.7405pt too wide) in paragraph at lines 240--241
+\T1/aer/m/n/9 for op-ti-mal RF query weighted with the score of each term(formu
+la
+ []
+
+(./table/optquery.tex
 
 LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
 (Font)              using `T1/aett/m/n' instead on input line 20.
@@ -372,162 +514,114 @@ Overfull \hbox (10.99672pt too wide) in paragraph at lines 10--26
  []
 
 )
-Overfull \hbox (6.64055pt too wide) in paragraph at lines 209--211
-\T1/aer/m/n/9 per-for-mance im-proves slightly by adding more than 200 words. 
- []
-
-Package epstopdf Info: Source file: <figs/extended-optquery-tau.eps>
-(epstopdf)                    date: 2015-01-30 18:41:22
-(epstopdf)                    size: 10990 bytes
-(epstopdf)             Output file: <figs/extended-optquery-tau-eps-converted-t
-o.pdf>
-(epstopdf)                    date: 2015-01-30 18:41:22
-(epstopdf)                    size: 9380 bytes
-(epstopdf)             Command: <repstopdf --outfile=figs/extended-optquery-tau
--eps-converted-to.pdf figs/extended-optquery-tau.eps>
-(epstopdf)             \includegraphics on input line 221.
-Package epstopdf Info: Output file is already uptodate.
-
-<figs/extended-optquery-tau-eps-converted-to.pdf, id=1, 421.575pt x 317.185pt>
-File: figs/extended-optquery-tau-eps-converted-to.pdf Graphic file (type pdf)
-
-<use figs/extended-optquery-tau-eps-converted-to.pdf>
-Package pdftex.def Info: figs/extended-optquery-tau-eps-converted-to.pdf used o
-n input line 221.
-(pdftex.def)             Requested size: 151.20154pt x 113.76059pt.
-Package epstopdf Info: Source file: <figs/opt-query-qsize.eps>
-(epstopdf)                    date: 2015-01-30 18:41:22
-(epstopdf)                    size: 10869 bytes
-(epstopdf)             Output file: <figs/opt-query-qsize-eps-converted-to.pdf>
-
-(epstopdf)                    date: 2015-01-30 18:41:22
-(epstopdf)                    size: 8499 bytes
-(epstopdf)             Command: <repstopdf --outfile=figs/opt-query-qsize-eps-c
-onverted-to.pdf figs/opt-query-qsize.eps>
-(epstopdf)             \includegraphics on input line 226.
-Package epstopdf Info: Output file is already uptodate.
-
-<figs/opt-query-qsize-eps-converted-to.pdf, id=2, 421.575pt x 317.185pt>
-File: figs/opt-query-qsize-eps-converted-to.pdf Graphic file (type pdf)
-
-<use figs/opt-query-qsize-eps-converted-to.pdf>
-Package pdftex.def Info: figs/opt-query-qsize-eps-converted-to.pdf used on inpu
-t line 226.
-(pdftex.def)             Requested size: 151.20154pt x 113.76059pt.
-Package epstopdf Info: Source file: <figs/opt-patentquery-tau.eps>
-(epstopdf)                    date: 2015-01-30 18:41:22
-(epstopdf)                    size: 11407 bytes
-(epstopdf)             Output file: <figs/opt-patentquery-tau-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2015-01-30 18:41:22
-(epstopdf)                    size: 9075 bytes
-(epstopdf)             Command: <repstopdf --outfile=figs/opt-patentquery-tau-e
-ps-converted-to.pdf figs/opt-patentquery-tau.eps>
-(epstopdf)             \includegraphics on input line 233.
-Package epstopdf Info: Output file is already uptodate.
-
-<figs/opt-patentquery-tau-eps-converted-to.pdf, id=3, 421.575pt x 317.185pt>
-File: figs/opt-patentquery-tau-eps-converted-to.pdf Graphic file (type pdf)
-
-<use figs/opt-patentquery-tau-eps-converted-to.pdf>
-Package pdftex.def Info: figs/opt-patentquery-tau-eps-converted-to.pdf used on 
-input line 233.
-(pdftex.def)             Requested size: 151.20154pt x 113.76059pt.
-
-Overfull \hbox (1.51933pt too wide) in paragraph at lines 274--281
+Overfull \hbox (1.51933pt too wide) in paragraph at lines 289--296
 []\T1/aer/m/n/9 Our ex-per-i-ments led us to an-other hy-poth-e-sis that a pate
 nt
  []
 
-[1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+[2 <./figs/extended-optquery-tau-eps-converted-to.pdf> <./figs/opt-query-qsize-
+eps-converted-to.pdf> <./figs/opt-patentquery-tau-eps-converted-to.pdf>]
+Overfull \hbox (1.06078pt too wide) in paragraph at lines 300--301
+[]\T1/aer/m/n/9 We showed that there are suf-fi-cient use-ful terms in a patent
 
+ []
 
-]
 Package epstopdf Info: Source file: <figs/df-rf-tauline.eps>
-(epstopdf)                    date: 2015-01-30 18:41:22
-(epstopdf)                    size: 382630 bytes
+(epstopdf)                    date: 2015-02-05 15:26:34
+(epstopdf)                    size: 1654842 bytes
 (epstopdf)             Output file: <figs/df-rf-tauline-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-01-30 18:41:22
-(epstopdf)                    size: 61742 bytes
+(epstopdf)                    date: 2015-02-05 15:27:43
+(epstopdf)                    size: 68984 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/df-rf-tauline-eps-con
 verted-to.pdf figs/df-rf-tauline.eps>
-(epstopdf)             \includegraphics on input line 296.
+(epstopdf)             \includegraphics on input line 309.
 Package epstopdf Info: Output file is already uptodate.
-
-<figs/df-rf-tauline-eps-converted-to.pdf, id=22, 421.575pt x 314.17375pt>
+<figs/df-rf-tauline-eps-converted-to.pdf, id=53, 574.145pt x 427.5975pt>
 File: figs/df-rf-tauline-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/df-rf-tauline-eps-converted-to.pdf>
 Package pdftex.def Info: figs/df-rf-tauline-eps-converted-to.pdf used on input 
-line 296.
-(pdftex.def)             Requested size: 151.20079pt x 113.80716pt.
+line 309.
+(pdftex.def)             Requested size: 124.80103pt x 92.94298pt.
+Package epstopdf Info: Source file: <figs/ipcdef-rf-df.eps>
+(epstopdf)                    date: 2015-01-16 17:54:48
+(epstopdf)                    size: 379050 bytes
+(epstopdf)             Output file: <figs/ipcdef-rf-df-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-02-02 11:20:25
+(epstopdf)                    size: 61270 bytes
+(epstopdf)             Command: <repstopdf --outfile=figs/ipcdef-rf-df-eps-conv
+erted-to.pdf figs/ipcdef-rf-df.eps>
+(epstopdf)             \includegraphics on input line 314.
+Package epstopdf Info: Output file is already uptodate.
 
-Overfull \hbox (11.80339pt too wide) in paragraph at lines 329--329
-[]\secfnt IMPROVEMENT BY MIN-I-MUM USER EF-
- []
+<figs/ipcdef-rf-df-eps-converted-to.pdf, id=54, 421.575pt x 317.185pt>
+File: figs/ipcdef-rf-df-eps-converted-to.pdf Graphic file (type pdf)
 
-(./table/partialRFtermselect.tex
-Overfull \hbox (7.2223pt too wide) in paragraph at lines 10--26
- [] 
- []
-
-) [2 <./figs/extended-optquery-tau-eps-converted-to.pdf> <./figs/opt-query-qsiz
-e-eps-converted-to.pdf> <./figs/opt-patentquery-tau-eps-converted-to.pdf> <./fi
-gs/df-rf-tauline-eps-converted-to.pdf>]
+<use figs/ipcdef-rf-df-eps-converted-to.pdf>
+Package pdftex.def Info: figs/ipcdef-rf-df-eps-converted-to.pdf used on input l
+ine 314.
+(pdftex.def)             Requested size: 115.19897pt x 86.67197pt.
+ (./table/partialRFtermselect.tex)
 Package epstopdf Info: Source file: <figs/FirstTPRank.eps>
-(epstopdf)                    date: 2015-01-30 18:41:22
+(epstopdf)                    date: 2015-01-09 09:58:35
 (epstopdf)                    size: 12090 bytes
 (epstopdf)             Output file: <figs/FirstTPRank-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-01-30 18:41:22
+(epstopdf)                    date: 2015-01-29 10:12:20
 (epstopdf)                    size: 7253 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/FirstTPRank-eps-conve
 rted-to.pdf figs/FirstTPRank.eps>
-(epstopdf)             \includegraphics on input line 341.
+(epstopdf)             \includegraphics on input line 382.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/FirstTPRank-eps-converted-to.pdf, id=63, 452.69125pt x 319.1925pt>
+<figs/FirstTPRank-eps-converted-to.pdf, id=55, 452.69125pt x 319.1925pt>
 File: figs/FirstTPRank-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/FirstTPRank-eps-converted-to.pdf>
 Package pdftex.def Info: figs/FirstTPRank-eps-converted-to.pdf used on input li
-ne 341.
+ne 382.
 (pdftex.def)             Requested size: 125.99976pt x 91.04872pt.
- (./sig-alternate.bbl) [3 <./figs/FirstTPRank-eps-converted-to.pdf>] (./sig-alt
-ernate.aux)
+ [3 <./figs/df-rf-tauline-eps-converted-to.pdf> <./figs/ipcdef-rf-df-eps-conver
+ted-to.pdf>] (./sig-alternate.bbl
+[4 <./figs/FirstTPRank-eps-converted-to.pdf>]) [5
+
+] (./sig-alternate.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 4638 strings out of 493117
- 61765 string characters out of 6135432
- 201622 words of memory out of 5000000
- 7971 multiletter control sequences out of 15000+600000
- 60387 words of font info for 86 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 41i,11n,37p,1425b,1058s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2014/texmf-dist
-/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/
-type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/u
-rw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/u
-tmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
->
-Output written on sig-alternate.pdf (3 pages, 283828 bytes).
+ 4959 strings out of 493307
+ 66133 string characters out of 6139906
+ 206402 words of memory out of 5000000
+ 8261 multiletter control sequences out of 15000+600000
+ 60554 words of font info for 87 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 41i,13n,37p,1425b,1060s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sig-alternate.pdf (5 pages, 383033 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+ 156 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

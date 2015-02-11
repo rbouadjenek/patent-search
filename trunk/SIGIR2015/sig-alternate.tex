@@ -46,7 +46,7 @@
 % For tracking purposes - this is V2.0 - May 2012
 
 \documentclass{sig-alternate}
-
+\usepackage{placeins}
 \begin{document}
 %
 % --- Author Metadata here ---
@@ -108,21 +108,21 @@
 %
 % 1st. author
 \alignauthor
-Sean Fogarty\\%\titlenote{Dr.~Trovato insisted his name be first.}\\
+M O\\%\titlenote{Dr.~Trovato insisted his name be first.}\\
        \affaddr{NICTA \& ANU}\\
        \affaddr{Canberra, Australia}\\
        %\affaddr{Wallamaloo, New Zealand}\\
        \email{\scriptsize name.surname@nicta.com.au}
 % 2nd. author
 \alignauthor
-G.K.M. Tobin\\%\titlenote{The secretary disavows
+W Z\\%\titlenote{The secretary disavows
 %any knowledge of this author's actions.}\\
        \affaddr{NICTA \& ANU}\\
        \affaddr{Canberra, Australia}\\
        %\affaddr{Dublin, Ohio 43017-6221}\\
        \email{\scriptsize name.surname@nicta.com.au}
 % 3rd. author
-\alignauthor Lars Th{\o}rv{\"a}ld\\%\titlenote{This author is the
+\alignauthor X Y\\%\titlenote{This author is the
 %one who did all the really hard work.}\\
        \affaddr{NICTA \& ANU}\\
        \affaddr{Canberra, Australia}\\
@@ -162,7 +162,8 @@ G.K.M. Tobin\\%\titlenote{The secretary disavows
 
 \maketitle
 \begin{abstract}
-
+Patent prior-art search aims to find all relevant patents which may invalidate the novelty of a patent application or at least have common parts with patent application and should be cited. Patent search has been the centre of attention in IR communities for years, however it has lower retrieval effectiveness compared to other IR applications. In this work, we focused on the causes of failure rather than solutions. We started with relevance feedback to get a golden standard, then we concentrated on heuristics correlate with our RF standard. Finally, we showed that features other than relevance feedback can not be helpful because they are a complex mixture of useful words and noisy words. Finally, we got a considerable improvement by user feedback with a minimum effort.      
+ 
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -175,47 +176,27 @@ G.K.M. Tobin\\%\titlenote{The secretary disavows
 \keywords{Patent search, Query Reformulation, Data Analysis}
 
 \section{Introduction}
-Patents are exclusive rights granted to an inventor to protect their invention for a limited period of time. An important requirement for a patent to be granted is that the invention, it describes, is novel. The novelty of an invention is checked through a search called `prior art searches' by patent offices as well as other Intellectual Property (IP) service providers. 
+%A patent is a set of exclusive rights granted by a sovereign state to an inventor for a limited period of time to encourage detailed public disclosure of new technologies and novel ideas. An important requirement for a patent to be granted is that the invention, it describes, is novel which means there is no earlier patent, publication or public communication of a similar idea. To ensure the novelty of an invention, patent offices as well as other Intellectual Property (IP) service providers mainly perform a search called 'prior art search'. The purpose of 'prior art search' is finding all relevant patents which may put the patent application at the risk of novelty invalidation or at least have common parts with patent application and should be cited~\cite{Magdy2012}~\cite{piroi2013overview}. 
+A patent is a set of exclusive rights granted to an inventor to protect their invention for a limited period of time. An important requirement for a patent to be granted is that the invention, it describes, is novel which means there is no earlier patent, publication or public communication of a similar idea. To ensure the novelty of an invention, patent offices as well as other Intellectual Property (IP) service providers mainly perform a search called `prior art search'. The purpose of `prior art search' is finding all relevant patents which may put the patent application at the risk of novelty invalidation or at least have common parts with patent application and should be cited~\cite{magdy2012toward}~\cite{piroi2013overview}. 
 
-In this work, we looked into patent prior-art problem from data analysis perspective.
-\section{Experimental Setups}
+Patent retrieval has three main characteristics which makes it difficult compared to other IR applications: the search starts with a query as long as a full patent application that helps users --usually patent examiners, inventors, or lawyers-- avoid spending long hours to formulate a query; it is recall-oriented, where not missing relevant documents is more important than appearing relevant documents at top of the list; unlike the web application in which authors tend to highlight their work to be easily found through search engines, authors of the patents prefer to use a vague language to avoid the invalidation of their idea.     
 
-\section{Term Analysis}
-The main complain about patent search is insufficient match between the content of patent queries and relevant
-patents\cite{magdy2012toward, mahdabi2013leveraging}. However, our analyses showed that only \%20 overlap is sufficient for the system to retrieve a relevant or non-relevant patent at top-100 and except for few queries, non-retrieved relevant patents had enough matched term with the query. So, we start our experiments with term analysis for patent query and retrieved documents. 
+Many works has been conducted aim at improving the patent retrieval effectiveness so far. However, either the results showed quite small improvement or the proposed methods were complicated and computationally expensive. Overall, the works on patent search fall in five main categories: query reformulation(query expansion and query reduction), query term selection, query suggestions, using patent meta-data and images for retrieval~\cite{lupu2013evaluating}, and Cross-Language Information Retrieval~\cite{magdy2014studying}.
 
-\subsection{Discriminative Words}
-For our initial experiments, we identified the {\em discriminative words} by positive scoring the words in relevant documents and negative scoring the irrelevant one. 
-\begin{equation}
-score(t,Q)=Rel(t)-Irr(t) 
- \label{eq:score}
-\end{equation}\vspace*{-5ex}
-\begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
-Where $ Rel(t) $ is the average term frequency in retrieved relevant patents and $ Irr(t) $ is the average term frequency in retrieved irrelevant patents. Words with a positive score consider {\em useful words} since they are more frequent in relevant patents while the words with negative score are {\em noisy words} as they appeared more frequently in irrelevant patents. 
+%Applying standard information retrieval (IR) techniques to patent search is not effective and needs applying supplementary methods to improve the effectiveness. Although lots of methods have been proposed in recent years, reported results for different tasks of patent search show lower retrieval effectiveness compared to other IR applications~\cite{lupu2013patent}. 
 
-Surprisingly, we could not find any correlation between the percentage of {\em useful words} and the performance. We expected a higher performance for the queries with more {\em useful words}. 
 
-\subsubsection{Optimal RF\protect\footnote{Relevance Feedback} Query Formulation}
-We hypothesize that a query formulated by {\em useful terms} is optimal since they are all frequent in relevant patents and rare in irrelevant ones. Table \ref{tab:optquery} compares the performance for baseline where the query is the full patent query both weighted and unweighed with the performance for optimal RF query weighted with the score of each term(formula \ref{eq:score}) and unweighed. 
-
-\begin{table}[htpb]
-  \begin{center}
-   \caption{.}
-  \input table/optquery.tex   
-  \label{tab:optquery}
-  \end{center}  
-\end{table}
-
-It can be seen that `MAP' jumps from 0.1618 to \textbf{0.5075} which is about \%35 increase. We use a score threshold($\tau$) to formulate the RF query(we select the terms with $ score(t)>\tau $). Fig. (1-a) indicates two important facts. First, it shows that increasing the threshold results in the lower performance. Second, the system is over-sensitive to the {\em noisy words}($ \tau<0 $).  Fig. (1-b) shows that formulating a query with up to 200 {\em useful words} helps performance whereas the performance improves slightly by adding more than 200 words. 
-%Fig. 1 indicates how the score threshold and the query size control the performance. 
-
-%\begin{figure}[htpb]
-%\centering
-%\epsfig{file=figs/extended-optquery-tau.eps, height=2in, width=3.1in}
-%\caption{A sample black and white graphic (.eps format).}
-%\end{figure}
-
-\begin{figure*}[htpb]
+ 
+In this work, we mainly emphasized on the problem from the data analysis perspective rather than the solution, since the results, reported in the previous works, are lower than the performance for the other IR applications. We started with relevance feedback to find a golden standard for our analysis, then we examined possible recognized features to find a heuristic that correlate with our relevance feedback results. We avoided complex feature which are computationally expensive such as Pair-wise Term Proximity features~\cite{bashir2010improving}. Finally, we could double the `MAP' with the minimum user effort. 
+\section{Experiments}
+\subsection{Experimental Setup}
+We developed a Lucene-based%
+\footnote{\texttt{http://lucene.apache.org/}%
+} IR system with the possibility of using diverse generic IR models: TF-IDF, BM25, Language Models(Dirichlet smoothing, and Jelinek-Mercer smoothing) as our baseline system. We achieved the best baseline effectiveness using the `Description' of the patent application as a query\cite{xue2009transforming}, and Language Model with Dirichlet smoothing as a retrieval model. We conducted our experiments on CLEF-IP%
+\footnote{\texttt{\url{http://www.ifs.tuwien.ac.at/~clef-ip/}}}% 
+ 2010 data collection, with 2.6 million European patent documents and 1303 English topics(queries). On the collection side, we only indexed English subset of each section of a patent (title, abstract,claims, and description), and IPC code in a separate field\cite{magdy2012toward}. We also used the patent classification (IPC) codes assigned to the query topics to filter search results to match at least one of the query IPC codes\cite{lopez2010patatras}. Our experiments showed that using IPC filter is itself a source of error because about \%19 of relevant patents in CLEF-IP data collection do not share any classification code with their query. However, for our analysis, we kept the filter on since it makes the matching process between the query and documents notably faster\footnote{\texttt{For an accurate term analysis, we pruned out the source of errors related to data curation such as non-English patents, and IPC filter.}%
+}.
+\begin{figure*}
 \begin{center}
 \noindent\begin{minipage}[b]{0.3\linewidth}
 \includegraphics[width=\linewidth]{figs/extended-optquery-tau.eps}
@@ -241,7 +222,41 @@ How score threshold($\tau$) and query size controls the performance.
 \end{center}
 \label{fig:control}
 \end{figure*}
+\subsection{RF\protect\footnote{Relevance Feedback} Golden Standard}
+The main complain about patent search is insufficient match between the content of patent queries and relevant
+patents\cite{lupu2013patent}\cite{magdy2012toward}. However, our analyses showed that only \%20 term overlap is sufficient for the system to retrieve a relevant or non-relevant patent at top-100. Except few queries, almost non-retrieved relevant patents had enough matched term with the query. 
 
+We start our experiments with term analysis of both patent query and retrieved documents. In first step, we identified the {\em discriminative words} by positive scoring the words in relevant documents and negative scoring the words in the irrelevant having access to relevance feedback. We calculated a score for each term in top-100 documents as follows:
+\begin{equation}
+score(t,Q)=Rel(t)-Irr(t) 
+ \label{eq:score}
+\end{equation}\vspace*{-6ex}
+\begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
+Where $ Rel(t) $ is the average term frequency in retrieved relevant patents and $ Irr(t) $ is the average term frequency in retrieved irrelevant patents. Words with a positive score consider {\em useful words} since they are more frequent in relevant patents while the words with negative score are {\em noisy words} as they appeared more frequently in irrelevant patents. 
+
+We expected to see a higher performance for the queries which contain more {\em useful words}, but, surprisingly, we could not find any correlation between the performance and the percentage of {\em useful words} in the query. 
+
+\subsubsection{Optimal RF Query Formulation}
+We hypothesized that a query formulated by {\em useful terms} is optimal since they are all frequent in relevant patents and rare in irrelevant ones. Table \ref{tab:optquery} compares the performance of the baseline where the query is the full patent query both weighted and unweighed with the performance for optimal RF query weighted with the score of each term(formula \ref{eq:score}) and unweighed. 
+
+\begin{table}[htpb]
+  \begin{center}
+   \caption{System performance for the baseline and optimal RF query.}
+  \input table/optquery.tex   
+  \label{tab:optquery}
+  \end{center}  
+\end{table}
+
+It can be seen that `MAP' jumps from 0.1618 to \textbf{0.5075} which means about \%35 improvement in `MAP'. We use a score threshold($\tau$) to formulate the RF query(we select the terms with $ score(t)>\tau $). 
+%Fig. 1 indicates how the score threshold and the query size control the performance. 
+%\begin{figure}[htpb]
+%\centering
+%\epsfig{file=figs/extended-optquery-tau.eps, height=2in, width=3.1in}
+%\caption{A sample black and white graphic (.eps format).}
+%\end{figure}
+
+%\FloatBarrier
+Fig. (1-a) indicates two important facts. First, it shows that the performance decreases by increasing the threshold which means all words with a positive score are helpful for the performance. Second, the system is over-sensitive to the {\em noisy words}($ \tau<0 $). Fig. (1-b) shows that formulating a query with up to 200 {\em useful words} helps performance whereas there is no significant improvement by adding more than 200 words. 
 %\begin{figure}[htpb]
 %\begin{center}
 %\noindent\begin{minipage}[b]{0.5\linewidth}
@@ -279,35 +294,59 @@ Our experiments led us to another hypothesis that a patent query contains suffic
 %   \label{fig:optpatentquery} 
 %\end{figure}
 
-\subsection{What did not Work/Correlation with RF}
-We achieved considerable improvement in performance using relevance feedback, however, it will cost to have a relevance feedback from our users who are professional patent examiners. Recognizing a relevant patent is also a demanding and time-taking task. So, we tried other ways to refine the best query out of the patent query without an extended interaction. 
-
-Overall, we made RF score as a standard for the useful and the noisy words. Then we tried to find available features, for example top retrieved documents and pseudo relevance feedback, that correlates with relevance feedback. 
+\subsection{Features Correlate with RF}
+We achieved a notable improvement in performance using relevance feedback, however, it will cost to have a relevance feedback from our users who are professional patent examiners. For this reason, we considered the relevance feedback as a {\em golden standard} and focused to recognize the other accessible features that correlate with RF score. The most obvious accessible elements in our patent search engine are: patent query, top-100 patent documents retrieved in the first retrieval (features such as document frequent(DF) words and PRF words), and IPC code definition words.  
 \subsubsection{Identify the Noisy Words}
-First, we attempted to identify the noisy words. We hypothesized that the noisy words are frequent in top-100 retrieved documents. So, we calculate the average term frequency of each term as follows:
+We showed that there are sufficient useful terms in a patent query(Fig. 1-c) to achieve good results but additional words which are considered noise are the main cause of low effectiveness. We hypothesized that the noisy words are frequent in top-100 retrieved documents and we can refine the query by removing document frequent words from the patent query. We calculated document frequent score for each term in top-100 retrieved patent documents as follows:
 \begin{equation}
 score_{DF}(t)= \frac{1}{100}\sum_{t\in \lbrace Top-100\rbrace} TF(t)  
  \label{eq:dfscore}
 \end{equation}
-where TF(t) is term frequency of each term in top-100 retrieved patent documents. 
- %\vspace*{-2ex}
+where TF(t) is term frequency of each word. 
 \begin{figure}[htpb]
-   \centering
-   \includegraphics[width=0.30\textwidth,height=40mm]{figs/df-rf-tauline.eps}
-   \caption{Anecdotal example: Scatter plot of $ score_{RF}(t) $ versus $ score_{DF}(t) $ for the words in top-100 retrieved documents. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. Points highlighted in red are query words with term frequency higher than 5($ QTF(t)>5 $).}   
-   \label{fig:dfrf} 
+\begin{center}
+\noindent\begin{minipage}[b]{0.52\linewidth}
+\includegraphics[width=\linewidth]{figs/df-rf-tauline.eps}
+\end{minipage}%%%%%%%%%%%
+\hfill
+%\hspace{7mm}
+\begin{minipage}[b]{0.48\linewidth}
+\includegraphics[width=\linewidth]{figs/ipcdef-rf-df.eps}
+\end{minipage}
+%\vspace{-3mm}\\
+%(a) \hspace{30mm}(b)\\
+%\hfill
+%%\hspace{7mm}
+%\begin{minipage}[b]{0.3\linewidth}
+%\includegraphics[width=\linewidth]{figs/opt-patentquery-tau.eps}
+%\end{minipage}
+\vspace{-4mm}\\
+ \hspace{5mm}(a) \hspace{38mm}(b) 
+\caption{\footnotesize
+Anecdotal example: Scatter plot of $ score_{RF}(t) $ versus $ score_{DF}(t) $ for the words in top-100 retrieved documents. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. (a) Points highlighted in red are query words with term frequency higher than 5($ QTF(t)>5 $) and (b) points in green are IPC definition words.}
+\vspace{-4mm}
+\end{center}
+\label{fig:dfrf}
 \end{figure}
-Fig. \ref{fig:dfrf} shows a scatter plot of RF score and Document Frequency(DF) score of words in top-100 retrieved documents. A negative correlation shows that these two scores have opposite trends. Fig. \ref{fig:dfrf} is divided into four areas: 
+ %\vspace*{-2ex}
+%\begin{figure}[htpb]
+%   \centering
+%   \includegraphics[width=0.30\textwidth,height=40mm]{figs/df-rf-tauline.eps}
+%   \caption{Anecdotal example: Scatter plot of $ score_{RF}(t) $ versus $ score_{DF}(t) $ for the words in top-100 retrieved documents. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. Points highlighted in red are query words with term frequency higher than 5($ QTF(t)>5 $).}   
+%   \label{fig:dfrf} 
+%\end{figure}
+Fig. 2 shows a scatter plot of RF score and DF score of words in top-100 retrieved patents. A negative correlation shows that these two scores have opposite trends. Fig. 2-a is divided into four areas: 
 (a) $score_{DF}(t)>\gamma$ and $score_{RF}(t)<0$ 
 (b) $score_{DF}(t)>\gamma$ and $score_{RF}(t)>0$ 
 (c) $score_{DF}(t)<\gamma$ and $score_{RF}(t)<0$
 (d) $score_{DF}(t)>\gamma$ and $score_{RF}(t)>0$. 
-If we remove document frequent words: $score_{DF}(t)>\gamma$, areas `a' and `d' are desirable because we are removing the noisy words in the area `a' while we are keeping useful words in the area `d'.  Whereas, the areas `b' and `c' are not desirable because many noisy words are kept in area `c' while useful terms are removed in area `b'. To keep useful terms in area `b', we added the second condition to keep words: [$ score_{DF}(t)<\gamma \mbox{ \& } QTF(t)>\delta$]. Even the best result, obtained with the $ \gamma = 0.01 $ and $ \delta = 5 $, could not beat the baseline. If we remove document frequent words but keep Query words with term frequency higher than 5(highlighted with red in Fig. \ref{fig:dfrf}), there will be still sufficient noisy words with the frequency higher than 5 in the patent query which can skew the effectiveness down. 
+If we remove the words with a DF score higher than a threshold($score_{DF}(t)>\gamma$), we will remove noisy words of the area `a' and keeping useful terms in area `d' which is desirable. Whereas, the areas `b' and `c' are not desirable because many noisy words are kept in area `c' while useful terms are removed from area `b'. To keep useful terms in area `b', we added the second condition to remove DF words while keeping query terms with a term frequency higher than a threshold $\delta$ ($ score_{DF}(t)<\gamma \mbox{ \& } QTF(t)>\delta$). Even the best result, obtained with the $ \gamma = 0.01 $ and $ \delta = 5 $, could not beat the baseline. If we remove document frequent words but keep query words with term frequency higher than 5(highlighted with red in Fig. 2), we are still keeping sufficient amount of noisy words which are also frequent in the query to destroy the retrieval effectiveness. 
 
+To remove the noisy words which are both frequent in retrieved documents and query, we considered the third feature: IPC code definition. IPC code definition are short sentences giving a general description about the topic that each patent belongs to. In almost all queries IPC code definition words have a negative RF score but few with positive RF scores(Fig. 2-b). Our experiments showed that adding the third condition to remove frequent query word that is in IPC code definition words deteriorated the performance which means removing even just few useful words in patent query can be destructive.     
 %(a)(b)(c (d)\\
 %Removing words with the $score_{DF}(t)>\gamma$  from the patent query is desirable for the words with $ score_{RF}(t)<0 $ while it is not desired for the words with the $ score_{RF}(t)>0 $. On the other hand, keeping noisy words is harm    
 \subsubsection{Pseudo Relevance Feedback(PRF)}
-Pseudo relevance feedback or a blind feedback is precious since it is an automated process without user interaction which assumes that the top k ranked documents are relevant and the others are irrelevant. It has been found to improve performance in many applications, however we did not achieve the RF results by PRF. The results for PRF query formulation and query term selection using PRF were below the baseline. In fact, we could not find any heuristic correlates between  $ score_{RF}(t)$ and $ score_{PRF}(t)$. Fig. \ref{fig:anecdotal} explains the reason; it is an anecdotal example of a sample query with its abstract and a pair of PRF terms, with $ score_{PRF}(t)>10 $), and RF score of each term. It can be seen that terms with high PRF score are considered noise since their RF score is negative. Fig. \ref{fig:anecdotal} combined with Fig. 1-a can justify that terms from PRF are not useful at all because they contain sufficient noisy words to destruct the retrieval effectiveness. Document frequent words that 
+The main advantage of pseudo relevance feedback or a blind feedback is that it is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant. It has been found to improve performance in many applications, however it did not worked in patent prior-art search. The results for PRF query formulation and query term selection using PRF were below the baseline. In fact, we could not find any heuristic correlates between  $ score_{RF}(t)$ and $ score_{PRF}(t)$. Fig. \ref{fig:anecdotal} explains the reason; it is an anecdotal example of a sample query with its abstract and a pair of PRF terms, with $ score_{PRF}(t)>10 $, and RF score of each term. It can be seen that terms with high PRF score are considered noise since their RF score is negative. Fig. \ref{fig:anecdotal} combined with Fig. 1-a can justify that terms from PRF are not useful at all because they contain sufficient noisy words to destruct the retrieval effectiveness. 
 \begin{figure}[htpb]
 \begin{framed}
 \vspace*{-2ex}
@@ -326,36 +365,36 @@ PRF Terms: <@\textcolor{red}{commun:-69.43159}@>, <@\textcolor{red}{transmiss:-5
   \label{fig:anecdotal}  
 \end{figure}
 %\vspace*{-2ex}
-\section{Improvement by Minimum User Effort}
-We could not improve the effectiveness without accessing the relevance feedback. In this experiment, we select query terms using only the first relevant patent document based on the hypothesis that a patent examiner can recognize the first relevant patent with minimum effort at top-5. Table \ref{tab:firstrel} shows that we can double the 'MAP' by using only the first-ranked relevant document.
+
+Surprisingly, there were no pattern or correlation between accessible features and RF score and we could not refine the patent query with just useful terms as what we could with relevance feedback. 
+\subsection{Improvement by Minimum User Effort}
+All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to involve the users but with the least effort. In this experiment, we selected the query words using merely the few first-ranked relevant patents. Table \ref{tab:firstrel} shows that we can double the 'MAP' by only the first-ranked relevant document.
 \begin{table}[htpb]
   \begin{center}
-   \caption{System performance when only the first relevant patent used for query reduction. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved documents.}
+   \caption{System performance when only the first relevant patent used for query reduction. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved documents.}\vspace{3mm}
   \input table/partialRFtermselect.tex   
   \label{tab:firstrel}
   \end{center}  
 \end{table}
-
+ We hypothesised that recognising the first-ranked patent is easy for a patent examiner because we expected that it appears at top-5 in first retrieval. Fig. \ref{fig:FirstTPRankHisto} confirms our intuition; The probability of finding the first-ranked relevant document at top-5 is acceptably high.   
 \begin{figure}[htpb]
    \centering
    \includegraphics[width=0.25\textwidth,height=32mm]{figs/FirstTPRank.eps}
    \caption{The distribution of the first relevant document rank over test queries which have TPs}   
    \label{fig:FirstTPRankHisto} 
 \end{figure}
+%\section{Related Work}
 \section{Related Work}
-
+Our work is different from pioneer studies on patent retrieval, as we closely looked into the problem rather than solutions to figure out the causes that generic IR models which are based on term matching process, do not work efficiently in patent domain. Magdy et al.~\cite{magdy2011study} studied works on query expansion in patent retrieval and discussed that standard query expansion techniques are less effective, where the initial query is the full texts of query patents. Mahdabi et al.~\cite{Mahdabi2013} used term proximity information to identify expansion terms. Ganguly et al.~\cite{ganguly2011patent} adapted pseudo relevance feedback for query reduction by decomposing a patent application into constituent text segments and computing the Language Modelling (LM) similarities of each segment from the top ranked documents. The least similar segments to the pseudo-relevant documents removed from the query, hypothesizing it can increase the precision of retrieval. Kim et al.~\cite{kim2014diversifying} provided diverse query suggestion using aspect identification from a patent query to increase the chance of retrieving relevant documents. Mahdabi et al.~\cite{mahdabi2014patent} used linked-based structure of the citation graph together with IPC classification --the most useful patent meta-data-- to improve the initial patent query. 
 \section{Conclusions}
-
+In this paper, we looked at the patent prior-art search from a different perspective. While previous works proposed different solutions to improve retrieval effectiveness, we focused on term analysis of the patent query and top retrieved patents. After finding a golden standard from relevance feedback, we examined the most obvious features such as: document frequent words, query frequent words, IPC definition words, and pseudo relevance feedback that might correlate RF score for terms in top retrieved documents. We showed that these feature helps very little because they are a complicated mixture of useful terms and noisy words that can not be separated easily. Finally, we showed that we can double the `MAP' with minimum user interaction. 
+For future works, we plan to analyse more features which are independent from the relevance feedback but correlate with RF score. Inspired by some excellent works proposing query reduction and term selection techniques for the long non-patent queries\cite{maxwell2013compact}\cite{kumaran2009reducing}, we are also going to apply them for patent retrieval.   
+%Opposite our initial assumption, features such as document frequent words, frequent words in the query, IPC code definition words, and pseudo relevance feedback could not help to refine the best query because they were the combination of useful words and noisy words and our system is too sensitive to the existence of the noisy words as well removing .  
 %\end{document}  % This is where a 'short' article might terminate
 
 %ACKNOWLEDGMENTS are optional
 \section{Acknowledgments}
-NICTA is funded by the Australian Government as represented
-by the Department of Broadband, Communications and the Digi-
-tal Economy and the Australian Research Council through the ICT
-Centre of Excellence program.
-
-
+NICTA is funded by the Australian Government as represented by the Department of Broadband, Communications and the Digital Economy and the Australian Research Council through the ICT Centre of Excellence program.
 %
 % The following two commands are all you need in the
 % initial runs of your .tex file to
