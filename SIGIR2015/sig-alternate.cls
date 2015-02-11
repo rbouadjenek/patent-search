@@ -50,6 +50,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 
+\usepackage{url}
+\usepackage{sidecap}
 \usepackage{xcolor}
 \usepackage{framed}
 \usepackage{listings}
