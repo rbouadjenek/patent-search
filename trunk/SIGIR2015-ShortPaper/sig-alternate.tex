@@ -270,7 +270,7 @@ We used four common features to reduce the initial patent query: (1) document fr
 In standard IR, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words with average term frequency --in top-100 documents-- higher than the threshold $\tau$ from the patent query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, frequent terms in top-100 documents ruined the performance.    
 \begin{figure}[htpb]
    \centering
-   \includegraphics[width=0.30\textwidth,height=40mm]{figs/PRF-QR.eps}
+   \includegraphics[width=0.30\textwidth,height=40mm]{figs/df-rf-tauline.eps}
    \caption{.}   
    \label{fig:queryreduc} 
 \end{figure}
