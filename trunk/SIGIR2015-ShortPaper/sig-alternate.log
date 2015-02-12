@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  11 FEB 2015 23:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  12 FEB 2015 10:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -500,24 +500,27 @@ Overfull \hbox (10.99672pt too wide) in paragraph at lines 10--26
 
 ) [2 <./figs/extended-optquery-tau-eps-converted-to.pdf> <./figs/opt-query-qsiz
 e-eps-converted-to.pdf> <./figs/opt-patentquery-tau-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <figs/df-rf-tauline.eps>
-(epstopdf)                    date: 2015-02-05 15:26:34
-(epstopdf)                    size: 1654842 bytes
-(epstopdf)             Output file: <figs/df-rf-tauline-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-02-05 15:27:42
-(epstopdf)                    size: 68984 bytes
-(epstopdf)             Command: <repstopdf --outfile=figs/df-rf-tauline-eps-con
-verted-to.pdf figs/df-rf-tauline.eps>
+Package epstopdf Info: Source file: <figs/threshold.eps>
+(epstopdf)                    date: 2015-02-12 10:12:52
+(epstopdf)                    size: 100603 bytes
+(epstopdf)             Output file: <figs/threshold-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=figs/threshold-eps-convert
+ed-to.pdf figs/threshold.eps>
 (epstopdf)             \includegraphics on input line 273.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=figs/threshold-eps-converted-to.pdf figs/threshol
+d.eps)...executed safely (allowed).
 
-<figs/df-rf-tauline-eps-converted-to.pdf, id=53, 574.145pt x 427.5975pt>
-File: figs/df-rf-tauline-eps-converted-to.pdf Graphic file (type pdf)
+Package epstopdf Info: Result file: <figs/threshold-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-02-12 10:14:23
+(epstopdf)                    size: 8724 bytes.
 
-<use figs/df-rf-tauline-eps-converted-to.pdf>
-Package pdftex.def Info: figs/df-rf-tauline-eps-converted-to.pdf used on input 
-line 273.
-(pdftex.def)             Requested size: 151.20154pt x 113.80865pt.
+<figs/threshold-eps-converted-to.pdf, id=53, 562.1pt x 421.575pt>
+File: figs/threshold-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figs/threshold-eps-converted-to.pdf>
+Package pdftex.def Info: figs/threshold-eps-converted-to.pdf used on input line
+ 273.
+(pdftex.def)             Requested size: 151.19437pt x 113.80746pt.
 
 Overfull \hbox (13.32753pt too wide) in paragraph at lines 304--304
 []\secfnt IMPROVED BY MIN-I-MUM USER EF-FORT 
@@ -542,8 +545,9 @@ File: figs/FirstTPRank-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/FirstTPRank-eps-converted-to.pdf used on input li
 ne 316.
 (pdftex.def)             Requested size: 125.99976pt x 91.04872pt.
- [3 <./figs/df-rf-tauline-eps-converted-to.pdf>] (./sig-alternate.bbl [4 <./fig
-s/FirstTPRank-eps-converted-to.pdf>]) [5
+ [3 <./figs/threshold-eps-converted-to.pdf>] (./sig-alternate.bbl [4 <./figs/Fi
+rstTPRank-eps-converted-to.pdf>])
+[5
 
 ] (./sig-alternate.aux)
 
@@ -555,7 +559,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  4951 strings out of 493307
- 65927 string characters out of 6139906
+ 65907 string characters out of 6139906
  227423 words of memory out of 5000000
  8256 multiletter control sequences out of 15000+600000
  58264 words of font info for 85 fonts, out of 8000000 for 9000
@@ -577,10 +581,10 @@ dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
 es/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sig-alternate.pdf (5 pages, 296969 bytes).
+Output written on sig-alternate.pdf (5 pages, 237134 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
+ 132 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
