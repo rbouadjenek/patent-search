@@ -189,10 +189,10 @@ In this work, we mainly emphasized on the problem from the data analysis perspec
 %\subsection{Experimental Setup}
 We developed a Lucene-based%
 \footnote{\texttt{http://lucene.apache.org/}%
-} IR system with the possibility of using diverse generic IR models: TF-IDF, BM25, Language Models(Dirichlet smoothing, and Jelinek-Mercer smoothing) as our baseline system. We achieved the best baseline effectiveness using the `Description' of the patent application as a query\cite{xue2009transforming}, and Language Model with Dirichlet smoothing as a retrieval model. We conducted our experiments on CLEF-IP%
+} IR system with the possibility of using diverse generic IR models: TF-IDF, BM25, Language Models (Dirichlet smoothing, and Jelinek-Mercer smoothing) as our baseline system. We achieved the best baseline effectiveness querying with the Description section of the patent application as it is also mentioned in \cite{xue2009transforming}, and using LM and BM25 scoring functions. We conducted our experiments on CLEF-IP%
 \footnote{\texttt{\url{http://www.ifs.tuwien.ac.at/~clef-ip/}}}% 
  2010 data collection, with 2.6 million European patent documents and 1303 English topics(queries). On the collection side, we only indexed English subset of each section of a patent (title, abstract, claims, and description), and IPC\footnote{International Patent Classification}% 
-  code in a separate field\cite{magdy2012toward}. We also used the patent classification assigned to the query topics to filter search results to match at least one of the query IPC codes\cite{lopez2010patatras}. Our experiments showed that using IPC filter is itself a source of error because about 19\% of relevant patents in CLEF-IP data collection do not share any classification code with their query. However, for our analysis, we kept the filter on since it makes the matching process between the query and documents notably faster.
+  code in a separate field. We also used the patent classification assigned to the query topics to filter search results to match at least one of the query IPC codes, as recommended in \cite{lopez2010patatras}. Our experiments showed that using IPC filter is itself a source of error because about 19\% of relevant patents in CLEF-IP 20101 data collection do not share any classification code with their query. However, for our analysis, we kept the filter on since it makes the matching process between the query and documents notably faster.
  %\footnote{\texttt{For an accurate term analysis, we pruned out the source of errors related to data curation such as non-English patents, and IPC filter.}%
 %}.
 \begin{figure*}
@@ -264,21 +264,21 @@ The main results related to ideal query formulation has been summarized in Figur
  
 We can conclude two important ideas: (1) a patent query contains sufficient useful terms to achieve an acceptable performance. (2) Noisy terms can highly ruin the IR effectiveness. Therefore, to improve patent prior-art search, we need to reformulate the initial patent query using term selection, and query reduction rather than query expansion. In addition, it is very important to identify and prune all the noisy words out because they are highly harmful.  
 
-\section{Query Reduction}
-We used four common features to reduce the initial patent query: (1) document frequent terms (2) frequent terms in query (3) pseudo relevance feedback, and (4) general terms in IPC title. 
+\section{Query Refinement}
+We noticed that most of the useful feedback terms are actually present in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms. We used four approaches to refine the initial patent query: (1) removing document frequent terms (2) keeping frequent terms in query (3) using pseudo relevance feedback to select query terms, and (4) removing general terms in IPC title. 
 
-In standard IR, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words with average term frequency --in top-100 documents-- higher than the threshold $\tau$ from the patent query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, frequent terms in top-100 documents ruined the performance.    
+In standard IR, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words with average term frequency (in top-100 documents) higher than the threshold $\tau$ from the original query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, removing frequent terms in top-100 documents ($DF(t)>\tau$) ruined the performance.     
 \begin{figure}[htpb]
    \centering
    \includegraphics[width=0.30\textwidth,height=40mm]{figs/threshold.eps}
-   \caption{.}   
+   \caption{System performance vs. the threshold $\tau$ for three query reduction approaches.}   
    \label{fig:queryreduc} 
 \end{figure}
 
-As mentioned in \cite{maxwell2013compact} terms inside verbose queries are important. So, we kept frequent words inside the query while removing document frequent words. It can be seen in Figure \ref{fig:queryreduc} that keeping terms with term frequency higher than a threshold $\tau$ helped but the performance is below the baseline. 
+As mentioned in \cite{maxwell2013compact} terms inside verbose queries are also important. So, we kept frequent words inside the query while removing document frequent words. It can be seen in Figure \ref{fig:queryreduc} that keeping terms with term frequency higher than a threshold $\tau$ helped and we got the performance when keeping all query terms but it is close to the baseline. 
 
 We used pseudo relevance feedback (PRF) as the third feature to reduce the query. PRF is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant. Again, it can be seen in Figure \ref{fig:queryreduc} that the results for query reduction using PRF were below the baseline. In fact, we could not find any heuristic correlates between  $ score_{RF}(t)$ and $ score_{PRF}(t)$. Figure \ref{fig:anecdotal} is an anecdotal example for a sample query which can explain the reason that PRF did not work. It shows the query abstract and a pair of PRF terms, with $ score_{PRF}(t)>10 $, and RF score of each term. It can be seen that terms with high PRF score have a negative RF score which means words from PRF contaminated with sufficient amount of noise to ruin the retrieval effectiveness. 
-We used words in IPC code title to reduce the query because we assumed they are noisy words as they are general words in all patents belong to the same category. However we will hurt the effectiveness by pruning them from the patent query.
+We used words in IPC code title to reduce the query because as it can be seen in Figure \ref{fig:queryreduc} the majority of them are negative terms as they are general words in all patents belonging to the same category. However we hurt the effectiveness by pruning them out.
 \begin{figure}[htpb]
 \begin{framed}
 \vspace*{-2ex}
@@ -300,17 +300,17 @@ IPC def Terms: <@\textcolor{red}{network: -28.557888}@>, <@\textcolor{red}{traff
 \end{figure}
 %\vspace*{-2ex}
 
-Surprisingly, there were no pattern or correlation between accessible features and RF score and we could not refine the patent query with just useful terms as what we could with relevance feedback. 
-\section{Improved by Minimum User Effort}
-All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to involve the users but with the least effort. In this experiment, we selected the query words using merely the few first-ranked relevant patents. Table \ref{tab:firstrel} shows that we can double the MAP by only the first-ranked relevant document.
+Unlike our initial assumption, non of the standard proposed query refinement approaches worked better than the baseline.
+\section{Minimal Relevance Feedback}
+All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. Table \ref{tab:firstrel} shows that we can double the MAP by only the first-ranked relevant document.
 \begin{table}[htpb]
   \begin{center}
-   \caption{System performance when only the first relevant patent used for query reduction. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved documents.}\vspace{3mm}
+   \caption{System performance using minimal relevance feedback. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
   \input table/partialRFtermselect.tex   
   \label{tab:firstrel}
   \end{center}  
 \end{table}
- We hypothesised that recognising the first-ranked patent is easy for a patent examiner because we expected that it appears at top-5 in first retrieval. Fig. \ref{fig:FirstTPRankHisto} confirms our intuition; The probability of finding the first-ranked relevant document at top-5 is acceptably high.   
+Fig. \ref{fig:FirstTPRankHisto} indicates that the baseline methods return a relevant patent, approximately, 80\% of the time in the first 10 results and 90\% of the time in the first 20 results, such an interactive approach requires relatively low user effort while achieving state-of-the-art performance.    
 \begin{figure}[htpb]
    \centering
    \includegraphics[width=0.25\textwidth,height=32mm]{figs/FirstTPRank.eps}
