@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  12 FEB 2015 10:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  12 FEB 2015 16:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -479,13 +479,7 @@ File: figs/opt-patentquery-tau-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/opt-patentquery-tau-eps-converted-to.pdf used on 
 input line 213.
 (pdftex.def)             Requested size: 151.20154pt x 113.76059pt.
-
-Overfull \hbox (5.03787pt too wide) in paragraph at lines 190--224
-\T1/aer/m/n/9 Eu-ro-pean patent doc-u-ments and 1303 En-glish top-ics(queries).
-
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ] (./table/optquery.tex
@@ -501,32 +495,24 @@ Overfull \hbox (10.99672pt too wide) in paragraph at lines 10--26
 ) [2 <./figs/extended-optquery-tau-eps-converted-to.pdf> <./figs/opt-query-qsiz
 e-eps-converted-to.pdf> <./figs/opt-patentquery-tau-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/threshold.eps>
-(epstopdf)                    date: 2015-02-12 10:12:52
-(epstopdf)                    size: 100603 bytes
+(epstopdf)                    date: 2015-02-12 12:43:58
+(epstopdf)                    size: 11620 bytes
 (epstopdf)             Output file: <figs/threshold-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-02-12 12:44:24
+(epstopdf)                    size: 8790 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/threshold-eps-convert
 ed-to.pdf figs/threshold.eps>
 (epstopdf)             \includegraphics on input line 273.
-runsystem(repstopdf --outfile=figs/threshold-eps-converted-to.pdf figs/threshol
-d.eps)...executed safely (allowed).
+Package epstopdf Info: Output file is already uptodate.
 
-Package epstopdf Info: Result file: <figs/threshold-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-02-12 10:14:23
-(epstopdf)                    size: 8724 bytes.
-
-<figs/threshold-eps-converted-to.pdf, id=53, 562.1pt x 421.575pt>
+<figs/threshold-eps-converted-to.pdf, id=53, 421.575pt x 317.185pt>
 File: figs/threshold-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/threshold-eps-converted-to.pdf>
 Package pdftex.def Info: figs/threshold-eps-converted-to.pdf used on input line
  273.
-(pdftex.def)             Requested size: 151.19437pt x 113.80746pt.
-
-Overfull \hbox (13.32753pt too wide) in paragraph at lines 304--304
-[]\secfnt IMPROVED BY MIN-I-MUM USER EF-FORT 
- []
-
-(./table/partialRFtermselect.tex)
+(pdftex.def)             Requested size: 151.20079pt x 113.80899pt.
+ (./table/partialRFtermselect.tex)
 Package epstopdf Info: Source file: <figs/FirstTPRank.eps>
 (epstopdf)                    date: 2015-01-09 09:58:34
 (epstopdf)                    size: 12090 bytes
@@ -581,7 +567,7 @@ dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
 es/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sig-alternate.pdf (5 pages, 237134 bytes).
+Output written on sig-alternate.pdf (5 pages, 237755 bytes).
 PDF statistics:
  132 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream
