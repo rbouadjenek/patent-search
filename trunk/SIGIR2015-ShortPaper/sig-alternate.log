@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  12 FEB 2015 18:17
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  12 FEB 2015 20:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -500,6 +500,10 @@ Overfull \hbox (10.99672pt too wide) in paragraph at lines 10--26
 
 ) [2 <./figs/extended-optquery-tau-eps-converted-to.pdf> <./figs/opt-query-qsiz
 e-eps-converted-to.pdf> <./figs/opt-patentquery-tau-eps-converted-to.pdf>]
+Overfull \hbox (9.02165pt too wide) in paragraph at lines 267--267
+[]\secfnt QUERY RE-DUC-TION: AP-PROX-I-MAT-ING
+ []
+
 Package epstopdf Info: Source file: <figs/threshold.eps>
 (epstopdf)                    date: 2015-02-12 12:43:58
 (epstopdf)                    size: 11620 bytes
@@ -508,15 +512,14 @@ Package epstopdf Info: Source file: <figs/threshold.eps>
 (epstopdf)                    size: 8790 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/threshold-eps-convert
 ed-to.pdf figs/threshold.eps>
-(epstopdf)             \includegraphics on input line 273.
+(epstopdf)             \includegraphics on input line 274.
 Package epstopdf Info: Output file is already uptodate.
-
 <figs/threshold-eps-converted-to.pdf, id=53, 421.575pt x 317.185pt>
 File: figs/threshold-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/threshold-eps-converted-to.pdf>
 Package pdftex.def Info: figs/threshold-eps-converted-to.pdf used on input line
- 273.
+ 274.
 (pdftex.def)             Requested size: 151.20079pt x 113.80899pt.
  (./table/partialRFtermselect.tex)
 Package epstopdf Info: Source file: <figs/FirstTPRank.eps>
@@ -527,7 +530,7 @@ Package epstopdf Info: Source file: <figs/FirstTPRank.eps>
 (epstopdf)                    size: 7253 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/FirstTPRank-eps-conve
 rted-to.pdf figs/FirstTPRank.eps>
-(epstopdf)             \includegraphics on input line 316.
+(epstopdf)             \includegraphics on input line 317.
 Package epstopdf Info: Output file is already uptodate.
 
 <figs/FirstTPRank-eps-converted-to.pdf, id=54, 452.69125pt x 319.1925pt>
@@ -535,7 +538,7 @@ File: figs/FirstTPRank-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/FirstTPRank-eps-converted-to.pdf>
 Package pdftex.def Info: figs/FirstTPRank-eps-converted-to.pdf used on input li
-ne 316.
+ne 317.
 (pdftex.def)             Requested size: 125.99976pt x 91.04872pt.
  [3 <./figs/threshold-eps-converted-to.pdf>] (./sig-alternate.bbl [4 <./figs/Fi
 rstTPRank-eps-converted-to.pdf>])
@@ -552,7 +555,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  4951 strings out of 493307
  65907 string characters out of 6139906
- 229423 words of memory out of 5000000
+ 228423 words of memory out of 5000000
  8256 multiletter control sequences out of 15000+600000
  58264 words of font info for 85 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -573,7 +576,7 @@ dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
 es/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sig-alternate.pdf (5 pages, 237917 bytes).
+Output written on sig-alternate.pdf (5 pages, 238662 bytes).
 PDF statistics:
  132 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream

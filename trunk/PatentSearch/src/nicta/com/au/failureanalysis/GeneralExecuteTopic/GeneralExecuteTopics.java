@@ -114,8 +114,8 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 
 			/*--------------------------------- 5-Create patent query(PQ term selection based on RF score) -----------------------------*/
-//			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
-//			Query q = pq.parse(patentquery, ipcfilter);
+			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
+			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- 6-Create patent query(PQ term selection based on PRF score) -----------------------------*/
@@ -130,9 +130,9 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 						
 			/*------------------ 8-Create patent query minus frequent words in top-100 -----------------*/
-			int delta = Qsize;
-			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
-			Query q = pq.parse(newquery, ipcfilter);
+//			int delta = Qsize;
+//			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
+//			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ 9-Create patent query minus frequent words in top-100, keep ipc def and QTF(t) > delta -----------------*/
