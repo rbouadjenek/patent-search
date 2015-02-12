@@ -40,7 +40,7 @@ public class CreateOptimalPatentQuery {
 		HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid); /*reader.getDocTerms(, PatentDocument.Description);*/
 		int querysize = query_terms.size();
 		//			System.out.println(query_termsfreqspair.size() +"\t"+ query_termsfreqspair);
-					System.out.println(queryid + " (" + querysize + ") " + query_terms);
+//					System.out.println(queryid + " (" + querysize + ") " + query_terms);
 		/*-----------------------------------------------------------------------------*/			
 
 		TreeMap<String, Float> RFtermsscores = olap.getTermsScoresPair(queryid);
@@ -57,16 +57,16 @@ public class CreateOptimalPatentQuery {
 				if(query_terms.keySet().contains(term)){
 					if (!Functions.isNumeric(term) && !Functions.isSpecialCahr(term)) {
 						size++;
-						//							optimal_query += term + "^" + score + " ";
+						//							optimal_query += term + "^" + score + " ";						
 						optimal_query += term + "^" + 1 + " ";
 					}	
 //											System.out.println(term);
 				}					
 			}			
 		}	
-		System.out.println();
+		/*System.out.println();
 		System.out.println(queryid + " (" + size + ") " + optimal_query);
-		System.out.println();
+		System.out.println();*/
 		return optimal_query;
 	}
 
