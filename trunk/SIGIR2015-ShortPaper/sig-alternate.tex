@@ -176,12 +176,11 @@ Patent prior-art search aims to find all relevant patents which may invalidate t
 \keywords{Patent search, Query Reformulation, Data Analysis}
 
 \section{Introduction}
-%A patent is a set of exclusive rights granted by a sovereign state to an inventor for a limited period of time to encourage detailed public disclosure of new technologies and novel ideas. An important requirement for a patent to be granted is that the invention, it describes, is novel which means there is no earlier patent, publication or public communication of a similar idea. To ensure the novelty of an invention, patent offices as well as other Intellectual Property (IP) service providers mainly perform a search called 'prior art search'. The purpose of 'prior art search' is finding all relevant patents which may put the patent application at the risk of novelty invalidation or at least have common parts with patent application and should be cited~\cite{Magdy2012}~\cite{piroi2013overview}. 
 A patent is a set of exclusive rights granted to an inventor to protect their invention for a limited period of time. An important requirement for a patent to be granted is that the invention, it describes, is novel which means there is no earlier patent, publication or public communication of a similar idea. To ensure the novelty of an invention, patent offices as well as other Intellectual Property (IP) service providers mainly perform a search called `prior art search'. The purpose of `prior art search' is finding all relevant patents which may put the patent application at the risk of novelty invalidation or at least have common parts with patent application and should be cited~\cite{magdy2012toward}~\cite{piroi2013overview}. 
 
 Patent retrieval has three main characteristics which makes it difficult compared to other IR applications: (1) the search starts with a query as long as a full patent application that helps users --usually patent examiners, inventors, or lawyers-- avoid spending long hours to formulate a query; (2) it is recall-oriented, where not missing relevant documents is more important than appearing relevant documents at top of the list; (3) unlike the web application in which authors tend to highlight their work to be easily found through search engines, authors of the patents prefer to use a vague language to avoid the invalidation of their idea.     
 
-Many works has been conducted to improve the patent retrieval effectiveness so far. However, either the results showed quite small improvement or the proposed methods were complicated and computationally expensive. Overall, the works on patent search fall in five main categories: query reformulation(query expansion and query reduction), query term selection, query suggestions, using patent meta-data and images for retrieval~\cite{lupu2013evaluating}, and Cross-Language Information Retrieval~\cite{magdy2014studying}.
+Many works has been conducted to improve the patent retrieval effectiveness so far. However, either the results showed quite small improvement or the proposed methods were complicated and computationally expensive. Overall, the works on patent search fall in five main categories~\cite{lupu2013patent} query reformulation(query expansion and query reduction), query term selection, query suggestions, using patent meta-data and images for retrieval~\cite{lupu2013evaluating}, and Cross-Language Information Retrieval~\cite{magdy2014studying}.
 
 %Applying standard information retrieval (IR) techniques to patent search is not effective and needs applying supplementary methods to improve the effectiveness. Although lots of methods have been proposed in recent years, reported results for different tasks of patent search show lower retrieval effectiveness compared to other IR applications~\cite{lupu2013patent}.  
 In this work, we mainly emphasized on the problem from the term analysis perspective which ended in an effective minimal relevance feedback method. We investigated the influence of term selection on retrieval performance on the CLEF-IP Prior Art test collection, starting with the Description section of the reference patent and using LM and BM25 scoring functions. We found that an oracular relevance feedback system which extracts terms from the judged relevant documents far outperforms the baseline and  performs twice as well on MAP as the best competitor in CLEF-IP 2010.  We find a very clear term selection value threshold for use when choosing terms.  A much more realistic approach in which feedback terms are extracted only from the first relevant document retrieved, still outperforms the winner.   We noticed that most of the useful feedback terms are actually present in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms.  We tried three different approaches to identifying negative terms but were unable to improve on the baseline performance with any of them.
@@ -224,8 +223,8 @@ How score threshold($\tau$) and query size controls the performance.
 \section{Oracular Term Selection}
 The main complain about patent search is insufficient match between the content of patent queries and relevant
 patents\cite{lupu2013patent}\cite{magdy2012toward}. However, we have the intuition that there are sufficient terms in a patent query containing thousands words to be matched with the relevant patents. So, in this section, we focused on term analysis to figure out the main causes that the system fails in retrieving relevant documents at top of the result list. 
-
-We started our analysis using {\em relevance feedback}, in which the user gives feedback on the relevance of documents in an initial set of results to improve the final result set. We calculate a relevance feedback (RF) score for each term in top-100 retrieved documents as follows:
+\subsection{Oracular Query Formulation}
+We started with {\em relevance feedback}, in which the user gives feedback on the relevance of documents in an initial set of results to improve the final result set. We calculate a relevance feedback (RF) score for each term in top-100 retrieved documents as follows:
 \begin{equation}
 score_{RF}(t,Q)=Rel(t)-Irr(t) 
  \label{eq:score}
@@ -235,10 +234,9 @@ where $ Rel(t) $ is the average term frequency in retrieved relevant patents and
 
 We expected to see a higher performance for the queries which contain more {\em useful words}, but, surprisingly, we could not find any correlation between the performance and the percentage of {\em useful words} in the query. 
 
-\subsection{Oracular Query Formulation}
-We hypothesized that a query, formulated by only the {\em useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. We formulated the ideal query as follows: 
+We hypothesized that a query, formulated by only the {\em useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. We formulated an oracular query as follows: 
 \begin{equation}
-Ideal\; query = \{t \in top-100|score_{RF}(t)>0\}   
+Oracular \; query = \{t \in top-100|score_{RF}(t)>0\}   
  \label{eq:score}
 \end{equation}
 Table \ref{tab:optquery} compares the baseline performance, where the query is the full patent application, with the performance of the ideal query. 
@@ -249,16 +247,16 @@ Table \ref{tab:optquery} compares the baseline performance, where the query is t
   \label{tab:optquery}
   \end{center}  
 \end{table}
-It can be seen that MAP jumps from 0.1618 to {\em 0.5075}, which means the ideal query considerably performs better than the baseline. 
-\subsection{Patent Query and Useful Terms}
+It can be seen that MAP jumps from 0.1181 to {\em 0.5075}, which means the oracular query far outperforms the baseline and performs twice as well on MAP as the best competitor in CLEF-IP 2010~\cite{lopez2010experiments}. 
+
 Our previous experiments led us to the hypothesis that a patent query contains sufficient words matched with the relevant patents.
 % and the {\em noisy words} are the main cause of the low effectiveness. 
-To prove our idea, we formulated a query by selecting only RF {\em useful terms} existing inside patent query as follows: 
+To prove our idea, we formulated a query by selecting only {\em useful terms} existing inside the patent query as follows: 
 \begin{equation}
- query = \{t|t \in \{ Q\cap (useful \; terms)\}\}   
+ Selected \; query = \{t\in Q|score_{RF}(t)>0\}   
  \label{eq:score}
 \end{equation}
-The results were encouraging, as MAP was improved from 0.1618 to {\em 0.44}.
+The results were encouraging, as MAP was improved from 0.1181 to {\em 0.44}.
 \subsection{Baseline vs. Oracular Query}
 The main results related to ideal query formulation has been summarized in Figure 1. Figure 1-a shows how the RF score threshold $\tau$ controls the performance, It can be seen that it is better to include all terms with positive RF score. On top of that, we can see that the system is {\em over-sensitive} to the {\em noisy words} ($ \tau<0 $). Adding words with negative RF score can sharply hurt the performance. Figure 1-b indicates that formulating a query with up to 200 {\em useful words} helps the performance whereas there is no significant improvement when we add more than 200 right words. Finally, Figure 1-c explicitly shows that a patent query contains sufficient words to perform well. 
  
@@ -266,7 +264,13 @@ We can conclude two important ideas: (1) a patent query contains sufficient usef
 
 \section{Query Reduction: Approximating the Oracular Query}
 \subsection{Automated Reduction}
-We noticed that most of the useful feedback terms are actually present in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms. We used four approaches to refine the initial patent query: (1) removing document frequent terms (2) keeping frequent terms in query (3) using pseudo relevance feedback to select query terms, and (4) removing general terms in IPC title. 
+We noticed that most of the useful feedback terms are actually present in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms. We used four approaches to refine the initial patent query: 
+\begin{enumerate}
+  \item removing document frequent terms,
+  \item keeping frequent terms in query~\cite{maxwell2013compact},
+  \item using pseudo relevance feedback to select query terms, 
+  \item removing general terms in IPC title. 
+\end{enumerate}
 
 In standard IR, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words with average term frequency (in top-100 documents) higher than the threshold $\tau$ from the original query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, removing frequent terms in top-100 documents ($DF(t)>\tau$) ruined the performance.     
 \begin{figure}[htpb]
@@ -276,7 +280,7 @@ In standard IR, removing terms, appearing a lot in the collection, helps the ret
    \label{fig:queryreduc} 
 \end{figure}
 
-As mentioned in \cite{maxwell2013compact} terms inside verbose queries are also important. So, we kept frequent words inside the query while removing document frequent words. It can be seen in Figure \ref{fig:queryreduc} that keeping terms with term frequency higher than a threshold $\tau$ helped and we got the performance when keeping all query terms but it is close to the baseline. 
+As mentioned in~\cite{maxwell2013compact} terms inside verbose queries are also important. So, we kept frequent words inside the query while removing document frequent words. It can be seen in Figure \ref{fig:queryreduc} that keeping terms with term frequency higher than a threshold $\tau$ helped and we got the performance when keeping all query terms but it is close to the baseline. 
 
 We used pseudo relevance feedback (PRF) as the third feature to reduce the query. PRF is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant. Again, it can be seen in Figure \ref{fig:queryreduc} that the results for query reduction using PRF were below the baseline. In fact, we could not find any heuristic correlates between  $ score_{RF}(t)$ and $ score_{PRF}(t)$. Figure \ref{fig:anecdotal} is an anecdotal example for a sample query which can explain the reason that PRF did not work. It shows the query abstract and a pair of PRF terms, with $ score_{PRF}(t)>10 $, and RF score of each term. It can be seen that terms with high PRF score have a negative RF score which means words from PRF contaminated with sufficient amount of noise to ruin the retrieval effectiveness. 
 We used words in IPC code title to reduce the query because as it can be seen in Figure \ref{fig:queryreduc} the majority of them are negative terms as they are general words in all patents belonging to the same category. However we hurt the effectiveness by pruning them out.
@@ -301,7 +305,7 @@ IPC def Terms: <@\textcolor{red}{network: -28.557888}@>, <@\textcolor{red}{traff
 \end{figure}
 %\vspace*{-2ex}
 
-Unlike our initial assumption, non of the standard proposed query refinement approaches worked better than the baseline.
+Unlike our initial assumption, non of the standard proposed query reduction approaches for query reduction worked better than the baseline.
 \subsection{Reduction by Relevance Feedback}
 All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. Table \ref{tab:firstrel} shows that we can double the MAP by only the first-ranked relevant document.
 \begin{table}[htpb]

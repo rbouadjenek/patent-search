@@ -1,11 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{bashir2010improving}
-S.~Bashir and A.~Rauber.
-\newblock Improving retrievability of patents in prior-art search.
-\newblock In {\em Advances in Information Retrieval}, pages 457--470. Springer,
-  2010.
-
 \bibitem{ganguly2011patent}
 D.~Ganguly, J.~Leveling, W.~Magdy, and G.~J. Jones.
 \newblock Patent query reduction using pseudo relevance feedback.
@@ -24,6 +18,13 @@ G.~Kumaran and V.~R. Carvalho.
 \newblock In {\em Proceedings of the 32nd international ACM SIGIR conference on
   Research and development in information retrieval}, pages 564--571. ACM,
   2009.
+
+\bibitem{lopez2010experiments}
+P.~Lopez and L.~Romary.
+\newblock Experiments with citation mining and key-term extraction for prior
+  art search.
+\newblock In {\em CLEF 2010-Conference on Multilingual and Multimodal
+  Information Access Evaluation}, 2010.
 
 \bibitem{lopez2010patatras}
 P.~Lopez and L.~Romary.
