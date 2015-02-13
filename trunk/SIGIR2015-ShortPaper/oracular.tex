@@ -21,7 +21,7 @@ We formulated the second query by selecting only {\em useful terms} existing ins
  Oracular \; Patent \; Query = \{t\in Q|score_{RF}(t)>0\}   
  \label{eq:score}
 \end{equation}
-The system performance to these two queries were encouraging. We discuss the results in more details in the next section.
+The system performance to these two queries were encouraging. We discuss the detailed results in the next section.
 
 \subsection{Baseline vs. Oracular Query}
 The system performed very well for both {\em Oracular Query} and {\em Oracle Patent Query}.  
@@ -35,14 +35,17 @@ The system performed very well for both {\em Oracular Query} and {\em Oracle Pat
 \end{table}
 As it can be seen in Table \ref{tab:optquery}, the {\em Oracular Query} far outperforms the baseline {\em Patent Query} and performs twice as well on MAP as the best competitor in CLEF-IP 2010~\cite{lopez2010experiments}.
 
-We used a threshold $\tau$ to formulate the {\em Oracular Query} and {\em Oracular Query} to include merely terms with the RF score higher than $\tau$ ($score_{RF}(t)>0$). 
+We used a threshold $\tau$ to formulate the {\em Oracular Query} and {\em Oracular Query} to include merely terms with the RF score higher than $\tau$ ($score_{RF}(t,Q)>0$). 
 \begin{figure}[htpb]
    \centering
    \includegraphics[width=0.35\textwidth,height=40mm]{figs/oracularquery1.eps}
    \caption{System performance vs. the threshold $\tau$ for oracular query and oracular patent query.}   
    \label{fig:oracular} 
 \end{figure} 
-Figure \ref{fig:oracular} illustrates that $\tau=0$ is the best-performed value for {\em Oracular Query} while $\tau=1$ is the best for {\em Oracular Patent Query}. 
+Figure \ref{fig:oracular} illustrates that $\tau=0$ is the best-performed value for {\em Oracular Query} while $\tau=1$ is the best for {\em Oracular Patent Query}. The MAP for the {\em Oracular Patent Query} is lower than MAP for {\em Oracular Query} which indicates that some positive terms from relevant patents are missed in the patent query. Further analysis showed an unexpected steep drop-off in performance when the oracular query is polluted with additional terms from the original patent query. 
 
-is compares the result for Oracular Query and Oracular Patent Query, when we use a threshold $\tau$ for selecting terms to formulate a query. 
-There two important fact in Figure \ref{fig:oracular} : (1) noisy terms ($\tau <0 $) can highly ruin the IR effectiveness. (2) a patent query contains sufficient useful terms to achieve an acceptable performance. Therefore, to improve patent prior-art search, we need to reformulate the initial patent query using term selection, and query reduction rather than query expansion. In addition, it is very important to identify and prune all the noisy words out because they are highly harmful.  
+Overall, our experiments related to oracular relevance feedback system suggest two main solutions:
+\begin{enumerate}
+  \item Query reduction should suffice for effective prior art patent retrieval.
+  \item A very precise methods for eliminating poor query terms are needed in the reduction process.
+\end{enumerate}
