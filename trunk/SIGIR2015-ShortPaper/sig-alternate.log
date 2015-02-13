@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  13 FEB 2015 11:25
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  13 FEB 2015 12:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -391,46 +391,52 @@ LaTeX Info: Redefining \selectfont on input line 126.
 \JustifyingParindent=\skip60
 )
 \c@lstlisting=\count128
-LaTeX Font Info:    Try loading font information for U+msa on input line 163.
+LaTeX Font Info:    Try loading font information for U+msa on input line 164.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 163.
+LaTeX Font Info:    Try loading font information for U+msb on input line 164.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 163.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 164.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (1.37535pt too wide) in paragraph at lines 165--166
+
+LaTeX Warning: No \author given.
+
+(./abs.tex
+Overfull \hbox (1.37535pt too wide) in paragraph at lines 1--2
 \T1/aer/m/n/9 Patent prior-art search aims to find all rel-e-vant patents which
 
  []
 
-
-Overfull \hbox (2.76161pt too wide) in paragraph at lines 181--182
+) (./intro.tex
+Overfull \hbox (2.76161pt too wide) in paragraph at lines 3--4
 []\T1/aer/m/n/9 Patent re-trieval has three main char-ac-ter-is-tics which make
 s
  []
 
 
-Overfull \hbox (2.56146pt too wide) in paragraph at lines 181--182
+Overfull \hbox (2.56146pt too wide) in paragraph at lines 3--4
 \T1/aer/m/n/9 recall-oriented, where not miss-ing rel-e-vant doc-u-ments is mor
 e
  []
 
-LaTeX Font Info:    Try loading font information for T1+aett on input line 191.
-
-(/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
+) (./baseline.tex
+LaTeX Font Info:    Try loading font information for T1+aett on input line 3.
+ (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+))
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] (./table/optquery.tex)
+] (./oracular.tex
+(./table/optquery.tex)
 Package epstopdf Info: Source file: <figs/oracularquery.eps>
 (epstopdf)                    date: 2015-02-13 11:22:32
 (epstopdf)                    size: 111470 bytes
@@ -439,22 +445,22 @@ Package epstopdf Info: Source file: <figs/oracularquery.eps>
 (epstopdf)                    size: 9409 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/oracularquery-eps-con
 verted-to.pdf figs/oracularquery.eps>
-(epstopdf)             \includegraphics on input line 264.
+(epstopdf)             \includegraphics on input line 42.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/oracularquery-eps-converted-to.pdf, id=16, 562.1pt x 421.575pt>
+<figs/oracularquery-eps-converted-to.pdf, id=14, 562.1pt x 421.575pt>
 File: figs/oracularquery-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/oracularquery-eps-converted-to.pdf>
 Package pdftex.def Info: figs/oracularquery-eps-converted-to.pdf used on input 
-line 264.
+line 42.
 (pdftex.def)             Requested size: 151.19437pt x 113.80746pt.
-
-Overfull \hbox (9.02165pt too wide) in paragraph at lines 270--270
+)
+Overfull \hbox (9.02165pt too wide) in paragraph at lines 188--188
 []\secfnt QUERY RE-DUC-TION: AP-PROX-I-MAT-ING
  []
 
-[2 <./figs/oracularquery-eps-converted-to.pdf>]
+(./queryreduction.tex
 Package epstopdf Info: Source file: <figs/queryreduc.eps>
 (epstopdf)                    date: 2015-02-13 11:22:10
 (epstopdf)                    size: 104670 bytes
@@ -463,18 +469,18 @@ Package epstopdf Info: Source file: <figs/queryreduc.eps>
 (epstopdf)                    size: 8462 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/queryreduc-eps-conver
 ted-to.pdf figs/queryreduc.eps>
-(epstopdf)             \includegraphics on input line 283.
+(epstopdf)             \includegraphics on input line 13.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/queryreduc-eps-converted-to.pdf, id=36, 562.1pt x 421.575pt>
+<figs/queryreduc-eps-converted-to.pdf, id=15, 562.1pt x 421.575pt>
 File: figs/queryreduc-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/queryreduc-eps-converted-to.pdf>
 Package pdftex.def Info: figs/queryreduc-eps-converted-to.pdf used on input lin
-e 283.
+e 13.
 (pdftex.def)             Requested size: 151.19437pt x 113.80746pt.
-
-Overfull \hbox (2.536pt too wide) in paragraph at lines 313--314
+ [2 <./figs/oracularquery-eps-converted-to.pdf>]
+Overfull \hbox (2.536pt too wide) in paragraph at lines 43--44
 \T1/aer/m/n/9 posed query re-duc-tion ap-proaches for query re-duc-tion worked
  []
 
@@ -492,20 +498,18 @@ Package epstopdf Info: Source file: <figs/FirstTPRank.eps>
 (epstopdf)                    size: 7253 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/FirstTPRank-eps-conve
 rted-to.pdf figs/FirstTPRank.eps>
-(epstopdf)             \includegraphics on input line 326.
+(epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
- <figs/FirstTPRank-eps-converted-to.pdf, id=37, 452.69125pt x 319.1925pt>
+ <figs/FirstTPRank-eps-converted-to.pdf, id=36, 452.69125pt x 319.1925pt>
 File: figs/FirstTPRank-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/FirstTPRank-eps-converted-to.pdf>
 Package pdftex.def Info: figs/FirstTPRank-eps-converted-to.pdf used on input li
-ne 326.
+ne 56.
 (pdftex.def)             Requested size: 125.99976pt x 91.04872pt.
- [3 <./figs/queryreduc-eps-converted-to.pdf>] (./sig-alternate.bbl [4 <./figs/F
-irstTPRank-eps-converted-to.pdf>])
-[5
-
-] (./sig-alternate.aux)
+) (./relatedwork.tex) [3 <./figs/queryreduc-eps-converted-to.pdf>] (./conclusio
+n.tex) (./sig-alternate.bbl)
+[4 <./figs/FirstTPRank-eps-converted-to.pdf>] (./sig-alternate.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -514,13 +518,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4941 strings out of 493307
- 65450 string characters out of 6139906
- 228423 words of memory out of 5000000
- 8248 multiletter control sequences out of 15000+600000
- 58264 words of font info for 85 fonts, out of 8000000 for 9000
+ 4956 strings out of 493307
+ 65659 string characters out of 6139906
+ 227423 words of memory out of 5000000
+ 8247 multiletter control sequences out of 15000+600000
+ 53801 words of font info for 80 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 41i,13n,37p,2062b,1062s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,13n,37p,2085b,1062s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/f
@@ -534,13 +538,12 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
-es/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sig-alternate.pdf (5 pages, 226145 bytes).
+ype1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sig-alternate.pdf (4 pages, 216522 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
