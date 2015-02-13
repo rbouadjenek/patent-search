@@ -6,6 +6,13 @@ D.~Ganguly, J.~Leveling, W.~Magdy, and G.~J. Jones.
 \newblock In {\em Proceedings of the 20th ACM international conference on
   Information and knowledge management}, pages 1953--1956. ACM, 2011.
 
+\bibitem{joho2010survey}
+H.~Joho, L.~A. Azzopardi, and W.~Vanderbauwhede.
+\newblock A survey of patent users: an analysis of tasks, behavior, search
+  functionality and system requirements.
+\newblock In {\em Proceedings of the third symposium on Information interaction
+  in context}, pages 13--24. ACM, 2010.
+
 \bibitem{kim2014diversifying}
 Y.~Kim and W.~B. Croft.
 \newblock Diversifying query suggestions based on query documents.

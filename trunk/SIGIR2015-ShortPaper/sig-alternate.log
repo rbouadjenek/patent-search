@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  13 FEB 2015 14:33
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  13 FEB 2015 19:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -437,30 +437,30 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 
 ] (./oracular.tex
 (./table/optquery.tex)
-Package epstopdf Info: Source file: <figs/oracularquery.eps>
-(epstopdf)                    date: 2015-02-13 11:22:32
-(epstopdf)                    size: 111470 bytes
-(epstopdf)             Output file: <figs/oracularquery-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-02-13 11:23:13
-(epstopdf)                    size: 9409 bytes
-(epstopdf)             Command: <repstopdf --outfile=figs/oracularquery-eps-con
-verted-to.pdf figs/oracularquery.eps>
-(epstopdf)             \includegraphics on input line 42.
+Package epstopdf Info: Source file: <figs/oracularquery1.eps>
+(epstopdf)                    date: 2015-02-13 18:47:33
+(epstopdf)                    size: 112115 bytes
+(epstopdf)             Output file: <figs/oracularquery1-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-02-13 18:48:58
+(epstopdf)                    size: 9729 bytes
+(epstopdf)             Command: <repstopdf --outfile=figs/oracularquery1-eps-co
+nverted-to.pdf figs/oracularquery1.eps>
+(epstopdf)             \includegraphics on input line 41.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/oracularquery-eps-converted-to.pdf, id=14, 562.1pt x 421.575pt>
-File: figs/oracularquery-eps-converted-to.pdf Graphic file (type pdf)
+<figs/oracularquery1-eps-converted-to.pdf, id=14, 562.1pt x 421.575pt>
+File: figs/oracularquery1-eps-converted-to.pdf Graphic file (type pdf)
 
-<use figs/oracularquery-eps-converted-to.pdf>
-Package pdftex.def Info: figs/oracularquery-eps-converted-to.pdf used on input 
-line 42.
-(pdftex.def)             Requested size: 151.19437pt x 113.80746pt.
+<use figs/oracularquery1-eps-converted-to.pdf>
+Package pdftex.def Info: figs/oracularquery1-eps-converted-to.pdf used on input
+ line 41.
+(pdftex.def)             Requested size: 176.40201pt x 113.80746pt.
 )
 Overfull \hbox (9.02165pt too wide) in paragraph at lines 188--188
 []\secfnt QUERY RE-DUC-TION: AP-PROX-I-MAT-ING
  []
 
-(./queryreduction.tex [2 <./figs/oracularquery-eps-converted-to.pdf>]
+(./queryreduction.tex [2 <./figs/oracularquery1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs/queryreduc.eps>
 (epstopdf)                    date: 2015-02-13 11:22:10
 (epstopdf)                    size: 104670 bytes
@@ -472,7 +472,7 @@ ted-to.pdf figs/queryreduc.eps>
 (epstopdf)             \includegraphics on input line 13.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/queryreduc-eps-converted-to.pdf, id=35, 562.1pt x 421.575pt>
+<figs/queryreduc-eps-converted-to.pdf, id=36, 562.1pt x 421.575pt>
 File: figs/queryreduc-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/queryreduc-eps-converted-to.pdf>
@@ -500,7 +500,7 @@ Package epstopdf Info: Source file: <figs/FirstTPRank.eps>
 rted-to.pdf figs/FirstTPRank.eps>
 (epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
- <figs/FirstTPRank-eps-converted-to.pdf, id=36, 452.69125pt x 319.1925pt>
+ <figs/FirstTPRank-eps-converted-to.pdf, id=37, 452.69125pt x 319.1925pt>
 File: figs/FirstTPRank-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/FirstTPRank-eps-converted-to.pdf>
@@ -518,32 +518,33 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4956 strings out of 493307
- 65659 string characters out of 6139906
- 227423 words of memory out of 5000000
- 8247 multiletter control sequences out of 15000+600000
- 53801 words of font info for 80 fonts, out of 8000000 for 9000
+ 4961 strings out of 493307
+ 65717 string characters out of 6139906
+ 228427 words of memory out of 5000000
+ 8249 multiletter control sequences out of 15000+600000
+ 56314 words of font info for 83 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,13n,37p,2085b,1062s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
-utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sig-alternate.pdf (4 pages, 216833 bytes).
+-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sig-alternate.pdf (4 pages, 227953 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 112 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
