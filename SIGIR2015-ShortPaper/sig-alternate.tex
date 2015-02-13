@@ -91,63 +91,64 @@
 % without further effort on your part as the last section in
 % the body of your article BEFORE References or any Appendices.
 
-\numberofauthors{3} %  in this sample file, there are a *total*
+%\numberofauthors{3} %  in this sample file, there are a *total*
 % of EIGHT authors. SIX appear on the 'first-page' (for formatting
 % reasons) and the remaining two appear in the \additionalauthors section.
 %
-\author{
-% You can go ahead and credit any number of authors here,
-% e.g. one 'row of three' or two rows (consisting of one row of three
-% and a second row of one, two or three).
-%
-% The command \alignauthor (no curly braces needed) should
-% precede each author name, affiliation/snail-mail address and
-% e-mail address. Additionally, tag each line of
-% affiliation/address with \affaddr, and tag the
-% e-mail address with \email.
-%
-% 1st. author
-\alignauthor
-M O\\%\titlenote{Dr.~Trovato insisted his name be first.}\\
-       \affaddr{NICTA \& ANU}\\
-       \affaddr{Canberra, Australia}\\
-       %\affaddr{Wallamaloo, New Zealand}\\
-       \email{\scriptsize name.surname@nicta.com.au}
-% 2nd. author
-\alignauthor
-W Z\\%\titlenote{The secretary disavows
-%any knowledge of this author's actions.}\\
-       \affaddr{NICTA \& ANU}\\
-       \affaddr{Canberra, Australia}\\
-       %\affaddr{Dublin, Ohio 43017-6221}\\
-       \email{\scriptsize name.surname@nicta.com.au}
-% 3rd. author
-\alignauthor X Y\\%\titlenote{This author is the
-%one who did all the really hard work.}\\
-       \affaddr{NICTA \& ANU}\\
-       \affaddr{Canberra, Australia}\\
-      % \affaddr{Hekla, Iceland}\\
-       \email{\scriptsize name.surname@nicta.com.au}
-%\and  % use '\and' if you need 'another row' of author names
-% 4th. author
-%\alignauthor Lawrence P. Leipuner\\
-%       \affaddr{Brookhaven Laboratories}\\
-%       \affaddr{Brookhaven National Lab}\\
-%       \affaddr{P.O. Box 5000}\\
-%       \email{lleipuner@researchlabs.org}
-% 5th. author
-%\alignauthor Sean Fogarty\\
-%       \affaddr{NASA Ames Research Center}\\
-%       \affaddr{Moffett Field}\\
-%       \affaddr{California 94035}\\
-%       \email{fogartys@amesres.org}
-%% 6th. author
-%\alignauthor Charles Palmer\\
-%       \affaddr{Palmer Research Laboratories}\\
-%       \affaddr{8600 Datapoint Drive}\\
-%       \affaddr{San Antonio, Texas 78229}\\
-%       \email{cpalmer@prl.com}
-}
+%\author{
+%% You can go ahead and credit any number of authors here,
+%% e.g. one 'row of three' or two rows (consisting of one row of three
+%% and a second row of one, two or three).
+%%
+%% The command \alignauthor (no curly braces needed) should
+%% precede each author name, affiliation/snail-mail address and
+%% e-mail address. Additionally, tag each line of
+%% affiliation/address with \affaddr, and tag the
+%% e-mail address with \email.
+%%
+%% 1st. author
+%\alignauthor
+%M O\\%\titlenote{Dr.~Trovato insisted his name be first.}\\
+%       \affaddr{NICTA \& ANU}\\
+%       \affaddr{Canberra, Australia}\\
+%       %\affaddr{Wallamaloo, New Zealand}\\
+%       \email{\scriptsize name.surname@nicta.com.au}
+%% 2nd. author
+%\alignauthor
+%W Z\\%\titlenote{The secretary disavows
+%%any knowledge of this author's actions.}\\
+%       \affaddr{NICTA \& ANU}\\
+%       \affaddr{Canberra, Australia}\\
+%       %\affaddr{Dublin, Ohio 43017-6221}\\
+%       \email{\scriptsize name.surname@nicta.com.au}
+%% 3rd. author
+%\alignauthor X Y\\%\titlenote{This author is the
+%%one who did all the really hard work.}\\
+%       \affaddr{NICTA \& ANU}\\
+%       \affaddr{Canberra, Australia}\\
+%      % \affaddr{Hekla, Iceland}\\
+%       \email{\scriptsize name.surname@nicta.com.au}
+%%\and  % use '\and' if you need 'another row' of author names
+%% 4th. author
+%%\alignauthor Lawrence P. Leipuner\\
+%%       \affaddr{Brookhaven Laboratories}\\
+%%       \affaddr{Brookhaven National Lab}\\
+%%       \affaddr{P.O. Box 5000}\\
+%%       \email{lleipuner@researchlabs.org}
+%% 5th. author
+%%\alignauthor Sean Fogarty\\
+%%       \affaddr{NASA Ames Research Center}\\
+%%       \affaddr{Moffett Field}\\
+%%       \affaddr{California 94035}\\
+%%       \email{fogartys@amesres.org}
+%%% 6th. author
+%%\alignauthor Charles Palmer\\
+%%       \affaddr{Palmer Research Laboratories}\\
+%%       \affaddr{8600 Datapoint Drive}\\
+%%       \affaddr{San Antonio, Texas 78229}\\
+%%       \email{cpalmer@prl.com}
+%}
+
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
 % for aesthetic reasons that you place these 'additional authors'
@@ -162,8 +163,8 @@ W Z\\%\titlenote{The secretary disavows
 
 \maketitle
 \begin{abstract}
-Patent prior-art search aims to find all relevant patents which may invalidate the novelty of a patent application or at least have common parts with patent application and should be cited. Patent search has been the centre of attention in IR communities for years, however it has lower retrieval effectiveness compared to other IR applications. In this work, we focused on the causes of failure rather than solutions. We started with relevance feedback to get a golden standard, then we concentrated on heuristics correlate with our RF standard. Finally, we showed that features other than relevance feedback can not be helpful because they are a complex mixture of useful words and noisy words. Finally, we got a considerable improvement by user feedback with a minimum effort.      
- 
+\input{abs}
+
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -176,170 +177,28 @@ Patent prior-art search aims to find all relevant patents which may invalidate t
 \keywords{Patent search, Query Reformulation, Data Analysis}
 
 \section{Introduction}
-A patent is a set of exclusive rights granted to an inventor to protect their invention for a limited period of time. An important requirement for a patent to be granted is that the invention, it describes, is novel which means there is no earlier patent, publication or public communication of a similar idea. To ensure the novelty of an invention, patent offices as well as other Intellectual Property (IP) service providers mainly perform a search called `prior art search'. The purpose of `prior art search' is finding all relevant patents which may put the patent application at the risk of novelty invalidation or at least have common parts with patent application and should be cited~\cite{magdy2012toward}~\cite{piroi2013overview}. 
+\input{intro}
 
-Patent retrieval has three main characteristics which makes it difficult compared to other IR applications: (1) the search starts with a query as long as a full patent application that helps users --usually patent examiners, inventors, or lawyers-- avoid spending long hours to formulate a query; (2) it is recall-oriented, where not missing relevant documents is more important than appearing relevant documents at top of the list; (3) unlike the web application in which authors tend to highlight their work to be easily found through search engines, authors of the patents prefer to use a vague language to avoid the invalidation of their idea.     
-
-Many works has been conducted to improve the patent retrieval effectiveness so far. However, either the results showed quite small improvement or the proposed methods were complicated and computationally expensive. Overall, the works on patent search fall in five main categories~\cite{lupu2013patent} query reformulation(query expansion and query reduction), query term selection, query suggestions, using patent meta-data and images for retrieval~\cite{lupu2013evaluating}, and Cross-Language Information Retrieval~\cite{magdy2014studying}.
-
-%Applying standard information retrieval (IR) techniques to patent search is not effective and needs applying supplementary methods to improve the effectiveness. Although lots of methods have been proposed in recent years, reported results for different tasks of patent search show lower retrieval effectiveness compared to other IR applications~\cite{lupu2013patent}.  
-In this work, we mainly emphasized on the problem from the term analysis perspective which ended in an effective minimal relevance feedback method. We investigated the influence of term selection on retrieval performance on the CLEF-IP Prior Art test collection, starting with the Description section of the reference patent and using LM and BM25 scoring functions. We found that an oracular relevance feedback system which extracts terms from the judged relevant documents far outperforms the baseline and  performs twice as well on MAP as the best competitor in CLEF-IP 2010.  We find a very clear term selection value threshold for use when choosing terms.  A much more realistic approach in which feedback terms are extracted only from the first relevant document retrieved, still outperforms the winner.   We noticed that most of the useful feedback terms are actually present in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms.  We tried three different approaches to identifying negative terms but were unable to improve on the baseline performance with any of them.
 \section{Baseline IR Framework}
-%\subsection{Experimental Setup}
-We developed a Lucene-based%
-\footnote{\texttt{http://lucene.apache.org/}%
-} IR system with the possibility of using diverse generic IR models: TF-IDF, BM25, Language Models (Dirichlet smoothing, and Jelinek-Mercer smoothing) as our baseline system. We achieved the best baseline effectiveness querying with the Description section of the patent application as it is also mentioned in \cite{xue2009transforming}, and using LM and BM25 scoring functions. We conducted our experiments on CLEF-IP%
-\footnote{\texttt{\url{http://www.ifs.tuwien.ac.at/~clef-ip/}}}% 
- 2010 data collection, with 2.6 million European patent documents and 1303 English topics(queries). On the collection side, we only indexed English subset of each section of a patent (title, abstract, claims, and description), and IPC\footnote{International Patent Classification}% 
-  code in a separate field. We also used the patent classification assigned to the query topics to filter search results to match at least one of the query IPC codes, as recommended in \cite{lopez2010patatras}. Our experiments showed that using IPC filter is itself a source of error because about 19\% of relevant patents in CLEF-IP 2010 data collection do not share any classification code with their query. However, for our analysis, we kept the filter on since it makes the matching process between the query and documents notably faster.
- %\footnote{\texttt{For an accurate term analysis, we pruned out the source of errors related to data curation such as non-English patents, and IPC filter.}%
-%}.
-%\begin{figure*}
-%\begin{center}
-%\noindent\begin{minipage}[b]{0.3\linewidth}
-%\includegraphics[width=\linewidth]{figs/extended-optquery-tau.eps}
-%\end{minipage}%
-%\hfill
-%%\hspace{7mm}
-%\begin{minipage}[b]{0.3\linewidth}
-%\includegraphics[width=\linewidth]{figs/opt-query-qsize.eps}
-%\end{minipage}
-%%\vspace{-3mm}\\
-%%(a) \hspace{30mm}(b)\\
-%\hfill
-%%\hspace{7mm}
-%\begin{minipage}[b]{0.3\linewidth}
-%\includegraphics[width=\linewidth]{figs/opt-patentquery-tau.eps}
-%\end{minipage}
-%\vspace{-0.5mm}\\
-% \hspace{2mm}(a) \hspace{55mm}(b) \hspace{58mm} (c)
-%\caption{\footnotesize
-%How score threshold($\tau$) and query size controls the performance.
-%(a) Performance versus the score threshold. (b) Performance versus the query size. (c) System performance when we reduced the query by RF: $ query = Q\cap (useful \; terms) $, where $ Q $ is the patent query and $ useful\; terms = \{t| score_{RF}(t)>\tau\} $.}
-%\vspace{-4mm}
-%\end{center}
-%\label{fig:control}
-%\end{figure*}
+\input{baseline}
+
 \section{Oracular Term Selection}
-The main complain about patent search is insufficient match between the content of patent queries and relevant
-patents\cite{lupu2013patent}\cite{magdy2012toward}. However, we have the intuition that there are sufficient terms in a patent query containing thousands words to be matched with the relevant patents. So, in this section, we focused on term analysis to figure out the main causes that the system fails in retrieving relevant documents at top of the result list. 
-\subsection{Oracular Query Formulation}
-We started with {\em relevance feedback}, in which the user gives feedback on the relevance of documents in an initial set of results to improve the final result set. We calculate a relevance feedback (RF) score for each term in top-100 retrieved documents as follows:
-\begin{equation}
-score_{RF}(t,Q)=Rel(t)-Irr(t) 
- \label{eq:score}
-\end{equation}\vspace*{-5ex}
-\begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
-where $ Rel(t) $ is the average term frequency in retrieved relevant patents and $ Irr(t) $ is the average term frequency in retrieved irrelevant patents. We assumed that words with a positive score are {\em useful words} since they are more frequent in relevant patents, while words with negative score are {\em noisy words} as they appear more frequently in irrelevant patents. 
-
-We expected to see a higher performance for the queries which contain more {\em useful words}, but, surprisingly, we could not find any correlation between the performance and the percentage of {\em useful words} in the query. 
-
-We hypothesized that a query, formulated by only the {\em useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. We formulated an oracular query as follows: 
-\begin{equation}
-Oracular \; Query = \{t \in top-100|score_{RF}(t)>0\}   
- \label{eq:score}
-\end{equation}
-Table \ref{tab:optquery} compares the baseline performance, where the query is the full patent application, with the performance of the ideal query. 
-\begin{table}[htpb]
-  \begin{center}
-   \caption{System performance for the baseline and ideal query.}
-  \input table/optquery.tex   
-  \label{tab:optquery}
-  \end{center}  
-\end{table}
-It can be seen that MAP jumps from 0.1181 to {\em 0.5075}, which means the oracular query far outperforms the baseline and performs twice as well on MAP as the best competitor in CLEF-IP 2010~\cite{lopez2010experiments}. 
-
-Our previous experiments led us to the hypothesis that a patent query contains sufficient words matched with the relevant patents.
-% and the {\em noisy words} are the main cause of the low effectiveness. 
-To prove our idea, we formulated a query by selecting only {\em useful terms} existing inside the patent query as follows: 
-\begin{equation}
- Oracular \; Patent \; Query = \{t\in Q|score_{RF}(t)>0\}   
- \label{eq:score}
-\end{equation}
-The results were encouraging, as MAP was improved from 0.1181 to {\em 0.44}.
-\subsection{Baseline vs. Oracular Query}
-The main results related to ideal query formulation has been summarized in Figure 1. Figure 1-a shows how the RF score threshold $\tau$ controls the performance, It can be seen that it is better to include all terms with positive RF score. On top of that, we can see that the system is {\em over-sensitive} to the {\em noisy words} ($ \tau<0 $). Adding words with negative RF score can sharply hurt the performance. Figure 1-b indicates that formulating a query with up to 200 {\em useful words} helps the performance whereas there is no significant improvement when we add more than 200 right words. Finally, Figure 1-c explicitly shows that a patent query contains sufficient words to perform well. 
-\begin{figure}[htpb]
-   \centering
-   \includegraphics[width=0.30\textwidth,height=40mm]{figs/oracularquery.eps}
-   \caption{System performance vs. the threshold $\tau$ for oracular query and oracular patent query.}   
-   \label{fig:oracular} 
-\end{figure} 
-We can conclude two important ideas: (1) a patent query contains sufficient useful terms to achieve an acceptable performance. (2) Noisy terms can highly ruin the IR effectiveness. Therefore, to improve patent prior-art search, we need to reformulate the initial patent query using term selection, and query reduction rather than query expansion. In addition, it is very important to identify and prune all the noisy words out because they are highly harmful.  
+\input{oracular}
 
 \section{Query Reduction: Approximating the Oracular Query}
-\subsection{Automated Reduction}
-We noticed that most of the useful feedback terms are actually present in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms. We used four approaches to refine the initial patent query: 
-\begin{enumerate}
-  \item removing document frequent terms,
-  \item keeping frequent terms in query~\cite{maxwell2013compact},
-  \item using pseudo relevance feedback to select query terms, 
-  \item removing general terms in IPC title. 
-\end{enumerate}
+\input{queryreduction}
 
-In standard IR, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words with average term frequency (in top-100 documents) higher than the threshold $\tau$ from the original query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, removing frequent terms in top-100 documents ($DF(t)>\tau$) ruined the performance.     
-\begin{figure}[htpb]
-   \centering
-   \includegraphics[width=0.30\textwidth,height=40mm]{figs/queryreduc.eps}
-   \caption{System performance vs. the threshold $\tau$ for three query reduction approaches.}   
-   \label{fig:queryreduc} 
-\end{figure}
-
-As mentioned in~\cite{maxwell2013compact} terms inside verbose queries are also important. So, we kept frequent words inside the query while removing document frequent words. It can be seen in Figure \ref{fig:queryreduc} that keeping terms with term frequency higher than a threshold $\tau$ helped and we got the performance when keeping all query terms but it is close to the baseline. 
-
-We used pseudo relevance feedback (PRF) as the third feature to reduce the query. PRF is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant. Again, it can be seen in Figure \ref{fig:queryreduc} that the results for query reduction using PRF were below the baseline. In fact, we could not find any heuristic correlates between  $ score_{RF}(t)$ and $ score_{PRF}(t)$. Figure \ref{fig:anecdotal} is an anecdotal example for a sample query which can explain the reason that PRF did not work. It shows the query abstract and a pair of PRF terms, with $ score_{PRF}(t)>10 $, and RF score of each term. It can be seen that terms with high PRF score have a negative RF score which means words from PRF contaminated with sufficient amount of noise to ruin the retrieval effectiveness. 
-We used words in IPC code title to reduce the query because as it can be seen in Figure \ref{fig:queryreduc} the majority of them are negative terms as they are general words in all patents belonging to the same category. However we hurt the effectiveness by pruning them out.
-\begin{figure}[htpb]
-\begin{framed}
-\vspace*{-2ex}
-  \centering
-    %\lstinputlisting[frame=single, basicstyle=\scriptsize\ttfamily , linewidth=\columnwidth,breaklines=true]{code/anecdotale.tex}\vspace*{-2ex}
- \begin{lstlisting}[basicstyle=\tiny\ttfamily , linewidth=\columnwidth,breaklines=true] 
-PAC-1612
-Abstract: A wireless communication method for transmitting data from at least one master to one or more slaves positioned at various spatial locations and configured for generally simultaneous reception of the data. The method includes dividing the data into a number of portions, transmitting at least some of the portions using different transmission configurations for the different portions, having one or more of the slaves measure the quality of transmission associated with the group of different transmission configurations, and processing the quality measurements to determine new transmission configurations for use in transmitting the data.
-
-PRF Terms: <@\textcolor{red}{commun:-69.43159}@>, <@\textcolor{red}{transmiss:-58.168427}@>, <@\textcolor{red}{wireless:-7.68421}@>, <@\textcolor{red}{telephon:-25.17895}@>, <@\textcolor{red}{recept:-37.810528}@>, <@\textcolor{red}{slave:-31.0421}@>, <@\textcolor{red}{deleg:-22.368422}@>, <@\textcolor{red}{turn:-18.536846}@>, <@\textcolor{red}{master:-35.778954}@>, <@\textcolor{red}{origin:-4.7473674}@>, <@\textcolor{blue}{schedul:12.852628}@>, <@\textcolor{red}{control:-14.842104}@>, <@\textcolor{blue}{frequenc:60.34737}@>, <@\textcolor{red}{station:-76.26316}@>, <@\textcolor{red}{electron:-8.442106}@>, <@\textcolor{red}{perform:-9.71579}@>, <@\textcolor{blue}{band:16.789476}@>, <@\textcolor{red}{termin:-40.04211}@>, <@\textcolor{blue}{indic:3.6210496}@>, <@\textcolor{red}{reason:-6.642107}@>, <@\textcolor{red}{apparatus:-6.2421055}@>, <@\textcolor{red}{determin:-8.97895}@>, <@\textcolor{red}{complet:-8.842103}@>, <@\textcolor{red}{prohibit:-3.8947372}@>, <@\textcolor{red}{state:-9.557897}@>, <@\textcolor{blue}{link:1.1157892}@>, <@\textcolor{blue}{hop:24.378946}@>, <@\textcolor{red}{lan:-8.3368435}@>, <@\textcolor{red}{assign:-9.68421}@>, <@\textcolor{blue}{f1:14.926317}@>, <@\textcolor{red}{short:-3.6000004}@>, <@\textcolor{blue}{pattern:17.58947}@>, <@\textcolor{blue}{paramet:1.5473672}@>, <@\textcolor{red}{serv:-4.5684214}@>, <@\textcolor{blue}{permit:0.62105286}@>
-
-IPC def Terms: <@\textcolor{red}{network: -28.557888}@>, <@\textcolor{red}{traffic: -3.2526314}@>, <@\textcolor{red}{resourc: -1.2947367}@>, <@\textcolor{red}{manag: -9.652633}@>, <@\textcolor{red}{local: -6.1368427}@>, <@\textcolor{red}{wireless: -7.68421}@>, <@\textcolor{blue}{schedul: 12.852628}@>, <@\textcolor{blue}{select: 13.473684}@>, <@\textcolor{red}{alloc: -10.042107}@>, <@\textcolor{red}{switch: -14.463159}@>, <@\textcolor{red}{interconnect: -0.5578947}@>, <@\textcolor{red}{transfer: -4.5052633}@>, <@\textcolor{red}{inform: -43.400013}@>, <@\textcolor{red}{signal: -30.71579}@>, <@\textcolor{red}{memori: -9.094736}@>, <@\textcolor{red}{input: -9.736838}@>, <@\textcolor{red}{plan: -0.22105263}@>, <@\textcolor{red}{coverag: -0.4526316}@>, <@\textcolor{red}{tool: -0.15789473}@>, <@\textcolor{red}{deploy: -0.07368421}@>, <@\textcolor{red}{partit: 0.0526316}@>, <@\textcolor{red}{cell: -7.6842103}@>, <@\textcolor{red}{structur: -0.94736844}@>, <@\textcolor{red}{orthogon: -4.1789474}@>, <@\textcolor{red}{multiplex: -11.621052}@>, <@\textcolor{red}{walsh: -0.29473686}@>, <@\textcolor{red}{code: -27.842102}@>, <@\textcolor{red}{supervisori: -0.16842104}@>, <@\textcolor{red}{monitor: -6.7157907}@>, <@\textcolor{red}{test: -1.2210523}@>, <@\textcolor{red}{arrang: -0.5578947}@>, <@\textcolor{red}{spread: -2.7263162}@>, <@\textcolor{red}{spectrum: 3.6000001}@>, <@\textcolor{red}{direct: -1.810526}@>, <@\textcolor{red}{sequenc: -3.9052625}@>, <@\textcolor{red}{modul: -16.0}@>, <@\textcolor{blue}{frequenc: 60.34737}@>, <@\textcolor{blue}{hop: 24.378946}@>, <@\textcolor{red}{radio: -15.242106}@>, <@\textcolor{red}{transmiss: -58.168427}@>, <@\textcolor{red}{radiat: -0.3157895}@>,  <@\textcolor{red}{mobil: -6.831579}@>, <@\textcolor{red}{mainten: -0.75789464}@>, <@\textcolor{red}{administr: -0.07368421}@>, <@\textcolor{red}{path: -1.6631576}@>, <@\textcolor{red}{configur: -9.094739}@>, <@\textcolor{red}{lan: -8.3368435}@>, <@\textcolor{blue}{wide: 0.021052642}@>, <@\textcolor{red}{wan: -0.021052632}@>
- \end{lstlisting} 
- \vspace*{-2ex}
-\end{framed}
- \vspace*{-2ex}
-  \caption{Anecdotal example: it shows the abstract, and $ term: \; score_{RF}(term) $ pair of a sample query. Useful terms are highlighted in blue and the noisy ones in red.}
-  \label{fig:anecdotal}  
-\end{figure}
-%\vspace*{-2ex}
-
-Unlike our initial assumption, non of the standard proposed query reduction approaches for query reduction worked better than the baseline.
-\subsection{Reduction by Relevance Feedback}
-All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. Table \ref{tab:firstrel} shows that we can double the MAP by only the first-ranked relevant document.
-\begin{table}[htpb]
-  \begin{center}
-   \caption{System performance using minimal relevance feedback. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
-  \input table/partialRFtermselect.tex   
-  \label{tab:firstrel}
-  \end{center}  
-\end{table}
-Fig. \ref{fig:FirstTPRankHisto} indicates that the baseline methods return a relevant patent, approximately, 80\% of the time in the first 10 results and 90\% of the time in the first 20 results, such an interactive approach requires relatively low user effort while achieving state-of-the-art performance.    
-\begin{figure}[htpb]
-   \centering
-   \includegraphics[width=0.25\textwidth,height=32mm]{figs/FirstTPRank.eps}
-   \caption{The distribution of the first relevant document rank over test queries which have TPs}   
-   \label{fig:FirstTPRankHisto} 
-\end{figure}
-%\section{Related Work}
 \section{Related Work}
-Our work is different from pioneer studies on patent retrieval, as we closely looked into the problem rather than solutions to figure out the causes that generic IR models which are based on term matching process, do not work efficiently in patent domain. Magdy et al.~\cite{magdy2011study} studied works on query expansion in patent retrieval and discussed that standard query expansion techniques are less effective, where the initial query is the full texts of query patents. Mahdabi et al.~\cite{Mahdabi2013} used term proximity information to identify expansion terms. Ganguly et al.~\cite{ganguly2011patent} adapted pseudo relevance feedback for query reduction by decomposing a patent application into constituent text segments and computing the Language Modelling (LM) similarities of each segment from the top ranked documents. The least similar segments to the pseudo-relevant documents removed from the query, hypothesizing it can increase the precision of retrieval. Kim et al.~\cite{kim2014diversifying} provided diverse query suggestion using aspect identification from a patent query to increase the chance of retrieving relevant documents. Mahdabi et al.~\cite{mahdabi2014patent} used linked-based structure of the citation graph together with IPC classification to improve the initial patent query. 
+\input{relatedwork}
+
 \section{Conclusions}
-In this paper, we looked at the patent prior-art search from a different perspective. While previous works proposed different solutions to improve retrieval effectiveness, we focused on term analysis of the patent query and top retrieved patents. After finding a golden standard from relevance feedback, we examined the most obvious features such as: document frequent words, query frequent words, IPC definition words, and pseudo relevance feedback that might correlate RF score for terms in top retrieved documents. We showed that these feature helps very little because they are a complicated mixture of useful terms and noisy words that can not be separated easily. Finally, we showed that we can double the MAP with minimum user interaction. 
-For future works, we plan to analyse more features which are independent from the relevance feedback but correlate with RF score. Inspired by some excellent works proposing query reduction and term selection techniques for the long non-patent queries\cite{maxwell2013compact}\cite{kumaran2009reducing}, we are also going to apply them for patent retrieval.   
-%Opposite our initial assumption, features such as document frequent words, frequent words in the query, IPC code definition words, and pseudo relevance feedback could not help to refine the best query because they were the combination of useful words and noisy words and our system is too sensitive to the existence of the noisy words as well removing .  
+\input{conclusion}
 %\end{document}  % This is where a 'short' article might terminate
 
 %ACKNOWLEDGMENTS are optional
-\section{Acknowledgments}
-NICTA is funded by the Australian Government as represented by the Department of Broadband, Communications and the Digital Economy and the Australian Research Council through the ICT Centre of Excellence program.
-%
+%\section{Acknowledgments}
+%NICTA is funded by the Australian Government as represented by the Department of Broadband, Communications and the Digital Economy and the Australian Research Council through the ICT Centre of Excellence program.
+
 % The following two commands are all you need in the
 % initial runs of your .tex file to
 % produce the bibliography for the citations in your paper.
