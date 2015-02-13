@@ -194,32 +194,32 @@ We developed a Lucene-based%
   code in a separate field. We also used the patent classification assigned to the query topics to filter search results to match at least one of the query IPC codes, as recommended in \cite{lopez2010patatras}. Our experiments showed that using IPC filter is itself a source of error because about 19\% of relevant patents in CLEF-IP 2010 data collection do not share any classification code with their query. However, for our analysis, we kept the filter on since it makes the matching process between the query and documents notably faster.
  %\footnote{\texttt{For an accurate term analysis, we pruned out the source of errors related to data curation such as non-English patents, and IPC filter.}%
 %}.
-\begin{figure*}
-\begin{center}
-\noindent\begin{minipage}[b]{0.3\linewidth}
-\includegraphics[width=\linewidth]{figs/extended-optquery-tau.eps}
-\end{minipage}%
-\hfill
-%\hspace{7mm}
-\begin{minipage}[b]{0.3\linewidth}
-\includegraphics[width=\linewidth]{figs/opt-query-qsize.eps}
-\end{minipage}
-%\vspace{-3mm}\\
-%(a) \hspace{30mm}(b)\\
-\hfill
-%\hspace{7mm}
-\begin{minipage}[b]{0.3\linewidth}
-\includegraphics[width=\linewidth]{figs/opt-patentquery-tau.eps}
-\end{minipage}
-\vspace{-0.5mm}\\
- \hspace{2mm}(a) \hspace{55mm}(b) \hspace{58mm} (c)
-\caption{\footnotesize
-How score threshold($\tau$) and query size controls the performance.
-(a) Performance versus the score threshold. (b) Performance versus the query size. (c) System performance when we reduced the query by RF: $ query = Q\cap (useful \; terms) $, where $ Q $ is the patent query and $ useful\; terms = \{t| score_{RF}(t)>\tau\} $.}
-\vspace{-4mm}
-\end{center}
-\label{fig:control}
-\end{figure*}
+%\begin{figure*}
+%\begin{center}
+%\noindent\begin{minipage}[b]{0.3\linewidth}
+%\includegraphics[width=\linewidth]{figs/extended-optquery-tau.eps}
+%\end{minipage}%
+%\hfill
+%%\hspace{7mm}
+%\begin{minipage}[b]{0.3\linewidth}
+%\includegraphics[width=\linewidth]{figs/opt-query-qsize.eps}
+%\end{minipage}
+%%\vspace{-3mm}\\
+%%(a) \hspace{30mm}(b)\\
+%\hfill
+%%\hspace{7mm}
+%\begin{minipage}[b]{0.3\linewidth}
+%\includegraphics[width=\linewidth]{figs/opt-patentquery-tau.eps}
+%\end{minipage}
+%\vspace{-0.5mm}\\
+% \hspace{2mm}(a) \hspace{55mm}(b) \hspace{58mm} (c)
+%\caption{\footnotesize
+%How score threshold($\tau$) and query size controls the performance.
+%(a) Performance versus the score threshold. (b) Performance versus the query size. (c) System performance when we reduced the query by RF: $ query = Q\cap (useful \; terms) $, where $ Q $ is the patent query and $ useful\; terms = \{t| score_{RF}(t)>\tau\} $.}
+%\vspace{-4mm}
+%\end{center}
+%\label{fig:control}
+%\end{figure*}
 \section{Oracular Term Selection}
 The main complain about patent search is insufficient match between the content of patent queries and relevant
 patents\cite{lupu2013patent}\cite{magdy2012toward}. However, we have the intuition that there are sufficient terms in a patent query containing thousands words to be matched with the relevant patents. So, in this section, we focused on term analysis to figure out the main causes that the system fails in retrieving relevant documents at top of the result list. 
@@ -236,7 +236,7 @@ We expected to see a higher performance for the queries which contain more {\em 
 
 We hypothesized that a query, formulated by only the {\em useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. We formulated an oracular query as follows: 
 \begin{equation}
-Oracular \; query = \{t \in top-100|score_{RF}(t)>0\}   
+Oracular \; Query = \{t \in top-100|score_{RF}(t)>0\}   
  \label{eq:score}
 \end{equation}
 Table \ref{tab:optquery} compares the baseline performance, where the query is the full patent application, with the performance of the ideal query. 
@@ -253,13 +253,18 @@ Our previous experiments led us to the hypothesis that a patent query contains s
 % and the {\em noisy words} are the main cause of the low effectiveness. 
 To prove our idea, we formulated a query by selecting only {\em useful terms} existing inside the patent query as follows: 
 \begin{equation}
- Selected \; query = \{t\in Q|score_{RF}(t)>0\}   
+ Oracular \; Patent \; Query = \{t\in Q|score_{RF}(t)>0\}   
  \label{eq:score}
 \end{equation}
 The results were encouraging, as MAP was improved from 0.1181 to {\em 0.44}.
 \subsection{Baseline vs. Oracular Query}
 The main results related to ideal query formulation has been summarized in Figure 1. Figure 1-a shows how the RF score threshold $\tau$ controls the performance, It can be seen that it is better to include all terms with positive RF score. On top of that, we can see that the system is {\em over-sensitive} to the {\em noisy words} ($ \tau<0 $). Adding words with negative RF score can sharply hurt the performance. Figure 1-b indicates that formulating a query with up to 200 {\em useful words} helps the performance whereas there is no significant improvement when we add more than 200 right words. Finally, Figure 1-c explicitly shows that a patent query contains sufficient words to perform well. 
- 
+\begin{figure}[htpb]
+   \centering
+   \includegraphics[width=0.30\textwidth,height=40mm]{figs/oracularquery.eps}
+   \caption{System performance vs. the threshold $\tau$ for oracular query and oracular patent query.}   
+   \label{fig:oracular} 
+\end{figure} 
 We can conclude two important ideas: (1) a patent query contains sufficient useful terms to achieve an acceptable performance. (2) Noisy terms can highly ruin the IR effectiveness. Therefore, to improve patent prior-art search, we need to reformulate the initial patent query using term selection, and query reduction rather than query expansion. In addition, it is very important to identify and prune all the noisy words out because they are highly harmful.  
 
 \section{Query Reduction: Approximating the Oracular Query}
@@ -275,7 +280,7 @@ We noticed that most of the useful feedback terms are actually present in the or
 In standard IR, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words with average term frequency (in top-100 documents) higher than the threshold $\tau$ from the original query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, removing frequent terms in top-100 documents ($DF(t)>\tau$) ruined the performance.     
 \begin{figure}[htpb]
    \centering
-   \includegraphics[width=0.30\textwidth,height=40mm]{figs/threshold.eps}
+   \includegraphics[width=0.30\textwidth,height=40mm]{figs/queryreduc.eps}
    \caption{System performance vs. the threshold $\tau$ for three query reduction approaches.}   
    \label{fig:queryreduc} 
 \end{figure}
