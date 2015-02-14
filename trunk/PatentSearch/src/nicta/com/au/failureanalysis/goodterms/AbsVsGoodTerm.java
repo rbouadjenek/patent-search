@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 import nicta.com.au.failureanalysis.optimalquery.IpcDefinition;
 import nicta.com.au.failureanalysis.pseudorelevancefeedback.PRFTermsScores;
 import nicta.com.au.failureanalysis.query.QueryGneration;
+import nicta.com.au.failureanalysis.search.CollectionReader;
 import nicta.com.au.patent.document.PatentDocument;
 import nicta.com.au.patent.pac.evaluation.TopicsInMemory;
 
@@ -31,6 +32,8 @@ public class AbsVsGoodTerm {
 		String _qrootpath = "data/CLEF-IP-2010/PAC_test/topics/";
 		PositiveTermsOverlap olap = new PositiveTermsOverlap();
 		PRFTermsScores prf = new PRFTermsScores();
+		
+		CollectionReader reader = new CollectionReader(indexDir);
 
 		TopicsInMemory topics = new TopicsInMemory("data/CLEF-IP-2010/PAC_test/topics/PAC_topics-omit-PAC-1094.xml");
 		for(Map.Entry<String, PatentDocument> topic : topics.getTopics().entrySet()){
@@ -70,13 +73,55 @@ public class AbsVsGoodTerm {
 					ps.print(term + ": "+ score + ", ");
 				}
 			}	*/
-//----------------------------DF----------------------------			
+			
+	
+//--------------------------------- DF -------------------------------------			
 			GetDocFrequency df = new GetDocFrequency();
 			HashMap<String, Float> df_tspairs = df.getTermDocFreqScorePair(queryid);
-			System.out.println("Document Frequency Score");
-			System.out.println(df_tspairs.size() + " " + df_tspairs);	
+			/*--------------------------- Sort terms scores pair------------------------------------*/
+			ValueComparator bvc = new ValueComparator(df_tspairs);
+			TreeMap<String, Float> DFssorted = new TreeMap<String,Float>(bvc);
+			DFssorted.putAll(df_tspairs);
+			System.out.print("DF Terms: ");
+			ps.print("DF Terms: ");
+			
+			for(Entry<String, Float> tspair : DFssorted.entrySet()){
+				String DFterm = tspair.getKey();
+				Float DFscore = tspair.getValue();
+
+				if (DFscore > tau){
+					System.out.print(DFterm + ": "+ RFhash.get(DFterm) + ", ");
+					ps.print(DFterm + ":"+ RFhash.get(DFterm) + ", ");
+				}
+			}
+			/*System.out.println("Document Frequency Score");
+			System.out.println(df_tspairs.size() + " " + df_tspairs);*/
+			
+			System.out.println();
+			ps.println();
+			System.out.println();
+			ps.println();			
+//--------------------------------- Query Words -------------------------------	
+			HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid);
+			/*--------------------------- Sort terms scores pair------------------------------------*/
+			ValueComparator1 bvc1 =  new ValueComparator1(query_terms);
+			TreeMap<String, Integer> qterms_sorted = new TreeMap<String,Integer>(bvc1);
+			qterms_sorted.putAll(query_terms);
+			System.out.print("QTF terms: ");
+			ps.print("QTF Terms: ");
+//			System.out.println(qterms_sorted);
+			for(Entry<String, Integer> tspair : qterms_sorted.entrySet()){
+				String QTFterm = tspair.getKey();
+				Integer QTFscore = tspair.getValue();
+
+				if (QTFscore > tau){
+					System.out.print(QTFterm + ": "+ RFhash.get(QTFterm) + ", ");
+					ps.print(QTFterm + ":"+ RFhash.get(QTFterm) + ", ");
+				}
+			}
+						
 //----------------------------PRF----------------------------
-			/*System.out.println();
+			System.out.println();
 			ps.println();
 			System.out.println();
 			ps.println();
@@ -88,23 +133,25 @@ public class AbsVsGoodTerm {
 
 				if (PRFscore > tau){
 					System.out.print(PRFterm + ": " + RFhash.get(PRFterm) + ", ");
-					ps.print(PRFterm + ": " + RFhash.get(PRFterm) + ", ");
+					ps.print(PRFterm + ":" + RFhash.get(PRFterm) + ", ");
 				}
-			}	*/
+			}	
+			/*System.out.println("PRF Score");
+			System.out.println(PRFtermsscores.size() + " " + PRFtermsscores);*/
 //------------------------------IPC def --------------------------			
-			/*System.out.println();
+			System.out.println();
 			ps.println();
 			System.out.println();
 			ps.println();
 			System.out.print("IPC def Terms: ");
 			ps.print("IPC def Terms: ");
 			
-			IpcDefinition df = new IpcDefinition();
-			ArrayList<String> ipcdefs = df.GetIpcDefWords(queryfile);
+			IpcDefinition ipcdef = new IpcDefinition();
+			ArrayList<String> ipcdefs = ipcdef.GetIpcDefWords(queryfile);
 			for(String ipcterm:ipcdefs){
 				System.out.print(ipcterm + ": " + RFhash.get(ipcterm) + ", ");
 				ps.print(ipcterm + ": " + RFhash.get(ipcterm) + ", ");
-			}*/
+			}
 			
 			System.out.println();
 			ps.println();
