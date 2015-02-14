@@ -10,7 +10,7 @@ We noticed that most of the useful feedback terms are actually present in the or
 In standard IR, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words with average term frequency (in top-100 documents) higher than the threshold $\tau$ from the original query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, removing frequent terms in top-100 documents ($DF(t)>\tau$) ruined the performance.     
 \begin{figure}[htpb]
    \centering
-   \includegraphics[width=0.30\textwidth,height=40mm]{figs/queryreduc.eps}
+   \includegraphics[width=0.35\textwidth,height=40mm]{figs/queryreduc-ipc.eps}
    \caption{System performance vs. the threshold $\tau$ for three query reduction approaches.}   
    \label{fig:queryreduc} 
 \end{figure}
