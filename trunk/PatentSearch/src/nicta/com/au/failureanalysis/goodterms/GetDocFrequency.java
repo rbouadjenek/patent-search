@@ -89,8 +89,8 @@ public class GetDocFrequency {
 
 		GetDocFrequency df = new GetDocFrequency();
 		HashMap<String, Float> df_tspairs = df.getTermDocFreqScorePair(queryid);
-		/*System.out.println("Document Frequency Score");
-		System.out.println(df_tspairs.size() + " " + df_tspairs);		*/
+		System.out.println("Document Frequency Score");
+		System.out.println(df_tspairs.size() + " " + df_tspairs);		
 
 		//------------ Uncoment to plot Qterms, DF(t), RF(t) ---------------
 //		HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid);
@@ -137,26 +137,26 @@ public class GetDocFrequency {
 
 		//------------ Uncoment to plot RF and QTF score for ipc def. ---------------
 
-		HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid);
-		
-		IpcDefinition def = new IpcDefinition();
-		ArrayList<String> ipcdefs = def.GetIpcDefWords(queryfile);
-		System.out.println(ipcdefs.size()+ " " + ipcdefs);
-
-		System.out.println("word\tRFscore  \tDFscore  \tQTFscore");
-		for(String term : ipcdefs){
-//		for( Entry<String, Float> rftspair : rf_tspairs.entrySet()){
-//			String term = rftspair.getKey();
-//			Float rf_score = rftspair.getValue();
-//			if(query_terms.containsKey(term) || rf_tspairs_hash.containsKey(term)){
-			if(rf_tspairs_hash.containsKey(term)){
-				System.out.println(term + "\t" + rf_tspairs_hash.get(term) + "\t" + df_tspairs.get(term) + "\t" + query_terms.get(term));
-				ps.println(/*term + "\t" + */rf_tspairs_hash.get(term) + "\t" + df_tspairs.get(term) + "\t" + query_terms.get(term));
-//			}else {
-//				System.out.println(term + "\t" + "0" + "\t" + "0");
-////				ps.println(term + "\t" + "0" + "\t" + "0");
-			}
-		}
+//		HashMap<String, Integer> query_terms = reader.gettermfreqpairAllsecs(qUcid);
+//		
+//		IpcDefinition def = new IpcDefinition();
+//		ArrayList<String> ipcdefs = def.GetIpcDefWords(queryfile);
+//		System.out.println(ipcdefs.size()+ " " + ipcdefs);
+//
+//		System.out.println("word\tRFscore  \tDFscore  \tQTFscore");
+//		for(String term : ipcdefs){
+////		for( Entry<String, Float> rftspair : rf_tspairs.entrySet()){
+////			String term = rftspair.getKey();
+////			Float rf_score = rftspair.getValue();
+////			if(query_terms.containsKey(term) || rf_tspairs_hash.containsKey(term)){
+//			if(rf_tspairs_hash.containsKey(term)){
+//				System.out.println(term + "\t" + rf_tspairs_hash.get(term) + "\t" + df_tspairs.get(term) + "\t" + query_terms.get(term));
+//				ps.println(/*term + "\t" + */rf_tspairs_hash.get(term) + "\t" + df_tspairs.get(term) + "\t" + query_terms.get(term));
+////			}else {
+////				System.out.println(term + "\t" + "0" + "\t" + "0");
+//////				ps.println(term + "\t" + "0" + "\t" + "0");
+//			}
+//		}
 
 	}
 }

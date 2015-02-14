@@ -23,7 +23,7 @@ public class AbsVsGoodTerm {
 
 	public void getAbsGoodTerms(int tau) throws IOException, ParseException{
 		/*--------------------------- Write in output file. ------------------------*/
-		String outputfile = "./output/AbstractTerms/abstractterms-IPCdef.txt";
+		String outputfile = "./output/AbstractTerms/abstractterms-all.txt";
 
 		FileOutputStream out = new FileOutputStream(outputfile);
 		PrintStream ps = new PrintStream(out);
@@ -57,8 +57,8 @@ public class AbsVsGoodTerm {
 			ps.println("Abstract: " + abstractcontent);	
 			System.out.println();
 			ps.println();
-
-			System.out.print("RF Terms: ");
+//---------------------------RF-----------------------------
+			/*System.out.print("RF Terms: ");
 			ps.print("RF Terms: ");
 			
 			for(Entry<String, Float> tspair : RFtermsscores.entrySet()){
@@ -69,8 +69,14 @@ public class AbsVsGoodTerm {
 					System.out.print(term + ": "+ score + ", ");
 					ps.print(term + ": "+ score + ", ");
 				}
-			}	
-			System.out.println();
+			}	*/
+//----------------------------DF----------------------------			
+			GetDocFrequency df = new GetDocFrequency();
+			HashMap<String, Float> df_tspairs = df.getTermDocFreqScorePair(queryid);
+			System.out.println("Document Frequency Score");
+			System.out.println(df_tspairs.size() + " " + df_tspairs);	
+//----------------------------PRF----------------------------
+			/*System.out.println();
 			ps.println();
 			System.out.println();
 			ps.println();
@@ -84,9 +90,9 @@ public class AbsVsGoodTerm {
 					System.out.print(PRFterm + ": " + RFhash.get(PRFterm) + ", ");
 					ps.print(PRFterm + ": " + RFhash.get(PRFterm) + ", ");
 				}
-			}	
-			
-			System.out.println();
+			}	*/
+//------------------------------IPC def --------------------------			
+			/*System.out.println();
 			ps.println();
 			System.out.println();
 			ps.println();
@@ -98,7 +104,7 @@ public class AbsVsGoodTerm {
 			for(String ipcterm:ipcdefs){
 				System.out.print(ipcterm + ": " + RFhash.get(ipcterm) + ", ");
 				ps.print(ipcterm + ": " + RFhash.get(ipcterm) + ", ");
-			}
+			}*/
 			
 			System.out.println();
 			ps.println();
