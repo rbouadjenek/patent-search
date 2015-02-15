@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.25)  15 FEB 2015 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.25)  15 FEB 2015 19:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -454,12 +454,6 @@ File: figs/oracularquery2-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/oracularquery2-eps-converted-to.pdf used on input
  line 41.
 (pdftex.def)             Requested size: 176.40201pt x 113.80746pt.
-
-Overfull \hbox (2.22847pt too wide) in paragraph at lines 47--48
-[]\T1/aer/m/n/9 Overall, our ex-per-i-ments re-lated to orac-u-lar rel-e-vance 
-feed-
- []
-
 )
 Overfull \hbox (9.02165pt too wide) in paragraph at lines 188--188
 []\secfnt QUERY RE-DUC-TION: AP-PROX-I-MAT-ING
@@ -474,18 +468,18 @@ Package epstopdf Info: Source file: <figs/queryreduc-ipc.eps>
 (epstopdf)                    size: 8433 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/queryreduc-ipc-eps-co
 nverted-to.pdf figs/queryreduc-ipc.eps>
-(epstopdf)             \includegraphics on input line 20.
+(epstopdf)             \includegraphics on input line 23.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/queryreduc-ipc-eps-converted-to.pdf, id=34, 562.1pt x 421.575pt>
+<figs/queryreduc-ipc-eps-converted-to.pdf, id=33, 562.1pt x 421.575pt>
 File: figs/queryreduc-ipc-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/queryreduc-ipc-eps-converted-to.pdf>
 Package pdftex.def Info: figs/queryreduc-ipc-eps-converted-to.pdf used on input
- line 20.
+ line 23.
 (pdftex.def)             Requested size: 176.40201pt x 113.80746pt.
 
-Overfull \hbox (2.536pt too wide) in paragraph at lines 17--24
+Overfull \hbox (2.536pt too wide) in paragraph at lines 20--27
 \T1/aer/m/n/9 posed query re-duc-tion ap-proaches for query re-duc-tion worked
  []
 
@@ -498,15 +492,15 @@ Package epstopdf Info: Source file: <figs/1stRank.eps>
 (epstopdf)                    size: 6816 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/1stRank-eps-converted
 -to.pdf figs/1stRank.eps>
-(epstopdf)             \includegraphics on input line 98.
+(epstopdf)             \includegraphics on input line 101.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/1stRank-eps-converted-to.pdf, id=35, 562.1pt x 421.575pt>
+<figs/1stRank-eps-converted-to.pdf, id=34, 562.1pt x 421.575pt>
 File: figs/1stRank-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/1stRank-eps-converted-to.pdf>
-Package pdftex.def Info: figs/1stRank-eps-converted-to.pdf used on input line 9
-8.
+Package pdftex.def Info: figs/1stRank-eps-converted-to.pdf used on input line 1
+01.
 (pdftex.def)             Requested size: 125.9953pt x 91.04854pt.
 ) [3 <./figs/queryreduc-ipc-eps-converted-to.pdf>] (./relatedwork.tex) (./concl
 usion.tex) (./sig-alternate.bbl [4 <./figs/1stRank-eps-converted-to.pdf>]) [5
@@ -541,7 +535,7 @@ st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/font
 s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on sig-alternate.pdf (5 pages, 223274 bytes).
+Output written on sig-alternate.pdf (5 pages, 223295 bytes).
 PDF statistics:
  111 PDF objects out of 1000 (max. 8388607)
  79 compressed objects within 1 object stream
