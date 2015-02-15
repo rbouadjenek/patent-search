@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.25)  15 FEB 2015 03:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.25)  15 FEB 2015 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -430,7 +430,12 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 
 
 ]
-(./oracular.tex (./table/optquery.tex)
+(./oracular.tex (./table/optquery.tex
+LaTeX Font Info:    Try loading font information for T1+aess on input line 8.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/ae/t1aess.fd
+File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
+))
 Package epstopdf Info: Source file: <figs/oracularquery2.eps>
 (epstopdf)                    date: 2015-02-14 13:37:38
 (epstopdf)                    size: 112097 bytes
@@ -472,7 +477,7 @@ nverted-to.pdf figs/queryreduc-ipc.eps>
 (epstopdf)             \includegraphics on input line 20.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/queryreduc-ipc-eps-converted-to.pdf, id=36, 562.1pt x 421.575pt>
+<figs/queryreduc-ipc-eps-converted-to.pdf, id=34, 562.1pt x 421.575pt>
 File: figs/queryreduc-ipc-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/queryreduc-ipc-eps-converted-to.pdf>
@@ -484,71 +489,62 @@ Overfull \hbox (2.536pt too wide) in paragraph at lines 17--24
 \T1/aer/m/n/9 posed query re-duc-tion ap-proaches for query re-duc-tion worked
  []
 
-(./table/partialRFtermselect.tex
-
-LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 21.
-
-)
-Package epstopdf Info: Source file: <figs/FirstTPRank.eps>
-(epstopdf)                    date: 2015-02-11 15:12:20
-(epstopdf)                    size: 12090 bytes
-(epstopdf)             Output file: <figs/FirstTPRank-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-02-11 15:12:20
-(epstopdf)                    size: 7253 bytes
-(epstopdf)             Command: <repstopdf --outfile=figs/FirstTPRank-eps-conve
-rted-to.pdf figs/FirstTPRank.eps>
+(./table/partialRFtermselect.tex)
+Package epstopdf Info: Source file: <figs/1stRank.eps>
+(epstopdf)                    date: 2015-02-15 15:05:19
+(epstopdf)                    size: 18718 bytes
+(epstopdf)             Output file: <figs/1stRank-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-02-15 15:06:19
+(epstopdf)                    size: 6816 bytes
+(epstopdf)             Command: <repstopdf --outfile=figs/1stRank-eps-converted
+-to.pdf figs/1stRank.eps>
 (epstopdf)             \includegraphics on input line 98.
 Package epstopdf Info: Output file is already uptodate.
- <figs/FirstTPRank-eps-converted-to.pdf, id=37, 452.69125pt x 319.1925pt>
-File: figs/FirstTPRank-eps-converted-to.pdf Graphic file (type pdf)
 
-<use figs/FirstTPRank-eps-converted-to.pdf>
-Package pdftex.def Info: figs/FirstTPRank-eps-converted-to.pdf used on input li
-ne 98.
-(pdftex.def)             Requested size: 125.99976pt x 91.04872pt.
+<figs/1stRank-eps-converted-to.pdf, id=35, 562.1pt x 421.575pt>
+File: figs/1stRank-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figs/1stRank-eps-converted-to.pdf>
+Package pdftex.def Info: figs/1stRank-eps-converted-to.pdf used on input line 9
+8.
+(pdftex.def)             Requested size: 125.9953pt x 91.04854pt.
 ) [3 <./figs/queryreduc-ipc-eps-converted-to.pdf>] (./relatedwork.tex) (./concl
-usion.tex) (./sig-alternate.bbl
-[4 <./figs/FirstTPRank-eps-converted-to.pdf>]) [5
+usion.tex) (./sig-alternate.bbl [4 <./figs/1stRank-eps-converted-to.pdf>]) [5
 
 ] (./sig-alternate.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4957 strings out of 493117
- 66310 string characters out of 6135432
+ 4978 strings out of 493117
+ 66718 string characters out of 6135432
  238197 words of memory out of 5000000
- 8254 multiletter control sequences out of 15000+600000
- 55476 words of font info for 80 fonts, out of 8000000 for 9000
+ 8269 multiletter control sequences out of 15000+600000
+ 58048 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,37p,1377b,1055s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,11n,37p,1377b,1056s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texliv
-e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2014/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2014/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2014/texmf-dist/fon
-ts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type
-1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/time
-s/utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.
-pfb>
-Output written on sig-alternate.pdf (5 pages, 228301 bytes).
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2014/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2014/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2014/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2014/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2014/texmf-dist/font
+s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/ur
+w/times/utmr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/ut
+mri8a.pfb>
+Output written on sig-alternate.pdf (5 pages, 223274 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 111 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
