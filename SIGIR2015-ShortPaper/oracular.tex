@@ -3,7 +3,7 @@ patents\cite{lupu2013patent}\cite{magdy2012toward}. However, considering the siz
 \subsection{Oracular Query Formulation}
 We started with {\em relevance feedback} where we have access to the judged relevant documents. We calculate a relevance feedback (RF) score for each term in top-100 retrieved documents as follows:
 \begin{equation}
-score_{RF}(t,Q)=Rel(t)-Irr(t) 
+RF(t,Q)=Rel(t)-Irr(t) 
  \label{eq:score}
 \end{equation}\vspace*{-5ex}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
@@ -13,12 +13,12 @@ We expected to see a higher performance for the queries which contain more {\em 
 
 We hypothesized that a query, formulated by only the {\em useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. We formulated two oracular queries. The first query was formulated by positive terms in top-100 documents as follows: 
 \begin{equation}
-Oracular \; Query = \{t \in top-100|score_{RF}(t)>0\}   
+Oracular \; Query = \{t \in top-100|RF(t, Q)>0\}   
  \label{eq:score}
 \end{equation}
 We formulated the second query by selecting only {\em useful terms} existing inside the patent query based on the hypothesis that a patent query contains sufficient words matched with the relevant patents:
 \begin{equation}
- Oracular \; Patent \; Query = \{t\in Q|score_{RF}(t)>0\}   
+ Oracular \; Patent \; Query = \{t\in Q|RF(t, Q)>0\}   
  \label{eq:score}
 \end{equation}
 The system performance to these two queries were encouraging. We discuss the detailed results in the next section.
@@ -35,7 +35,7 @@ The system performed very well for both {\em Oracular Query} and {\em Oracle Pat
 \end{table}
 As it can be seen in Table \ref{tab:optquery}, the {\em Oracular Query} far outperforms the baseline {\em Patent Query} and performs twice as well on MAP as the best competitor in CLEF-IP 2010~\cite{lopez2010experiments}.
 
-We used a threshold $\tau$ to formulate the {\em Oracular Query} and {\em Oracular Query} to include merely terms with the RF score higher than $\tau$ ($score_{RF}(t,Q)>0$). 
+We used a threshold $\tau$ to formulate the {\em Oracular Query} and {\em Oracular Patent Query} to include merely terms with the RF score higher than $\tau$ ($RF(t,Q)>0$). 
 \begin{figure}[htpb]
    \centering
    \includegraphics[width=0.35\textwidth,height=40mm]{figs/oracularquery2.eps}
@@ -47,5 +47,5 @@ Figure \ref{fig:oracular} illustrates that $\tau=0$ is the best-performed value 
 Our experiments related to oracular relevance feedback system suggest two important conclusions:
 \begin{enumerate}
   \item Query reduction should suffice for effective prior art patent retrieval.
-  \item A very precise methods for eliminating poor query terms are needed in the reduction process.
+  \item Very precise methods for eliminating poor query terms are needed in the reduction process.
 \end{enumerate}
