@@ -25,15 +25,15 @@ set xlabel "Values of {/Symbol t}" font "Helvetica,22"
 #set ylabel "MAP" font "Helvetica,22"
 set term postscript eps enhanced color "Courier,17"
 set output "figure1-MAP.eps" 
-plot "fig1.txt" using 1:2 title "OracularQuery"   with linespoints lw 5,\
-"fig1.txt" using 1:5 title "OracularQuery-PQ"   with linespoints lw 5,\
-"fig1.txt" using 1:7 title "Baseline"   with linespoints lw 5
+plot "fig1.txt" using 1:2 title "OracularQuery"   with linespoints lc 1 lw 5,\
+"fig1.txt" using 1:5 title "OracularQuery-PQ"   with linespoints lc 3 lw 5,\
+"fig1.txt" using 1:7 title "Baseline"   with linespoints lc 2 lw 5
 
 set output "figure1-Recall.eps"
 #set ylabel "Recall" font "Helvetica,22"
-plot "fig1.txt" using 1:4 title "OracularQuery"   with linespoints lw 5,\
-"fig1.txt" using 1:6 title "OracularQuery-PQ"   with linespoints lw 5,\
-"fig1.txt" using 1:8 title "Recall"   with linespoints lw 5
+plot "fig1.txt" using 1:4 title "OracularQuery"   with linespoints lc 1 lw 5,\
+"fig1.txt" using 1:6 title "OracularQuery-PQ"   with linespoints lc 3 lw 5,\
+"fig1.txt" using 1:8 title "Recall"   with linespoints lc 2 lw 5
 #--------
 set size 0.65,0.65
 set key bottom right
