@@ -21,8 +21,8 @@ by developing an \emph{Oracular Query}.
 % and especially abbreviating it RF since RF usually has a different definition
 % based on a vector space or other model.  I would call it AvgRelDiff or
 % something similar.  -Scott
-We begin by defining an oracular relevance feedback system which
-extracts terms from the judged relevant documents.  To do this, we
+We begin by defining an oracular relevance feedback system, which
+extracts terms from the judged relevant documents.  To this end, we
 calculate a relevance feedback (RF) score for each term in the top-100
 retrieved documents as follows:
 % Use \mathit{RF}, \mathit{Rel}, etc. for multiletter names, 
@@ -32,19 +32,19 @@ RF(t,Q)=Rel(t)-Irr(t)
  \label{eq:score}
 \end{equation}\vspace*{-5ex}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
-where $ Rel(t) $ is the average term frequency in retrieved relevant patents and $ Irr(t) $ is the average term frequency in retrieved irrelevant patents. We assumed that words with a positive score are {\em useful words} since they are more frequent in relevant patents, while words with negative score are {\em noisy words} as they appear more frequently in irrelevant patents.  We seek to evaluate the optimal threshold $\tau$ empirically.
+where $ Rel(t) $ is the average term frequency in retrieved relevant patents and $ Irr(t) $ is the average term frequency in retrieved irrelevant patents. We assume that words with a positive score are {\em useful words} since they are more frequent in relevant patents, while words with negative score are {\em noisy words} as they appear more frequently in irrelevant patents.  We seek to evaluate the optimal threshold $\tau$ empirically.
 
 % Huh??? -Scott
 %
 %We expected to see a higher performance for the queries which contain more {\em useful words}, but, surprisingly, we could not find any correlation between the performance and the presence of {\em useful words} in the query. 
 
 %We hypothesized that a query, formulated by only the {\em useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. 
-We formulated two oracular queries. The first query was formulated by positive terms in top-100 documents as follows: 
+We formulate two oracular queries. The first query is formulated by positive terms in top-100 documents as follows: 
 \begin{equation}
 Oracular \; Query = \{t \in \mathrm{top-100}|RF(t, Q)>\tau\}   
  \label{eq:score}
 \end{equation}
-We formulated the second query by selecting only {\em useful terms} inside the reference patent:
+We formulate the second query by selecting only {\em useful terms} inside the reference patent:
 % query based on the hypothesis that a patent query contains sufficient words matched with the relevant patents:
 \begin{equation}
  Oracular \; Patent \; Query = \{t\in Q|RF(t, Q)>\tau\}   
@@ -82,7 +82,7 @@ We formulated the second query by selecting only {\em useful terms} inside the r
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table*}[t!]
   \begin{center}
-   \caption{System performance for the {\em Patent Query}, two variants of the {\em Oracular Query}, and {\em Top CLEF-IP 2010}.}
+   \caption{Performance for the {\em Patent Query}, two variants of the {\em Oracular Query}, and {\em Top CLEF-IP 2010}.}
    \vspace*{1ex}
   \input table/optquery.tex   
   \label{tab:optquery}
@@ -117,7 +117,7 @@ CLEF-IP 2010.
 \par\end{centering}
 
 \begin{centering}
-\subfigure[{Mean Average Precision.}]{\includegraphics[width=4.75cm]{imgs/figure1-MAP}}\subfigure[Recall.]{\includegraphics[width=4.75cm]{imgs/figure1-Recall}}
+\subfigure[{Mean Average Precision.}]{\includegraphics[width=4.5cm]{imgs/figure1-MAP}}\subfigure[Recall.]{\includegraphics[width=4.5cm]{imgs/figure1-Recall}}
 \par\end{centering}
 
 \protect\caption{System performance vs. the threshold $\tau$ for oracular query and oracular patent query.}
@@ -128,8 +128,8 @@ CLEF-IP 2010.
 Next we investigate the ideal threshold setting $\tau$.
 Figure \ref{fig:oracular} illustrates that $\tau=0$ is the
 best-performing value for {\em Oracular Query} while $\tau=1$ is the
-best for {\em Oracular Patent Query}.  The MAP for the {\em Oracular
-Patent Query} is lower than MAP for the {\em Oracular Query};
+best for {\em Oracular Patent Query}.  The MAP and the recall for the {\em Oracular
+Patent Query} are lower than the MAP and the recall for the {\em Oracular Query} respectively;
 nonetheless the terms selected from the reference patent itself are
 still sufficient to achieve performance significantly better than the
 Top CLEF-IP 2010 result.  In addition, we remark on the rather
@@ -140,9 +140,6 @@ as defined previously.
 % Good: is space allows, the enumeration helps make the take-home points
 % of this section clear for the reader and leads into the next section.  -Scott
 Overall, our experiments related to oracular relevance feedback system
-suggest two important conclusions:
-\begin{enumerate}
-  \item Query reduction should suffice for effective prior art patent retrieval.
-  \item Very precise methods for eliminating poor query terms in the reduction process.
-\end{enumerate}
+suggest two important conclusions: (1) Query reduction should suffice for effective prior art patent retrieval; and (2) Very precise methods for eliminating poor query terms in the reduction process.
+
 
