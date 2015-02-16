@@ -14,17 +14,9 @@ based on interactive relevance feedback methods.
 % in the bullet points where the actual method is discussed... not after the bullet
 % points!  Don't dissociate content and discuss it multiple times in different
 % places!  -Scott
-We used four approaches to refine the initial patent query: 
-\begin{enumerate}
-  \item removing document frequent terms (DF(t)>$\tau$),
- % \vspace*{-2ex}
-  \item keeping frequent terms in query (QTF(t)>$\tau$),
-  %\vspace*{-2ex}
-  \item using pseudo relevance feedback to select query terms (PRF(t)>$\tau$), 
- % \vspace*{-2ex}
-  \item removing general terms in IPC title. 
-\end{enumerate}
-In standard IR, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words (in top-100 documents) with average term frequency higher than the threshold $\tau$ from the original query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, removing frequent terms in top-100 documents ($DF(t)>\tau$) ruined the performance.  
+We used four approaches to refine the initial patent query: (i) removing document frequent terms (DF(t)>$\tau$), (ii) keeping frequent terms in query (QTF(t)>$\tau$); (iii) using pseudo relevance feedback to select query terms (PRF(t)>$\tau$); and (iv) removing general terms in IPC title. 
+
+In standard IR approaches, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words (in top-100 documents) with average term frequency higher than the threshold $\tau$ from the original query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, removing frequent terms in top-100 documents ($DF(t)>\tau$) ruined the performance.  
 
 As mentioned in~\cite{maxwell2013compact} terms inside verbose queries are also important. Hence, we kept frequent words inside the query while removing document frequent words. The results in Figure \ref{fig:queryreduc} indicate that it is better to keep all query terms ($QTF(t)>\tau$). 
 
@@ -45,7 +37,7 @@ Unfortunately, none of the proposed query reduction approaches for query reducti
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\includegraphics[width=8cm]{imgs/figure2-MAP}
+\includegraphics[width=7.5cm]{imgs/figure2-MAP}
 \par\end{centering}
 
 \protect\caption{System performance vs. the threshold $\tau$ for four query reduction approaches.}
@@ -149,7 +141,7 @@ user effort while achieving state-of-the-art performance.
 
 \begin{figure}
 \begin{centering}
-\includegraphics[width=8cm]{imgs/1stRank}
+\includegraphics[width=7.5cm]{imgs/1stRank}
 \par\end{centering}
 
 \protect\caption{The distribution of the first relevant document rank over test queries.}
