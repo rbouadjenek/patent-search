@@ -1,3 +1,4 @@
+\begin{comment}
 Patents are used by legal entities to legally protect their
 inventions and represent a multi-billion dollar industry of licensing
 and litigation. In 2013, 302,948 patent applications were approved
@@ -7,35 +8,108 @@ in the US alone%
 existing patent may invalidate a new patent application, helping inventors
 assess the patentability of an idea through a patent prior art search
 before writing a complete patent application is an important task.
+\end{comment}
 
 Patent prior art search involves finding previously granted patents
 that may be relevant to a new patent application. The objective and
 challenges of standard formulations of patent prior art search are
-different from those of standard text and web search since \cite{magdy2012toward}:
-(i) queries are (partial) patent applications, which consist of documents
-with hundreds or thousands of words organized into several sections,
-while typical queries in text and web search constitute only a few
-words; and (ii) patent prior art search is a recall-oriented task,
-where the primary focus is to retrieve all relevant documents at early
-ranks, in contrast to text and web search that are precision-oriented,
-where the primary goal is to retrieve a subset of documents that satisfy
-the query intent. Another important characteristic of patent prior
-art search is that, in contrast to scientific and technical writers,
-patent writers tend to generalize and maximize the scope of what is
-protected\textcolor{red}{{} }by a patent and potentially discourage
-further innovation by third parties, which further complicates the
-task of formulating effective queries. For instance, abstract and
-vague terms are sometimes pre-referred to concrete ones, e.g., recording
-means vs. recording apparatus; resources vs. battery life; machines
-located at point of sale locations vs. vending machines, etc.
+different from those of standard text and web search
+since~\cite{magdy2012toward}: (i) queries are reference patent
+applications, which consist of documents with hundreds or thousands of
+words organized into several sections, while typical queries in text
+and web search constitute only a few words; and (ii) patent prior art
+search is a recall-oriented task, where the primary focus is to
+retrieve all relevant documents at early ranks, in contrast to text
+and web search that are precision-oriented, where the primary goal is
+to retrieve a subset of documents that satisfy the query
+intent. Another important characteristic of patent prior art search is
+that, in contrast to scientific and technical writers, patent writers
+tend to generalize and maximize the scope of what is protected by a
+patent and potentially discourage further innovation by third parties,
+which further complicates the task of formulating queries.
 
 \begin{comment}
-A patent is a set of exclusive rights granted to an inventor to protect their invention for a limited period of time. An important requirement for a patent to be granted is that the invention, it describes, is novel which means there is no earlier patent, publication or public communication of a similar idea. To ensure the novelty of an invention, patent offices as well as other Intellectual Property (IP) service providers mainly perform a search called `prior art search'. The purpose of `prior art search' is finding all relevant patents which may put the patent application at the risk of novelty invalidation or at least have common parts with patent application and should be cited~\cite{magdy2012toward}~\cite{piroi2013overview}. 
+A patent is a set of exclusive rights granted to an inventor to
+protect their invention for a limited period of time. An important
+requirement for a patent to be granted is that the invention, it
+describes, is novel which means there is no earlier patent,
+publication or public communication of a similar idea. To ensure the
+novelty of an invention, patent offices as well as other Intellectual
+Property (IP) service providers mainly perform a search called `prior
+art search'. The purpose of `prior art search' is finding all relevant
+patents which may put the patent application at the risk of novelty
+invalidation or at least have common parts with patent application and
+should be cited~\cite{magdy2012toward}~\cite{piroi2013overview}.
 
-Patent retrieval has three main characteristics which makes it difficult compared to other IR applications: (1) the search starts with a query as long as a full patent application that helps users --usually patent examiners, inventors, or lawyers-- avoid spending long hours to formulate a query; (2) it is recall-oriented, where not missing relevant documents is more important than appearing relevant documents at top of the list; (3) unlike the web application in which authors tend to highlight their work to be easily found through search engines, authors of the patents prefer to use a vague language to avoid the invalidation of their idea.     
+Patent retrieval has three main characteristics which makes it
+difficult compared to other IR applications: (1) the search starts
+with a query as long as a full patent application that helps users
+--usually patent examiners, inventors, or lawyers-- avoid spending
+long hours to formulate a query; (2) it is recall-oriented, where not
+missing relevant documents is more important than appearing relevant
+documents at top of the list; (3) unlike the web application in which
+authors tend to highlight their work to be easily found through search
+engines, authors of the patents prefer to use a vague language to
+avoid the invalidation of their idea.
 \end{comment}
 
-Many works has been conducted to improve the patent retrieval effectiveness so far. However, either the results showed quite small improvement or the proposed methods were complicated and computationally expensive. Overall, the works on patent search fall in five main categories~\cite{lupu2013patent} query reformulation(query expansion and query reduction), query term selection, query suggestions, using patent meta-data and images for retrieval~\cite{lupu2013evaluating}, and Cross-Language Information Retrieval~\cite{magdy2014studying}.
+%Many works has been conducted to improve the patent retrieval effectiveness so far. However, either the results showed quite small improvement or the proposed methods were complicated and computationally expensive. 
+%
+% I don't understand the difference between term selection and query 
+% reformulation.  I think they're more or less synonymous.  -Scott
+%
+%Existing work on patent search largely falls into four main
+%categories~\cite{lupu2013patent}: query reformulation (query expansion
+%and query reduction), query suggestions, using patent meta-data and
+%images for retrieval~\cite{lupu2013evaluating}, and cross-language
+%approaches~\cite{magdy2014studying}.
 
 %Applying standard information retrieval (IR) techniques to patent search is not effective and needs applying supplementary methods to improve the effectiveness. Although lots of methods have been proposed in recent years, reported results for different tasks of patent search show lower retrieval effectiveness compared to other IR applications~\cite{lupu2013patent}.  
+
+% Let's focus directly on query reformulation --- other discussion is
+% somewhat orthogonal to the very specific task of this paper.
+%
+% We need some specific citations for for query reformulation and
+% a clear transition that explains why our work is different from
+% existing investigations -- I currently have a weak transition,
+% but we could probably do better.  -Scott
+%
+In this work, we focus on the task of query
+reformulation~\cite{INSERT_RELEVANT_CITATIONS_HERE} for patent prior
+art search.  While prior work has largely focused on specific
+techniques for reformulation, we first build an oracular query formed
+from known relevance judgments for the CLEP-IP 2010 Prior Art test
+collection~\cite{CITATION_OR_FOOTNOTE_HERE} in an attempt to derive upper
+bounds on performance of standard BM25 and LM retrieval algorithms for
+this task.  Since the results of this evaluation suggest that query
+reduction methods can achieve state-of-the-art prior art search performance, we
+proceed to analyse four simple automated methods for identifying
+reference patent query terms for removal.  Finding that none of these methods
+seems to independently yield promise for query reduction that strongly
+outperforms the baseline, we evaluate an alternative interactive
+feedback approach where terms are selected from only the first
+retrieved relevant document.  Observing that such simple interactive
+methods for query reduction with a standard LM retrieval model
+outperform highly engineered patent-specific search systems from
+CLEF-IP 2010, we conclude that interactive methods offer a promising
+avenue for simple but highly effective term selection in patent prior
+art patent search.
+
+\begin{comment}
 In this work, we mainly emphasized on the problem from the term analysis perspective which ended in an effective minimal relevance feedback method. We investigated the influence of term selection on retrieval performance on the CLEF-IP Prior Art test collection, starting with the Description section of the reference patent and using LM and BM25 scoring functions. We found that an oracular relevance feedback system which extracts terms from the judged relevant documents far outperforms the baseline and  performs twice as well on MAP as the best competitor in CLEF-IP 2010.  We find a very clear term selection value threshold for use when choosing terms.  A much more realistic approach in which feedback terms are extracted only from the first relevant document retrieved, still outperforms the winner.   We noticed that most of the useful feedback terms are actually present in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms.  We tried four different approaches to identifying negative terms but were unable to improve on the baseline performance with any of them.
+\end{comment}
+
+\begin{comment}
+- Prior work suggests query reformulation is critical for patent prior art search.  Different works suggest query expansion, query reduction, or both.
+
+- Using an ideal query formed from the relevance judgments and query patent, we see that selecting a subset of terms within the query patent are sufficient to achieve high MAP --- 1.5x better than the best CLEF-IP 2010 results and 3x better than a BM25 or LM baseline using all query patent terms.  This suggests query reduction should suffice for effective prior art patent retrieval.
+
+- Further analysis shows an unexpected steep dropoff in performance when the ideal query is "polluted" with additional terms from the original patent query suggesting that very precise methods for eliminating poor query terms are needed in the reduction process.
+
+- Standard proposals for automated query reduction yield no benefit over the baseline query.  Anecdotal analysis of a few patents further reinforces the difficulty of automatically identifying terms to eliminate.
+
+- However, using a simple interactive relevance feedback model using only the first relevant document achieves a MAP score better than any of the previous CLEF-IP 2010 competitors.  Since baseline methods return a relevant patent ~80% of the time in the first 10 results and 90% of the time in the first 20 results, such an interactive approach requires relatively low user effort while achieving state-of-the-art performance.
+
+- Overall the difficulty of automatic query reduction and the surprising effectiveness of a minimal relevance feedback method suggests the potential importance of interactive retrieval methods for patent prior art search.
+\end{comment}
+
