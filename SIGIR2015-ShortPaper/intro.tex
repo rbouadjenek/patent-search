@@ -1,6 +1,39 @@
+Patents are used by legal entities to legally protect their
+inventions and represent a multi-billion dollar industry of licensing
+and litigation. In 2013, 302,948 patent applications were approved
+in the US alone%
+\footnote{http://www.uspto.gov/web/offices/ac/ido/oeip/taf/ us\_stat.htm%
+}, a number that has doubled in the past 15 years. Given that a single
+existing patent may invalidate a new patent application, helping inventors
+assess the patentability of an idea through a patent prior art search
+before writing a complete patent application is an important task.
+
+Patent prior art search involves finding previously granted patents
+that may be relevant to a new patent application. The objective and
+challenges of standard formulations of patent prior art search are
+different from those of standard text and web search since \cite{Magdy2012}:
+(i) queries are (partial) patent applications, which consist of documents
+with hundreds or thousands of words organized into several sections,
+while typical queries in text and web search constitute only a few
+words; and (ii) patent prior art search is a recall-oriented task,
+where the primary focus is to retrieve all relevant documents at early
+ranks, in contrast to text and web search that are precision-oriented,
+where the primary goal is to retrieve a subset of documents that satisfy
+the query intent. Another important characteristic of patent prior
+art search is that, in contrast to scientific and technical writers,
+patent writers tend to generalize and maximize the scope of what is
+protected\textcolor{red}{{} }by a patent and potentially discourage
+further innovation by third parties, which further complicates the
+task of formulating effective queries. For instance, abstract and
+vague terms are sometimes pre-referred to concrete ones, e.g., recording
+means vs. recording apparatus; resources vs. battery life; machines
+located at point of sale locations vs. vending machines, etc.
+
+\begin{comment}
 A patent is a set of exclusive rights granted to an inventor to protect their invention for a limited period of time. An important requirement for a patent to be granted is that the invention, it describes, is novel which means there is no earlier patent, publication or public communication of a similar idea. To ensure the novelty of an invention, patent offices as well as other Intellectual Property (IP) service providers mainly perform a search called `prior art search'. The purpose of `prior art search' is finding all relevant patents which may put the patent application at the risk of novelty invalidation or at least have common parts with patent application and should be cited~\cite{magdy2012toward}~\cite{piroi2013overview}. 
 
 Patent retrieval has three main characteristics which makes it difficult compared to other IR applications: (1) the search starts with a query as long as a full patent application that helps users --usually patent examiners, inventors, or lawyers-- avoid spending long hours to formulate a query; (2) it is recall-oriented, where not missing relevant documents is more important than appearing relevant documents at top of the list; (3) unlike the web application in which authors tend to highlight their work to be easily found through search engines, authors of the patents prefer to use a vague language to avoid the invalidation of their idea.     
+\end{comment}
 
 Many works has been conducted to improve the patent retrieval effectiveness so far. However, either the results showed quite small improvement or the proposed methods were complicated and computationally expensive. Overall, the works on patent search fall in five main categories~\cite{lupu2013patent} query reformulation(query expansion and query reduction), query term selection, query suggestions, using patent meta-data and images for retrieval~\cite{lupu2013evaluating}, and Cross-Language Information Retrieval~\cite{magdy2014studying}.
 
