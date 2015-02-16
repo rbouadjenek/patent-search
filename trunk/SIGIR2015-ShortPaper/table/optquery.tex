@@ -6,19 +6,21 @@
 {
 %\scriptsize
 %\sffamily
-\ttfamily\scriptsize
- \begin{tabular}{llll}
+\ttfamily
+ \begin{tabular}{lllllll}
  \hline\noalign{\smallskip} 
-& \multicolumn{1}{l}{Best}&\multicolumn{1}{l}{Pat.Query}&\multicolumn{1}{l}{Oracular Query}\\ 
-& Run                   & Weight:1                    & Weight:1                         \\
+& \multicolumn{1}{l}{Baseline (BM25)} & \multicolumn{1}{l}{Baseline (LM)} &\multicolumn{1}{l}{Baseline (LM)} & \multicolumn{1}{l}{Best}&\multicolumn{1}{l}{Oracular}&\multicolumn{1}{l}{Oracular(PQ)}\\ 
+& Weight:TF                           & Weight:TF                    & Weight:1                    & Run                     & Weight:1                   & Weight:1          \\
  \noalign{\smallskip} 
  \hline
 \noalign{\smallskip} 
 \vtop{\hbox{\strut MAP}\hbox{\strut A. Recall}} 
+& \vtop{\hbox{\strut 0.159}\hbox{\strut 0.545}}
+& \vtop{\hbox{\strut 0.162}\hbox{\strut 0.549}} 
+& \vtop{\hbox{\strut 0.118}\hbox{\strut 0.438}}
 & \vtop{\hbox{\strut 0.27}\hbox{\strut -}} 
-& \vtop{\hbox{\strut 0.1181}\hbox{\strut 0.4385}}
-%& \vtop{\hbox{\strut  \bfseries 0.4617}\hbox{\strut 0.6129}} 
-& \vtop{\hbox{\strut \bfseries 0.5075}\hbox{\strut \bfseries 0.6118}} \\ \hline
+& \vtop{\hbox{\strut \bfseries 0.507}\hbox{\strut \bfseries 0.612}} 
+& \vtop{\hbox{\strut \bfseries 0.436}\hbox{\strut \bfseries 0.622}}\\ \hline
 
 %\bottomrule 
 
