@@ -24,18 +24,18 @@ We formulated the second query by selecting only {\em useful terms} existing ins
 The system performance to these two queries were encouraging. We discuss the detailed results in the next section.
 
 \subsection{Baseline vs. Oracular Query}
-The system performed very well for both {\em Oracular Query} and {\em Oracle Patent Query}.  
-\begin{table}[htpb]
+In this section, first, we compare our oracular relevance feedback system with both the baseline, and the Best Run. Our baseline results are when the system input is the {\em patent query}. We observed that a weighed --by query term frequency-- query performs better than the unweighed one. However, our oracular query performed better unweighed, so, we compare the results with unweighed baseline query. The {\em best run} in CLEF-IP 2010 achieved 0.27 MAP~\cite{lopez2010experiments}. 
+\begin{table*}[htpb]
   \begin{center}
    \caption{System performance for the {\em Patent Query}, {\em Oracular Query}, and {\em Best Run Query}.}
    \vspace*{1ex}
   \input table/optquery.tex   
   \label{tab:optquery}
   \end{center}  
-\end{table}
-As it can be seen in Table \ref{tab:optquery}, the {\em Oracular Query} far outperforms the baseline {\em Patent Query} and performs twice as well on MAP as the best competitor in CLEF-IP 2010~\cite{lopez2010experiments}.
+\end{table*}
+Table \ref{tab:optquery} shows that the {\em Oracular Query} far outperforms the baseline and approximately performs twice as well on MAP as the best competitor in CLEF-IP 2010.
 
-We used a threshold $\tau$ to formulate the {\em Oracular Query} and {\em Oracular Patent Query} to include merely terms with the RF score higher than $\tau$ ($RF(t,Q)>0$). 
+Next, we used a threshold $\tau$ to formulate the {\em Oracular Query} and {\em Oracular Patent Query} to include merely terms with the RF score higher than $\tau$ ($RF(t,Q)>0$). 
 \begin{figure}[htpb]
    \centering
    \includegraphics[width=0.35\textwidth,height=40mm]{figs/oracularquery3.eps}
