@@ -6,10 +6,8 @@ model Okapi BM25 \cite{Robertson1993} as well as language models (LM: Dirichlet
 smoothing, and Jelinek-Mercer smoothing) \cite{Zhai2001}. We used
 this system to index the English subset of CLEF-IP 2010 dataset%
 \footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}%
-} with the default settings for stemming and stop-word removal. 
-% What do the default settings mean??? -Scott
-We
-also removed patent-specific stop-words as described in \cite{magdy2012toward}.
+} with the default settings using the Porter stemming algorithm \cite{Porter1980} and English stop-word removal. 
+We also removed patent-specific stop-words as described in \cite{magdy2012toward}.
 CLEF-IP 2010 contains 2.6 million patent documents, and the English
 test sets of CLEF-IP 2010 correspond to 1303 topics (queries). In
 our implementation, each section of a patent (title, abstract, claims,
