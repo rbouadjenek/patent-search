@@ -15,10 +15,15 @@ improved by removing negative query terms.
 %should suffice for state-of-the-art performance on CLEF-IP 2010.
 We tried four simple automated approaches to identify negative terms
 for query reduction but we were unable to improve on the baseline
-performance with any of them.  Finally, we show that a simple, minimal
-feedback interactive approach where terms are selected from only the
-first retrieved relevant document outperforms the best result from
-CLEF-IP 2010.
+performance with any of them.  However, we show that a
+simple, minimal feedback interactive approach where terms are selected
+from only the first retrieved relevant document outperforms the best
+result from CLEF-IP 2010 suggesting the promise of interactive methods
+for term selection in patent prior art search.
+
+\begin{comment}
+We investigate the influence of term selection on retrieval performance on the CLEF-IP Prior Art test collection, starting with the Description section of the reference patent and using LM and BM25 scoring functions.    We find that an oracular relevance feedback system which extracts terms from the judged relevant documents far outperforms the baseline and  performs twice as well on MAP as the best competitor in CLEF-2014.  We find a very clear term selection value threshold for use when choosing terms.  A much more realistic approach in which feedback terms are extracted only from the first relevant document retrieved, still outperforms last year’s winner.   We noticed that most of the useful feedback terms are actually present in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms.  We tried three different approaches to identifying negative terms but were unable to improve on the baseline performance with any of them.
+\end{comment}
 
 %Patent prior-art search aims to find all relevant patents which may invalidate the novelty of a patent application or at least have common parts with patent application and should be cited. Patent search has been the centre of attention in IR communities for years, however it has lower retrieval effectiveness compared to other IR applications. In this work, we focused on the causes of failure rather than solutions. We started with relevance feedback to get a golden standard, then we concentrated on heuristics correlate with our RF standard. Finally, we showed that features other than relevance feedback can not be helpful because they are a complex mixture of useful words and noisy words. Finally, we got a considerable improvement by user feedback with a minimum effort.      
 % 
