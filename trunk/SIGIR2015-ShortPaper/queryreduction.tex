@@ -1,6 +1,20 @@
+The encouraging results of our Oracular Patent Query in the previous
+section motivate us to explore various methods to approximate the terms
+selected by this query without ``peeking at the answers'' provided by
+the actual relevance judgements.  We first attempt this via fully
+automated methods and then proceed to evaluate semi-automated methods
+based on interactive relevance feedback methods.
+
 \subsection{Automated Reduction}
 %\vspace*{-2ex}
-We noticed that most of the useful feedback terms exist in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms. We used four approaches to refine the initial patent query: 
+%We noticed that most of the useful feedback terms exist in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms. 
+%
+% Why these approaches? provide citations for who has suggested them or otherwise
+% provide a justification as to why each approach would be a good idea.  Do this
+% in the bullet points where the actual method is discussed... not after the bullet
+% points!  Don't dissociate content and discuss it multiple times in different
+% places!  -Scott
+We used four approaches to refine the initial patent query: 
 \begin{enumerate}
   \item removing document frequent terms (DF(t)>$\tau$),
  % \vspace*{-2ex}
@@ -18,18 +32,27 @@ The third approach we used to reduce the query was Pseudo Relevance Feedback (PR
 
 Finally, we used words in IPC code title to reduce the query assuming they are general words in all patents, which belong to the same category and may consider as stop-words. However we hurt the effectiveness by pruning them out.
 
+% The anecdotal results and their implications have to be explained
+% much more clearly... what is surprising about them (be specific:
+% point out actual terms) and what can you take away from this
+% investigation.  -Scott
 Figure \ref{fig:anecdotal} is an anecdotal example for a sample query, which can explain why these four approaches did not work. It shows the abstract and a pair of terms, and RF score of each term, where $t \in \{t| DF(t)/QTF(t)/PRF(t)>10\} $. It can be seen that high scored terms are polluted with the sufficient amount of noise to ruin the retrieval effectiveness.   
 
-Unlike our initial assumption, non of the standard proposed query reduction approaches for query reduction worked better than the baseline.
-\subsection{Reduction by Relevance Feedback}
-\begin{figure}
+Unfortunately, none of the proposed query reduction approaches for query reduction worked better than the baseline, which leads us to investigate interactive methods for reduction in the next section.
+
+\subsection{Semi-automated Interactive Reduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
    \centering
    \includegraphics[width=0.35\textwidth,height=40mm]{figs/queryreduc-ipc-base-b.eps}
    \caption{System performance vs. the threshold $\tau$ for four query reduction approaches.}   
    \label{fig:queryreduc} 
 \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}[htpb]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
 \begin{framed}
 \vspace*{-2ex}
   \centering
@@ -90,19 +113,39 @@ IPC def Terms: <@\textcolor{blue}{cosmet:3.77}@>, <@\textcolor{blue}{toilet:0.18
   \caption{Anecdotal example: it shows the abstract, and $ t:RF(t) $ pair of a sample query, $\{t|DF(t)/QTF(t)/PRF(t)>10\}$. Useful terms are highlighted in blue and the noisy ones in red.}
   \label{fig:anecdotal}  
 \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. Table \ref{tab:firstrel} shows that we can double the MAP by only the first-ranked relevant document.
-\begin{table}[htpb]
+Our anecdotal analysis of specific queries and terms selected via our oracular
+approach suggests that automated methods fall far short of optimal term selection.
+This leads us to explore another approach of approximating the oracular query
+derived from relevance judgements by using a subset of relevance judgements
+through interactive methods.  Specifically, to minimize the need for user interaction,
+in this section we analyse the performance of an oracular query derived from
+only the first relevant document identified in the search results.
+\begin{comment}
+All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. 
+\end{comment}
+Using this approach, Table \ref{tab:firstrel} shows that we can double the MAP in comparison to our baseline and also outperfor the best system from CLEF-IP 2010.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[t!]
   \begin{center}
    \caption{System performance using minimal relevance feedback. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
   \input table/partialRFtermselect.tex   
   \label{tab:firstrel}
   \end{center}  
 \end{table}
-Figure \ref{fig:FirstTPRankHisto} indicates that the baseline methods return a relevant patent, approximately, 80\% of the time in the first 10 results and 90\% of the time in the first 20 results, such an interactive approach requires relatively low user effort while achieving state-of-the-art performance.    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Furthermore, to establish the minimal interaction required by this
+approach, Figure \ref{fig:FirstTPRankHisto} indicates that the
+baseline methods return a relevant patent approximately 80\% of the
+time in the first 10 results and 90\% of the time in the first 20
+results.  Hence, such an interactive approach requires relatively low
+user effort while achieving state-of-the-art performance.
 \begin{figure}[htpb]
    \centering
-   \includegraphics[width=0.25\textwidth,height=32mm]{figs/1stRank.eps}
+   \includegraphics[width=0.35\textwidth]{figs/1stRank.eps}
    \caption{The distribution of the first relevant document rank over test queries}   
    \label{fig:FirstTPRankHisto} 
 \end{figure}

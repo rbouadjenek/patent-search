@@ -1,13 +1,14 @@
-We developed a baseline system for patent prior-art search, which
-is based on Lucene%
+We developed a baseline system for patent prior-art search using
+Lucene%
 \footnote{\texttt{http://lucene.apache.org/}%
-}. The configuration options allow the use of several IR models including:
-the vector space model TF-IDF \cite{Salton1975}, the probabilistic
-model Okapi BM25 \cite{Robertson1993}, the Language Models (LM: Dirichlet
+}, which supports queries using the probabilistic
+model Okapi BM25 \cite{Robertson1993} as well as language models (LM: Dirichlet
 smoothing, and Jelinek-Mercer smoothing) \cite{Zhai2001}. We used
 this system to index the English subset of CLEF-IP 2010 dataset%
 \footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}%
-} with the default settings for stemming and stop-word removal. We
+} with the default settings for stemming and stop-word removal. 
+% What do the default settings mean??? -Scott
+We
 also removed patent-specific stop-words as described in \cite{magdy2012toward}.
 CLEF-IP 2010 contains 2.6 million patent documents, and the English
 test sets of CLEF-IP 2010 correspond to 1303 topics (queries). In
@@ -18,15 +19,15 @@ offers best retrieval performance. We also used the International
 Patent Classification (IPC) codes assigned to the topics to filter
 the search results by constraining them to have common IPC codes with
 the patent topic as suggested in previous works \cite{lopez2010patatras}.
-Although this IPC codes filter may pass over  relevant patents, we
+Although this IPC codes filter may fail to retrieve relevant patents, we
 have chosen to keep it for the following reasons: (i) more than 80\%
-of the topics share the IPC codes with all their associated relevant
+of the reference patent queries share an IPC code with their associated relevant
 patents, and (ii) it makes the retrieval process much faster. We evaluate
 the results for the top 100 retrieved patents by Mean Average Precision
 (MAP) and Average Recall. We assume that users examine the top 100
 patents \cite{joho2010survey}.
 
 We achieved the best performance while querying with the Description
-section as in previous work \cite{xue2009transforming}, and using
+section as in previous work \cite{xue2009transforming} and using
 either the LM or the BM25 scoring functions. We call this initial
-query: \emph{patent query}, and we use it as our main baseline.
+query: \emph{Patent Query}, and we use it as our main baseline.
