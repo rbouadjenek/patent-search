@@ -18,13 +18,13 @@ The third approach we used to reduce the query was Pseudo Relevance Feedback (PR
 
 Finally, we used words in IPC code title to reduce the query assuming they are general words in all patents, which belong to the same category and may consider as stop-words. However we hurt the effectiveness by pruning them out.
 
-Figure \ref{fig:anecdotal} is an anecdotal example for a sample query, which can explain why these four approaches did not work. It shows the abstract and a pair of terms, and RF score of each term, where $terms \in \{t| DF(t)/QTF(t)/PRF(t)>10\} $. It can be seen that high scored terms are polluted with the sufficient amount of noise to ruin the retrieval effectiveness.   
+Figure \ref{fig:anecdotal} is an anecdotal example for a sample query, which can explain why these four approaches did not work. It shows the abstract and a pair of terms, and RF score of each term, where $t \in \{t| DF(t)/QTF(t)/PRF(t)>10\} $. It can be seen that high scored terms are polluted with the sufficient amount of noise to ruin the retrieval effectiveness.   
 
 Unlike our initial assumption, non of the standard proposed query reduction approaches for query reduction worked better than the baseline.
 \subsection{Reduction by Relevance Feedback}
 \begin{figure}
    \centering
-   \includegraphics[width=0.35\textwidth,height=40mm]{figs/queryreduc-ipc.eps}
+   \includegraphics[width=0.35\textwidth,height=40mm]{figs/queryreduc-ipc-base.eps}
    \caption{System performance vs. the threshold $\tau$ for four query reduction approaches.}   
    \label{fig:queryreduc} 
 \end{figure}
