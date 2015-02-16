@@ -1,34 +1,32 @@
-We developed a Lucene-based%
+We developed a baseline system for patent prior-art search, which
+is based on Lucene%
 \footnote{\texttt{http://lucene.apache.org/}%
-} IR system with the possibility of using diverse generic IR models: TF-IDF, BM25, Language Models (Dirichlet smoothing, and Jelinek-Mercer smoothing) as our baseline system. We achieved the best baseline effectiveness querying with the Description section of the patent application as it is also mentioned in \cite{xue2009transforming}, and using LM and BM25 scoring functions. We call this initial query: {\em patent query}. We conducted our experiments on CLEF-IP%
-\footnote{\texttt{\url{http://www.ifs.tuwien.ac.at/~clef-ip/}}}% 
- 2010 data collection, with 2.6 million European patent documents and 1303 English test topics (queries). On the collection side, we only indexed English subset of each section of a patent (title, abstract, claims, and description), and IPC\footnote{International Patent Classification}% 
-  code in a separate field. We also used the patent classification assigned to the query topics to filter search results to match at least one of the query IPC codes, as recommended in \cite{lopez2010patatras}. Our experiments showed that using IPC filter is itself a source of error because about 19\% of relevant patents in CLEF-IP 2010 data collection do not share any classification code with their query. However, for our analysis, we kept the filter on since it made the matching process between the query and documents notably faster. We evaluate the results for top 100 retrieved patents by Mean Average Precision (MAP) and Average Recall. We assume that users examine the top 100 patents~\cite{joho2010survey}.
- %\footnote{\texttt{For an accurate term analysis, we pruned out the source of errors related to data curation such as non-English patents, and IPC filter.}%
-%}.
-%\begin{figure*}
-%\begin{center}
-%\noindent\begin{minipage}[b]{0.3\linewidth}
-%\includegraphics[width=\linewidth]{figs/extended-optquery-tau.eps}
-%\end{minipage}%
-%\hfill
-%%\hspace{7mm}
-%\begin{minipage}[b]{0.3\linewidth}
-%\includegraphics[width=\linewidth]{figs/opt-query-qsize.eps}
-%\end{minipage}
-%%\vspace{-3mm}\\
-%%(a) \hspace{30mm}(b)\\
-%\hfill
-%%\hspace{7mm}
-%\begin{minipage}[b]{0.3\linewidth}
-%\includegraphics[width=\linewidth]{figs/opt-patentquery-tau.eps}
-%\end{minipage}
-%\vspace{-0.5mm}\\
-% \hspace{2mm}(a) \hspace{55mm}(b) \hspace{58mm} (c)
-%\caption{\footnotesize
-%How score threshold($\tau$) and query size controls the performance.
-%(a) Performance versus the score threshold. (b) Performance versus the query size. (c) System performance when we reduced the query by RF: $ query = Q\cap (useful \; terms) $, where $ Q $ is the patent query and $ useful\; terms = \{t| score_{RF}(t)>\tau\} $.}
-%\vspace{-4mm}
-%\end{center}
-%\label{fig:control}
-%\end{figure*}
+}. The configuration options allow the use of several IR models including:
+the vector space model TF-IDF \cite{Salton1975}, the probabilistic
+model Okapi BM25 \cite{Robertson1993}, the Language Models (LM: Dirichlet
+smoothing, and Jelinek-Mercer smoothing) \cite{Zhai2001}. We used
+this system to index the English subset of CLEF-IP 2010 dataset%
+\footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}%
+} with the default settings for stemming and stop-word removal. We
+also removed patent-specific stop-words as described in \cite{magdy2012toward}.
+CLEF-IP 2010 contains 2.6 million patent documents, and the English
+test sets of CLEF-IP 2010 correspond to 1303 topics (queries). In
+our implementation, each section of a patent (title, abstract, claims,
+and description) is indexed in a separate field. However, when a query
+is processed, all indexed fields are targeted, since this generally
+offers best retrieval performance. We also used the International
+Patent Classification (IPC) codes assigned to the topics to filter
+the search results by constraining them to have common IPC codes with
+the patent topic as suggested in previous works \cite{lopez2010patatras}.
+Although this IPC codes filter may pass over  relevant patents, we
+have chosen to keep it for the following reasons: (i) more than 80\%
+of the topics share the IPC codes with all their associated relevant
+patents, and (ii) it makes the retrieval process much faster. We evaluate
+the results for the top 100 retrieved patents by Mean Average Precision
+(MAP) and Average Recall. We assume that users examine the top 100
+patents \cite{joho2010survey}.
+
+We achieved the best performance while querying with the Description
+section as in previous work \cite{xue2009transforming}, and using
+either the LM or the BM25 scoring functions. We call this initial
+query: \emph{patent query}, and we use it as our main baseline.
