@@ -6,6 +6,7 @@ automated methods and then proceed to evaluate semi-automated methods
 based on interactive relevance feedback methods.
 
 \subsection{Automated Reduction}
+\label{sec:AutomatedReduction}
 %\vspace*{-2ex}
 %We noticed that most of the useful feedback terms exist in the original query and hypothesized that the baseline system could be substantially improved by removing negative query terms. 
 %
@@ -34,10 +35,16 @@ Unfortunately, none of the proposed query reduction approaches for query reducti
 
 \subsection{Semi-automated Interactive Reduction}
 
+\label{sec:SemiAutomatedInteractiveReduction}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\includegraphics[width=7.5cm]{imgs/figure2-MAP}
+\includegraphics[width=9cm]{imgs/legend2}
+\par\end{centering}
+
+\begin{centering}
+\subfigure[{Mean Average Precision.}]{\includegraphics[width=4.5cm]{imgs/figure2-MAP}}\subfigure[Recall.]{\includegraphics[width=4.5cm]{imgs/figure2-Recall}}
 \par\end{centering}
 
 \protect\caption{System performance vs. the threshold $\tau$ for four query reduction approaches.}
