@@ -86,8 +86,8 @@ public class CreateOptimalQuery {
 			if(tsvalue > tau){	
 				i++;
 				if (!Functions.isNumeric(tskey) && !Functions.isSpecialCahr(tskey)) {
-					optimal_query += tskey + "^" + tsvalue + " ";
-//					optimal_query += tskey + "^" + 1 + " ";
+//					optimal_query += tskey + "^" + tsvalue + " ";
+					optimal_query += tskey + "^" + 1 + " ";
 				}				
 			}
 		}

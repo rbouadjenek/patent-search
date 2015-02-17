@@ -92,9 +92,9 @@ public final class GeneralExecuteTopics {
 			QueryGneration g = new QueryGneration(path + queryfile, 0, 0, 1, 0, 0, 0, true, true);
 			String ipcfilter = g.getIpc();
 						
-			/*----------------------------- 1-Create optimal query(score-threshold) -------------------------*/
-//			String optquery = oq.generateOptimalQuery(queryid, Tau);
-//			Query q = oq.parse(optquery, ipcfilter);
+			/*----------------------------- 1-Create optimal query(score-threshold)/Oracular -------------------------*/
+			String optquery = oq.generateOptimalQuery(queryid, Tau);
+			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*----------------------------- 2-Create optimal query(query-size) -------------------------*/
@@ -114,8 +114,8 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 
 			/*--------------------------------- 5-Create patent query(PQ term selection based on RF score)/Oracular Patent Query -----------------------------*/
-			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
-			Query q = pq.parse(patentquery, ipcfilter);
+//			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
+//			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*--------------------------------- 6-Create patent query(PQ term selection based on PRF score) -----------------------------*/
