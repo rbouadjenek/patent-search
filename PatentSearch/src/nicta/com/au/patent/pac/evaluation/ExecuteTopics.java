@@ -40,12 +40,12 @@ import org.apache.lucene.search.TopDocs;
 public final class ExecuteTopics {
 	
 /*--------------------------- Write in output file. -Mona ------------------------*/
-////	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
-//	public String outputfile = "./output/results/test.txt";/*"./output/results/results-lmj-1000-lamda0.7.txt";*/
-//
-//	
-//	public FileOutputStream out = new FileOutputStream(outputfile);
-//	public PrintStream ps = new PrintStream(out);
+//	public String outputfile = "./output/results/results-lmdir-desc-100.txt";
+	public String outputfile = "./output/results/results-bm25-100.txt";/*"./output/results/results-lmj-1000-lamda0.7.txt";*/
+
+	
+	public FileOutputStream out = new FileOutputStream(outputfile);
+	public PrintStream ps = new PrintStream(out);
 /*-------------------------------------------------------------------------------*/
 
     private final File topicFile;
@@ -258,7 +258,7 @@ public final class ExecuteTopics {
 
 /*-------------------------------- Write the retrieved results in output text file. -Mona ----------------------- */                
                 
-//                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
+                ps.println(queryid + " Q0 " + doc.get(PatentDocument.FileName).substring(3) + " " + i + " " + scoreDoc.score + " STANDARD");
           
 /*------------------------------------------------------------------------------------------------------------------*/        
             }
