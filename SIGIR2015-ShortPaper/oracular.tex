@@ -23,7 +23,7 @@ by developing an \emph{Oracular Query}.
 % something similar.  -Scott
 We begin by defining an oracular relevance feedback system, which
 extracts terms from the judged relevant documents.  To this end, we
-calculate a relevance feedback (RF) score for each term in the top-100
+calculate a relevance feedback ($\mathit{RF}$) score for each term in the top-100
 retrieved documents as follows:
 % Use \mathit{RF}, \mathit{Rel}, etc. for multiletter names, 
 % otherwise RF is technically R*F!  Fix.  -Scott
@@ -53,6 +53,33 @@ We formulate the second query by selecting only {\em useful terms} inside the re
 %The system performance to these two queries were encouraging. We discuss the detailed results in the next section.
 
 \subsection{Baseline vs. Oracular Query}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
+\begin{centering}
+\includegraphics[width=9cm]{imgs/legend}
+\par\end{centering}
+
+\begin{centering}
+\subfigure[{Mean Average Precision.}]{\includegraphics[width=4.5cm]{imgs/figure1-MAP}}\subfigure[Recall.]{\includegraphics[width=4.5cm]{imgs/figure1-Recall}}
+\par\end{centering}
+
+\protect\caption{System performance vs. the threshold $\tau$ for oracular query and oracular patent query.}
+\label{fig:oracular}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+First we investigate the ideal threshold setting $\tau$.
+Figure \ref{fig:oracular} illustrates that $\tau=0$ is the
+best-performing value for {\em Oracular Query} while $\tau=1$ is the
+best for {\em Oracular Patent Query}.  The MAP and the recall for the {\em Oracular
+Patent Query} are lower than the MAP and the recall for the {\em Oracular Query} respectively;
+nonetheless the terms selected from the reference patent itself are
+still sufficient to achieve performance significantly better than the
+Top CLEF-IP 2010 result.  In addition, we remark on the rather
+unexpected steep drop-off in performance when the oracular query
+includes slightly noisy terms (i.e., $tau$ just slightly less than 0)
+as defined previously.
 
 % What is the ``Best Run''???  You cannot make up words and expect the
 % reader to understand.  Be precise on the first introduction that
@@ -109,33 +136,6 @@ CLEF-IP 2010.
 %Next, we used a threshold $\tau$ to formulate the {\em Oracular Query}
 %and {\em Oracular Patent Query} to include merely terms with the RF
 %score higher than $\tau$ ($RF(t,Q)>0$).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[t!]
-\begin{centering}
-\includegraphics[width=9cm]{imgs/legend}
-\par\end{centering}
-
-\begin{centering}
-\subfigure[{Mean Average Precision.}]{\includegraphics[width=4.5cm]{imgs/figure1-MAP}}\subfigure[Recall.]{\includegraphics[width=4.5cm]{imgs/figure1-Recall}}
-\par\end{centering}
-
-\protect\caption{System performance vs. the threshold $\tau$ for oracular query and oracular patent query.}
-\label{fig:oracular}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Next we investigate the ideal threshold setting $\tau$.
-Figure \ref{fig:oracular} illustrates that $\tau=0$ is the
-best-performing value for {\em Oracular Query} while $\tau=1$ is the
-best for {\em Oracular Patent Query}.  The MAP and the recall for the {\em Oracular
-Patent Query} are lower than the MAP and the recall for the {\em Oracular Query} respectively;
-nonetheless the terms selected from the reference patent itself are
-still sufficient to achieve performance significantly better than the
-Top CLEF-IP 2010 result.  In addition, we remark on the rather
-unexpected steep drop-off in performance when the oracular query
-includes slightly noisy terms (i.e., $tau$ just slightly less than 0)
-as defined previously.
 
 % Good: is space allows, the enumeration helps make the take-home points
 % of this section clear for the reader and leads into the next section.  -Scott

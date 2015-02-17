@@ -7,20 +7,24 @@
 %\scriptsize
 %\sffamily
 \ttfamily
- \begin{tabular}{lllllll}
+ \begin{tabular}{llllll}
  \hline\noalign{\smallskip} 
-& \multicolumn{1}{l}{Baseline (BM25)} & \multicolumn{1}{l}{Baseline (LM)} &\multicolumn{1}{l}{Baseline (LM)} & \multicolumn{1}{l}{Best}&\multicolumn{1}{l}{Oracular}&\multicolumn{1}{l}{Oracular(PQ)}\\ 
-& Weight:TF                           & Weight:TF                    & Weight:1                    & Run                     & Weight:1                   & Weight:1          \\
+&& \multicolumn{1}{l}{Baseline} & \multicolumn{1}{l}{Top}&\multicolumn{1}{l}{Oracular}&\multicolumn{1}{l}{Oracular(PQ)}\\ 
+&& Weight:1                    & CLEF-IP 2010                     & $\tau=0$                 & $\tau=1$             \\
  \noalign{\smallskip} 
  \hline
 \noalign{\smallskip} 
-\vtop{\hbox{\strut MAP}\hbox{\strut A. Recall}} 
-& \vtop{\hbox{\strut 0.159}\hbox{\strut 0.545}}
-& \vtop{\hbox{\strut 0.162}\hbox{\strut 0.549}} 
+$\mathit{LM}$ &\vtop{\hbox{\strut MAP}\hbox{\strut A. Recall}} 
 & \vtop{\hbox{\strut 0.118}\hbox{\strut 0.438}}
 & \vtop{\hbox{\strut 0.27}\hbox{\strut -}} 
 & \vtop{\hbox{\strut \bfseries 0.507}\hbox{\strut \bfseries 0.612}} 
 & \vtop{\hbox{\strut \bfseries 0.436}\hbox{\strut \bfseries 0.622}}\\ \hline
+
+$\mathit{BM25}$&\vtop{\hbox{\strut MAP}\hbox{\strut A. Recall}} 
+& \vtop{\hbox{\strut -}\hbox{\strut -}}
+& \vtop{\hbox{\strut -}\hbox{\strut -}} 
+& \vtop{\hbox{\strut \bfseries -}\hbox{\strut \bfseries -}} 
+& \vtop{\hbox{\strut \bfseries -}\hbox{\strut \bfseries -}}\\ \hline
 
 %\bottomrule 
 
