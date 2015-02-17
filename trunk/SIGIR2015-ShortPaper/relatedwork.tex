@@ -1,12 +1,35 @@
 % Reda: please have a look at this section and consider revising
 %       as appropriate.  -Scott
-\textcolor{red} {Reda: I will improve this Section!}
 
 
 Our work is different from pioneer studies on patent retrieval, as we
 closely looked into the problem rather than solutions to figure out
 the causes that generic IR models which are based on term matching
-process, do not work efficiently in patent domain. Magdy et
+process, do not work efficiently in patent domain. However, we cite here few work that focuse mainly on query reformulation for patent search. 
+In \cite{Itoh2003}, authors proposed a new term selection method using different term
+frequencies depending on the genre in the NTCIR-3 Patent Retrieval Task.
+Xue and Croft \cite{xue2009transforming} conducted a series of experiments
+in order to examine the effect of different patent fields, and concludes
+with the observation that the best Mean Average Precision (MAP) is
+achieved using the text from the description section of the query
+patent with raw term frequencies. Also, Fuji \cite{Fujii2007}
+showed that retrieval effectiveness can be improved by combining IR
+methods with the result of citation extraction.
+Bashir et al. \cite{Bashir2010} propose a query expansion with pseudo-relevance
+feedback. Query expansion terms are selected using a using a machine
+learning approach, by picking terms that may have a potential positive
+impact on the retrieval effectiveness. However, this approach can
+be computational expensive, since the presented features are complicated
+to compute, e.g. Pair-wise Terms Proximity features. Verma and Varma
+\cite{Verma2011} propose a different approach, which instead of using
+the patent text to query, use its International Patent Classification
+(IPC) codes, which are expanded using the citation network. The formed
+query is used to perform an initial search. The results are then re-ranked
+using queries constructed from patent text. Throughout our experiments,
+we concluded that relying on other terms to form a query rather than
+those in the patent application, leads to poor retrieval quality.
+
+Magdy et
 al.~\cite{magdy2011study} studied works on query expansion in patent
 retrieval and discussed that standard query expansion techniques are
 less effective, where the initial query is the full texts of query
@@ -23,3 +46,9 @@ aspect identification from a patent query to increase the chance of
 retrieving relevant documents. Mahdabi et al.~\cite{mahdabi2014patent}
 used linked-based structure of the citation graph together with IPC
 classification to improve the initial patent query.
+
+
+Finally, other works investigated query suggestion for patent prior
+art search, which reflect real-life scenario of examiners, who form
+reproducible boolean queries \cite{Adams2011,Azzopardi2010,Kim2011}.
+
