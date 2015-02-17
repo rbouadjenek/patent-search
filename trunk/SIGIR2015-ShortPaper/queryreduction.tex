@@ -20,7 +20,7 @@ In standard IR approaches, removing terms, appearing a lot in the collection, he
 
 As mentioned in~\cite{maxwell2013compact} terms inside verbose queries are also important. Hence, we kept frequent words inside the query while removing document frequent words. The results in Figure \ref{fig:queryreduc} indicate that it is better to keep all query terms ($QTF(t)>\tau$). 
 
-The third approach we used to reduce the query was Pseudo Relevance Feedback (PRF). PRF is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant. Again, it can be seen in Figure \ref{fig:queryreduc} that the results for query reduction using PRF were below the baseline. In fact, we could not find any heuristic correlates between  $ PRF(t)$ and $ RF(t)$. 
+The third approach we used to reduce the query was Pseudo Relevance Feedback ($\mathit{PRF}$). $\mathit{PRF}$ is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant. Again, it can be seen in Figure \ref{fig:queryreduc} that the results for query reduction using $\mathit{PRF}$ were below the baseline. In fact, we could not find any heuristic correlates between  $ PRF(t)$ and $ RF(t)$. 
 
 Finally, we used words in IPC code title to reduce the query assuming they are general words in all patents, which belong to the same category and may consider as stop-words. However we hurt the effectiveness by pruning them out.
 
