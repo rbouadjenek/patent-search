@@ -113,7 +113,7 @@ public final class GeneralExecuteTopics {
 //			Query q = pq.parse(PRFquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 
-			/*--------------------------------- 5-Create patent query(PQ term selection based on RF score) -----------------------------*/
+			/*--------------------------------- 5-Create patent query(PQ term selection based on RF score)/Oracular Patent Query -----------------------------*/
 			String patentquery = optpatentq.GenerateOptPatentQuery(queryid, qUcid, tau);
 			Query q = pq.parse(patentquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
@@ -244,7 +244,7 @@ public final class GeneralExecuteTopics {
 		indexDir = "data/INDEX/indexWithoutSW-Vec-CLEF-IP2010/";
 		topicFile = "data/CLEF-IP-2010/PAC_test/topics/PAC_topics-filtered.xml"; /*PAC_topics-omit-PAC-1094.xml */
 		topK = 100;
-		sim = "lmdir";
+		sim = "BM25"/*"lmdir"*/;
 		float tau = Float.parseFloat(args[0]);
 		int querysize = Integer.parseInt(args[1]);
 
