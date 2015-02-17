@@ -1,5 +1,4 @@
-The encouraging results of our Oracular Patent Query in the previous
-section motivate us to explore various methods to approximate the terms
+The gain achieved using the Oracular Patent Query method motivated us to explore various methods to approximate the terms
 selected by this query without ``peeking at the answers'' provided by
 the actual relevance judgements.  We first attempt this via fully
 automated methods and then proceed to evaluate semi-automated methods
@@ -15,23 +14,25 @@ based on interactive relevance feedback methods.
 % in the bullet points where the actual method is discussed... not after the bullet
 % points!  Don't dissociate content and discuss it multiple times in different
 % places!  -Scott
-We used four approaches to refine the initial patent query: (i) removing document frequent terms (DF(t)>$\tau$), (ii) keeping frequent terms in query (QTF(t)>$\tau$); (iii) using pseudo relevance feedback to select query terms (PRF(t)>$\tau$); and (iv) removing general terms in IPC title. 
+We use the following four naive techniques to refine the initial patent queries: 
+%(i) removing Document Frequent terms (IDF(t)>$\tau$), (ii) keeping Frequent Terms in Query (QTF(t)>$\tau$); (iii) using Pseudo Relevance Feedback set (constructed after an initial run of the query) to select query terms (PRF(t)>$\tau$); and (iv) removing general terms in IPC title. 
 
-In standard IR approaches, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, we removed the words (in top-100 documents) with average term frequency higher than the threshold $\tau$ from the original query. As it can be seen in figure \ref{fig:queryreduc}, unlike our assumption, removing frequent terms in top-100 documents ($DF(t)>\tau$) ruined the performance.  
+\noindent \textbf{(1)-} In standard IR approaches, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, after an initial run of the query, we removed terms  with an Document Frequency (DF) in top-100 documents, higher than the threshold $\tau$. However, in Figure \ref{fig:queryreduc} it's clear that this technique significantly hurts the performance ($DF(t)>\tau$).  
 
-As mentioned in~\cite{maxwell2013compact} terms inside verbose queries are also important. Hence, we kept frequent words inside the query while removing document frequent words. The results in Figure \ref{fig:queryreduc} indicate that it is better to keep all query terms ($QTF(t)>\tau$). 
+\noindent \textbf{(2)-} Intuitivelly, terms inside long and verbose queries are  important~\cite{maxwell2013compact}. Hence, we have  choosen to build a new query with terms with a frequency higher than a threshold $\tau$. The results in Figure \ref{fig:queryreduc} indicate clearly that this simple and naive technique is not adequate ($QTF(t)>\tau$). 
 
-The third approach we used to reduce the query was Pseudo Relevance Feedback ($\mathit{PRF}$). $\mathit{PRF}$ is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant. Again, it can be seen in Figure \ref{fig:queryreduc} that the results for query reduction using $\mathit{PRF}$ were below the baseline. In fact, we could not find any heuristic correlates between  $ PRF(t)$ and $ RF(t)$. 
+\noindent \textbf{(3)-} \textcolor{red}{The third approach we experiment to reduce the query is based on Pseudo Relevance Feedback (PRF)~\cite{Baeza-Yates2011}. PRF is an automated process without user interaction, which assumes the top k ranked documents are relevant. Again, it can be seen in Figure \ref{fig:queryreduc} that the results for query reduction using $\mathit{PRF}$ were below the baseline. In fact, we could not find any heuristic correlates between  $ PRF(t)$ and $ RF(t)$. Reda: Need clearly to be explained!}
 
-Finally, we used words in IPC code title to reduce the query assuming they are general words in all patents, which belong to the same category and may consider as stop-words. However we hurt the effectiveness by pruning them out.
+\noindent \textbf{(4)-} Finally, we used words in IPC code difinition of each patent query to reduce the query assuming they are general words in all patents, which belong to the same category and may consider as stop-words. However we hurt the effectiveness by pruning them out.
 
 % The anecdotal results and their implications have to be explained
 % much more clearly... what is surprising about them (be specific:
 % point out actual terms) and what can you take away from this
 % investigation.  -Scott
-Figure \ref{fig:anecdotal} is an anecdotal example for a sample query, which can explain why these four approaches did not work. It shows the abstract and a pair of terms, and RF score of each term, where $t \in \{t| DF(t)/QTF(t)/PRF(t)>10\} $. It can be seen that high scored terms are polluted with the sufficient amount of noise to ruin the retrieval effectiveness.   
+Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invension related to ``emulsifier'', which explain why these four approaches fail. It shows the raw abstract, and a pair of terms and the associated RF scores, where $t \in \{t| DF(t)/QTF(t)/PRF(t)>10\} $. It can be seen that the four methods fail clearly to discriminate between useful and noisy terms. As an example, terms like ``emulsifier'', ``maiz'' and ``amylas'' have been removed by the first method, which has probably led to decrease the quality of the query. As for the last method, it kept in the query more noisy terms than useful terms (19 out of 32, and few of them with high negative score like ``saccharid'' or ``amylos''), which resulted in bad retrieval performance. Therefore, this may suggest the investigation of more sophisticated query reduction methods, as the one discussed in the next section.
+ 
 
-Unfortunately, none of the proposed query reduction approaches for query reduction worked better than the baseline, which leads us to investigate interactive methods for reduction in the next section.
+%high scored terms are polluted with the sufficient amount of noise to hurt the retrieval effectiveness. Unfortunately, none of the proposed query reduction approaches for query reduction worked better than the baseline, which leads us to investigate interactive methods for reduction in the next section.
 
 \subsection{Semi-automated Interactive Reduction}
 
@@ -80,7 +81,6 @@ DF Terms: <@\textcolor{blue}{starch:14.64}@>, <@\textcolor{blue}{enzym:29.49}@>,
 <@\textcolor{red}{saccharid:-11.95}@>, <@\textcolor{red}{ml:-0.79}@>, <@\textcolor{red}{cook:-10.04}@>, <@\textcolor{blue}{modifi:5.65}@>, 
 <@\textcolor{blue}{solid:5.50}@>, <@\textcolor{blue}{sampl:6.27}@>, <@\textcolor{blue}{mix:2.48}@>, <@\textcolor{red}{minut:-1.68}@>, <@\textcolor{red}{dri:-0.91}@>, 
 <@\textcolor{red}{gel:-9.85}@>, <@\textcolor{blue}{activ:5.98}@>, <@\textcolor{red}{corn:-5.27}@>, <@\textcolor{blue}{alpha:12}@>, <@\textcolor{red}{sprai:-2.74}@> 
-
 QTF Terms: <@\textcolor{blue}{starch:14.64}@>, <@\textcolor{blue}{emulsifi:6.72}@>, <@\textcolor{red}{succin:-3.46}@>, 
 <@\textcolor{blue}{enzym:29.49}@>, <@\textcolor{blue}{emuls:12.66}@>, <@\textcolor{blue}{hydrophob:5.45}@>, <@\textcolor{red}{anhydrid:-5.47}@>, 
 <@\textcolor{red}{reaction:-1.97}@>, <@\textcolor{red}{octenyl:-0.66}@>, <@\textcolor{blue}{stabil:3.64}@>, <@\textcolor{blue}{alkenyl:0.06}@>, 
@@ -90,14 +90,12 @@ QTF Terms: <@\textcolor{blue}{starch:14.64}@>, <@\textcolor{blue}{emulsifi:6.72}
 <@\textcolor{red}{ammonium:-1.96}@>, <@\textcolor{red}{food:-11.94}@>, <@\textcolor{red}{amylos:-20.15}@>, 
 <@\textcolor{red}{glucanotransferas:-0.86}@>, <@\textcolor{red}{glycidyl:-0.40}@>, <@\textcolor{red}{glycosyl:-0.02}@>, 
 <@\textcolor{red}{dry:-6.21}@>, <@\textcolor{blue}{deriv:11.97}@>, <@\textcolor{blue}{transferas:0.89}@>, <@\textcolor{red}{foam:-0.49}@>, 
-
 PRF Terms: <@\textcolor{blue}{starch:14.64}@>, <@\textcolor{blue}{encapsul:17.50}@>, <@\textcolor{red}{chees:-4.22}@>, 
 <@\textcolor{blue}{oil:8.63}@>, <@\textcolor{blue}{hydrophob:5.45}@>, <@\textcolor{blue}{agent:5.19}@>, <@\textcolor{red}{casein:-2.19}@>, 
 <@\textcolor{blue}{degrad:17.13}@>, <@\textcolor{blue}{deriv:11.97}@>, <@\textcolor{blue}{tablet:5.30}@>, <@\textcolor{red}{debranch:-10.58}@>, 
 <@\textcolor{red}{imit:-1.13}@>, <@\textcolor{blue}{viscos:7.77}@>, <@\textcolor{blue}{oxid:5.97}@>, <@\textcolor{blue}{activ:5.98}@>, <@\textcolor{blue}{osa:9.32}@>, 
 <@\textcolor{blue}{funnel:2.68}@>, <@\textcolor{blue}{amylas:26.06}@>, <@\textcolor{red}{amylopectin:-7.14}@>, <@\textcolor{blue}{maiz:20.61}@>, 
 <@\textcolor{red}{blend:-3.17}@>, <@\textcolor{blue}{waxi:19.41}@>, <@\textcolor{blue}{convert:31.81}@>, 
-
 IPC def Terms: <@\textcolor{blue}{cosmet:3.77}@>, <@\textcolor{blue}{toilet:0.18}@>, <@\textcolor{red}{prepar:-0.82}@>, 
 <@\textcolor{blue}{case:0.47}@>, <@\textcolor{red}{accessori:-0.01}@>, <@\textcolor{red}{store:-0.37}@>, <@\textcolor{blue}{handl:0.07}@>, 
 <@\textcolor{red}{pasti:-0.17}@>, <@\textcolor{red}{substanc:-1.21}@>, <@\textcolor{red}{fibrou:-0.01}@>, <@\textcolor{red}{pulp:-1.28}@>, 
@@ -111,7 +109,7 @@ IPC def Terms: <@\textcolor{blue}{cosmet:3.77}@>, <@\textcolor{blue}{toilet:0.18
  \vspace*{-2ex}
 \end{framed}
  \vspace*{-2ex}
-  \caption{Anecdotal example: it shows the abstract, and $ t:RF(t) $ pair of a sample query, $\{t|DF(t)/QTF(t)/PRF(t)>10\}$. Useful terms are highlighted in blue and the noisy ones in red.}
+  \caption{Anecdotal example. Useful terms are highlighted in blue and the noisy ones in red.}
   \label{fig:anecdotal}  
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,7 +124,7 @@ only the first relevant document identified in the search results.
 \begin{comment}
 All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. 
 \end{comment}
-Using this approach, Table \ref{tab:firstrel} shows that we can double the MAP in comparison to our baseline and also outperfor the best system from CLEF-IP 2010.
+Using this approach, Table \ref{tab:firstrel} shows that we can double the MAP in comparison to our baseline and also outperform the PATATRAS system.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[t!]
@@ -148,7 +146,7 @@ user effort while achieving state-of-the-art performance.
 
 \begin{figure}
 \begin{centering}
-\includegraphics[width=7.5cm]{imgs/1stRank}
+\includegraphics[width=5.5cm]{imgs/1stRank}
 \par\end{centering}
 
 \protect\caption{The distribution of the first relevant document rank over test queries.}
