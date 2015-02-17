@@ -93,8 +93,8 @@ public final class GeneralExecuteTopics {
 			String ipcfilter = g.getIpc();
 						
 			/*----------------------------- 1-Create optimal query(score-threshold)/Oracular -------------------------*/
-			String optquery = oq.generateOptimalQuery(queryid, Tau);
-			Query q = oq.parse(optquery, ipcfilter);
+//			String optquery = oq.generateOptimalQuery(queryid, Tau);
+//			Query q = oq.parse(optquery, ipcfilter);
 			/*--------------------------------------------------------------------------------------------*/
 			
 			/*----------------------------- 2-Create optimal query(query-size) -------------------------*/
@@ -130,9 +130,9 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 						
 			/*------------------ 8-Create patent query minus frequent words in top-100 -----------------*/
-//			int delta = Qsize;
-//			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
-//			Query q = pq.parse(newquery, ipcfilter);
+			int delta = Qsize;
+			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
+			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ 9-Create patent query minus frequent words in top-100, keep ipc def and QTF(t) > delta -----------------*/

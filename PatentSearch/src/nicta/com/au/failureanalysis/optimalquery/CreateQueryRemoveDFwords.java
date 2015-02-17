@@ -60,8 +60,8 @@ public class CreateQueryRemoveDFwords {
 		for(String newterm : qterms){
 			if (!Functions.isNumeric(newterm) && !Functions.isSpecialCahr(newterm)) {
 				k++;
-				new_query += newterm + "^" + query_terms.get(newterm) + " ";		
-//				new_query += newterm + "^" + 1 + " ";
+//				new_query += newterm + "^" + query_terms.get(newterm) + " ";		
+				new_query += newterm + "^" + 1 + " ";
 			}	
 		}	
 		/*System.out.println(queryid);
