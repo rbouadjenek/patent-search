@@ -1,8 +1,8 @@
-We developed a baseline system for patent prior-art search using
-Lucene%
+We developed a baseline IR system for patent prior-art search on the top of
+the Lucene opensource search engine%
 \footnote{\texttt{http://lucene.apache.org/}%
-}, which supports queries using the probabilistic
-model Okapi BM25 \cite{Robertson1993} as well as language models (LM: Dirichlet
+}, which processes queries using the probabilistic
+model Okapi BM25 \cite{Robertson1993} as well as LM (Dirichlet
 smoothing, and Jelinek-Mercer smoothing) \cite{Zhai2001}. We used
 this system to index the English subset of CLEF-IP 2010 dataset%
 \footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}%
@@ -25,7 +25,7 @@ patents, and (ii) it makes the retrieval process much faster. The accuracy of th
 We achieved the best performance while querying with the Description
 section as in previous work \cite{xue2009transforming} and using
 either the LM or the BM25 scoring functions. We call this initial
-query: \emph{Patent Query}, and we use it as our main baseline.
+query: \textit{Patent Query}, and we use it as our main baseline.
 
-{\em Top CLEF- IP 2010 system: }
+In addition, we also compare our results to \textit{PATATRAS}, a fully-engineered system developed by Lopez and Romary \cite{lopez2010patatras}, which achieved the best performance in the CLEF-IP 2010 competition with a MAP=0.27. This system uses multiple retrieval models (especially Kullback-Leibler divergence~\cite{Baeza-Yates2011} and Okapi BM25) and exploites patent metadata and citation structures . %However, the MAP we provide is not directly comparable since we excluded 22 topics from our evaluation because their relevant patents were not in English or had no IPC code matched with the topic. We pruned these topics out because we were only interested in analysing errors related to term matching. Removing 22 topics caused only 0.04 improvement in our baseline system, which is negligible. Hence, we use Top CLEF-IP 2010 results for a rough comprasion."}
 % 
