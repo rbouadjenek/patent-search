@@ -3,6 +3,58 @@
 
 
 Our work is different from pioneer studies on patent retrieval, as we
+looked at patent prior art problem from the term analysis perspective
+closely looked into the to figure out the causes that generic IR models 
+which are based on term matching process, do not work efficiently in patent domain. 
+%However, we cite here few works that focus mainly on query reformulation for patent search. 
+In \cite{Itoh2003}, Itoh et al. proposed a new term selection method using different term
+frequencies depending on the genre in the NTCIR-3 Patent Retrieval Task.
+%Xue and Croft \cite{xue2009transforming} conducted a series of experiments in order to examine the effect of different patent fields, and concludes with the observation that the best MAP is achieved using the text from the description section. 
+%Also, 
+Fuji \cite{Fujii2007}
+showed that retrieval effectiveness can be improved by combining IR
+methods with the result of citation extraction.
+Bashir et al. \cite{Bashir2010} proposed query expansion with pseudo-relevance
+feedback that used machine learning for term selection.
+%Terms are selected using a using a machine learning approach, by picking terms that may have a potential positive impact on the retrieval effectiveness. 
+Verma and Varma
+\cite{Verma2011} proposed a different approach, which instead of using
+the patent text to query, use its IPC codes, which are expanded using the citation network.
+% The formed query is used to perform an initial search. The results are then re-ranked using queries constructed from patent text.
+%Magdy et al.~\cite{magdy2011study} studied works on query expansion 
+%%in patent retrieval 
+%and discussed that standard query expansion techniques are
+%less effective, where the initial query is the full texts of query
+%patents. 
+Mahdabi et al.~\cite{Mahdabi2013} used term proximity
+information to identify expansion terms. Ganguly et
+al.~\cite{ganguly2011patent} adapted pseudo relevance feedback for
+query reduction by decomposing a patent application into constituent
+text segments and computing the Language Modelling (LM) similarities
+of each segment from the top ranked documents. The least similar
+segments to the pseudo-relevant documents removed from the query,
+hypothesizing it can increase the precision of retrieval. Kim et
+al.~\cite{kim2014diversifying} provided diverse query suggestion using
+aspect identification from a patent query to increase the chance of
+retrieving relevant documents. 
+%Mahdabi et al.~\cite{mahdabi2014patent}
+%used linked-based structure of the citation graph together with IPC
+%classification to improve the initial patent query. 
+% Finally, other works investigated query suggestion for patent prior art search, which reflect real-life scenario of examiners, who form reproducible boolean queries \cite{Adams2011,Azzopardi2010,Kim2011}.
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+Our work is different from pioneer studies on patent retrieval, as we
 closely looked into the problem rather than solutions to figure out
 the causes that generic IR models which are based on term matching
 process, do not work efficiently in patent domain. However, we cite here few works that focus mainly on query reformulation for patent search. 
@@ -41,4 +93,4 @@ classification to improve the initial patent query.
 Finally, other works investigated query suggestion for patent prior
 art search, which reflect real-life scenario of examiners, who form
 reproducible boolean queries \cite{Adams2011,Azzopardi2010,Kim2011}.
-
+\end{comment}
