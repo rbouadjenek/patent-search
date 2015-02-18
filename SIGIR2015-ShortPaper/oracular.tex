@@ -74,11 +74,11 @@ We formulate the second query by selecting \textit{useful terms} that also occur
 First, we investigate the ideal threshold setting $\tau$.
 %\in\{-10,$ $-5,0,5,10\}$.
 Figure \ref{fig:oracular} illustrates that $\tau=0$ is the
-best-performing value for \textit{ Oracular Query} while $\tau=1$ is the
-best for \textit{ Oracular Patent Query}.  In general, the MAP and the recall for the \textit{ Oracular
-Patent Query} are lower than the MAP and the recall for the \textit{ Oracular Query} respectively;
+best-performing value for \emph{ Oracular Query} while $\tau=1$ is the
+best for \emph{ Oracular Patent Query}. In general, the MAP and the recall for the \emph{Oracular
+Patent Query} are lower than the MAP and the recall for the \emph{Oracular Query} respectively;
 nonetheless the terms selected from the reference patent query itself are
-still sufficient to achieve performance significantly better than the PATATRAS system.  In addition, we remark on the rather
+still sufficient to achieve performance significantly better than the PATATRAS system. In addition, we remark on the rather
 unexpected steep drop-off in performance when the oracular query
 includes slightly noisy terms (i.e., $\tau$ just slightly less than 0)
 as defined previously.
@@ -122,9 +122,11 @@ as defined previously.
 
 In Table~\ref{tab:optquery}, we compare our two oracular relevance
 queries with both the baseline \textit{Patent Query} and the PATATRAS system.  Here we see that
-the \textit{ Oracular Query} using $\tau=0$ far outperforms the baseline and
+the \emph{Oracular Query} using $\tau=0$ far outperforms the baseline and
 approximately performs twice as well on MAP as the PATATRAS system, the best competitor in
-CLEF-IP 2010. Roughly 50\% improvement for the recall is achieved with respect to the baseline \textit{Patent Query}. The results also show that BM25 and LM perform very close to each other and they have the same trend. Hence, in what follows, we have chosen to use the BM25 scoring function.
+CLEF-IP 2010. 
+%Roughly 50\% improvement for the recall is achieved with respect to the baseline \textit{Patent Query}. 
+The results also show that BM25 and LM perform very close to each other and they obviously have the same trend. Hence, in what follows, we have chosen to use the BM25 scoring function.
 
 %
 % Unweighted is most natural so no need to even mention it.  -Scott
