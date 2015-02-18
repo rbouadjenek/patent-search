@@ -45,7 +45,9 @@ We use the following four simple approaches to reduce the initial patent queries
 % point out actual terms) and what can you take away from this
 % investigation.  -Scott
 \vspace*{0.5mm}
-Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invention related to ``emulsifier'', to explain why these four approaches fail. It shows the raw abstract of the invention, and terms and their associated associated $\mathit{RF}$ scores for each category. Terms are chosen as follows: $\{t| DF(t)/QTF(t)/PRF(t)>10\} $. It can be seen that the four methods fail clearly to discriminate between useful and noisy terms. As an example, terms like ``emulsifier'', ``enzym'' and ``starch'' have been removed by the first method, which leads in decreasing the quality of the query. As for the last method, it contains more noisy terms than useful terms (19 out of 32, and few of them with high negative score like ``saccharid'' or ``amylos''), but there are still some positive terms which we remove from the reference query that can harm the query reduction method.
+Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invention related to ``emulsifier'', to explain why these four approaches fail. It shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. In Figure \ref{fig:anecdotal} terms are chosen for each approach  as follows: $\{t| DF(t)/QTF(t)/PRF(t)>10\}$. IPC title terms are the words appeared in IPC title and we do not assigned any score to pick them.
+%\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}\end{displaymath}
+It can be seen that the four methods fail clearly to discriminate between useful and noisy terms. As an example, terms like ``enzym'' and ``starch'' have been removed by the first method, which leads in decreasing the quality of the query. As for the last method, it contains more noisy terms than useful terms (19 out of 32, and few of them with high negative score like ``amylos'' or ``saccharid''), but there are still some positive terms which we remove from the reference query that can harm the query reduction method.
 %which resulted in bad retrieval performance. 
 %Therefore, this may suggest more sophisticated query reduction methods, as the one discussed in the next section.
  
@@ -117,7 +119,7 @@ PRF Terms: <@\textcolor{blue}{starch:14.64}@>, <@\textcolor{blue}{encapsul:17.50
 <@\textcolor{blue}{funnel:2.68}@>, <@\textcolor{blue}{amylas:26.06}@>, <@\textcolor{red}{amylopectin:-7.14}@>, <@\textcolor{blue}{maiz:20.61}@>, 
 <@\textcolor{red}{blend:-3.17}@>, <@\textcolor{blue}{waxi:19.41}@>, <@\textcolor{blue}{convert:31.81}@>, 
 
-IPC def Terms: <@\textcolor{blue}{cosmet:3.77}@>, <@\textcolor{blue}{toilet:0.18}@>, <@\textcolor{red}{prepar:-0.82}@>, 
+IPC title Terms:<@\textcolor{blue}{cosmet:3.77}@>, <@\textcolor{blue}{toilet:0.18}@>, <@\textcolor{red}{prepar:-0.82}@>, 
 <@\textcolor{blue}{case:0.47}@>, <@\textcolor{red}{accessori:-0.01}@>, <@\textcolor{red}{store:-0.37}@>, <@\textcolor{blue}{handl:0.07}@>, 
 <@\textcolor{red}{pasti:-0.17}@>, <@\textcolor{red}{substanc:-1.21}@>, <@\textcolor{red}{fibrou:-0.01}@>, <@\textcolor{red}{pulp:-1.28}@>, 
 <@\textcolor{red}{constitut:-0.06}@>, <@\textcolor{blue}{paper:1.26}@>, <@\textcolor{red}{impregn:-0.11}@>, <@\textcolor{blue}{emulsifi:6.72}@>, 
