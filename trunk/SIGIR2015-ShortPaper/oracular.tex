@@ -41,7 +41,7 @@ where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant pa
 %We expected to see a higher performance for the queries which contain more \textit{ useful words}, but, surprisingly, we could not find any correlation between the performance and the presence of \textit{ useful words} in the query. 
 
 %We hypothesized that a query, formulated by only the \textit{ useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. 
-We formulate two oracular queries. The first query is formulated by selecting \emph{useful terms} in top-100 documents as follows: 
+We formulate two oracular queries. The first query is formulated by selecting \emph{useful terms} in the top-100 documents as follows: 
 \begin{equation}
 Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}   
  \label{eq:score}
