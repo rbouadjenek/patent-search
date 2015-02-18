@@ -12,7 +12,7 @@
 
 In this section we seek to understand the adequacy of the baseline
 \emph{Patent Query} as well as an upper bound on performance of the
-BM25 and LM models and the sufficiency of terms in the reference patent query 
+BM25 and LM models, and the sufficiency of terms in the reference patent query 
 by developing an \emph{Oracular Query}.
 
 \subsection{Oracular Query Formulation}
@@ -22,8 +22,8 @@ by developing an \emph{Oracular Query}.
 % based on a vector space or other model.  I would call it AvgRelDiff or
 % something similar.  -Scott
 We begin by defining an oracular relevance feedback system, which
-extracts terms from the judged relevant documents.  To this end, after an initial run of a given query, we
-calculate a relevance feedback ($\mathit{RF}$) score for each term in the top-100
+extracts terms from the judged relevant documents (from qrels).  To this end, after an initial run of a given query, we
+calculate a Relevance Feedback ($\mathit{RF}$) score for each term in the top-100
 retrieved documents as follows:
 % Use \mathit{RF}, \mathit{Rel}, etc. for multiletter names, 
 % otherwise RF is technically R*F!  Fix.  -Scott
