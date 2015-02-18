@@ -10,7 +10,9 @@ assess the patentability of an idea through a patent prior art search
 before writing a complete patent application is an important task.
 \end{comment}
 
-Patent prior art search is an Information Retrieval (IR) task, which involves finding previously granted patents
+Patent prior art search is an Information Retrieval (IR) task, which involves 
+finding previously granted patents, or any published work, such 
+as scientific articles or product descriptions 
 that may be relevant to a new patent application. The objective and
 challenges of standard formulations of patent prior art search are
 different from those of standard text and web search
@@ -21,7 +23,7 @@ and web search constitute only a few words; and (ii) patent prior art
 search is a recall-oriented task, where the primary focus is to
 retrieve all relevant documents at early ranks, in contrast to text
 and web search that are precision-oriented, where the primary goal is
-to retrieve a subset of documents that satisfy the query
+to retrieve a subset of documents that best satisfy the query
 intent. Another important characteristic of patent prior art search is
 that, in contrast to scientific and technical writers, patent writers
 tend to generalize and maximize the scope of what is protected by a
@@ -84,7 +86,9 @@ bounds on performance of standard Okapi BM25 and Language Models (LM) retrieval 
 this task.  Since the results of this evaluation suggest that query
 reduction methods can achieve state-of-the-art prior art search performance, in Section \ref{sec:AutomatedReduction} we
 proceed to analyse four simple automated methods for identifying
-reference patent query terms for removal.  Finding that none of these methods
+terms for removal from the patent query.
+%reference patent query terms for removal.  
+Finding that none of these methods
 seems to independently yield promise for query reduction that strongly
 outperforms the baseline, in Section \ref{sec:SemiAutomatedInteractiveReduction} we evaluate an alternative interactive
 feedback approach where terms are selected from only the first
@@ -95,7 +99,7 @@ CLEF-IP 2010, we conclude that interactive methods offer a promising
 avenue for simple but highly effective term selection in patent prior
 art patent search. 
 
-However, before giving more technical details, in the next section, we first introduce the IR system and the settings we use throughout this paper.
+%However, before giving more technical details, in the next section, we first introduce the IR system and the settings we use throughout this paper.
 
 %This paper is organized as follows: In Section \ref{Sec:BaselineIRFramework}, we introduce the IR system and the settings we use in this paper; in Section \ref{Sec:OracularTermSelection} we introduce two oracular methods used to get an upper bound on the performance; in Section \ref{Sec:QueryReduction} we introduce query reduction methods; in Section \ref{Sec:RelatedWork} we discuss the related work; and in Section \ref{Sec:Conclusion} we conclude the paper.
 
