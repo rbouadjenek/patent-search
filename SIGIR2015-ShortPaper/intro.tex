@@ -10,12 +10,11 @@ assess the patentability of an idea through a patent prior art search
 before writing a complete patent application is an important task.
 \end{comment}
 
-Patent prior-art search is an Information Retrieval (IR) task, which involves 
-finding previously granted patents, or any published work, such 
-as scientific articles or product descriptions 
-that may be relevant to a new patent application. The objective and
-challenges of standard formulations of patent prior art search are
-different from those of standard text and web search
+Patent prior-art search involves finding previously granted patents,
+or any published work, such as scientific articles or product
+descriptions that may be relevant to a new patent application. The
+objective and challenges of standard formulations of patent prior art
+search are different from those of standard text and web search
 since~\cite{magdy2012toward}: (i) queries are reference patent
 applications, which consist of documents with hundreds or thousands of
 words organized into several sections, while typical queries in text
@@ -77,27 +76,30 @@ avoid the invalidation of their idea.
 % but we could probably do better.  -Scott
 %
 In this work, we focus on the task of query
-reformulation~\cite{Baeza-Yates2011} for patent prior
-art search~\cite{mahdabi2014patent,Piroi2010,xue2009transforming}.  While prior work has largely focused on specific
-techniques for query reformulation, in Section \ref{Sec:OracularTermSelection},  we first build an oracular query formed
-from known relevance judgments for the CLEP-IP 2010 Prior Art test
-collection~\cite{Piroi2010} in an attempt to derive upper
-bounds on performance of standard Okapi BM25 and Language Models (LM) retrieval algorithms for
-this task.  Since the results of this evaluation suggest that query
-reduction methods can outperform state-of-the-art prior art search performance, in Section \ref{sec:AutomatedReduction} we
-proceed to analyse four simple automated methods for identifying
-terms to remove from the original patent query.
-%reference patent query terms for removal.  
-Finding that none of these methods
-seems to independently yield promise for query reduction that strongly
-outperforms the baseline, in Section \ref{sec:SemiAutomatedInteractiveReduction} we evaluate an alternative interactive
-feedback approach where terms are selected from only the first
-retrieved relevant document.  Observing that such simple interactive
-methods for query reduction with a standard LM retrieval model
-outperform highly engineered patent-specific search systems from
+reformulation~\cite{Baeza-Yates2011} specifically applied to patent
+prior art
+search~\cite{mahdabi2014patent,Piroi2010,xue2009transforming}.  While
+prior work has largely focused on specific techniques for query
+reformulation, in Section \ref{Sec:OracularTermSelection}, we first
+build an oracular query formed from known relevance judgments for the
+CLEP-IP 2010 Prior Art test collection~\cite{Piroi2010} in an attempt
+to derive an upper bound on performance of standard Okapi BM25 and
+Language Models (LM) retrieval algorithms for this task.  Since the
+results of this evaluation suggest that query reduction methods can
+outperform state-of-the-art prior art search performance, in Section
+\ref{sec:AutomatedReduction} we proceed to analyze four simple
+automated methods for identifying terms to remove from the original
+patent query.  Finding that none of these methods seems to
+independently yield promise for query reduction that strongly
+outperforms the baseline, in Section
+\ref{sec:SemiAutomatedInteractiveReduction} we evaluate an alternative
+interactive feedback approach where terms are selected from only the
+first retrieved relevant document.  Observing that such simple
+interactive methods for query reduction with a standard LM retrieval
+model outperform highly engineered patent-specific search systems from
 CLEF-IP 2010, we conclude that interactive methods offer a promising
 avenue for simple but highly effective term selection in patent prior
-art patent search. 
+art search.
 
 %However, before giving more technical details, in the next section, we first introduce the IR system and the settings we use throughout this paper.
 
