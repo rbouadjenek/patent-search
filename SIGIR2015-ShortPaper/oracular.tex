@@ -33,7 +33,7 @@ RF(t,Q)=Rel(t)-Irr(t)
  \label{eq:score}
 \end{equation}\vspace*{-5ex}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
-where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume that words with a positive score are \emph{ useful words} since they are more frequent in relevant patents, while words with negative score are \emph{ noisy words} as they appear more frequently in irrelevant patents. We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ (defined below) yielding the best oracular query.
+where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume that words with a positive score are \emph{useful words} since they are more frequent in relevant patents, while words with negative score are \emph{noisy words} as they appear more frequently in irrelevant patents. We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ (defined below) yielding the best oracular query.
 
 %that determines if a term is selected to build the \emph{Oracular Query} or not.
 
@@ -77,8 +77,8 @@ We formulate the second query by selecting terms that also occur in the referenc
 First, we investigate the ideal threshold setting $\tau$.
 %\in\{-10,$ $-5,0,5,10\}$.
 Figure \ref{fig:oracular} illustrates that $\tau=0$ is the
-best-performing value for \emph{ Oracular Query} while $\tau=1$ is the
-best for \emph{ Oracular Patent Query}. In general, the MAP and the recall for the \emph{Oracular
+best-performing value for \emph{Oracular Query} while $\tau=1$ is the
+best for \emph{Oracular Patent Query}. In general, the MAP and the recall for the \emph{Oracular
 Patent Query} are lower than the MAP and the recall for the \emph{Oracular Query} respectively;
 nonetheless the terms selected from the reference patent query itself are
 still sufficient to achieve MAP performance significantly better than the PATATRAS system. In addition, we remark on the rather
