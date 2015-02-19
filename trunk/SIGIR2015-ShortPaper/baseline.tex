@@ -1,34 +1,31 @@
 We developed a baseline IR system for patent prior-art search on the top of
-the Lucene open source search engine %
-\footnote{\texttt{http://lucene.apache.org/}%
-}, which processes queries using the probabilistic
-model Okapi BM25 \cite{Robertson1993} as well as LM (Dirichlet
-smoothing, and Jelinek-Mercer smoothing) \cite{Zhai2001}. %We consider 
+the Lucene search engine\footnote{\texttt{http://lucene.apache.org/}}, which processes queries using both BM25~\cite{Robertson1993} and LM (Dirichlet
+smoothing, and Jelinek-Mercer smoothing)~\cite{Zhai2001} scoring functions. %We consider 
 %using BM25F~\cite{robertson2004simple} but had no opportunity to learn appropriate field weights.
-We used Lucene to index the English subset of CLEF-IP 2010 dataset%
-\footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}%
-} with the default settings using the Porter stemming algorithm \cite{Porter1980} and English stop-word removal. 
+We used Lucene to index the English subset of CLEF-IP 2010 dataset\footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}} 
+that contains 2.6 million patent documents and 1303 topics (queries) for the English test set.
+We used the default Lucene settings using the Porter stemming algorithm \cite{Porter1980} and English stop-word removal. 
 We also removed patent-specific stop-words as described in \cite{magdy2012toward}.
-CLEF-IP 2010 contains 2.6 million patent documents, and the English
-test sets of CLEF-IP 2010 correspond to 1303 topics (queries). In
+In
 our implementation, each section of a patent (title, abstract, claims,
 and description) is indexed in a separate field. However, when a query 
 is processed, all indexed fields are targeted with an equal weight, since this generally
 offers best retrieval performance. We also used the International
 Patent Classification (IPC) codes assigned to the topics to filter
 the search results by constraining them to have common IPC codes with
-the patent topic as suggested in previous works \cite{lopez2010patatras}.
-Although this IPC codes filter may prevent retrieval of relevant patents, we
+the patent topic as suggested in previous works~\cite{lopez2010patatras}.
+Although this IPC code filter may prevent retrieval of relevant patents, we
 have chosen to keep it for the following reasons: (i) more than 80\%
 of the patent queries share an IPC code with their associated relevant
-patents, and (ii) it makes the retrieval process much faster. The accuracy of the results is evaluated using two popular metrics, the Mean Average Precision (MAP) and the Average Recall, on the top 100 results for each query, assuming that patent examiners are willing to assess the top 100 patents \cite{joho2010survey}. 
-
+patents, and (ii) it makes the retrieval process much faster. The accuracy of the results is evaluated using two popular metrics --- Mean Average Precision (MAP) and Average Recall --- on the top-100 results for each query, assuming that patent examiners are willing to assess the top 100 patents \cite{joho2010survey}. 
 We achieved the best performance while querying with the Description
 section as in previous work \cite{xue2009transforming} and using
 either the LM or the BM25 scoring functions. We call this initial
-query: \textit{Patent Query}, and we use it as our main baseline.
+query the \textit{Patent Query} and use it as our main baseline.
 
-In addition, we compare our results to \textit{PATATRAS}, a fully-engineered system developed by Lopez and Romary~\cite{lopez2010patatras}, which achieved the best performance in the CLEF-IP 2010 competition with a MAP=0.27. This system uses multiple retrieval models (especially Kullback-Leibler divergence~\cite{Baeza-Yates2011} and Okapi BM25) and exploites patent metadata and citation structures. We used \textit{PATATRAS} just for a rough comparison.
+In addition, we compare our results to \textit{PATATRAS}, a highly engineered system developed by Lopez and Romary~\cite{lopez2010patatras}, which achieved the best performance in the CLEF-IP 2010 competition. This system uses multiple retrieval models (especially Kullback-Leibler divergence~\cite{Baeza-Yates2011} and Okapi BM25) and exploits patent metadata and citation structures.  While our evaluation excludes 22 of the 1303 topics for which no relevant English documents were available, the difference in MAP score between our evaluation and the full 1303 topic evaluation of PATATRAS is negligible (i.e., $< 0.005$ MAP).
 %did not include errors related to non-English patents in our evaluation and we mainly focus on errors related to term matching for English patents.  
 %However, the MAP we provide is not directly comparable since we excluded 22 topics from our evaluation because their relevant patents were not in English or had no IPC code matched with the topic. We pruned these topics out because we were only interested in analysing errors related to term matching. Removing 22 topics caused only 0.04 improvement in our baseline system, which is negligible. Hence, we use Top CLEF-IP 2010 results for a rough comprasion."}
 % 
+
+% TODO: Don't exclude 22 topics!

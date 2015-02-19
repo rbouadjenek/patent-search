@@ -2,23 +2,34 @@
 %       as appropriate.  -Scott
 
 
-Our work is different from pioneer studies on patent retrieval, as we
-looked at the patent prior art problem from the term analysis perspective to figure out the main 
-causes that generic IR methods do not work effectively in patent domain. 
+% NOTE: It's critical to clearly and concretely delineate what we do that no one else has done. I've tried to do this in the first two sentences.
+
+% NOTE: I've tried to make it more clear why we're mentioning each paper, i.e., it's relevance to query reformulation!
+
+In this work, we focused on the development of an oracular query in
+order to address a number of fundamental questions regarding query reformulation
+and their efficacy in terms of approximating the oracular query.
+Previous works have not formulated such an oracular query, but nonetheless
+have inspired our investigation of query reformulation techniques 
+as we briefly discuss below.
+ 
+%Our work is different from pioneer studies on patent retrieval, as we
+%looked at the patent prior art problem from the term analysis perspective to figure out the main 
+%causes that generic IR methods do not work effectively in patent domain. 
 %However, we cite here few works that focus mainly on query reformulation for patent search. 
-In \cite{Itoh2003}, Itoh et al. proposed a new term selection method using different term
-frequencies depending on the genre in the NTCIR-3 Patent Retrieval Task.
 %Xue and Croft \cite{xue2009transforming} conducted a series of experiments in order to examine the effect of different patent fields, and concludes with the observation that the best MAP is achieved using the text from the description section. 
 %Also, 
-Fuji \cite{Fujii2007}
-showed that retrieval effectiveness can be improved by combining IR
-methods with the result of citation extraction.
+%Fuji \cite{Fujii2007}
+%showed that retrieval effectiveness can be improved by combining IR
+%methods with the result of citation extraction.
 Bashir et al. \cite{Bashir2010} proposed query expansion with pseudo-relevance
 feedback that used machine learning for term selection.
 %Terms are selected using a using a machine learning approach, by picking terms that may have a potential positive impact on the retrieval effectiveness. 
 Verma and Varma
 \cite{Verma2011} proposed a different approach, which instead of using
 the patent text to query, use its IPC codes, which are expanded using the citation network.
+Itoh et al. \cite{Itoh2003} proposed a new term selection method using different term
+frequencies depending on the genre in the NTCIR-3 Patent Retrieval Task.
 % The formed query is used to perform an initial search. The results are then re-ranked using queries constructed from patent text.
 %Magdy et al.~\cite{magdy2011study} studied works on query expansion 
 %%in patent retrieval 
@@ -27,7 +38,7 @@ the patent text to query, use its IPC codes, which are expanded using the citati
 %patents. 
 Mahdabi et al.~\cite{Mahdabi2013} used term proximity
 information to identify expansion terms. Ganguly et
-al.~\cite{ganguly2011patent} adapted pseudo relevance feedback for
+al.~\cite{ganguly2011patent} adapted pseudo-relevance feedback for
 query reduction by decomposing a patent application into constituent
 text segments and computing the Language Modelling (LM) similarities
 of each segment from the top ranked documents. The least similar

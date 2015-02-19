@@ -1,4 +1,4 @@
-The gain achieved using the Oracular Patent Query method motivated us to explore various methods to approximate the terms
+The gain achieved using the Oracular Patent Query method motivates us to explore various methods to approximate the terms
 selected by this query without ``peeking at the answers'' provided by
 the actual relevance judgements.  We first attempt this via fully
 automated methods and then proceed to evaluate semi-automated methods
@@ -18,17 +18,19 @@ We use the following four simple approaches to reduce the initial patent queries
 %(i) removing Document Frequent terms (IDF(t)>$\tau$), (ii) keeping Frequent Terms in Query (QTF(t)>$\tau$); (iii) using Pseudo Relevance Feedback set (constructed after an initial run of the query) to select query terms (PRF(t)>$\tau$); and (iv) removing general terms in IPC title. 
 
 \vspace*{0.5mm}
-\noindent \textbf{(1)} In standard IR approaches, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, after an initial run of the query, we removed terms  with a high average term frequency over the top-100 documents ($DF(t)>\tau$). However, as illustrated in Figure \ref{fig:queryreduc}, this technique significantly hurts the performance.  
+% TODO: Must be consistent in either pruning or removing terms --- results should ideally converge to the baseline at 0.
+% TODO: Should do simplest comparisons first and not combine pruning approaches.  Even better: evaluate methods mentioned in related work.
+\noindent \textbf{(1)} In standard IR approaches, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness. Inspired by this fact, after an initial run of the query, we removed terms  with a high average document frequency (DF) over the top-100 documents ($\mathit{DF}(t)>\tau$). As illustrated in Figure \ref{fig:queryreduc}, such pruning significantly hurts performance.  
 
 \vspace*{0.5mm}
-\noindent \textbf{(2)} Intuitively, frequent terms inside long and verbose queries are  important~\cite{maxwell2013compact}. Hence, we only kept frequent terms inside the query ($QTF(t)>\tau$) and removed document frequent terms ($DF(t)>0.01$).  Figure \ref{fig:queryreduc} indicates that this approach perform just slightly over the baseline.
+\noindent \textbf{(2)} Frequent terms inside long and verbose queries have been shown to be important~\cite{maxwell2013compact}. Hence, we only keep high query TF (QTF) terms ($\mathit{QTF}(t)>\tau$) but remove from this set any document frequent terms ($\mathit{DF}(t)>0.01$).  Figure \ref{fig:queryreduc} indicates that this approach performs slightly better than the baseline.
 
 \vspace*{0.5mm}
-\noindent \textbf{(3)} The third approach to reduce query is query term selection using Pseudo Relevance Feedback ($\mathit{PRF}$)~\cite{Baeza-Yates2011, maxwell2013compact}. We calculated a $\mathit{PRF}$ score similar to $\mathit{RF}$ score assuming that the top k ranked documents are relevant. We selected the query terms which have high $\mathit{PRF}$ score ($PRF(t)>\tau$). As Figure \ref{fig:queryreduc} illustrates, this approach do not notably outperform the baseline. 
+\noindent \textbf{(3)} The third query reduction approach is to select query terms using pseudo-relevance feedback ($\mathit{PRF}$)~\cite{Baeza-Yates2011, maxwell2013compact}. We calculated a $\mathit{PRF}$ score similar to $\mathit{RF}$ score assuming that the top-k ranked documents are relevant. We selected the query terms which have high $\mathit{PRF}$ score ($\mathit{PRF}(t)>\tau$). As Figure \ref{fig:queryreduc} illustrates, this approach does not notably outperform the baseline. 
 %In fact, we could not find any heuristic correlation between  $ PRF(t)$ and $ RF(t)$. 
 
 \vspace*{0.5mm}
-\noindent \textbf{(4)} Finally, we used words in IPC code title of each patent query to reduce the query, based on the assumption that they are common to all patents, which belong to the same category and may be considered as stop-words. In our experiment, we removed the IPC title terms from a selection of frequent query terms ($QTF(t)>5$). We can see in Figure \ref{fig:queryreduc} that the results drop slightly compared to the approach 2, where $\tau=5$.
+\noindent \textbf{(4)} Finally, we used words in IPC code title of each patent query to reduce the query, based on the assumption they are common to all patents, which belong to the same category and may be considered as stop-words. In our experiment, we removed the IPC title terms from a selection of frequent query terms ($QTF(t)>5$). We can see in Figure \ref{fig:queryreduc} that the results drop slightly compared to approach (2), where $\tau=5$.
 %\noindent \textbf{(1)-} In standard IR approaches, removing terms, appearing a lot in the collection, helps the retrieval effectiveness. Inspired by this fact, after an initial run of the query, we removed terms  with a Document Frequency (DF) in top-100 documents, higher than the threshold $\tau$. However, as illustrated in Figure \ref{fig:queryreduc}, it's clear that this technique significantly hurts the performance ($DF(t)>\tau$).  
 %
 %\noindent \textbf{(2)-} Intuitivelly, frequent terms inside long and verbose queries are  important~\cite{maxwell2013compact}. Hence, we have  choosen to reduce queries by selecting terms with a frequency higher than a certain threshold $\tau$. The results in Figure \ref{fig:queryreduc} indicate clearly that this simple and naive technique is not adequate ($QTF(t)>\tau$). 
@@ -45,9 +47,10 @@ We use the following four simple approaches to reduce the initial patent queries
 % point out actual terms) and what can you take away from this
 % investigation.  -Scott
 \vspace*{0.5mm}
-Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invention related to ``emulsifier'', to explain why these four approaches fail. It shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. In Figure \ref{fig:anecdotal} terms are chosen for each approach  as follows: $\{t| DF(t)/QTF(t)/PRF(t)>10\}$. IPC title terms are the words appeared in IPC title and we do not assigned any score to pick them.
+% TODO: What is an IPC title?  I don't know that this is... was it discussed?
+Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invention related to ``emulsifier'' to help explain why these four approaches fail. It shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. In Figure \ref{fig:anecdotal} terms are chosen for each approach  as follows: $\{t| DF(t)/QTF(t)/PRF(t)>10\}$. IPC title terms are the words appearing in the IPC title and do not have any score.
 %\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}\end{displaymath}
-It can be seen that the four methods fail clearly to discriminate between useful and noisy terms. As an example, terms like ``enzym'' and ``starch'' have been removed by the first method, which leads in decreasing the quality of the query. As for the last method, it contains more noisy terms than useful terms (19 out of 32, and few of them with high negative score like ``amylos'' or ``saccharid''), but there are still some positive terms which we remove from the reference query that can harm the query reduction method.
+It can be seen that the four methods fail clearly to discriminate between useful and noisy terms. As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by DF pruning in (1), which hurts query quality.  As another example, retaining IPC code title terms yields more noisy terms than useful terms (19 out of 32, and few of them with a very negative score like ``amylos'' or ``saccharid'').  Overall, while some methods like PRF work better than others for query reduction, all methods may retain highly negative terms and results from Section~\ref{sec:baseline_vs_oracular} showed that the inclusion of even slightly negative terms can significantly hurt performance.
 %which resulted in bad retrieval performance. 
 %Therefore, this may suggest more sophisticated query reduction methods, as the one discussed in the next section.
  
@@ -132,12 +135,15 @@ IPC title Terms:<@\textcolor{blue}{cosmet:3.77}@>, <@\textcolor{blue}{toilet:0.1
  \vspace*{-2ex}
 \end{framed}
  \vspace*{-2ex}
-  \caption{Anecdotal example for four query reduction approaches.}
+  \caption{Four query reduction approaches on a sample query.  Top
+    terms retained by each method are shown.  Numerical oracular
+    scores $\mathit{RF}(t,Q)$ are provided indicating whether the term
+    was useful (blue/positive) or noisy (red/negative).}
   \label{fig:anecdotal}  
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Our anecdotal analysis of specific queries and terms selected via our oracular
+Our sample analysis of specific queries and terms selected via our oracular
 approach suggests that automated methods fall far short of optimal term selection.
 This leads us to explore another approach of approximating the oracular query
 derived from relevance judgements by using a subset of relevance judgements

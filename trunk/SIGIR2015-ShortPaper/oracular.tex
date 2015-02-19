@@ -10,10 +10,11 @@
 % the intuition is that there are enough terms to match the relevant
 % patents.
 
-In this section we seek to understand the adequacy of the baseline
-\emph{Patent Query} as well as an upper bound on performance of the
-BM25 and LM models, and the sufficiency of terms in the reference patent query 
-by developing an \emph{Oracular Query}.
+In this section we develop an \emph{Oracular Query} to understand (a)
+the adequacy of the baseline
+\emph{Patent Query}, (b) an upper bound on performance of the
+BM25 and LM models, and (c) the sufficiency of terms in the reference
+patent query.
 
 \subsection{Oracular Query Formulation}
 
@@ -22,7 +23,7 @@ by developing an \emph{Oracular Query}.
 % based on a vector space or other model.  I would call it AvgRelDiff or
 % something similar.  -Scott
 We begin by defining an oracular relevance feedback system, which
-extracts terms from the judged relevant documents (from qrels).  To this end, after an initial run of a given query, we
+extracts terms from the judged relevant documents.  To this end, after an initial run of a given query, we
 calculate a Relevance Feedback ($\mathit{RF}$) score for each term in the top-100
 retrieved documents as follows:
 % Use \mathit{RF}, \mathit{Rel}, etc. for multiletter names, 
@@ -32,7 +33,7 @@ RF(t,Q)=Rel(t)-Irr(t)
  \label{eq:score}
 \end{equation}\vspace*{-5ex}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
-where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume that words with a positive score are \emph{ useful words} since they are more frequent in relevant patents, while words with negative score are \emph{ noisy words} as they appear more frequently in irrelevant patents. We empirically seek to evaluate $\tau$, which is a threshold of the value of $RF(t,Q)$ to formulate an oracular query.
+where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume that words with a positive score are \emph{ useful words} since they are more frequent in relevant patents, while words with negative score are \emph{ noisy words} as they appear more frequently in irrelevant patents. We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ (defined below) yielding the best oracular query.
 
 %that determines if a term is selected to build the \emph{Oracular Query} or not.
 
@@ -41,12 +42,12 @@ where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant pa
 %We expected to see a higher performance for the queries which contain more \textit{ useful words}, but, surprisingly, we could not find any correlation between the performance and the presence of \textit{ useful words} in the query. 
 
 %We hypothesized that a query, formulated by only the \textit{ useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. 
-We formulate two oracular queries. The first query is formulated by selecting \emph{useful terms} in the top-100 documents as follows: 
+We formulate two oracular queries. The first query is formulated by selecting terms in the top-100 documents:
 \begin{equation}
 Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}   
  \label{eq:score}
 \end{equation}
-We formulate the second query by selecting \textit{useful terms} that also occur in the reference patent query as follows:
+We formulate the second query by selecting terms that also occur in the reference patent query as follows:
 % query based on the hypothesis that a patent query contains sufficient words matched with the relevant patents:
 \begin{equation}
  Oracular \; Patent \; Query = \{t\in Q|RF(t, Q)>\tau\}   
@@ -55,6 +56,8 @@ We formulate the second query by selecting \textit{useful terms} that also occur
 %The system performance to these two queries were encouraging. We discuss the detailed results in the next section.
 
 \subsection{Baseline vs. Oracular Query}
+
+\label{sec:baseline_vs_oracular}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
@@ -78,7 +81,7 @@ best-performing value for \emph{ Oracular Query} while $\tau=1$ is the
 best for \emph{ Oracular Patent Query}. In general, the MAP and the recall for the \emph{Oracular
 Patent Query} are lower than the MAP and the recall for the \emph{Oracular Query} respectively;
 nonetheless the terms selected from the reference patent query itself are
-still sufficient to achieve performance significantly better than the PATATRAS system. In addition, we remark on the rather
+still sufficient to achieve MAP performance significantly better than the PATATRAS system. In addition, we remark on the rather
 unexpected steep drop-off in performance when the oracular query
 includes slightly noisy terms (i.e., $\tau$ just slightly less than 0)
 as defined previously.
@@ -126,8 +129,7 @@ the \emph{Oracular Query} using $\tau=0$ far outperforms the baseline and
 approximately performs twice as well on MAP as the PATATRAS system, the best competitor in
 CLEF-IP 2010. 
 %Roughly 50\% improvement for the recall is achieved with respect to the baseline \textit{Patent Query}. 
-The results also show that BM25 and LM perform very close to each other and they obviously have the same trend. To keep our new results consistent with our earlier results we use LM scoring function in this paper.
-
+In general we found BM25 and LM to offer very similar performance.  Our subsequent results use only LM due to space limitations although results for BM25 are very similar.
 %
 % Unweighted is most natural so no need to even mention it.  -Scott
 %
