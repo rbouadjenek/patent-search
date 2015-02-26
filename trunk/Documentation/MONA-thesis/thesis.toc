@@ -1,51 +1,51 @@
-\contentsline {chapter}{Acknowledgments}{vii}{chapter*.1}
-\contentsline {chapter}{Abstract}{ix}{chapter*.2}
+\contentsline {chapter}{Acknowledgments}{iv}{chapter*.1}
+\contentsline {chapter}{Abstract}{v}{chapter*.2}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Thesis Statement}{3}{section.1.1}
 \contentsline {section}{\numberline {1.2}Introduction}{3}{section.1.2}
 \contentsline {section}{\numberline {1.3}Thesis Outline}{3}{section.1.3}
-\contentsline {chapter}{\numberline {2}Background and Related Work}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}General Information Retrieval (IR)}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Retrieval Models}{6}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}The Study of Retrievablity}{6}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Query Expansion (QE)}{6}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}Query Reduction (QR)}{6}{subsection.2.1.4}
-\contentsline {subsection}{\numberline {2.1.5}IR Evaluation Metrics}{6}{subsection.2.1.5}
-\contentsline {section}{\numberline {2.2}Patent-specific IR}{6}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}The Study of Retrievablity for patents}{6}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Query Formulation}{6}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Query Expansion for Patents}{6}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Query Reduction for Patents}{6}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}The Use of Metadata}{6}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}Multilinguality}{6}{subsection.2.2.6}
-\contentsline {subsection}{\numberline {2.2.7}Multi-stage Retrieval}{6}{subsection.2.2.7}
-\contentsline {subsection}{\numberline {2.2.8}Evaluation Metrics for Patent Retrieval}{6}{subsection.2.2.8}
-\contentsline {section}{\numberline {2.3}Motivation}{6}{section.2.3}
-\contentsline {section}{\numberline {2.4}Related work}{6}{section.2.4}
-\contentsline {section}{\numberline {2.5}Summary}{7}{section.2.5}
-\contentsline {chapter}{\numberline {3}Baseline Framework}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}Test Collection}{9}{section.3.1}
-\contentsline {section}{\numberline {3.2}Data Curation Errors}{9}{section.3.2}
-\contentsline {section}{\numberline {3.3}IPC Filter Errors}{9}{section.3.3}
-\contentsline {section}{\numberline {3.4}Baseline and Experimental Settings}{9}{section.3.4}
-\contentsline {section}{\numberline {3.5}Evaluation Metrics}{9}{section.3.5}
-\contentsline {chapter}{\numberline {4}Term Analysis}{11}{chapter.4}
-\contentsline {section}{\numberline {4.1}Term Mismatch}{11}{section.4.1}
-\contentsline {section}{\numberline {4.2}Relevance Feedback}{11}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Discriminative Words}{11}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}RF Optimal Query Formulation}{11}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Query Reduction Using RF}{11}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Pseudo Relevance Feedback}{11}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}PRF Query}{11}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Query Reduction Using RF}{11}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Noisy words}{11}{section.4.4}
-\contentsline {section}{\numberline {4.5}Section-based Analysis}{11}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Document Frequent Words}{11}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}IPC Code Definition}{11}{subsection.4.5.2}
-\contentsline {section}{\numberline {4.6}Summary}{11}{section.4.6}
-\contentsline {chapter}{\numberline {5}Improve the Performance by Minimum Users Efforts}{13}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusions}{15}{chapter.6}
-\contentsline {section}{\numberline {6.1}Overview}{15}{section.6.1}
-\contentsline {section}{\numberline {6.2}Summary}{15}{section.6.2}
-\contentsline {section}{\numberline {6.3}Contributions}{15}{section.6.3}
-\contentsline {section}{\numberline {6.4}Future Work}{15}{section.6.4}
+\contentsline {chapter}{\numberline {2}Background and Related Work}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}General Information Retrieval (IR)}{4}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Retrieval Models}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}The Study of Retrievablity}{5}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Query Expansion (QE)}{5}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Query Reduction (QR)}{5}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}IR Evaluation Metrics}{5}{subsection.2.1.5}
+\contentsline {section}{\numberline {2.2}Patent-specific IR}{5}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}The Study of Retrievablity for patents}{5}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Query Formulation}{5}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Query Expansion for Patents}{5}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Query Reduction for Patents}{5}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}The Use of Metadata}{5}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Multilinguality}{5}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Multi-stage Retrieval}{5}{subsection.2.2.7}
+\contentsline {subsection}{\numberline {2.2.8}Evaluation Metrics for Patent Retrieval}{5}{subsection.2.2.8}
+\contentsline {section}{\numberline {2.3}Motivation}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}Related work}{5}{section.2.4}
+\contentsline {section}{\numberline {2.5}Summary}{6}{section.2.5}
+\contentsline {chapter}{\numberline {3}Baseline IR Framework}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Data Collection}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}Data Curation Errors}{7}{section.3.2}
+\contentsline {section}{\numberline {3.3}IPC Filter Errors}{7}{section.3.3}
+\contentsline {section}{\numberline {3.4}Baseline and Experimental Settings}{7}{section.3.4}
+\contentsline {section}{\numberline {3.5}Evaluation Metrics}{7}{section.3.5}
+\contentsline {chapter}{\numberline {4}On the Term Selection Techniques for Patent Prior Art Search}{8}{chapter.4}
+\contentsline {section}{\numberline {4.1}Term Mismatch}{8}{section.4.1}
+\contentsline {section}{\numberline {4.2}Relevance Feedback}{8}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Discriminative Words}{8}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}RF Optimal Query Formulation}{8}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Query Reduction Using RF}{8}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Pseudo Relevance Feedback}{8}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}PRF Query}{8}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Query Reduction Using RF}{8}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Noisy words}{8}{section.4.4}
+\contentsline {section}{\numberline {4.5}Section-based Analysis}{8}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Document Frequent Words}{8}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}IPC Code Definition}{8}{subsection.4.5.2}
+\contentsline {section}{\numberline {4.6}Summary}{8}{section.4.6}
+\contentsline {chapter}{\numberline {5}Improve the Performance by Minimum Users Efforts}{9}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusions}{10}{chapter.6}
+\contentsline {section}{\numberline {6.1}Overview}{10}{section.6.1}
+\contentsline {section}{\numberline {6.2}Summary}{10}{section.6.2}
+\contentsline {section}{\numberline {6.3}Contributions}{10}{section.6.3}
+\contentsline {section}{\numberline {6.4}Future Work}{10}{section.6.4}

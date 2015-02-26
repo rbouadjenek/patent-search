@@ -24,13 +24,13 @@
 \BOOKMARK [1][-]{section.2.3}{Motivation}{chapter.2}% 24
 \BOOKMARK [1][-]{section.2.4}{Related work}{chapter.2}% 25
 \BOOKMARK [1][-]{section.2.5}{Summary}{chapter.2}% 26
-\BOOKMARK [0][-]{chapter.3}{Baseline Framework}{}% 27
-\BOOKMARK [1][-]{section.3.1}{Test Collection}{chapter.3}% 28
+\BOOKMARK [0][-]{chapter.3}{Baseline IR Framework}{}% 27
+\BOOKMARK [1][-]{section.3.1}{Data Collection}{chapter.3}% 28
 \BOOKMARK [1][-]{section.3.2}{Data Curation Errors}{chapter.3}% 29
 \BOOKMARK [1][-]{section.3.3}{IPC Filter Errors}{chapter.3}% 30
 \BOOKMARK [1][-]{section.3.4}{Baseline and Experimental Settings}{chapter.3}% 31
 \BOOKMARK [1][-]{section.3.5}{Evaluation Metrics}{chapter.3}% 32
-\BOOKMARK [0][-]{chapter.4}{Term Analysis}{}% 33
+\BOOKMARK [0][-]{chapter.4}{On the Term Selection Techniques for Patent Prior Art Search}{}% 33
 \BOOKMARK [1][-]{section.4.1}{Term Mismatch}{chapter.4}% 34
 \BOOKMARK [1][-]{section.4.2}{Relevance Feedback}{chapter.4}% 35
 \BOOKMARK [2][-]{subsection.4.2.1}{Discriminative Words}{section.4.2}% 36
