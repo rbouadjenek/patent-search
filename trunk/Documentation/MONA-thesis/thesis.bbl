@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{22}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{}
@@ -53,11 +53,29 @@
 \newblock \emph{Communications of the ACM}, 26, 6  (Jun. 1983), 419--429.
 \newblock \doi{10.1145/358141.358147}.
 
+\bibitem[{Lopez and Romary(2009)}]{lopez2009multiple}
+\textsc{Lopez, P. and Romary, L.}, 2009.
+\newblock Multiple retrieval models and regression models for prior art search.
+\newblock \emph{arXiv preprint arXiv:0908.4413},  (2009).
+
+\bibitem[{Lopez et~al.(2010)Lopez, Romary et~al.}]{lopez2010experiments}
+\textsc{Lopez, P.; Romary, L.; et~al.}, 2010.
+\newblock Experiments with citation mining and key-term extraction for prior
+  art search.
+\newblock In \emph{CLEF 2010-Conference on Multilingual and Multimodal
+  Information Access Evaluation}.
+
 \bibitem[{Lupu et~al.(2013)Lupu, Hanbury et~al.}]{lupu2013patent}
 \textsc{Lupu, M.; Hanbury, A.; et~al.}, 2013.
 \newblock Patent retrieval.
 \newblock \emph{Foundations and Trends in Information Retrieval}, 7, 1  (2013),
   1--97.
+
+\bibitem[{Magdy(2012)}]{magdy2012toward}
+\textsc{Magdy, W.}, 2012.
+\newblock \emph{Toward higher effectiveness for recall-oriented information
+  retrieval: A patent retrieval case study}.
+\newblock Ph.D. thesis, Dublin City University.
 
 \bibitem[{Magdy and Jones(2010)}]{magdy2010pres}
 \textsc{Magdy, W. and Jones, G.~J.}, 2010.
@@ -78,6 +96,15 @@
   patent retrieval.
 \newblock In \emph{Multilingual Information Access Evaluation I. Text Retrieval
   Experiments}, 410--417. Springer.
+
+\bibitem[{Mase et~al.(2005)Mase, Matsubayashi, Ogawa, Iwayama, and
+  Oshio}]{mase2005proposal}
+\textsc{Mase, H.; Matsubayashi, T.; Ogawa, Y.; Iwayama, M.; and Oshio, T.},
+  2005.
+\newblock Proposal of two-stage patent retrieval method considering the claim
+  structure.
+\newblock \emph{ACM Transactions on Asian Language Information Processing
+  (TALIP)}, 4, 2  (2005), 190--206.
 
 \bibitem[{Moon(1984)}]{Moon:84}
 \textsc{Moon, D.~A.}, 1984.
@@ -125,5 +152,11 @@
   (Pittsburgh, Pennsylvania, USA, Apr. 1984), 157--167. ACM, New York, New
   York, USA.
 \newblock \doi{10.1145/800020.808261}.
+
+\bibitem[{Verma and Varma(2011)}]{verma2011exploring}
+\textsc{Verma, M. and Varma, V.}, 2011.
+\newblock Exploring keyphrase extraction and ipc classification vectors for
+  prior art search.
+\newblock In \emph{CLEF (Notebook Papers/Labs/Workshop)}.
 
 \end{thebibliography}
