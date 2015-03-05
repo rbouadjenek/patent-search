@@ -58,7 +58,7 @@ RF(t,Q)=Rel(t)-Irr(t)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume that words with a positive score are \emph{useful words} since they are more frequent in relevant patents, while words with negative score are \emph{noisy words} as they appear more frequently in irrelevant patents. 
 
-In this experiment, we seek for a pattern between the performance and the existence of \textit{useful words} for each query. We use different criteria to select the useful terms:
+First, we seek for a pattern between the performance and the existence of \textit{useful words} for each query. We use different criteria to select the useful terms:
 \begin{enumerate}
 \item terms with positive scores(>0).
 \item terms with the score higher than the positive median score.
@@ -70,7 +70,7 @@ The results have been shown in Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-r.eps}}\subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthanmedian-r.eps}}\subfigure[{Useful terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-r.eps}}\\ \subfigure[{Useful terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-r.eps}}\subfigure[{Useful terms:$ \{t|score(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-r.eps}}\subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-r.eps}}
+\subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-r.eps}} \hspace*{1.5cm} \subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthanmedian-r.eps}}\\ \subfigure[{Useful terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-r.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-r.eps}}\\ \subfigure[{Useful terms:$ \{t|score(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-r.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-r.eps}}
 \par\end{centering}
 
 \protect\caption{Scatter plot of Recall vs. the overlap between useful terms and the the query.}
@@ -80,15 +80,28 @@ The results have been shown in Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-p}}\subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthammedian-p.eps}}\subfigure[{Useful terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-p.eps}}\\ \subfigure[{Useful terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-p.eps}}\subfigure[{Useful terms:$ \{t|score(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-p.eps}}\subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-p.eps}}
+\subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-p}} \hspace*{1.5cm} \subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthammedian-p.eps}} \\[-2ex]% 
+\subfigure[{Useful terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-p.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-p.eps}}\\ [-2ex]%
+\subfigure[{Useful terms:$ \{t|score(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-p.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-p.eps}}
 \par\end{centering}
 
 \protect\caption{Scatter plot of Average precision vs. the overlap between useful terms and the the query.}
 \label{fig:overlap-p}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-We expected to see a higher performance for the queries which contain more \textit{important words} and a lower performance for the ones with less \textit{important words}. However, unlike our first assumption, we could not find any correlation between the performance and the presence of \textit{useful words} in the query. The pattern for the recall is completely noisy while there is a very weak correlation between Average Precision and \textit{important words} for top-scored words ($RF(t, Q)>10$).  
+We expected to see a higher performance for the queries which contain more \textit{useful words} and a lower performance for the ones with less \textit{useful words}. However, unlike our first assumption, we could not find any correlation between the performance and the presence of \textit{useful words} in the query. The pattern for the recall is completely noisy while there is a very weak correlation between Average Precision and \textit{useful words} for top-scored words ($RF(t, Q)>10$). This experiment indicates that we should seek for reasons beyond the existence of the useful terms inside the query.  
 
+Second, we check the term overlap with \textit{useful words} and \textit{noisy words} for TPs and FPs. Figure \ref{fig:usefulnoisy} shows that relevant patents have a higher term overlap with the \textit{useful words} while irrelevant patents have a higher term overlap with the \textit{noisy words}. This experiment shows that 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
+\begin{centering}
+\subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/stackedTPs.eps}} \hspace*{1.5cm} \subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/stackedFPs.eps}} 
+\par\end{centering}
+
+\protect\caption{Scatter plot of Average precision vs. the overlap between useful terms and the the query.}
+\label{fig:usefulnoisy}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %We hypothesized that a query, formulated by only the \textit{ useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. 
 
 \subsection{Oracular Query Formulation}
