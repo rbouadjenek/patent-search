@@ -77,7 +77,6 @@ The results have been shown in Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-
 \label{fig:overlap-r}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hspace*{-1.5cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
@@ -96,7 +95,7 @@ Second, we check the term overlap with \textit{useful words} and \textit{noisy w
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[TPs]{\includegraphics[width=5cm]{figs/stackedTPs.eps}} \hspace*{1.5cm} \subfigure[FPs]{\includegraphics[width=5cm]{figs/stackedFPs.eps}} 
+\subfigure[TPs]{\includegraphics[width=6cm]{figs/stackedTPs.eps}} \hspace*{1.5cm} \subfigure[FPs]{\includegraphics[width=6cm]{figs/stackedFPs.eps}} 
 \par\end{centering} 
 \protect\caption{The distribution of the term overlap between the query and useful words/noisy words in TPs and FPs.}
 \label{fig:usefulnoisy}
@@ -113,6 +112,15 @@ Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}
 \end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ yielding the best oracular query.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
+\begin{centering}
+\subfigure[Optimal RF query performance versus the score threshold to select optimal query terms.]{\includegraphics[width=6cm]{figs/oracularq.eps}} \hspace*{1.5cm} \subfigure[Optimal RF query performance versus the query size.]{\includegraphics[width=6cm]{figs/oracularq-size.eps}} 
+\par\end{centering} 
+\protect\caption{Comparing the optimal query performance versus the $score_{RF}$ threshold and query size}
+\label{fig:usefulnoisy}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 We formulate two oracular queries. The first query is formulated by selecting terms in the top-100 documents:
 
 We formulate the second query by selecting terms that also occur in the reference patent query as follows:
