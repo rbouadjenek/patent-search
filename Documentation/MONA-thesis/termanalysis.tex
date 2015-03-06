@@ -77,12 +77,13 @@ The results have been shown in Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-
 \label{fig:overlap-r}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace*{-1.5cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
 \subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-p}} \hspace*{1.5cm} \subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthammedian-p.eps}} \\[-2ex]% 
 \subfigure[{Useful terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-p.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-p.eps}}\\ [-2ex]%
-\subfigure[{Useful terms:$ \{t|score(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-p.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-p.eps}}
+\subfigure[{Useful terms: $ \{t|score(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-p.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-p.eps}}
 \par\end{centering}
 
 \protect\caption{Scatter plot of Average precision vs. the overlap between useful terms and the the query.}
@@ -91,26 +92,29 @@ The results have been shown in Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 We expected to see a higher performance for the queries which contain more \textit{useful words} and a lower performance for the ones with less \textit{useful words}. However, unlike our first assumption, we could not find any correlation between the performance and the presence of \textit{useful words} in the query. The pattern for the recall is completely noisy while there is a very weak correlation between Average Precision and \textit{useful words} for top-scored words ($RF(t, Q)>10$). This experiment indicates that we should seek for reasons beyond the existence of the useful terms inside the query.  
 
-Second, we check the term overlap with \textit{useful words} and \textit{noisy words} for TPs and FPs. Figure \ref{fig:usefulnoisy} shows that relevant patents have a higher term overlap with the \textit{useful words} while irrelevant patents have a higher term overlap with the \textit{noisy words}. This experiment shows that 
+Second, we check the term overlap with \textit{useful words} and \textit{noisy words} for TPs and FPs. Figure \ref{fig:usefulnoisy} shows that relevant patents have a higher term overlap with the \textit{useful words} while irrelevant patents have a higher term overlap with the \textit{noisy words}. This experiment shows that noisy words mislead the system to retrieve irrelevant patents at top of the list.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/stackedTPs.eps}} \hspace*{1.5cm} \subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/stackedFPs.eps}} 
-\par\end{centering}
-
-\protect\caption{Scatter plot of Average precision vs. the overlap between useful terms and the the query.}
+\subfigure[TPs]{\includegraphics[width=5cm]{figs/stackedTPs.eps}} \hspace*{1.5cm} \subfigure[FPs]{\includegraphics[width=5cm]{figs/stackedFPs.eps}} 
+\par\end{centering} 
+\protect\caption{The distribution of the term overlap between the query and useful words/noisy words in TPs and FPs.}
 \label{fig:usefulnoisy}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %We hypothesized that a query, formulated by only the \textit{ useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. 
-
+\newpage
 \subsection{Oracular Query Formulation}
-We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ (defined below) yielding the best oracular query.
-We formulate two oracular queries. The first query is formulated by selecting terms in the top-100 documents:
+In this section, we formulate a query by selecting terms in the top-100 documents and call it oracular query. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}   
  \label{eq:score}
 \end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ yielding the best oracular query.
+We formulate two oracular queries. The first query is formulated by selecting terms in the top-100 documents:
+
 We formulate the second query by selecting terms that also occur in the reference patent query as follows:
 % query based on the hypothesis that a patent query contains sufficient words matched with the relevant patents:
 \begin{equation}
