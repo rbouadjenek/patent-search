@@ -1,0 +1,51 @@
+In essence, there are three main retrieval models: exact match models such as \textit{the boolean model}, vector space models such as \textit{TF-IDF}, and probabilistic models such as \textit{Okapi BM25}~\citep{croft2010search}. In this section, we explain three popular retrieval models: TF-IDF, BM25, and Language Models.   
+
+\paragraph{Vector Space Model: TF-IDF}
+\ \\
+In vector space model, documents and query represented by a vector of term weights, and the collection represented by a matrix of term weights: 
+\capstartfalse
+\begin{figure}[htpb]
+   \centering
+   \includegraphics[width=.45\textwidth,height=35mm]{figs/vsm-matrix.jpg}
+\end{figure}
+\capstarttrue
+\FloatBarrier 
+%\noindent
+
+Where $ D_{i} $ is each document in the collection $ C $ ($ D_{i}\in C $), $ d_{ik} $ is the weight of term $ k $ in document $ D_{i} $, and $ q_{k} $ represents a term in the query $ Q $.\\
+Term frequency weight measures importance in the document: \,\,\,
+$ tf_{ik}(q)=c(q_{k},Di)$ 
+\\, and inverse document frequency measures importance in the collection:\,\,\,\,\,\, 
+\begin{equation}
+idf_{k}(q)=\log\frac{N+1}{df(q_{k})}
+\label{eq:idf}
+\end{equation}
+
+Where, $ c(q_{k},Di) $ is the number of occurrence of k-th query term in a document $ D_{i} $, $ df(q_{k}) $ is the number of documents in the collection which contain at least one occurrence of $ q $, and $ N $ is the number of documents in the collection. The weighting function multiplies the occurrence of each query term in the document
+by the $ idf $ measure, after pivoted normalisation, for each $ d_{ij} $ it appears as~\citep{bache2010improving}:
+\begin{equation}
+d_{ik}=\sum\limits_{q \in Q\cap D}\frac{tf_{ik}(q).idf_{k}(q)}{(1-b)+b.\frac{|D|}{avdl}}
+\label{eq:tfidf}
+\end{equation}
+where, $ |D| $ is the size of the document and $ avdl $ is the average document length. This model scores a document higher if more query terms are present or these terms are rarer in the collection. The parameter $ b $ is set to 0.75 to be the same as the BM25 model below.
+
+\paragraph{Probabilistic Models: BM25}
+\ \\
+BM25 is popular and effective ranking algorithm based on binary independence model. Equation (\ref{eq:idf}) can be improved by factoring in the frequency of each term and document length - it is called Okapi weighting:
+\begin{equation}
+d_{ik}=\sum\limits_{q \in Q\cap D}\log\frac{N+1}{df(q)}.\frac{(k_{1}+1)c(q,D)}{k_{1}((1-b)+b.\frac{|D|}{avdl})+c(q,D)}
+\label{eq:idfbm25}
+\end{equation}
+The variable $ k_{1} $ is a positive tuning parameter that calibrates the document term frequency scaling. A $ k_{1}=0 $  corresponds to a binary model (no term frequency), and a large value corresponds to using raw term
+frequency. $ b $ is another tuning parameter ($ 0 \leq b \leq 1 $) which determines the scaling by document length: $ b = 1 $ corresponds to fully scaling the term weight by the document length, while $ b = 0 $ corresponds to no length normalization. \\\\
+If the query is long, then we might also use similar weighting for query terms. This is appropriate if the queries are paragraph long information needs, but unnecessary for short queries.
+\begin{equation}
+d_{ik}=\sum\limits_{q \in Q\cap D}\log\frac{N+1}{df(q)}.\frac{(k_{1}+1)c(q,D)}{k_{1}((1-b)+b.\frac{|D|}{avdl})+c(q,D)}.\frac{(k_{3}+1)c(q,Q)}{k_{3}+c(q,Q)}
+\label{eq:idfbm25}
+\end{equation}
+with $ c(q,Q) $ being the frequency of term $ q $ in the query $ Q $, and $ k_{3} $ being another positive tuning parameter that this time calibrates term frequency scaling of the query. In the equation presented, there is no length normalization of
+queries because retrieval is being done with respect to a single fixed query. The tuning parameters of these formulas should ideally be set to optimize performance on a development test collection. That is, we can search for values of these parameters that maximize performance on a separate development test collection (either manually or with optimization methods such as grid search or something more advanced), and then use these parameters on the actual test collection. In the absence of such optimization, experiments have shown reasonable values are to set $ k_{1} $ and $ k_{2} $ to a value between 1.2 and 2 and b = 0.75~\citep{manning2008introduction}.
+
+\paragraph{Language Models with Terms Smoothing}
+\ \\
+\input{background/LM}

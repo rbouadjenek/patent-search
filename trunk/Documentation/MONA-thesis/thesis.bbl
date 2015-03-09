@@ -1,4 +1,4 @@
-\begin{thebibliography}{22}
+\begin{thebibliography}{82}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{}
@@ -13,6 +13,120 @@
 \newblock Access to legal documents: Exact match, best match, and combinations.
 \newblock  (2007).
 
+\bibitem[{Azzopardi and Vinay(2008)}]{azzopardi2008retrievability}
+\textsc{Azzopardi, L. and Vinay, V.}, 2008.
+\newblock Retrievability: an evaluation measure for higher order information
+  access tasks.
+\newblock In \emph{Proceedings of the 17th ACM conference on Information and
+  knowledge management}, 561--570. ACM.
+
+\bibitem[{Bache and Azzopardi(2010)}]{bache2010improving}
+\textsc{Bache, R. and Azzopardi, L.}, 2010.
+\newblock Improving access to large patent corpora.
+\newblock In \emph{Transactions on large-scale data-and knowledge-centered
+  systems II}, 103--121. Springer.
+
+\bibitem[{Baeza{-}Yates and Ribeiro{-}Neto(2011)}]{Baeza-Yates2011}
+\textsc{Baeza{-}Yates, R.~A. and Ribeiro{-}Neto, B.~A.}, 2011.
+\newblock \emph{Modern Information Retrieval - the concepts and technology
+  behind search, Second edition}.
+\newblock Pearson Education Ltd., Harlow, England.
+
+\bibitem[{Balasubramanian et~al.(2010)Balasubramanian, Kumaran, and
+  Carvalho}]{balasubramanian2010exploring}
+\textsc{Balasubramanian, N.; Kumaran, G.; and Carvalho, V.~R.}, 2010.
+\newblock Exploring reductions for long web queries.
+\newblock In \emph{Proceedings of the 33rd international ACM SIGIR conference
+  on Research and development in information retrieval}, 571--578. ACM.
+
+\bibitem[{Bashir and Rauber(2009{\natexlab{a}})}]{bashir2009analyzing}
+\textsc{Bashir, S. and Rauber, A.}, 2009{\natexlab{a}}.
+\newblock Analyzing document retrievability in patent retrieval settings.
+\newblock In \emph{Database and Expert Systems Applications}, 753--760.
+  Springer.
+
+\bibitem[{Bashir and Rauber(2009{\natexlab{b}})}]{bashir2009improving}
+\textsc{Bashir, S. and Rauber, A.}, 2009{\natexlab{b}}.
+\newblock Improving retrievability of patents with cluster-based
+  pseudo-relevance feedback documents selection.
+\newblock In \emph{Proceedings of the 18th ACM conference on Information and
+  knowledge management}, 1863--1866. ACM.
+
+\bibitem[{Bashir and Rauber(2010)}]{bashir2010improving}
+\textsc{Bashir, S. and Rauber, A.}, 2010.
+\newblock Improving retrievability of patents in prior-art search.
+\newblock In \emph{Advances in Information Retrieval}, 457--470. Springer.
+
+\bibitem[{Bashir and Rauber(2011)}]{bashir2011relationship}
+\textsc{Bashir, S. and Rauber, A.}, 2011.
+\newblock On the relationship between query characteristics and ir functions
+  retrieval bias.
+\newblock \emph{Journal of the American Society for Information Science and
+  Technology}, 62, 8  (2011), 1515--1532.
+
+\bibitem[{Becks et~al.(2010)Becks, Mandl, and Womser-Hacker}]{becks2010phrases}
+\textsc{Becks, D.; Mandl, T.; and Womser-Hacker, C.}, 2010.
+\newblock Phrases or terms? the impact of different query types.
+\newblock In \emph{CLEF (Notebook Papers/LABs/Workshops)}.
+
+\bibitem[{Bendersky and Croft(2008)}]{bendersky2008discovering}
+\textsc{Bendersky, M. and Croft, W.~B.}, 2008.
+\newblock Discovering key concepts in verbose queries.
+\newblock In \emph{Proceedings of the 31st annual international ACM SIGIR
+  conference on Research and development in information retrieval}, 491--498.
+  ACM.
+
+\bibitem[{Bendersky et~al.(2010)Bendersky, Metzler, and
+  Croft}]{bendersky2010learning}
+\textsc{Bendersky, M.; Metzler, D.; and Croft, W.~B.}, 2010.
+\newblock Learning concept importance using a weighted dependence model.
+\newblock In \emph{Proceedings of the third ACM international conference on Web
+  search and data mining}, 31--40. ACM.
+
+\bibitem[{Cao et~al.(2008)Cao, Nie, Gao, and Robertson}]{cao2008selecting}
+\textsc{Cao, G.; Nie, J.-Y.; Gao, J.; and Robertson, S.}, 2008.
+\newblock Selecting good expansion terms for pseudo-relevance feedback.
+\newblock In \emph{Proceedings of the 31st annual international ACM SIGIR
+  conference on Research and development in information retrieval}, 243--250.
+  ACM.
+
+\bibitem[{Cetintas and Si(2012)}]{cetintas2012effective}
+\textsc{Cetintas, S. and Si, L.}, 2012.
+\newblock Effective query generation and postprocessing strategies for prior
+  art patent search.
+\newblock \emph{Journal of the American Society for Information Science and
+  Technology}, 63, 3  (2012), 512--527.
+
+\bibitem[{Croft et~al.(2010)Croft, Metzler, and Strohman}]{croft2010search}
+\textsc{Croft, W.~B.; Metzler, D.; and Strohman, T.}, 2010.
+\newblock \emph{Search engines: Information retrieval in practice}.
+\newblock Addison-Wesley Reading.
+
+\bibitem[{D'hondt and Verberne(2010)}]{DBLP:conf/clef/DhondtV10}
+\textsc{D'hondt, E. and Verberne, S.}, 2010.
+\newblock Clef-ip 2010: Prior art retrieval using the different sections in
+  patent documents.
+\newblock In \emph{CLEF (Notebook Papers/LABs/Workshops)}.
+
+\bibitem[{D'hondt et~al.(2011)D'hondt, Verberne, Alink, and
+  Cornacchia}]{d2011combining}
+\textsc{D'hondt, E.; Verberne, S.; Alink, W.; and Cornacchia, R.}, 2011.
+\newblock Combining document representations for prior-art retrieval.
+\newblock In \emph{CLEF (Notebook Papers/Labs/Workshop)}.
+
+\bibitem[{Fujii(2007{\natexlab{a}})}]{fujii2007enhancing}
+\textsc{Fujii, A.}, 2007{\natexlab{a}}.
+\newblock Enhancing patent retrieval by citation analysis.
+\newblock In \emph{Proceedings of the 30th annual international ACM SIGIR
+  conference on Research and development in information retrieval}, 793--794.
+  ACM.
+
+\bibitem[{Fujii(2007{\natexlab{b}})}]{fujii2007integrating}
+\textsc{Fujii, A.}, 2007{\natexlab{b}}.
+\newblock Integrating content and citation information for the ntcir-6 patent
+  retrieval task.
+\newblock In \emph{Proceedings of NTCIR-6 Workshop Meeting}, 377--380.
+
 \bibitem[{Fujii et~al.(2004)Fujii, Iwayama, and Kando}]{fujii2004overview}
 \textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2004.
 \newblock Overview of patent retrieval task at ntcir-4.
@@ -20,10 +134,109 @@
   Information Access Technologies Information Retrieval, Question Answering and
   Summarization}, 232--241.
 
-\bibitem[{Fujii et~al.(2007)Fujii, Iwayama, and Kando}]{fujii2007overview}
-\textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2007.
+\bibitem[{Fujii et~al.(2007{\natexlab{a}})Fujii, Iwayama, and
+  Kando}]{fujii2007introduction}
+\textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2007{\natexlab{a}}.
+\newblock Introduction to the special issue on patent processing.
+\newblock \emph{Information Processing \& Management}, 43, 5  (2007),
+  1149--1153.
+
+\bibitem[{Fujii et~al.(2007{\natexlab{b}})Fujii, Iwayama, and
+  Kando}]{fujii2007overview}
+\textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2007{\natexlab{b}}.
 \newblock Overview of the patent retrieval task at the ntcir-6 workshop.
 \newblock In \emph{Proceedings of the Sixth NTCIR Workshop Meeting}, 359--365.
+
+\bibitem[{Fujita(2005)}]{fujita2005revisiting}
+\textsc{Fujita, S.}, 2005.
+\newblock Revisiting document length hypotheses: A comparative study of
+  japanese newspaper and patent retrieval.
+\newblock \emph{ACM Transactions on Asian Language Information Processing
+  (TALIP)}, 4, 2  (2005), 207--235.
+
+\bibitem[{Ganguly et~al.(2011{\natexlab{a}})Ganguly, Leveling, and
+  Jones}]{ganguly2011united}
+\textsc{Ganguly, D.; Leveling, J.; and Jones, G.~J.}, 2011{\natexlab{a}}.
+\newblock United we fall, divided we stand: A study of query segmentation and
+  prf for patent prior art search.
+\newblock In \emph{Proceedings of the 4th workshop on Patent information
+  retrieval}, 13--18. ACM.
+
+\bibitem[{Ganguly et~al.(2011{\natexlab{b}})Ganguly, Leveling, Magdy, and
+  Jones}]{ganguly2011patent}
+\textsc{Ganguly, D.; Leveling, J.; Magdy, W.; and Jones, G.~J.},
+  2011{\natexlab{b}}.
+\newblock Patent query reduction using pseudo relevance feedback.
+\newblock In \emph{Proceedings of the 20th ACM international conference on
+  Information and knowledge management}, 1953--1956. ACM.
+
+\bibitem[{Gobeill et~al.(2010)Gobeill, Pasche, Teodoro, and
+  Ruch}]{gobeill2010simple}
+\textsc{Gobeill, J.; Pasche, E.; Teodoro, D.; and Ruch, P.}, 2010.
+\newblock Simple pre and post processing strategies for patent searching in
+  clef intellectual property track 2009.
+\newblock In \emph{Multilingual Information Access Evaluation I. Text Retrieval
+  Experiments}, 444--451. Springer.
+
+\bibitem[{Graf et~al.(2010)Graf, Frommholz, Lalmas, and
+  Van~Rijsbergen}]{graf2010knowledge}
+\textsc{Graf, E.; Frommholz, I.; Lalmas, M.; and Van~Rijsbergen, K.}, 2010.
+\newblock Knowledge modeling in prior art search.
+\newblock In \emph{Advances in Multidisciplinary Retrieval}, 31--46. Springer.
+
+\bibitem[{Gurulingappa et~al.(2010)Gurulingappa, M{\"u}ller, Klinger, Mevissen,
+  Hofmann-Apitius, Friedrich, and Fluck}]{gurulingappa2010prior}
+\textsc{Gurulingappa, H.; M{\"u}ller, B.; Klinger, R.; Mevissen, H.-T.;
+  Hofmann-Apitius, M.; Friedrich, C.~M.; and Fluck, J.}, 2010.
+\newblock Prior art search in chemistry patents based on semantic concepts and
+  co-citation analysis.
+\newblock In \emph{TREC}.
+
+\bibitem[{Harris et~al.(2010)Harris, Arens, and
+  Srinivasan}]{harris2010comparison}
+\textsc{Harris, C.~G.; Arens, R.; and Srinivasan, P.}, 2010.
+\newblock Comparison of ipc and uspc classification systems in patent prior art
+  searches.
+\newblock In \emph{Proceedings of the 3rd international workshop on Patent
+  Information Retrieval}, 27--32. ACM.
+
+\bibitem[{Harris et~al.(2011)Harris, Arens, and Srinivasan}]{harris2011using}
+\textsc{Harris, C.~G.; Arens, R.; and Srinivasan, P.}, 2011.
+\newblock Using classification code hierarchies for patent prior art searches.
+\newblock In \emph{Current challenges in patent information retrieval},
+  287--304. Springer.
+
+\bibitem[{Harris et~al.(2009)Harris, Foster, Arens, and
+  Srinivasan}]{harris2009role}
+\textsc{Harris, C.~G.; Foster, S.; Arens, R.; and Srinivasan, P.}, 2009.
+\newblock On the role of classification in patent invalidity searches.
+\newblock In \emph{Proceedings of the 2nd international workshop on Patent
+  information retrieval}, 29--32. ACM.
+
+\bibitem[{He and Ounis(2009)}]{he2009finding}
+\textsc{He, B. and Ounis, I.}, 2009.
+\newblock Finding good feedback documents.
+\newblock In \emph{Proceedings of the 18th ACM conference on Information and
+  knowledge management}, 2011--2014. ACM.
+
+\bibitem[{Hearst(1997)}]{hearst1997texttiling}
+\textsc{Hearst, M.~A.}, 1997.
+\newblock Texttiling: Segmenting text into multi-paragraph subtopic passages.
+\newblock \emph{Computational linguistics}, 23, 1  (1997), 33--64.
+
+\bibitem[{Herbert et~al.(2010)Herbert, Szarvas, and
+  Gurevych}]{herbert2010prior}
+\textsc{Herbert, B.; Szarvas, G.; and Gurevych, I.}, 2010.
+\newblock Prior art search using international patent classification codes and
+  all-claims-queries.
+\newblock In \emph{Multilingual Information Access Evaluation I. Text Retrieval
+  Experiments}, 452--459. Springer.
+
+\bibitem[{Itoh et~al.(2003)Itoh, Mano, and Ogawa}]{itoh2003term}
+\textsc{Itoh, H.; Mano, H.; and Ogawa, Y.}, 2003.
+\newblock Term distillation in patent retrieval.
+\newblock In \emph{Proceedings of the ACL-2003 workshop on Patent corpus
+  processing-Volume 20}, 41--45. Association for Computational Linguistics.
 
 \bibitem[{Iwayama et~al.(2003)Iwayama, Fujii, Kando, and
   Takano}]{iwayama2003overview}
@@ -31,6 +244,13 @@
 \newblock Overview of patent retrieval task at ntcir-3.
 \newblock In \emph{Proceedings of the ACL-2003 workshop on Patent corpus
   processing-Volume 20}, 24--32. Association for Computational Linguistics.
+
+\bibitem[{Jochim et~al.(2011)Jochim, Lioma, and
+  Sch{\"u}tze}]{jochim2011expanding}
+\textsc{Jochim, C.; Lioma, C.; and Sch{\"u}tze, H.}, 2011.
+\newblock Expanding queries with term and phrase translations in patent
+  retrieval.
+\newblock In \emph{Multidisciplinary Information Retrieval}, 16--29. Springer.
 
 \bibitem[{Joho et~al.(2010)Joho, Azzopardi, and
   Vanderbauwhede}]{joho2010survey}
@@ -40,6 +260,60 @@
 \newblock In \emph{Proceedings of the third symposium on Information
   interaction in context}, 13--24. ACM.
 
+\bibitem[{Kang et~al.(2007)Kang, Na, Kim, and Lee}]{kang2007cluster}
+\textsc{Kang, I.-S.; Na, S.-H.; Kim, J.; and Lee, J.-H.}, 2007.
+\newblock Cluster-based patent retrieval.
+\newblock \emph{Information processing \& management}, 43, 5  (2007),
+  1173--1182.
+
+\bibitem[{KIM(2014)}]{kim2014searching}
+\textsc{KIM, Y.}, 2014.
+\newblock \emph{SEARCHING BASED ON QUERY DOCUMENTS}.
+\newblock Ph.D. thesis, University of Massachusetts Amherst.
+
+\bibitem[{Kim and Croft(2014)}]{kim2014diversifying}
+\textsc{Kim, Y. and Croft, W.~B.}, 2014.
+\newblock Diversifying query suggestions based on query documents.
+\newblock In \emph{Proceedings of the 37th international ACM SIGIR conference
+  on Research \& development in information retrieval}, 891--894. ACM.
+
+\bibitem[{Kishida(2003)}]{kishida2003experiment}
+\textsc{Kishida, K.}, 2003.
+\newblock Experiment on pseudo relevance feedback method using taylor formula
+  at ntcir-3 patent retrieval task.
+\newblock In \emph{Proceedings of the Third NTCIR Workshop on Research in
+  Information Retrieval, Automatic Text Summarization and Question Answering}.
+  Citeseer.
+
+\bibitem[{Konishi(2005)}]{konishi2005query}
+\textsc{Konishi, K.}, 2005.
+\newblock Query terms extraction from patent document for invalidity search.
+\newblock In \emph{Proc. of NTCIR}, vol.~5.
+
+\bibitem[{Kontostathis and Kulp(2008)}]{kontostathis2008effect}
+\textsc{Kontostathis, A. and Kulp, S.}, 2008.
+\newblock The effect of normalization when recall really matters.
+\newblock In \emph{IKE}, 96--101.
+
+\bibitem[{Kumaran and Carvalho(2009)}]{kumaran2009reducing}
+\textsc{Kumaran, G. and Carvalho, V.~R.}, 2009.
+\newblock Reducing long queries using query quality predictors.
+\newblock In \emph{Proceedings of the 32nd international ACM SIGIR conference
+  on Research and development in information retrieval}, 564--571. ACM.
+
+\bibitem[{Lease et~al.(2009)Lease, Allan, and Croft}]{lease2009regression}
+\textsc{Lease, M.; Allan, J.; and Croft, W.~B.}, 2009.
+\newblock Regression rank: Learning to meet the opportunity of descriptive
+  queries.
+\newblock In \emph{Advances in Information Retrieval}, 90--101. Springer.
+
+\bibitem[{Lee et~al.(2008)Lee, Croft, and Allan}]{lee2008cluster}
+\textsc{Lee, K.~S.; Croft, W.~B.; and Allan, J.}, 2008.
+\newblock A cluster-based resampling method for pseudo-relevance feedback.
+\newblock In \emph{Proceedings of the 31st annual international ACM SIGIR
+  conference on Research and development in information retrieval}, 235--242.
+  ACM.
+
 \bibitem[{Leong(2001)}]{leong2001patent}
 \textsc{Leong, M.}, 2001.
 \newblock Patent data for ir research and evaluation.
@@ -47,16 +321,17 @@
   of Information Access Technologies: Information Retrieval, Question Answering
   and Cross-lingual Information Access, Tokyo, Japan}, 359--365.
 
-\bibitem[{Lieberman and Hewitt(1983)}]{LH:83}
-\textsc{Lieberman, H. and Hewitt, C.}, 1983.
-\newblock A real-time garbage collector based on the lifetimes of objects.
-\newblock \emph{Communications of the ACM}, 26, 6  (Jun. 1983), 419--429.
-\newblock \doi{10.1145/358141.358147}.
-
 \bibitem[{Lopez and Romary(2009)}]{lopez2009multiple}
 \textsc{Lopez, P. and Romary, L.}, 2009.
 \newblock Multiple retrieval models and regression models for prior art search.
 \newblock \emph{arXiv preprint arXiv:0908.4413},  (2009).
+
+\bibitem[{Lopez and Romary(2010)}]{lopez2010patatras}
+\textsc{Lopez, P. and Romary, L.}, 2010.
+\newblock Patatras: Retrieval model combination and regression models for prior
+  art search.
+\newblock In \emph{Multilingual Information Access Evaluation I. Text Retrieval
+  Experiments}, 430--437. Springer.
 
 \bibitem[{Lopez et~al.(2010)Lopez, Romary et~al.}]{lopez2010experiments}
 \textsc{Lopez, P.; Romary, L.; et~al.}, 2010.
@@ -65,11 +340,18 @@
 \newblock In \emph{CLEF 2010-Conference on Multilingual and Multimodal
   Information Access Evaluation}.
 
-\bibitem[{Lupu et~al.(2013)Lupu, Hanbury et~al.}]{lupu2013patent}
-\textsc{Lupu, M.; Hanbury, A.; et~al.}, 2013.
+\bibitem[{Lupu et~al.(2013{\natexlab{a}})Lupu, Hanbury et~al.}]{lupu2013patent}
+\textsc{Lupu, M.; Hanbury, A.; et~al.}, 2013{\natexlab{a}}.
 \newblock Patent retrieval.
 \newblock \emph{Foundations and Trends in Information Retrieval}, 7, 1  (2013),
   1--97.
+
+\bibitem[{Lupu et~al.(2013{\natexlab{b}})Lupu, Piroi, and
+  Hanbury}]{lupu2013evaluating}
+\textsc{Lupu, M.; Piroi, F.; and Hanbury, A.}, 2013{\natexlab{b}}.
+\newblock Evaluating flowchart recognition for patent retrieval.
+\newblock In \emph{The Fifth International Workshop on Evaluating Information
+  Access (EVIA)}, 37--44.
 
 \bibitem[{Magdy(2012)}]{magdy2012toward}
 \textsc{Magdy, W.}, 2012.
@@ -77,8 +359,14 @@
   retrieval: A patent retrieval case study}.
 \newblock Ph.D. thesis, Dublin City University.
 
-\bibitem[{Magdy and Jones(2010)}]{magdy2010pres}
-\textsc{Magdy, W. and Jones, G.~J.}, 2010.
+\bibitem[{Magdy and Jones(2010{\natexlab{a}})}]{magdy2010applying}
+\textsc{Magdy, W. and Jones, G.~J.}, 2010{\natexlab{a}}.
+\newblock Applying the kiss principle for the clef-ip 2010 prior art candidate
+  patent search task.
+\newblock  (2010).
+
+\bibitem[{Magdy and Jones(2010{\natexlab{b}})}]{magdy2010pres}
+\textsc{Magdy, W. and Jones, G.~J.}, 2010{\natexlab{b}}.
 \newblock Pres: a score metric for evaluating recall-oriented information
   retrieval applications.
 \newblock In \emph{Proceedings of the 33rd international ACM SIGIR conference
@@ -90,12 +378,65 @@
 \newblock In \emph{Proceedings of the 4th workshop on Patent information
   retrieval}, 19--24. ACM.
 
+\bibitem[{Magdy and Jones(2013)}]{magdy2013studying}
+\textsc{Magdy, W. and Jones, G.~J.}, 2013.
+\newblock Studying machine translation technologies for large-data clir tasks:
+  a patent prior-art search case study.
+\newblock \emph{Information Retrieval},  (2013), 1--28.
+
 \bibitem[{Magdy et~al.(2010)Magdy, Leveling, and Jones}]{magdy2010exploring}
 \textsc{Magdy, W.; Leveling, J.; and Jones, G.~J.}, 2010.
 \newblock Exploring structured documents and query formulation techniques for
   patent retrieval.
 \newblock In \emph{Multilingual Information Access Evaluation I. Text Retrieval
   Experiments}, 410--417. Springer.
+
+\bibitem[{Magdy et~al.(2011)Magdy, Lopez, and Jones}]{magdy2011simple}
+\textsc{Magdy, W.; Lopez, P.; and Jones, G.~J.}, 2011.
+\newblock Simple vs. sophisticated approaches for patent prior-art search.
+\newblock In \emph{Advances in Information Retrieval}, 725--728. Springer.
+
+\bibitem[{Mahdabi et~al.(2011{\natexlab{a}})Mahdabi, Andersson, Hanbury, and
+  Crestani}]{mahdabi2011report}
+\textsc{Mahdabi, P.; Andersson, L.; Hanbury, A.; and Crestani, F.},
+  2011{\natexlab{a}}.
+\newblock Report on the clef-ip 2011 experiments: Exploring patent
+  summarization.
+\newblock In \emph{CLEF (Notebook Papers/Labs/Workshop)}.
+
+\bibitem[{Mahdabi et~al.(2012)Mahdabi, Andersson, Keikha, and
+  Crestani}]{mahdabi2012automatic}
+\textsc{Mahdabi, P.; Andersson, L.; Keikha, M.; and Crestani, F.}, 2012.
+\newblock Automatic refinement of patent queries using concept importance
+  predictors.
+\newblock In \emph{Proceedings of the 35th international ACM SIGIR conference
+  on Research and development in information retrieval}, 505--514. ACM.
+
+\bibitem[{Mahdabi and Crestani(2012)}]{mahdabi2012learning}
+\textsc{Mahdabi, P. and Crestani, F.}, 2012.
+\newblock Learning-based pseudo-relevance feedback for patent retrieval.
+\newblock In \emph{Multidisciplinary Information Retrieval}, 1--11. Springer.
+
+\bibitem[{Mahdabi et~al.(2013)Mahdabi, Gerani, Huang, and
+  Crestani}]{mahdabi2013leveraging}
+\textsc{Mahdabi, P.; Gerani, S.; Huang, J.~X.; and Crestani, F.}, 2013.
+\newblock Leveraging conceptual lexicon: query disambiguation using proximity
+  information for patent retrieval.
+\newblock In \emph{Proceedings of the 36th international ACM SIGIR conference
+  on Research and development in information retrieval}, 113--122. ACM.
+
+\bibitem[{Mahdabi et~al.(2011{\natexlab{b}})Mahdabi, Keikha, Gerani, Landoni,
+  and Crestani}]{mahdabi2011building}
+\textsc{Mahdabi, P.; Keikha, M.; Gerani, S.; Landoni, M.; and Crestani, F.},
+  2011{\natexlab{b}}.
+\newblock Building queries for prior-art search.
+\newblock In \emph{Multidisciplinary Information Retrieval}, 3--15. Springer.
+
+\bibitem[{Manning et~al.(2008)Manning, Raghavan, and
+  Sch{\"u}tze}]{manning2008introduction}
+\textsc{Manning, C.~D.; Raghavan, P.; and Sch{\"u}tze, H.}, 2008.
+\newblock \emph{Introduction to information retrieval}, vol.~1.
+\newblock Cambridge university press Cambridge.
 
 \bibitem[{Mase et~al.(2005)Mase, Matsubayashi, Ogawa, Iwayama, and
   Oshio}]{mase2005proposal}
@@ -106,13 +447,32 @@
 \newblock \emph{ACM Transactions on Asian Language Information Processing
   (TALIP)}, 4, 2  (2005), 190--206.
 
-\bibitem[{Moon(1984)}]{Moon:84}
-\textsc{Moon, D.~A.}, 1984.
-\newblock Garbage collection in a large {LISP} system.
-\newblock In  LFP '84: \emph{Proceedings of the 1984 ACM Symposium on LISP and
-  Functional Programming} (Austin, Texas, USA, Aug. 1984), 235--246. ACM, New
-  York, New York, USA.
-\newblock \doi{10.1145/800055.802040}.
+\bibitem[{Maxwell and Croft(2013)}]{maxwell2013compact}
+\textsc{Maxwell, K.~T. and Croft, W.~B.}, 2013.
+\newblock Compact query term selection using topically related text.
+\newblock In \emph{Proceedings of the 36th international ACM SIGIR conference
+  on Research and development in information retrieval}, 583--592. ACM.
+
+\bibitem[{Miller et~al.(1990)Miller, Beckwith, Fellbaum, Gross, and
+  Miller}]{miller1990introduction}
+\textsc{Miller, G.~A.; Beckwith, R.; Fellbaum, C.; Gross, D.; and Miller,
+  K.~J.}, 1990.
+\newblock Introduction to wordnet: An on-line lexical database*.
+\newblock \emph{International journal of lexicography}, 3, 4  (1990), 235--244.
+
+\bibitem[{Osborn et~al.(1997)Osborn, Strzalkowski, and
+  Marinescu}]{osborn1997evaluating}
+\textsc{Osborn, M.; Strzalkowski, T.; and Marinescu, M.}, 1997.
+\newblock Evaluating document retrieval in patent database: a preliminary
+  report.
+\newblock In \emph{Proceedings of the sixth international conference on
+  Information and knowledge management}, 216--221. ACM.
+
+\bibitem[{P{\'e}rez-Iglesias et~al.(2010)P{\'e}rez-Iglesias, Rodrigo, and
+  Fresno}]{perez2010using}
+\textsc{P{\'e}rez-Iglesias, J.; Rodrigo, A.; and Fresno, V.}, 2010.
+\newblock Using bm25f and kld for patent retrieval.
+\newblock In \emph{CLEF-2010 (Notebook Papers/LABs/Workshops)}.
 
 \bibitem[{Piroi et~al.(2013{\natexlab{a}})Piroi, Lupu, and
   Hanbury}]{piroi2013overview}
@@ -134,7 +494,9 @@
   Filippov, I.~V.}, 2012.
 \newblock Clef-ip 2012: Retrieval experiments in the intellectual property
   domain.
-\newblock In \emph{CLEF (Online Working Notes/Labs/Workshop)}.
+\newblock In \emph{CLEF (Online Working Notes/Labs/Workshop)}, vol. 1178 of
+  \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+\newblock \urlprefix\url{http://ceur-ws.org/Vol-1178}.
 
 \bibitem[{Roda et~al.(2010)Roda, Tait, Piroi, and Zenz}]{roda2010clef}
 \textsc{Roda, G.; Tait, J.; Piroi, F.; and Zenz, V.}, 2010.
@@ -143,20 +505,50 @@
 \newblock In \emph{Multilingual Information Access Evaluation I. Text Retrieval
   Experiments}, 385--409. Springer.
 
-\bibitem[{Ungar(1984)}]{Ungar:84}
-\textsc{Ungar, D.}, 1984.
-\newblock Generation scavenging: A non-disruptive high performance storage
-  reclamation algorithm.
-\newblock In  SDE 1: \emph{Proceedings of the 1st ACM SIGSOFT/SIGPLAN Software
-  Engineering Symposium on Practical Software Development Environments}
-  (Pittsburgh, Pennsylvania, USA, Apr. 1984), 157--167. ACM, New York, New
-  York, USA.
-\newblock \doi{10.1145/800020.808261}.
+\bibitem[{Sahlgren et~al.(2002)Sahlgren, Hansen, and
+  Karlgren}]{sahlgren2002english}
+\textsc{Sahlgren, M.; Hansen, P.; and Karlgren, J.}, 2002.
+\newblock English-japanese cross-lingual query expansion using random indexing
+  of aligned bilingual text data.
+\newblock In \emph{The Philosophical Writings of Gottlob Frege}. Citeseer.
 
-\bibitem[{Verma and Varma(2011)}]{verma2011exploring}
-\textsc{Verma, M. and Varma, V.}, 2011.
+\bibitem[{Takaki et~al.(2004)Takaki, Fujii, and
+  Ishikawa}]{takaki2004associative}
+\textsc{Takaki, T.; Fujii, A.; and Ishikawa, T.}, 2004.
+\newblock Associative document retrieval by query subtopic analysis and its
+  application to invalidity patent search.
+\newblock In \emph{Proceedings of the thirteenth ACM international conference
+  on Information and knowledge management}, 399--405. ACM.
+
+\bibitem[{Verma and Varma(2011{\natexlab{a}})}]{verma2011applying}
+\textsc{Verma, M. and Varma, V.}, 2011{\natexlab{a}}.
+\newblock Applying key phrase extraction to aid invalidity search.
+\newblock In \emph{Proceedings of the 13th International Conference on
+  Artificial Intelligence and Law}, 249--255. ACM.
+
+\bibitem[{Verma and Varma(2011{\natexlab{b}})}]{verma2011exploring}
+\textsc{Verma, M. and Varma, V.}, 2011{\natexlab{b}}.
 \newblock Exploring keyphrase extraction and ipc classification vectors for
   prior art search.
 \newblock In \emph{CLEF (Notebook Papers/Labs/Workshop)}.
+
+\bibitem[{Xue and Croft(2009{\natexlab{a}})}]{xue2009automatic}
+\textsc{Xue, X. and Croft, W.~B.}, 2009{\natexlab{a}}.
+\newblock Automatic query generation for patent search.
+\newblock In \emph{Proceedings of the 18th ACM conference on Information and
+  knowledge management}, 2037--2040. ACM.
+
+\bibitem[{Xue and Croft(2009{\natexlab{b}})}]{xue2009transforming}
+\textsc{Xue, X. and Croft, W.~B.}, 2009{\natexlab{b}}.
+\newblock Transforming patents into prior-art queries.
+\newblock In \emph{Proceedings of the 32nd international ACM SIGIR conference
+  on Research and development in information retrieval}, 808--809. ACM.
+
+\bibitem[{Zhai and Lafferty(2004)}]{zhai2004study}
+\textsc{Zhai, C. and Lafferty, J.}, 2004.
+\newblock A study of smoothing methods for language models applied to
+  information retrieval.
+\newblock \emph{ACM Transactions on Information Systems (TOIS)}, 22, 2  (2004),
+  179--214.
 
 \end{thebibliography}

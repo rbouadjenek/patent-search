@@ -1,0 +1,45 @@
+A retrieval system is evaluated considering a set of relevance judgements, a binary assessment of either \textit{relevant} or \textit{irrelevant} for each query-document pair. An ideal retrieval system can retrieve all relevant documents. Table \ref{tab:contengency} is the contingency table, where:\\\\
+\textit{True Positive (tp)}: documents which are relevant and the system retrieves them.\\
+\textit{False Negative (fn)}: documents which are relevant but the system does not retrieve them. \\
+\textit{False Positive (fp)}: documents which are non-relevant but the system retrieves them.\\
+\textit{True Negative (tn)}: documents which are non-relevant and the system does not retrieve them. 
+\begin{table*}[htpb]
+  \centering
+  \input table/contingency.tex
+  \caption{Contingency table.}
+  \label{tab:contengency}
+\end{table*}
+\FloatBarrier 
+\paragraph{Precision and Recall}
+\ \\
+Precision and recall are the most frequent and basic measures for information retrieval effectiveness. They are calculated with respect to what IR system returns as a set of documents for a query.\\
+\textit{Precision (P)} is the fraction of retrieved documents that are relevant:
+\[
+Precision (P)=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(retrieved \: items)}=\frac{tp}{tp+fp}=P(relevant|retrieved)
+\]
+\textit{Recall (R)} is the fraction of relevant documents that are retrieved:
+\[
+Recall (R)=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(relevant \: items)}=\frac{tp}{tp+fn}=P(retrieved|relevant)
+\]
+For many prominent applications, particularly web search, good results on the first page or the first three pages are important than all relevant documents. So, they wish to look at precisions and recalls over a series of different rank cut-offs rather than to look at the entire retrieved set. This is referred to as “Precision/Recall at k”, for example “Precision/Recall at 10”. 
+\begin{equation}
+precision@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: rank \: k)}{k}
+\end{equation}
+\begin{equation}
+recall@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: rank \: k)}{\sharp(documents \: relevant)}
+\end{equation}
+\paragraph{Average Precision and Mean Average Precision (MAP) }
+\ \\
+We can measure 'MAP' by calculating Average Precision on retrieval results. Average Precision is the average of precision at each point where a relevant document is found is computed as:
+\begin{equation}
+Avg. \: precision=\frac{\sum_{r=1}^{N}(P(r)\times rel(r))}{n}
+\end{equation}
+\noindent
+where $ r $ is the rank, $ N $ the number of documents retrieved, $ rel(r) $ a binary function of the document relevance at a given rank, $ P(r) $ is precision at a given cut-off rank $ r $, and $ n $ is the total number of relevant documents.
+
+Then, for a given set of queries, $ Q $, $ MAP $ can be calculated by:
+\begin{equation}
+MAP(Q)=\frac{\sum_{q\in Q}Avg. \: precision(q)}{|Q|}
+\end{equation}
+\noindent
+where $ q $ is a query in $ Q $.
