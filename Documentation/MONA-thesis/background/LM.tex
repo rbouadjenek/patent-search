@@ -1,0 +1,27 @@
+The basic idea behind the \textit{Language Modelling} approach is to estimate a language model for each document, and rank documents by the likelihood of the query according to the estimated language model. Here terms are assumed to occur independently, and the probability is the product of the individual query terms given the document model $ M_{D} $ of document $ D $:
+\begin{equation}
+\label{eq:multinomial}
+ P(Q|M_{D}) = \prod\limits_{q\in Q} P(q|M_{D}) 
+\end{equation}
+
+\begin{equation}
+\label{eq:multinomial}
+ P(q|M_{D}) = \frac{c(q,D)}{|D|}
+\end{equation}
+
+The overall similarity score for the query and the document could be zero if some of query terms do not occur in the document. However, it is not sensible to rule out a document just because a single query term is missing. For dealing with this, language models make use of smoothing to balance the probability mass between occurrences of terms in documents, and terms not found in the documents.
+\\\\
+\textit{Jelinek–Mercer smoothing.} Jelinek–Mercer smoothing language model ~\citep{zhai2004study} combines the relative frequency of a query term $ q\in Q $ in the document $ D $ with the relative frequency of the term in the collection (\textit{C}) as a whole. With this approach, the maximum likelihood estimate is moved uniformly toward the collection model probability $ P(q|C) $:
+\begin{equation}
+P(q|M_{D}) = (1-\lambda)\frac{c(q,D)}{|D|}+\lambda P(q|C) 
+\label{eq:jmsmoothing}
+\end{equation} 
+$ c(q,D) $ represents the frequency of term $ q $ in document $ D $. The optimal value of $ \lambda $ depends on both the collection and the query. It is normally suggested as ($ \lambda = 0.1$) for title queries and ($ \lambda = 0.7$) for long queries.
+\\\\
+\textit{Dirichlet (Bayesian) smoothing (DirS).} As long documents allow us to estimate the language model more accurately, Dirichlet smoothing ~\citep{zhai2004study} smooths them less. If we use the multinomial distribution to represent a language model, the conjugate prior of this distribution is the Dirichlet distribution. This gives:
+\begin{equation}
+\label{eq:bayessmoothing}
+ P(q|M_{D}) = \frac{c(q,D) + \mu P(q|C)}{|D| + \mu}
+\end{equation} 
+
+The formula assign negative score to documents that contain the term, but with fewer occurrence than predicted by the collection language model. As $ \mu $ gets smaller, the contribution from the collection model also becomes smaller, and more emphasis is given to the relative term weighting. Precision is more sensitive to $ \mu $ for long queries, especially when $ \mu $ is small. When $ \mu $ is sufficiently large, long queries perform better than short queries. The optimal value of $ \mu $ varies from collection to collection, though in most cases, it is around 2000. The performance is more sensitive to smoothing for verbose queries. Long queries also require more aggressive smoothing to achieve optimal performance. 
