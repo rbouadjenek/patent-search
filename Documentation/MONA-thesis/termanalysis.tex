@@ -193,7 +193,7 @@ First, we hypothesize that we will improve the performance by pruning out highly
  DF(t)=\frac{1}{100}\sum_{d_i\in  D} TF(t, d_i)    
  \label{eq:df}
 \end{equation}
-where $D=\{d\in Top-100 retrieved documents\}$, and $TF(t, d_i)$ is the term frequency of each term in document $d_i$.
+where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d_i)$ is the term frequency of each term in document $d_i$.
 %\begin{displaymath}   t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -205,7 +205,32 @@ where $D=\{d\in Top-100 retrieved documents\}$, and $TF(t, d_i)$ is the term fre
 \label{fig:combinedapproach}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Figure~\ref{fig:combinedapproach} illustrates the effect of removing document frequent words for different thresholds $\gamma$.
+Figure~\ref{fig:combinedapproach} illustrates how removing document frequent words for different threshold $\gamma$ can hurt the performance (red line). Hence, we combine this feature with the second feature--- query frequent terms to remove document frequent terms while to keep query frequent terms:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{displaymath}( DF(t)>0.01 \; \wedge \; QTF(t)<=\alpha )\end{displaymath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+As Figure \ref{fig:combinedapproach} shows, keeping query frequent terms helps the performance jumping slightly over the baseline. We empirically found out that $\gamma=0.01$ perform the best when we keep query frequent terms. The results also show that the best value for $\alpha$ is 5.
+
+In the combined approach, we added the third feature--- IPC Title --- to also remove terms which are general in patents with the same IPC code: 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{displaymath} \left(  \left(DF(t)>0.01\; \wedge \; QTF(t)<=5\right)\; \vee\; Query.contains(IPC \; Title \; words) \right)\end{displaymath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The results in Figure~\ref{fig:combinedapproach} (magenta line) show that removing IPC Title words from the reference patent query harms the performance. We did not assign any threshold for this feature we just removed document frequent words ($DF(t)>0.01$) but we kept frequent words in the query ($QTF(t)>5$), then we removed words appeared in IPC Titles.   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
+\begin{centering}
+\subfigure[Query terms vs. Document Frequent terms.\label{fig:scatter_combined_a}]{\includegraphics[width=7cm]{figs/qterm_rf_df.eps}} \hspace*{0.1cm}
+ \subfigure[IPC Title words vs. Document Frequent terms.\label{fig:scatter_combined_b}]{\includegraphics[width=7cm]{figs/ipcdef-rf-df.eps}} \\[1ex]% 
+\subfigure[Remove document frequent terms while keeping query terms.\label{fig:scatter_combined_c}]{\includegraphics[width=7cm]{figs/df-rf-tauline.eps}}
+
+\par\end{centering}
+
+\protect\caption{Anecdotal example for combined approach}
+\label{fig:scatter_combined}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Figure~\ref{fig:scatter_combined_c} illustrates the combined approach. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. First, we remark a negative correlation between $\mathit{DF(t)}$ and $\mathit{RF(t)}$, however, it does not help because as it can be seen we remove many useful terms ($RF(t)>0$) by removing document frequent terms ($DF(t)>\gamma$). Red points in Figure~\ref{fig:scatter_combined_c} are query terms with term frequency higher than 5, where we got the best performance in combined approach. We can see that we would avoid removing useful terms by keeping query frequent terms. Figure~\ref{fig:scatter_combined_a} shows that the sample patent query is contaminated by noisy words and Figure~\ref{fig:scatter_combined_c} shows that although the most of IPC Title words are noisy words, removing only few words that are useful can degrade the performance.    
 \subsubsection{Pseudo Relevance Feedback}
 % TODO: Must be consistent in either pruning or removing terms --- results should ideally converge to the baseline at 0.
 % TODO: Should do simplest comparisons first and not combine pruning approaches.  Even better: evaluate methods mentioned in related work.
@@ -223,8 +248,19 @@ Figure~\ref{fig:combinedapproach} illustrates the effect of removing document fr
 %
 %\vspace*{0.5mm}
 %\noindent \textbf{(4)} Finally, we used words in IPC code title of each patent query to reduce the query, based on the assumption they are common to all patents, which belong to the same category and may be considered as stop-words. In our experiment, we removed the IPC title terms from a selection of frequent query terms ($QTF(t)>5$). We can see in Figure \ref{fig:queryreduc} that the results drop slightly compared to approach (2), where $\tau=5$.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TODO: What is an IPC title?  I don't know that this is... was it discussed?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
+   \centering
+   \includegraphics[width=0.50\textwidth,height=55mm]{figs/prf.eps}
+   \caption{Query reduction using PRF for various value of the threshold $\tau$.}   
+   \label{fig:oracularpq} 
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this experiment, we use PRF 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htpb]
 \begin{framed}
 \vspace*{-2ex}
   \centering
@@ -287,8 +323,8 @@ IPC title Terms:<@\textcolor{blue}{cosmet:3.77}@>, <@\textcolor{blue}{toilet:0.1
     was useful (blue/positive) or noisy (red/negative).}
   \label{fig:anecdotal}  
 \end{figure}
+%\FloatBarrier
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO: What is an IPC title?  I don't know that this is... was it discussed?
 
 Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invention related to ``emulsifier'' to help explain why these four approaches fail. It shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. In Figure \ref{fig:anecdotal} terms are chosen for each approach  as follows: $\{t| DF(t)/QTF(t)/PRF(t)>10\}$. IPC title terms are the words appearing in the IPC title and do not have any score.
 %\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}\end{displaymath}
