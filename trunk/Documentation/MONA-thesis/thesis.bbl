@@ -1,4 +1,4 @@
-\begin{thebibliography}{82}
+\begin{thebibliography}{84}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{}
@@ -497,6 +497,18 @@
 \newblock In \emph{CLEF (Online Working Notes/Labs/Workshop)}, vol. 1178 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
 \newblock \urlprefix\url{http://ceur-ws.org/Vol-1178}.
+
+\bibitem[{Porter(1980)}]{Porter1980}
+\textsc{Porter, M.~F.}, 1980.
+\newblock An algorithm for suffix stripping.
+\newblock In \emph{Program}, vol.~14, 130--137.
+
+\bibitem[{Robertson et~al.(1993)Robertson, Walker, Jones, Hancock-Beaulieu, and
+  Gatford}]{Robertson1993}
+\textsc{Robertson, S.~E.; Walker, S.; Jones, S.; Hancock-Beaulieu, M.; and
+  Gatford, M.}, 1993.
+\newblock {Okapi at TREC-2}.
+\newblock In \emph{TREC}, 21--34.
 
 \bibitem[{Roda et~al.(2010)Roda, Tait, Piroi, and Zenz}]{roda2010clef}
 \textsc{Roda, G.; Tait, J.; Piroi, F.; and Zenz, V.}, 2010.

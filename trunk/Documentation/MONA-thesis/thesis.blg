@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2014)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: anuthesis.bst
@@ -7,45 +7,46 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty journal in arampatzis2007access
 Warning--empty journal in magdy2010applying
 Warning--missing publisher in piroi2013passage
-You've used 82 entries,
+Warning--missing publisher in Porter1980
+You've used 84 entries,
             3096 wiz_defined-function locations,
-            980 strings with 19570 characters,
-and the built_in function-call counts, 56209 in all, are:
-= -- 4689
-> -- 2124
-< -- 39
-+ -- 783
-- -- 681
-* -- 3961
-:= -- 8005
-add.period$ -- 294
-call.type$ -- 82
-change.case$ -- 756
-chr.to.int$ -- 72
-cite$ -- 85
-duplicate$ -- 4278
-empty$ -- 4636
-format.name$ -- 963
-if$ -- 11777
+            994 strings with 19814 characters,
+and the built_in function-call counts, 57693 in all, are:
+= -- 4808
+> -- 2178
+< -- 41
++ -- 805
+- -- 699
+* -- 4057
+:= -- 8211
+add.period$ -- 300
+call.type$ -- 84
+change.case$ -- 776
+chr.to.int$ -- 74
+cite$ -- 88
+duplicate$ -- 4395
+empty$ -- 4758
+format.name$ -- 985
+if$ -- 12092
 int.to.chr$ -- 11
 int.to.str$ -- 1
-missing$ -- 814
-newline$ -- 420
-num.names$ -- 328
-pop$ -- 1898
+missing$ -- 837
+newline$ -- 430
+num.names$ -- 336
+pop$ -- 1951
 preamble$ -- 1
-purify$ -- 553
+purify$ -- 567
 quote$ -- 0
-skip$ -- 1825
+skip$ -- 1880
 stack$ -- 0
-substring$ -- 2689
-swap$ -- 2183
-text.length$ -- 3
+substring$ -- 2765
+swap$ -- 2244
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 729
-warning$ -- 3
-while$ -- 418
+type$ -- 747
+warning$ -- 4
+while$ -- 429
 width$ -- 0
-write$ -- 1108
-(There were 3 warnings)
+write$ -- 1135
+(There were 4 warnings)
