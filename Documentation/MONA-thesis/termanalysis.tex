@@ -43,7 +43,7 @@ Therefore, we conclude that reasons beyond low or zero term match are involved i
 %%%%%%%%%%%%%%%%%%%%%%%%% SECTION 2 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Oracular Relevance Feedback System}
-\label{sec: oraculrquery}
+\label{sec:oraculrquery}
 In this section, we develop an oracular relevance feedback system, which
 extracts terms from the judged relevant documents as a standard for our term analysis experiments.
 \subsection{Oracular Term Selection}
@@ -105,6 +105,7 @@ Second, we check the term overlap with \textit{useful words} and \textit{noisy w
 %We hypothesized that a query, formulated by only the \textit{ useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. 
 \newpage
 \subsection{Oracular Query Formulation}
+\label{sec:OracularQueryFormulation}
 In this section, we examine the system effectiveness for queries formulated using oracular Relevance Feedback ($\mathit{RF}$) system.
 
 First, we formulate a query by selecting terms in the top-100 retrieved documents using oracular Relevance Feedback score and we call it oracular query. 
@@ -255,10 +256,46 @@ Figure~\ref{fig:scatter_combined_c} illustrates the combined approach. Each blue
    \centering
    \includegraphics[width=0.50\textwidth,height=55mm]{figs/prf.eps}
    \caption{Query reduction using PRF for various value of the threshold $\tau$.}   
-   \label{fig:oracularpq} 
+   \label{fig:prf} 
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In this experiment, we use PRF 
+In this experiment, we use pseudo relevance feedback to select patent query terms, the same as what we did in oracular relevance feedback system (Section~\ref{sec:oraculrquery}). In pseudo relevance feedback, we assume that top 5 retrieved documents are relevant and the rest are irrelevant. We calculate pseudo relevance feedback score based on this assumption:  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+PRF(t,Q)=Rel(t)-Irr(t) 
+ \label{eq:score}
+\end{equation}
+\vspace*{-2ex}
+\begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+Then we just select the terms in patent query which have the pseudo relevance feedback score higher than threshold $\tau$ ($PRF(t)>\tau$) to formulate a reduced query. Figure~\ref{fig:prf} shows slight improvement over the baseline. However, the improvement is negligible compared to the oracular term selection system.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
+\begin{centering}
+\subfigure[$\tau=0$\label{fig:rf_prf_a}]{\includegraphics[width=7cm]{figs/scoretscorethat-tau0.eps}} \hspace*{0.1cm}
+ \subfigure[$\tau=1$\label{fig:rf_prf_b}]{\includegraphics[width=7cm]{figs/scoretscorethat-tau1.eps}} \\[-1ex]% 
+\subfigure[$\tau=10$\label{fig:rf_prf_c}]{\includegraphics[width=7cm]{figs/scoretscorethat-tau10.eps}}
+
+\par\end{centering}
+
+\protect\caption{Comparing RF score of top relevance feedback terms and pseudo relevance feedback terms}
+\label{fig:rf_prf}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In the following experiment, we seek for a pattern between top relevance feedback terms and top pseudo relevance feedback terms. We calculate the average RF score of both RF terms and PRF terms for each query as follows:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+Avg_{RF}(t, Q) = \frac{1}{|t|}\sum {RF}(t, Q), \;\;\;\; t\in \{t | RF(t, Q)>\tau\}
+\end{equation}
+%\begin{displaymath}t\in \{t | RF(t)>\tau\}\end{displaymath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+Avg_{RF}(\hat{t}, Q) = \frac{1}{|\hat{t}|}\sum {RF}(\hat{t}, Q), \;\;\;\; \hat{t}\in \{\hat{t} | PRF(\hat{t}, Q)>\tau\} 
+\end{equation}
+%\begin{displaymath}\hat{t}\in \{\hat{t} | PRF(\hat{t})>\tau\}\end{displaymath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Figure~\ref{fig:rf_prf} justifies why pseudo relevance feedback is not as effective as relevance feedback. As it can be seen top pseudo relevance feedback terms consider noisy words based on their RF scores. Since there is no heuristics that correlates with relevance feedback and pseudo relevance feedback, we can not approximate the oracular query via pseudo relevance feedback.   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[htpb]
 \begin{framed}
@@ -326,13 +363,56 @@ IPC title Terms:<@\textcolor{blue}{cosmet:3.77}@>, <@\textcolor{blue}{toilet:0.1
 %\FloatBarrier
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invention related to ``emulsifier'' to help explain why these four approaches fail. It shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. In Figure \ref{fig:anecdotal} terms are chosen for each approach  as follows: $\{t| DF(t)/QTF(t)/PRF(t)>10\}$. IPC title terms are the words appearing in the IPC title and do not have any score.
-%\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}\end{displaymath}
-It can be seen that the four methods fail clearly to discriminate between useful and noisy terms. As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by DF pruning in (1), which hurts query quality.  As another example, retaining IPC code title terms yields more noisy terms than useful terms (19 out of 32, and few of them with a very negative score like ``amylos'' or ``saccharid''). Overall, while some methods like PRF work better than others for query reduction, all methods may retain highly negative terms and results from Section~\ref{sec: oraculrquery} showed that the inclusion of even slightly negative terms can significantly hurt performance.
+We justify the reason that four mentioned query reduction approaches could not compete with our oracular query via following anecdotal example. 
+Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invention related to ``emulsifier'' to help explain why these four approaches fail. It shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. In Figure \ref{fig:anecdotal} terms are chosen for each approach  as follows: 
+\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}\end{displaymath}
+%$\{t| DF(t)/QTF(t)/PRF(t)>10\}$.
+IPC title terms are the words appearing in the IPC title and do not have any score.
+
+It can be seen that the four methods fail clearly to discriminate between useful and noisy terms. As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by DF pruning in (1), which hurts query quality.  As another example, retaining IPC code title terms yields more noisy terms than useful terms (19 out of 32, and few of them with a very negative score like ``amylos'' or ``saccharid''). Overall, while some methods like PRF work better than others for query reduction, all methods may retain highly negative terms and results from Section~\ref{sec:OracularQueryFormulation} showed that the inclusion of even slightly negative terms can significantly hurt performance.
 \subsection{Semi-automated Interactive Reduction}
+\label{sec:SemiAutomatedInteractiveReduction}
 
+Our sample analysis of specific queries and terms selected via our oracular
+approach suggests that automated methods fall far short of optimal term selection.
+This leads us to explore another approach of approximating the oracular query
+derived from relevance judgements by using a subset of relevance judgements
+through interactive methods.  Specifically, to minimize the need for user interaction,
+in this section we analyse the performance of an oracular query derived from
+only the first relevant document identified in the search results.
+%\begin{comment}
+%All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. 
+%\end{comment}
+Using this approach, Table \ref{tab:firstrel} shows that we can double the MAP in comparison to our baseline and also outperform the PATATRAS system.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[t!]
+  \begin{center}
+   \caption{System performance using minimal relevance feedback. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
+  \input table/partialRFtermselect1.tex   
+  \label{tab:firstrel}
+  \end{center}  
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Furthermore, to establish the minimal interaction required by this
+approach, Figure \ref{fig:FirstTPRankHisto} indicates that the
+baseline methods return a relevant patent approximately 80\% of the
+time in the first 10 results and 90\% of the time in the first 20
+results.  Hence, such an interactive approach requires relatively low
+user effort while achieving state-of-the-art performance.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\begin{centering}
+\includegraphics[width=6.5cm, height=3.5cm]{figs/1stRank}
+\par\end{centering}
+
+\protect\caption{The distribution of the first relevant document rank over test queries.}
+\label{fig:FirstTPRankHisto}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Section-based Analysis}
-
+\textcolor{red}{Mona: I have some results for this section if it suits in this chapter!}
 \section{Summary}
-Same as the last chapter, summary what you discussed in this chapter and
-be the bridge to next chapter.
+\textcolor{red}{Mona: I will complete this section in final revision!}
