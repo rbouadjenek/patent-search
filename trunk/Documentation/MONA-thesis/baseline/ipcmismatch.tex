@@ -38,33 +38,33 @@ This is the filter we are using for our system.
 %For the false negative patents (complete patents in English), 
 The results show that about 19\% of not retrieved relevant patents do not share any IPC code with the patent query, but the majority of them have query main IPC code, and about 21\% share, at least, one of the query further IPC codes (Fig. \ref{fig:fnipcoverlap}). 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[t!]
-   \centering
-   \includegraphics[width=0.60\textwidth,height=69mm]{figs/ipcOverlap-FNs.png}
-   \caption{Classification code overlap between the query and non-relevant retrieved patents (False Negative (FN) patents).}   
-   \label{fig:fnipcoverlap} 
-\end{figure}
+%\begin{figure}[t!]
+%   \centering
+%   \includegraphics[width=0.60\textwidth,height=69mm]{figs/ipcOverlap-FNs.png}
+%   \caption{Classification code overlap between the query and non-relevant retrieved patents (False Negative (FN) patents).}   
+%   \label{fig:fnipcoverlap} 
+%\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{figure}[t!]
-%\begin{centering}
-%\subfigure[Cut-off rank(k) = 100\label{fig:datacuration_a}]{\includegraphics[width=6.5cm]{figs/ipcOverlap-FNs.png}}  
-%\subfigure[Cut-off rank(k) = 1000\label{fig:datacuration_b}]{\includegraphics[width=6.5cm]{figs/ipcOverlap-TPs.png}} 
-%\par\end{centering} 
-%\protect\caption{Average percentage of errors due to missing `Description', non-English original language. Overall, 37\% of errors are because of data curation while 63\% of English complete patent documents can not be retrieved. Increasing k from 100 to 1000 reduces the errors of red area, but 42\% is still notable.}
-%\label{fig:datacuration}
-%\end{figure}
+\begin{figure}[t!]
+\begin{centering}
+\subfigure[non-relevant retrieved patents (False Negative (FN) patents)\label{fig:datacuration_a}]{\includegraphics[width=6.5cm]{figs/ipcOverlap-FNs.png}} \hspace*{0.5cm}  \subfigure[relevant retrieved patents (True Positive (TP) patents)\label{fig:datacuration_b}]{\includegraphics[width=6.5cm]{figs/ipcOverlap-TPs.png}} 
+
+\par\end{centering} 
+\protect\caption{Classification code overlap between the query and non-relevant retrieved patents (False Negative (FN) patents).}
+\label{fig:ipcoverlap}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 On the other hand, as it has been shown in Figure \ref{fig:tpipcoverlap} all TP patents have 80\% overlap with the main query IPC code and 20\% with, at least, one of the query further IPC codes. 
 %So, we can conclude that 19\% of errors can be due to IPC filtering if we assume that they have enough term overlap with the query.  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[t!]
-   \centering
-   \includegraphics[width=0.55\textwidth,height=60mm]{figs/ipcOverlap-TPs.png}
-   \caption{Classification code overlap between the query and relevant retrieved patents (True Positive (TP) patents).}   
-   \label{fig:tpipcoverlap} 
-\end{figure}
+%\begin{figure}[t!]
+%   \centering
+%   \includegraphics[width=0.55\textwidth,height=60mm]{figs/ipcOverlap-TPs.png}
+%   \caption{Classification code overlap between the query and relevant retrieved patents (True Positive (TP) patents).}   
+%   \label{fig:tpipcoverlap} 
+%\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Using 4-digit IPC code filter causes 19\% of the errors, however, we still keep the filter on in our experiments, because of two main reasons: 
 \begin{enumerate}
