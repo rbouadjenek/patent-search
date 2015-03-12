@@ -1,0 +1,19 @@
+
+In previous sections, we showed that some relevant patents in the `qrel' file are not retrieved because their original language is not English, they have missing description, or they do not contain query IPC codes. 
+Since our system has not designed for multilingual search and also we decided to use the IPC filter for the computational reason, we exclude patents which are the source of these kinds of errors from the `qrel' file. It helps us to concentrate on the error sources that are specific to the nature of patents or prior art search.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[htpb]
+  \begin{center}
+   \caption{Comparing the system performance,
+   first column: with patent query and the original `qrel' file, 
+   second column: with patent query and the filtered `qrel' file.}
+  \input table/newevaluate.tex   
+  \label{tab:neweval}
+  \end{center}  
+\end{table}
+\FloatBarrier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+After removing FN patents due to mentioned errors, 22 queries had no relevant complete English patent, which has at least one of the query IPC code. 
+Table (\ref{tab:neweval}) indicates the performance of the system after filtering out data curation errors. We can see that the poor performance of the baseline system is not mainly because of data curation and IPC filter. In the rest of this thesis, we prune out errors related to data curation and IPC filter for the accuracy of our term analysis results in the next chapter. In essence, we are seeking for the patterns for the errors beyond data curation and IPC filter and concentrate on understanding what is really wrong with patent documents and prior art search. 
+
+%By this way, we will be able to analyse errors related to the nature of patent documents in general, not just related to our system design or specific data collection, which makes our analysis more precise for query and documents terms and related weighting. Table (\ref{tab:neweval}) shows the system performance for complete English patents with at least one of the query IPC codes. As it can be seen, the system performance is still low.
