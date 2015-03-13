@@ -1,4 +1,4 @@
-\begin{thebibliography}{84}
+\begin{thebibliography}{79}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{}
@@ -6,12 +6,6 @@
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
-
-\bibitem[{Arampatzis et~al.(2007)Arampatzis, Kamps, Koolen, and
-  Nussbaum}]{arampatzis2007access}
-\textsc{Arampatzis, A.; Kamps, J.; Koolen, M.; and Nussbaum, N.}, 2007.
-\newblock Access to legal documents: Exact match, best match, and combinations.
-\newblock  (2007).
 
 \bibitem[{Azzopardi and Vinay(2008)}]{azzopardi2008retrievability}
 \textsc{Azzopardi, L. and Vinay, V.}, 2008.
@@ -127,25 +121,11 @@
   retrieval task.
 \newblock In \emph{Proceedings of NTCIR-6 Workshop Meeting}, 377--380.
 
-\bibitem[{Fujii et~al.(2004)Fujii, Iwayama, and Kando}]{fujii2004overview}
-\textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2004.
-\newblock Overview of patent retrieval task at ntcir-4.
-\newblock In \emph{Proceedings of the Fourth NTCIR Workshop on Research in
-  Information Access Technologies Information Retrieval, Question Answering and
-  Summarization}, 232--241.
-
-\bibitem[{Fujii et~al.(2007{\natexlab{a}})Fujii, Iwayama, and
-  Kando}]{fujii2007introduction}
-\textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2007{\natexlab{a}}.
+\bibitem[{Fujii et~al.(2007)Fujii, Iwayama, and Kando}]{fujii2007introduction}
+\textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2007.
 \newblock Introduction to the special issue on patent processing.
 \newblock \emph{Information Processing \& Management}, 43, 5  (2007),
   1149--1153.
-
-\bibitem[{Fujii et~al.(2007{\natexlab{b}})Fujii, Iwayama, and
-  Kando}]{fujii2007overview}
-\textsc{Fujii, A.; Iwayama, M.; and Kando, N.}, 2007{\natexlab{b}}.
-\newblock Overview of the patent retrieval task at the ntcir-6 workshop.
-\newblock In \emph{Proceedings of the Sixth NTCIR Workshop Meeting}, 359--365.
 
 \bibitem[{Fujita(2005)}]{fujita2005revisiting}
 \textsc{Fujita, S.}, 2005.
@@ -238,13 +218,6 @@
 \newblock In \emph{Proceedings of the ACL-2003 workshop on Patent corpus
   processing-Volume 20}, 41--45. Association for Computational Linguistics.
 
-\bibitem[{Iwayama et~al.(2003)Iwayama, Fujii, Kando, and
-  Takano}]{iwayama2003overview}
-\textsc{Iwayama, M.; Fujii, A.; Kando, N.; and Takano, A.}, 2003.
-\newblock Overview of patent retrieval task at ntcir-3.
-\newblock In \emph{Proceedings of the ACL-2003 workshop on Patent corpus
-  processing-Volume 20}, 24--32. Association for Computational Linguistics.
-
 \bibitem[{Jochim et~al.(2011)Jochim, Lioma, and
   Sch{\"u}tze}]{jochim2011expanding}
 \textsc{Jochim, C.; Lioma, C.; and Sch{\"u}tze, H.}, 2011.
@@ -313,13 +286,6 @@
 \newblock In \emph{Proceedings of the 31st annual international ACM SIGIR
   conference on Research and development in information retrieval}, 235--242.
   ACM.
-
-\bibitem[{Leong(2001)}]{leong2001patent}
-\textsc{Leong, M.}, 2001.
-\newblock Patent data for ir research and evaluation.
-\newblock In \emph{Proceedings of the 2nd NTCIR Workshop Meeting on Evaluation
-  of Information Access Technologies: Information Retrieval, Question Answering
-  and Cross-lingual Information Access, Tokyo, Japan}, 359--365.
 
 \bibitem[{Lopez and Romary(2009)}]{lopez2009multiple}
 \textsc{Lopez, P. and Romary, L.}, 2009.
@@ -417,6 +383,12 @@
 \newblock Learning-based pseudo-relevance feedback for patent retrieval.
 \newblock In \emph{Multidisciplinary Information Retrieval}, 1--11. Springer.
 
+\bibitem[{Mahdabi and Crestani(2014)}]{mahdabi2014patent}
+\textsc{Mahdabi, P. and Crestani, F.}, 2014.
+\newblock Patent query formulation by synthesizing multiple sources of
+  relevance evidence.
+\newblock \emph{ACM Transactions on Information Systems},  (2014).
+
 \bibitem[{Mahdabi et~al.(2013)Mahdabi, Gerani, Huang, and
   Crestani}]{mahdabi2013leveraging}
 \textsc{Mahdabi, P.; Gerani, S.; Huang, J.~X.; and Crestani, F.}, 2013.
@@ -474,19 +446,12 @@
 \newblock Using bm25f and kld for patent retrieval.
 \newblock In \emph{CLEF-2010 (Notebook Papers/LABs/Workshops)}.
 
-\bibitem[{Piroi et~al.(2013{\natexlab{a}})Piroi, Lupu, and
-  Hanbury}]{piroi2013overview}
-\textsc{Piroi, F.; Lupu, M.; and Hanbury, A.}, 2013{\natexlab{a}}.
-\newblock Overview of clef-ip 2013 lab.
-\newblock In \emph{Information Access Evaluation. Multilinguality,
-  Multimodality, and Visualization}, 232--249. Springer.
-
-\bibitem[{Piroi et~al.(2013{\natexlab{b}})Piroi, Lupu, and
-  Hanbury}]{piroi2013passage}
-\textsc{Piroi, F.; Lupu, M.; and Hanbury, A.}, 2013{\natexlab{b}}.
-\newblock Passage retrieval starting from patent claims. a clef-ip 2013 task
-  overview.
-\newblock In \emph{CLEF (Online Working Notes/Labs/Workshop)}.
+\bibitem[{Piroi(2010)}]{Piroi2010}
+\textsc{Piroi, F.}, 2010.
+\newblock {CLEF-IP} 2010: Retrieval experiments in the intellectual property
+  domain.
+\newblock In \emph{{CLEF} 2010 LABs and Workshops, Notebook Papers, 22-23
+  September 2010, Padua, Italy}.
 
 \bibitem[{Piroi et~al.(2012)Piroi, Lupu, Hanbury, Sexton, Magdy, and
   Filippov}]{DBLP:conf/clef/PiroiLHSMF12}

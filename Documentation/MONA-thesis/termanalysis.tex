@@ -227,7 +227,7 @@ The results in Figure~\ref{fig:combinedapproach} (magenta line) show that removi
 
 \par\end{centering}
 
-\protect\caption{Anecdotal example for combined approach}
+\protect\caption{Anecdotal example for combined approach. \textcolor{red}{Mona: I will renew all the figures when they confirmed to be in my thesis and make their tests more visible!}}
 \label{fig:scatter_combined}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -413,7 +413,21 @@ user effort while achieving state-of-the-art performance.
 \label{fig:FirstTPRankHisto}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% SECTION 4 %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Section-based Analysis}
-\textcolor{red}{Mona: I have some results for this section if it suits in this chapter!}
-\section{Summary}
-\textcolor{red}{Mona: I will complete this section in final revision!}
+\textcolor{red}{Mona: I am not sure if this suits in this chapter, no idea where I can put them!}\\
+Patents are structured documents containing Title, Abstract, Description, and Claims. In these series of experiments, we concentrate on sections to find out average number of useful terms in each section of the patent query. We also show which section is more useful in both Relevance Feedback and Pseudo Relevance Feedback.
+%\subsubsection{Useful Terms in Different Sections}
+\begin{table*}[t!]
+  \begin{center}
+   \caption{Average number of useful terms in the different sections of the patent query}
+  \input table/usefultermsinsections.tex   
+  \label{tab:usefultermsinsections}
+  \end{center}  
+\end{table*}
+\FloatBarrier
+Table (\ref{tab:usefultermsinsections}) shows the average number of useful terms \textcolor{red}{Mona: I will change the table content to the percentage of useful terms in different sections!} in different sections of the patent query which can help us to identify the best section to create the query.
+As it can be seen, `Description' has the highest number of useful terms in both cases where RF score threshold ($ \tau $) is `0' and `1'. When $ \tau = 0 $, the average number of the useful terms in the `Description' is quite twice of where $ \tau = 1 $. 
+%\section{Summary}
+
