@@ -21,7 +21,7 @@ Precision (P)=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(retrieved \: 
 \[
 Recall (R)=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(relevant \: items)}=\frac{tp}{tp+fn}=P(retrieved|relevant)
 \]
-For many prominent applications, particularly web search, good results on the first page or the first three pages are important than all relevant documents. So, they wish to look at precisions and recalls over a series of different rank cut-offs rather than to look at the entire retrieved set. This is referred to as “Precision/Recall at k”, for example “Precision/Recall at 10”. 
+For many prominent applications, particularly web search, good results on the first page or the first three pages are important than all relevant documents. So, they wish to look at precisions and recalls over a series of different rank cut-offs rather than to look at the entire retrieved set. This is referred to as ``Precision/Recall at k'', for example ``Precision/Recall at 10''. 
 \begin{equation}
 precision@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: rank \: k)}{k}
 \end{equation}
@@ -30,7 +30,7 @@ recall@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: r
 \end{equation}
 \paragraph{Average Precision and Mean Average Precision (MAP) }
 \ \\
-We can measure 'MAP' by calculating Average Precision on retrieval results. Average Precision is the average of precision at each point where a relevant document is found is computed as:
+We can measure MAP by calculating Average Precision on retrieval results. Average Precision is the average of precision at each point where a relevant document is found is computed as:
 \begin{equation}
 Avg. \: precision=\frac{\sum_{r=1}^{N}(P(r)\times rel(r))}{n}
 \end{equation}
