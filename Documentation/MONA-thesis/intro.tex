@@ -32,7 +32,7 @@
 %\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textcolor{red}{Mona: I am working on the introduction section, suggestions welcome!}
+%\textcolor{red}{Mona: I am working on the introduction section, suggestions welcome!}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[htpb]
    \centering
@@ -63,18 +63,19 @@ approximately 100 patent documents retrieved by 15 different queries in average~
 In addition, in contrast to scientific and technical writers, patent writers
 tend to generalize and maximize the scope of what is protected by a
 patent and potentially discourage further innovation by third parties,
-which further complicates the task of formulating queries.
+which further complicates the task of formulating queries. 
 
 Another important characteristic of patent prior art
 search is being a recall-oriented task, where the primary focus is to
 retrieve all relevant documents at early ranks, in contrast to text
 and web search that are precision-oriented, where the primary goal is
 to retrieve a subset of documents that best satisfy the query
-intent. 
+intent. For example, according to~\citep{zhang2010search}, 44.5\% of web search users examine only one retrieved document.
 
 To assist users in formulating an effective query, we study 
 the query term selection techniques and the sufficiency of 
-terms in the reference patent queries resulting in an improved retrieval performance.  
+terms in the reference patent queries resulting in an improved 
+retrieval performance.   
 
 \section{Thesis Statement}
 \label{sec:thesisstatement}
@@ -110,7 +111,20 @@ art search.
 
 \section{Contributions}
 \label{sec:Contributions}
-
+This thesis proposes exact optimal solutions to H-MDP and H-POMDP, working
+around some of the limitations of previous approaches. The main contributions of
+this work are summarized below:
+\begin{itemize}
+\item We developed an oracular relevance feedback system which extracts terms from the judged relevant documents that: 
+\begin{itemize}
+\item far outperformed the the baseline and around twice as well on MAP as the best competitor in CLEF-IP 2010.
+\item proves the sufficiency of the terms in the reference patent query.
+\item indicates the disruptive effect of negative terms on prior art retrieval effectiveness.
+\item suggests the necessity of precise query reduction techniques.
+\end{itemize}
+\item We analyzed the reasons that common query reduction methods does not work for prior art search.
+\item We showed that a simple minimal interactive relevance feedback approach can perform as well as a highly engineered patent specific search system for CLEF-IP 2010.
+\end{itemize}
 \section{Thesis Outline}
 \label{sec:outline}
 This thesis is organized as follows: Chapter ~\ref{cha:background} reviews previous work from a number

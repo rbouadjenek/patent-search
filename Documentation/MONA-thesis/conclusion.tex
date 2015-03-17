@@ -1,13 +1,37 @@
 \chapter{Conclusions}
 \label{cha:conc}
-\textcolor{red}{Mona: I will compose this chapter after we confirmed about all chapters!}\\
+%\textcolor{red}{Mona: I will compose this chapter after we confirmed about all chapters!}\\
 %Summary your thesis and discuss what you are going to do in the future in Section~\ref{sec:future}.
 
 \section{Overview}
 \label{sec:overview}
-
-\section{Summary}
-\label{sec:summary}
+In this thesis, we investigated the reasons that patent prior art searches 
+are less effective than the other web searches on CLEF-IP 2010 data collection. 
+We started with recognizing errors due to data curation and baseline settings that 
+make small portions of the whole retrieval errors. The main portion of the errors are 
+due to term matching process in retrieval ranking functions. 
+Hence, we looked at the patent prior art search from
+a term selection perspective. While previous works proposed
+different solutions to improve retrieval effectiveness, we 
+focused on term analysis of the patent query and top-100 retrieved patents. 
+After defining an oracular query based on
+relevance judgements, we established both the sufficiency
+of the standard LM retrieval scoring models and query reduction 
+methods to achieve state-of-the-art patent prior art
+search performance. After finding that automated methods 
+for query reduction approaches fail to offer significant
+performance improvements, we showed that we can double
+the MAP with minimum user interaction by approximating
+the oracular query through a relevance feedback approach
+with a single relevant document. Given that such simple 
+interactive methods for query reduction with a standard LM
+retrieval model outperform highly engineered patent-specific
+search systems from CLEF-IP 2010, we concluded that interactive 
+methods offer a promising avenue for simple but
+highly effective term selection in patent prior art search.
+ 
+%\section{Summary}
+%\label{sec:summary}
 
 \section{Contributions}
 \label{sec:contributions}
