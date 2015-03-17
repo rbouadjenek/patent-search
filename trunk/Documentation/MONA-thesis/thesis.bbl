@@ -1,4 +1,4 @@
-\begin{thebibliography}{79}
+\begin{thebibliography}{80}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{}
@@ -527,5 +527,12 @@
   information retrieval.
 \newblock \emph{ACM Transactions on Information Systems (TOIS)}, 22, 2  (2004),
   179--214.
+
+\bibitem[{Zhang and Kamps(2010)}]{zhang2010search}
+\textsc{Zhang, J. and Kamps, J.}, 2010.
+\newblock Search log analysis of user stereotypes, information seeking
+  behavior, and contextual evaluation.
+\newblock In \emph{Proceedings of the third symposium on Information
+  interaction in context}, 245--254. ACM.
 
 \end{thebibliography}
