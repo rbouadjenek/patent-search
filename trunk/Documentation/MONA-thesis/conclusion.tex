@@ -38,15 +38,15 @@ highly effective term selection in patent prior art search.
 \label{sec:contributions}
 We briefly summarize the major contributions of our work as follows:
 \begin{enumerate}
-\item \textbf{Oracular term selection system: }We built an oracular term selection system from known relevance judgments to formulate an oracular query that far outperformed the baseline and the best-performed competitor on CLEF-IP 2010 which made the following points clear for us:
+\item \textbf{Development of oracular term selection system: }We built an oracular term selection system from known relevance judgments to formulate an oracular query that far outperformed the baseline and the best-performed competitor on CLEF-IP 2010 which made the following points clear for us:
 \begin{enumerate}
 \item We calculated an oracular score to recognize the positive terms and the negative terms;
 \item We observed the disruptive effect of including negative terms in queries;
 \item We noticed the sufficiency of terms in the reference patent query; and 
 \item We concluded that query reduction and precise query term selection methods suffice for an effective prior art patent retrieval.
 \end{enumerate}
-\item \textbf{Automated query reduction: } We examined four simple query reduction methods to select the positive terms and prone out the negative terms. We illustrated that these approaches are inefficient because they can not discriminate between useful and noisy words. Since our system is over-sensitive to the existence of noisy words, we could not achieve high performance via these simple methods. 
-\item \textbf{Proposing a semi-interactive method for query term selection: }We showed that a simple minimal interactive relevance feedback approach where terms are selected by only the first retrieved relevant document performs as well as a highly engineered patent-specific system on CLEF-IP 2010. 
+\item \textbf{Analysis automated query reduction techniques for patent prior art search: } We examined four simple query reduction methods to select the positive terms and prone out the negative terms. We illustrated that these approaches are inefficient because they can not discriminate between useful and noisy words. Since our system is over-sensitive to the existence of noisy words, we could not achieve high performance via these simple methods. 
+\item \textbf{Proposal of a semi-interactive method for query term selection: }We showed that a simple minimal interactive relevance feedback approach where terms are selected by only the first retrieved relevant document performs as well as a highly engineered patent-specific system on CLEF-IP 2010. 
 \end{enumerate}
 
 \section{Future Work}
