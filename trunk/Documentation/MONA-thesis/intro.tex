@@ -70,7 +70,14 @@ search is being a recall-oriented task, where the primary focus is to
 retrieve all relevant documents at early ranks, in contrast to text
 and web search that are precision-oriented, where the primary goal is
 to retrieve a subset of documents that best satisfy the query
-intent. For example, according to~\citep{zhang2010search}, 44.5\% of web search users examine only one retrieved document.
+intent (according to~\citep{zhang2010search}, 44.5\% of web search users examine only one retrieved document). 
+In prior art search missing relevant documents is unacceptable because of the highly commercial nature of patents coupled with the high costs involved
+in creating a patent and infringing patented material~\citep{joho2010survey}. The main users of patent prior art search are 
+\textit{patent analysts}, who are employed to determine the patentability of applications, and \textit{investors}, who want to determine whether their ideas are novel.
+
+
+Therefore, patent searchers have to perform an exhaustive and comprehensive
+search.
 
 To assist users in formulating an effective query, we study 
 the query term selection techniques and the sufficiency of 
@@ -111,23 +118,18 @@ art search.
 
 \section{Contributions}
 \label{sec:Contributions}
-This thesis proposes exact optimal solutions to H-MDP and H-POMDP, working
-around some of the limitations of previous approaches. The main contributions of
-this work are summarized below:
+This thesis proposes term selection techniques for patent prior art search.
+%exact optimal solutions to H-MDP and H-POMDP, working
+%around some of the limitations of previous approaches. 
+The main contributions of this work are summarized as follows:
 \begin{itemize}
-\item We developed an oracular relevance feedback system which extracts terms from the judged relevant documents that: 
-\begin{itemize}
-\item far outperformed the the baseline and around twice as well on MAP as the best competitor in CLEF-IP 2010.
-\item proves the sufficiency of the terms in the reference patent query.
-\item indicates the disruptive effect of negative terms on prior art retrieval effectiveness.
-\item suggests the necessity of precise query reduction techniques.
-\end{itemize}
-\item We analyzed the reasons that common query reduction methods does not work for prior art search.
+\item We developed an oracular relevance feedback system which extracts terms from the judged relevant documents that far outperformed the the baseline and around twice as well on MAP as the best competitor in CLEF-IP 2010. Experiments related to oracular system suggests the necessity of precise query reduction and term selection techniques to improve the effectiveness for patent prior art search.
+\item We examined four simple query reduction methods to select useful terms and prune out the noisy terms. We illustrated that these approaches are inefficient because they can not discriminate between useful and noisy words. Since our system is over-sensitive to the existence of noisy words, we could not achieve high performance via these simple methods.
 \item We showed that a simple minimal interactive relevance feedback approach can perform as well as a highly engineered patent specific search system for CLEF-IP 2010.
 \end{itemize}
 \section{Thesis Outline}
 \label{sec:outline}
-This thesis is organized as follows: Chapter ~\ref{cha:background} reviews previous work from a number
+The rest of the thesis is organized as follows: Chapter ~\ref{cha:background} reviews previous work from a number
 of related research areas, and Chapter~\ref{cha:BaselineIRFramework} describes baseline and experimental Settings, 
 test collections (i.e., queries and relevance judgments),
 etc. In Chapter~\ref{cha:BaselineIRFramework}, we also describe data curation and IPC filter errors.
