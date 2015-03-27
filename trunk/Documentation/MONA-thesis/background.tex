@@ -1,8 +1,93 @@
 \chapter{Background and Related Work}
 \label{cha:background}
-In this chapter, we first cover general IR methods, then we cover patent-specific IR methods.
-\section{General Information Retrieval (IR)}
-In general, an information retrieval system assists users in finding the information they need, Fig. \ref{fig:generalir} illustrates the general IR process. First, a repository of indexed documents is created from a collection of documents to be searched for. Users formulate the information they need as a query. In the matching process, the query and documents representations are compared and the result would be a ranked list of documents.  
+In this chapter, first, we briefly explain the structure of patents, then we cover both general IR methods and patent-specific IR methods.
+\section{Structure of Patents}
+\label{StructureofPatents}
+A patent is a structured document, which consists of several sections, such as title, abstract,
+description, citations, inventors, and etc. The text of a patent document is saved
+%electronically in the patent office 
+as an XML file with specific fields corresponding to each
+section or subsection in the patent document and some additional meta-data about the patent
+document itself. However, users usually get access to a structured document --- not an
+XML document~\citep{magdy2012toward}.
+
+A patent consist of three main sections: Title, Abstract, Description, and Claims.
+\paragraph{Title}
+\ \\ 
+The title of the patent appears in three languages --- this is a feature in European patent office\footnote{\texttt{http://www.epo.org/}} (EPO)
+patents, where the title is stated in English, French, and German. 
+\paragraph{Abstract}
+\ \\ 
+Abstract is a short paragraph that contains
+a summary of the invention. This section is not always present in EPO patents since it is an
+optional section.
+\paragraph{Description}
+\ \\ 
+This section of the patent document represents the core of the invention, since it contains all the
+technical details of the invention. It consists of a set of paragraphs that describe all the aspects of
+the invention in detail. The description
+section can contain tables, experimentation on the performance of the invention, and description 
+of figures relating to the invention. The first paragraph of the description section usually contains
+information about the topical field of the invention. The references to other patent
+documents are very important information within the description text. 
+These references are part of the citations that a patent
+examiner would be interested to examine in order to measure the contribution of the invention
+against prior art. 
+\paragraph{Claims}
+\ \\ 
+The claims section of the patent document lists what aspects of the invention that the patent is
+going to protect. A successful patent does not have to have all its claims accepted, but at least one
+of them must be. The examination can lead to dropping some of the claims by showing that they
+are not novel. This usually happens because patent applicants try to generalize their invention as
+much as possible, which can lead to the novelty of some of the very general claims being found to
+be invalid.
+The claims section in EPO patents contains the list of claims in three languages (English,
+French, and German). However, this is not the situation for the initial patent application, where
+the claims are submitted in one language only, which is the language of the document. The
+claims translations are only provided for the granted patent.
+
+Nonetheless, patents contain
+additional material, such as: tables, mathematical and chemical formulas, citations,
+technical drawing, meta-data, e.g., applicant, inventor, Intentional Patent Classification 
+(IPC) codes, and publication date, that can be used to improve the retrieval effectiveness.
+IPC codes and citations has been widely applied in patent retrieval. 
+\paragraph{International Patent Classification Code}
+\ \\ 
+In 1971, the Strasbourg Agreement established the International Patent Classification (IPC) under the World Intellectual Property Organization (WIPO), which divides technology into eight discrete Sections. The goal of this
+Agreement was to overcome the difficulties caused by using diverse national patent classification systems.~\citep{harris2010comparison}
+
+A patent is assigned to one or more of the 71,000 IPC codes that 
+indicate the related technical field or fields the patent covers. 
+These codes are arranged in a hierarchical, tree-like structure with 
+five distinct components. Figure~\ref{fig:ipcexample} illustrates the components of an IPC classification.
+
+The highest hierarchical level contains the eight sections of the IPC corresponding
+to very broad technical fields, labeled A through H. For example, Section C deals
+with``Chemistry and Metallurgy''. Sections are subdivided into classes. The eighth edition of the IPC contains 120
+classes. Class C07, for example, deals with ``Organic Chemistry''. Classes are further subdivided into more than 600 subclasses. Subclass C07C, for example, deals with ``Acyclic or Carbocyclic Compounds''. Subclasses are then further divided into main groups and subgroups. Main group symbols end with ``/00''. Ten percent of all IPC groups are main
+groups. For example, main group C07C 35/00 deals with ``Compounds having at
+least one hydroxy or O-metal group bound to a carbon atom of a ring other than
+a six-membered aromatic ring''. In some versions of the IPC, a series of numbers will follow the subgroup, reflecting
+the enactment date of the IPC version. `20060101' following the Subgroup
+indicates a date of January 1, 2006, which is the date that the eighth version of
+the IPC took effect. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
+   \centering
+   \includegraphics[width=0.60\textwidth,height=30mm]{figs/IPCexample.jpg}
+   \caption{An example illustrating the main components of an International Patent Classification code.}   
+   \label{fig:ipcexample} 
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Citations}
+\ \\ 
+This section of the patent document contains the list of older patents that are related to the
+invention by describing the relevant parts of the prior-art of the invention, or these citations can
+be for patents that have been located by the patent examiners and were found to invalidate parts 
+of the invention in the initially submitted patent application, where the final version of the patent
+get these parts modified or removed.
+\section{General Information Retrieval}
+In general, an information retrieval (IR) system assists users in finding the information they need, Figure~\ref{fig:generalir} illustrates the general IR process. First, a repository of indexed documents is created from a collection of documents to be searched for. Users formulate the information they need as a query. In the matching process, the query and documents representations are compared and the result would be a ranked list of documents.  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[htpb]
    \centering
