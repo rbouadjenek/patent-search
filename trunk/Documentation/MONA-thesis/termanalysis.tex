@@ -12,14 +12,14 @@ In this chapter, we mainly focus on recognizing the reasons that standard IR met
 Standard retrieval models rank documents based on term matching process between the query and documents. Previous works complain about a significant term mismatch between the query patent and relevant patents~\citep{roda2010clef}~\citep{magdy2012toward}. To discover the relation between the term overlap and retrievablity, we calculate the average term overlap per query for retrieved relevant patents (TPs), retrieved non-relevant patents (FPs), and non-retrieved relevant patents (FNs) respectively as follows:    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation} 
-\mbox{Avg. term overlap per query } = \frac{1}{|D|}\sum_{d\in D}\frac{|terms_{Q\cap d}|}{|Q|}
+TO (Q) = \frac{1}{|D|}\sum_{d\in D}\frac{|terms_{Q\cap d}|}{|Q|}
 \label{eq:fntermoverlap}
 \end{equation}
 %\vspace*{-1ex}
 %\begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Where, $D$ is the number of TPs, FPs, or FNs for each query respectively, $ |terms_{Q\cap d}| $ is the number of query terms appear in each TP/FP/FN patent, $ |Q| $ is the size of the query.
+where $TO(Q)$ is the average term overlap per query, $D$ is the number of TPs, FPs, or FNs for each query respectively, $ |terms_{Q\cap d}| $ is the number of query terms appear in each TP/FP/FN patent, $ |Q| $ is the size of the query.
 
 The results (Figure~\ref{fig:overlap}) illustrate two main facts:
 \begin{enumerate}
@@ -428,6 +428,6 @@ Patents are structured documents containing Title, Abstract, Description, and Cl
 \end{table*}
 \FloatBarrier
 Table (\ref{tab:usefultermsinsections}) shows the average number of useful terms \textcolor{red}{Mona: I will change the table content to the percentage of useful terms in different sections!} in different sections of the patent query which can help us to identify the best section to create the query.
-As it can be seen, `Description' has the highest number of useful terms in both cases where RF score threshold ($ \tau $) is `0' and `1'. When $ \tau = 0 $, the average number of the useful terms in the `Description' is quite twice of where $ \tau = 1 $. 
+As it can be seen, `Description' has the highest number of useful terms in both cases where RF score threshold ($ \tau $) is `0' and `1'. When $ \tau = 0 $, the average number of the useful terms in the Description is quite twice of where $ \tau = 1 $. 
 %\section{Summary}
 
