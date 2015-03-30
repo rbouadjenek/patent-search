@@ -15,10 +15,10 @@ import org.apache.lucene.queryparser.classic.ParseException;
 
 public class UsefulTermsInSections {
 	static String indexDir = /*"data/INDEX/indexWithoutSW-Vec-CLEF-IP2010"*/"data/DocPLusQueryINDEX"/*"data/QINDEX"*/;
-	int tsum = 0;
-	int asum = 0;
-	int dsum = 0;
-	int csum = 0;
+	float tsum = 0;
+	float asum = 0;
+	float dsum = 0;
+	float csum = 0;
 	int c = 0;
 	
 	public Map<String, Float> termsInSections(String queryid, String qUcid, float tau) throws IOException, ParseException{
@@ -33,6 +33,11 @@ public class UsefulTermsInSections {
 		int dcount = 0;
 		int ccount = 0;
 		
+		int title_size = 0;
+		int abs_size = 0;
+		int desc_size = 0;
+		int claims_size = 0;
+		
 		PositiveTermsOverlap olap = new PositiveTermsOverlap();
 		Map<String, Float> RF_tspairs = olap.getTermsScoresPair(queryid);
 		
@@ -41,6 +46,14 @@ public class UsefulTermsInSections {
 		HashMap<String, Integer> tfs_abs = reader.gettermfreqpair(qUcid, absfield);
 		HashMap<String, Integer> tfs_desc = reader.gettermfreqpair(qUcid, descfield);
 		HashMap<String, Integer> tfs_claims = reader.gettermfreqpair(qUcid, claimsfield);
+		
+		title_size = tfs_title.size();
+		abs_size = tfs_abs.size();
+		desc_size = tfs_desc.size();
+		claims_size = tfs_claims.size();
+		
+		System.out.println("----------------");
+		System.out.println(title_size+" "+abs_size+" "+desc_size+" "+claims_size);
 		
 		int i = 0;
 		
@@ -59,10 +72,16 @@ public class UsefulTermsInSections {
 		if(i != 0){
 			c++;
 		System.out.println(queryid+ " " + i +": "+ tcount + " " + acount + " " + dcount + " " + ccount);
-		tsum = tsum + tcount;
+		System.out.println(queryid+ " " + i +": "+ (float)tcount/title_size + " " + (float)acount/abs_size + " " + (float)dcount/desc_size + " " + (float)ccount/claims_size);
+		tsum = tsum + (float)tcount/title_size ;
+		asum = asum + (float)acount/abs_size;
+		dsum = dsum + (float)dcount/desc_size;
+		csum = csum + (float)ccount/claims_size;
+		
+		/*tsum = tsum + tcount;
 		asum = asum + acount;
 		dsum = dsum + dcount;
-		csum = csum + ccount;
+		csum = csum + ccount;*/
 //		System.out.println(queryid+ " " + i +": "+ (float)tcount/i + " " + (float)acount/i + " " + (float)dcount/i + " " + (float)ccount/i);
 		}
 		System.out.println(c);

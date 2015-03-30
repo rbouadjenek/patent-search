@@ -99,7 +99,7 @@ In trade off between losing 19\% of relevant patents and making the ranking proc
 \ \\
 We hypothesize that the errors will be reduced if we broaden the filter by selecting two first components of the query IPC, namely, Section, and Class (e.g., C07).
 
-The results has been illustrated in Figure~\ref{fig:ipc1stTwoElements}. Figure~\ref{fig:ipc1stTwoElements_a} shows that we can reduce the errors related to filtering from 19\% to 13\% by omitting the subclass component. However, the number of documents that should be processed during ranking process increases from $ 36254 $ to $ 99754 $ in average. As it can be seen in Figure~\ref{fig:ipc1stTwoElements_b}, the distribution of the number of documents that should be compared in matching process does not follow the falling trend as filtering with three first components. We can conclude that this filter is not appropriate since we only reduce the error by 6\% whereas the average number of documents that should be processed triples.    
+The results has been illustrated in Figure~\ref{fig:ipc1stTwoElements}. Figure~\ref{fig:ipc1stTwoElements_a} shows that we can reduce the errors related to filtering from 19\% to 13\% by omitting the subclass component. However, the number of documents that should be ranked increases from $ 36254 $ to $ 99754 $ in average. As it can be seen in Figure~\ref{fig:ipc1stTwoElements_b}, the distribution of the number of documents that should be compared in matching process does not follow the falling trend as filtering with three first components. We conclude that this kind of filter is not appropriate since we only reduce the error by 6\% whereas the average number of documents, which should be processed, triples.    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{figure}[t!]
 %   \centering
@@ -111,13 +111,13 @@ The results has been illustrated in Figure~\ref{fig:ipc1stTwoElements}. Figure~\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Filter: The first two components (Section and Class)\label{fig:ipc1stTwoElements_a}]{\includegraphics[width=6.5cm, height=5cm]{figs/ipc1stTwoElements.png}} 
+\subfigure[The portion of patents in the collection which are matched with the query IPC code. \label{fig:ipc1stTwoElements_a}]{\includegraphics[width=6.5cm, height=5cm]{figs/ipc1stTwoElements.png}} 
 \\[1ex]%
 \subfigure[The distribution of the number of patents should be ranked for each query over all test queries (1303).
-In average, the matching process for each query is done over $ 99754 $ documents instead of the whole collection (2.6 million documents) which reduce the computational time dramatically.\label{fig:ipc1stTwoElements_b}]{\includegraphics[width=9.5cm , height=6cm]{figs/firstTwoIpcFilter-histo.png}} 
+In average, the matching process for each query is done over $ 99754 $ documents instead of the whole collection (2.6 million documents), which dramatically reduce the computational time.\label{fig:ipc1stTwoElements_b}]{\includegraphics[width=9.5cm, height=6cm]{figs/firstTwoIpcFilter-histo.png}} 
 
 \par\end{centering} 
-\protect\caption{Applying first two IPC code components for filtering}
+\protect\caption{Applying first two IPC code components (Section and Class) for filtering}
 \label{fig:ipc1stTwoElements}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -156,17 +156,17 @@ In average, the matching process for each query is done over $ 99754 $ documents
 \paragraph{(III) Applying the first IPC code component for filtering}
 %\textbf{(C) Filter: First component of the IPC code}
 \ \\
-We can even make the filter less restrict by choosing only the first component (e.g. C), corresponding to very technical fields. If we use just the first IPC component (`Section') as a filter, there would still be 7\% error due to IPC mismatch between the query and relevant documents (Figure~\ref{fig:ipc1stElements}). 
+We can even make the filter more general by choosing only the first component, namely, Section (e.g., C), corresponding to very general technical fields. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Filter: The first two components (Section and Class)\label{fig:ipc1stElements_a}]{\includegraphics[width=6.5cm, height=5cm]{figs/ipc1stElement.png}} 
+\subfigure[The portion of patents in the collection which are matched with the query IPC code. Filter: The first two components \label{fig:ipc1stElements_a}]{\includegraphics[width=6.5cm, height=5cm]{figs/ipc1stElement.png}} 
 \\[1ex]%
-\subfigure[The distribution of the number of patents should be ranked for a query over all test queries (1303), after applying the IPC filter: ``\textit{only the first component of the IPC code}".
-In average, the matching process for each query is done over $ 415828 $ documents instead of the whole collection (2.6 million documents). This number is much higher than using more restricted filters and will not be efficient computationally.\label{fig:ipc1stElements_b}]{\includegraphics[width=9.5cm , height=6cm]{figs/firstIpcFilter-histo.png}} 
+\subfigure[The distribution of the number of patents should be processed for each query after applying the IPC filter.
+In average, the matching process for each query is done over $ 415828 $ documents instead of the whole collection (2.6 million documents). This number is much higher than using more restricted filters, so it is not computationally efficient.\label{fig:ipc1stElements_b}]{\includegraphics[width=9.5cm , height=6cm]{figs/firstIpcFilter-histo.png}} 
 
 \par\end{centering} 
-\protect\caption{Applying the first IPC code components for filtering}
+\protect\caption{Applying the first IPC code component for filtering (Section)}
 \label{fig:ipc1stElements}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -178,13 +178,11 @@ In average, the matching process for each query is done over $ 415828 $ document
 %   \label{fig:ipc1stElements} 
 %\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Figure~\ref{fig:firstIpcFilter-histo} shows the distribution of the number of patents should be ranked for each query over all test queries (1303), after applying the IPC filter
+Figure~\ref{fig:ipc1stElements_a} shows that about 7\% of relevant patents do not share the most general component of the query IPC Code. 
+Figure~\ref{fig:ipc1stElements_b} shows the distribution of the number of patents should be ranked for each query after applying the IPC filter.
 %: ``\textit{only the first component of the IPC code}". 
-In average, the matching process for each query is done over $ 415828 $ documents instead of the whole collection (2.6 million documents). This number is much higher than using more restricted filters and will not be efficient computationally. 
+The results show that the matching process for each query is done over $ 415828 $ documents, in average, instead of the whole collection (2.6 million documents). This number is much higher than the number for previous filters, which shows that using only the first component of the IPC code is not computationally efficient because it can not reduce the computational time as well as there is still 7\% error. 
 %The min number of documents considered during matching process is `$ min=41721 $', and the maximum is `$ max=1058447 $'. 
-
-The results show that using only the first component of the IPC code is not appropriate because it can not reduce the computational time as well as there is still 7\% error.   
 %\vspace{-2em}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{figure}[t!]
@@ -198,4 +196,5 @@ The results show that using only the first component of the IPC code is not appr
 %\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In conclusion, errors related to IPC code mismatch with the query is quite acceptable in trade-off with the computational benefit we gain using IPC code filter. Among all three kind of filters we applied, using 4-digit IPC code has been computationally the most effective. Since, it reduce the ranking process to be done over $ 36254 $ documents in average instead of the whole collection. Two other filters are not computationally as efficient as the 4-digit IPC code filter. Furthermore, there is still error even if we make the filter more broad.
+To recap our experiments related to IPC code filtering, we showed that, in trade off between the errors related to applying IPC code filter and computationally efficient matching process, we got the best results when we applied the first three IPC code (Section, Class, and Subclass) of the reference query as a filter. The filter reduced the number of documents to be ranked from the whole collection to $ 36254 $ documents in average, so using IPC filter saved considerable amount of computational time for us.
+
