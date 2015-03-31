@@ -69,7 +69,7 @@ public class UsefulTermsInSections {
 			}
 		}
 		
-		if(i != 0){
+		if(i != 0 && claims_size!=0 && desc_size!=0 && abs_size!=0 && title_size!=0){
 			c++;
 		System.out.println(queryid+ " " + i +": "+ tcount + " " + acount + " " + dcount + " " + ccount);
 		System.out.println(queryid+ " " + i +": "+ (float)tcount/title_size + " " + (float)acount/abs_size + " " + (float)dcount/desc_size + " " + (float)ccount/claims_size);
