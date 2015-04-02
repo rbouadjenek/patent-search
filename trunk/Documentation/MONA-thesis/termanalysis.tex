@@ -1,6 +1,6 @@
-\chapter{Term Analysis}
+\chapter{Towards Best-Performed Query Term Selection}
 \label{cha:analysis}
-In this chapter, we mainly focus on recognizing the reasons that standard IR methods fail when the relevant patent documents are complete and in English. In fact, we will investigate the problem from term analysis point of view for both patent query and relevant documents because we are interested in finding what is wrong in term matching process between a patent query and relevant patents. 
+In this chapter, we mainly focus on recognizing the reasons why standard IR methods fail when the relevant patent documents are complete and in English. In fact, we will investigate the problem from term analysis point of view for both patent query and relevant documents because we are interested in finding what is wrong in term matching process between a patent query and relevant patents. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%% SECTION 1 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9,7 +9,10 @@ In this chapter, we mainly focus on recognizing the reasons that standard IR met
 \section{Term Mismatch}
 \label{sec:termmismatch}
 %\input{TermAnalysis/termmismatch}
-Standard retrieval models rank documents based on term matching process between the query and documents. Previous works complain about a significant term mismatch between the query patent and relevant patents~\citep{roda2010clef}~\citep{magdy2012toward}. To discover the relation between the term overlap and retrievablity, we calculate the average term overlap per query for retrieved relevant patents (TPs), retrieved non-relevant patents (FPs), and non-retrieved relevant patents (FNs) respectively as follows:    
+Standard retrieval models rank documents based on term matching between the query and documents.  
+A significant term mismatch between the query patent and relevant patents has been mentioned the
+main cause for low effective patent prior art search in previous works~\citep{roda2010clef}~\citep{magdy2012toward}. 
+We examine term overlap between Patent Query and three different patent documents: (i) retrieved relevant patents (TPs), (ii) retrieved non-relevant patents (FPs), and (iii) non-retrieved relevant patents (FNs), respectively, by calculating the average term overlap per query as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation} 
 TO (Q) = \frac{1}{|D|}\sum_{d\in D}\frac{|terms_{Q\cap d}|}{|Q|}
@@ -19,12 +22,12 @@ TO (Q) = \frac{1}{|D|}\sum_{d\in D}\frac{|terms_{Q\cap d}|}{|Q|}
 %\begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-where $TO(Q)$ is the average term overlap per query, $D$ is the number of TPs, FPs, or FNs for each query respectively, $ |terms_{Q\cap d}| $ is the number of query terms appear in each TP/FP/FN patent, $ |Q| $ is the size of the query.
+where $TO(Q)$ is the average term overlap per query --- we calculate this score for TP, FP, and FN patents respectively, $D$ is a collection of TP patents, FP patents, or FN patents for each query respectively, $|D|$ is the number of TP patents, FP patents, or FN patents for each query, $ |terms_{Q\cap d}| $ is the number of query terms appear in each TP, FP, or FN patent, $ |Q| $ is the size of the query.
 
-The results (Figure~\ref{fig:overlap}) illustrate two main facts:
+The results has been illustrated in Figure~\ref{fig:overlap}. We conclude two main facts:
 \begin{enumerate}
-\item The majority of patent documents (about 94\%) are retrieved  (TPs and FPs) when they have a term overlap with a query above $ 0.2 $.
-\item There is sufficient term overlap with the query for FN patents too, though compared to TPs and FPs, more patent documents can be seen with the overlap less than $ 0.2 $ (about 24\%).  
+\item For the majority of queries (around 94\% of queries), patent documents are retrieved (TPs and FPs) when they have a term overlap with a query above $ 0.2 $.
+\item We can also see sufficient term overlap with the query for FN patents, whereas, compared to TPs and FPs, more queries can be seen with the term overlap less than $ 0.2 $ (about 24\% of queries). 
 \end{enumerate}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,18 +40,26 @@ The results (Figure~\ref{fig:overlap}) illustrate two main facts:
 \label{fig:overlap}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Therefore, we conclude that reasons beyond low or zero term match are involved in low retrieval effectiveness.   
-
+In summary, this experiment shows that low or zero term match is not the main cause of low effectiveness for patent prior art search.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%% SECTION 2 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Oracular Relevance Feedback System}
 \label{sec:oraculrquery}
-In this section, we develop an oracular relevance feedback system, which
-extracts terms from the judged relevant documents as a standard for our term analysis experiments.
-\subsection{Oracular Term Selection}
-After an initial run of a patent query, we
-calculate an oracular Relevance Feedback ($\mathit{RF}$) score for each term in the top-100
+A query is optimal if it ranks all relevant documents before
+those that are not relevant, that is, it would lead to a ranking with an average precision of 1.0. A query
+is most likely to achieve a ranking that is as close to optimal as possible if it contains all terms that
+appear in all relevant documents, but explicitly discounts all terms that occur in non-relevant documents~\citep{manning2008introduction}.
+Inspired by this fact, we develop an oracular relevance feedback system, which
+extracts terms from the judged relevant documents to derive an upper bound on performance of
+standard Okapi BM25 and Language Models (LM) retrieval
+algorithms for patent prior art search.
+%\subsection{Oracular Term Selection}
+\subsection{Scoring Terms}
+\label{OracularTermSelection}
+We aim at identifying terms, which are considered useful for the query to get the best retrieval effectiveness. For this purpose, 
+after an initial run of reference Patent Query, we
+calculate an Oracular Relevance Feedback ($\mathit{RF}$) score for each term in the top-100
 retrieved documents as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
@@ -57,7 +68,7 @@ RF(t,Q)=Rel(t)-Irr(t)
 \end{equation}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume that words with a positive score are \emph{useful words} since they are more frequent in relevant patents, while words with negative score are \emph{noisy words} as they appear more frequently in irrelevant patents. 
+where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume words with a positive score are Useful Words since they are more frequent in relevant patents, while words with a negative score are Noisy Words as they appear more frequently in irrelevant patents. 
 
 First, we seek for a pattern between the performance and the existence of \textit{useful words} for each query. We use different criteria to select the useful terms:
 \begin{enumerate}
@@ -71,7 +82,7 @@ The results have been shown in Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-r.eps}} \hspace*{1.5cm} \subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthanmedian-r.eps}}\\ \subfigure[{Useful terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-r.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-r.eps}}\\ \subfigure[{Useful terms:$ \{t|score(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-r.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-r.eps}}
+\subfigure[Useful Terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-r.eps}} \hspace*{1.5cm} \subfigure[Useful Terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthanmedian-r.eps}}\\ \subfigure[{Useful Terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-r.eps}} \hspace*{1.5cm} \subfigure[{Useful Terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-r.eps}}\\ \subfigure[{Useful Terms:$ \{t|RF(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-r.eps}} \hspace*{1.5cm} \subfigure[{Useful Terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-r.eps}}
 \par\end{centering}
 
 \protect\caption{Scatter plot of Recall vs. the overlap between useful terms and the the query.}
@@ -192,7 +203,7 @@ We combine the first three features for our first query reduction approach. Pseu
 First, we hypothesize that we will improve the performance by pruning out highly frequent words in top-100 retrieved documents from the patent query. For each word, we calculate the average term frequency over top-100 documents and call it Document Frequent (DF) score:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
- DF(t)=\frac{1}{100}\sum_{d_i\in  D} TF(t, d_i)    
+ DF(t, Q)=\frac{1}{100}\sum_{d_i\in  D} TF(t, d_i)    
  \label{eq:df}
 \end{equation}
 where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d_i)$ is the term frequency of each term in document $d_i$.
@@ -209,30 +220,30 @@ where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d_i)$ is the t
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Figure~\ref{fig:combinedapproach} illustrates how removing document frequent words for different threshold $\gamma$ can hurt the performance (red line). Hence, we combine this feature with the second feature--- query frequent terms to remove document frequent terms while to keep query frequent terms:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{displaymath}( DF(t)>0.01 \; \wedge \; QTF(t)<=\alpha )\end{displaymath}
+\begin{displaymath}( DF(t, Q)>0.01 \; \wedge \; QTF(t)<=\alpha )\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 As Figure \ref{fig:combinedapproach} shows, keeping query frequent terms helps the performance jumping slightly over the baseline. We empirically found out that $\gamma=0.01$ perform the best when we keep query frequent terms. The results also show that the best value for $\alpha$ is 5.
 
-In the combined approach, we added the third feature--- IPC Title --- to also remove terms which are general in patents with the same IPC code: 
+In the combined approach, we added the third feature --- IPC Title --- to also remove terms which are general in patents with the same IPC code: 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{displaymath} \left(  \left(DF(t)>0.01\; \wedge \; QTF(t)<=5\right)\; \vee\; Query.contains(IPC \; Title \; words) \right)\end{displaymath}
+\begin{displaymath} \left(  \left(DF(t, Q)>0.01\; \wedge \; QTF(t)<=5\right)\; \vee\; Query.contains(IPC \; Title \; words) \right)\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The results in Figure~\ref{fig:combinedapproach} (magenta line) show that removing IPC Title words from the reference patent query harms the performance. We did not assign any threshold for this feature we just removed document frequent words ($DF(t)>0.01$) but we kept frequent words in the query ($QTF(t)>5$), then we removed words appeared in IPC Titles.   
+The results in Figure~\ref{fig:combinedapproach} (magenta line) show that removing IPC Title words from the reference patent query harms the performance. We did not assign any threshold for this feature we just removed document frequent words ($DF(t, Q)>0.01$) but we kept frequent words in the query ($QTF(t)>5$), then we removed words appeared in IPC Titles.   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Query terms vs. Document Frequent terms.\label{fig:scatter_combined_a}]{\includegraphics[width=7cm]{figs/qterm_rf_df.eps}} \hspace*{0.1cm}
- \subfigure[IPC Title words vs. Document Frequent terms.\label{fig:scatter_combined_b}]{\includegraphics[width=7cm]{figs/ipcdef-rf-df.eps}} \\[1ex]% 
-\subfigure[Remove document frequent terms while keeping query terms.\label{fig:scatter_combined_c}]{\includegraphics[width=7cm]{figs/df-rf-tauline.eps}}
+\subfigure[Query terms vs. Document Frequent terms.\label{fig:scatter_combined_a}]{\includegraphics[width=9cm]{figs/qterm_rf_df.eps}} \hspace*{0.1cm}\\[1ex]% 
+ %\subfigure[IPC Title words vs. Document Frequent terms.\label{fig:scatter_combined_b}]{\includegraphics[width=7cm]{figs/ipcdef-rf-df.eps}} 
+\subfigure[Remove document frequent terms while keeping query terms.\label{fig:scatter_combined_b}]{\includegraphics[width=9cm]{figs/df-rf-tauline.eps}}
 
 \par\end{centering}
 
-\protect\caption{Anecdotal example for combined approach. \textcolor{red}{Mona: I will renew all the figures when they confirmed to be in my thesis and make their tests more visible!}}
+\protect\caption{Anecdotal example for combined approach.}
 \label{fig:scatter_combined}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Figure~\ref{fig:scatter_combined_c} illustrates the combined approach. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. First, we remark a negative correlation between $\mathit{DF(t)}$ and $\mathit{RF(t)}$, however, it does not help because as it can be seen we remove many useful terms ($RF(t)>0$) by removing document frequent terms ($DF(t)>\gamma$). Red points in Figure~\ref{fig:scatter_combined_c} are query terms with term frequency higher than 5, where we got the best performance in combined approach. We can see that we would avoid removing useful terms by keeping query frequent terms. Figure~\ref{fig:scatter_combined_a} shows that the sample patent query is contaminated by noisy words and Figure~\ref{fig:scatter_combined_c} shows that although the most of IPC Title words are noisy words, removing only few words that are useful can degrade the performance.    
+Figure~\ref{fig:scatter_combined_b} illustrates the combined approach. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. First, we remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$, however, it does not help because as it can be seen we remove many useful terms ($RF(t, Q)>0$) by removing document frequent terms ($DF(t, Q)>\gamma$). Red points in Figure~\ref{fig:scatter_combined_b} are query terms with term frequency higher than 5, where we got the best performance in combined approach. We can see that we would avoid removing useful terms by keeping query frequent terms. Figure~\ref{fig:scatter_combined_a} shows that the sample patent query is contaminated by noisy words and Figure~\ref{fig:scatter_combined_b} shows that although the most of IPC Title words are noisy words, removing only few words that are useful can degrade the performance.    
 \subsubsection{Pseudo Relevance Feedback}
 % TODO: Must be consistent in either pruning or removing terms --- results should ideally converge to the baseline at 0.
 % TODO: Should do simplest comparisons first and not combine pruning approaches.  Even better: evaluate methods mentioned in related work.
