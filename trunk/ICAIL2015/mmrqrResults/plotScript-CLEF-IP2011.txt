@@ -113,58 +113,60 @@ set format x ""
 unset key #outside center top horizontal
 set style data histograms
 #set xtics   ("Sreda" 0.00000)
+unset xtics  
 set offset -0.5,-0.5,0,0
 set term postscript eps enhanced color "Courier,17"
 set ytics font "Verdana,22" 
+set xtics font "Verdana,22" 
 
 set yrange [0.39:0.45]
 set output "qTitle-PRES-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qTitle-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qTitle-PRES.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 set yrange [0.07:0.1]
 set output "qTitle-MAP-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qTitle-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qTitle-MAP.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 set yrange [0.39:0.45]
 set output "qAbstract-PRES-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qAbstract-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qAbstract-PRES.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 set yrange [0.07:0.1]
 set output "qAbstract-MAP-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qAbstract-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qAbstract-MAP.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 set yrange [0.39:0.45]
 set output "qClaims-PRES-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qClaims-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 10 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qClaims-PRES.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 set yrange [0.07:0.1]
 set output "qClaims-MAP-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qClaims-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 10 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qClaims-MAP.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 set yrange [0.39:0.45]
 set output "qDescription-PRES-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qDescription-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qDescription-PRES.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 set yrange [0.07:0.1]
 set output "qDescription-MAP-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qDescription-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qDescription-MAP.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 set yrange [0.39:0.45]
 set output "qExtAbstract-PRES-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qExtAbstract-PRES.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qExtAbstract-PRES.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 set yrange [0.07:0.1]
 set output "qExtAbstract-MAP-CLEF-IP2011.eps" 
-plot 'plots-CLEF-IP-2011/test/qExtAbstract-MAP.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5,'' u 4 ti col ls 1 lc 3 lw 5,'' u 5 ti col ls 1 lc 4 lw 5,'' u 6 ti col ls 1 lc 5 lw 5,'' u 7 ti col ls 1 lc 6 lw 5,'' u 8 ti col ls 1 lc 7 lw 5,'' u 9 ti col ls 1 lc 8 lw 5
+plot 'plots-CLEF-IP-2011/test/qExtAbstract-MAP.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2,'' u 4 ti col lc rgbcolor "black" lt 1 fs pattern 3,'' u 5 ti col lc rgbcolor "black" lt 1 fs pattern 4,'' u 6 ti col lc rgbcolor "black" lt 1 fs pattern 5,'' u 7 ti col lc rgbcolor "black" lt 1 fs pattern 6,'' u 8 ti col lc rgbcolor "black" lt 1 fs pattern 7,'' u 9 ti col lc rgbcolor "black" lt 1 fs pattern 8
 #,'' u 10 ti col ls 1 lc 9 lw 5
 
 

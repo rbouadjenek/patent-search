@@ -9,6 +9,14 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 
 \newcommand{\subfour}[1]{\vspace*{3mm}{\noindent\bf #1}}
+
+\permission{Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from Permissions@acm.org.}
+\conferenceinfo{ICAIL '15,}{June 08 - 12, 2015, San Diego, CA, USA .} 
+
+\CopyrightYear{2015} 
+\crdata{978-1-4503-3522-5/15/06} 
+\clubpenalty=10000 
+\widowpenalty = 10000
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -134,28 +142,32 @@ author{
 
 \begin_layout Plain Layout
 
-Contribution ID: 5
+%Contribution ID: 5
 \end_layout
 
 \begin_layout Plain Layout
 
-%
+
 \backslash
 alignauthor
 \end_layout
 
 \begin_layout Plain Layout
 
-%Mohamed Reda Bouadjenek$^{
+Mohamed Reda Bouadjenek$^{
 \backslash
 dag}$
 \backslash
-titlenote{This work has been mainly %done when the author was visiting NICTA,
- Canberra, Australia.}, Scott %Sanner$^{
+titlenote{This work has been mainly done when the authors was at NICTA,
+ Canberra, Australia.}, Scott Sanner$^{
 \backslash
-ddag}$, Gabriela Ferraro$^{
+Large 
 \backslash
-ddag}$
+ddag 
+\backslash
+footnotemark[1]}$  , Gabriela Ferraro$^
+\backslash
+S$
 \backslash
 
 \backslash
@@ -164,13 +176,13 @@ ddag}$
 
 \begin_layout Plain Layout
 
-%$^{
+$^{
 \backslash
 dag}$
 \backslash
 affaddr{INRIA 
 \backslash
-& LIRMM University of Montpellier France, %reda.bouadjenek@inria.fr}
+& LIRMM University of Montpellier France, reda.bouadjenek@inria.fr}
 \backslash
 
 \backslash
@@ -179,20 +191,32 @@ affaddr{INRIA
 
 \begin_layout Plain Layout
 
-%		$^{
+$^{
 \backslash
 ddag}$
 \backslash
-affaddr{NICTA, Australian National University, %
+affaddr{Oregon State University, Corvallis, OR 97331 USA, ssanner@gmail.com}
 \backslash
-{scott.sanner, gabriela.ferraro
+
 \backslash
-}@nicta.com.au}
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		$^
+\backslash
+S$
+\backslash
+affaddr{NICTA, Australian National University,  gabriela.ferraro@nicta.com.au}
 \end_layout
 
 \begin_layout Plain Layout
 
 %Reda Bouadjenek
+\backslash
+titlenote{This work has been mainly done when the authors was at NICTA,
+ Canberra, Australia.}
 \backslash
 
 \backslash
@@ -216,7 +240,7 @@ affaddr{INRIA
 
 %		
 \backslash
-affaddr{France}
+affaddr{Montpellier, France}
 \backslash
 
 \backslash
@@ -239,7 +263,11 @@ alignauthor
 
 \begin_layout Plain Layout
 
-%Scott Sanner
+%Scott Sanner$^{
+\backslash
+Large 
+\backslash
+footnotemark[1]}$
 \backslash
 
 \backslash
@@ -250,9 +278,7 @@ alignauthor
 
 %       
 \backslash
-affaddr{NICTA 
-\backslash
-& ANU}
+affaddr{Oregon State University}
 \backslash
 
 \backslash
@@ -263,7 +289,7 @@ affaddr{NICTA
 
 %		
 \backslash
-affaddr{Australia}
+affaddr{Corvallis, USA}
 \backslash
 
 \backslash
@@ -274,7 +300,7 @@ affaddr{Australia}
 
 %       
 \backslash
-email{scott.sanner@nicta.com.au}
+email{ssanner@gmail.com}
 \end_layout
 
 \begin_layout Plain Layout
@@ -310,7 +336,7 @@ affaddr{NICTA
 
 %		
 \backslash
-affaddr{Australia}
+affaddr{Canberra, Australia}
 \backslash
 
 \backslash
@@ -384,6 +410,9 @@ on with generic (non-patent specific) query reduction methods, is recommended
  to marginal improvements) and that for such relatively short queries, generic
  query expansion methods help.
  
+\end_layout
+
+\begin_layout Abstract
 \begin_inset ERT
 status collapsed
 
@@ -522,6 +551,8 @@ Patents are used by legal entities to legally protect their inventions and
 status collapsed
 
 \begin_layout Plain Layout
+
+\family typewriter
 http://www.uspto.gov/web/offices/ac/ido/oeip/taf/ us_stat.htm
 \end_layout
 
@@ -556,17 +587,6 @@ key "Magdy2012"
  contrast to scientific and technical writers, patent writers tend to generalize
  and maximize the scope of what is protected
 \color red
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{}
-\end_layout
-
-\end_inset
-
  
 \color inherit
 by a patent and potentially discourage further innovation by third parties,
@@ -588,8 +608,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/legend.eps
-	width 4.5cm
+	filename img/legend2.eps
+	width 6cm
 
 \end_inset
 
@@ -826,10 +846,12 @@ While much of the literature inspired by the evaluation framework of the
  applications is generally desirable, since writing a full application is
  time-consuming and costly, especially if lawyers are hired to assist.
  Hence, in this paper we consider only sections which are more likely to
- be written by the inventor namely the title, the abstract, the description
- section, and an extended abstract (which we consider as the 5 first paragraphs
- of the description section), while we consider the claims section to be
- more likely to be written by a patent attorney.
+ be written by the inventor (or a patent attorney) at an early stage of
+ a patent drafting, namely: (1) the title, (2) the abstract, (3) the description
+ section, and (4) an extended abstract, which we consider as the 5 first
+ paragraphs of the description section.
+ However, we consider that the claims section is more likely to be written
+ by a patent attorney at the final stage of a patent application.
 \end_layout
 
 \begin_layout Standard
@@ -881,7 +903,7 @@ status collapsed
 
 \begin_layout Plain Layout
 The Jaccard similarity is used to measure the term overlap between two sets.
- Before applying the Jaccard similarity, patent-specific stopwords were
+ Before applying the Jaccard similarity, patent-specific stop-words were
  removed, as suggested by 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -989,9 +1011,9 @@ status collapsed
 \end_layout
 
 \begin_layout Itemize
-What parts of a patent application should a patent inventor write first
- to achieve effective prior art search? What are the trade-offs in section
- writing effort vs.
+What parts of a patent application should a patent inventor or a patent
+ attorney write first to achieve effective prior art search? What are the
+ trade-offs in section writing effort vs.
  the retrieval performance of querying with that section? We assume the
  writing effort to be a function of word number.
  
@@ -1094,7 +1116,7 @@ Query Reformulation is the process of transforming an initial query
  (QE) 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Efthimiadis1996"
+key "Baeza-Yates2010"
 
 \end_inset
 
@@ -1231,10 +1253,22 @@ reference "tbl:queryPAC-1019"
 \end_inset
 
  provides insight into the utility of query reduction for the abstract section
- of the Topic PAC-1019 from the CLEF-IP 2010 data collection.
+ of the Topic PAC-1019
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+
+\family typewriter
+http://www.lens.org/lens/patent/WO_2005_100300_A1
+\end_layout
+
+\end_inset
+
+ from the CLEF-IP 2010 data collection.
  The baseline query, which is the original query (provided in the header
- row) after stemming and patent specific stopword removal, had an Average
- Precision (AP) of 0.280 and a Patent Retrieval Evaluation Score (PRES)
+ row) after stemming and stop-word removal , had an Average Precision (AP)
+ of 0.280 and a Patent Retrieval Evaluation Score (PRES)
 \begin_inset Foot
 status collapsed
 
@@ -1281,12 +1315,8 @@ Sample of terms removed from the abstract section of CLEP-IP2010 Topic PAC-1019.
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-
 \size footnotesize
+
 \begin_inset CommandInset label
 LatexCommand label
 name "tbl:queryPAC-1019"
@@ -1294,6 +1324,8 @@ name "tbl:queryPAC-1019"
 \end_inset
 
 
+\size default
+ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1301,7 +1333,7 @@ name "tbl:queryPAC-1019"
 
 \size scriptsize
 \begin_inset Tabular
-<lyxtabular version="3" rows="19" columns="6">
+<lyxtabular version="3" rows="18" columns="6">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="left" valignment="top">
 <column alignment="center" valignment="top">
@@ -1319,7 +1351,7 @@ name "tbl:queryPAC-1019"
 \size scriptsize
 Topic:
 \series default
- PAC-1019
+ PAC-1019 (Doc num: WO2005100300 A1)
 \end_layout
 
 \end_inset
@@ -2085,77 +2117,6 @@ medica...
 
 \series bold
 \size scriptsize
-medic...
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0.400
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0.300
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-0.428
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-0.297
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
-0.787
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\series bold
-\size scriptsize
 field...
 \end_layout
 
@@ -2717,12 +2678,8 @@ The utility of query reduction for 1304 abstract queries of the CLEF-IP
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-
 \size footnotesize
+
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:QRUtility"
@@ -2819,13 +2776,27 @@ key "Manning2008"
 \end_inset
 
 .
- We refer to this method as RocchioQE.
+ We refer to this method as RocchioQE
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
 We used the LucQE module, which provides an implementation of the Rocchio
  method for Lucene.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
  
 \family typewriter
 http://lucene-qe.sourceforge.net/
@@ -2833,7 +2804,7 @@ http://lucene-qe.sourceforge.net/
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -2959,7 +2930,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename img/matrix.eps
-	width 7cm
+	width 5cm
 
 \end_inset
 
@@ -3080,7 +3051,7 @@ reference "fig:Notation"
 \begin_inset Formula $D$
 \end_inset
 
- is the PRD set) relevant to 
+ is the PRF set) relevant to 
 \begin_inset Formula $Q$
 \end_inset
 
@@ -3116,6 +3087,7 @@ t_{k}^{*}=\argmax_{t_{k}\notin T_{k-1}^{*}}\hspace{-0.3mm}[\lambda\cos(Q,t_{k})-
 \end_layout
 
 \begin_layout Standard
+\noindent
 Here, the first cosine similarity term measures relevance between the query
  
 \begin_inset Formula $Q$
@@ -3131,6 +3103,15 @@ Here, the first cosine similarity term measures relevance between the query
 \end_inset
 
 .
+ Note that these similarities are computed based on vectors extracted from
+ the PRF set as illustrated in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Notation"
+
+\end_inset
+
+.
  The parameter 
 \begin_inset Formula $\lambda\in[0,1]$
 \end_inset
@@ -3140,7 +3121,7 @@ Here, the first cosine similarity term measures relevance between the query
 \begin_inset Formula $\lambda=0.5$
 \end_inset
 
- generally provide the best results, according to our experiments on the
+ generally provides the best results, according to our experiments on the
  CLEF-IP training dataset collection.
 \end_layout
 
@@ -3199,11 +3180,7 @@ ed terms from the query itself.
 \begin_inset Formula $m$
 \end_inset
 
- terms shown in Figure
-\begin_inset space ~
-\end_inset
-
-
+ terms shown in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Notation"
@@ -3480,26 +3457,27 @@ status collapsed
 \end_inset
 
  Based on the intuition that, terms in the IPC code definition may represent
- "stop-words", especially if they are rare (infrequent in the patent application
-), a query can be reduced as follows: 
+ "stop-words" (especially if they are infrequent in the patent application,
+ but appear in many documents sharing the same IPC code), a query can be
+ reduced as follows: 
 \begin_inset ERT
 status collapsed
 
 \begin_layout Plain Layout
 
-%one can think to reduce a patent query as follows:(i)
+%one can think to reduce a patent query as follows:
 \end_layout
 
 \end_inset
 
-For each patent application, take the definitions of the IPC codes which
- are associated to it.
+ (i) For each patent application, take the definitions of the IPC codes
+ which are associated to it.
  Then, (ii) rank the terms of the query according to the difference in their
  frequency in the query and their frequency in the class code definition.
  Finally, (iii) remove bottom terms of this ranking from the query (i.e.
  good terms are terms that occur a lot in the query, and few in the class
  code definition, whereas bad terms are those that occur few in the query,
- and a lot in the class code definition).
+ and a lot in documents sharing the same IPC code).
  In the evaluation section we denote this approach IPC-StopWords.
 \end_layout
 
@@ -3666,7 +3644,7 @@ reference "sec:QueryReformulation"
 
 .
  The configuration options and associated questions that were considered
- are the followings: 
+ are the following: 
 \begin_inset ERT
 status collapsed
 
@@ -3690,7 +3668,8 @@ Partial patent query type:
  the title, the abstract, the extended abstract or the full description
  section.
  Recall that we do not consider the Claim section, since it is more likely
- to be written by a lawyer than the inventor.
+ to be written by a lawyer than the inventor at the final stage of a patent
+ application.
  Hence, critical questions are: what part of a partial application an inventor
  should write to obtain the best search results? And what QE methods work
  best for each type of query? 
@@ -3729,7 +3708,8 @@ key "Robertson1993"
 
 \end_inset
 
- algorithm, as well as a vector space model (VSM) approach, TF-IDF 
+ algorithm, as well as a vector space model (VSM) approach using TF-IDF
+ weighting 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Salton1975"
@@ -3760,8 +3740,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/legendQE.eps
-	width 12cm
+	filename img/legendQE2.eps
+	width 17.5cm
 
 \end_inset
 
@@ -3902,6 +3882,7 @@ status collapsed
 
 \begin_layout Plain Layout
 MAP for QE methods on CLEF-IP 2010.
+ The x-axis gives the query expansion source.
 \end_layout
 
 \end_inset
@@ -3933,12 +3914,12 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/legendQE.eps
-	width 12cm
+	filename img/legendQE2.eps
+	width 17.5cm
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -4006,7 +3987,7 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -4075,6 +4056,7 @@ status collapsed
 
 \begin_layout Plain Layout
 PRES for QE methods on CLEF-IP 2010.
+ The x-axis gives the query expansion source.
 \end_layout
 
 \end_inset
@@ -4106,12 +4088,12 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/legendQE.eps
-	width 12cm
+	filename img/legendQE2.eps
+	width 17.5cm
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -4179,7 +4161,7 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -4248,6 +4230,7 @@ status collapsed
 
 \begin_layout Plain Layout
 MAP for QE methods on CLEF-IP 2011.
+ The x-axis gives the query expansion source.
 \end_layout
 
 \end_inset
@@ -4279,12 +4262,12 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/legendQE.eps
-	width 12cm
+	filename img/legendQE2.eps
+	width 17.5cm
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -4352,7 +4335,7 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -4421,6 +4404,7 @@ status collapsed
 
 \begin_layout Plain Layout
 PRES for QE methods on CLEF-IP 2011.
+ The x-axis gives the query expansion source.
 \end_layout
 
 \end_inset
@@ -7039,7 +7023,7 @@ ref{fig:qDescription-PRES-CLEF-IP2010}).
 
 \end_inset
 
-We attribute this to the fact that the description section has more content
+ We attribute this to the fact that the description section has more content
  along with relevant terms that define the invention since a detailed summary
  of the invention is described therein.
  
@@ -7048,7 +7032,7 @@ We attribute this to the fact that the description section has more content
 \begin_layout Enumerate
 However, perhaps a better trade-off in terms of writing effort vs.
  retrieval performance is to query with the abstract or the extended abstract.
- Relative to the description, they take much less effort to write the abstract
+ Compared to the description, they take much less effort to write the abstract
  and the extended abstract.
  Further, querying with the abstract or the extended abstract provide a
  substantial boost in retrieval performance compared to the title (about
@@ -7190,8 +7174,8 @@ reference "sec:QueryReformulation"
 \end_inset
 
 .
- As for QE, we carry out comprehensive experiments with the following configurat
-ion options and associated questions to consider: 
+ As with QE, we carry out comprehensive experiments with the following configura
+tion options and associated questions to consider: 
 \end_layout
 
 \begin_layout Itemize
@@ -7200,7 +7184,7 @@ ion options and associated questions to consider:
 Partial patent query type:
 \series default
  We apply QR methods to a query of a partial patent application, consisting
- of the abstract, the extended abastract or the description sections.
+ of the abstract, the extended abstract or the description sections.
  A critical question is what part of a partial application is best suited
  for QR? Note that we consider that there is no interest in reducing a title
  query since it already contains very few terms.
@@ -7347,12 +7331,12 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/legendQR.eps
+	filename img/legendQR2.eps
 	width 9cm
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -7493,7 +7477,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/legendQR.eps
+	filename img/legendQR2.eps
 	width 9cm
 
 \end_inset
@@ -7655,9 +7639,9 @@ reference "tbl:QRSampleQueries"
  Terms in bold are terms removed by MMRQR, whereas terms underlined are
  terms removed by Rocchio.
  Terms removed by the two methods are both in bold and underlined.
- First, we notice that even there are common terms removed from the original
- queries by both MMRQR and LMQR, the terms removed by MMRQR tend to be similar
- between them (e.g., 
+ First, we notice that even when there are common terms removed from the
+ original queries by both MMRQR and LMQR, the terms removed by MMRQR tend
+ to be similar between them (e.g., 
 \shape italic
 laser, light, interferometer
 \shape default
@@ -7707,7 +7691,7 @@ reference "sec:QueryReformulation"
 \begin_layout Standard
 However, some more complex patent-specific methods have also been explored
  for general patent prior art search.
- The scenario of patent prior art search consists of manually form queries
+ The scenario of patent prior art search consists of manually forming queries
  by selecting high frequency terms from patent application.
  Hence, in 
 \begin_inset CommandInset citation
@@ -7731,12 +7715,12 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/legendQR.eps
+	filename img/legendQR2.eps
 	width 9cm
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -7877,12 +7861,12 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename img/legendQR.eps
+	filename img/legendQR2.eps
 	width 9cm
 
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -10406,7 +10390,7 @@ key "Bashir2010"
  Query expansion terms are selected using a using a machine learning approach,
  by picking terms that may have a potential positive impact on the retrieval
  effectiveness.
- However, this approach can be computational expensive, since the presented
+ However, this approach can be computationally expensive, since the presented
  features are complicated to compute, e.g.
  Pair-wise Terms Proximity features.
  Verma and Varma 
@@ -10471,6 +10455,10 @@ key "Mahdabi:2014:QMC:2661829.2661899"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
 Finally, other works investigated query suggestion for patent prior art
  search, which reflect real-life scenario of examiners, who form reproducible
  boolean queries 
@@ -10481,6 +10469,11 @@ key "Adams2011,Azzopardi2010,Kim2011"
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -10522,7 +10515,7 @@ name "sec:Conclusion"
 \end_layout
 
 \begin_layout Standard
-In this paper, we analyzed various query strategies for patent prior art
+In this paper, we analyzed various query strategies of patent prior art
  search with partial (incomplete) applications along with generic and patent-spe
 cific query reformulation (expansion and reduction) methods.
  Hence, in this scenario of partial patent application, we considered only
@@ -10611,7 +10604,7 @@ In conclusion, we return to our initial objective to aid the patent inventor
 
 \begin_layout Standard
 Finally, we believe that future work should investigate whether QE methods
- for abstract of extended abstract queries can rival the best methods for
+ for abstract or extended abstract queries can rival the best methods for
  description queries --- if such a result were possible, it would significantly
  reduce the effort required on behalf of the patent inventor to identify
  potentially invalidating prior art for a new patent idea.

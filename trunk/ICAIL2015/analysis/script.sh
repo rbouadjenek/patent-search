@@ -10,8 +10,8 @@ set size 0.5,0.5
 set grid
 set term postscript eps enhanced color "Courier,17"
 set output "precision-recall_ByField-CLEF-IP_2010.eps" 
-plot "data-CLEF-IP_2010/precision-recall_ByField.txt" using 3:2 title "Absract"   with linespoints lw 3,\
-"data-CLEF-IP_2010/precision-recall_ByField.txt" using 5:4 title "Oracle" with linespoints lw 3
+plot "data-CLEF-IP_2010/precision-recall_ByField.txt" using 3:2 title "Baseline"   with linespoints lc rgbcolor "black"  lt 1 lw 1,\
+"data-CLEF-IP_2010/precision-recall_ByField.txt" using 5:4 title "Oracle" with linespoints lc rgbcolor "black"  lt 6 lw 1
 
 
 
@@ -28,5 +28,5 @@ set style data histograms
 set xtics   ("MAP" 0.00000, "MRR" 1.00000, "PRES" 2.00000)
 set term postscript eps enhanced color "Courier,17"
 set output "MAP-MRR_ByField-CLEF-IP_2010.eps"
-plot 'data-CLEF-IP_2010/MAP-MRR_ByField.txt' using 2:xticlabels(1) ti col ls 1 lc 1 lw 5,'' u 3 ti col ls 1 lc 2 lw 5
+plot 'data-CLEF-IP_2010/MAP-MRR_ByField.txt' using 2:xticlabels(1) ti col lc rgbcolor "black" lt 1 fs pattern 1,'' u 3 ti col lc rgbcolor "black" lt 1 fs pattern 2
  
