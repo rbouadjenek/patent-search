@@ -382,7 +382,7 @@ maketitle
 \begin_layout Abstract
 Patents are used by legal entities to legally protect their inventions and
  represent a multi-billion dollar industry of licensing and litigation.
- In 2013, 302,948 patent applications were approved in the US alone -- a
+ In 2014, 326,033 patent applications were approved in the US alone -- a
  number that has doubled in the past 15 years and which makes prior art
  search a daunting, but necessary task in the patent application process.
  In this work, we seek to investigate the efficacy of prior art search strategie
@@ -455,7 +455,7 @@ emph{What are these query reformulation methods? How do they work? What
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -547,7 +547,7 @@ Introduction
 \noindent
 Patents are used by legal entities to legally protect their inventions and
  represent a multi-billion dollar industry of licensing and litigation.
- In 2013, 302,948 patent applications were approved in the US alone
+ In 2014, 326,033 patent applications were approved in the US alone
 \begin_inset Foot
 status collapsed
 
@@ -10609,6 +10609,18 @@ Finally, we believe that future work should investigate whether QE methods
 \begin_layout Standard
 \begin_inset ERT
 status open
+
+\begin_layout Plain Layout
+
+%Acknowledgements 
+\end_layout
+
+\begin_layout Plain Layout
+
+%NICTA is funded by the Australian Government as represented by the Department
+ of Broadband, Communications and the Digital Economy and the Australian
+ Research Council through the ICT Centre of Excellence program.
+\end_layout
 
 \begin_layout Plain Layout
 
