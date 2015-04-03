@@ -158,8 +158,8 @@ Mohamed Reda Bouadjenek$^{
 \backslash
 dag}$
 \backslash
-titlenote{This work has been mainly done when the authors was at NICTA,
- Canberra, Australia.}, Scott Sanner$^{
+titlenote{This work has been primarily completed while the authors were
+ at NICTA, Canberra, Australia.}, Scott Sanner$^{
 \backslash
 Large 
 \backslash
@@ -195,7 +195,8 @@ $^{
 \backslash
 ddag}$
 \backslash
-affaddr{Oregon State University, Corvallis, OR 97331 USA, ssanner@gmail.com}
+affaddr{Oregon State University, Corvallis, OR 97331 USA, scott.sanner@oregonstat
+e.edu}
 \backslash
 
 \backslash
@@ -603,7 +604,7 @@ by a patent and potentially discourage further innovation by third parties,
 placement t
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1301,7 +1302,7 @@ key "Magdy2010a"
 placement t
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2924,7 +2925,7 @@ status collapsed
 placement !t
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3735,7 +3736,7 @@ Term selection method:
 \begin_inset Float figure
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3909,7 +3910,7 @@ name "fig:MAP-CLEF2010"
 \begin_inset Float figure
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4083,7 +4084,7 @@ name "fig:PRES-CLEF2010"
 \begin_inset Float figure
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4257,7 +4258,7 @@ name "fig:MAP-CLEF2011"
 \begin_inset Float figure
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4432,7 +4433,7 @@ name "fig:PRES-CLEF2011"
 placement t
 wide true
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7322,7 +7323,6 @@ reference "fig:PRES-CLEF2010"
 \end_layout
 
 \begin_layout Standard
-\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -7468,7 +7468,6 @@ name "fig:QR-MAP-CLEF-IP2010"
 \end_layout
 
 \begin_layout Standard
-\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -7705,7 +7704,6 @@ key "Itoh2003"
 \end_layout
 
 \begin_layout Standard
-\align center
 \begin_inset Float figure
 placement t
 wide false
@@ -7852,7 +7850,6 @@ name "fig:QR-MAP-CLEF-IP2011"
 \end_layout
 
 \begin_layout Standard
-\align center
 \begin_inset Float figure
 wide false
 sideways false
@@ -8036,7 +8033,6 @@ key "Fujii:2007:EPR:1277741.1277912"
 \end_layout
 
 \begin_layout Standard
-\align center
 \begin_inset Float table
 placement t
 wide true
