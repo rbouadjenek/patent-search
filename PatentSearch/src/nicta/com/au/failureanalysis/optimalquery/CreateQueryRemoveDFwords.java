@@ -117,18 +117,9 @@ public class CreateQueryRemoveDFwords {
 			Integer qtf = qtpair.getValue();
 			if (df_tspairs.keySet().contains(qt)) {
 				// if(df_tspairs.get(qt) > tau){
-				if ((df_tspairs.get(qt) > tau)
-						&& (qtf <= delta || ipcdeflists.contains(qt))) { // Discarding
-																			// criteria:
-																			// df_tspairs.get(qt)
-																			// >
-																			// tau
-																			// &&
-																			// qfreq
-																			// <=
-																			// 8
-
-					size++;
+//				if ((df_tspairs.get(qt) > tau) && (qtf <= delta || ipcdeflists.contains(qt))) { // Discarding criteria: df_tspairs.get(qt)>tau && qfreq <= 8
+				if ((ipcdeflists.contains(qt))) {	
+				size++;
 					qterms.remove(qt);
 				}
 			}
@@ -138,8 +129,8 @@ public class CreateQueryRemoveDFwords {
 			if (!Functions.isNumeric(newterm)
 					&& !Functions.isSpecialCahr(newterm)) {
 				k++;
-				new_query += newterm + "^" + query_terms.get(newterm) + " ";
-				// new_query += newterm + "^" + 1 + " ";
+//				new_query += newterm + "^" + query_terms.get(newterm) + " ";
+				new_query += newterm + "^" + 1 + " ";
 			}
 		}
 		/*
