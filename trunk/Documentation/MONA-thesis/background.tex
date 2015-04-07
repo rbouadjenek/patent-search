@@ -8,9 +8,75 @@ description, citations, inventors, and etc. The text of a patent document is sav
 %electronically in the patent office 
 as an XML file with specific fields corresponding to each
 section or subsection in the patent document and some additional meta-data about the patent
-document itself. However, users usually get access to a structured document --- not an
+document itself (Figure~\ref{fig:PatentXML}). However, users usually get access to a structured document --- not an
 XML document~\citep{magdy2012toward}.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htpb]
+\begin{framed}
+\vspace*{-2ex}
+  \centering
+  %\lstinputlisting[language=Xml, frame=single, basicstyle=\scriptsize\ttfamily, linewidth=\columnwidth,breaklines=true]{code/samplepatent.xml}\vspace*{-2ex}
+  \begin{lstlisting}[ linewidth=\columnwidth,breaklines=true, language=xml]     
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<patent-document ucid="UN-EP-1826951">
+	<bibliographic-data>
+		<technical-data>
+			<classifications-ipcr>
+				<classification-ipcr>H04L  12/28        20060101AFI20070723BHEP        
+				</classification-ipcr>
+				<classification-ipcr>H04L  12/28        20060101CFI20070723BHEP        
+				</classification-ipcr>
+			</classifications-ipcr>
+			<invention-title  lang="DE">Nahtlose Roaming-optionen in einem Netz</invention-title>
+			<invention-title  lang="EN">Seamless roaming options in a network</invention-title>
+			<invention-title  lang="FR">Options d&apos;itinerance sans coupure dans un réseau</invention-title>
+		</technical-data>
+	</bibliographic-data>
+	<abstract lang="EN">
+A communication protocol that provides load balancing and/or test 
+pattern information between devices is described. A first embodiment of 
+the protocol provides such information via a data frame that is 
+transmitted a definitive time after a special DTIM beacon is transmitted
+. This protocol provides full compliance with IEEE 802.11. The second 
+embodiment of the protocol modifies the 802.11 beacon data structure 
+with additional information elements.
+	</abstract>
+	<description load-source="ep" status="new" lang="EN">
+		<p num="1">
+The present invention relates to the field of networking. In particular, 
+this invention relates to a protocol for providing load balancing and 
+test pattern signal evaluation information to wireless units in 
+accordance with Institute of Electrical and Electronics Engineers (IEEE) 
+802.11 constraints.
+		</p>
+		.
+		.
+		.
+	</description>
+	<claims load-source="ep" status="new" lang="EN">
+		<claim num="1">
+A method comprising:
+modifying a beacon configured in accordance with a selected 
+communication protocol to produce a modified beacon, the modified beacon 
+comprising a plurality of additional information elements including at 
+least one of an access point name, an access point internet protocol 
+information and a load balancing information; andtransmitting the 
+modified beacon.
+		</claim>
+		.
+		.
+		.
+	</claims>
+</patent-document>
+    \end{lstlisting} 
+\vspace*{-2ex}
+\end{framed}
+\vspace*{-2ex}
+  \caption{A sample patent XML file.}
+  \label{fig:PatentXML}  
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    
 A patent consist of three main sections: Title, Abstract, Description, and Claims.
 \paragraph{Title}
 \ \\ 

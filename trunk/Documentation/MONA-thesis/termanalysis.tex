@@ -1,4 +1,4 @@
-\chapter{Towards Best-Performed Query Term Selection}
+\chapter{Towards Optimal Query Term Selection}
 \label{cha:analysis}
 In this chapter, we mainly focus on recognizing the reasons why standard IR methods fail when the relevant patent documents are complete and in English. In fact, we will investigate the problem from term analysis point of view for both patent query and relevant documents because we are interested in finding what is wrong in term matching process between a patent query and relevant patents. 
 
@@ -55,9 +55,9 @@ extracts terms from the judged relevant documents to derive an upper bound on pe
 standard Okapi BM25 and Language Models (LM) retrieval
 algorithms for patent prior art search.
 %\subsection{Oracular Term Selection}
-\subsection{Scoring Terms}
+\subsection{Selecting Useful Terms}
 \label{OracularTermSelection}
-We aim at identifying terms, which are considered useful for the query to get the best retrieval effectiveness. For this purpose, 
+We aim at identifying the terms, which are considered useful in the query to achieve a ranking that is as close to optimal as possible. For this purpose, 
 after an initial run of reference Patent Query, we
 calculate an Oracular Relevance Feedback ($\mathit{RF}$) score for each term in the top-100
 retrieved documents as follows:
@@ -68,59 +68,95 @@ RF(t,Q)=Rel(t)-Irr(t)
 \end{equation}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume words with a positive score are Useful Words since they are more frequent in relevant patents, while words with a negative score are Noisy Words as they appear more frequently in irrelevant patents. 
+where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume words with a positive score are Useful Terms since they are more frequent in relevant patents, while words with a negative score are Noisy Terms as they appear more frequently in irrelevant patents. 
 
-First, we seek for a pattern between the performance and the existence of \textit{useful words} for each query. We use different criteria to select the useful terms:
-\begin{enumerate}
-\item terms with positive scores(>0).
-\item terms with the score higher than the positive median score.
-\item terms with the score higher than a constant: 1, 5, and 10.
-\item top-100 high-scored terms.
-\end{enumerate}
+We yield the Oracular Relevance Feedback score to: (i) find a pattern for the system performance versus Useful Terms; (ii) show the term overlap with Useful Terms and Noisy Terms for TP, FN patents; (iii)  examine the existence of Useful Terms in different sections of Patent Query.
 
-The results have been shown in Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-p}. 
+\subsubsection{Performance versus Useful Terms}
+%\paragraph{Performance versus Useful Terms}
+%\ \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Useful Terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-r.eps}} \hspace*{1.5cm} \subfigure[Useful Terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthanmedian-r.eps}}\\ \subfigure[{Useful Terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-r.eps}} \hspace*{1.5cm} \subfigure[{Useful Terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-r.eps}}\\ \subfigure[{Useful Terms:$ \{t|RF(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-r.eps}} \hspace*{1.5cm} \subfigure[{Useful Terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-r.eps}}
+\subfigure[Useful Terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-r.eps}} \hspace*{1.5cm} \subfigure[Useful Terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthanmedian-r.eps}}\\ \subfigure[{Useful Terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-r.eps}} \hspace*{1.5cm} \subfigure[{Useful Terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-r.eps}}\\ \subfigure[{Useful Terms: $ \{t|RF(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-r.eps}} \hspace*{1.5cm} \subfigure[{Useful Terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-r.eps}}
 \par\end{centering}
 
-\protect\caption{Scatter plot of Recall vs. the overlap between useful terms and the the query.}
+\protect\caption{Scatter plot of Recall versus the existence of Useful Terms in query.}
 \label{fig:overlap-r}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-p}} \hspace*{1.5cm} \subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthammedian-p.eps}} \\%[-2ex]% 
+\subfigure[Useful terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-p}} \hspace*{1.5cm} \subfigure[Useful terms: $ \{t|RF(t, Q)>RF(t_{+median}, Q)\} $]{\includegraphics[width=5cm]{figs/greaterthammedian-p.eps}} \\%[-2ex]% 
 \subfigure[{Useful terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-p.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-p.eps}}\\ %[-2ex]%
-\subfigure[{Useful terms:$ \{t|score(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-p.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-p.eps}}
+\subfigure[{Useful terms: $ \{t|RF(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-p.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-p.eps}}
 \par\end{centering}
 
-\protect\caption{Scatter plot of Average precision vs. the overlap between useful terms and the the query.}
+\protect\caption{Scatter plot of Average Precision versus the existence of Useful Terms in query.}
 \label{fig:overlap-p}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-We expected to see a higher performance for the queries which contain more \textit{useful words} and a lower performance for the ones with less \textit{useful words}. However, unlike our first assumption, we could not find any correlation between the performance and the presence of \textit{useful words} in the query. The pattern for the recall is completely noisy while there is a very weak correlation between Average Precision and \textit{useful words} for top-scored words ($RF(t, Q)>10$). This experiment indicates that we should seek for reasons beyond the existence of the useful terms inside the query.  
+In our first experiment, we investigate whether the existence of more Useful Terms in the reference Patent Query means achieving a higher performance. In other words, we seek for a pattern between the performance and the existence of Useful Terms in initial Patent Query. We define four different criteria to select Useful Terms:
+\begin{enumerate}
+\item Terms with positive RF scores ($ RF(t, Q)>0) $).
+\item Terms with the score higher than the positive median score ($ RF(t, Q)>RF(t_{+median}, Q) $).
+\item Terms with the score higher than a constant: 1, 5, and 10 ($ RF(t, Q)>1, 5, 10) $).
+\item Top-100 high-scored terms.
+\end{enumerate}
 
-Second, we check the term overlap with \textit{useful words} and \textit{noisy words} for TPs and FPs. Figure \ref{fig:usefulnoisy} shows that relevant patents have a higher term overlap with the \textit{useful words} while irrelevant patents have a higher term overlap with the \textit{noisy words}. This experiment shows that noisy words mislead the system to retrieve irrelevant patents at top of the list. 
+Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-p} show the scatter plot of the performance (Average Precision, and Recall) versus the existence of Useful Terms in query. 
+We expected to see a higher performance for the queries which contain more Useful Terms and a lower performance for the ones with less Useful Terms. However, unlike our first assumption, we do not see any correlation between the performance and the presence of Useful Terms in the query. The pattern for the recall is irregular while there is a very weak correlation between Average Precision and Useful Terms for top-scored words ($RF(t, Q)>10$). This experiment explicitly indicates that term mismatch is not the main reason for low effectiveness of prior art search. 
+\subsubsection{Term Overlap with Useful Terms and Noisy Terms}
+%\paragraph{Term Overlap with Useful Terms and Noisy Terms}
+%\ \\
+In the second experiment, we check the term overlap with Useful Terms and Noisy Terms for TP and FP patents. Figure \ref{fig:usefulnoisy} shows that relevant patents have a higher term overlap with the Useful Terms while irrelevant patents have a higher term overlap with the Noisy Terms. This experiment shows that Noisy Terms are the main reason that irrelevant patents are retrieved at top of the list. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
 \subfigure[TPs]{\includegraphics[width=6cm]{figs/stackedTPs.eps}} \hspace*{1.5cm} \subfigure[FPs]{\includegraphics[width=6cm]{figs/stackedFPs.eps}} 
 \par\end{centering} 
 
-\protect\caption{The distribution of the term overlap between the query and useful words/noisy words in TPs and FPs.}
+\protect\caption{The distribution of the term overlap between the query and Useful Terms/Noisy Terms in TPs and FPs. Relevant patents have higher term overlap with Useful Terms while irrelevant patents have higher term overlap with Noisy Terms.}
 \label{fig:usefulnoisy}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %We hypothesized that a query, formulated by only the \textit{ useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. 
-\newpage
+\subsubsection{Useful Terms in Different Sections of Patents}
+%\paragraph{Useful Terms in Different Sections of Patents}
+%\ \\
+Patents are structured documents containing Title, Abstract, Description, and Claims (section~\ref{StructureofPatents}). In this experiment, we investigate Useful Terms in different sections of patents. 
+Table (\ref{tab:usefultermsinsections}) shows the average number of Useful Terms in different sections of Patent Query.  
+As it can be seen, Description has the highest number of useful terms in both cases where RF score threshold ($ \tau $) is `0' and `1'. When $ \tau = 0 $, the average number of the Useful Terms in Description is quite twice of when $ \tau = 1 $. Compared to other sections, Description contains more Useful Terms, which proves why we achieved higher performance querying with Description (Section~\ref{sec:settings}).
+Table (\ref{tab:usefultermsinsections-p}) shows the average percentage of Useful Terms in different sections of Patent Query. It shows that, overall, Useful Terms constitute less than 50\% of the whole words in each section of Patent Queries. For example, we can see that only 27\% of the whole Patent Query in average are Useful Terms and the rest are irrelevant terms. 
+
+%\subsubsection{Useful Terms in Different Sections}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table*}[htpb]
+  \begin{center}
+   \caption{Average number of Useful Terms in the different sections of Patent Query}
+  \input table/usefultermsinsections.tex   
+  \label{tab:usefultermsinsections}
+  \end{center}  
+\end{table*}
+%\FloatBarrier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table*}[htpb]
+  \begin{center}
+   \caption{Average percentage of Useful Terms in the different sections of Patent Query}
+  \input table/usefultermsinsections-p.tex   
+  \label{tab:usefultermsinsections-p}
+  \end{center}  
+\end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Oracular Query Formulation}
 \label{sec:OracularQueryFormulation}
 In this section, we examine the system effectiveness for queries formulated using oracular Relevance Feedback ($\mathit{RF}$) system.
 
 First, we formulate a query by selecting terms in the top-100 retrieved documents using oracular Relevance Feedback score and we call it oracular query. 
+Figure~\ref{fig:oracular} and Table~\ref{tab:optquery} show that the oracular query far outperform the baseline, where the query is the reference patent query, and approximately performs twice as well on the PATATRAS system, the best competitor in CLEF-IP 2010 system. In Table~\ref{tab:optquery}, we also compare the influence of weighed and unweighed terms for baseline and oracular query. It can be seen that weighing patent query terms with their frequency helps the performance while weighing oracular query terms with $RF(t, Q)$ harms the performance.  Figure \ref{fig:oracular-a} illustrates two main facts: First, the best-performed oracular query can be formulated by selecting the threshold $\tau=0$; Second, including slightly noisy terms (i.e., $\tau$ just slightly less than 0) gives rise to an unexpected steep drop-off in performance. Figure~\ref{fig:oracular-b} shows that the performance increases notably when we include terms up to 200 while formulating a query, but it remains quit unchanged when we include more than 200 terms. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}   
@@ -132,7 +168,7 @@ We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ and query size
 \begin{table}[t!]
   \begin{center}
   \scriptsize
-   \caption{Performance for the \textit{Patent Query}, \textit{ Oracular Query}, and \textit{ Top CLEF-IP 2010 (PATATRAS)}.}
+   \caption{Performance for the Patent Query, Oracular Query, and Top CLEF-IP 2010 (PATATRAS).}
    \vspace*{1ex}
   \input table/optquery.tex   
   \label{tab:optquery}
@@ -148,8 +184,6 @@ We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ and query size
 \label{fig:oracular}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Figure \ref{fig:oracular} and Table \ref{tab:optquery} show that the oracular query far outperform the baseline, where the query is the reference patent query, and approximately performs twice as well on the PATATRAS system, the best competitor in CLEF-IP 2010 system. In Table \ref{tab:optquery}, we also compare the influence of weighed and unweighed terms for baseline and oracular query. It can be seen that weighing patent query terms with their frequency helps the performance while weighing oracular query terms with $RF(t, Q)$ harms the performance.  Figure \ref{fig:oracular-a} illustrates two main facts: First, the best-performed oracular query can be formulated by selecting the threshold $\tau=0$; Second, including slightly noisy terms (i.e., $\tau$ just slightly less than 0) gives rise to an unexpected steep drop-off in performance. Figure \ref{fig:oracular-b} shows that the performance increases notably when we include terms up to 200 while formulating a query, but it remains quit unchanged when we include more than 200 terms. 
 
 Next, inspired by Maxwell and Croft's work~\citep{maxwell2013compact} that emphasise on the importance of query words, we formulate the second query by selecting oracular terms that also occur in the reference patent query as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -426,19 +460,5 @@ user effort while achieving state-of-the-art performance.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%% SECTION 4 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Section-based Analysis}
-\textcolor{red}{Mona: I am not sure if this suits in this chapter, no idea where I can put them!}\\
-Patents are structured documents containing Title, Abstract, Description, and Claims. In these series of experiments, we concentrate on sections to find out average number of useful terms in each section of the patent query. We also show which section is more useful in both Relevance Feedback and Pseudo Relevance Feedback.
-%\subsubsection{Useful Terms in Different Sections}
-\begin{table*}[t!]
-  \begin{center}
-   \caption{Average number of useful terms in the different sections of the patent query}
-  \input table/usefultermsinsections.tex   
-  \label{tab:usefultermsinsections}
-  \end{center}  
-\end{table*}
-\FloatBarrier
-Table (\ref{tab:usefultermsinsections}) shows the average number of useful terms \textcolor{red}{Mona: I will change the table content to the percentage of useful terms in different sections!} in different sections of the patent query which can help us to identify the best section to create the query.
-As it can be seen, `Description' has the highest number of useful terms in both cases where RF score threshold ($ \tau $) is `0' and `1'. When $ \tau = 0 $, the average number of the useful terms in the Description is quite twice of where $ \tau = 1 $. 
 %\section{Summary}
 
