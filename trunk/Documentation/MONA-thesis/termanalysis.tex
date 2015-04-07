@@ -225,15 +225,19 @@ the actual relevance judgements.  We first attempt this via fully
 automated methods and then proceed to evaluate semi-automated methods
 based on interactive relevance feedback methods.
 \subsection{Automated Reduction}
+\label{AutomatedReduction}
+\subsubsection{Simple Query Reduction Approaches}
+\label{SimpleApproaches}
 We use the following four simple features to reduce the initial patent queries and approximate the Oracular Patent Query: 
 \begin{enumerate}
 \item Document Frequent terms: In standard IR approaches, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep{manning2008introduction}. Inspired by this fact, we assume that, after an initial run of the query, removing terms  with a high average document frequency (DF) over the top-100 documents improves the effectiveness. 
 \item Frequent Terms in Query: Frequent terms inside long and verbose queries are considered important~\citep{maxwell2013compact}. Hence, we avoid removing frequent terms inside the query even if they are frequent in top-100 retrieved collection.
 \item IPC Titles: The titles of classification indicate their intended content by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query to reduce the query, based on the assumption that they are common to all patents belonging to the same category and may be considered as stop-words.
-\item Pseudo Relevance Feedback ($\mathit{PRF}$): Pseudo relevance feedback is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} as we did with relevance feedback.
+%\item Pseudo Relevance Feedback ($\mathit{PRF}$): Pseudo relevance feedback is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} the same as what we did for relevance feedback.
 \end{enumerate}
 We combine the first three features for our first query reduction approach. Pseudo relevance feedback is the second approach we yield to reduce the reference patent query. 
-\subsubsection{Combined Approach}
+\subsubsection{Combined Query Reduction Approach}
+\label{CombinedApproach}
 First, we hypothesize that we will improve the performance by pruning out highly frequent words in top-100 retrieved documents from the patent query. For each word, we calculate the average term frequency over top-100 documents and call it Document Frequent (DF) score:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
@@ -278,7 +282,7 @@ The results in Figure~\ref{fig:combinedapproach} (magenta line) show that removi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Figure~\ref{fig:scatter_combined_b} illustrates the combined approach. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. First, we remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$, however, it does not help because as it can be seen we remove many useful terms ($RF(t, Q)>0$) by removing document frequent terms ($DF(t, Q)>\gamma$). Red points in Figure~\ref{fig:scatter_combined_b} are query terms with term frequency higher than 5, where we got the best performance in combined approach. We can see that we would avoid removing useful terms by keeping query frequent terms. Figure~\ref{fig:scatter_combined_a} shows that the sample patent query is contaminated by noisy words and Figure~\ref{fig:scatter_combined_b} shows that although the most of IPC Title words are noisy words, removing only few words that are useful can degrade the performance.    
-\subsubsection{Pseudo Relevance Feedback}
+\subsubsection{Query Reduction Using Pseudo Relevance Feedback}
 % TODO: Must be consistent in either pruning or removing terms --- results should ideally converge to the baseline at 0.
 % TODO: Should do simplest comparisons first and not combine pruning approaches.  Even better: evaluate methods mentioned in related work.
 %\vspace*{0.5mm}
@@ -305,7 +309,7 @@ Figure~\ref{fig:scatter_combined_b} illustrates the combined approach. Each blue
    \label{fig:prf} 
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In this experiment, we use pseudo relevance feedback to select patent query terms, the same as what we did in oracular relevance feedback system (Section~\ref{sec:oraculrquery}). In pseudo relevance feedback, we assume that top 5 retrieved documents are relevant and the rest are irrelevant. We calculate pseudo relevance feedback score based on this assumption:  
+Pseudo Relevance Feedback (PRF) is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} the same as what we did for relevance feedback.In this experiment, we use pseudo relevance feedback to select patent query terms, the same as what we did in oracular relevance feedback system (Section~\ref{sec:oraculrquery}). In pseudo relevance feedback, we assume that top 5 retrieved documents are relevant and the rest are irrelevant. We calculate pseudo relevance feedback score based on this assumption:  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 PRF(t,Q)=Rel(t)-Irr(t) 
