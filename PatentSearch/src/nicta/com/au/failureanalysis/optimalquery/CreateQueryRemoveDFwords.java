@@ -48,11 +48,11 @@ public class CreateQueryRemoveDFwords {
 			Integer qfreq = qtpair.getValue();
 			if(df_tspairs.keySet().contains(qt)){
 /*--------------------------- (1) Uncomment if you want to remove only document frequent terms (DF(t) > tau) from original query -----------------------*/
-												if(df_tspairs.get(qt) > tau){
+//												if(df_tspairs.get(qt) > tau){
 /*--------------------------- (2) Uncomment if you want to remove [DF(t) > tau and QTF(t) < delta] from original query -----------------------*/
 //				if(df_tspairs.get(qt) > tau && qfreq <= delta){ //Discarding criteria: df_tspairs.get(qt) > tau && qfreq <= delta (8)
 /*--------------------------- (3) Uncomment if you want to remove only query less frequent terms (QTF(t) < delta) from original query -----------------------*/
-//				if(qfreq <= delta){ 
+				if(qfreq <= delta){ 
 					//					if (!Functions.isNumeric(qt) && !Functions.isSpecialCahr(qt)) {
 					size++;						
 					qterms.remove(qt);
