@@ -130,15 +130,15 @@ public final class GeneralExecuteTopics {
 			/*--------------------------------------------------------------------------------*/
 						
 			/*------------------ 8-Create patent query minus frequent words in top-100 -----------------*/
-//			int delta = Qsize;
-//			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
-//			Query q = pq.parse(newquery, ipcfilter);
+			int delta = Qsize;
+			String newquery = c.GeneratePatQueryRemoveDFs(queryid, qUcid, tau, delta);
+			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 			/*------------------ 9-Create patent query minus frequent words in top-100, keep ipc def and QTF(t) > delta -----------------*/
-			int delta = Qsize;
-			String newquery = c.GeneratePatQueryRemDFs3Conditions(queryid, qUcid, queryfile, tau, delta);
-			Query q = pq.parse(newquery, ipcfilter);
+//			int delta = Qsize;
+//			String newquery = c.GeneratePatQueryRemDFs3Conditions(queryid, qUcid, queryfile, tau, delta);
+//			Query q = pq.parse(newquery, ipcfilter);
 			/*--------------------------------------------------------------------------------*/
 			
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
