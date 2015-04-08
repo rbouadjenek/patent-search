@@ -219,6 +219,7 @@ suggest two important conclusions:
 %%%%%%%%%%%%%%%%%%%%%%%%% SECTION 3 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Query Reduction: Approximating the Oracular Patent Query}
+\label{sec: QR}
 The gain achieved using the Oracular Patent Query method motivates us to explore various methods to approximate the terms
 selected by this query without ``peeking at the answers'' provided by
 the actual relevance judgements.  We first attempt this via fully
@@ -228,17 +229,10 @@ based on interactive relevance feedback methods.
 \label{AutomatedReduction}
 \subsubsection{Simple Query Reduction Approaches}
 \label{SimpleApproaches}
-We use the following four simple features to reduce the initial patent queries and approximate the Oracular Patent Query: 
-\begin{enumerate}
-\item Document Frequent terms: In standard IR approaches, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep{manning2008introduction}. Inspired by this fact, we assume that, after an initial run of the query, removing terms  with a high average document frequency (DF) over the top-100 documents improves the effectiveness. 
-\item Frequent Terms in Query: Frequent terms inside long and verbose queries are considered important~\citep{maxwell2013compact}. Hence, we avoid removing frequent terms inside the query even if they are frequent in top-100 retrieved collection.
-\item IPC Titles: The titles of classification indicate their intended content by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query to reduce the query, based on the assumption that they are common to all patents belonging to the same category and may be considered as stop-words.
-%\item Pseudo Relevance Feedback ($\mathit{PRF}$): Pseudo relevance feedback is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} the same as what we did for relevance feedback.
-\end{enumerate}
-We combine the first three features for our first query reduction approach. Pseudo relevance feedback is the second approach we yield to reduce the reference patent query. 
-\subsubsection{Combined Query Reduction Approach}
-\label{CombinedApproach}
-First, we hypothesize that we will improve the performance by pruning out highly frequent words in top-100 retrieved documents from the patent query. For each word, we calculate the average term frequency over top-100 documents and call it Document Frequent (DF) score:
+We, first, apply three simple approaches to reduce the initial patent queries aiming at approximating the Oracular Patent Query: (i) Removing Document Frequent Terms (ii) Removing Less Frequent Terms in Patent Query (iii)
+\paragraph{Removing Document Frequent Terms}
+\ \\
+In standard IR, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep{manning2008introduction}. Inspired by this fact, we hypothesize that we will improve the performance by pruning out highly frequent words in top-100 retrieved documents after an initial run of Patent Query. To identify highly frequent terms, we calculate the average term frequency over top-100 documents for each word and we call it Document Frequent (DF) score, as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
  DF(t, Q)=\frac{1}{100}\sum_{d_i\in  D} TF(t, d_i)    
@@ -247,6 +241,28 @@ First, we hypothesize that we will improve the performance by pruning out highly
 where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d_i)$ is the term frequency of each term in document $d_i$.
 %\begin{displaymath}   t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We remove words with DF score higher than $\tau$ ($DF(t, Q)>\tau$) from Patent Query. Figure~\ref{fig:combinedapproach} illustrates how the performance change by different values of the threshold $\tau$ illustrates how removing document frequent words for different threshold $\gamma$ can hurt the performance (red line). 
+\paragraph{Removing Less Frequent Terms in Patent Query}
+\ \\
+\begin{enumerate}
+%\item Document Frequent terms: In standard IR approaches, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep{manning2008introduction}. Inspired by this fact, we assume that, after an initial run of the query, removing terms  with a high average document frequency (DF) over the top-100 documents improves the effectiveness. 
+\item Frequent Terms in Query: Frequent terms inside long and verbose queries are considered important~\citep{maxwell2013compact}. Hence, we avoid removing frequent terms inside the query even if they are frequent in top-100 retrieved collection.
+\item IPC Titles: The titles of classification indicate their intended content by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query to reduce the query, based on the assumption that they are common to all patents belonging to the same category and may be considered as stop-words.
+%\item Pseudo Relevance Feedback ($\mathit{PRF}$): Pseudo relevance feedback is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} the same as what we did for relevance feedback.
+\end{enumerate}
+We combine the first three features for our first query reduction approach. Pseudo relevance feedback is the second approach we yield to reduce the reference patent query. 
+\subsubsection{Combined Query Reduction Approach}
+\label{CombinedApproach}
+%First, we hypothesize that we will improve the performance by pruning out highly frequent words in top-100 retrieved documents from the patent query. For each word, we calculate the average term frequency over top-100 documents and call it Document Frequent (DF) score:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{equation}
+% DF(t, Q)=\frac{1}{100}\sum_{d_i\in  D} TF(t, d_i)    
+% \label{eq:df}
+%\end{equation}
+%where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d_i)$ is the term frequency of each term in document $d_i$.
+%%\begin{displaymath}   t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
@@ -256,7 +272,8 @@ where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d_i)$ is the t
 \label{fig:combinedapproach}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Figure~\ref{fig:combinedapproach} illustrates how removing document frequent words for different threshold $\gamma$ can hurt the performance (red line). Hence, we combine this feature with the second feature--- query frequent terms to remove document frequent terms while to keep query frequent terms:
+%Figure~\ref{fig:combinedapproach} illustrates how removing document frequent words for different threshold $\gamma$ can hurt the performance (red line). 
+Hence, we combine this feature with the second feature--- query frequent terms to remove document frequent terms while to keep query frequent terms:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{displaymath}( DF(t, Q)>0.01 \; \wedge \; QTF(t)<=\alpha )\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
