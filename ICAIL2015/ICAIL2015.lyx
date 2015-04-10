@@ -205,7 +205,7 @@ e.edu}
 
 \begin_layout Plain Layout
 
-		$^
+$^
 \backslash
 S$
 \backslash
@@ -216,8 +216,8 @@ affaddr{NICTA, Australian National University,  gabriela.ferraro@nicta.com.au}
 
 %Reda Bouadjenek
 \backslash
-titlenote{This work has been mainly done when the authors was at NICTA,
- Canberra, Australia.}
+titlenote{This work has been primarily completed while the authors were
+ at NICTA, Canberra, Australia.}
 \backslash
 
 \backslash
@@ -301,7 +301,7 @@ affaddr{Corvallis, USA}
 
 %       
 \backslash
-email{ssanner@gmail.com}
+email{ssanner@oregonstate.edu}
 \end_layout
 
 \begin_layout Plain Layout
@@ -348,7 +348,7 @@ affaddr{Canberra, Australia}
 
 %       
 \backslash
-email{gabriela.ferraro@nicta.com.au}
+email{gferraro@nicta.com.au}
 \end_layout
 
 \begin_layout Plain Layout
@@ -7244,6 +7244,28 @@ reference "sec:QueryReformulation"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide true
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/legendQR3.eps
+	width 17.5cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 To summarize all the results obtained over all the above configurations,
  Figures 
 \begin_inset CommandInset ref
@@ -7327,17 +7349,6 @@ reference "fig:PRES-CLEF2010"
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/legendQR2.eps
-	width 9cm
-
-\end_inset
-
-
-\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -7472,17 +7483,6 @@ name "fig:QR-MAP-CLEF-IP2010"
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/legendQR2.eps
-	width 9cm
-
-\end_inset
-
- 
-\end_layout
 
 \begin_layout Plain Layout
 \align center
@@ -7712,17 +7712,6 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Graphics
-	filename img/legendQR2.eps
-	width 9cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
 \begin_inset ERT
 status open
 
@@ -7854,17 +7843,6 @@ name "fig:QR-MAP-CLEF-IP2011"
 wide false
 sideways false
 status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename img/legendQR2.eps
-	width 9cm
-
-\end_inset
-
-
-\end_layout
 
 \begin_layout Plain Layout
 \align center
