@@ -133,7 +133,7 @@ Table (\ref{tab:usefultermsinsections-p}) shows the average percentage of Useful
 
 %\subsubsection{Useful Terms in Different Sections}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table*}[htpb]
+\begin{table*}[t!]
   \begin{center}
    \caption{Average number of Useful Terms in the different sections of Patent Query}
   \input table/usefultermsinsections.tex   
@@ -143,7 +143,7 @@ Table (\ref{tab:usefultermsinsections-p}) shows the average percentage of Useful
 %\FloatBarrier
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table*}[htpb]
+\begin{table*}[t!]
   \begin{center}
    \caption{Average percentage of Useful Terms in the different sections of Patent Query}
   \input table/usefultermsinsections-p.tex   
@@ -156,9 +156,9 @@ Table (\ref{tab:usefultermsinsections-p}) shows the average percentage of Useful
 \label{sec:OracularQueryFormulation}
 As it explained in section~\ref{PerformanceUsefulTerms}, we could not find a pattern for the performance and the existence of the Useful Terms in Patent Query.
 In this section, we examine the system effectiveness for queries formulated by terms selected by Oracular Relevance Feedback ($\mathit{RF}$) system.
-We formulate two Oracular Queries.
+We formulate two different Oracular Queries.
 
-The first query is formulated by selecting terms in the top-100 retrieved documents using Oracular Relevance Feedback score --- we empirically seek for the optimal value for the threshold $\tau$ on RF score --- and we call it Oracular Query. 
+The first query is formulated by selecting terms in the top-100 retrieved documents using Oracular Relevance Feedback score  and we call it Oracular Query:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}   
@@ -166,13 +166,13 @@ Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}
 \end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ and query size yielding the best oracular query.
-Table~\ref{tab:optquery} and Figure~\ref{fig:oracular-a} show that the Oracular Query far outperform the baseline query (reference Patent Query), and approximately performs twice as well on the PATATRAS system, the best competitor in CLEF-IP 2010 system. In Table~\ref{tab:optquery}, we also compare the influence of weighed and unweighed terms for both baseline query and Oracular Query. It can be seen that weighing terms of the Patent Query with their frequency helps the performance while weighing terms of Oracular Query with $RF(t, Q)$ harms the performance. 
-Figure \ref{fig:oracular-a} shows how the performance change by the values of $\tau$. We can infer two important facts: 
+Table~\ref{tab:optquery} and Figure~\ref{fig:oracular-a} show that the Oracular Query far outperform the baseline query (reference Patent Query), and it approximately performs twice as well on the PATATRAS system, the best competitor in CLEF-IP 2010 system. In Table~\ref{tab:optquery}, we also compare the influence of weighed and unweighed terms for both baseline query and Oracular Query. It can be seen that weighing terms in Patent Query with their frequency helps the performance while weighing terms in Oracular Query with $RF(t, Q)$ harms the performance. 
+Figure \ref{fig:oracular-a} shows how the performance changes by the values of $\tau$. We remark two important facts: 
 \begin{enumerate}
-\item Query reduction should suffice for effective prior art patent retrieval; and 
-\item Very precise methods for eliminating poor query terms in the reduction process are required.
+\item Including slightly Noisy Terms (i.e., $\tau$ just slightly less than 0) leads in an unexpected steep drop-off in performance.  
+\item We achieve the highest MAP for the Oracular Query formulated by selecting the terms with $RF(t, Q)>0$.
 \end{enumerate}
-First, the best-performed oracular query can be formulated by selecting the threshold $\tau=0$; Second, including slightly noisy terms (i.e., $\tau$ just slightly less than 0) gives rise to an unexpected steep drop-off in performance. Figure~\ref{fig:oracular-b} shows that the performance increases notably when we include terms up to 200 while formulating a query, but it remains quit unchanged when we include more than 200 terms. 
+Figure~\ref{fig:oracular-b} shows that the performance increases notably when we include terms up to 200 while formulating a query, but it remains quit unchanged when we include more than 200 terms. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[t!]
@@ -194,7 +194,22 @@ First, the best-performed oracular query can be formulated by selecting the thre
 \label{fig:oracular}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
+\begin{centering}
+\subfigure[Oracular Query performance versus the threshold $\tau$.\label{fig:oracularpq-a}]{\includegraphics[width=6cm]{figs/oracularquery-map.eps}} 
+\hspace*{1.5cm} \subfigure[Oracular Query performance versus the query size.\label{fig:oracularpq-b}]{\includegraphics[width=6cm]{figs/oracularquery-recall.eps}} 
+\par\end{centering} 
+\protect\caption{Oracular Query performance versus various values of the threshold $\tau$ and query size}
+\label{fig:oracularpq}
+\end{figure}
+%\begin{figure}[t!]
+%   \centering
+%   \includegraphics[width=0.50\textwidth,height=55mm]{figs/oracularpq.eps}
+%   \caption{oracular patent query performance versus the threshold $\tau$.}   
+%   \label{fig:oracularpq} 
+%\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Next, inspired by Maxwell and Croft's work~\citep{maxwell2013compact} that emphasise on the importance of query words, we formulate the second query by selecting oracular terms that also occur in the reference patent query as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
@@ -202,17 +217,9 @@ Next, inspired by Maxwell and Croft's work~\citep{maxwell2013compact} that empha
  \label{eq:score}
 \end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[t!]
-   \centering
-   \includegraphics[width=0.50\textwidth,height=55mm]{figs/oracularpq.eps}
-   \caption{oracular patent query performance versus the threshold $\tau$.}   
-   \label{fig:oracularpq} 
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The results for the Oracular Patent Query (Figure \ref{fig:oracularpq}) is also considerably improved compared to the baseline and PATATRAS again, though MAP is slightly less than Oracular Query. The results explain a very important fact that the patent query has sufficient terms for an improved performance and query expansion is not required in patent prior art search. We also conclude that the existence of the noisy words are the main cause of low effectiveness.  
 
-Overall, our experiments related to oracular relevance feedback system
+Overall, our experiments related to Oracular Relevance Feedback system
 suggest two important conclusions: 
 \begin{enumerate}
 \item Query reduction should suffice for effective prior art patent retrieval; and 
@@ -236,6 +243,15 @@ the actual relevance judgements.  We first attempt this via fully
 automated methods and then proceed to evaluate semi-automated methods
 based on interactive relevance feedback methods.
 \subsection{Automated Reduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
+\begin{centering}
+\subfigure[Mean Average Precision.]{\includegraphics[width=6cm]{figs/combinedMAP.eps}} \hspace*{1.5cm} \subfigure[Average Recall.]{\includegraphics[width=6cm]{figs/combinedRecall.eps}} 
+\par\end{centering} 
+\protect\caption{Comparing system performance for three different query reduction approaches and their changes with a threshold $\tau$.}
+\label{fig:combinedapproach}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{AutomatedReduction}
 For automated reduction we first examine three simple approaches, then we apply Pseudo Relevance Feedback for query term selection.  
 \subsubsection{Simple Query Reduction Approaches}
@@ -261,15 +277,6 @@ In this approach the best value for the threshold is $\tau=5$ to get higher MAP.
 \paragraph{Removing Terms in IPC Titles}
 \ \\
 The titles of classification indicate their intended content by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query to reduce the query, based on the assumption that they are common to all patents belonging to the same category and may be considered as stop-words. As it can be seen in Figure~\ref{fig:combinedapproach} (magenta line), this approach slightly helps the performance.\\\\
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[t!]
-\begin{centering}
-\subfigure[Mean Average Precision.]{\includegraphics[width=6cm]{figs/combinedMAP.eps}} \hspace*{1.5cm} \subfigure[Average Recall.]{\includegraphics[width=6cm]{figs/combinedRecall.eps}} 
-\par\end{centering} 
-\protect\caption{Comparing system performance for three different query reduction approaches and their changes with a threshold $\tau$.}
-\label{fig:combinedapproach}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
