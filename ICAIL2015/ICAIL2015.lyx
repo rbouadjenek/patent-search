@@ -130,7 +130,7 @@ title{ A Study of Query Reformulation for Patent Prior Art Search}
 
 
 \backslash
-numberofauthors{1}
+numberofauthors{3}
 \end_layout
 
 \begin_layout Plain Layout
@@ -154,7 +154,7 @@ alignauthor
 
 \begin_layout Plain Layout
 
-Mohamed Reda Bouadjenek$^{
+%Mohamed Reda Bouadjenek$^{
 \backslash
 dag}$
 \backslash
@@ -176,7 +176,7 @@ S$
 
 \begin_layout Plain Layout
 
-$^{
+%$^{
 \backslash
 dag}$
 \backslash
@@ -191,7 +191,7 @@ affaddr{INRIA
 
 \begin_layout Plain Layout
 
-$^{
+%$^{
 \backslash
 ddag}$
 \backslash
@@ -205,7 +205,7 @@ e.edu}
 
 \begin_layout Plain Layout
 
-$^
+%$^
 \backslash
 S$
 \backslash
@@ -214,7 +214,7 @@ affaddr{NICTA, Australian National University,  gabriela.ferraro@nicta.com.au}
 
 \begin_layout Plain Layout
 
-%Reda Bouadjenek
+Reda Bouadjenek
 \backslash
 titlenote{This work has been primarily completed while the authors were
  at NICTA, Canberra, Australia.}
@@ -226,7 +226,7 @@ titlenote{This work has been primarily completed while the authors were
 
 \begin_layout Plain Layout
 
-%       
+       
 \backslash
 affaddr{INRIA 
 \backslash
@@ -239,7 +239,7 @@ affaddr{INRIA
 
 \begin_layout Plain Layout
 
-%		
+		
 \backslash
 affaddr{Montpellier, France}
 \backslash
@@ -250,21 +250,21 @@ affaddr{Montpellier, France}
 
 \begin_layout Plain Layout
 
-%       
+       
 \backslash
-email{reda.bouadjenek@inria.fr}
+affaddr{reda.bouadjenek@inria.fr}
 \end_layout
 
 \begin_layout Plain Layout
 
-%
+
 \backslash
 alignauthor
 \end_layout
 
 \begin_layout Plain Layout
 
-%Scott Sanner$^{
+Scott Sanner$^{
 \backslash
 Large 
 \backslash
@@ -277,7 +277,7 @@ footnotemark[1]}$
 
 \begin_layout Plain Layout
 
-%       
+       
 \backslash
 affaddr{Oregon State University}
 \backslash
@@ -288,7 +288,7 @@ affaddr{Oregon State University}
 
 \begin_layout Plain Layout
 
-%		
+		
 \backslash
 affaddr{Corvallis, USA}
 \backslash
@@ -299,21 +299,21 @@ affaddr{Corvallis, USA}
 
 \begin_layout Plain Layout
 
-%       
+       
 \backslash
-email{ssanner@oregonstate.edu}
+affaddr{scott.sanner@oregonstate.edu}
 \end_layout
 
 \begin_layout Plain Layout
 
-%
+
 \backslash
 alignauthor
 \end_layout
 
 \begin_layout Plain Layout
 
-%Gabriela Ferraro
+Gabriela Ferraro
 \backslash
 
 \backslash
@@ -322,7 +322,7 @@ alignauthor
 
 \begin_layout Plain Layout
 
-%       
+       
 \backslash
 affaddr{NICTA 
 \backslash
@@ -335,7 +335,7 @@ affaddr{NICTA
 
 \begin_layout Plain Layout
 
-%		
+		
 \backslash
 affaddr{Canberra, Australia}
 \backslash
@@ -346,9 +346,9 @@ affaddr{Canberra, Australia}
 
 \begin_layout Plain Layout
 
-%       
+       
 \backslash
-email{gferraro@nicta.com.au}
+affaddr{gabriela.ferraro@nicta.com.au}
 \end_layout
 
 \begin_layout Plain Layout

@@ -117,7 +117,7 @@ unset xtics
 set offset -0.5,-0.5,0,0
 set term postscript eps enhanced color "Courier,17"
 set ytics font "Verdana,22" 
-set xtics font "Verdana,22" 
+#set xtics font "Verdana,22" 
 
 set yrange [0.39:0.45]
 set output "qTitle-PRES-CLEF-IP2011.eps" 
