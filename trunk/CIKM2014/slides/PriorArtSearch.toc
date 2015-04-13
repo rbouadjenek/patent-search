@@ -1,0 +1,2 @@
+\beamer@endinputifotherversion {3.10pt}
+\beamer@sectionintoc {1}{\scshape Patent Prior Art Search with Partial Patent Applications}{3}{0}{1}
