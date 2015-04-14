@@ -1086,7 +1086,7 @@ reference "sec:Conclusion"
 \end_layout
 
 \begin_layout Section
-Query Reformulation for Patents
+Patent Query Reformulation
 \end_layout
 
 \begin_layout Standard
@@ -10584,21 +10584,19 @@ Finally, we believe that future work should investigate whether QE methods
  potentially invalidating prior art for a new patent idea.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%Acknowledgements 
+\begin_layout Section*
+Acknowledgements 
 \end_layout
 
-\begin_layout Plain Layout
-
-%NICTA is funded by the Australian Government as represented by the Department
+\begin_layout Standard
+NICTA is funded by the Australian Government as represented by the Department
  of Broadband, Communications and the Digital Economy and the Australian
  Research Council through the ICT Centre of Excellence program.
 \end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
 
 \begin_layout Plain Layout
 
