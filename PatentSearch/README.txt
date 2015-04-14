@@ -118,7 +118,11 @@ use: nicta.com.au.patent.pac.evaluation.ExecuteTopics
 			[-decay]: weight of the terms in top k documents
 
 
-The results file has the format: query_id, iter, docno, rank, sim, run_id  delimited by spaces.  Query id is the query number.  The iter constant, 0, is required but ignored.  The Document numbers are string values like EP-0734121.  The Similarity (sim) is a float value.  Rank is an integer from 0 to 1000.  Runid is a string which gets printed out with the output.  An example of a line from the results file:
+The results file has the format: query_id, iter, docno, rank, sim, run_id  delimited by spaces.
+Query id is the query number.  The iter constant, 0, is required but ignored.  
+The Document numbers are string values like EP-0734121.  The Similarity (sim) is a float value.
+Rank is an integer from 0 to 1000.  Runid is a string which gets printed out with the output.  
+An example of a line from the results file:
 
 PAC-1001 Q0 EP-0734121 1 1314.7852 STANDARD
 PAC-1001 Q0 EP-1152529 2 1123.9963 STANDARD
