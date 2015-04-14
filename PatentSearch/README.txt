@@ -137,7 +137,7 @@ We advise the usage of two tools to evaluate the obtained results using the stan
 
 -> TRECEVAL: http://faculty.washington.edu/levow/courses/ling573_SPR2011/hw/trec_eval_desc.htm
 
--> PRES: http://alt.qcri.org/~wmagdy/Scripts/PRESeval.htm
+-> PRESEval: http://alt.qcri.org/~wmagdy/Scripts/PRESeval.htm
 
 Note: qrels files which contain the query relevance assessment in TREC format are also provided in the links bellow.
 
