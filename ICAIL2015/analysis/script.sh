@@ -3,9 +3,9 @@ clear
 reset
 #set title "Results over 1305 english queries"
 set encoding iso_8859_1
-set xlabel "recall" font "Helvetica,22"
+set xlabel "recall" font "Courier,22"
 set xtics nomirror rotate by -45
-set ylabel "precision" font "Helvetica,22"
+set ylabel "precision" font "Courier,22"
 set size 0.5,0.5
 set grid
 set term postscript eps enhanced color "Courier,17"
