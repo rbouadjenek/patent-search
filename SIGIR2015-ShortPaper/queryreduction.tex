@@ -26,7 +26,8 @@ We use the following four simple approaches to reduce the initial patent queries
 \noindent \textbf{(2)} Frequent terms inside long and verbose queries have been shown to be important~\cite{maxwell2013compact}. Hence, we only keep high query TF (QTF) terms ($\mathit{QTF}(t)>\tau$) but remove from this set any document frequent terms ($\mathit{DF}(t)>0.01$).  Figure \ref{fig:queryreduc} indicates that this approach performs slightly better than the baseline.
 
 \vspace*{0.5mm}
-\noindent \textbf{(3)} The third query reduction approach is to select query terms using pseudo-relevance feedback ($\mathit{PRF}$)~\cite{Baeza-Yates2011, maxwell2013compact}. We calculated a $\mathit{PRF}$ score similar to $\mathit{RF}$ score assuming that the top-k ranked documents are relevant. We selected the query terms which have high $\mathit{PRF}$ score ($\mathit{PRF}(t)>\tau$). As Figure \ref{fig:queryreduc} illustrates, this approach does not notably outperform the baseline. 
+\noindent \textbf{(3)} The third query reduction approach is to select query terms using pseudo-relevance feedback ($\mathit{PRF}$)
+%~\cite{Baeza-Yates2011, maxwell2013compact}. We calculated a $\mathit{PRF}$ score similar to $\mathit{RF}$ score assuming that the top-k ranked documents are relevant. We selected the query terms which have high $\mathit{PRF}$ score ($\mathit{PRF}(t)>\tau$). As Figure \ref{fig:queryreduc} illustrates, this approach does not notably outperform the baseline. 
 %In fact, we could not find any heuristic correlation between  $ PRF(t)$ and $ RF(t)$. 
 
 \vspace*{0.5mm}
