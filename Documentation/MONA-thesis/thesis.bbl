@@ -1,4 +1,4 @@
-\begin{thebibliography}{80}
+\begin{thebibliography}{81}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{}
@@ -157,6 +157,14 @@
   clef intellectual property track 2009.
 \newblock In \emph{Multilingual Information Access Evaluation I. Text Retrieval
   Experiments}, 444--451. Springer.
+
+\bibitem[{Golestan~Far et~al.(2015)Golestan~Far, Sanner, Bouadjenek, Ferraro,
+  and Hawking}]{mona2015termselection}
+\textsc{Golestan~Far, M.; Sanner, S.; Bouadjenek, R.; Ferraro, G.; and Hawking,
+  D.}, 2015.
+\newblock On term selection techniques for patent prior art search.
+\newblock In \emph{Proceedings of the 38th international ACM SIGIR conference
+  on Research \& development in information retrieval}. ACM.
 
 \bibitem[{Graf et~al.(2010)Graf, Frommholz, Lalmas, and
   Van~Rijsbergen}]{graf2010knowledge}
