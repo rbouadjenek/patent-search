@@ -21,6 +21,7 @@ set style fill   solid 1.00 border -1
 set style histogram clustered gap 1 title  offset character 0, 0, 0
 #set title "Results over 1305 english queries"
 set size 0.58,0.58
+set xtics font "Courier,26"
 set grid
 set key left top
 set key vertical

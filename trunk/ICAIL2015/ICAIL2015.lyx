@@ -3766,7 +3766,7 @@ subfigure[Query Title.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qTitle-MAP-CLEF-IP2010.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -3797,7 +3797,7 @@ subfigure[Query Abstract.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qAbstract-MAP-CLEF-IP2010.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -3829,7 +3829,7 @@ subfigure[Query Ext.
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qExtAbstract-MAP-CLEF-IP2010.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -3860,7 +3860,7 @@ subfigure[Query Description.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qDescription-MAP-CLEF-IP2010.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -3940,7 +3940,7 @@ subfigure[Query Title.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qTitle-PRES-CLEF-IP2010.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -3971,7 +3971,7 @@ subfigure[Query Abstract.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qAbstract-PRES-CLEF-IP2010.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4003,7 +4003,7 @@ subfigure[Query Ext.
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qExtAbstract-PRES-CLEF-IP2010.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4034,7 +4034,7 @@ subfigure[Query Description.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qDescription-PRES-CLEF-IP2010.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4114,7 +4114,7 @@ subfigure[Query Title.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qTitle-MAP-CLEF-IP2011.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4145,7 +4145,7 @@ subfigure[Query Abstract.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qAbstract-MAP-CLEF-IP2011.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4177,7 +4177,7 @@ subfigure[Query Ext.
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qExtAbstract-MAP-CLEF-IP2011.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4208,7 +4208,7 @@ subfigure[Query Description.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qDescription-MAP-CLEF-IP2011.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4288,7 +4288,7 @@ subfigure[Query Title.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qTitle-PRES-CLEF-IP2011.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4319,7 +4319,7 @@ subfigure[Query Abstract.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qAbstract-PRES-CLEF-IP2011.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4351,7 +4351,7 @@ subfigure[Query Ext.
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qExtAbstract-PRES-CLEF-IP2011.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4382,7 +4382,7 @@ subfigure[Query Description.]{
 
 \begin_inset Graphics
 	filename Results-CIKM2014/qDescription-PRES-CLEF-IP2011.eps
-	width 4.5cm
+	width 4.37cm
 
 \end_inset
 
@@ -4463,7 +4463,7 @@ name "tbl:QESampleQueries"
 \begin_inset Tabular
 <lyxtabular version="3" rows="21" columns="1">
 <features rotate="0" tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17.5cm">
+<column alignment="left" valignment="top" width="17cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -6076,7 +6076,7 @@ PRES:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6092,7 +6092,7 @@ EP-1754935-A1
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6118,7 +6118,7 @@ Abstract:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6318,7 +6318,7 @@ PRES:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6438,7 +6438,7 @@ recess
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6638,7 +6638,7 @@ PRES:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -6759,7 +6759,7 @@ wall
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -7348,18 +7348,20 @@ reference "fig:PRES-CLEF2010"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Abstract.]{
 \end_layout
 
@@ -7368,7 +7370,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qAbstract-MAP-CLEF-IP2010.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7385,13 +7387,15 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Ext.
  Abstract.]{
 \end_layout
@@ -7401,7 +7405,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qExtAbstract-MAP-CLEF-IP2010.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7418,13 +7422,15 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Description.]{
 \end_layout
 
@@ -7433,7 +7439,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qDescription-MAP-CLEF-IP2010.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7482,18 +7488,20 @@ name "fig:QR-MAP-CLEF-IP2010"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Abstract.]{
 \end_layout
 
@@ -7502,7 +7510,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qAbstract-PRES-CLEF-IP2010.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7519,13 +7527,15 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Ext.
  Abstract.]{
 \end_layout
@@ -7535,7 +7545,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qExtAbstract-PRES-CLEF-IP2010.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7552,13 +7562,15 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Description.]{
 \end_layout
 
@@ -7567,7 +7579,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qDescription-PRES-CLEF-IP2010.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7701,6 +7713,7 @@ key "Itoh2003"
 
 , authors proposed a new term selection method using different term frequencies
  depending on the genre in the NTCIR-3 Patent Retrieval Task.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -7708,18 +7721,20 @@ key "Itoh2003"
 placement t
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Abstract.]{
 \end_layout
 
@@ -7728,7 +7743,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qAbstract-MAP-CLEF-IP2011.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7745,13 +7760,15 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Ext.
  Abstract.]{
 \end_layout
@@ -7761,7 +7778,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qExtAbstract-MAP-CLEF-IP2011.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7778,13 +7795,15 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Description.]{
 \end_layout
 
@@ -7793,7 +7812,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qDescription-MAP-CLEF-IP2011.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7842,18 +7861,20 @@ name "fig:QR-MAP-CLEF-IP2011"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Abstract.]{
 \end_layout
 
@@ -7862,7 +7883,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qAbstract-PRES-CLEF-IP2011.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7879,13 +7900,15 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Ext.
  Abstract.]{
 \end_layout
@@ -7895,7 +7918,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qExtAbstract-PRES-CLEF-IP2011.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7912,13 +7935,15 @@ status collapsed
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-subfigure[Q.
+subfigure[
+\backslash
+scriptsize Q.
  Description.]{
 \end_layout
 
@@ -7927,7 +7952,7 @@ subfigure[Q.
 
 \begin_inset Graphics
 	filename mmrqrResults/qDescription-PRES-CLEF-IP2011.eps
-	width 3cm
+	width 2.7cm
 
 \end_inset
 
@@ -7989,7 +8014,7 @@ name "fig:QR-PRES-CLEF-IP2011"
 Also, Xue and Croft 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Xue:2009:TPP:1571941.1572139"
+key "Xue2009"
 
 \end_inset
 
@@ -8002,12 +8027,24 @@ key "Xue:2009:TPP:1571941.1572139"
  Also, Fuji 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Fujii:2007:EPR:1277741.1277912"
+key "Fujii2007"
 
 \end_inset
 
  showed that retrieval effectiveness can be improved by combining IR methods
  with the result of citation extraction.
+ In 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mona2015"
+
+\end_inset
+
+, the authors tried simple automated approaches for query reduction but
+ were unable to improve the baseline.
+ However, they have shown that a simple, minimal interactive relevance feedback
+ approach outperforms the best result from CLEF-IP 2010 suggesting the promise
+ of interactive methods for term selection in patent prior art search.
 \end_layout
 
 \begin_layout Standard
@@ -8046,7 +8083,7 @@ name "tbl:QRSampleQueries"
 \begin_inset Tabular
 <lyxtabular version="3" rows="21" columns="1">
 <features rotate="0" tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17.5cm">
+<column alignment="left" valignment="top" width="17cm">
 <row>
 <cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
@@ -8793,7 +8830,7 @@ PRES:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8809,7 +8846,7 @@ EP-1498393-A1
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -8831,7 +8868,7 @@ h gas streams.
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9031,7 +9068,7 @@ PRES:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9092,7 +9129,7 @@ make
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9292,7 +9329,7 @@ PRES:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9357,7 +9394,7 @@ method
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9557,7 +9594,7 @@ PRES:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9573,7 +9610,7 @@ EP-1314594-A1
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9606,7 +9643,7 @@ Abstract:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9806,7 +9843,7 @@ PRES:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9871,7 +9908,7 @@ match
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10073,7 +10110,7 @@ PRES:
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10140,7 +10177,7 @@ match
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10386,7 +10423,7 @@ key "Verma2011"
  
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Mahdabi:2014:PQF:2684820.2651363"
+key "Mahdabi2014a"
 
 \end_inset
 
@@ -10403,7 +10440,7 @@ c information, IPC classifications, and temporal features to improve the
  In 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Mahdabi:2014:ECA:2673721.2673730"
+key "Mahdabi2014b"
 
 \end_inset
 
@@ -10418,7 +10455,7 @@ key "Mahdabi:2014:ECA:2673721.2673730"
  Finally, in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Mahdabi:2014:QMC:2661829.2661899"
+key "Mahdabi2014c"
 
 \end_inset
 
@@ -10584,12 +10621,42 @@ Finally, we believe that future work should investigate whether QE methods
  potentially invalidating prior art for a new patent idea.
 \end_layout
 
-\begin_layout Section*
-Acknowledgements 
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfour
 \end_layout
 
-\begin_layout Standard
-NICTA is funded by the Australian Government as represented by the Department
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Acknowledgements:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ NICTA is funded by the Australian Government as represented by the Department
  of Broadband, Communications and the Digital Economy and the Australian
  Research Council through the ICT Centre of Excellence program.
 \end_layout
