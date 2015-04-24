@@ -284,7 +284,7 @@ We remove words with DF score higher than $\tau$ ($DF(t, Q)>\tau$) from Patent Q
 \paragraph{Removing Less Frequent Terms in Patent Query}
 \ \\
 Frequent terms inside long and verbose queries are considered important~\citep{maxwell2013compact}. However, we hypothesise that we may improve the effectiveness by removing terms appearing less frequently in the Patent Query. Therefore, we remove terms with the frequency less than the threshold $\tau$ ($QTF(t)<=\tau$ ). The blue line in Figure~\ref{fig:combinedapproach} indicates that the performance gets slightly better than the baseline when we remove less frequent terms in Patent Query. As it can be seen the best MAP achieved when $\tau=5$. 
-In this approach the best value for the threshold is $\tau=5$ to get higher MAP.
+%In this approach the best value for the threshold is $\tau=5$ to get higher MAP.
 \paragraph{Removing Terms in IPC Titles}
 \ \\
 The titles of classification indicate their intended content by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query to reduce the query, based on the assumption that they are common to all patents belonging to the same category and may be considered as stop-words. As it can be seen in Figure~\ref{fig:combinedapproach} (magenta line), this approach slightly helps the performance.

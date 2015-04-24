@@ -79,7 +79,7 @@ To justify the first reason, in the following experiment, we calculate the numbe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
    \centering
-   \includegraphics[width=0.70\textwidth,height=68mm]{figs/ipcfilter-histo.png}
+   \includegraphics[width=0.70\textwidth,height=55mm]{figs/filter1}
    \caption{The distribution of the number of patents should be ranked for each query over all test topics (1303), after applying the IPC filter: Type I.
 In average, the matching process for each query is done over $ 36254 $ documents instead of the whole collection (2.6 million documents) which dramatically reduce the computational time.}   
    \label{fig:ipcfilter-histo} 
@@ -114,7 +114,7 @@ The results has been illustrated in Figure~\ref{fig:ipc1stTwoElements}. Figure~\
 \subfigure[The portion of patents in the collection which are matched with the query IPC code. \label{fig:ipc1stTwoElements_a}]{\includegraphics[width=6.5cm, height=5cm]{figs/ipc1stTwoElements.png}} 
 \\[1ex]%
 \subfigure[The distribution of the number of patents should be ranked for each query over all test queries (1303).
-In average, the matching process for each query is done over $ 99754 $ documents instead of the whole collection (2.6 million documents), which dramatically reduce the computational time.\label{fig:ipc1stTwoElements_b}]{\includegraphics[width=9.5cm, height=6cm]{figs/firstTwoIpcFilter-histo.png}} 
+In average, the matching process for each query is done over $ 99754 $ documents instead of the whole collection (2.6 million documents), which dramatically reduce the computational time.\label{fig:ipc1stTwoElements_b}]{\includegraphics[width=9.5cm, height=6cm]{figs/filter2}} 
 
 \par\end{centering} 
 \protect\caption{Applying first two IPC code components (Section and Class) for filtering}
@@ -163,7 +163,7 @@ We can even make the filter more general by choosing only the first component, n
 \subfigure[The portion of patents in the collection which are matched with the query IPC code. Filter: The first two components \label{fig:ipc1stElements_a}]{\includegraphics[width=6.5cm, height=5cm]{figs/ipc1stElement.png}} 
 \\[1ex]%
 \subfigure[The distribution of the number of patents should be processed for each query after applying the IPC filter.
-In average, the matching process for each query is done over $ 415828 $ documents instead of the whole collection (2.6 million documents). This number is much higher than using more restricted filters, so it is not computationally efficient.\label{fig:ipc1stElements_b}]{\includegraphics[width=9.5cm , height=6cm]{figs/firstIpcFilter-histo.png}} 
+In average, the matching process for each query is done over $ 415828 $ documents instead of the whole collection (2.6 million documents). This number is much higher than using more restricted filters, so it is not computationally efficient.\label{fig:ipc1stElements_b}]{\includegraphics[width=9.5cm , height=6cm]{figs/filter3}} 
 
 \par\end{centering} 
 \protect\caption{Applying the first IPC code component for filtering (Section)}
