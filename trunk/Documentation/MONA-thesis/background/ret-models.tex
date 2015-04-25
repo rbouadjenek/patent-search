@@ -16,9 +16,9 @@ In vector space model, documents and queries are represented by a vector of term
 \noindent
 where , $ D_{i} $ is each document in the collection $ C $ ($ D_{i}\in C $), $ d_{ik} $ is the weight of term $ k $ in document $ D_{i} $, and $ q_{k} $ represents a term in the query $ Q $.
 The weighting function multiplies the occurrence of each query term in the document
-by the $ idf $ measure, after pivoted normalisation, for each $ d_{ij} $ it appears as~\citep{bache2010improving}:
+by the $ idf $ measure, after pivoted normalisation~\citep{bache2010improving}:
 \begin{equation}
-d_{ik}=\sum\limits_{q \in Q\cap D}\frac{tf_{ik}(q).idf_{k}(q)}{(1-b)+b.\frac{|D|}{avdl}}
+d_{ik}=\sum\limits_{q \in Q\cap D}\frac{c(q_{k},Di).idf_{k}(q)}{(1-b)+b.\frac{|D|}{avdl}}
 \label{eq:tfidf}
 \end{equation}
 where, $ |D| $ is the size of the document and $ avdl $ is the average document length, $ tf_{ik}(q)=c(q_{k},Di)$ is the number of occurrence of k-th query term in a document $ D_{i} $, and , and inverse document frequency measures importance in the collection: 
