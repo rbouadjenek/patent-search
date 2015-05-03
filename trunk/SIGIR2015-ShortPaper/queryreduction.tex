@@ -23,11 +23,11 @@ We use the following four simple approaches to reduce the initial patent queries
 \noindent \textbf{(i)} In standard IR approaches, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness. Inspired by this fact, after an initial run of the query, we removed terms  with a high average document frequency (DF) over the top-100 documents ($\mathit{DF}(t)>\tau$). As illustrated in Figure \ref{fig:queryreduc}, such pruning significantly hurts performance. DF pruning continues increasing and converges to the baseline when $\tau $ gets larger values. 
 
 \vspace*{0.5mm}
-\noindent \textbf{(ii)} Frequent terms inside long and verbose queries are considered important~\cite{maxwell2013compact}. However, we hypothesise that we may improve the effectiveness by removing terms appearing less frequently in the Patent Query. Therefore, we remove terms with the frequency less than the threshold $\tau$ ($QTF(t)<=\tau$ ). The blue line in Figure~\ref{fig:queryreduc} indicates that the performance gets slightly better than the baseline when we remove less frequent terms in Patent Query. As it can be seen the best MAP achieved when $\tau=5$ and it meets the baseline when $\tau=0$. 
+\noindent \textbf{(ii)} Frequent terms inside long and verbose queries are considered important~\cite{maxwell2013compact}. However, we hypothesise that we may improve the effectiveness by removing terms appearing less frequently in the Patent Query. Therefore, we remove terms with the frequency less than the threshold $\tau$ ($QTF(t)<=\tau$). The blue line in Figure~\ref{fig:queryreduc} indicates that the performance gets slightly better than the baseline when we remove less frequent terms in Patent Query. As it can be seen the best MAP achieved when $\tau=5$ and it meets the baseline when $\tau=0$. 
 %Frequent terms inside long and verbose queries have been shown to be important~\cite{maxwell2013compact}. Hence, we only keep high query TF (QTF) terms ($\mathit{QTF}(t)>\tau$) but remove from this set any document frequent terms ($\mathit{DF}(t)>0.01$). Figure \ref{fig:queryreduc} indicates that this approach performs slightly better than the baseline.
 
 \vspace*{0.5mm}
-\noindent \textbf{(iii)} Pseudo Relevance Feedback ($\mathit{PRF}$) is an automated process without user interaction that assumes the top k ranked documents are relevant and the others are irrelevant. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} --- the same as what we did for Oracular Relevance Feedback system (Section~\ref{Sec:OracularTermSelection}). We assume that top 5 retrieved documents are relevant and the rest are irrelevant, then we calculate $\mathit{PRF}$ score based on this assumption.  
+\noindent \textbf{(iii)} We use Pseudo Relevance Feedback ($\mathit{PRF}$) to select query terms~\cite{maxwell2013compact} --- the same as what we did for Oracular Relevance Feedback system (Section~\ref{Sec:OracularTermSelection}). We assume that top 5 retrieved documents are relevant and the rest are irrelevant, then we calculate $\mathit{PRF}$ score based on this assumption.  
 Terms, which have the $\mathit{PRF}$ score higher than the threshold $\tau$ ($PRF(t)>\tau$), are selected from the Patent Query to reformulate a reduced query. Figure~\ref{fig:queryreduc} shows that this approach is also unsuccessful to achieve a notable improvement over the baseline.
 
 %The third query reduction approach is to select query terms using pseudo-relevance feedback ($\mathit{PRF}$)
@@ -151,8 +151,8 @@ approach suggests that automated methods fall far short of optimal term selectio
 This leads us to explore another approach of approximating the oracular query
 derived from relevance judgements by using a subset of relevance judgements
 through interactive methods.  Specifically, to minimize the need for user interaction,
-in this section we analyse the performance of an oracular query derived from
-only the first relevant document identified in the search results.
+\textcolor{red}{in this section we analyse the performance of an Oracular Patent Query (Equation \ref{eq:score}) derived from
+only the top-ranked relevant documents identified in the search results --- we assume that the remained documents in top-100 are irrelevant. }
 \begin{comment}
 All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. 
 \end{comment}
@@ -161,7 +161,7 @@ Using this approach, Table \ref{tab:firstrel} shows that we can double the MAP i
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[t!]
   \begin{center}
-   \caption{System performance using minimal relevance feedback. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
+   \caption{System performance using minimal relevance feedback. $\tau$ is RF score threshold, and $k$ indicates the number of top relevant patents.}\vspace{3mm}
   \input table/partialRFtermselect.tex   
   \label{tab:firstrel}
   \end{center}  
