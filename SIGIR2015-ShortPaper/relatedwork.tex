@@ -24,8 +24,10 @@ Bashir et al.~\cite{Bashir2010} proposed query expansion with pseudo-relevance
 feedback that used machine learning for term selection.
 %Terms are selected using a using a machine learning approach, by picking terms that may have a potential positive impact on the retrieval effectiveness. 
 Verma and Varma
-\cite{Verma2011} proposed a different approach, which instead of using
-the patent text to query, use its IPC codes, which are expanded using the citation network.
+\cite{Verma2011} used IPC codes instead of using
+the patent text to query, which are expanded using the citation network.
+%proposed a different approach, which instead of using
+%the patent text to query, use its IPC codes, which are expanded using the citation network.
 Itoh et al. \cite{Itoh2003} proposed a new term selection method using different term
 frequencies depending on the genre in the NTCIR-3 Patent Retrieval Task.
 % The formed query is used to perform an initial search. The results are then re-ranked using queries constructed from patent text.
@@ -38,19 +40,28 @@ Mahdabi et al.~\cite{Mahdabi2013} used term proximity
 information to identify expansion terms. Ganguly et
 al.~\cite{ganguly2011patent} adapted pseudo-relevance feedback for
 query reduction by decomposing a patent application into constituent
-text segments and computing the Language Modelling (LM) similarities
-of each segment from the top ranked documents. The least similar
-segments to the pseudo-relevant documents removed from the query,
-hypothesizing it can increase the precision of retrieval. Kim et
-al.~\cite{kim2014diversifying} provided diverse query suggestion using
+text segments.
+%and computing the Language Modelling (LM) similarities
+%of each segment from the top ranked documents. 
+The least similar
+segments to the pseudo-relevant documents removed from the query.
+%, hypothesizing it can increase the precision of retrieval. 
+Kim et al.~\cite{kim2014diversifying} provided diverse query suggestion using
 aspect identification from a patent query to increase the chance of
 retrieving relevant documents. Magdy et al.~\cite{magdy2011study} 
+studied different query expansion techniques for patent search on CLEF-IP 2010, 
+and reported that it is not easy to get significant improvement with automatic methods. 
+They also compare the best two systems in CLEF-IP 2010
+%, including PATARAS, 
+in~\cite{magdy2011simple}.
 %studied 
 %works on 
 %query expansion and 
+\begin{comment}
 discussed that standard query expansion techniques are
 less effective in patent retrieval, where the initial query is the full texts of query
 patents. 
+\end{comment}
 %Mahdabi et al.~\cite{mahdabi2014patent}
 %used linked-based structure of the citation graph together with IPC
 %classification to improve the initial patent query. 
