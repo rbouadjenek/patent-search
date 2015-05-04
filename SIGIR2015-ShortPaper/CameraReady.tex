@@ -23,8 +23,8 @@
 % (defaulted to 200X) and the ACM Copyright Data
 % (defaulted to X-XXXXX-XX-X/XX/XX).
 % e.g.
-% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
-% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%\CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+%\crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
 %
 % ---------------------------------------------------------------------------------------------------------------
 % This .tex source is an example which *does* use
@@ -45,7 +45,23 @@
 %
 % For tracking purposes - this is V2.0 - May 2012
 
-\documentclass{sig-alternate}
+%\documentclass{sig-alternate}
+\documentclass{sig-alternate-2013}
+\newfont{\mycrnotice}{ptmr8t at 7pt}
+\newfont{\myconfname}{ptmri8t at 7pt}
+\let\crnotice\mycrnotice%
+\let\confname\myconfname%
+
+\permission{Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from Permissions@acm.org.}
+\conferenceinfo{SIGIR'15,}{August 09 - 13, 2015, Santiago, Chile.}
+\copyrightetc{\copyright~2015 ACM. ISBN \the\acmcopyr}
+\crdata{978-1-4503-3621-5/15/08\ ...\$15.00.\\
+DOI: http://dx.doi.org/10.1145/2766XXX.XXXXXXX}
+
+\clubpenalty=10000 
+\widowpenalty = 10000
+
+
 \usepackage{placeins}
 \usepackage{verbatim}
 \usepackage{graphicx}
@@ -53,12 +69,21 @@
 \usepackage{subfigure}
 \usepackage{color}
 
+\usepackage{url}
+\usepackage{sidecap}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{listings}
+\lstset{escapeinside={<@}{@>}}
+\usepackage{graphicx}
+\usepackage{courier}
+
 \begin{document}
 %
 % --- Author Metadata here ---
-\conferenceinfo{SIGIR}{'15, August 9-13, 2015, Santiago, Chile}
-%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
-%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+\conferenceinfo{SIGIR}{'15, August 09 - 13, 2015, Santiago, Chile}
+\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
 \title{On Term Selection Techniques for Patent Prior Art Search
