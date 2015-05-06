@@ -1,24 +1,24 @@
 %\vspace{-2mm} 
-CLEF-IP collection has two main characteristics that leads in two main causes of the error: 
+%CLEF-IP collection has two main characteristics that leads in two main causes of the error: 
+Our baseline system cannot retrieve some relevant patent documents because of two main characteristic of CLEF-IP data collection: 
 \begin{enumerate}
 
-\item \textit{Missing `Description': } Each patent in the collection consisted of multiple versions of documents in XML format labelled as $ A_{1} $, $ A_{2} $ ... $ B_{1} $, and $ B_{2} $. The letter `A' refers to different versions of patent applications. The `B' versions refer to granted patents. We merged different versions of a single patent into one union document as recommended by CLEF-IP~\citep{magdy2012toward}. As a result of the merging, some patents in the union collection appears with many missing content fields. Since the `Description' is the longest section in a patent, almost, relevant patent with missing `Description' are not retrieved by the baseline.
-
-\item \textit{Non-English Patents: } The CLEF-IP has been designed for a multilingual patent search and it consists of patents in three different languages: English, German, and French. All patents have the title in the three languages while just the granted published version of a patent(`B' version) by the EPO should contain the claims section manually translated into all three languages. The description section of all patents is always in the original submission language only. Since the design of the baseline did not consider multilinguality, it can not retrieve relevant but non-English patents.   
+\item \textbf{Missing description: } As we described in Section~\ref{sec:DataCollection}, some patents in the union collection lose the contents of some sections due to merging different versions of patents. Therefore, relevant patents with missing description are not retrieved by our system.
+\item \textbf{Non-English relevant patents: } CLEF-IP data collection has been designed for a multilingual patent search and it consists of patents in three different languages: English, German, and French. However, our baseline $\mathit{IR}$ system is not designed for multilingual search and it cannot retrieve non-English relevant patents.   
 \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Cut-off rank(k) = 100\label{fig:datacuration_a}]{\includegraphics[width=6.5cm]{figs/analyseFNs100.eps}}  
-\subfigure[Cut-off rank(k) = 1000\label{fig:datacuration_b}]{\includegraphics[width=6.5cm]{figs/analyseFNs1000.eps}} 
+\subfigure[Cut-off rank ($k$) $= 100$\label{fig:datacuration_a}]{\includegraphics[width=6.5cm]{figs/analyseFNs100.eps}}  
+\subfigure[Cut-off rank ($k$) $= 1000$\label{fig:datacuration_b}]{\includegraphics[width=6.5cm]{figs/analyseFNs1000.eps}} 
 \par\end{centering} 
-\protect\caption{Average percentage of errors due to missing `Description', non-English original language. Overall, 37\% of errors are because of data curation while 63\% of English complete patent documents can not be retrieved. Increasing k from 100 to 1000 reduces the errors of red area, but 42\% is still notable.}
+\protect\caption{Average percentage of errors due to missing description, language. Overall, $37\%$ of errors are because of data curation while $63\%$ of English complete patent documents cannot be retrieved. Increasing $k$ from $100$ to $1000$ reduces the errors of the yellow area, but the value of $42\%$ is still notable.}
 \label{fig:datacuration}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The results of our evaluation show that, overall, 37\% of errors are due to CLEF-IP data curation (missing `Description' and the existence of non-English patents) while the majority of patents that are not retrieved (63\%) are full English patent documents (Figure \ref{fig:datacuration}). This indicates that the baseline retrieval system is still ineffective for the majority of the collection. Figure \ref{fig:datacuration_b} shows that by increasing the cut-off rank to 1000, still 42\% of full English patents are not retrieved which is considerable.
+We calculate the percentage of errors caused by data curation in this experiment. As it has been illustrated in Figure \ref{fig:datacuration_a}
+, overall, $37\%$ of errors are due to CLEF-IP data curation (missing description and non-English relevant patents) while the majority of relevant patents, which are not retrieved ($63\%$), are full English patent documents (Figure \ref{fig:datacuration}). These results indicates that the baseline retrieval system is ineffective to retrieve the majority of the relevant patents because of other reasons. In this research, we are interested in the other reasons that result in low effectiveness of general IR techniques in patent domain. Figure \ref{fig:datacuration_b} shows that by increasing the cut-off rank to $1000$, still considerable percentage of full English relevant patents --- about $42\%$ --- are not retrieved.
 
-The focus of this research is to identify the reasons that the system fails to retrieve patents in the red area, where the patents are complete English documents. Hence, in the rest of the thesis, we continue our experiment for full English patents.
 
 
 
