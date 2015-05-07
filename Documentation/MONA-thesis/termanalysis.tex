@@ -210,9 +210,14 @@ We seek to establish that the terms within a reference Patent Query are sufficie
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Mean Average Precision $\tau$.\label{fig:oracularpq-a}]{\includegraphics[width=6cm]{figs/oracularquery-map.eps}} 
-\hspace*{1.5cm} \subfigure[Average Recall\label{fig:oracularpq-b}]{\includegraphics[width=6cm]{figs/oracularquery-recall.eps}} 
+\includegraphics[width=9cm]{figs/l1}
+\par\end{centering}
+
+\begin{centering}
+\subfigure[Mean Average Precision $\tau$.\label{fig:oracularpq-a}]{\includegraphics[width=6cm]{figs/fig1_map.eps}} 
+\hspace*{1.5cm} \subfigure[Average Recall\label{fig:oracularpq-b}]{\includegraphics[width=6cm]{figs/fig1_recall.eps}} 
 \par\end{centering} 
+
 \protect\caption{Comparing the performance of Oracular Query and Oracular Patent Query for various values of the threshold $\tau$}
 \label{fig:oracularpq}
 \end{figure}
@@ -260,8 +265,13 @@ For automated reduction we first examine three simple approaches, then we apply 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Mean Average Precision.]{\includegraphics[width=6cm]{figs/combinedMAP.eps}} \hspace*{1.5cm} \subfigure[Average Recall.]{\includegraphics[width=6cm]{figs/combinedRecall.eps}} 
+\includegraphics[width=9cm]{figs/l3}
+\par\end{centering}
+
+\begin{centering}
+\subfigure[Mean Average Precision.]{\includegraphics[width=6cm]{figs/fig3_map}} \hspace*{1.5cm} \subfigure[Average Recall.]{\includegraphics[width=6cm]{figs/fig3_recall}} 
 \par\end{centering} 
+
 \protect\caption{Comparing system performance for three different query reduction approaches and their changes with a threshold $\tau$.}
 \label{fig:combinedapproach}
 \end{figure}
@@ -280,21 +290,21 @@ where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d_i)$ is the t
 %\begin{displaymath}   t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We remove words with DF score higher than $\tau$ ($DF(t, Q)>\tau$) from Patent Query. Figure~\ref{fig:combinedapproach} illustrates how the performance change by different values of the threshold $\tau$ illustrates that removing document frequent words for different threshold $\tau$ hurts the performance (red line). As it can be seen, the performance converges with the baseline performance when $\tau$ goes higher (for example 500). This means that there is no term with such a high DF score, and we do not empirically remove any term from the Patent Query. Overall, removing document frequent terms from Patent Query does not consider an appropriate approach since it ruins the performance. 
+We remove words with DF score higher than $\tau$ ($DF(t, Q)>\tau$) from Patent Query. Figure~\ref{fig:combinedapproach} illustrates how the performance change by different values of the threshold $\tau$ illustrates that removing document frequent words for different threshold $\tau$ hurts the performance (magenta line). As it can be seen, the performance converges with the baseline performance when $\tau$ goes higher (e.g., 500). This means that there is no term with such a high DF score, and we do not empirically remove any term from the Patent Query. Overall, removing document frequent terms from Patent Query does not consider an appropriate approach since it ruins the performance. 
 \paragraph{Removing Less Frequent Terms in Patent Query}
 \ \\
 Frequent terms inside long and verbose queries are considered important~\citep{maxwell2013compact}. However, we hypothesise that we may improve the effectiveness by removing terms appearing less frequently in the Patent Query. Therefore, we remove terms with the frequency less than the threshold $\tau$ ($QTF(t)<=\tau$ ). The blue line in Figure~\ref{fig:combinedapproach} indicates that the performance gets slightly better than the baseline when we remove less frequent terms in Patent Query. As it can be seen the best MAP achieved when $\tau=5$. 
 %In this approach the best value for the threshold is $\tau=5$ to get higher MAP.
 \paragraph{Removing Terms in IPC Titles}
 \ \\
-The titles of classification indicate their intended content by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query to reduce the query, based on the assumption that they are common to all patents belonging to the same category and may be considered as stop-words. As it can be seen in Figure~\ref{fig:combinedapproach} (magenta line), this approach slightly helps the performance.
+The titles of classification indicate their intended content by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query to reduce the query, based on the assumption that they are common to all patents belonging to the same category and may be considered as stop-words. As it can be seen in Figure~\ref{fig:combinedapproach} (red line), this approach slightly helps the performance.
 
 We showed in above experiments that removing document frequent terms did not help the effectiveness and 
 two other approaches had a trivial influence on improving the system effectiveness. 
 In the following experiment, we use an anecdotal example of a sample Patent Query to analyse why these approaches did not help. 
 Figure~\ref{fig:scatter_combined} shows a scatter plot of DF score and RF score for a sample query --- PAC-1612. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. First, we remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$, however, it does not help because as it has been illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms ($DF(t, Q)>\tau$), we will remove many Useful Terms ($RF(t, Q)>0$) . Red points in Figure~\ref{fig:scatter_combined_a} are all query terms and red points in Figure~\ref{fig:scatter_combined_b} are query terms with term frequency higher than 5 ($QTF(t)>5$) --- where we got the best performance. 
 Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b} show that we remove considerable amount of Noisy Terms by removing terms with $QTF(t)<5$. 
-On the other hand, it can be seen that many Useful Terms are also removed. Remained terms are not purely Useful Terms since they are contaminated with the Noisy Terms. We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques can not precisely filter the Noisy Terms out. 
+On the other hand, it can be seen that many Useful Terms are also removed. Remained terms are not purely Useful Terms since they are contaminated with the Noisy Terms. We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the Noisy Terms out. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
