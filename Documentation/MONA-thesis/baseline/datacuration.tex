@@ -10,14 +10,14 @@ Our baseline system cannot retrieve some relevant patent documents because of tw
 \begin{figure}[t!]
 \begin{centering}
 \subfigure[Cut-off rank ($k$) $= 100$\label{fig:datacuration_a}]{\includegraphics[width=6.5cm]{figs/analyseFNs100.eps}}  
-\subfigure[Cut-off rank ($k$) $= 1000$\label{fig:datacuration_b}]{\includegraphics[width=6.5cm]{figs/analyseFNs1000.eps}} 
+\subfigure[Cut-off rank ($k$) $= 1,000$\label{fig:datacuration_b}]{\includegraphics[width=6.5cm]{figs/analyseFNs1000.eps}} 
 \par\end{centering} 
-\protect\caption{Average percentage of errors due to missing description, language. Overall, $37\%$ of errors are because of data curation while $63\%$ of English complete patent documents cannot be retrieved. Increasing $k$ from $100$ to $1000$ reduces the errors of the yellow area, but the value of $42\%$ is still notable.}
+\protect\caption{Average percentage of errors due to missing description, language. Overall, $37\%$ of errors are because of data curation while $63\%$ of English complete patent documents cannot be retrieved. Increasing $k$ from $100$ to $1,000$ reduces the errors of the yellow area, but the value of $42\%$ is still notable.}
 \label{fig:datacuration}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 We calculate the percentage of errors caused by data curation in this experiment. As it has been illustrated in Figure \ref{fig:datacuration_a}
-, overall, $37\%$ of errors are due to CLEF-IP data curation (missing description and non-English relevant patents) while the majority of relevant patents, which are not retrieved ($63\%$), are full English patent documents (Figure \ref{fig:datacuration}). These results indicates that the baseline retrieval system is ineffective to retrieve the majority of the relevant patents because of other reasons. In this research, we are interested in the other reasons that result in low effectiveness of general IR techniques in patent domain. Figure \ref{fig:datacuration_b} shows that by increasing the cut-off rank to $1000$, still considerable percentage of full English relevant patents --- about $42\%$ --- are not retrieved.
+, overall, $37\%$ of errors are due to CLEF-IP data curation (missing description and non-English relevant patents) while the majority of relevant patents, which are not retrieved ($63\%$), are full English patent documents (Figure \ref{fig:datacuration}). These results indicates that the baseline retrieval system is ineffective to retrieve the majority of the relevant patents because of other reasons. In this research, we are interested in the other reasons that result in low effectiveness of general IR techniques in patent domain. Figure \ref{fig:datacuration_b} shows that by increasing the cut-off rank to $1,000$, still considerable percentage of full English relevant patents --- about $42\%$ --- are not retrieved.
 
 
 
