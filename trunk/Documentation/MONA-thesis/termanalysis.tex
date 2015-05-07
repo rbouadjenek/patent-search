@@ -1,13 +1,11 @@
 \chapter{Towards Optimal Query Term Selection}
 \label{cha:analysis}
-In this chapter, we will investigate the problem from term analysis point of 
-view for both Patent Query and relevant documents because we are interested 
+In this chapter, we will investigate the problem from term analysis perspective for both Patent Query and relevant documents because we are interested 
 in finding what is wrong in term matching process between the Patent Query and relevant patents. 
 We start with experiments which show sufficient term overlap between the Patent Query and relevant documents, 
-then we introduce an Oracular Relevance Feedback scoring criteria to discriminate Useful Terms from Noisy Terms. 
-Based on introduced score, we formulate two Oracular Query that results in a considerable improvement 
-in performance as well demonstrates the sufficiency of Patent Query terms for achieving an improved performance. 
-Furthermore, we try simple query reduction approaches and clarify why they are not successful.  
+then we introduce an Oracular Relevance Feedback scoring criteria to discriminate useful terms from noisy terms. 
+We formulate two Oracular Query, based on this score, that give us an upper-bound performance. In addition, our experiments demonstrate the sufficiency of terms in the Patent Query to achieve a high performance. 
+We try four simple query reduction approaches and we discuss the reasons that they are not efficient.  
 Finally, we show that we can get improved using a simple, minimal feedback interactive approach.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%% SECTION 1 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,7 +40,7 @@ The results has been illustrated in Figure~\ref{fig:overlap}. We conclude two ma
 \subfigure[Query and TP patents.]{\includegraphics[width=5cm]{figs/to-tps.eps}}\subfigure[Query and FP patents.]{\includegraphics[width=5cm]{figs/to-fps.eps}}\subfigure[{Query and FN patents.}]{\includegraphics[width=5cm]{figs/to-fns.eps}}
 \par\end{centering}
 
-\protect\caption{The distribution of term overlap between the query and documents over 1303 test queries.}
+\protect\caption{The distribution of term overlap between the query and documents over 1,303 test queries.}
 \label{fig:overlap}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -208,19 +206,19 @@ We seek to establish that the terms within a reference Patent Query are sufficie
 \end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[t!]
-\begin{centering}
-\includegraphics[width=9cm]{figs/l1}
-\par\end{centering}
-
-\begin{centering}
-\subfigure[Mean Average Precision $\tau$.\label{fig:oracularpq-a}]{\includegraphics[width=6cm]{figs/fig1_map.eps}} 
-\hspace*{1.5cm} \subfigure[Average Recall\label{fig:oracularpq-b}]{\includegraphics[width=6cm]{figs/fig1_recall.eps}} 
-\par\end{centering} 
-
-\protect\caption{Comparing the performance of Oracular Query and Oracular Patent Query for various values of the threshold $\tau$}
-\label{fig:oracularpq}
-\end{figure}
+%\begin{figure}[t!]
+%\begin{centering}
+%\includegraphics[width=9cm]{figs/l1}
+%\par\end{centering}
+%
+%\begin{centering}
+%\subfigure[Mean Average Precision $\tau$.\label{fig:oracularpq-a}]{\includegraphics[width=6cm]{figs/fig1_map.eps}} 
+%\hspace*{1.5cm} \subfigure[Average Recall\label{fig:oracularpq-b}]{\includegraphics[width=6cm]{figs/fig1_recall.eps}} 
+%\par\end{centering} 
+%
+%\protect\caption{Comparing the performance of Oracular Query and Oracular Patent Query for various values of the threshold $\tau$}
+%\label{fig:oracularpq}
+%\end{figure}
 %\begin{figure}[t!]
 %   \centering
 %   \includegraphics[width=0.50\textwidth,height=55mm]{figs/oracularpq.eps}
@@ -263,18 +261,18 @@ based on interactive relevance feedback methods.
 For automated reduction we first examine three simple approaches, then we apply Pseudo Relevance Feedback for query term selection.  
 \subsubsection{Simple Query Reduction Approaches}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[t!]
-\begin{centering}
-\includegraphics[width=9cm]{figs/l3}
-\par\end{centering}
-
-\begin{centering}
-\subfigure[Mean Average Precision.]{\includegraphics[width=6cm]{figs/fig3_map}} \hspace*{1.5cm} \subfigure[Average Recall.]{\includegraphics[width=6cm]{figs/fig3_recall}} 
-\par\end{centering} 
-
-\protect\caption{Comparing system performance for three different query reduction approaches and their changes with a threshold $\tau$.}
-\label{fig:combinedapproach}
-\end{figure}
+%\begin{figure}[t!]
+%\begin{centering}
+%\includegraphics[width=9cm]{figs/l3}
+%\par\end{centering}
+%
+%\begin{centering}
+%\subfigure[Mean Average Precision.]{\includegraphics[width=6cm]{figs/fig3_map}} \hspace*{1.5cm} \subfigure[Average Recall.]{\includegraphics[width=6cm]{figs/fig3_recall}} 
+%\par\end{centering} 
+%
+%\protect\caption{Comparing system performance for three different query reduction approaches and their changes with a threshold $\tau$.}
+%\label{fig:combinedapproach}
+%\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{SimpleApproaches}
 We, first, apply three simple approaches to reduce the initial patent queries aiming at approximating the Oracular Patent Query: (i) removing document frequent terms; (ii) removing less frequent terms in Patent Query; (iii) Removing Terms in IPC Titles.
