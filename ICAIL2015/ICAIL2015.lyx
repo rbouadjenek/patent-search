@@ -10,6 +10,12 @@
 
 \newcommand{\subfour}[1]{\vspace*{3mm}{\noindent\bf #1}}
 
+
+\def\doi#1{\gdef\@doi{#1}}\def\@doi{}
+\toappear{\the\boilerplate\par{\confname{\the\conf}} \the\confinfo\par \the\copyrightetc.\ifx\@doi\@empty\else\par\@doi.\fi}
+\global\copyrightetc{Copyright \the\copyrtyr\ ACM \the\acmcopyr\ ...\$15.00}
+
+
 \permission{Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from Permissions@acm.org.}
 \conferenceinfo{ICAIL '15,}{June 08 - 12, 2015, San Diego, CA, USA .} 
 
@@ -17,6 +23,9 @@
 \crdata{978-1-4503-3522-5/15/06} 
 \clubpenalty=10000 
 \widowpenalty = 10000
+
+% DOI
+\doi{http://dx.doi.org/10.1145/2746090.2746092}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -130,7 +139,7 @@ title{ A Study of Query Reformulation for Patent Prior Art Search}
 
 
 \backslash
-numberofauthors{3}
+numberofauthors{1}
 \end_layout
 
 \begin_layout Plain Layout
@@ -154,7 +163,7 @@ alignauthor
 
 \begin_layout Plain Layout
 
-%Mohamed Reda Bouadjenek$^{
+Mohamed Reda Bouadjenek$^{
 \backslash
 dag}$
 \backslash
@@ -176,7 +185,7 @@ S$
 
 \begin_layout Plain Layout
 
-%$^{
+$^{
 \backslash
 dag}$
 \backslash
@@ -191,7 +200,7 @@ affaddr{INRIA
 
 \begin_layout Plain Layout
 
-%$^{
+$^{
 \backslash
 ddag}$
 \backslash
@@ -205,7 +214,7 @@ e.edu}
 
 \begin_layout Plain Layout
 
-%$^
+$^
 \backslash
 S$
 \backslash
@@ -214,7 +223,7 @@ affaddr{NICTA, Australian National University,  gabriela.ferraro@nicta.com.au}
 
 \begin_layout Plain Layout
 
-Reda Bouadjenek
+%Reda Bouadjenek
 \backslash
 titlenote{This work has been primarily completed while the authors were
  at NICTA, Canberra, Australia.}
@@ -226,7 +235,7 @@ titlenote{This work has been primarily completed while the authors were
 
 \begin_layout Plain Layout
 
-       
+%       
 \backslash
 affaddr{INRIA 
 \backslash
@@ -239,7 +248,7 @@ affaddr{INRIA
 
 \begin_layout Plain Layout
 
-		
+%		
 \backslash
 affaddr{Montpellier, France}
 \backslash
@@ -250,21 +259,21 @@ affaddr{Montpellier, France}
 
 \begin_layout Plain Layout
 
-       
+%       
 \backslash
 affaddr{reda.bouadjenek@inria.fr}
 \end_layout
 
 \begin_layout Plain Layout
 
-
+%
 \backslash
 alignauthor
 \end_layout
 
 \begin_layout Plain Layout
 
-Scott Sanner$^{
+%Scott Sanner$^{
 \backslash
 Large 
 \backslash
@@ -277,7 +286,7 @@ footnotemark[1]}$
 
 \begin_layout Plain Layout
 
-       
+%       
 \backslash
 affaddr{Oregon State University}
 \backslash
@@ -288,7 +297,7 @@ affaddr{Oregon State University}
 
 \begin_layout Plain Layout
 
-		
+%		
 \backslash
 affaddr{Corvallis, USA}
 \backslash
@@ -299,21 +308,21 @@ affaddr{Corvallis, USA}
 
 \begin_layout Plain Layout
 
-       
+%       
 \backslash
 affaddr{scott.sanner@oregonstate.edu}
 \end_layout
 
 \begin_layout Plain Layout
 
-
+%
 \backslash
 alignauthor
 \end_layout
 
 \begin_layout Plain Layout
 
-Gabriela Ferraro
+%Gabriela Ferraro
 \backslash
 
 \backslash
@@ -322,7 +331,7 @@ Gabriela Ferraro
 
 \begin_layout Plain Layout
 
-       
+%       
 \backslash
 affaddr{NICTA 
 \backslash
@@ -335,7 +344,7 @@ affaddr{NICTA
 
 \begin_layout Plain Layout
 
-		
+%		
 \backslash
 affaddr{Canberra, Australia}
 \backslash
@@ -346,7 +355,7 @@ affaddr{Canberra, Australia}
 
 \begin_layout Plain Layout
 
-       
+%       
 \backslash
 affaddr{gabriela.ferraro@nicta.com.au}
 \end_layout
@@ -3585,10 +3594,10 @@ key "Magdy2012"
 \end_inset
 
 .
- CLEF-IP 2010 contains 2.6 million patent documents, and the English test
- sets of CLEF-IP 2010 correspond to 1303 topic sources of partial patent
- application queries.
- We also experimented with the CLEF-IP 2011 dataset.
+ CLEF-IP 2010 contains 2.6 million patent documents and CLEF-IP 2011 consists
+ of 3 million patent documents.
+ The English test sets of CLEF-IP 2010 and CLEF-IP 2011 correspond to 1303
+ and 1351 topics respectively.
 \end_layout
 
 \begin_layout Standard
@@ -3618,6 +3627,7 @@ key "Lopez2009,Roda2009"
 \end_inset
 
  We report both MAP and PRES on the top 1000 results.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -10659,6 +10669,14 @@ status collapsed
  NICTA is funded by the Australian Government as represented by the Department
  of Broadband, Communications and the Digital Economy and the Australian
  Research Council through the ICT Centre of Excellence program.
+ Experiments presented in this paper were carried out using the Grid'5000
+ testbed, supported by a scientific interest group hosted by Inria and including
+ CNRS, RENATER and several Universities as well as other organizations (see
+ 
+\family typewriter
+https://www.grid5000.fr
+\family default
+).
 \end_layout
 
 \begin_layout Standard

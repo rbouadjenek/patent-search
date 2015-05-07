@@ -1,4 +1,4 @@
-%% LyX 2.1.2.2 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.1.3 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[english]{sig-alternate-2013}
 \usepackage[T1]{fontenc}
@@ -23,6 +23,12 @@
 
 \newcommand{\subfour}[1]{\vspace*{3mm}{\noindent\bf #1}}
 
+
+\def\doi#1{\gdef\@doi{#1}}\def\@doi{}
+\toappear{\the\boilerplate\par{\confname{\the\conf}} \the\confinfo\par \the\copyrightetc.\ifx\@doi\@empty\else\par\@doi.\fi}
+\global\copyrightetc{Copyright \the\copyrtyr\ ACM \the\acmcopyr\ ...\$15.00}
+
+
 \permission{Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from Permissions@acm.org.}
 \conferenceinfo{ICAIL '15,}{June 08 - 12, 2015, San Diego, CA, USA .} 
 
@@ -30,6 +36,9 @@
 \crdata{978-1-4503-3522-5/15/06} 
 \clubpenalty=10000 
 \widowpenalty = 10000
+
+% DOI
+\doi{http://dx.doi.org/10.1145/2746090.2746092}
 
 \makeatother
 
@@ -40,28 +49,28 @@
 %\title{Query Expansion Methods for Prior Art Search with Partial Patent Applications}
 \title{A Study of Query Reformulation for Patent Prior Art Search with Partial Patent Applications}
 %\title{ A Study of Query Reformulation for Patent Prior Art Search}
-\numberofauthors{3}
+\numberofauthors{1}
 \author{
 %Contribution ID: 5
 \alignauthor
-%Mohamed Reda Bouadjenek$^{\dag}$\titlenote{This work has been primarily completed while the authors were at NICTA, Canberra, Australia.}, Scott Sanner$^{\Large \ddag \footnotemark[1]}$  , Gabriela Ferraro$^\S$\\
-%$^{\dag}$\affaddr{INRIA \& LIRMM University of Montpellier France, reda.bouadjenek@inria.fr}\\
-%$^{\ddag}$\affaddr{Oregon State University, Corvallis, OR 97331 USA, scott.sanner@oregonstate.edu}\\
-%$^\S$\affaddr{NICTA, Australian National University,  gabriela.ferraro@nicta.com.au}
-Reda Bouadjenek\titlenote{This work has been primarily completed while the authors were at NICTA, Canberra, Australia.}\\
-       \affaddr{INRIA \& LIRMM}\\
-		\affaddr{Montpellier, France}\\
-       \affaddr{reda.bouadjenek@inria.fr}
-\alignauthor
-Scott Sanner$^{\Large \footnotemark[1]}$\\
-       \affaddr{Oregon State University}\\
-		\affaddr{Corvallis, USA}\\
-       \affaddr{scott.sanner@oregonstate.edu}
-\alignauthor
-Gabriela Ferraro\\
-       \affaddr{NICTA \& ANU}\\
-		\affaddr{Canberra, Australia}\\
-       \affaddr{gabriela.ferraro@nicta.com.au}
+Mohamed Reda Bouadjenek$^{\dag}$\titlenote{This work has been primarily completed while the authors were at NICTA, Canberra, Australia.}, Scott Sanner$^{\Large \ddag \footnotemark[1]}$  , Gabriela Ferraro$^\S$\\
+$^{\dag}$\affaddr{INRIA \& LIRMM University of Montpellier France, reda.bouadjenek@inria.fr}\\
+$^{\ddag}$\affaddr{Oregon State University, Corvallis, OR 97331 USA, scott.sanner@oregonstate.edu}\\
+$^\S$\affaddr{NICTA, Australian National University,  gabriela.ferraro@nicta.com.au}
+%Reda Bouadjenek\titlenote{This work has been primarily completed while the authors were at NICTA, Canberra, Australia.}\\
+%       \affaddr{INRIA \& LIRMM}\\
+%		\affaddr{Montpellier, France}\\
+%       \affaddr{reda.bouadjenek@inria.fr}
+%\alignauthor
+%Scott Sanner$^{\Large \footnotemark[1]}$\\
+%       \affaddr{Oregon State University}\\
+%		\affaddr{Corvallis, USA}\\
+%       \affaddr{scott.sanner@oregonstate.edu}
+%\alignauthor
+%Gabriela Ferraro\\
+%       \affaddr{NICTA \& ANU}\\
+%		\affaddr{Canberra, Australia}\\
+%       \affaddr{gabriela.ferraro@nicta.com.au}
 }
 \newtheorem{proposition}{Proposition}
 \maketitle
@@ -119,9 +128,8 @@ queries, generic query expansion methods help.
 \noindent Patents are used by legal entities to legally protect their
 inventions and represent a multi-billion dollar industry of licensing
 and litigation. In 2014, 326,033 patent applications were approved
-in the US alone%
-\footnote{\texttt{http://www.uspto.gov/web/offices/ac/ido/oeip/taf/ us\_stat.htm}%
-}, a number that has doubled in the past 15 years. Given that a single
+in the US alone\footnote{\texttt{http://www.uspto.gov/web/offices/ac/ido/oeip/taf/ us\_stat.htm}},
+a number that has doubled in the past 15 years. Given that a single
 existing patent may invalidate a new patent application, helping inventors
 assess the patentability of an idea through a patent prior art search
 before writing a complete patent application is an important task.
@@ -193,11 +201,9 @@ of a patent application.
 
 To assess the difficulty of querying with partial patent applications,
 we refer to Figure \ref{fig:FailureAnalysis}. Here we show an analysis
-of the average Jaccard similarity%
-\footnote{The Jaccard similarity is used to measure the term overlap between
+of the average Jaccard similarity\footnote{The Jaccard similarity is used to measure the term overlap between
 two sets. Before applying the Jaccard similarity, patent-specific
-stop-words were removed, as suggested by \cite{Mahdabi2012}.%
-} between different queries (representing the title, abstract, the
+stop-words were removed, as suggested by \cite{Mahdabi2012}.} between different queries (representing the title, abstract, the
 extended abstract or descriptions of partial patent applications)
 and the labeled relevant (all) and irrelevant documents (top 10 irrelevant
 documents ranked by BM25 \cite{Robertson1993}). We show results for
@@ -292,15 +298,12 @@ when querying with long sections such as abstract, extended abstract
 or description.
 
 Table \ref{tbl:queryPAC-1019} provides insight into the utility of
-query reduction for the abstract section of the Topic PAC-1019%
-\footnote{\texttt{http://www.lens.org/lens/patent/WO\_2005\_100300\_A1}%
-} from the CLEF-IP 2010 data collection. The baseline query, which
-is the original query (provided in the header row) after stemming
-and stop-word removal , had an Average Precision (AP) of 0.280 and
-a Patent Retrieval Evaluation Score (PRES)%
-\footnote{The PRES metric places more emphasis on high-recall retrieval by weighting
-relevant documents lower in the ranking more highly than MAP. %
-} \cite{Magdy2010a} of 0.777 (its performance are provided in the
+query reduction for the abstract section of the Topic PAC-1019\footnote{\texttt{http://www.lens.org/lens/patent/WO\_2005\_100300\_A1}}
+from the CLEF-IP 2010 data collection. The baseline query, which is
+the original query (provided in the header row) after stemming and
+stop-word removal , had an Average Precision (AP) of 0.280 and a Patent
+Retrieval Evaluation Score (PRES)\footnote{The PRES metric places more emphasis on high-recall retrieval by weighting
+relevant documents lower in the ranking more highly than MAP. } \cite{Magdy2010a} of 0.777 (its performance are provided in the
 footer row). We show the evaluation performance of the query after
 removing each term from the original query. The removed terms have
 been sorted in the order of decreasing PRES. We can observe that there
@@ -360,7 +363,7 @@ comprising the same.}}\tabularnewline
 \hline 
 \textbf{\scriptsize{}Baseline} & {\scriptsize{}0.400} & {\scriptsize{}0.300} & {\scriptsize{}0.428} & {\scriptsize{}0.280} & {\scriptsize{}0.777}\tabularnewline
 \hline 
-\end{tabular}
+\end{tabular}{\scriptsize \par}
 \end{table}
 
 
@@ -382,7 +385,7 @@ abstract and the description sections.
 \centering{}\includegraphics[width=4.3cm]{analysis/precision-recall_ByField-CLEF-IP_2010}\includegraphics[width=4.3cm]{analysis/MAP-MRR_ByField-CLEF-IP_2010}
 \protect\caption{The utility of query reduction for 1304 abstract queries of the CLEF-IP
 2010 dataset. }
-{\footnotesize{}\label{fig:QRUtility}}
+{\footnotesize{}\label{fig:QRUtility}}{\footnotesize \par}
 \end{figure}
 
 
@@ -401,10 +404,8 @@ maximizes similarity with relevant documents while minimizing similarity
 with irrelevant documents. Typically, a pseudo-relevance feedback
 (PRF) set of $k$ top ranked documents obtained after an initial run
 of the query is considered as the set of relevant documents to build
-$\overrightarrow{Q'}$. We refer to this method as RocchioQE%
-\footnote{We used the LucQE module, which provides an implementation of the
-Rocchio method for Lucene.\\ \texttt{http://lucene-qe.sourceforge.net/}%
-}.
+$\overrightarrow{Q'}$. We refer to this method as RocchioQE\footnote{We used the LucQE module, which provides an implementation of the
+Rocchio method for Lucene.\\ \texttt{http://lucene-qe.sourceforge.net/}}.
 
 Similarly, Rocchio can be used as a QR method. Basically, the idea
 is that once the Rocchio-modified query vector has been computed,
@@ -576,16 +577,14 @@ and \ref{sec:QRResults} respectively.
 
 \label{sec:Setup}
 
-For our experiments, we used used the Lucene IR System%
-\footnote{\texttt{http://lucene.apache.org/}%
-} to index the English subset of CLEF-IP 2010 and CLEF-IP 2011 datasets%
-\footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}%
-} \cite{Piroi2011,Roda2009} with the default settings for stemming
+For our experiments, we used used the Lucene IR System\footnote{\texttt{http://lucene.apache.org/}}
+to index the English subset of CLEF-IP 2010 and CLEF-IP 2011 datasets\footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}}
+\cite{Piroi2011,Roda2009} with the default settings for stemming
 and stop-word removal. We also removed patent-specific stop-words
 as described in \cite{Magdy2012}. CLEF-IP 2010 contains 2.6 million
-patent documents, and the English test sets of CLEF-IP 2010 correspond
-to 1303 topic sources of partial patent application queries. We also
-experimented with the CLEF-IP 2011 dataset.
+patent documents and CLEF-IP 2011 consists of 3 million patent documents.
+The English test sets of CLEF-IP 2010 and CLEF-IP 2011 correspond
+to 1303 and 1351 topics respectively.
 
 In our implementation, each section of a patent (title, abstract,
 claims, and description) is indexed in a separate field so that different
@@ -598,7 +597,7 @@ to yield best results in our experiments, we used the patent classification
 (IPC) codes assigned to the query topics to filter search results
 to match at least one of the query IPC codes. 
 \end{comment}
-{} We report both MAP and PRES on the top 1000 results.
+{} We report both MAP and PRES on the top 1000 results. 
 
 
 \subsection{Query Expansion Results}
@@ -1437,7 +1436,10 @@ a new patent idea.
 \subfour{Acknowledgements:} NICTA is funded by the Australian Government
 as represented by the Department of Broadband, Communications and
 the Digital Economy and the Australian Research Council through the
-ICT Centre of Excellence program.
+ICT Centre of Excellence program. Experiments presented in this paper
+were carried out using the Grid'5000 testbed, supported by a scientific
+interest group hosted by Inria and including CNRS, RENATER and several
+Universities as well as other organizations (see \texttt{https://www.grid5000.fr}).
 
 {\scriptsize
 
