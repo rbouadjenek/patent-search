@@ -219,12 +219,12 @@ We seek to establish that the terms within a reference Patent Query are sufficie
 \protect\caption{Comparing the performance of Oracular Query and Oracular Patent Query for various values of the threshold $\tau$}
 \label{fig:oracularpq}
 \end{figure}
-\begin{figure}[t!]
-   \centering
-   \includegraphics[width=0.50\textwidth,height=55mm]{figs/oracularpq.eps}
-   \caption{oracular patent query performance versus the threshold $\tau$.}   
-   \label{fig:oracularpq} 
-\end{figure}
+%\begin{figure}[t!]
+%   \centering
+%   \includegraphics[width=0.50\textwidth,height=55mm]{figs/oracularpq.eps}
+%   \caption{oracular patent query performance versus the threshold $\tau$.}   
+%   \label{fig:oracularpq} 
+%\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 As it has been shown in Table~\ref{tab:optquery} and Figure~\ref{fig:oracularpq}, the system performance for the Oracular Patent Query is also considerably improved compared to the baseline and PATATRAS.
 % though MAP is slightly less than Oracular Query. 
@@ -261,18 +261,18 @@ based on interactive relevance feedback methods.
 For automated reduction we first examine three simple approaches, then we apply Pseudo Relevance Feedback for query term selection.  
 \subsubsection{Simple Query Reduction Approaches}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\begin{figure}[t!]
-%\begin{centering}
-%\includegraphics[width=9cm]{figs/l3}
-%\par\end{centering}
-%
-%\begin{centering}
-%\subfigure[Mean Average Precision.]{\includegraphics[width=6cm]{figs/fig3_map}} \hspace*{1.5cm} \subfigure[Average Recall.]{\includegraphics[width=6cm]{figs/fig3_recall}} 
-%\par\end{centering} 
-%
-%\protect\caption{Comparing system performance for three different query reduction approaches and their changes with a threshold $\tau$.}
-%\label{fig:combinedapproach}
-%\end{figure}
+\begin{figure}[t!]
+\begin{centering}
+\includegraphics[width=9cm]{figs/l3}
+\par\end{centering}
+
+\begin{centering}
+\subfigure[Mean Average Precision.]{\includegraphics[width=6cm]{figs/fig3_map}} \hspace*{1.5cm} \subfigure[Average Recall.]{\includegraphics[width=6cm]{figs/fig3_recall}} 
+\par\end{centering} 
+
+\protect\caption{Comparing system performance for three different query reduction approaches and their changes with a threshold $\tau$.}
+\label{fig:combinedapproach}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{SimpleApproaches}
 We, first, apply three simple approaches to reduce the initial patent queries aiming at approximating the Oracular Patent Query: (i) removing document frequent terms; (ii) removing less frequent terms in Patent Query; (iii) Removing Terms in IPC Titles.
