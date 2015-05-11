@@ -3,26 +3,32 @@
 \vspace{-1em}
 A patent is a set of exclusive rights granted to an inventor to protect 
 their invention for a limited period of time. Patent prior art search involves 
-finding previously granted patents, or any published work, such as scientific 
-articles or product descriptions that may be relevant to a new patent application.
+finding previously granted patents, 
+scientific articles, product descriptions or any other published work 
+%scientific articles, product descriptions or any other published work that may be relevant
+%or any published work, such as scientific 
+%articles or product descriptions that may be relevant 
+to a new patent application.
 Many well-known Information Retrieval (IR) techniques, which are proven effective 
 for web search such as typical query expansion methods, are unsuccessful for patent 
 prior art search.
-Hence in this thesis, we analysed the reasons lead in low effectiveness 
-of general IR techniques for prior art search on the CLEF-IP test collection. 
-First we analysed the errors caused due to data curation and experimental settings 
+In this thesis, we mainly investigate the reasons that generic IR techniques are not 
+effective for prior art search on the CLEF-IP test collection.   
+%Hence in this thesis, we analysed the reasons lead in low effectiveness 
+%of general IR techniques for prior art search on the CLEF-IP test collection. 
+First, we analyse the errors caused due to data curation and experimental settings 
 like applying International Patent Classification codes assigned to the patent topics 
 to filter the search results.  
-Then we investigate the influence of term selection on retrieval
-performance on the CLEF-IP Prior Art test collection, starting with
-the Description section of the reference patent and using LM and BM25
+Then, we investigate the influence of term selection on retrieval
+performance on the CLEF-IP prior art test collection, starting with
+the Description section of the reference patent and using Language Models (LM) and BM25
 scoring functions. We find that an oracular relevance feedback system,
 which extracts terms from the judged relevant documents far
-outperforms the baseline and performs twice as well on MAP as the best
-competitor in CLEF-IP 2010.  We find a very clear term selection value
+outperforms the baseline and performs twice as well on Mean Average Precision (MAP) as the best
+competitor in CLEF-IP 2010. We find a very clear term selection value
 threshold for use when choosing terms.  We also noticed that most of
 the useful feedback terms are actually present in the original query
-and hypothesized that the baseline system could be substantially
+and hypothesise that the baseline system could be substantially
 improved by removing negative query terms.
 %Furthermore, a similar oracular query restricted
 %to select terms from only the reference patent performs nearly as well
@@ -30,10 +36,10 @@ improved by removing negative query terms.
 %should suffice for state-of-the-art performance on CLEF-IP 2010.
 We tried four simple automated approaches to identify negative terms
 for query reduction but we were unable to improve on the baseline
-performance with any of them.  However, we show that a
+performance with any of them. However, we show that a
 simple, minimal feedback interactive approach where terms are selected
 from only the first retrieved relevant document outperforms the best
-result from CLEF-IP 2010 suggesting the promise of interactive methods
+result from CLEF-IP 2010, suggesting the promise of interactive methods
 for term selection in patent prior art search.
 
 %%% Local Variables: 
