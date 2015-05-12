@@ -74,6 +74,7 @@
 \BOOKMARK [0][-]{chapter.5}{Conclusions}{}% 74
 \BOOKMARK [1][-]{section.5.1}{Contributions}{chapter.5}% 75
 \BOOKMARK [1][-]{section.5.2}{Future Work}{chapter.5}% 76
-\BOOKMARK [2][-]{subsection.5.2.1}{Applying more Sophisticated Query Reduction Methods}{section.5.2}% 77
-\BOOKMARK [2][-]{subsection.5.2.2}{Considering Phrasal Concepts for Query Reformulation }{section.5.2}% 78
-\BOOKMARK [2][-]{subsection.5.2.3}{Patent Retrieval Using Meta-data Social Information}{section.5.2}% 79
+\BOOKMARK [2][-]{subsection.5.2.1}{Exploring other Term Scoring Methods}{section.5.2}% 77
+\BOOKMARK [2][-]{subsection.5.2.2}{Exploring more Sophisticated Query Reduction Methods}{section.5.2}% 78
+\BOOKMARK [2][-]{subsection.5.2.3}{Considering Phrasal Concepts for Query Reformulation }{section.5.2}% 79
+\BOOKMARK [2][-]{subsection.5.2.4}{Patent Retrieval Using Meta-data Social Information}{section.5.2}% 80
