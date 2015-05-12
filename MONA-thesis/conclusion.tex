@@ -49,15 +49,15 @@ prior art search.
 
 \section{Future Work}
 \label{sec:future}
-In this research, we analysed the key reasons that generic IR methods are not effective for patent prior art through various experiments, which may open further research on the topic of prior art search. Thus, we describe the limitations and discuss further improvements. However, other existing term scoring 
+In this research, we analysed the key reasons that generic IR methods are not effective for patent prior art through various experiments, which may open further research on the topic of prior art search. Thus, we describe the limitations and discuss further improvements. 
 \subsection{Exploring other Term Scoring Methods}
 \label{subsec:ExploringTermScoringMethods}
-Our term scoring method inspired by Rocchio optimal query~\citep{manning2008introduction}. We used this score to select query terms, which resulted in a remarkable improvement in the performance. 
+Our term scoring method inspired by Rocchio optimal query~\citep{manning2008introduction}. We used this score to select query terms, which resulted in a remarkable improvement in the performance. However, exploring other existing term scoring techniques like Kullback-Leibler divergence~\citep{Baeza-Yates2011} may improve the results.
 \subsection{Exploring more Sophisticated Query Reduction Methods}
 \label{subsec:SophisticatedQueryReduction}
 One of the most important findings of our research was the existence of useful terms sufficiently inside the reference Patent Query. 
 We showed that a query formulated by selecting these terms considerably outperforms the baseline. 
-Thus, in this thesis, we tried four simple query reduction techniques. However, we only got slight improvement over the baseline because the retrieval models are over-sensitive to noisy terms and our proposed reduction approaches were incapable of discriminating Useful Terms and Noisy Terms. 
+Thus, in this thesis, we tried four simple query reduction techniques. However, we only got slight improvement over the baseline because the retrieval models are over-sensitive to noisy terms and our proposed reduction approaches were incapable of discriminating useful terms and noisy terms. 
 Given the necessity of a precise query term selection technique that can differentiate useful terms from noisy terms, 
 applying more sophisticated query reduction approaches --- e.g, query term selection technique proposed in~\citep{maxwell2013compact} using affinity graph and random walk --- is an important open area of research for query term selection in patent prior art search.     
 
