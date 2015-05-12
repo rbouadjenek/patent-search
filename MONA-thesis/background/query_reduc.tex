@@ -1,0 +1,11 @@
+In general, retrieval effectiveness for long queries is often lower than retrieval effectiveness for shorter keyword queries because the additional information provided in verbose queries is more likely to confuse current search engines rather than help them. Query reduction, a technique for dropping unnecessary query terms from long queries, improves performance of retrieval. Two main approaches have proposed in previous works for long queries: selecting a subset of the verbose query (or sub-query) and weighting query words in the verbose query. 
+\begin{list}{-}{}
+
+\item \textbf{Selecting of Subsets.} 
+A search engine do not retrieve related documents at top of the list for some long queries, but the same retrieval system perform more precisely when just the key concepts are used as a query. So, the identification of the key query concepts will have a significant positive impact on the retrieval performance for verbose queries. Extracting the key query concepts can be done by learning to identify key concepts in long queries using a variety of features~\citep{bendersky2008discovering}. The other approach, to choose effective subsets in a query, involves analysing all the subsets of terms from the original query (sub-queries), and identifying the most promising sub-query to replace the original long query. For ranking sub-queries, an algorithm based on the Support Vector Machines (SVM) classification can be used~\citep{kumaran2009reducing}. The quality of query reduction depends on the performance of the predictor and ranking algorithm ~\citep{balasubramanian2010exploring}.
+
+\item \textbf{Weighting Query Words.}
+Query term ranking approaches are used to select effective terms from a verbose query by ranking terms. A vast number of rankings are possible given different settings of individual term weights, for example, it is possible to train a regression model to weight all query words of a verbose query~\citep{lease2009regression}. It is also possible to assign weights to concepts by learning the importance of concepts underlying
+the verbose query~\citep{bendersky2010learning}.
+
+\end{list}

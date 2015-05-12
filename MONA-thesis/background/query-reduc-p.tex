@@ -1,0 +1,10 @@
+Query reduction is a solution for problems with using a full verbose patent as a query: it is not focused on information needed by the user, and a verbose query may cover more than one topic.
+
+\begin{list}{-}{}
+
+\item \textbf{Query Segmentation :} Decomposing each patent query into coherent sub-topics segments-using TextTiling~\citep{hearst1997texttiling}-is a solution to make long ambiguous queries focused on the information need. Sub-topic segments can be used as separate queries (query stream) for initial retrieval, then the retrieval results from each of the individual streams are merged to construct the final ranked list for the whole original query. Using each sub-topic as a query stream enables a retrieval model to retrieve related documents from the collection in a more precise way and also allow the PRF algorithm to work on a more focused set of pseudo-relevant documents~\citep{takaki2004associative, ganguly2011united}. Another work adapted pseudo relevance feedback for query reduction by decomposing a patent application into constituent text segments and computing the Language Modelling (LM) similarities by calculating the probability of generating each segment from the top ranked documents. The least similar segments from the query removed from the query, hypothesizing that removal of segments most dissimilar to the pseudo-relevant documents can increase the precision of retrieval by removing non-useful context, while still retaining the useful context to achieve high recall as well~\citep{ganguly2011patent}.
+
+\item \textbf{Patent Summarization :} This approach assumes that the patent summary (using TextTiling) reflects the main topic as well as the subtopics of a patent document in a concise manner. Then, language model for the query, collection, and each summary are generated~\citep{mahdabi2011report}. 
+
+\end{list}
+

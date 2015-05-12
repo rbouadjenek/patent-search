@@ -1,0 +1,79 @@
+\BOOKMARK [0][-]{chapter*.1}{Abstract}{}% 1
+\BOOKMARK [0][-]{chapter*.2}{Acknowledgments}{}% 2
+\BOOKMARK [0][-]{chapter*.3}{Abstract}{}% 3
+\BOOKMARK [0][-]{tocmark.0}{Contents}{}% 4
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 5
+\BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Summary}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Contributions}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.4}{Thesis Outline}{chapter.1}% 9
+\BOOKMARK [0][-]{chapter.2}{Background and Related Work}{}% 10
+\BOOKMARK [1][-]{section.2.1}{Structure of Patents}{chapter.2}% 11
+\BOOKMARK [2][-]{section*.9}{Title}{section.2.1}% 12
+\BOOKMARK [3][-]{section*.10}{Abstract}{section*.9}% 13
+\BOOKMARK [4][-]{section*.11}{Description}{section*.10}% 14
+\BOOKMARK [4][-]{section*.12}{Claims}{section*.10}% 15
+\BOOKMARK [4][-]{section*.13}{International Patent Classification \(IPC\) Code}{section*.10}% 16
+\BOOKMARK [4][-]{section*.15}{Citations}{section*.10}% 17
+\BOOKMARK [1][-]{section.2.2}{General Information Retrieval \(IR\)}{chapter.2}% 18
+\BOOKMARK [2][-]{subsection.2.2.1}{Retrieval Models}{section.2.2}% 19
+\BOOKMARK [3][-]{section*.17}{Vector Space Model: TF-IDF}{subsection.2.2.1}% 20
+\BOOKMARK [4][-]{section*.18}{Probabilistic Models: BM25}{section*.17}% 21
+\BOOKMARK [4][-]{section*.19}{Language Models with Terms Smoothing}{section*.17}% 22
+\BOOKMARK [2][-]{subsection.2.2.2}{The Study of Retrievablity}{section.2.2}% 23
+\BOOKMARK [3][-]{section*.20}{Retrievablity Measurement}{subsection.2.2.2}% 24
+\BOOKMARK [2][-]{subsection.2.2.3}{Query Expansion \(QE\)}{section.2.2}% 25
+\BOOKMARK [3][-]{section*.21}{Feedback-based QE}{subsection.2.2.3}% 26
+\BOOKMARK [4][-]{section*.23}{QE by External Resources}{section*.21}% 27
+\BOOKMARK [2][-]{subsection.2.2.4}{Query Reduction \(QR\)}{section.2.2}% 28
+\BOOKMARK [2][-]{subsection.2.2.5}{IR Evaluation Metrics}{section.2.2}% 29
+\BOOKMARK [3][-]{section*.25}{Precision and Recall}{subsection.2.2.5}% 30
+\BOOKMARK [4][-]{section*.26}{Average Precision and Mean Average Precision \(MAP\) }{section*.25}% 31
+\BOOKMARK [1][-]{section.2.3}{Patent-specific IR}{chapter.2}% 32
+\BOOKMARK [2][-]{subsection.2.3.1}{The Study of Retrievablity for patents}{section.2.3}% 33
+\BOOKMARK [2][-]{subsection.2.3.2}{Query Formulation}{section.2.3}% 34
+\BOOKMARK [3][-]{section*.27}{Terms Selection}{subsection.2.3.2}% 35
+\BOOKMARK [4][-]{section*.28}{Using Phrases instead of Terms}{section*.27}% 36
+\BOOKMARK [4][-]{section*.29}{Diverse Query Generation}{section*.27}% 37
+\BOOKMARK [2][-]{subsection.2.3.3}{Query Expansion for Patents}{section.2.3}% 38
+\BOOKMARK [3][-]{section*.30}{Query Expansion by Pseudo Relevance Feedback \(PRF\)}{subsection.2.3.3}% 39
+\BOOKMARK [4][-]{section*.31}{Query Expansion by External Resources}{section*.30}% 40
+\BOOKMARK [2][-]{subsection.2.3.4}{Query Reduction for Patents}{section.2.3}% 41
+\BOOKMARK [2][-]{subsection.2.3.5}{The Use of Metadata}{section.2.3}% 42
+\BOOKMARK [3][-]{section*.32}{The Use of Citation}{subsection.2.3.5}% 43
+\BOOKMARK [4][-]{section*.33}{The Use of IPC Codes}{section*.32}% 44
+\BOOKMARK [4][-]{section*.34}{The Use of Images}{section*.32}% 45
+\BOOKMARK [2][-]{subsection.2.3.6}{Multilinguality}{section.2.3}% 46
+\BOOKMARK [2][-]{subsection.2.3.7}{Multi-stage Retrieval}{section.2.3}% 47
+\BOOKMARK [2][-]{subsection.2.3.8}{Evaluation Metrics for Patent Retrieval}{section.2.3}% 48
+\BOOKMARK [0][-]{chapter.3}{Baseline IR Framework}{}% 49
+\BOOKMARK [1][-]{section.3.1}{Baseline and Experimental Settings}{chapter.3}% 50
+\BOOKMARK [1][-]{section.3.2}{Data Collection}{chapter.3}% 51
+\BOOKMARK [1][-]{section.3.3}{Errors Caused by Baseline Settings}{chapter.3}% 52
+\BOOKMARK [2][-]{subsection.3.3.1}{Data Curation Errors}{section.3.3}% 53
+\BOOKMARK [2][-]{subsection.3.3.2}{Classification Code Mismatch}{section.3.3}% 54
+\BOOKMARK [3][-]{section*.39}{\(I\) Applying three first IPC components for filtering \(filter type I\)}{subsection.3.3.2}% 55
+\BOOKMARK [4][-]{section*.42}{\(II\) Applying first two IPC code components for filtering \(filter type II\)}{section*.39}% 56
+\BOOKMARK [4][-]{section*.44}{\(III\) Applying the first IPC code component for filtering \(filter type III\)}{section*.39}% 57
+\BOOKMARK [0][-]{chapter.4}{Towards Optimal Query Term Selection}{}% 58
+\BOOKMARK [1][-]{section.4.1}{Term Mismatch}{chapter.4}% 59
+\BOOKMARK [1][-]{section.4.2}{Oracular Relevance Feedback System}{chapter.4}% 60
+\BOOKMARK [2][-]{subsection.4.2.1}{Selecting Useful Terms}{section.4.2}% 61
+\BOOKMARK [3][-]{subsubsection.4.2.1.1}{Performance versus Useful Terms}{subsection.4.2.1}% 62
+\BOOKMARK [3][-]{subsubsection.4.2.1.2}{Term Overlap with Useful Terms and Noisy Terms}{subsection.4.2.1}% 63
+\BOOKMARK [3][-]{subsubsection.4.2.1.3}{Useful Terms in Different Sections of Patents}{subsection.4.2.1}% 64
+\BOOKMARK [2][-]{subsection.4.2.2}{Oracular Query Formulation}{section.4.2}% 65
+\BOOKMARK [1][-]{section.4.3}{Query Reduction: Approximating the Oracular Patent Query}{chapter.4}% 66
+\BOOKMARK [2][-]{subsection.4.3.1}{Automated Reduction}{section.4.3}% 67
+\BOOKMARK [3][-]{subsubsection.4.3.1.1}{Simple Query Reduction Approaches}{subsection.4.3.1}% 68
+\BOOKMARK [4][-]{section*.57}{Removing Document Frequent Terms}{subsubsection.4.3.1.1}% 69
+\BOOKMARK [4][-]{section*.58}{Removing Less Frequent Terms in Patent Query}{subsubsection.4.3.1.1}% 70
+\BOOKMARK [4][-]{section*.59}{Removing Terms in IPC Titles}{subsubsection.4.3.1.1}% 71
+\BOOKMARK [3][-]{subsubsection.4.3.1.2}{Query Reduction Using Pseudo Relevance Feedback}{subsection.4.3.1}% 72
+\BOOKMARK [2][-]{subsection.4.3.2}{Semi-automated Interactive Reduction}{section.4.3}% 73
+\BOOKMARK [0][-]{chapter.5}{Conclusions}{}% 74
+\BOOKMARK [1][-]{section.5.1}{Contributions}{chapter.5}% 75
+\BOOKMARK [1][-]{section.5.2}{Future Work}{chapter.5}% 76
+\BOOKMARK [2][-]{subsection.5.2.1}{Applying more Sophisticated Query Reduction Methods}{section.5.2}% 77
+\BOOKMARK [2][-]{subsection.5.2.2}{Considering Phrasal Concepts for Query Reformulation }{section.5.2}% 78
+\BOOKMARK [2][-]{subsection.5.2.3}{Patent Retrieval Using Meta-data Social Information}{section.5.2}% 79

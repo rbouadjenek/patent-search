@@ -1,0 +1,21 @@
+The last point we discuss in this chapter is about the changes we made on relevant patents. We showed that
+some relevant patents are not retrieved because of the following three reasons: (1) their original language is not English; (2) they have a missing description, or (3) they do not have any of query IPC codes. 
+Since our system is not designed for multilingual search and also we keep the IPC code filter due to the computational benefits, 
+mentioned errors are fixed in our IR system. 
+We exclude relevant patents with three above-mentioned errors for the accuracy of our experiments, analysing other errors, in the next chapter. This ended in 22 queries with no relevant complete English patent, sharing, at least, one IPC code with the query.  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[t!]
+  \begin{center}
+   \caption{System performance after changing in relevant patents.}
+  \input table/newevaluate.tex   
+  \label{tab:neweval}
+  \end{center}  
+\end{table}
+\FloatBarrier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Table \ref{tab:neweval} indicates the performance of the system after filtering out relevant patents with above-mentioned errors. We can see that the poor performance of the baseline system is not mainly because of data curation and IPC filter. In the next chapter we investigate the errors caused by specific characteristic of the patents and prior art search. These errors consider the main reasons of the retrieval low effectiveness failure because as we showed in this chapter, they constitute 63\% of the whole errors. 
+%In the rest of this thesis, we prune out errors related to data curation and IPC filter for the accuracy of our term analysis results in the next chapter. In essence, we are seeking for the patterns for the errors beyond data curation and IPC filter and concentrate on understanding what is really wrong with patent documents and prior art search. 
+%
+%It helps us to concentrate on the error sources that are specific to the nature of patents or prior art search.
+%By this way, we will be able to analyse errors related to the nature of patent documents in general, not just related to our system design or specific data collection, which makes our analysis more precise for query and documents terms and related weighting. Table (\ref{tab:neweval}) shows the system performance for complete English patents with at least one of the query IPC codes. As it can be seen, the system performance is still low.

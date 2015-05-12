@@ -1,0 +1,12 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Contingency table.\relax }}{16}{table.caption.24}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Comparing performance metrics for different IR models and query formulation.\relax }}{28}{table.caption.36}
+\contentsline {table}{\numberline {3.2}{\ignorespaces System performance after changing in relevant patents.\relax }}{36}{table.caption.46}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Average number of Useful Terms in the different sections of Patent Query\relax }}{42}{table.caption.51}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Average percentage of Useful Terms in the different sections of Patent Query\relax }}{42}{table.caption.52}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Performance for the Patent Query, Oracular Query, and Top CLEF-IP 2010 (PATATRAS).\relax }}{43}{table.caption.53}
+\contentsline {table}{\numberline {4.4}{\ignorespaces System performance using minimal relevance feedback. $\tau $ is RF score threshold, and $k$ indicates the number of first relevant retrieved patents.\relax }}{51}{table.caption.64}
+\addvspace {10\p@ }
