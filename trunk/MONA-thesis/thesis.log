@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  12 MAY 2015 10:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.7)  12 MAY 2015 11:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -909,7 +909,7 @@ LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <12> not available
 (Font)              Font shape `T1/pplx/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <12> not available
 (Font)              Font shape `T1/pplj/b/n' tried instead on input line 1.
-<figs/webprior.jpg, id=611, 853.68938pt x 208.52907pt>
+<figs/webprior.jpg, id=616, 853.68938pt x 208.52907pt>
 File: figs/webprior.jpg Graphic file (type jpg)
  <use figs/webprior.jpg>
 Package pdftex.def Info: figs/webprior.jpg used on input line 39.
@@ -964,14 +964,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--119
 
  []
 
-<figs/IPCexample.jpg, id=732, 312.41719pt x 117.43875pt>
+<figs/IPCexample.jpg, id=737, 312.41719pt x 117.43875pt>
 File: figs/IPCexample.jpg Graphic file (type jpg)
 
 <use figs/IPCexample.jpg>
 Package pdftex.def Info: figs/IPCexample.jpg used on input line 142.
 (pdftex.def)             Requested size: 246.86406pt x 85.35861pt.
  [7]
-<figs/generalIR.jpg, id=741, 718.18312pt x 415.5525pt>
+<figs/generalIR.jpg, id=746, 718.18312pt x 415.5525pt>
 File: figs/generalIR.jpg Graphic file (type jpg)
 
 <use figs/generalIR.jpg>
@@ -983,7 +983,7 @@ Package pdftex.def Info: figs/generalIR.jpg used on input line 166.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 7.
 
-<figs/vsm-matrix.jpg, id=748, 788.19469pt x 390.70969pt>
+<figs/vsm-matrix.jpg, id=753, 788.19469pt x 390.70969pt>
 File: figs/vsm-matrix.jpg Graphic file (type jpg)
 
 <use figs/vsm-matrix.jpg>
@@ -1021,7 +1021,7 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 3.
 
-<figs/rocchio.jpg, id=807, 741.52031pt x 406.51875pt>
+<figs/rocchio.jpg, id=812, 741.52031pt x 406.51875pt>
 File: figs/rocchio.jpg Graphic file (type jpg)
  <use figs/rocchio.jpg>
 Package pdftex.def Info: figs/rocchio.jpg used on input line 10.
@@ -1096,7 +1096,7 @@ i-er-ar-chi-cal clas-si-fi-ca-tion schemes
  []
 
 ) (./background/multilinguality.tex [23]) (./background/metrics-p.tex
-<figs/pres.jpg, id=1104, 963.6pt x 325.215pt>
+<figs/pres.jpg, id=1110, 963.6pt x 325.215pt>
 File: figs/pres.jpg Graphic file (type jpg)
  <use figs/pres.jpg>
 Package pdftex.def Info: figs/pres.jpg used on input line 12.
@@ -1135,7 +1135,7 @@ o.pdf figs/lang1.eps>
 (epstopdf)             \includegraphics on input line 18.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/lang1-eps-converted-to.pdf, id=1174, 562.1pt x 421.575pt>
+<figs/lang1-eps-converted-to.pdf, id=1179, 562.1pt x 421.575pt>
 File: figs/lang1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/lang1-eps-converted-to.pdf>
@@ -1153,7 +1153,7 @@ o.pdf figs/lang2.eps>
 (epstopdf)             \includegraphics on input line 18.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/lang2-eps-converted-to.pdf, id=1175, 562.1pt x 421.575pt>
+<figs/lang2-eps-converted-to.pdf, id=1180, 562.1pt x 421.575pt>
 File: figs/lang2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/lang2-eps-converted-to.pdf>
@@ -1177,7 +1177,7 @@ verted-to.pdf figs/analyseFNs100.eps>
 (epstopdf)             \includegraphics on input line 12.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/analyseFNs100-eps-converted-to.pdf, id=1189, 562.1pt x 421.575pt>
+<figs/analyseFNs100-eps-converted-to.pdf, id=1194, 562.1pt x 421.575pt>
 File: figs/analyseFNs100-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/analyseFNs100-eps-converted-to.pdf>
@@ -1195,7 +1195,7 @@ nverted-to.pdf figs/analyseFNs1000.eps>
 (epstopdf)             \includegraphics on input line 13.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/analyseFNs1000-eps-converted-to.pdf, id=1190, 562.1pt x 421.575pt>
+<figs/analyseFNs1000-eps-converted-to.pdf, id=1195, 562.1pt x 421.575pt>
 File: figs/analyseFNs1000-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/analyseFNs1000-eps-converted-to.pdf>
@@ -1218,7 +1218,7 @@ Package epstopdf Info: Source file: <figs/ipcOverlap-FNs.eps>
 nverted-to.pdf figs/ipcOverlap-FNs.eps>
 (epstopdf)             \includegraphics on input line 53.
 Package epstopdf Info: Output file is already uptodate.
-<figs/ipcOverlap-FNs-eps-converted-to.pdf, id=1222, 562.1pt x 421.575pt>
+<figs/ipcOverlap-FNs-eps-converted-to.pdf, id=1227, 562.1pt x 421.575pt>
 File: figs/ipcOverlap-FNs-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/ipcOverlap-FNs-eps-converted-to.pdf>
@@ -1236,7 +1236,7 @@ nverted-to.pdf figs/ipcOverlap-TPs.eps>
 (epstopdf)             \includegraphics on input line 54.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/ipcOverlap-TPs-eps-converted-to.pdf, id=1223, 562.1pt x 421.575pt>
+<figs/ipcOverlap-TPs-eps-converted-to.pdf, id=1228, 562.1pt x 421.575pt>
 File: figs/ipcOverlap-TPs-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/ipcOverlap-TPs-eps-converted-to.pdf>
@@ -1256,7 +1256,7 @@ Package epstopdf Info: Source file: <figs/filter1.eps>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/filter1-eps-converted-to.pdf, id=1246, 735.74875pt x 421.575pt>
+<figs/filter1-eps-converted-to.pdf, id=1251, 735.74875pt x 421.575pt>
 File: figs/filter1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/filter1-eps-converted-to.pdf>
@@ -1276,7 +1276,7 @@ rted-to.pdf figs/filter2_pie.eps>
 (epstopdf)             \includegraphics on input line 111.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/filter2_pie-eps-converted-to.pdf, id=1275, 562.1pt x 421.575pt>
+<figs/filter2_pie-eps-converted-to.pdf, id=1280, 562.1pt x 421.575pt>
 File: figs/filter2_pie-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/filter2_pie-eps-converted-to.pdf>
@@ -1294,7 +1294,7 @@ Package epstopdf Info: Source file: <figs/filter2.eps>
 (epstopdf)             \includegraphics on input line 114.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/filter2-eps-converted-to.pdf, id=1276, 734.745pt x 421.575pt>
+<figs/filter2-eps-converted-to.pdf, id=1281, 734.745pt x 421.575pt>
 File: figs/filter2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/filter2-eps-converted-to.pdf>
@@ -1312,7 +1312,7 @@ rted-to.pdf figs/filter3_pie.eps>
 (epstopdf)             \includegraphics on input line 160.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/filter3_pie-eps-converted-to.pdf, id=1277, 562.1pt x 421.575pt>
+<figs/filter3_pie-eps-converted-to.pdf, id=1282, 562.1pt x 421.575pt>
 File: figs/filter3_pie-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/filter3_pie-eps-converted-to.pdf>
@@ -1330,7 +1330,7 @@ Package epstopdf Info: Source file: <figs/filter3.eps>
 (epstopdf)             \includegraphics on input line 163.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/filter3-eps-converted-to.pdf, id=1278, 732.7375pt x 421.575pt>
+<figs/filter3-eps-converted-to.pdf, id=1283, 732.7375pt x 421.575pt>
 File: figs/filter3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/filter3-eps-converted-to.pdf>
@@ -1361,13 +1361,13 @@ Package epstopdf Info: Source file: <figs/to-tps.eps>
 (epstopdf)                    date: 2015-03-06 20:45:03
 (epstopdf)                    size: 16154 bytes
 (epstopdf)             Output file: <figs/to-tps-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-03-06 20:45:22
+(epstopdf)                    date: 2015-05-12 11:34:57
 (epstopdf)                    size: 6868 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/to-tps-eps-converted-
 to.pdf figs/to-tps.eps>
 (epstopdf)             \includegraphics on input line 40.
 Package epstopdf Info: Output file is already uptodate.
- <figs/to-tps-eps-converted-to.pdf, id=1357, 562.1pt x 421.575pt>
+ <figs/to-tps-eps-converted-to.pdf, id=1362, 562.1pt x 421.575pt>
 File: figs/to-tps-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/to-tps-eps-converted-to.pdf>
@@ -1378,14 +1378,14 @@ Package epstopdf Info: Source file: <figs/to-fps.eps>
 (epstopdf)                    date: 2015-03-06 20:45:02
 (epstopdf)                    size: 16731 bytes
 (epstopdf)             Output file: <figs/to-fps-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-03-06 20:45:23
+(epstopdf)                    date: 2015-05-12 11:34:58
 (epstopdf)                    size: 6928 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/to-fps-eps-converted-
 to.pdf figs/to-fps.eps>
 (epstopdf)             \includegraphics on input line 40.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/to-fps-eps-converted-to.pdf, id=1358, 562.1pt x 421.575pt>
+<figs/to-fps-eps-converted-to.pdf, id=1363, 562.1pt x 421.575pt>
 File: figs/to-fps-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/to-fps-eps-converted-to.pdf>
@@ -1396,14 +1396,14 @@ Package epstopdf Info: Source file: <figs/to-fns.eps>
 (epstopdf)                    date: 2015-03-06 20:45:03
 (epstopdf)                    size: 16427 bytes
 (epstopdf)             Output file: <figs/to-fns-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-03-06 20:45:24
+(epstopdf)                    date: 2015-05-12 11:34:59
 (epstopdf)                    size: 6827 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/to-fns-eps-converted-
 to.pdf figs/to-fns.eps>
 (epstopdf)             \includegraphics on input line 40.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/to-fns-eps-converted-to.pdf, id=1359, 562.1pt x 421.575pt>
+<figs/to-fns-eps-converted-to.pdf, id=1364, 562.1pt x 421.575pt>
 File: figs/to-fns-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/to-fns-eps-converted-to.pdf>
@@ -1428,7 +1428,7 @@ nverted-to.pdf figs/greaterthan0-r.eps>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthan0-r-eps-converted-to.pdf, id=1387, 562.1pt x 421.575pt>
+<figs/greaterthan0-r-eps-converted-to.pdf, id=1392, 562.1pt x 421.575pt>
 File: figs/greaterthan0-r-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthan0-r-eps-converted-to.pdf>
@@ -1447,7 +1447,7 @@ ps-converted-to.pdf figs/greaterthanmedian-r.eps>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthanmedian-r-eps-converted-to.pdf, id=1388, 562.1pt x 421.575pt>
+<figs/greaterthanmedian-r-eps-converted-to.pdf, id=1393, 562.1pt x 421.575pt>
 File: figs/greaterthanmedian-r-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthanmedian-r-eps-converted-to.pdf>
@@ -1465,7 +1465,7 @@ nverted-to.pdf figs/greaterthan1-r.eps>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthan1-r-eps-converted-to.pdf, id=1389, 562.1pt x 421.575pt>
+<figs/greaterthan1-r-eps-converted-to.pdf, id=1394, 562.1pt x 421.575pt>
 File: figs/greaterthan1-r-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthan1-r-eps-converted-to.pdf>
@@ -1476,14 +1476,14 @@ Package epstopdf Info: Source file: <figs/top100-r.eps>
 (epstopdf)                    date: 2015-04-07 10:42:56
 (epstopdf)                    size: 279631 bytes
 (epstopdf)             Output file: <figs/top100-r-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-04-07 16:24:58
+(epstopdf)                    date: 2015-05-12 11:34:59
 (epstopdf)                    size: 60845 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/top100-r-eps-converte
 d-to.pdf figs/top100-r.eps>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/top100-r-eps-converted-to.pdf, id=1390, 562.1pt x 421.575pt>
+<figs/top100-r-eps-converted-to.pdf, id=1395, 562.1pt x 421.575pt>
 File: figs/top100-r-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/top100-r-eps-converted-to.pdf>
@@ -1501,7 +1501,7 @@ nverted-to.pdf figs/greaterthan5-r.eps>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthan5-r-eps-converted-to.pdf, id=1391, 562.1pt x 421.575pt>
+<figs/greaterthan5-r-eps-converted-to.pdf, id=1396, 562.1pt x 421.575pt>
 File: figs/greaterthan5-r-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthan5-r-eps-converted-to.pdf>
@@ -1520,7 +1520,7 @@ onverted-to.pdf figs/greaterthan10-r.eps>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthan10-r-eps-converted-to.pdf, id=1392, 562.1pt x 421.575pt>
+<figs/greaterthan10-r-eps-converted-to.pdf, id=1397, 562.1pt x 421.575pt>
 File: figs/greaterthan10-r-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthan10-r-eps-converted-to.pdf>
@@ -1538,7 +1538,7 @@ nverted-to.pdf figs/greaterthan0-p.eps>
 (epstopdf)             \includegraphics on input line 91.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthan0-p-eps-converted-to.pdf, id=1393, 562.1pt x 421.575pt>
+<figs/greaterthan0-p-eps-converted-to.pdf, id=1398, 562.1pt x 421.575pt>
 File: figs/greaterthan0-p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthan0-p-eps-converted-to.pdf>
@@ -1557,7 +1557,7 @@ ps-converted-to.pdf figs/greaterthammedian-p.eps>
 (epstopdf)             \includegraphics on input line 91.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthammedian-p-eps-converted-to.pdf, id=1394, 562.1pt x 421.575pt>
+<figs/greaterthammedian-p-eps-converted-to.pdf, id=1399, 562.1pt x 421.575pt>
 File: figs/greaterthammedian-p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthammedian-p-eps-converted-to.pdf>
@@ -1575,7 +1575,7 @@ nverted-to.pdf figs/greaterthan1-p.eps>
 (epstopdf)             \includegraphics on input line 92.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthan1-p-eps-converted-to.pdf, id=1395, 562.1pt x 421.575pt>
+<figs/greaterthan1-p-eps-converted-to.pdf, id=1400, 562.1pt x 421.575pt>
 File: figs/greaterthan1-p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthan1-p-eps-converted-to.pdf>
@@ -1586,14 +1586,14 @@ Package epstopdf Info: Source file: <figs/top100-p.eps>
 (epstopdf)                    date: 2015-04-07 10:42:56
 (epstopdf)                    size: 281903 bytes
 (epstopdf)             Output file: <figs/top100-p-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-04-07 16:25:03
-(epstopdf)                    size: 76601 bytes
+(epstopdf)                    date: 2015-05-12 11:35:00
+(epstopdf)                    size: 76599 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/top100-p-eps-converte
 d-to.pdf figs/top100-p.eps>
 (epstopdf)             \includegraphics on input line 92.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/top100-p-eps-converted-to.pdf, id=1396, 562.1pt x 421.575pt>
+<figs/top100-p-eps-converted-to.pdf, id=1401, 562.1pt x 421.575pt>
 File: figs/top100-p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/top100-p-eps-converted-to.pdf>
@@ -1611,7 +1611,7 @@ nverted-to.pdf figs/greaterthan5-p.eps>
 (epstopdf)             \includegraphics on input line 93.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthan5-p-eps-converted-to.pdf, id=1397, 562.1pt x 421.575pt>
+<figs/greaterthan5-p-eps-converted-to.pdf, id=1402, 562.1pt x 421.575pt>
 File: figs/greaterthan5-p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthan5-p-eps-converted-to.pdf>
@@ -1630,7 +1630,7 @@ onverted-to.pdf figs/greaterthan10-p.eps>
 (epstopdf)             \includegraphics on input line 93.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/greaterthan10-p-eps-converted-to.pdf, id=1398, 562.1pt x 421.575pt>
+<figs/greaterthan10-p-eps-converted-to.pdf, id=1403, 562.1pt x 421.575pt>
 File: figs/greaterthan10-p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/greaterthan10-p-eps-converted-to.pdf>
@@ -1660,14 +1660,14 @@ Package epstopdf Info: Source file: <figs/stackedTPs.eps>
 (epstopdf)                    date: 2015-04-14 15:34:53
 (epstopdf)                    size: 22442 bytes
 (epstopdf)             Output file: <figs/stackedTPs-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-04-14 15:35:57
+(epstopdf)                    date: 2015-05-12 11:35:01
 (epstopdf)                    size: 7491 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/stackedTPs-eps-conver
 ted-to.pdf figs/stackedTPs.eps>
 (epstopdf)             \includegraphics on input line 121.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/stackedTPs-eps-converted-to.pdf, id=1486, 562.1pt x 421.575pt>
+<figs/stackedTPs-eps-converted-to.pdf, id=1491, 562.1pt x 421.575pt>
 File: figs/stackedTPs-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/stackedTPs-eps-converted-to.pdf>
@@ -1678,14 +1678,14 @@ Package epstopdf Info: Source file: <figs/stackedFPs.eps>
 (epstopdf)                    date: 2015-04-14 15:34:50
 (epstopdf)                    size: 21494 bytes
 (epstopdf)             Output file: <figs/stackedFPs-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-04-14 15:35:58
+(epstopdf)                    date: 2015-05-12 11:35:01
 (epstopdf)                    size: 7082 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/stackedFPs-eps-conver
 ted-to.pdf figs/stackedFPs.eps>
 (epstopdf)             \includegraphics on input line 121.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/stackedFPs-eps-converted-to.pdf, id=1487, 562.1pt x 421.575pt>
+<figs/stackedFPs-eps-converted-to.pdf, id=1492, 562.1pt x 421.575pt>
 File: figs/stackedFPs-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/stackedFPs-eps-converted-to.pdf>
@@ -1714,7 +1714,7 @@ Package epstopdf Info: Source file: <figs/oracularq.eps>
 ed-to.pdf figs/oracularq.eps>
 (epstopdf)             \includegraphics on input line 193.
 Package epstopdf Info: Output file is already uptodate.
- <figs/oracularq-eps-converted-to.pdf, id=1523, 562.1pt x 421.575pt>
+ <figs/oracularq-eps-converted-to.pdf, id=1528, 562.1pt x 421.575pt>
 File: figs/oracularq-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/oracularq-eps-converted-to.pdf>
@@ -1732,7 +1732,7 @@ nverted-to.pdf figs/oracularq-size.eps>
 (epstopdf)             \includegraphics on input line 193.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/oracularq-size-eps-converted-to.pdf, id=1524, 562.1pt x 421.575pt>
+<figs/oracularq-size-eps-converted-to.pdf, id=1529, 562.1pt x 421.575pt>
 File: figs/oracularq-size-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/oracularq-size-eps-converted-to.pdf>
@@ -1750,7 +1750,7 @@ df figs/l1.eps>
 (epstopdf)             \includegraphics on input line 211.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/l1-eps-converted-to.pdf, id=1525, 609.27625pt x 47.17625pt>
+<figs/l1-eps-converted-to.pdf, id=1530, 609.27625pt x 47.17625pt>
 File: figs/l1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/l1-eps-converted-to.pdf>
@@ -1767,7 +1767,7 @@ d-to.pdf figs/fig1_map.eps>
 (epstopdf)             \includegraphics on input line 215.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/fig1_map-eps-converted-to.pdf, id=1526, 562.1pt x 421.575pt>
+<figs/fig1_map-eps-converted-to.pdf, id=1531, 562.1pt x 421.575pt>
 File: figs/fig1_map-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/fig1_map-eps-converted-to.pdf>
@@ -1785,7 +1785,7 @@ rted-to.pdf figs/fig1_recall.eps>
 (epstopdf)             \includegraphics on input line 216.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/fig1_recall-eps-converted-to.pdf, id=1527, 562.1pt x 421.575pt>
+<figs/fig1_recall-eps-converted-to.pdf, id=1532, 562.1pt x 421.575pt>
 File: figs/fig1_recall-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/fig1_recall-eps-converted-to.pdf>
@@ -1809,7 +1809,7 @@ Package epstopdf Info: Source file: <figs/l3.eps>
 df figs/l3.eps>
 (epstopdf)             \includegraphics on input line 266.
 Package epstopdf Info: Output file is already uptodate.
-<figs/l3-eps-converted-to.pdf, id=1552, 595.22375pt x 50.1875pt>
+<figs/l3-eps-converted-to.pdf, id=1557, 595.22375pt x 50.1875pt>
 File: figs/l3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/l3-eps-converted-to.pdf>
@@ -1826,7 +1826,7 @@ d-to.pdf figs/fig3_map.eps>
 (epstopdf)             \includegraphics on input line 270.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/fig3_map-eps-converted-to.pdf, id=1553, 562.1pt x 421.575pt>
+<figs/fig3_map-eps-converted-to.pdf, id=1558, 562.1pt x 421.575pt>
 File: figs/fig3_map-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/fig3_map-eps-converted-to.pdf>
@@ -1844,7 +1844,7 @@ rted-to.pdf figs/fig3_recall.eps>
 (epstopdf)             \includegraphics on input line 270.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/fig3_recall-eps-converted-to.pdf, id=1554, 562.1pt x 421.575pt>
+<figs/fig3_recall-eps-converted-to.pdf, id=1559, 562.1pt x 421.575pt>
 File: figs/fig3_recall-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/fig3_recall-eps-converted-to.pdf>
@@ -1868,7 +1868,7 @@ rted-to.pdf figs/qterm_rf_df.eps>
 (epstopdf)             \includegraphics on input line 310.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/qterm_rf_df-eps-converted-to.pdf, id=1634, 562.1pt x 421.575pt>
+<figs/qterm_rf_df-eps-converted-to.pdf, id=1639, 562.1pt x 421.575pt>
 File: figs/qterm_rf_df-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/qterm_rf_df-eps-converted-to.pdf>
@@ -1886,7 +1886,7 @@ verted-to.pdf figs/df-rf-tauline.eps>
 (epstopdf)             \includegraphics on input line 312.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/df-rf-tauline-eps-converted-to.pdf, id=1635, 561.09625pt x 414.54875pt>
+<figs/df-rf-tauline-eps-converted-to.pdf, id=1640, 561.09625pt x 414.54875pt>
 File: figs/df-rf-tauline-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/df-rf-tauline-eps-converted-to.pdf>
@@ -1905,7 +1905,7 @@ pdf figs/prf.eps>
 (epstopdf)             \includegraphics on input line 337.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/prf-eps-converted-to.pdf, id=1652, 562.1pt x 421.575pt>
+<figs/prf-eps-converted-to.pdf, id=1657, 562.1pt x 421.575pt>
 File: figs/prf-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/prf-eps-converted-to.pdf>
@@ -1916,14 +1916,14 @@ Package epstopdf Info: Source file: <figs/scoretscorethat-tau0.eps>
 (epstopdf)                    size: 902789 bytes
 (epstopdf)             Output file: <figs/scoretscorethat-tau0-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2015-04-09 12:27:12
+(epstopdf)                    date: 2015-05-12 11:35:03
 (epstopdf)                    size: 88190 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/scoretscorethat-tau0-
 eps-converted-to.pdf figs/scoretscorethat-tau0.eps>
 (epstopdf)             \includegraphics on input line 345.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/scoretscorethat-tau0-eps-converted-to.pdf, id=1653, 562.1pt x 421.575pt>
+<figs/scoretscorethat-tau0-eps-converted-to.pdf, id=1658, 562.1pt x 421.575pt>
 File: figs/scoretscorethat-tau0-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/scoretscorethat-tau0-eps-converted-to.pdf>
@@ -1935,14 +1935,14 @@ Package epstopdf Info: Source file: <figs/scoretscorethat-tau1.eps>
 (epstopdf)                    size: 906192 bytes
 (epstopdf)             Output file: <figs/scoretscorethat-tau1-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2015-04-09 12:27:14
+(epstopdf)                    date: 2015-05-12 11:35:04
 (epstopdf)                    size: 88819 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/scoretscorethat-tau1-
 eps-converted-to.pdf figs/scoretscorethat-tau1.eps>
 (epstopdf)             \includegraphics on input line 346.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/scoretscorethat-tau1-eps-converted-to.pdf, id=1654, 562.1pt x 421.575pt>
+<figs/scoretscorethat-tau1-eps-converted-to.pdf, id=1659, 562.1pt x 421.575pt>
 File: figs/scoretscorethat-tau1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/scoretscorethat-tau1-eps-converted-to.pdf>
@@ -1954,14 +1954,14 @@ Package epstopdf Info: Source file: <figs/scoretscorethat-tau10.eps>
 (epstopdf)                    size: 886292 bytes
 (epstopdf)             Output file: <figs/scoretscorethat-tau10-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2015-04-09 12:27:15
+(epstopdf)                    date: 2015-05-12 11:35:06
 (epstopdf)                    size: 89883 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/scoretscorethat-tau10
 -eps-converted-to.pdf figs/scoretscorethat-tau10.eps>
 (epstopdf)             \includegraphics on input line 347.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/scoretscorethat-tau10-eps-converted-to.pdf, id=1655, 562.1pt x 421.575pt>
+<figs/scoretscorethat-tau10-eps-converted-to.pdf, id=1660, 562.1pt x 421.575pt>
 File: figs/scoretscorethat-tau10-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/scoretscorethat-tau10-eps-converted-to.pdf>
 Package pdftex.def Info: figs/scoretscorethat-tau10-eps-converted-to.pdf used o
@@ -2022,7 +2022,7 @@ Package epstopdf Info: Source file: <figs/1stRank.eps>
 (epstopdf)             \includegraphics on input line 484.
 Package epstopdf Info: Output file is already uptodate.
 
-<figs/1stRank-eps-converted-to.pdf, id=1822, 198.7425pt x 100.375pt>
+<figs/1stRank-eps-converted-to.pdf, id=1827, 198.7425pt x 100.375pt>
 File: figs/1stRank-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figs/1stRank-eps-converted-to.pdf>
@@ -2063,9 +2063,9 @@ Package natbib Warning: Citation(s) may have changed.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 4920F5F826D9771B905889AD1925CD21;6125.
+(rerunfilecheck)             Checksum: FD298E3FECBC1B61963AC8D0BF1673F2;6216.
 Package rerunfilecheck Info: File `thesis.brf' has not changed.
-(rerunfilecheck)             Checksum: B4F32A16589DB8CA6C9709CB675C2490;10292.
+(rerunfilecheck)             Checksum: 04A9B177D91E8508A27CDC1FE7364010;10379.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2076,10 +2076,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 172.
  ) 
 Here is how much of TeX's memory you used:
- 22247 strings out of 493307
- 387057 string characters out of 6139906
- 725489 words of memory out of 5000000
- 24548 multiletter control sequences out of 15000+600000
+ 22250 strings out of 493307
+ 387127 string characters out of 6139906
+ 725581 words of memory out of 5000000
+ 24550 multiletter control sequences out of 15000+600000
  95172 words of font info for 173 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  65i,20n,124p,1498b,2219s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2098,10 +2098,10 @@ sr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (83 pages, 2073132 bytes).
+Output written on thesis.pdf (83 pages, 2073474 bytes).
 PDF statistics:
- 2170 PDF objects out of 2487 (max. 8388607)
- 1919 compressed objects within 20 object streams
- 462 named destinations out of 1000 (max. 500000)
- 890 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2179 PDF objects out of 2487 (max. 8388607)
+ 1928 compressed objects within 20 object streams
+ 463 named destinations out of 1000 (max. 500000)
+ 898 words of extra memory for PDF output out of 10000 (max. 10000000)
 
