@@ -1,0 +1,84 @@
+\chapter{Conclusions}
+\label{cha:conc}
+%\textcolor{red}{Mona: I will compose this chapter after we confirmed about all chapters!}\\
+%Summary your thesis and discuss what you are going to do in the future in Section~\ref{sec:future}.
+
+%\section{Overview}
+%\label{sec:overview}
+%\section{Summary}
+%\label{sec:summary}
+
+In this thesis, we investigated the reasons that patent prior art searches 
+are less effective than the other web search applications.
+% on CLEF-IP 2010 data collection. 
+We started with recognising errors due to data curation and baseline settings that 
+make small portions of the whole retrieval errors. However, the main portion of the errors are 
+due to term matching process of retrieval ranking functions. 
+Hence, we looked at the patent prior art search from
+a term selection perspective. While previous works proposed
+different solutions to improve retrieval effectiveness, we 
+focused on term analysis of the patent query and top-100 retrieved patents. 
+After defining an Oracular Query based on
+relevance judgements, we established both the sufficiency
+of the standard LM retrieval scoring models and query reduction 
+methods to achieve state-of-the-art patent prior art
+search performance. After finding that automated methods 
+for query reduction approaches fail to offer significant
+performance improvements, we showed that we can double
+the MAP with minimum user interaction by approximating
+the Oracular Query through a relevance feedback approach
+with a single relevant document. Given that such simple 
+interactive methods for query reduction with a standard LM
+retrieval model outperform highly engineered patent-specific
+search systems from CLEF-IP 2010, we concluded that interactive 
+methods offer a promising avenue for simple but
+highly effective term selection in patent prior art search.
+ 
+
+\section{Contributions}
+\label{sec:contributions}
+We briefly summarise the major contributions of our work as follows:
+\begin{enumerate}
+\item \textbf{Development of an Oracular term selection system: }We built an oracular term selection system from known relevance judgements to formulate an oracular query that far outperformed the baseline and the best-performed competitor on CLEF-IP 2010. 
+Experiments related to oracular system suggests the necessity of precise query
+reduction and term selection techniques to improve the effectiveness of patent
+prior art search.
+\item \textbf{Analysis of automated query reduction techniques for patent prior art search: } We examined four simple query reduction methods to select the positive terms and prune out negative terms. We illustrated that these approaches are inefficient because they can not discriminate between useful terms and noisy terms. Since our system is over-sensitive to the existence of noisy terms, we could not achieve high performance via these simple methods. 
+\item \textbf{Proposal of a semi-interactive method for query term selection: }We showed that a simple minimal interactive relevance feedback approach, where terms are selected by only the first retrieved relevant document performs as well as a highly engineered patent-specific system on CLEF-IP 2010. 
+\end{enumerate}
+
+\section{Future Work}
+\label{sec:future}
+In this research, we analysed the key reasons that generic IR methods are not effective for patent prior art through various experiments, which may open further research on the topic of prior art search. Thus, we describe the limitations and discuss further improvements.
+\subsection{Applying more Sophisticated Query Reduction Methods}
+\label{subsec:SophisticatedQueryReduction}
+One of the most important findings of our research was the existence of useful terms sufficiently inside the reference Patent Query. 
+We showed that a query formulated by selecting these terms considerably outperforms the baseline. 
+Thus, in this thesis, we tried four simple query reduction techniques. However, we only got slight improvement over the baseline because the retrieval models are over-sensitive to noisy terms and our proposed reduction approaches were incapable of discriminating Useful Terms and Noisy Terms. 
+Given the necessity of a precise query term selection technique that can differentiate useful terms from noisy terms, 
+applying more sophisticated query reduction approaches --- e.g, query term selection technique proposed in~\citep{maxwell2013compact} using affinity graph and random walk --- is an important open area of research for query term selection in patent prior art search.     
+
+\subsection{Considering Phrasal Concepts for Query Reformulation }
+\label{subsec: PhraseAnalysis}
+Our research was limited to only single terms in patent documents. 
+However, one important characteristic of patents is that 
+inventors use longer technical terms to describe their research ideas. 
+Hence, phrasal concepts and terminology 
+are frequently used as keywords in target patent documents.
+Hence, an obvious extension of this work is extracting phrasal concepts while reformulating the query. 
+
+\subsection{Patent Retrieval Using Meta-data Social Information}
+\label{subsec: Meta-dataNetworkAnalysis}
+A retrieval based on meta-data social information and social network analysis 
+is a proper alternate to a traditional IR based on term matching process, 
+when the retrieval problem based on term matching is difficult --- like patent prior art search.  
+Bibliographic meta-data in the XML file of a patent document contains details about 
+its inventor, organisation, and other information, which can give rise in more effective retrieval. 
+Recent studies aim at improving the IR process with
+information coming from social networks. This is commonly known as social IR. 
+Regarding this social network structure of patents, it is possible to 
+find possible prior works in the social profile of other inventors with the same research interest.
+Also competitive organisations may have developed the same or very close idea prior to the novel 
+idea claimed in a patent application.
+
+

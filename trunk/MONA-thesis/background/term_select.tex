@@ -1,0 +1,31 @@
+\ \\
+\textbf{Selection based on terms which are frequent in query but rare in the collection}
+\ \\
+Identifying useful query terms and giving them higher weight is important to build an effective query. The simplest proposed approach was weighting terms in the query based on their perceived significance in the target corpus, combined with their significance in the query~\citep{itoh2003term}. The problem with their method was that they did not take into account the fact that some terms, while being important to the definition of the request for information, may not necessarily appear in the target set at all. For query term selection purposes, it would seem more useful to weight them based only on the genre to which the query belongs, rather than the genre of the target collection. The enhanced version of selecting the most discriminative terms for each topic patent is to compute Kullback-Leibler divergence (KLD) between the language model of the query and the whole collection:
+%\[ 
+\begin{equation}
+\label{eq:kld}
+ KLD(P_{Q}(t)||P_{C}(t)) = P_{Q}(t).log(\frac{P_{Q}(t)}{P_{C}(t)})  
+\end{equation}
+
+% \tag{2-1}\label{eq:kld}
+% \]
+Where, $ P_{Q} $ is the probability of each term $ t $ within the patent topic $ q $, and $ P_{C} $ is the probability of the same term $ t $ within the whole collection. 
+By applying the equation (\ref{eq:kld}), it is possible to rank all the terms from the patent topic according to their importance within the query. After ranking the terms by their divergence, only terms with divergence above an specific threshold are selected. Thus, we can build queries that contain the most discriminative terms in different fields of query, which appear frequently in the query, but not so frequently in the collection. So, it helps to retrieve the most relevant patents to a given topic~\citep{perez2010using}. It is possible to exploit the knowledge of IPC meta-data into the query model~\citep{mahdabi2011building}:
+%\[ 
+\begin{equation}
+\label{eq:IPCmodel}
+ P_{Q}(t) = \lambda\frac{TF(t,Q)}{|Q|}+\frac{(1-\lambda)}{N}\sum_{d\in IPC_{Q}}\frac{TF(t,D)}{|D|}  
+\end{equation}
+ %\tag{2-2}\label{eq:IPCmodel}
+% \]
+Where, $ TF(t,Q) $ is the term frequency of the term $ t $ in the query patent document, $ |Q| $ is the length of the query patent, $ N $ is the size of the relevant cluster with the same IPC code as the query, and $ \lambda $ is the smoothing parameter.
+\\\\ 
+\textbf{Which fields in patent application are more effective to extract query terms}
+\ \\
+A special characteristic of patent documents is their structural information. They mainly have different fields such as title, abstract, description, and claims. Different fields use different type of language for describing the invention. Abstract and description use more technical terminology while claim field usually uses a legal jargon. Structured indexing keeps the field structure in the index, which allows searching specific fields instead of searching in full document. Separate fields for meta-data (section \ref{sec:metadata} ) like IPC code and author can help to retrieval effectiveness~\citep{magdy2010exploring}. 
+
+Early patent search tasks mainly considered claims to build the query, the same as what examiners start the novelty process~\citep{konishi2005query, takaki2004associative, mase2005proposal, fujii2007enhancing}, whereas recent works have showed that building queries from description field is more useful in patent retrieval (considering background summary in US patents equivalent to description field in European patents.)~\citep{xue2009transforming, xue2009automatic, mahdabi2011building}. Another research showed that extracting terms according to $ log(tf)idf $ scores from every field of the query patent, and giving higher importance to terms extracted from the abstract, claims, and description fields than to terms extracted from the title field, is an effective way of constructing a search query~\citep{cetintas2012effective}. The other experiment showed that discarding Description from query improves 'MAP' up to 30\% because the description contains more noise than information~\citep{gobeill2010simple}. They also showed that claims are more informative and title is poorly informative in retrieval.   
+
+%\item Used patent structure, linguistic clues, and word relations to identify important terms. Showed that keyword dependency relation
+%approach achieved 13-18\% improvement in MAP over the traditional tf-idf based term weighting method when a single field is used for query formulation. Obtained 42-46\% improvement in MAP when used additional terms through pattern-based semantic tagging.~\citep{nguyen2012query}

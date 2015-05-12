@@ -1,0 +1,21 @@
+Retrievability measures indicate how easily a document could be retrieved using a given IR system, while findability measures indicate how easily a document can be found by a user with the IR system~\citep{azzopardi2008retrievability}. Some documents are retrieved by many queries while others may never show up within the top-n ranked results via any query terms that they are relevant for~\citep{lupu2013patent}. When a document is difficult or impossible to retrieve in a particular retrieval model, it is difficult or impossible to retrieve when relevant and this leads to a low recall. 
+
+Essentially, it is desirable that the retrieval system consider all documents with similar retrievability (Gini-Coefficient is used to measure the retrievability) because documents become less retrievable when others become more retrievable. However, two aspects can affect findability: the inherent bias favouring some types of documents over others introduced by the retrieval model, and the failure to correctly capture and interpret the context~\citep{bashir2009improving, bashir2011relationship}. There are certain features that increase access to the corpus by making the retrievability of documents more equal~\citep{bache2010improving}:
+\begin{enumerate}
+\item Sensitivity to term frequency: A higher frequency of a given query term makes the document more relevant.
+\item Length normalization: Incorporation term frequency into a model make it biased to score longer documents higher than shorter documents, so there is a tendency to over-score longer documents. Shorter documents are not penalised when length normalisation is used.
+\item Convexity: An IR model will have convexity if it ranks document $ d_{3} $, which has both query words $ w_{1} $ and $ w_{2} $, higher than documents $ d_{1} $ and $ d_{2} $, which just have one of the query words twice. 
+\end{enumerate}
+Bias of retrieval systems is the characteristic of a system to give preference to certain features of documents, when it ranks results of any given query. For example, \textit{PageRank} favours popular documents by evaluating the number of in-links of web pages in addition to pure content features while \textit{TFIDF} and \textit{OKAPI-BM25} favour large terms frequencies~\citep{bashir2011relationship}.
+\paragraph{Retrievablity Measurement}
+\ \\
+\textit{Retrievability} measures how likely each document $ d $ inside a collection $ D $ can be retrieved within the top c ranked results for all queries in $ Q $. $ r(d) $ defines as follows:
+\[
+r(d)=\sum_{q \in Q}f(k_{dq},c)
+\]
+where $ k_{dq} $ is the rank of $ d $ in the result set of query $ q \in Q $, $ c $ denotes the maximum rank that a user is willing to proceed down the ranked list. The function $ f(k_{dq},c) $ returns a value of 1 if $ k_{dq} \leq c $, and 0 otherwise. \textit{Retrievability} inequality can be analysed using the \textit{Lorenz} Curve. Documents are sorted according to their retrievability score in ascending order, plotting a cumulative score distribution. If the retrievability of documents is distributed equally, then the Lorenz Curve will be linear. The more skewed the curve, the greater the amount of inequality or bias within the retrieval system. The Gini coefficient $ G $ is used to summarize the amount of bias in the Lorenz Curve, and is computed as follows:
+\begin{equation}
+G=\frac{\sum_{i=1}^n(2.i-n-1).r(d_{i})}{(n-1)\sum_{j=1}^nr(d_{j})}
+\end{equation}
+\noindent
+where $ n=|D| $ is the number of documents in the collection sorted by $ r(d) $. If $ G=0 $, then no bias is present because all documents are equally retrievable. If $ G=1 $, then only one document is retrievable and all other documents have $ r(d)=0 $. By comparing the Gini-Coefficients, we can analyse the retrieval bias imposed by the underlying retrieval functions on a given document collection.
