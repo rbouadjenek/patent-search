@@ -1,10 +1,10 @@
 \chapter{Towards Optimal Query Term Selection}
 \label{cha:analysis}
-In this chapter, we will investigate the problem from term analysis perspective for both Patent Query and relevant documents because we are interested 
-in finding what is wrong in term matching process between the Patent Query and relevant patents. 
-We start with experiments which show sufficient term overlap between the Patent Query and relevant documents, 
-then we introduce an Oracular Relevance Feedback scoring criteria to discriminate useful terms from noisy terms. 
-We formulate two Oracular Query, based on this score, that give us an upper-bound performance. In addition, our experiments demonstrate the sufficiency of terms in the Patent Query to achieve a high performance. 
+In this chapter, we will investigate the problem from term analysis perspective for both patent query and relevant documents because we are interested 
+in finding what is wrong in term matching process between the patent query and relevant patents. 
+We start with experiments which show sufficient term overlap between the patent query and relevant documents, 
+then we introduce an oracular relevance feedback scoring criteria to discriminate useful terms from noisy terms. 
+We formulate two oracular query, based on this score, that give us an upper-bound performance. In addition, our experiments demonstrate the sufficiency of terms in the patent query to achieve a high performance. 
 We try four simple query reduction approaches and we discuss the reasons that they are not efficient.  
 Finally, we show that we can get improved using a simple, minimal feedback interactive approach.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,9 +15,9 @@ Finally, we show that we can get improved using a simple, minimal feedback inter
 \label{sec:termmismatch}
 %\input{TermAnalysis/termmismatch}
 Standard retrieval models rank documents based on term matching between the query and documents.  
-A significant term mismatch between the query patent and relevant patents has been mentioned the
+A significant term mismatch between the patent query and relevant patents has been mentioned the
 main cause for low effective patent prior art search in previous works~\citep{roda2010clef}~\citep{magdy2012toward}. 
-We examine term overlap between Patent Query and three different patent documents: (i) retrieved relevant patents (TPs), (ii) retrieved non-relevant patents (FPs), and (iii) non-retrieved relevant patents (FNs), respectively, by calculating the average term overlap per query as follows:
+We examine term overlap between patent query and three different patent documents: (i) retrieved relevant patents (TPs), (ii) retrieved non-relevant patents (FPs), and (iii) non-retrieved relevant patents (FNs), respectively. We calculate the average term overlap per query as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation} 
 TO (Q) = \frac{1}{|D|}\sum_{d\in D}\frac{|terms_{Q\cap d}|}{|Q|}
@@ -26,9 +26,9 @@ TO (Q) = \frac{1}{|D|}\sum_{d\in D}\frac{|terms_{Q\cap d}|}{|Q|}
 %\vspace*{-1ex}
 %\begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-where $TO(Q)$ is the average term overlap per query --- we calculate this score for TP, FP, and FN patents respectively, $D$ is a collection of TP patents, FP patents, or FN patents for each query respectively, $|D|$ is the number of TP patents, FP patents, or FN patents for each query, $ |terms_{Q\cap d}| $ is the number of query terms appear in each TP, FP, or FN patent, $ |Q| $ is the size of the query.
+where $TO(Q)$ is the average term overlap per query, Q is a query in English subset of test queries (we calculate this score for TP, FP, and FN patents respectively), $D$ is a collection of TP patents, FP patents, or FN patents for each query respectively, $|D|$ is the number of TP patents, FP patents, or FN patents for each query, $ |terms_{Q\cap d}| $ is the number of query terms appear in each TP, FP, or FN patent, $ |Q| $ is the size of the query.
 
-The results has been illustrated in Figure~\ref{fig:overlap}. We conclude two main facts:
+The results has been illustrated in Figure~\ref{fig:overlap}. We conclude two main facts as follows:
 \begin{enumerate}
 \item For the majority of queries (around 94\% of queries), patent documents are retrieved (TPs and FPs) when they have a term overlap with a query above $ 0.2 $.
 \item We can also see sufficient term overlap with the query for FN patents, whereas, compared to TPs and FPs, more queries can be seen with the term overlap less than $ 0.2 $ (about 24\% of queries). 
@@ -51,7 +51,7 @@ In summary, this experiment shows that low or zero term match is not the main ca
 \section{Oracular Relevance Feedback System}
 \label{sec:oraculrquery}
 A query is optimal if it ranks all relevant documents before
-those that are not relevant, that is, it would lead to a ranking with an average precision of 1.0. A query
+those that are not relevant, it would lead to a ranking with an average precision of 1.0. A query
 is most likely to achieve a ranking that is as close to optimal as possible if it contains all terms that
 appear in all relevant documents, but explicitly discounts all terms that occur in non-relevant documents~\citep{manning2008introduction}.
 Inspired by this fact, we develop an oracular relevance feedback system, which
@@ -59,11 +59,11 @@ extracts terms from the judged relevant documents to derive an upper bound on pe
 standard Okapi BM25 and Language Models (LM) retrieval
 algorithms for patent prior art search.
 %\subsection{Oracular Term Selection}
-\subsection{Selecting Useful Terms}
+\subsection{Term Scoring}
 \label{OracularTermSelection}
 We aim at identifying the terms, which are considered useful in the query to achieve a ranking that is as close to optimal as possible. For this purpose, 
-after an initial run of reference Patent Query, we
-calculate an Oracular Relevance Feedback ($\mathit{RF}$) score for each term in the top-100
+after an initial run of reference patent query, we
+calculate an oracular Relevance Feedback ($\mathit{RF}$) score for each term in the top-100
 retrieved documents as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
@@ -72,16 +72,16 @@ RF(t,Q)=Rel(t)-Irr(t)
 \end{equation}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume words with a positive score are Useful Terms since they are more frequent in relevant patents, while words with a negative score are Noisy Terms as they appear more frequently in irrelevant patents. 
+where $ \mathit{Rel(t)} $ is the average term frequency in retrieved relevant patents, and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume words with a positive score are Useful Terms since they are more frequent in relevant patents, while words with a negative score are Noisy Terms as they appear more frequently in irrelevant patents. 
 
-We yield the Oracular Relevance Feedback score to: (i) find a pattern for the system performance versus Useful Terms; (ii) show the term overlap with Useful Terms and Noisy Terms for TP, FN patents; (iii)  examine the existence of Useful Terms in different sections of Patent Query.
+We yield the oracular relevance feedback score to: (i) find a pattern for the system performance versus useful terms; (ii) show the term overlap with useful terms and noisy terms for TP, FN patents; (iii)  examine the existence of useful terms in different sections of the patent query.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
 \subfigure[Useful Terms: $ \{t|RF(t, Q)>0\} $]{\includegraphics[width=5cm]{figs/greaterthan0-r.eps}} \hspace*{1.5cm} \subfigure[Useful Terms: $ \{t|RF(t, Q)>RF(t_{+median})\} $]{\includegraphics[width=5cm]{figs/greaterthanmedian-r.eps}}\\ \subfigure[{Useful Terms: $ \{t|RF(t, Q)>1 \}$}]{\includegraphics[width=5cm]{figs/greaterthan1-r.eps}} \hspace*{1.5cm} \subfigure[{Useful Terms: top 100 high-scored terms}]{\includegraphics[width=5cm]{figs/top100-r.eps}}\\ \subfigure[{Useful Terms: $ \{t|RF(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-r.eps}} \hspace*{1.5cm} \subfigure[{Useful Terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-r.eps}}
 \par\end{centering}
 
-\protect\caption{Scatter plot of Recall versus the existence of Useful Terms in query.}
+\protect\caption{Scatter plot of Recall versus the existence of useful terms in query.}
 \label{fig:overlap-r}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -93,7 +93,7 @@ We yield the Oracular Relevance Feedback score to: (i) find a pattern for the sy
 \subfigure[{Useful terms: $ \{t|RF(t,Q)>5 \}$}]{\includegraphics[width=5cm]{figs/greaterthan5-p.eps}} \hspace*{1.5cm} \subfigure[{Useful terms: $ \{t|RF(t, Q)>10\} $}]{\includegraphics[width=5cm]{figs/greaterthan10-p.eps}}
 \par\end{centering}
 
-\protect\caption{Scatter plot of Average Precision versus the existence of Useful Terms in query.}
+\protect\caption{Scatter plot of Average Precision versus the existence of useful terms in query.}
 \label{fig:overlap-p}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -101,7 +101,7 @@ We yield the Oracular Relevance Feedback score to: (i) find a pattern for the sy
 \label{PerformanceUsefulTerms}
 %\paragraph{Performance versus Useful Terms}
 %\ \\
-In our first experiment, we investigate whether the existence of more Useful Terms in the reference Patent Query means achieving a higher performance. In other words, we seek for a pattern between the performance and the existence of Useful Terms in initial Patent Query. We define four different criteria to select Useful Terms:
+In our first experiment, we investigate if more useful terms in the reference patent query leads to a higher performance. In other words, we seek for a pattern between the performance and the existence of the useful terms in initial patent query. We define four different criteria to select useful terms:
 \begin{enumerate}
 \item Terms with positive RF scores ($ RF(t, Q)>0) $).
 \item Terms with the score higher than the positive median score ($ RF(t, Q)>RF(t_{+median}, Q) $).
@@ -109,7 +109,7 @@ In our first experiment, we investigate whether the existence of more Useful Ter
 \item Top-100 high-scored terms.
 \end{enumerate}
 
-Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-p} show the scatter plot of the performance (Average Precision, and Recall) versus the existence of Useful Terms in query. 
+Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-p} show the scatter plot of the performance (Recall, and Average Precision) versus the existence of Useful Terms in query. 
 We expected to see a higher performance for the queries which contain more Useful Terms and a lower performance for the ones with less Useful Terms. However, unlike our first assumption, we do not see any correlation between the performance and the presence of Useful Terms in the query. The pattern for the recall is irregular while there is a very weak correlation between Average Precision and Useful Terms for top-scored words ($RF(t, Q)>10$). This experiment explicitly indicates that term mismatch is not the main reason for low effectiveness of prior art search. 
 \subsubsection{Term Overlap with Useful Terms and Noisy Terms}
 %\paragraph{Term Overlap with Useful Terms and Noisy Terms}
