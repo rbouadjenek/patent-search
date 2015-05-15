@@ -33,7 +33,7 @@ RF(t,Q)=Rel(t)-Irr(t)
  \label{eq:score}
 \end{equation}\vspace*{-5ex}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
-where $ \mathit{Rel(t)} $ is the \textcolor{blue}{average term frequency} in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume that words with a positive score are \emph{useful words} since they are more frequent in relevant patents, while words with negative score are \emph{noisy words} as they appear more frequently in irrelevant patents. We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ (defined below) yielding the best oracular query.
+where $ \mathit{Rel(t)} $ is the \textcolor{black}{average term frequency} in retrieved relevant patents and $ \mathit{Irr(t)} $ is the average term frequency in retrieved irrelevant patents. We assume that words with a positive score are \emph{useful words} since they are more frequent in relevant patents, while words with negative score are \emph{noisy words} as they appear more frequently in irrelevant patents. We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ (defined below) yielding the best oracular query.
 
 %that determines if a term is selected to build the \emph{Oracular Query} or not.
 
@@ -44,7 +44,7 @@ where $ \mathit{Rel(t)} $ is the \textcolor{blue}{average term frequency} in ret
 %We hypothesized that a query, formulated by only the \textit{ useful terms}, is the best possible query we can make since they are all frequent in relevant patents but rare in irrelevant ones. 
 We formulate two oracular queries. The first query is formulated by selecting terms in the top-100 documents:
 \begin{equation}
-Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}   
+Oracular \; Query = \{t \in \textrm{top-100}|RF(t, Q)>\tau\}   
  \label{eq:score}
 \end{equation}
 We formulate the second query by selecting terms that also occur in the reference patent query as follows:
@@ -84,8 +84,8 @@ nonetheless the terms selected from the reference patent query itself are
 still sufficient to achieve MAP performance appreciably better than the PATATRAS system. In addition, we remark on the rather
 unexpected steep drop-off in performance when the \emph{Oracular Query}
 includes slightly noisy terms (i.e., $\tau$ just slightly less than 0)
-as defined previously. \textcolor{red}{On the other hand, for the \emph{Oracular Patent Query}, 
-MAP begins to improve over the baseline when we prune noisy words out of the \emph{Patent Query} by increasing the value of $\tau$; it approaches its highest value at $\tau=1$, where it starts decreasing due to losing useful words.}
+as defined previously. \textcolor{black}{On the other hand, for the \emph{Oracular Patent Query}, 
+MAP begins to improve over the baseline when we prune noisy words out of the \emph{Patent Query} by increasing the value of $\tau$; it approaches its highest value at $\tau=1$, where it starts decreasing due to loss of useful words.}
 
 % What is the ``Best Run''???  You cannot make up words and expect the
 % reader to understand.  Be precise on the first introduction that
