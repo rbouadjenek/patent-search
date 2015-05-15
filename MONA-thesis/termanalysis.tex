@@ -109,12 +109,12 @@ In our first experiment, we investigate if more useful terms in the reference pa
 \item Top-100 high-scored terms.
 \end{enumerate}
 
-Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-p} show the scatter plot of the performance (Recall, and Average Precision) versus the existence of Useful Terms in query. 
-We expected to see a higher performance for the queries which contain more Useful Terms and a lower performance for the ones with less Useful Terms. However, unlike our first assumption, we do not see any correlation between the performance and the presence of Useful Terms in the query. The pattern for the recall is irregular while there is a very weak correlation between Average Precision and Useful Terms for top-scored words ($RF(t, Q)>10$). This experiment explicitly indicates that term mismatch is not the main reason for low effectiveness of prior art search. 
+Figures~\ref{fig:overlap-r} and~\ref{fig:overlap-p} show the scatter plot of the performance (Recall, and Average Precision) versus the existence of useful terms in query. 
+We expected to see a higher performance for the queries which contain more useful terms and a lower performance for the ones with less useful terms. However, unlike our first assumption, we do not see any correlation between the performance and the presence of useful terms in the query. The pattern for the recall is irregular while there is a very weak correlation between average precision and useful terms for top-scored words ($RF(t, Q)>10$). This experiment indicates that term mismatch is not the main reason for low effectiveness of prior art search. 
 \subsubsection{Term Overlap with Useful Terms and Noisy Terms}
 %\paragraph{Term Overlap with Useful Terms and Noisy Terms}
 %\ \\
-In the second experiment, we check the term overlap with Useful Terms and Noisy Terms for TP and FP patents. Figure \ref{fig:usefulnoisy} shows that relevant patents have a higher term overlap with the Useful Terms while irrelevant patents have a higher term overlap with the Noisy Terms. This experiment shows that Noisy Terms are the main reason that irrelevant patents are retrieved at top of the list. 
+In the second experiment, we check the term overlap with useful terms and noisy terms for TP and FP patents. Figure \ref{fig:usefulnoisy} shows that relevant patents have a higher term overlap with the useful terms while irrelevant patents have a higher term overlap with the noisy terms. This experiment shows that noisy terms are the main reason that irrelevant patents are retrieved at top of the list. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
@@ -129,16 +129,16 @@ In the second experiment, we check the term overlap with Useful Terms and Noisy 
 \subsubsection{Useful Terms in Different Sections of Patents}
 %\paragraph{Useful Terms in Different Sections of Patents}
 %\ \\
-Patents are structured documents containing Title, Abstract, Description, and Claims (section~\ref{StructureofPatents}). In this experiment, we investigate Useful Terms in different sections of patents. 
-Table (\ref{tab:usefultermsinsections}) shows the average number of Useful Terms in different sections of Patent Query.  
-As it can be seen, Description has the highest number of useful terms in both cases where RF score threshold ($ \tau $) is `0' and `1'. When $ \tau = 0 $, the average number of the Useful Terms in Description is quite twice of when $ \tau = 1 $. Compared to other sections, Description contains more Useful Terms, which proves why we achieved higher performance querying with Description (Section~\ref{sec:settings}).
-Table (\ref{tab:usefultermsinsections-p}) shows the average percentage of Useful Terms in different sections of Patent Query. It shows that, overall, Useful Terms constitute less than 50\% of the whole words in each section of Patent Queries. For example, we can see that only 27\% of the whole Patent Query in average are Useful Terms and the rest are irrelevant terms. 
+Patents are structured documents containing title, abstract, description, and claims (section~\ref{StructureofPatents}). In this experiment, we investigate the existence of useful terms in different sections of patents. 
+Table (\ref{tab:usefultermsinsections}) shows the average number of useful terms in different sections of a patent query.  
+As it can be seen, description has the highest number of useful terms in both cases where RF score threshold ($ \tau $) is `0' and `1'. When $ \tau = 0 $, the average number of the useful terms in description is quite twice of when $ \tau = 1 $. Compared to other sections, description contains more useful terms, which proves why we achieved higher performance querying with description (Section~\ref{sec:settings}).
+Table (\ref{tab:usefultermsinsections-p}) shows the average percentage of useful terms in different sections of a patent query. It shows that, overall, useful terms constitute less than 50\% of the whole words in each section of patent queries. For example, we can see that only 27\% of the whole patent query in average are useful terms and the rest are irrelevant terms. 
 
 %\subsubsection{Useful Terms in Different Sections}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table*}[t!]
   \begin{center}
-   \caption{Average number of Useful Terms in the different sections of Patent Query}
+   \caption{Average number of Useful Terms in the different sections of patent query}
   \input table/usefultermsinsections.tex   
   \label{tab:usefultermsinsections}
   \end{center}  
@@ -148,7 +148,7 @@ Table (\ref{tab:usefultermsinsections-p}) shows the average percentage of Useful
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table*}[t!]
   \begin{center}
-   \caption{Average percentage of Useful Terms in the different sections of Patent Query}
+   \caption{Average percentage of Useful Terms in the different sections of patent query}
   \input table/usefultermsinsections-p.tex   
   \label{tab:usefultermsinsections-p}
   \end{center}  
@@ -157,11 +157,11 @@ Table (\ref{tab:usefultermsinsections-p}) shows the average percentage of Useful
 
 \subsection{Oracular Query Formulation}
 \label{sec:OracularQueryFormulation}
-As it explained in section~\ref{PerformanceUsefulTerms}, we could not find a pattern for the performance and the existence of the Useful Terms in Patent Query.
-In this section, we examine the system effectiveness for queries formulated by terms selected by Oracular Relevance Feedback ($\mathit{RF}$) system.
-We formulate two different Oracular Queries.
+As it explained in section~\ref{PerformanceUsefulTerms}, we could not find a pattern for the performance and the existence of the useful terms in patent query.
+In this section, we examine the system effectiveness for queries formulated by terms selected by oracular Relevance Feedback ($\mathit{RF}$) system.
+We formulate two different oracular queries.
 
-The first query is formulated by selecting terms in the top-100 retrieved documents using Oracular Relevance Feedback score and we call it Oracular Query:
+The first query is formulated by selecting terms in the top-100 retrieved documents using oracular relevance feedback score and we call it oracular query:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}   
@@ -169,18 +169,18 @@ Oracular \; Query = \{t \in top-100|RF(t, Q)>\tau\}
 \end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 We empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ and query size yielding the best oracular query.
-Table~\ref{tab:optquery} and Figure~\ref{fig:oracular-a} show that the Oracular Query far outperform the baseline query (reference Patent Query), and it approximately performs twice as well on the PATATRAS system, the best competitor in CLEF-IP 2010 system. In Table~\ref{tab:optquery}, we also compare the influence of weighed and unweighed terms for both baseline query and Oracular Query. It can be seen that weighing terms in Patent Query with their frequency helps the performance while weighing terms in Oracular Query with $RF(t, Q)$ harms the performance. 
+Table~\ref{tab:optquery} and Figure~\ref{fig:oracular-a} show that the oracular query far outperform the baseline query (reference patent query), and it approximately performs twice as well on the PATATRAS system, the best competitor in CLEF-IP 2010 system. In Table~\ref{tab:optquery}, we also compare the influence of weighed and unweighed terms for both baseline query and oracular query. It can be seen that weighing terms in patent query with their frequency helps the performance while weighing terms in oracular query with $RF(t, Q)$ harms the performance. 
 Figure \ref{fig:oracular-a} shows how the performance changes by the values of $\tau$. We remark two important facts: 
 \begin{enumerate}
-\item Including slightly Noisy Terms (i.e., $\tau$ just slightly less than 0) leads in an unexpected steep drop-off in performance.  
-\item We achieve the highest MAP for the Oracular Query formulated by selecting the terms with $RF(t, Q)>0$.
+\item Including slightly noisy terms (i.e., $\tau$ just slightly less than 0) leads in an unexpected steep drop-off in performance.  
+\item We achieve the highest MAP for the oracular query formulated by selecting the terms with $RF(t, Q)>0$.
 \end{enumerate}
 Figure~\ref{fig:oracular-b} shows that the performance increases notably when we include terms up to 200 while formulating a query, but it remains quit unchanged when we include more than 200 terms. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[t!]
   \begin{center}
   \scriptsize
-   \caption{Performance for the Patent Query, Oracular Query, and Top CLEF-IP 2010 (PATATRAS).}
+   \caption{Performance for the patent query, oracular query, and Top CLEF-IP 2010 (PATATRAS).}
    \vspace*{1ex}
   \input table/optquery.tex   
   \label{tab:optquery}
@@ -190,15 +190,15 @@ Figure~\ref{fig:oracular-b} shows that the performance increases notably when we
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[Oracular Query performance versus the threshold $\tau$.\label{fig:oracular-a}]{\includegraphics[width=6cm]{figs/oracularq.eps}} \hspace*{1.5cm} \subfigure[Oracular Query performance versus the query size.\label{fig:oracular-b}]{\includegraphics[width=6cm]{figs/oracularq-size.eps}} 
+\subfigure[oracular query performance versus the threshold $\tau$.\label{fig:oracular-a}]{\includegraphics[width=6cm]{figs/oracularq.eps}} \hspace*{1.5cm} \subfigure[oracular query performance versus the query size.\label{fig:oracular-b}]{\includegraphics[width=6cm]{figs/oracularq-size.eps}} 
 \par\end{centering} 
-\protect\caption{Oracular Query performance versus various values of the threshold $\tau$ and query size}
+\protect\caption{oracular query performance versus various values of the threshold $\tau$ and query size}
 \label{fig:oracular}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Next, inspired by Maxwell and Croft's work~\citep{maxwell2013compact} that emphasise on the importance of query words, 
-We seek to establish that the terms within a reference Patent Query are sufficient for a strong performance, so, we formulate the second query by selecting oracular terms that also occur in the reference patent query We call it Oracular Patent Query:
+We seek to establish that the terms within a reference patent query are sufficient for a strong performance, so, we formulate the second query by selecting oracular terms that also occur in the reference patent query We call it oracular patent query:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
  Oracular \; Patent \; Query = \{t\in Q|RF(t, Q)>\tau\}   
@@ -216,7 +216,7 @@ We seek to establish that the terms within a reference Patent Query are sufficie
 \hspace*{1.5cm} \subfigure[Average Recall\label{fig:oracularpq-b}]{\includegraphics[width=6cm]{figs/fig1_recall.eps}} 
 \par\end{centering} 
 
-\protect\caption{Comparing the performance of Oracular Query and Oracular Patent Query for various values of the threshold $\tau$}
+\protect\caption{Comparing the performance of oracular query and oracular patent query for various values of the threshold $\tau$}
 \label{fig:oracularpq}
 \end{figure}
 %\begin{figure}[t!]
@@ -226,14 +226,14 @@ We seek to establish that the terms within a reference Patent Query are sufficie
 %   \label{fig:oracularpq} 
 %\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-As it has been shown in Table~\ref{tab:optquery} and Figure~\ref{fig:oracularpq}, the system performance for the Oracular Patent Query is also considerably improved compared to the baseline and PATATRAS.
+As it has been shown in Table~\ref{tab:optquery} and Figure~\ref{fig:oracularpq}, the system performance for the oracular patent query is also considerably improved compared to the baseline and PATATRAS.
 % though MAP is slightly less than Oracular Query. 
-The results indicate that the Patent Query has sufficient terms for an improved performance. 
-We compare MAP and Recall for both Oracular Query and Oracular Patent Query in Figure~\ref{fig:oracularpq}. 
-On one hand, We notice that MAP for Oracular Patent Query is slightly less than MAP for Oracular Query. We justify that it is due to some extra terms in top-100 vocabulary set that they are absent within the Patent Query. On the other hand, Oracular Patent Query performance drops slower for negative values of $\tau$, which shows that Oracular Patent Query contains less Noisy Terms than Oracular Query. 
-This explains why query expansion techniques is not too effective for patent prior art search. We also conclude that the the existence of the Noisy Terms is the main cause of low effectiveness in prior art search.  
+The results indicate that the patent query has sufficient terms for an improved performance. 
+We compare MAP and Recall for both oracular query and oracular patent query in Figure~\ref{fig:oracularpq}. 
+On one hand, We notice that MAP for oracular patent query is slightly less than MAP for oracular query. We justify that it is due to some extra terms in top-100 vocabulary set that they are absent within the patent query. On the other hand, oracular patent query performance drops slower for negative values of $\tau$, which shows that oracular patent query contains less noisy terms than oracular query. 
+This explains why query expansion techniques is not too effective for patent prior art search. We also conclude that the the existence of the noisy terms is the main cause of low effectiveness in prior art search.  
 
-To recap, our experiments related to Oracular Relevance Feedback system
+To recap, our experiments related to oracular relevance feedback system
 suggest two important conclusions: 
 \begin{enumerate}
 \item Query reduction should suffice for effective prior art patent retrieval; and 
@@ -251,14 +251,14 @@ suggest two important conclusions:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Query Reduction: Approximating the Oracular Patent Query}
 \label{sec: QR}
-The gain achieved using the Oracular Patent Query method motivates us to explore various methods to approximate the terms
+The gain achieved using the oracular patent query method motivates us to explore various methods to approximate the terms
 selected by this query without ``peeking at the answers'' provided by
 the actual relevance judgements.  We first attempt this via fully
 automated methods and then proceed to evaluate semi-automated methods
 based on interactive relevance feedback methods.
 \subsection{Automated Reduction}
 \label{AutomatedReduction}
-For automated reduction we first examine three simple approaches, then we apply Pseudo Relevance Feedback for query term selection.  
+For automated reduction we first examine three simple approaches, then we apply pseudo relevance feedback for query term selection.  
 \subsubsection{Simple Query Reduction Approaches}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
@@ -275,10 +275,10 @@ For automated reduction we first examine three simple approaches, then we apply 
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \label{SimpleApproaches}
-We, first, apply three simple approaches to reduce the initial patent queries aiming at approximating the Oracular Patent Query: (i) removing document frequent terms; (ii) removing less frequent terms in Patent Query; (iii) Removing Terms in IPC Titles.
+We, first, apply three simple approaches to reduce the initial patent queries aiming at approximating the oracular patent query: (i) removing document frequent terms; (ii) removing less frequent terms in patent query; (iii) removing terms in IPC titles.
 \paragraph{Removing Document Frequent Terms}
 \ \\
-In standard IR, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep{manning2008introduction}. Inspired by this fact, we hypothesize that we will improve the performance by pruning out highly frequent words in top-100 retrieved documents after an initial run of Patent Query. To identify highly frequent terms, we calculate the average term frequency over top-100 documents for each word and we call it Document Frequent (DF) score, as follows:
+In standard IR, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep{manning2008introduction}. Inspired by this fact, we hypothesize that we will improve the performance by pruning out highly frequent words in top-100 retrieved documents after an initial run of patent query. To identify highly frequent terms, we calculate the average term frequency over top-100 documents for each word and we call it Document Frequent (DF) score, as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
  DF(t, Q)=\frac{1}{100}\sum_{d_i\in  D} TF(t, d_i)    
@@ -288,10 +288,10 @@ where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d_i)$ is the t
 %\begin{displaymath}   t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We remove words with DF score higher than $\tau$ ($DF(t, Q)>\tau$) from Patent Query. Figure~\ref{fig:combinedapproach} illustrates how the performance change by different values of the threshold $\tau$ illustrates that removing document frequent words for different threshold $\tau$ hurts the performance (magenta line). As it can be seen, the performance converges with the baseline performance when $\tau$ goes higher (e.g., 500). This means that there is no term with such a high DF score, and we do not empirically remove any term from the Patent Query. Overall, removing document frequent terms from Patent Query does not consider an appropriate approach since it ruins the performance. 
-\paragraph{Removing Less Frequent Terms in Patent Query}
+We remove words with DF score higher than $\tau$ ($DF(t, Q)>\tau$) from patent query. Figure~\ref{fig:combinedapproach} illustrates how the performance change by different values of the threshold $\tau$ illustrates that removing document frequent words for different threshold $\tau$ hurts the performance (magenta line). As it can be seen, the performance converges with the baseline performance when $\tau$ goes higher (e.g., 500). This means that there is no term with such a high DF score, and we do not empirically remove any term from the patent query. Overall, removing document frequent terms from patent query does not consider an appropriate approach since it ruins the performance. 
+\paragraph{Removing Less Frequent Terms in patent query}
 \ \\
-Frequent terms inside long and verbose queries are considered important~\citep{maxwell2013compact}. However, we hypothesise that we may improve the effectiveness by removing terms appearing less frequently in the Patent Query. Therefore, we remove terms with the frequency less than the threshold $\tau$ ($QTF(t)<=\tau$ ). The blue line in Figure~\ref{fig:combinedapproach} indicates that the performance gets slightly better than the baseline when we remove less frequent terms in Patent Query. As it can be seen the best MAP achieved when $\tau=5$. 
+Frequent terms inside long and verbose queries are considered important~\citep{maxwell2013compact}. However, we hypothesise that we may improve the effectiveness by removing terms appearing less frequently in the patent query. Therefore, we remove terms with the frequency less than the threshold $\tau$ ($QTF(t)<=\tau$ ). The blue line in Figure~\ref{fig:combinedapproach} indicates that the performance gets slightly better than the baseline when we remove less frequent terms in patent query. As it can be seen the best MAP achieved when $\tau=5$. 
 %In this approach the best value for the threshold is $\tau=5$ to get higher MAP.
 \paragraph{Removing Terms in IPC Titles}
 \ \\
@@ -299,7 +299,7 @@ The titles of classification indicate their intended content by using a single p
 
 We showed in above experiments that removing document frequent terms did not help the effectiveness and 
 two other approaches had a trivial influence on improving the system effectiveness. 
-In the following experiment, we use an anecdotal example of a sample Patent Query to analyse why these approaches did not help. 
+In the following experiment, we use an anecdotal example of a sample patent query to analyse why these approaches did not help. 
 Figure~\ref{fig:scatter_combined} shows a scatter plot of DF score and RF score for a sample query --- PAC-1612. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. First, we remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$, however, it does not help because as it has been illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms ($DF(t, Q)>\tau$), we will remove many Useful Terms ($RF(t, Q)>0$) . Red points in Figure~\ref{fig:scatter_combined_a} are all query terms and red points in Figure~\ref{fig:scatter_combined_b} are query terms with term frequency higher than 5 ($QTF(t)>5$) --- where we got the best performance. 
 Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b} show that we remove considerable amount of Noisy Terms by removing terms with $QTF(t)<5$. 
 On the other hand, it can be seen that many Useful Terms are also removed. Remained terms are not purely Useful Terms since they are contaminated with the Noisy Terms. We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the Noisy Terms out. 
@@ -313,7 +313,7 @@ On the other hand, it can be seen that many Useful Terms are also removed. Remai
 
 \par\end{centering}
 
-\protect\caption{Anecdotal example for simple query reduction approaches. Blue points are all terms in a vocabulary set made of top-100 retrieved documents and red points are terms in the Patent Query.}
+\protect\caption{Anecdotal example for simple query reduction approaches. Blue points are all terms in a vocabulary set made of top-100 retrieved documents and red points are terms in the patent query.}
 \label{fig:scatter_combined}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -321,7 +321,7 @@ On the other hand, it can be seen that many Useful Terms are also removed. Remai
 % TODO: Must be consistent in either pruning or removing terms --- results should ideally converge to the baseline at 0.
 % TODO: Should do simplest comparisons first and not combine pruning approaches.  Even better: evaluate methods mentioned in related work.
 % TODO: What is an IPC title?  I don't know that this is... was it discussed?
-Pseudo Relevance Feedback ($\mathit{PRF}$) is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} the same as what we did for Oracular Relevance Feedback system (Section~\ref{sec:oraculrquery}). We assume that top 5 retrieved documents are relevant and the rest are irrelevant, then we calculate $\mathit{PRF}$ score based on this assumption:  
+Pseudo Relevance Feedback ($\mathit{PRF}$) is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} the same as what we did for oracular relevance feedback system (Section~\ref{sec:oraculrquery}). We assume that top 5 retrieved documents are relevant and the rest are irrelevant, then we calculate $\mathit{PRF}$ score based on this assumption:  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 PRF(t,Q)=Rel(t)-Irr(t) 
@@ -330,7 +330,7 @@ PRF(t,Q)=Rel(t)-Irr(t)
 \vspace*{-2ex}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-In the next step, we select the terms in the Patent Query that have the  $\mathit{PRF}$ score higher than the threshold $\tau$ ($PRF(t)>\tau$) to reformulate a reduced query. Figure~\ref{fig:prf} shows slight improvement over the baseline. Compared to the Oracular Term Selection system, this approach did not also help to get any notable improvement over the baseline.
+In the next step, we select the terms in the patent query that have the  $\mathit{PRF}$ score higher than the threshold $\tau$ ($PRF(t)>\tau$) to reformulate a reduced query. Figure~\ref{fig:prf} shows slight improvement over the baseline. Compared to the oracular term selection system, this approach did not also help to get any notable improvement over the baseline.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
    \centering
@@ -348,13 +348,13 @@ In the next step, we select the terms in the Patent Query that have the  $\mathi
 
 \par\end{centering}
 
-\protect\caption{Comparing $\mathit{RF}$ score of top Relevance Feedback terms and Pseudo Relevance Feedback terms for different values of the threshold $\tau$.}
+\protect\caption{Comparing $\mathit{RF}$ score of top Relevance Feedback terms and pseudo relevance feedback terms for different values of the threshold $\tau$.}
 \label{fig:rf_prf}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We analyse why the term selection technique using Pseudo Relevance Feedback fails to approximate the Oracular Patent Query in the following experiment.  
-We seek for a pattern between top Relevance Feedback terms and top Pseudo Relevance Feedback terms. For this purpose, we calculate the average $\mathit{RF}$ score of both terms with top  $\mathit{RF}$ score and terms with top $\mathit{PRF}$ score for each query as follows:
+We analyse why the term selection technique using pseudo relevance feedback fails to approximate the oracular patent query in the following experiment.  
+We seek for a pattern between top relevance feedback terms and top pseudo relevance feedback terms. For this purpose, we calculate the average $\mathit{RF}$ score of both terms with top  $\mathit{RF}$ score and terms with top $\mathit{PRF}$ score for each query as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 Avg_{RF}(t, Q) = \frac{1}{|t|}\sum {RF}(t, Q), \;\;\;\; t\in \{t | RF(t, Q)>\tau\}
@@ -369,15 +369,15 @@ Avg_{RF}(\hat{t}, Q) = \frac{1}{|\hat{t}|}\sum {RF}(\hat{t}, Q), \;\;\;\; \hat{t
 
 where $Avg_{RF}(t, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{RF}$-scored terms ($RF(t, Q)>\tau$), $Avg_{RF}(\hat{t}, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{PRF}$-scored terms ($PRF(\hat{t}, Q)>\tau$), $\tau$ is a threshold for the score to select terms, $t$ is a symbol for terms with high RF score, $\hat{t}$ is a symbol for terms with high $\mathit{PRF}$ score.
 
-Figure~\ref{fig:rf_prf} shows a scatter plot of average $\mathit{RF}$ score for top Relevance Feedback terms and top Pseudo Relevance Feedback terms. First, we observe that almost the RF score of top Relevance Feedback terms is lower than the RF score of top Pseudo Relevance Feedback terms for almost all queries ($ Avg_{RF}(t, Q) > Avg_{RF}(\hat{t}, Q)$). We can also see that for about half of the queries, $Avg_{RF}(\hat{t}, Q)$ is negative, which indicates we are selecting Noisy Terms by their Pseudo Relevance Feedback score rather than Useful Terms. Second, we can find a very slight positive correlation toward selecting positive terms by Pseudo Relevance Feedback, which is the reason that we could get a slight improvement.  
+Figure~\ref{fig:rf_prf} shows a scatter plot of average $\mathit{RF}$ score for top relevance feedback terms and top pseudo relevance feedback terms. First, we observe that almost the RF score of top relevance feedback terms is lower than the RF score of top pseudo relevance feedback terms for almost all queries ($ Avg_{RF}(t, Q) > Avg_{RF}(\hat{t}, Q)$). We can also see that for about half of the queries, $Avg_{RF}(\hat{t}, Q)$ is negative, which indicates we are selecting noisy terms by their pseudo relevance feedback score rather than useful terms. Second, we can find a very slight positive correlation toward selecting positive terms by pseudo relevance feedback, which is the reason that we could get a slight improvement.  
 
-As the last experiment for the automated query reduction, we illustrate why four proposed query reduction approaches failed to approximate the Oracular Patent Query using an anecdotal example of a sample query about an invention related to ``emulsifier''. 
+As the last experiment for the automated query reduction, we illustrate why four proposed query reduction approaches failed to approximate the oracular patent query using an anecdotal example of a sample query about an invention related to ``emulsifier''. 
 Figure \ref{fig:anecdotal} shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. 
 Terms are chosen based on the scores for each approach as follows: 
 \begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}\end{displaymath}
 %$\{t| DF(t)/QTF(t)/PRF(t)>10\}$.
 For the IPC title terms, all terms appearing in IPC title are displayed since they do not have any score.   
-It can be seen that the four methods fail clearly to discriminate between Useful Terms and Noisy Terms. As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by Document Frequent pruning approach, which hurts query quality.  As another example, retaining IPC code title terms yields more Noisy Terms than Useful Terms (19 out of 32, and few of them with a very negative score like ``amylos'' or ``saccharid''). This can justify slight improvement in performance when we prune terms in IPC title. Overall, all methods may retain highly negative terms and results from Section~\ref{sec:OracularQueryFormulation} showed that the inclusion of even slightly negative terms can significantly hurt the performance.
+It can be seen that the four methods fail clearly to discriminate between useful terms and noisy terms. As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by $\mathit{DF}$ pruning approach, which hurts query quality.  As another example, retaining IPC code title terms yields more noisy terms than useful terms (19 out of 32, and few of them with a very negative score like ``amylos'' or ``saccharid''). This can justify slight improvement in performance when we prune terms in IPC title. Overall, all methods may retain highly negative terms and results from Section~\ref{sec:OracularQueryFormulation} showed that the inclusion of even slightly negative terms can significantly hurt the performance.
 %In summary, we failed in approximating the Oracular Patent Query with any of four proposed Query reduction techniques.      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[htpb]
@@ -454,7 +454,7 @@ Our sample analysis of specific queries and terms selected via our oracular
 approach suggests that automated methods fall far short of optimal term selection.
 This leads us to explore another approach of approximating the oracular query
 derived from relevance judgements by using a subset of relevance judgements
-through interactive methods.  Specifically, to minimize the need for user interaction,
+through interactive methods. Specifically, to minimize the need for user interaction,
 in this section we analyse the performance of an oracular query derived from
 only the first relevant document identified in the search results.
 %\begin{comment}
