@@ -1,0 +1,37 @@
+%Regressors & \multicolumn{3}{c}{Model 1} & \multicolumn{3}{c}{Model 2}\\
+%
+%    & Coefficient & Lower limit & Upper Limit
+%    & Coefficient & Lower limit & Upper Limit  \\
+
+{
+%\scriptsize
+%\sffamily
+\ttfamily
+ \begin{tabular}{llllll}
+ \hline\noalign{\smallskip} 
+&& \multicolumn{1}{l}{Baseline} & \multicolumn{1}{l}{PATATRAS}&\multicolumn{1}{l}{Oracular}&\multicolumn{1}{l}{Oracular}\\ 
+&&                              &                      & $\tau=0$                 &(PQ),$\tau=1$             \\
+ \noalign{\smallskip} 
+ \hline
+\noalign{\smallskip} 
+$\mathit{LM}$ &\vtop{\hbox{\strut MAP}\hbox{\strut Recall}} 
+& \vtop{\hbox{\strut 0.112}\hbox{\strut 0.416}}
+& \vtop{\hbox{\strut 0.226}\hbox{\strut 0.467}} 
+& \vtop{\hbox{\strut \bfseries 0.482}\hbox{\strut 0.582}} 
+& \vtop{\hbox{\strut \bfseries 0.414}\hbox{\strut 0.591}}\\ \hline
+
+$\mathit{BM25}$&\vtop{\hbox{\strut MAP}\hbox{\strut Recall}} 
+& \vtop{\hbox{\strut 0.123}\hbox{\strut 0.431}}
+& \vtop{\hbox{\strut 0.226}\hbox{\strut 0.467}} 
+& \vtop{\hbox{\strut \bfseries 0.492}\hbox{\strut 0.584}} 
+& \vtop{\hbox{\strut \bfseries 0.424}\hbox{\strut 0.598}}\\ \hline
+
+%\bottomrule 
+
+ \end{tabular} 
+ 
+}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
