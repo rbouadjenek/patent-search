@@ -8,7 +8,8 @@ smoothing, and Jelinek-Mercer smoothing)
 scoring functions. %We consider 
 %using BM25F~\cite{robertson2004simple} but had no opportunity to learn appropriate field weights.
 We used Lucene to index the English subset of the CLEF-IP 2010 dataset\footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}} 
-that contains 2.6 million patent documents and a subset of 1281 topics (queries) in the English test set where we determined at least one relevant English document was available.
+that contains 2.6 million patent documents and 1348 English topic (query) subset.
+%a subset of 1281 topics (queries) in the English test set where we determined at least one relevant English document was available.
 We used the default Lucene settings using the Porter stemming algorithm 
 %\cite{Porter1980} 
 and English stop-word removal. 
@@ -40,7 +41,7 @@ In addition, we compare our results to \textit{PATATRAS}, a highly engineered sy
 which achieved the best performance in the CLEF-IP 2010 competition. This system uses multiple retrieval models %(especially Kullback-Leibler divergence
 %~\cite{Baeza-Yates2011} 
 %and Okapi BM25) 
-and exploits patent metadata and citation structures.  All results in the paper use the the 1348 English topic subset as reported in the PATATRAS evaluation \cite{piroi2010clef}; since the evaluation of our own systems used a slightly smaller subset of 1281 topics, we assume no relevant results were found by our systems for the 67 remaining topics of the 1348 topic subset.
+and exploits patent metadata and citation structures.  All results in the paper use the 1348 English topic subset as reported in the PATATRAS evaluation \cite{piroi2010clef}; since the evaluation of our systems used a slightly smaller subset of 1281 topics (where we determined at least one relevant English document), we assume no relevant results were found by our systems for the 67 remaining topics of the 1348 topic subset.
 
 %While our evaluation excludes 22 of the 1303 topics for which no relevant English documents were available, the difference in MAP score between our evaluation and the full 1303 topic evaluation of PATATRAS is negligible.
 
