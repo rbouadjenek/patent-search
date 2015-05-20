@@ -14,7 +14,7 @@ based on interactive relevance feedback methods.
 % in the bullet points where the actual method is discussed... not after the bullet
 % points!  Don't dissociate content and discuss it multiple times in different
 % places!  -Scott
-We use the following four simple approaches to reduce the initial patent queries: 
+We use the following four simple approaches to reduce the initial Patent Query: 
 %(i) removing Document Frequent terms (IDF(t)>$\tau$), (ii) keeping Frequent Terms in Query (QTF(t)>$\tau$); (iii) using Pseudo Relevance Feedback set (constructed after an initial run of the query) to select query terms (PRF(t)>$\tau$); and (iv) removing general terms in IPC title. 
 
 \vspace*{0.5mm}
@@ -23,12 +23,12 @@ We use the following four simple approaches to reduce the initial patent queries
 \noindent \textbf{(i)} In standard IR approaches, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness. Inspired by this fact, after an initial run of the query, we removed terms  with a high average document frequency (DF) over the top-100 documents ($\mathit{DF}(t)>\tau$). As seen in Figure \ref{fig:queryreduc} (magenta line), such pruning hurts performance. DF pruning continues increasing and converges to the baseline as $\tau \to \infty $ (i.e., no pruning).
 
 \vspace*{0.5mm}
-\noindent \textbf{(ii)} Frequent terms inside long and verbose queries are considered important~\cite{maxwell2013compact}. Thus, we hypothesise that we may improve the effectiveness by removing terms appearing less frequently in the Patent Query. Therefore, we remove terms with the frequency less than the threshold $\tau$ ($QTF(t) \leq \tau$). Results in Figure~\ref{fig:queryreduc} (blue line) indicate the performance gets slightly better than the baseline when we remove less frequent terms in the Patent Query. The best MAP is achieved when $\tau=5$ and it meets the baseline when $\tau=0$ (i.e., no pruning). 
+\noindent \textbf{(ii)} Frequent terms inside long and verbose queries are considered important~\cite{maxwell2013compact}. Thus, we hypothesize that removing terms appearing infrequently in the Patent Query may help and hence propose to remove terms with query term frequency (QTF) below a threshold $\tau$ ($QTF(t) \leq \tau$). Results in Figure~\ref{fig:queryreduc} (blue line) indicate the performance is slightly better than the baseline when removing low QTF terms.  The best MAP is achieved when $\tau=5$ and it meets the baseline when $\tau=0$ (i.e., all terms retained). 
 %Frequent terms inside long and verbose queries have been shown to be important~\cite{maxwell2013compact}. Hence, we only keep high query TF (QTF) terms ($\mathit{QTF}(t)>\tau$) but remove from this set any document frequent terms ($\mathit{DF}(t)>0.01$). Figure \ref{fig:queryreduc} indicates that this approach performs slightly better than the baseline.
 
 \vspace*{0.5mm}
-\noindent \textbf{(iii)} We use Pseudo Relevance Feedback ($\mathit{PRF}$) to select query terms~\cite{maxwell2013compact} --- the same as what we did for Oracular Relevance Feedback system (Section~\ref{Sec:OracularTermSelection}). We assume that the top 5 retrieved documents are relevant and the rest are irrelevant (this performed best), then we calculate $\mathit{PRF}$ score based on this assumption.  
-Terms that have the $\mathit{PRF}$ score higher than the threshold $\tau$ ($PRF(t)>\tau$), are selected from the Patent Query to reformulate a reduced query. Figure~\ref{fig:queryreduc} (red line) shows that this approach is also unsuccessful at achieving a notable improvement over the baseline.
+\noindent \textbf{(iii)} We use Pseudo Relevance Feedback ($\mathit{PRF}$) to select query terms~\cite{maxwell2013compact} --- the same as we did for the Oracular Relevance Feedback system (Section~\ref{Sec:OracularTermSelection}). We assume that the top 5 retrieved documents are relevant and the rest are irrelevant (this performed best), then we calculate $\mathit{PRF}$ score based on this assumption.  
+Terms that have $\mathit{PRF}$ score higher than the threshold $\tau$ ($PRF(t)>\tau$), are selected from the Patent Query to reformulate a reduced query. Figure~\ref{fig:queryreduc} (red line) shows that this approach is also unsuccessful at achieving a notable improvement over the baseline.
 
 %The third query reduction approach is to select query terms using pseudo-relevance feedback ($\mathit{PRF}$)
 %~\cite{Baeza-Yates2011, maxwell2013compact}. We calculated a $\mathit{PRF}$ score similar to $\mathit{RF}$ score assuming that the top-k ranked documents are relevant. We selected the query terms which have high $\mathit{PRF}$ score ($\mathit{PRF}(t)>\tau$). As Figure \ref{fig:queryreduc} illustrates, this approach does not notably outperform the baseline. 
@@ -54,15 +54,14 @@ Terms that have the $\mathit{PRF}$ score higher than the threshold $\tau$ ($PRF(
 % investigation.  -Scott
 \vspace*{0.5mm}
 % TODO: What is an IPC title?  I don't know that this is... was it discussed?
-Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invention related to ``emulsifier'' to help explain why these four approaches \emph{fail}. It shows the raw abstract of the invention, and terms --- top 20 high-scored terms --- and their associated $\mathit{RF}$ scores for each approach. 
-% Scott: the following is unclear... better simply to omit... while IPC title words
-%        do not have scores, you've still used some baseline retrieval method that
-%        scores terms and this is you're ranked them in Figure 3.
+Figure \ref{fig:anecdotal} shows an anecdotal example for a sample query about an invention related to ``emulsifier'' to help explain why these four approaches \emph{fail}. It shows the raw abstract of the invention, and the top 20 high-scoring terms (except for IPC Title Terms which are not scored, but simply displayed) and their associated $\mathit{RF}$ scores for each approach. 
+% Scott: the following is unclear... instead have modified Figure 3 caption.
 %IPC title terms are the words appearing in the IPC title and do not have any score.
 %\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}\end{displaymath}
-It can be seen that the four methods fail to clearly discriminate between useful and noisy terms. As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by the DF pruning approach, which hurts query quality.  As another example, pruning IPC title terms removes highly negative terms like ``amylos'' or ``saccharid'', but it also removes useful terms like ``emulsifi'').  
+It can be seen that the four methods fail to clearly discriminate between useful and noisy terms.  Important stemmed terms like ``enzym'' and ``starch'' would be pruned according to DF; in contrast, QTF and PRF both score ``starch'' highly and retain it, but also retain other noisy terms.  Over half of the IPC Title Terms are noisy and appropriate to remove, but critical useful stemmed terms like ``emulsifi'' are also removed.
+%As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by the DF pruning approach, which hurts query quality.  As another example, pruning IPC title terms removes highly noisy (negative) terms like ``amylos'' or ``saccharid'', but also removes useful terms like ``emulsifi''.  
 %pruning IPC title terms yields more noisy terms than useful terms (13 out of 20 terms were noisy and removed, but more rare negative terms like ``amylos'' or ``saccharid'' remain).
-  Overall, while some methods work better than others for query reduction, all methods may retain highly negative terms and results from Section~\ref{sec:baseline_vs_oracular} showed that the inclusion of even slightly negative terms can significantly hurt performance.  In the end, none of these automated methods are able to closely approximate the oracular query and all do worse than PATATRAS.
+  Critically, all methods retain noisy terms (red/negative) and results from Section~\ref{sec:baseline_vs_oracular} showed that the inclusion of even slightly noisy terms can significantly hurt performance.  Overall, all methods fail to retain only the oracular query terms (blue/positive) and do worse than PATATRAS.
 %which resulted in bad retrieval performance. 
 %Therefore, this may suggest more sophisticated query reduction methods, as the one discussed in the next section.
  
@@ -96,7 +95,7 @@ It can be seen that the four methods fail to clearly discriminate between useful
 \begin{centering}
 \subfigure[{Mean Average Precision.}]{\includegraphics[width=4.5cm, height=3.5cm]{imgs/fig2_map_cr}}\subfigure[Recall.]{\includegraphics[width=4.5cm, height=3.5cm]{imgs/fig2_recall_cr}}
 \par\end{centering}
-\vspace*{-3ex}
+\vspace*{-2ex}
 \protect\caption{System performance vs. the threshold $\tau$ for four query reduction approaches.}
 \label{fig:queryreduc}
 \end{figure}
@@ -104,18 +103,18 @@ It can be seen that the four methods fail to clearly discriminate between useful
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{framed}
-\vspace*{-3ex}
+\vspace*{-2ex}
   \centering
     %\lstinputlisting[frame=single, basicstyle=\scriptsize\ttfamily , linewidth=\columnwidth,breaklines=true]{code/anecdotale.tex}\vspace*{-2ex}
  \begin{lstlisting}[basicstyle=\scriptsize\ttfamily , linewidth=\columnwidth,breaklines=true] 
-(PAC-1293)-Abstract: The invention relates to an 
-emulsifier,a method for preparing said emulsifier
-,and to its use in various applications,primarily 
+(PAC-1293) - Abstract: The invention relates to an 
+emulsifier, a method for preparing said emulsifier, 
+and to its use in various applications, primarily 
 food and cosmetic applications.The invention also 
 relates to the use of said emulsifier for the 
-creation of an elastic,gelled foam.An emulsifier 
+creation of an elastic, gelled foam.  An emulsifier 
 according to the invention is based on a starch 
-which is enzymatically converted,using a specific 
+which is enzymatically converted, using a specific 
 type of enzyme, and modified in a specific 
 esterification reaction.
 <@\vspace{-2mm}@>
@@ -125,7 +124,7 @@ esterification reaction.
 <@\textcolor{blue}{agent:5}@>,<@\textcolor{red}{debranch:-11}@>,<@\textcolor{red}{reduc:-6}@>,<@\textcolor{red}{fat:-13}@>,<@\textcolor{red}{prepar:-0.8}@>,
 <@\textcolor{red}{hour:-5}@>
 <@\vspace{-2mm}@>
-<@\underline{QTF Terms:}@> <@\textcolor{blue}{starch:14.6}@>,<@\textcolor{blue}{emulsifi:6.7}@>,<@\textcolor{red}{succin:-3.5}@>,
+<@\underline{QTF Terms:}@><@\textcolor{blue}{starch:14.6}@>,<@\textcolor{blue}{emulsifi:6.7}@>,<@\textcolor{red}{succin:-3.5}@>,
 <@\textcolor{blue}{enzym:29.5}@>,<@\textcolor{blue}{emuls:12.7}@>,<@\textcolor{blue}{hydrophob:5.4}@>,<@\textcolor{red}{anhydrid:-5.5}@>,
 <@\textcolor{red}{reaction:-2}@>,<@\textcolor{red}{octenyl:-0.7}@>,<@\textcolor{blue}{stabil:3.6}@>,<@\textcolor{blue}{alkenyl:0.06}@>,
 <@\textcolor{blue}{reagent:1.2}@>,<@\textcolor{blue}{carbon:0.1}@>,<@\textcolor{blue}{potato:3.7}@>,<@\textcolor{red}{alkyl:-0.3}@>,<@\textcolor{red}{wt:-4.6}@>,
@@ -137,7 +136,7 @@ esterification reaction.
 <@\textcolor{blue}{activ:6}@>,<@\textcolor{blue}{osa:9.3}@>,<@\textcolor{blue}{funnel:2.7}@>,<@\textcolor{blue}{amylas:26}@>,<@\textcolor{red}{amylopectin:-7}@>,
 <@\textcolor{blue}{maiz:20.6}@>
 <@\vspace{-2mm}@>
-<@\underline{IPC title Terms:}@><@\textcolor{blue}{cosmet:3.8}@>,<@\textcolor{blue}{toilet:0.2}@>,<@\textcolor{red}{prepar:-0.8}@>,
+<@\underline{IPC Title Terms:}@><@\textcolor{blue}{cosmet:3.8}@>,<@\textcolor{blue}{toilet:0.2}@>,<@\textcolor{red}{prepar:-0.8}@>,
 <@\textcolor{blue}{case:0.5}@>,<@\textcolor{red}{accessori:-0.01}@>,<@\textcolor{red}{store:-0.4}@>,<@\textcolor{blue}{handl:0.07}@>,
 <@\textcolor{red}{pasti:-0.2}@>,<@\textcolor{red}{amylos:-20}@>,<@\textcolor{red}{fibrou:-0.01}@>,<@\textcolor{red}{pulp:-1.3}@>,
 <@\textcolor{red}{constitut:-0.06}@>,<@\textcolor{blue}{paper:1.3}@>,<@\textcolor{red}{impregn:-0.1}@>,<@\textcolor{blue}{emulsifi:6.7}@>,
@@ -146,11 +145,14 @@ esterification reaction.
  \vspace*{-3ex}
 \end{framed}
  \vspace*{-3.5ex}
-  \caption{Four query reduction approaches on a sample query.  Top
-    terms retained by each method are shown.  Numerical oracular
-    scores $\mathit{RF}(t,Q)$ are provided indicating whether the term
-    was useful (blue/positive) or noisy (red/negative).}
+  \caption{The top 20 terms scored by each of four methods on a sample
+    query (except for IPC Title Terms which are not scored); whether the term is
+    pruned or retained depends on the approach, cf. (i)--(iv).
+    Numerical oracular scores $\mathit{RF}(t,Q)$ are provided
+    indicating whether the term was actually useful (blue/positive) or
+    noisy (red/negative).}
   \label{fig:anecdotal}  
+ \vspace*{-1.5ex}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -184,6 +186,7 @@ user effort while achieving state-of-the-art performance.
 
 
 \begin{figure}
+\vspace{-2mm}
 \begin{centering}
 \includegraphics[width=5.5cm]{imgs/1stRank}
 \par\end{centering}
@@ -192,6 +195,7 @@ user effort while achieving state-of-the-art performance.
 %Clearly, the first relevant document is often found in the top-20 meaning that it can identified without excessive search.
 }
 \label{fig:FirstTPRankHisto}
+\vspace{-1mm}
 \end{figure}
 
 
