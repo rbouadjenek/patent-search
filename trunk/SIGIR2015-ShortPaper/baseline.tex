@@ -5,7 +5,7 @@ the Lucene search engine
 and LM (Dirichlet
 smoothing, and Jelinek-Mercer smoothing)
 %~\cite{Zhai2001} 
-scoring functions. %We consider 
+scoring functions based on~\cite{Bouadjenek2015}. %We consider 
 %using BM25F~\cite{robertson2004simple} but had no opportunity to learn appropriate field weights.
 We used Lucene to index the English subset of the CLEF-IP 2010 dataset\footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}} 
 that contains 2.6 million patent documents and 
@@ -18,8 +18,7 @@ We also removed patent-specific stop-words as described in \cite{magdy2012toward
 We indexed each section of 
 a patent (title, abstract, claims,
 and description) in a separate field.  However, when a query 
-is processed, all indexed fields are targeted with an equal weight
-as in~\cite{Bouadjenek2015}.
+is processed, all indexed fields are targeted with an equal weight.
 %, since this generally
 %offers best retrieval performance.
 % 
