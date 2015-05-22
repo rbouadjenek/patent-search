@@ -9,11 +9,11 @@ Essentially, it is desirable that the retrieval system considers all documents w
 Bias of retrieval systems is the characteristic of a system to give preference to certain features of documents, when it ranks results of any given query. For example, PageRank favours popular documents by evaluating the number of in-links of web pages in addition to pure content features while TF-IDF and OKAPI-BM25 favour large terms frequencies~\citep{bashir2011relationship}.
 \paragraph{Retrievablity Measurement}
 \ \\
-\textit{Retrievability} measures how likely each document $ d $ inside a collection $ D $ can be retrieved within the top c ranked results for all queries in $ Q $. $ r(d) $ defines as follows:
+Retrievability measures how likely each document $ d $ inside a collection $ D $ can be retrieved within the top \textit{c} ranked results for all queries in $ Q $. $ r(d) $ is defined as follows:
 \[
 r(d)=\sum_{q \in Q}f(k_{dq},c)
 \]
-where $ k_{dq} $ is the rank of $ d $ in the result set of query $ q \in Q $, $ c $ denotes the maximum rank that a user is willing to proceed down the ranked list. The function $ f(k_{dq},c) $ returns a value of 1 if $ k_{dq} \leq c $, and 0 otherwise. Retrievability inequality can be analysed using the \textit{Lorenz} Curve. Documents are sorted according to their retrievability score in ascending order, plotting a cumulative score distribution. If the retrievability of documents is distributed equally, then the Lorenz Curve will be linear. The more skewed the curve, the greater the amount of inequality or bias within the retrieval system. The Gini coefficient $ G $ is used to summarise the amount of bias in the Lorenz Curve, and is computed as follows:
+where $ k_{dq} $ is the rank of $ d $ in the result set of query $ q \in Q $, $ c $ denotes the maximum rank that a user is willing to proceed down the ranked list. The function $ f(k_{dq},c) $ returns a value of 1 if $ k_{dq} \leq c $, and 0 otherwise. Retrievability inequality can be analysed using the Lorenz Curve. Documents are sorted according to their retrievability score in ascending order, plotting a cumulative score distribution. If the retrievability of documents is distributed equally, then the Lorenz Curve will be linear. The more skewed the curve, the greater the amount of inequality or bias within the retrieval system. The Gini coefficient $ G $ is used to summarise the amount of bias in the Lorenz Curve, and is computed as follows:
 \begin{equation}
 G=\frac{\sum_{i=1}^n(2.i-n-1).r(d_{i})}{(n-1)\sum_{j=1}^nr(d_{j})}
 \end{equation}
