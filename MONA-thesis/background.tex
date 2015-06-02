@@ -156,7 +156,7 @@ invention by describing the relevant parts of the prior-art of the invention, or
 be for patents that have been located by the patent examiners and were found to invalidate parts 
 of the invention in the initially submitted patent application, where the final version of the patent
 get these parts modified or removed.
-\section{Generic Information Retrieval (IR)}
+\section{Generic Information Retrieval}
 An information retrieval (IR) system assists users in finding the information they need. Figure~\ref{fig:generalir} illustrates the general IR process. On the collection side, a repository of indexed documents is created from a collection of documents to be searched for. Users formulate the information they need as a query and the IR system answers the query intent. In the matching process, the query and documents representations are compared and the result would be a ranked list of documents. The first attempt at formulation of a query with a particular information need in mind
 is often inaccurate and can result in an answer set that does not satisfy the user's information need. 
 After reading some of the documents in the initial result set, the query can be reformulated in order to shift the result set toward the information need.
@@ -192,11 +192,12 @@ After reading some of the documents in the initial result set, the query can be 
 
 \section{Patent-specific Information Retrieval}
 \label{subsec:patentir}
+Patent retrieval differs from a generic retrieval due to specific characteristics of patents. For instance, in patent prior art search the query is as long as a patent document, which makes the query (re)formulation more difficult compared to a web search. Patents have some specific features that can be yielded in retrieval, which we will  discuss in this section.
 
 \subsection{The Study of Retrievablity for Patents}
 \input{background/retrievability-p}
 
-\subsection{Query Formulation}
+\subsection{Initial Query Formulation}
 \input{background/query_formul-p}
 
 \subsection{Query Expansion for Patents}
