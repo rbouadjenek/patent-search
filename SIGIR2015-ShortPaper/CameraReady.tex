@@ -84,6 +84,8 @@ DOI: http://dx.doi.org/10.1145/2766462.2767801 }
 \lstset{escapeinside={<@}{@>}}
 \usepackage{graphicx}
 \usepackage{courier}
+\usepackage{etoolbox}
+\apptocmd{\thebibliography}{\scriptsize}{}{}
 
 \begin{document}
 %
@@ -266,13 +268,18 @@ Gabriela Ferraro\\%\titlenote{Dr.~Trovato insisted his name be first.}\\
 \subsection*{Acknowledgments}
 NICTA is funded by the Australian Government as represented by the Department of Broadband, Communications and the Digital Economy and the Australian Research Council through the ICT Centre of Excellence program.
 
+%
 % The following two commands are all you need in the
 % initial runs of your .tex file to
 % produce the bibliography for the citations in your paper.
+\let\secfnt\undefined
+\newfont{\secfnt}{ptmb8t at 10pt}
+
 \bibliographystyle{abbrv}
-{\scriptsize
+%{\scriptsize
 \bibliography{sigproc}
-} % sigproc.bib is the name of the Bibliography in this case
+%}
+ % sigproc.bib is the name of the Bibliography in this case
 % You must have a proper ".bib" file
 %  and remember to run:
 % latex bibtex latex latex
