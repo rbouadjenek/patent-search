@@ -313,7 +313,7 @@ automated methods and then proceed to evaluate semi-automated methods
 based on interactive relevance feedback methods.
 \subsection{Automated Reduction}
 \label{AutomatedReduction}
-We first apply four simple query reduction techniques for patent prior art search. Then we analyse the reasons that these methods fail to achieve high performance over the baseline from term analysis point of view.
+We first apply four simple automated query reduction techniques to improve the effectiveness of the patent prior art search. Then we analyse the reasons that these methods fail to considerably achieve a higher performance over the baseline.
 \subsubsection{Removing Document Frequent Terms}
 \label{SimpleApproaches}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -327,40 +327,44 @@ We first apply four simple query reduction techniques for patent prior art searc
 \subfigure[Average Recall.]{\includegraphics[width=6cm]{figs/fig3_recall}} 
 \par\end{centering} 
 
-\protect\caption{Comparing system performance for three different query reduction approaches and their changes with a threshold $\tau$.}
+\protect\caption{System performance versus the threshold $\tau$ for four different query reduction approaches.}
 \label{fig:combinedapproach}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In standard IR, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep{manning2008introduction}. Inspired by this fact, we hypothesize that we will improve the performance by pruning out highly frequent words in top-100 retrieved documents after an initial run of patent query. To identify highly frequent terms, we calculate the average term frequency over top-100 documents for each word and we call it Document Frequent ($\mathit{DF}$) score, as follows:
+In standard IR, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep{manning2008introduction}. Inspired by this fact, we hypothesise that we will improve the performance by pruning out highly frequent words in top-100 retrieved documents after an initial run of the patent query. To identify highly frequent terms, we calculate the average term frequency over top-100 documents for each term --- document frequent ($\mathit{DF}$) score --- as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
- DF(t, Q)=\frac{1}{100}\sum_{d_i\in  D} TF(t, d_i),    
+ DF(t, Q)=\frac{1}{100}\sum_{d\in  D} TF(t, d),    
  \label{eq:df}
 \end{equation}
-where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d_i)$ is the term frequency of each term in document $d_i$.
+where $D=\{d\in \mbox{Top-100 retrieved documents}\}$, and $TF(t, d)$ is the term frequency of each term in document $d$.
 %\begin{displaymath}   t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-We remove words with $\mathit{DF}$ score higher than $\tau$ ($DF(t, Q)>\tau$) from patent query. Figure~\ref{fig:combinedapproach} illustrates how the performance change by different values of the threshold $\tau$ illustrates that removing document frequent words for different threshold $\tau$ hurts the performance (magenta line). As it can be seen, the performance converges with the baseline performance when $\tau$ goes higher (e.g., 500). This means that there is no term with such a high DF score, and we do not empirically remove any term from the patent query. Overall, removing document frequent terms from patent query does not consider an appropriate approach since it ruins the performance. 
-\subsubsection{Removing Less Frequent Terms in Patent Query}
-Frequent terms inside long and verbose queries are considered important~\citep{maxwell2013compact}. However, we hypothesise that we may improve the effectiveness by removing terms appearing less frequently in the patent query. Therefore, we remove terms with the frequency less than the threshold $\tau$ ($QTF(t)<=\tau$ ). The blue line in Figure~\ref{fig:combinedapproach} indicates that the performance gets slightly better than the baseline when we remove less frequent terms in patent query. As it can be seen the best MAP achieved when $\tau=5$. 
+We remove words with $\mathit{DF}$ score higher than $\tau$ ($DF(t, Q)>\tau$) from the patent query. 
+As illustrated in Figure~\ref{fig:combinedapproach} (magenta line), such pruning hurts the performance. $\mathit{DF}$ pruning continues increasing and converges to the baseline as $\tau \to \infty $ (i.e., no pruning).
+Overall, removing document frequent terms from patent query does not consider an appropriate approach since it ruins the performance. 
+\subsubsection{Removing Infrequent Terms in Patent Query}
+Frequent terms inside long and verbose queries are considered important~\cite{maxwell2013compact}. Thus, we hypothesize that removing terms appearing infrequently in the Patent Query may help and hence propose to remove terms with query term frequency (QTF) below a threshold $\tau$ ($QTF(t) \leq \tau$). Results in Figure~\ref{fig:combinedapproach} (blue line) indicate the performance is slightly better than the baseline when removing low QTF terms.  The best MAP is achieved when $\tau=5$ and it meets the baseline when $\tau=0$ (i.e., all terms retained). 
 %In this approach the best value for the threshold is $\tau=5$ to get higher MAP.
 \subsubsection{Removing Terms in IPC Titles}
-The titles of classification indicate their intended content by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query to reduce the query, based on the assumption that they are common to all patents belonging to the same category and may be considered as stop-words. As it can be seen in Figure~\ref{fig:combinedapproach} (red line), this approach slightly helps the performance.
+The titles of IPC codes indicate the intended content of patents classified under that code by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query as stopwords to reduce the query, based on the assumption that these terms are common to all patents having the same IPC code label.  As it can be seen in Figure~\ref{fig:combinedapproach} (black line), this approach slightly helps the performance.
 \subsubsection{Query Reduction Using Pseudo Relevance Feedback}
 % TODO: Must be consistent in either pruning or removing terms --- results should ideally converge to the baseline at 0.
 % TODO: Should do simplest comparisons first and not combine pruning approaches.  Even better: evaluate methods mentioned in related work.
 % TODO: What is an IPC title?  I don't know that this is... was it discussed?
-Pseudo relevance feedback ($\mathit{PRF}$) is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} the same as what we did for oracular relevance feedback system (Section~\ref{sec:oraculrquery}). We assume that top 5 retrieved documents are relevant and the rest are irrelevant, then we calculate $\mathit{PRF}$ score based on this assumption:  
+Pseudo relevance feedback ($\mathit{PRF}$) is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} --- the same as what we did for oracular relevance feedback system (Section~\ref{sec:oraculrquery}). We assume that top 5 retrieved documents are relevant and the rest are irrelevant, then we calculate $\mathit{PRF}$ score based on this assumption:  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 PRF(t,Q)=Rel(t)-Irr(t), 
  \label{eq:score}
 \end{equation}
 \vspace*{-2ex}
-\begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents.}\rbrace\end{displaymath}
+\begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace,\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
-In the next step, we select the terms in the patent query that have the $\mathit{PRF}$ score higher than the threshold $\tau$ ($PRF(t)>\tau$) to reformulate a reduced query. Figure~\ref{fig:combinedapproach} shows slight improvement over the baseline. Compared to the oracular term selection system, this approach did not also help to get any notable improvement over the baseline.
+where $\mathit{Rel(t)}$ is the average term frequency in top-5 retrieved patents, and $\mathit{Irr(t)}$ is
+the average term frequency in the remained patents in top-100 retrieved documents.
+We select the terms in the patent query that have the $\mathit{PRF}$ score higher than the threshold $\tau$ ($PRF(t)>\tau$) to reformulate a reduced query. Figure~\ref{fig:combinedapproach} (red line) shows that this approach is also unsuccessful at achieving a notable improvement over the baseline.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{figure}[t!]
 %   \centering
@@ -368,6 +372,45 @@ In the next step, we select the terms in the patent query that have the $\mathit
 %   \caption{Query reduction using PRF for various value of the threshold $\tau$.}   
 %   \label{fig:prf} 
 %\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Automated Techniques Fails to Approximate Oracular Patent Query}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{figure}[t!]
+%\begin{centering}
+%\subfigure[Query terms ($t \in Query$) versus Document Frequent terms.\label{fig:scatter_combined_a}]{\includegraphics[width=9cm]{figs/qterm_rf_df.eps}} \hspace*{0.1cm}\\[1ex]% 
+% %\subfigure[IPC Title words vs. Document Frequent terms.\label{fig:scatter_combined_b}]{\includegraphics[width=7cm]{figs/ipcdef-rf-df.eps}} 
+%\subfigure[Query terms ($t \in Query \; \bigwedge \; QTF(t)>5$) versus Document Frequent terms\label{fig:scatter_combined_b}]{\includegraphics[width=9cm]{figs/df-rf-tauline.eps}}
+%
+%\par\end{centering}
+%
+%\protect\caption{Anecdotal example for simple query reduction approaches. Blue points are all terms in a vocabulary set made of top-100 retrieved documents and red points are terms in the patent query.}
+%\label{fig:scatter_combined}
+%\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In Section~\ref{sec:OracularQueryFormulation}, we showed that terms inside the patent query are sufficient to get a notice improvement over the baseline; 
+however, results related to automated query reduction techniques showed only a little improvement. 
+We analyse the causes through the following experiments.    
+
+First, we analyse the reasons that removing document frequent terms does not help the effectiveness as well as the reasons 
+that two other approaches have a trivial influence on improving the system effectiveness. 
+In the following experiment, we use an anecdotal example of a sample patent query to analyse why these approaches are unsuccessful. 
+Figure~\ref{fig:scatter_combined_a} shows a scatter plot of $\mathit{DF}$ score versus $\mathit{RF}$ score for the sample query --- PAC-1612. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. We remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$ but it is not helpful; because as it is illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms (e.g., $DF(t, Q)>\tau$), we also remove many useful terms (e.g., $RF(t, Q)>0$). In Figure~\ref{fig:scatter_combined_a}, red points are all query terms and in Figure~\ref{fig:scatter_combined_b}, they are query terms with term frequency higher than 5 (e.g., $QTF(t)>5$) --- where we got the best performance. 
+Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b}, we see that, on one hand, we are removing considerable amount of noisy terms by pruning out  terms with $QTF(t)<5$; on the other hand, we also remove useful terms. In addition, remained terms are not purely useful terms because they are contaminated with the noisy terms. We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the noisy terms out. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t!]
+%\begin{centering}
+%\includegraphics[width=9cm]{figs/l3}
+%\par\end{centering}
+
+\begin{centering}
+\subfigure[Query terms ($t \in Query$) versus document frequent terms.\label{fig:scatter_combined_a}]{\includegraphics[width=7cm]{figs/qterm_rf_df.eps}} \hspace*{.1cm} 
+\subfigure[Query terms ($t \in Query \; \bigwedge \; QTF(t)>5$) versus document frequent terms\label{fig:scatter_combined_b}]{\includegraphics[width=7cm]{figs/df-rf-tauline.eps}} 
+\par\end{centering} 
+
+\protect\caption{Anecdotal example for simple query reduction approaches. Blue points are all terms in a vocabulary set made of top-100 retrieved documents and red points are terms in the patent query.}
+\label{fig:scatter_combined}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
@@ -382,29 +425,8 @@ In the next step, we select the terms in the patent query that have the $\mathit
 \label{fig:rf_prf}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Automated Techniques Fails to Approximate Oracular Patent Query}
-We showed in above experiments that removing document frequent terms did not help the effectiveness and 
-two other approaches had a trivial influence on improving the system effectiveness. 
-In the following experiment, we use an anecdotal example of a sample patent query to analyse why these approaches did not help. 
-Figure~\ref{fig:scatter_combined} shows a scatter plot of DF score and RF score for a sample query --- PAC-1612. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. First, we remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$, however, it does not help because as it has been illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms ($DF(t, Q)>\tau$), we will remove many useful terms ($RF(t, Q)>0$). Red points in Figure~\ref{fig:scatter_combined_a} are all query terms and red points in Figure~\ref{fig:scatter_combined_b} are query terms with term frequency higher than 5 ($QTF(t)>5$) --- where we got the best performance. 
-Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b} show that we remove considerable amount of noisy terms by removing terms with $QTF(t)<5$. 
-On the other hand, it can be seen that many useful terms are also removed. Remained terms are not purely useful terms since they are contaminated with the noisy terms. We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the noisy terms out. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[t!]
-\begin{centering}
-\subfigure[Query terms ($t \in Query$) versus Document Frequent terms.\label{fig:scatter_combined_a}]{\includegraphics[width=9cm]{figs/qterm_rf_df.eps}} \hspace*{0.1cm}\\[1ex]% 
- %\subfigure[IPC Title words vs. Document Frequent terms.\label{fig:scatter_combined_b}]{\includegraphics[width=7cm]{figs/ipcdef-rf-df.eps}} 
-\subfigure[Query terms ($t \in Query \; \bigwedge \; QTF(t)>5$) versus Document Frequent terms\label{fig:scatter_combined_b}]{\includegraphics[width=9cm]{figs/df-rf-tauline.eps}}
 
-\par\end{centering}
-
-\protect\caption{Anecdotal example for simple query reduction approaches. Blue points are all terms in a vocabulary set made of top-100 retrieved documents and red points are terms in the patent query.}
-\label{fig:scatter_combined}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-We analyse why the term selection technique using pseudo relevance feedback fails to approximate the oracular patent query in the following experiment.  
+In the second experiment, we analyse why the term selection technique using pseudo relevance feedback fails to approximate the oracular patent query.  
 We seek for a pattern between top relevance feedback terms and top pseudo relevance feedback terms. For this purpose, we calculate the average $\mathit{RF}$ score of both terms with top  $\mathit{RF}$ score and terms with top $\mathit{PRF}$ score for each query as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
@@ -421,7 +443,7 @@ where $Avg_{RF}(t, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{RF}
 
 Figure~\ref{fig:rf_prf} shows a scatter plot of average $\mathit{RF}$ score for top relevance feedback terms and top pseudo relevance feedback terms. First, we observe that almost the RF score of top relevance feedback terms is lower than the RF score of top pseudo relevance feedback terms for almost all queries ($ Avg_{RF}(t, Q) > Avg_{RF}(\hat{t}, Q)$). We can also see that for about half of the queries, $Avg_{RF}(\hat{t}, Q)$ is negative that indicates we are selecting noisy terms by their pseudo relevance feedback score rather than useful terms. Second, we can find a very slight positive correlation toward selecting positive terms by pseudo relevance feedback, which is the reason that we could get a slight improvement.  
 
-As the last experiment for the automated query reduction, we illustrate why four proposed query reduction approaches failed to approximate the oracular patent query using an anecdotal example of a sample query about an invention related to ``emulsifier''. 
+Finally, we analyse the reasons that four proposed query reduction approaches fail to approximate the oracular patent query, using an anecdotal example of a sample query about an invention related to ``emulsifier''. 
 Figure \ref{fig:anecdotal} shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. 
 Terms are chosen based on the scores for each approach as follows: 
 \begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10.\}\end{displaymath}
@@ -522,7 +544,7 @@ user effort while achieving state-of-the-art performance.
 \begin{table}[t!]
   \begin{center}
    \caption{System performance using minimal relevance feedback. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
-  \input table/partialRFtermselect1.tex   
+  \input table/partialRFtermselect.tex   
   \label{tab:firstrel}
   \end{center}  
 \end{table}
