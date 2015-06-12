@@ -353,7 +353,7 @@ The titles of IPC codes indicate the intended content of patents classified unde
 % TODO: Must be consistent in either pruning or removing terms --- results should ideally converge to the baseline at 0.
 % TODO: Should do simplest comparisons first and not combine pruning approaches.  Even better: evaluate methods mentioned in related work.
 % TODO: What is an IPC title?  I don't know that this is... was it discussed?
-Pseudo relevance feedback ($\mathit{PRF}$) is an automated process without user interaction which assumes the top k ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} --- the same as what we did for oracular relevance feedback system (Section~\ref{sec:oraculrquery}). We assume that top 5 retrieved documents are relevant and the rest are irrelevant, then we calculate $\mathit{PRF}$ score based on this assumption:  
+Pseudo relevance feedback ($\mathit{PRF}$) is an automated process without user interaction which assumes the top \textit{k} ranked documents are relevant and the others are irrelevant~\citep{Baeza-Yates2011}. We use $\mathit{PRF}$ to select query terms~\cite{maxwell2013compact} --- the same as what we did for oracular relevance feedback system (Section~\ref{sec:oraculrquery}). We assume that top 5 retrieved documents are relevant and the rest are irrelevant, then we calculate $\mathit{PRF}$ score based on this assumption:  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 PRF(t,Q)=Rel(t)-Irr(t), 
@@ -387,15 +387,15 @@ We select the terms in the patent query that have the $\mathit{PRF}$ score highe
 %\label{fig:scatter_combined}
 %\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In Section~\ref{sec:OracularQueryFormulation}, we showed that terms inside the patent query are sufficient to get a notice improvement over the baseline; 
+In Section~\ref{sec:OracularQueryFormulation}, we showed that terms inside the patent query are sufficient to get a noticeable improvement over the baseline; 
 however, results related to automated query reduction techniques showed only a little improvement. 
 We analyse the causes through the following experiments.    
 
-First, we analyse the reasons that removing document frequent terms does not help the effectiveness as well as the reasons 
-that two other approaches have a trivial influence on improving the system effectiveness. 
-In the following experiment, we use an anecdotal example of a sample patent query to analyse why these approaches are unsuccessful. 
-Figure~\ref{fig:scatter_combined_a} shows a scatter plot of $\mathit{DF}$ score versus $\mathit{RF}$ score for the sample query --- PAC-1612. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. We remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$ but it is not helpful; because as it is illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms (e.g., $DF(t, Q)>\tau$), we also remove many useful terms (e.g., $RF(t, Q)>0$). In Figure~\ref{fig:scatter_combined_a}, red points are all query terms and in Figure~\ref{fig:scatter_combined_b}, they are query terms with term frequency higher than 5 (e.g., $QTF(t)>5$) --- where we got the best performance. 
-Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b}, we see that, on one hand, we are removing considerable amount of noisy terms by pruning out  terms with $QTF(t)<5$; on the other hand, we also remove useful terms. In addition, remained terms are not purely useful terms because they are contaminated with the noisy terms. We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the noisy terms out. 
+First, we use an anecdotal example --- a sample query --- to yse terms selected by proposed query reduction methods. 
+Figure~\ref{fig:scatter_combined_a} shows a scatter plot of $\mathit{DF}$ score versus $\mathit{RF}$ score for the sample query --- PAC-1612. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. We remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$ score; however it does not indicate that a term with a higher $\mathit{DF}$ score has essentially a lower $\mathit{RF}$ score.
+Hence, if we prune it out in $\mathit{DF}$ pruning method, we are not essentially removing an unimportant term.
+As it is illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms (e.g., $DF(t, Q)>\tau$), we also remove many useful terms (e.g., $RF(t, Q)>0$). In Figure~\ref{fig:scatter_combined_a}, red points are all query terms and in Figure~\ref{fig:scatter_combined_b}, they are query terms with term frequency higher than 5 (e.g., $QTF(t)>5$) --- where we got the best performance. 
+Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b} show that on the one hand, we are removing considerable amount of noisy terms by pruning out  terms with $QTF(t)<5$; on the other hand, we are also removing useful terms. In addition, remained terms are not purely useful terms because they are contaminated with the noisy terms. %We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the noisy terms out. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
@@ -415,13 +415,13 @@ Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
-\subfigure[$\tau=0$\label{fig:rf_prf_a}]{\includegraphics[width=7cm]{figs/scoretscorethat-tau0.eps}} \hspace*{0.1cm}
- \subfigure[$\tau=1$\label{fig:rf_prf_b}]{\includegraphics[width=7cm]{figs/scoretscorethat-tau1.eps}} \\[-1ex]% 
-\subfigure[$\tau=10$\label{fig:rf_prf_c}]{\includegraphics[width=7cm]{figs/scoretscorethat-tau10.eps}}
+\subfigure[\label{fig:rf_prf_a}]{\includegraphics[width=7cm]{figs/scoretscorethat-tau0.eps}} \hspace*{0.1cm}
+ \subfigure[\label{fig:rf_prf_b}]{\includegraphics[width=7cm]{figs/scoretscorethat-tau1.eps}} \\[-1ex]% 
+\subfigure[\label{fig:rf_prf_c}]{\includegraphics[width=7cm]{figs/scoretscorethat-tau10.eps}}
 
 \par\end{centering}
 
-\protect\caption{Comparing $\mathit{RF}$ score of top Relevance Feedback terms and pseudo relevance feedback terms for different values of the threshold $\tau$.}
+\protect\caption{Comparing $\mathit{RF}$ score of top relevance feedback terms and top pseudo relevance feedback terms for three different values of the threshold $\tau$ (i.e., $0, 1, 10$).}
 \label{fig:rf_prf}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -439,17 +439,27 @@ Avg_{RF}(\hat{t}, Q) = \frac{1}{|\hat{t}|}\sum {RF}(\hat{t}, Q), \;\;\;\; \hat{t
 \end{equation}
 %\begin{displaymath}\hat{t}\in \{\hat{t} | PRF(\hat{t})>\tau\}\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-where $Avg_{RF}(t, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{RF}$-scored terms ($RF(t, Q)>\tau$), $Avg_{RF}(\hat{t}, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{PRF}$-scored terms ($PRF(\hat{t}, Q)>\tau$), $\tau$ is a threshold for the score to select terms, $t$ is a symbol for terms with high RF score, $\hat{t}$ is a symbol for terms with high $\mathit{PRF}$ score.
+where $Avg_{RF}(t, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{RF}$ terms ($RF(t, Q)>\tau$), $Avg_{RF}(\hat{t}, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{PRF}$ terms ($PRF(\hat{t}, Q)>\tau$), $\tau$ is a threshold for the score to select terms, $t$ is a symbol for terms with high $\mathit{RF}$ score and $\hat{t}$ is a symbol for terms with high $\mathit{PRF}$ score.
 
-Figure~\ref{fig:rf_prf} shows a scatter plot of average $\mathit{RF}$ score for top relevance feedback terms and top pseudo relevance feedback terms. First, we observe that almost the RF score of top relevance feedback terms is lower than the RF score of top pseudo relevance feedback terms for almost all queries ($ Avg_{RF}(t, Q) > Avg_{RF}(\hat{t}, Q)$). We can also see that for about half of the queries, $Avg_{RF}(\hat{t}, Q)$ is negative that indicates we are selecting noisy terms by their pseudo relevance feedback score rather than useful terms. Second, we can find a very slight positive correlation toward selecting positive terms by pseudo relevance feedback, which is the reason that we could get a slight improvement.  
+Figure~\ref{fig:rf_prf} shows a scatter plot of average $\mathit{RF}$ score for top relevance feedback terms and top pseudo relevance feedback terms. First, we observe that almost the $\mathit{RF}$ score of top relevance feedback terms is higher than the $\mathit{RF}$ score of top pseudo relevance feedback terms for almost all queries ($ Avg_{RF}(t, Q) > Avg_{RF}(\hat{t}, Q)$). We can also see that for about half of the queries, $Avg_{RF}(\hat{t}, Q)$ is negative that indicates we are selecting noisy terms by their pseudo relevance feedback score rather than useful terms. Second, we can find a very slight positive correlation toward selecting positive terms by pseudo relevance feedback, which is the reason that we could get a little improvement applying query reduction by $\mathit{PRF}$.  
 
 Finally, we analyse the reasons that four proposed query reduction approaches fail to approximate the oracular patent query, using an anecdotal example of a sample query about an invention related to ``emulsifier''. 
-Figure \ref{fig:anecdotal} shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. 
+Figure \ref{fig:anecdotal} shows the raw abstract of the invention, and the top high-scoring terms (except for IPC title terms which are not scored, but simply displayed) and their associated $\mathit{RF}$ scores for each approach. 
 Terms are chosen based on the scores for each approach as follows: 
-\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10.\}\end{displaymath}
-%$\{t| DF(t)/QTF(t)/PRF(t)>10\}$.
-For the IPC title terms, all terms appearing in IPC title are displayed since they do not have any score.   
-It can be seen that the four methods fail clearly to discriminate between useful terms and noisy terms. As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by $\mathit{DF}$ pruning approach, which hurts the query quality.  As another example, retaining IPC code title terms yields more noisy terms than useful terms (19 out of 32, and few of them with a very negative score like ``amylos'' or ``saccharid''). This can justify slight improvement in performance when we prune terms in IPC title. Overall, all methods may retain highly negative terms and results from Section~\ref{sec:OracularQueryFormulation} showed that the inclusion of even slightly negative terms can significantly hurt the performance.
+\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}.\end{displaymath}
+% Scott: the following is unclear... instead have modified Figure 3 caption.
+%IPC title terms are the words appearing in the IPC title and do not have any score.
+%\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}\end{displaymath}
+It can be seen that the four methods fail to clearly discriminate between useful and noisy terms.  Important stemmed terms like ``enzym'' and ``starch'' would be pruned according to $\mathit{DF}$; in contrast, $\mathit{QTF}$ and $\mathit{PRF}$ both score ``starch'' highly and retain it, but also retain other noisy terms.  Over half of the IPC title terms are noisy and appropriate to remove, but critical useful stemmed terms like ``emulsifi'' are also removed.
+%As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by the DF pruning approach, which hurts query quality.  As another example, pruning IPC title terms removes highly noisy (negative) terms like ``amylos'' or ``saccharid'', but also removes useful terms like ``emulsifi''.  
+%pruning IPC title terms yields more noisy terms than useful terms (13 out of 20 terms were noisy and removed, but more rare negative terms like ``amylos'' or ``saccharid'' remain).
+  Critically, all methods retain noisy terms (red/negative) and results from Section~\ref{sec:OracularQueryFormulation} showed that the inclusion of even slightly noisy terms can significantly hurt performance.  Overall, all methods fail to retain only the oracular query terms (blue/positive) and do worse than PATATRAS.
+%shows the raw abstract of the invention, and terms and their associated $\mathit{RF}$ scores for each approach. 
+%Terms are chosen based on the scores for each approach as follows: 
+%\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}.\end{displaymath}
+%%$\{t| DF(t)/QTF(t)/PRF(t)>10\}$.
+%For the IPC title terms, all terms appearing in IPC title are displayed since they do not have any score.   
+%It can be seen that the four methods fail clearly to discriminate between useful terms and noisy terms. As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by $\mathit{DF}$ pruning approach, which hurts the query quality.  As another example, retaining IPC code title terms yields more noisy terms than useful terms (19 out of 32, and few of them with a very negative score like ``amylos'' or ``saccharid''). This can justify slight improvement in performance when we prune terms in IPC title. Overall, all methods may retain highly negative terms and results from Section~\ref{sec:OracularQueryFormulation} showed that the inclusion of even slightly negative terms can significantly hurt the performance.
 %In summary, we failed in approximating the Oracular Patent Query with any of four proposed Query reduction techniques.      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[htpb]
@@ -511,10 +521,12 @@ esterification reaction.
  \vspace*{-2ex}
 \end{framed}
  \vspace*{-2ex}
-  \caption{Four query reduction approaches on a sample query.  Top
-    terms retained by each method are shown.  Numerical oracular
-    scores $\mathit{RF}(t,Q)$ are provided indicating whether the term
-    was useful (blue/positive) or noisy (red/negative).}
+  \caption{The top terms scored by each of four methods on a sample
+    query (except for IPC title terms which are not scored); whether the term is
+    pruned or retained depends on each approach.
+    Numerical oracular scores $\mathit{RF}(t,Q)$ are provided
+    indicating whether the term was actually useful (blue/positive) or
+    noisy (red/negative).}
   \label{fig:anecdotal}  
 \end{figure}
 \FloatBarrier
@@ -543,7 +555,7 @@ user effort while achieving state-of-the-art performance.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[t!]
   \begin{center}
-   \caption{System performance using minimal relevance feedback. $\tau$ is RF score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
+   \caption{System performance using minimal relevance feedback. $\tau$ is $\mathit{RF}$ score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
   \input table/partialRFtermselect.tex   
   \label{tab:firstrel}
   \end{center}  
