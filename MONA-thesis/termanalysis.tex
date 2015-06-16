@@ -161,7 +161,9 @@ In this experiment, we check the term overlap with useful terms and noisy terms 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Patents are structured documents containing title, abstract, description, and claims (Section~\ref{StructureofPatents}). In this experiment, we investigate the existence of useful terms in different sections of patents. 
 Table \ref{tab:usefultermsinsections} shows the average number of useful terms in different sections of a patent query.  
-As it can be seen, description has the highest number of useful terms in both cases where RF score threshold $ \tau $ is $0$ and $1$. When $ \tau = 0 $, the average number of the useful terms in description is quite twice of when $ \tau = 1 $. Compared to other sections, description contains more useful terms, which proves why we achieved higher performance querying with description (Section~\ref{sec:settings}).
+As it can be seen, description has the highest number of useful terms in both cases where RF score threshold $ \tau $ is $0$ and $1$. 
+The average number of the useful terms in description is higher for $ \tau = 0 $ than for $ \tau = 1 $.
+Compared to other sections, description contains more useful terms, which proves why we achieved higher performance querying with description (Section~\ref{sec:settings}).
 Table \ref{tab:usefultermsinsections-p} shows the average percentage of useful terms in different sections of a patent query. It shows that, overall, useful terms constitute less than 50\% of the whole words in each section of patent queries. For example, only 27\% of the description of a patent query are useful terms on average and the rest are irrelevant terms. 
 %\subsubsection{Useful Terms in Different Sections}
 \subsection{Oracular Query Formulation}
