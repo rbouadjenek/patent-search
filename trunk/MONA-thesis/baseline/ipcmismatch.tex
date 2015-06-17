@@ -33,7 +33,7 @@ In this section, we investigate the errors caused by classification code mismatc
  
 %\subsubsection{Applying 4-digit IPC code for filtering}
 %\label{subsec: 4-digit}
-\paragraph{(I) Applying three first IPC components for filtering (filter type I)}
+\paragraph{Filter Type I: Three First Components of IPC Code}
 \ \\
 First, we examine the effect of filtering out the patents, which their three first symbols of IPC code, including section, class, and subclass (e.g., $\mathit{C07C}$ in Figure~\ref{fig:ipcexample}), do not match with the patent query. We have applied this filter to our baseline system. As a consequence, relevant patents, which do not share these three symbols of the IPC code with the patent query, are not retrieved by the system.   
 
@@ -92,7 +92,7 @@ In trade off between losing 19\% of relevant patents and making the ranking proc
 %\vspace{-1cm}
 %\subsubsection{Applying First two IPC code components for filtering}
 %\label{subsec: Firsttwocomponents}
-\paragraph{(II) Applying first two IPC code components for filtering (filter type II)}
+\paragraph{Filter Type II: Two First Components of IPC Code}
 %\textbf{(B) Filter: First two components of the IPC code}
 \ \\
 We hypothesise that the errors will be reduced, if we broaden the filter by selecting two first components of the query IPC, namely, section, and class (e.g., C07). We repeat the experiments for filter type II.
@@ -150,7 +150,7 @@ In average, the matching process for each query is done over $ 99,754 $ document
 %\noindent
 %\subsubsection{Applying First two IPC code components for filtering}
 %\label{subsec: Firsttwocomponents}
-\paragraph{(III) Applying the first IPC code component for filtering (filter type III)}
+\paragraph{Filter Type III: First Component of IPC Code}
 %\textbf{(C) Filter: First component of the IPC code}
 \ \\
 We can even make the filter more general by choosing only the first component, namely, section (e.g., C), corresponding to very general technical fields. 

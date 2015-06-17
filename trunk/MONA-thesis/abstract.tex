@@ -9,11 +9,11 @@ scientific articles, product descriptions or any other published work
 %or any published work, such as scientific 
 %articles or product descriptions that may be relevant 
 to a new patent application.
-Many well-known Information Retrieval (IR) techniques, which are proven effective 
-for web search such as typical query expansion methods, are unsuccessful for patent 
+Many well-known information retrieval (IR) techniques (e.g., typical query expansion methods), which are proven effective 
+for web search, are unsuccessful for patent 
 prior art search.
 In this thesis, we mainly investigate the reasons that generic IR techniques are not 
-effective for prior art search on the CLEF-IP test collection.   
+effective for prior art search on the CLEF-IP\footnote{Cross Language Evaluation Forum for Intellectual Property track} test collection.   
 %Hence in this thesis, we analysed the reasons lead in low effectiveness 
 %of general IR techniques for prior art search on the CLEF-IP test collection. 
 First, we analyse the errors caused due to data curation and experimental settings 
@@ -21,21 +21,21 @@ like applying International Patent Classification codes assigned to the patent t
 to filter the search results.  
 Then, we investigate the influence of term selection on retrieval
 performance on the CLEF-IP prior art test collection, starting with
-the Description section of the reference patent and using Language Models (LM) and BM25
+the description section of the reference patent and using language models (LM) and BM25
 scoring functions. We find that an oracular relevance feedback system,
 which extracts terms from the judged relevant documents far
-outperforms the baseline and performs twice as well on Mean Average Precision (MAP) as the best
+outperforms the baseline (i.e., $0.112$ vs. $ 0.48 $) and performs twice as well on mean average precision (MAP) as the best
 competitor in CLEF-IP 2010. We find a very clear term selection value
-threshold for use when choosing terms.  We also noticed that most of
+threshold for use when choosing terms.  We also notice that most of
 the useful feedback terms are actually present in the original query
-and hypothesise that the baseline system could be substantially
+and hypothesise that the baseline system can be substantially
 improved by removing negative query terms.
 %Furthermore, a similar oracular query restricted
 %to select terms from only the reference patent performs nearly as well
 %as unrestricted term selection suggesting that query reduction methods
 %should suffice for state-of-the-art performance on CLEF-IP 2010.
-We tried four simple automated approaches to identify negative terms
-for query reduction but we were unable to improve on the baseline
+We try four simple automated approaches to identify negative terms
+for query reduction but we are unable to improve on the baseline
 performance with any of them. However, we show that a
 simple, minimal feedback interactive approach where terms are selected
 from only the first retrieved relevant document outperforms the best

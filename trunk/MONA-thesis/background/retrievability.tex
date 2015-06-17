@@ -6,8 +6,8 @@ Essentially, it is desirable that the retrieval system considers all documents w
 \item Length normalisation: incorporation term frequency into a model makes it biased to score longer documents higher than shorter documents, so there is a tendency to over-score longer documents. Shorter documents are not penalised when length normalisation is used.
 \item Convexity: an IR model will have convexity if it ranks document $ d_{3} $, which has both query words $ w_{1} $ and $ w_{2} $, higher than documents $ d_{1} $ and $ d_{2} $, which just have one of the query words twice. 
 \end{enumerate}
-Bias of retrieval systems is the characteristic of a system to give preference to certain features of documents, when it ranks results of any given query. For example, PageRank favours popular documents by evaluating the number of in-links of web pages in addition to pure content features while TF-IDF and Opaki BM25 favour large terms frequencies~\citep{bashir2011relationship}.
-\paragraph{Retrievablity Measurement}
+Bias of retrieval systems is the characteristic of a system to give preference to certain features of documents, when it ranks results of any given query. For example, PageRank favours popular documents by evaluating the number of in-links of web pages in addition to pure content features while TF-IDF and Opaki BM25 favour large terms frequencies~\citep{bashir2011relationship}.\\\\
+\textbf{Retrievablity Measurement}
 \ \\
 Retrievability measures how likely each document $ d $ inside a collection $ C $ can be retrieved within the top \textit{c} ranked results for all queries in $ Q $. The retrievablity $ r(d) $ is defined as follows:
 \[
