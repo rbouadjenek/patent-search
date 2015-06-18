@@ -37,41 +37,44 @@
 \begin{figure}[htpb]
    \centering
    \includegraphics[width=\textwidth,height=49mm]{figs/webprior.png}
-   \caption{The main differences between patent prior art search and an standard web search are: (i) queries are reference patent
+   \caption{The main differences between patent prior art search and a standard web search are: (i) queries are reference patent
 applications, and (ii) patent prior art search is a recall-oriented task.}  
-   \label{fig:compareappr} 
+   \label{fig:webprior} 
 \end{figure}
 \FloatBarrier
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
 \label{sec:Motivation}
-Patent prior art search involves finding previously granted patents,
-or any published work, such as scientific articles or product
-descriptions that may be relevant to a new patent application. 
+Patents are used by legal entities to legally protect their inventions and they are considered a multi-billion dollar industry of licensing and litigation. Given that a single existing patent may invalidate a new patent application, an efficient patent retrieval is an important topic for research. 
+Patent prior art search involves finding previously granted patents, scientific articles, product
+descriptions or other published work that may be relevant to a new patent application. 
+
 The objective and challenges of standard formulations of patent prior art
 search are different from those of standard text and web search \citep{magdy2012toward}.
-
+Figure~\ref{fig:webprior} illustrates the main differences between 
+patent prior art search and a standard web search.
 The main characteristic of prior art search is that queries are reference patent
 applications, which consist of documents with hundreds or thousands of
 words organised into several sections, while typical queries in text
 and web search constitute only a few words. 
-In addition, in contrast to scientific and technical writers, patent writers
-tend to generalise and maximise the scope of what is protected by a
-patent and potentially discourage further innovation by third parties,
-which complicates the task of formulating queries. 
-
 Another important characteristic of patent prior art
 search is being a recall-oriented task, where the primary focus is to
 retrieve all relevant documents at early ranks, in contrast to text
 and web search that are typically precision-oriented, where the primary goal is
 to retrieve a subset of documents that best satisfy the query
 intent (according to~\citep{zhang2010search}, 44.5\% of web search users examine only one retrieved document). 
-In prior art search, missing relevant documents is unacceptable because of the highly commercial nature of patents and the high costs, involved
-in creating a patent and infringing patented material~\citep{joho2010survey}.  
+In prior art search, missing relevant documents is unacceptable because of the highly commercial nature of patents and high costs involved
+in creating a patent and infringing patented material~\citep{joho2010survey}. 
+In addition, in contrast to scientific and technical writers, patent writers
+tend to generalise and maximise the scope of what is protected by a
+patent and potentially discourage further innovation by third parties,
+which complicates the task of formulating~queries. 
 
 The main users of patent prior art search are 
-patent analysts, who are employed to determine the patentability 
-of applications. We do not consider inventors, who want to determine whether their ideas are novel, as users of patent prior art search, because the prior art search starts with querying by a patent application that is not written when the author is going to check its novelty.
+patent analysts\footnote{Inventors, who want to determine whether their ideas are novel, 
+are not consider as users of patent prior art search, because the prior art search starts with querying by a patent application document; this document is not available when  the author is going to ensure the novelty of his idea.}, 
+who are employed to determine the patentability 
+of applications. 
 Patent searchers have to perform an exhaustive and comprehensive search. In general, patent
 examiners spend about 12 hours to complete an invalidity task by examining
 approximately 100 patent documents retrieved by 15 different queries in average~\citep{joho2010survey}. 
@@ -80,7 +83,7 @@ In addition, the number of patent applications and granted patents is rapidly in
 Searching based on patent queries helps patent examiners to save time and avoid 
 formulating appropriate search queries out of long and difficult patent applications. 
  However, this approach is less effective than a typical web search~\citep{lupu2013patent}. 
- In this thesis, we study query reformulation to transform an initial query (i.e., patent document) to another query to improve retrieval effectiveness. We mainly emphasise on query term selection techniques to formulate a query, which achieves the highest~performance.
+ In this thesis, we study query reformulation to transform an initial query (i.e., a patent document) to another query to improve retrieval effectiveness. We mainly emphasise on query term selection techniques to formulate a query, which achieves the highest~performance.
 
 %in formulating an effective query, we study 
 %the query term selection techniques and the sufficiency of 
@@ -98,10 +101,12 @@ reformulation,
 %in Section \ref{Sec:OracularTermSelection}
  we first
 build an oracular query formed from known relevance judgements for the
-CLEP-IP 2010 prior art test collection~\citep{Piroi2010} in an attempt
+CLEP-IP 2010 prior art test collection~\citep{Piroi2010} (Section~\ref{sec:DataCollection}) in an attempt
 to derive an upper bound on performance of standard Okapi BM25 and
-Language Models (LM) retrieval algorithms for this task.  Since the
-results of this evaluation suggest that query reduction methods can
+language models (LM) retrieval algorithms for this task.  
+
+Since the
+results of oracular query evaluation suggest that query reduction methods can
 outperform state-of-the-art prior art search performance, 
 %in Section \ref{sec:AutomatedReduction} 
 we proceed to analyse four simple
@@ -111,7 +116,7 @@ independently yield promise for query reduction that strongly
 outperforms the baseline, 
 %in Section \ref{sec:SemiAutomatedInteractiveReduction} 
 we evaluate an alternative
-interactive feedback approach where terms are selected from only the
+interactive feedback approach, where terms are selected from only the
 first retrieved relevant document.  Observing that such simple
 interactive methods for query reduction with a standard LM retrieval
 model outperform highly engineered patent-specific search systems from
@@ -126,26 +131,50 @@ This thesis proposes term selection techniques for patent prior art search.
 %around some of the limitations of previous approaches. 
 The main contributions of this work are summarised as follows:
 \begin{itemize}
-\item We developed an oracular relevance feedback system which extracts terms from the judged relevant documents that far outperformed the the baseline and around twice as well on MAP as the best competitor in CLEF-IP 2010. Experiments related to oracular system suggests the necessity of precise query reduction and term selection techniques to improve the effectiveness for patent prior art search.
-\item We examined four simple query reduction methods to select useful words and prune out noisy words. We illustrated that these approaches are inefficient because they cannot discriminate between useful and noisy words. Since our system is over-sensitive to the existence of noisy words, we could not achieve high performance via these simple methods.
-\item We showed that a simple minimal interactive relevance feedback approach can perform as well as a highly engineered patent specific search system for CLEF-IP 2010.
+\item We performed a novel analysis in patent IR indicating how identifying 
+an initial set of relevant documents can improve the retrieval effectiveness of 
+patent prior art search through query formulation and query reduction. 
+We developed an oracular relevance feedback system which extracts terms from the 
+judged relevant documents to formulate oracular queries that far outperformed the 
+baseline and  was approximately twice 
+as well on mean average precision (MAP) as the best competitor in CLEF-IP 2010. 
+Experiments related to oracular system suggest the necessity of precise query reduction 
+and term selection techniques to improve the effectiveness of patent prior art search.
+\item Based on our initial analysis, we tried different query reformulation methods to 
+automatically improve the original patent query and approximate the oracular query. 
+However, none of the proposed methods showed significant improvement over baseline, 
+which aligns with most of the reported literature in patent search. 
+We analysed that these approaches are inefficient because they cannot discriminate between 
+useful and noisy words. Since our system is over-sensitive to the existence of noisy words, 
+we could not achieve a noticeable improvement in performance via automated methods.
+\item We proposed labelling the initial set of retrieved results till a relevant document is 
+found can be used to improve the results of the baseline in a superior way and it outperforms one of the 
+best performing system in patent search (e.g., PATATRAS).
+We showed this simple interactive relevance feedback approach is also a minimum burden on the users 
+because the first relevant patent can be found 80\% of the time in the first 10 results of an initial run.
 \end{itemize}
 \section{Thesis Outline}
 \label{sec:outline}
-The rest of the thesis is organised as follows: Chapter ~\ref{cha:background} reviews previous work from a number
-of related research areas, and Chapter~\ref{cha:BaselineIRFramework} describes baseline and experimental Settings, 
-test collections (i.e., queries and relevance judgments),
-etc. In Chapter~\ref{cha:BaselineIRFramework}, we also describe data curation and IPC filter errors.
-Chapter~\ref{cha:analysis} contains the discussion and results related to our main analysis, where we figure out 
-the main cause of low effectiveness of prior art search and then we propose and test the possible term selection methods. 
+This chapter introduced our research problem: techniques to reformulate the best performing 
+query for the patent prior art search. The rest of the thesis is organised as the following. 
+Chapter~\ref{cha:background} defines all background material required to understand both 
+generic and patent-specific information retrieval (IR). It also reviews previous work from a number
+of related research areas, mainly focusing on the existing query reformulation techniques for both 
+generic and patent-specific IR. 
+
+Our main experiments are described in Chapters~\ref{cha:BaselineIRFramework} and~\ref{cha:analysis}. 
+In Chapter~\ref{cha:BaselineIRFramework}, we first explain the baseline system and related experimental settings; 
+then we briefly describe the test collection used in our experiments. We also discuss errors caused by the data curation and applying IPC filter.
+Chapter~\ref{cha:analysis} covers our results related to the main experiments, where we figure out 
+key causes of low effectiveness for prior art search. It also contains our proposed methods to formulate the query, which get improved over the baseline and the best performing patent retrieval system. 
 %we propose our query generation frameworks,
 %suggestion methods, and diversification approaches; Chapter 4, Chapter 5, Chapter 6,
 %and Chapter 7 describes Boolean query generation, phrasal-concept query generation,
 %diverse query generation, and search result diversification, respectively. In each of
 %these chapters, 
 %we provide experimental results and relevant discussion. 
-In Chapter~\ref{cha:conc}, we conclude this thesis by 
-summarising the results and discussing future work.
+Finally, Chapter~\ref{cha:conc} concludes this thesis by 
+summarising the results and discussing interesting directions of future work.
 
 
 %How many chapters you have? You may have Chapter~\ref{cha:background},
