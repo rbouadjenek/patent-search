@@ -348,7 +348,7 @@ We remove words with $\mathit{DF}$ score higher than $\tau$ ($DF(t, Q)>\tau$) fr
 As illustrated in Figure~\ref{fig:combinedapproach} (magenta line), such pruning hurts the performance. $\mathit{DF}$ pruning continues increasing and converges to the baseline as $\tau \to \infty $ (i.e., no pruning).
 Overall, removing document frequent terms from patent query does not consider an appropriate approach since it ruins the performance. 
 \subsubsection{Removing Infrequent Terms in Patent Query}
-Frequent terms inside long and verbose queries are considered important~\cite{maxwell2013compact}. Thus, we hypothesize that removing terms appearing infrequently in the Patent Query may help and hence propose to remove terms with query term frequency (QTF) below a threshold $\tau$ ($QTF(t) \leq \tau$). Results in Figure~\ref{fig:combinedapproach} (blue line) indicate the performance is slightly better than the baseline when removing low QTF terms.  The best MAP is achieved when $\tau=5$ and it meets the baseline when $\tau=0$ (i.e., all terms retained). 
+Frequent terms inside long and verbose queries are considered important~\cite{maxwell2013compact}. Thus, we hypothesise that removing terms appearing infrequently in the Patent Query may help and hence propose to remove terms with query term frequency (QTF) below a threshold $\tau$ ($QTF(t) \leq \tau$). Results in Figure~\ref{fig:combinedapproach} (blue line) indicate the performance is slightly better than the baseline when removing low QTF terms.  The best MAP is achieved when $\tau=5$ and it meets the baseline when $\tau=0$ (i.e., all terms retained). 
 %In this approach the best value for the threshold is $\tau=5$ to get higher MAP.
 \subsubsection{Removing Terms in IPC Titles}
 The titles of IPC codes indicate the intended content of patents classified under that code by using a single phrase or several related phrases linked together. We used words in IPC code titles for each patent query as stopwords to reduce the query, based on the assumption that these terms are common to all patents having the same IPC code label.  As it can be seen in Figure~\ref{fig:combinedapproach} (black line), this approach slightly helps the performance.
@@ -360,7 +360,7 @@ Pseudo relevance feedback ($\mathit{PRF}$) is an automated process without user 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
 PRF(t,Q)=Rel(t)-Irr(t), 
- \label{eq:score}
+ \label{eq:score-prf}
 \end{equation}
 \vspace*{-2ex}
 \begin{displaymath}t\in \lbrace \mbox{terms in top-100 retrieved documents}\rbrace,\end{displaymath}
@@ -537,35 +537,29 @@ esterification reaction.
 %\newpage
 \subsection{Semi-automated Interactive Reduction}
 \label{sec:SemiAutomatedInteractiveReduction}
+
 Our sample analysis of specific queries and terms selected via our oracular
 approach suggests that automated methods fall far short of optimal term selection.
 This leads us to explore another approach of approximating the oracular query
 derived from relevance judgements by using a subset of relevance judgements
-through interactive methods. Specifically, to minimize the need for user interaction,
-in this section we analyse the performance of an oracular query derived from
-only the first relevant document identified in the search results.
+through interactive methods.  Specifically, to evaluate the impact of minimal user interaction,
+\textcolor{black}{we next analyse the performance of an oracular patent query (Equation \ref{eq:score}) derived from
+\emph{only} the top-$k$ ranked relevant documents identified in the search results (for small $k$) --- we assume that the remaining documents in the top-100 are irrelevant.}
 %\begin{comment}
 %All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. 
 %\end{comment}
-Using this approach, Table \ref{tab:firstrel} shows that we can double the MAP in comparison to our baseline and also outperform the PATATRAS system.
-
-Furthermore, to establish the minimal interaction required by this
-approach, Figure \ref{fig:FirstTPRankHisto} indicates that the
-baseline methods return a relevant patent approximately 80\% of the
-time in the first 10 results and 90\% of the time in the first 20
-results.  Hence, such an interactive approach requires relatively low
-user effort while achieving state-of-the-art performance.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Using this approach, Table \ref{tab:firstrel} shows that we can double the MAP in comparison to our baseline and also outperform the PATATRAS system by identifying only the \emph{first} relevant document.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[t!]
   \begin{center}
-   \caption{System performance using minimal relevance feedback. $\tau$ is $\mathit{RF}$ score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
+   \caption{System performance using minimal relevance feedback. $\tau$ is RF score threshold, and $k$ indicates the number of top relevant patents.}\vspace{3mm}
   \input table/partialRFtermselect.tex   
   \label{tab:firstrel}
   \end{center}  
 \end{table}
 %\FloatBarrier
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
 \begin{centering}
 \includegraphics[width=6.5cm, height=3.5cm]{figs/1stRank}
@@ -575,9 +569,83 @@ user effort while achieving state-of-the-art performance.
 \label{fig:FirstTPRankHisto}
 \end{figure}
 %\FloatBarrier
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%% SECTION 4 %%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Summary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Furthermore, to establish the minimal interaction required by this
+approach, Figure \ref{fig:FirstTPRankHisto} indicates that the
+baseline methods return a relevant patent approximately 80\% of the
+time in the first 10 results and 90\% of the time in the first 20
+results. Hence, such an interactive approach requires relatively low
+user effort while achieving state-of-the-art performance.
+
+
+%\begin{figure}
+%\vspace{-2mm}
+%\begin{centering}
+%\includegraphics[width=5.5cm]{figs/1stRank}
+%\par\end{centering}
+%
+%\protect\caption{The distribution of the first relevant document rank over test queries.  
+%%Clearly, the first relevant document is often found in the top-20 meaning that it can identified without excessive search.
+%}
+%\label{fig:FirstTPRankHisto}
+%\vspace{-1mm}
+%\end{figure}
+%
+
+
+%
+%Our sample analysis of specific queries and terms selected via our oracular
+%approach suggests that automated methods fall far short of optimal term selection.
+%This leads us to explore another approach of approximating the oracular query
+%derived from relevance judgements by using a subset of relevance judgements
+%through interactive methods. Specifically, to minimize the need for user interaction,
+%in this section we analyse the performance of an oracular query derived from
+%only the first relevant document identified in the search results.
+%%\begin{comment}
+%%All our attempts to improve the system effectiveness without accessing the relevance feedback were quite in vein because the features we recognized were tightly the combination of the useful words and noisy words and the system performance is too sensitive to the existence of a noisy word or the absence of the useful terms. So, we decided to apply much more realistic approach in which feedback terms are extracted only from the first ranked relevant document retrieved. 
+%%\end{comment}
+%Using this approach, Table \ref{tab:firstrel} shows that we can double the MAP in comparison to our baseline and also outperform the PATATRAS system.
+%
+%Furthermore, to establish the minimal interaction required by this
+%approach, Figure \ref{fig:FirstTPRankHisto} indicates that the
+%baseline methods return a relevant patent approximately 80\% of the
+%time in the first 10 results and 90\% of the time in the first 20
+%results.  Hence, such an interactive approach requires relatively low
+%user effort while achieving state-of-the-art performance.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{table}[t!]
+%  \begin{center}
+%   \caption{System performance using minimal relevance feedback. $\tau$ is $\mathit{RF}$ score threshold, and $k$ indicates the number of first relevant retrieved patents.}\vspace{3mm}
+%  \input table/partialRFtermselect.tex   
+%  \label{tab:firstrel}
+%  \end{center}  
+%\end{table}
+%%\FloatBarrier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{figure}[t!]
+%\begin{centering}
+%\includegraphics[width=6.5cm, height=3.5cm]{figs/1stRank}
+%\par\end{centering}
+%
+%\protect\caption{The distribution of the first relevant document rank over test queries.}
+%\label{fig:FirstTPRankHisto}
+%\end{figure}
+%%\FloatBarrier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION 4 %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary}
+\label{sec:Summary4}
+Our experiments demonstrated the sufficiency of terms inside the topic query for an efficient prior art search. 
+However, we showed that the inclusion of even slight noisy terms can significantly hurt the performance. 
+
+We drove an upper bound on performance through building an oracular query from known relevance judgements. 
+Our attempts to automatically approximate the oracular query using different query term selection techniques 
+were unsuccessful to retain only oracular query terms and the reformulated query was contaminated with sufficient 
+noisy terms, which were hurting the performance. Finally, we found that by
+identifying only the first 
+relevant document in the search results we could outperform over the baseline as well the PATATRAS system.
 

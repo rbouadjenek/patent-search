@@ -24,14 +24,14 @@ Recall=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(relevant \: items)}=
 \]
 For many prominent applications, particularly web search, good results on the first page or the first three pages are more important than all relevant documents. Hence, users prefer to look at precision and recall over a series of different rank cut-offs rather than to look at the entire retrieved set. This is referred to as ``Precision/Recall at \textit{k}'', for example ``Precision/Recall at 10''~\citep{manning2008introduction}. 
 \begin{equation}
-precision@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: rank \: k)}{k}.
+Precision@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: rank \: k)}{k},
 \end{equation}
 \begin{equation}
-recall@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: rank \: k)}{\sharp(documents \: relevant)}.
+Recall@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: rank \: k)}{\sharp(documents \: relevant)}.
 \end{equation}
 \paragraph{Average Precision and Mean Average Precision}
 \ \\
-We can measure Mean Average Precision (MAP) by calculating Average Precision (AP) on retrieval results. AP is the average of precision at each point where a relevant document is found is computed as:
+We can measure mean average precision (MAP) by calculating average precision (AP) on retrieval results. AP is the average of precision at each point where a relevant document is found is computed as:
 \begin{equation}
 AP=\frac{\sum\limits_{r=1}^{N}(Prec(r)\times rel(r))}{n},
 \end{equation}
