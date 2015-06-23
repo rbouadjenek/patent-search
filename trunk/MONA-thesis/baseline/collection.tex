@@ -1,18 +1,18 @@
 The prior art candidate search task (PAC) was introduced in three subsequent years: 
 2009, 2010, and 2011 by CLEF-IP evaluation track\footnote{\url{http://www.ir-facility.org/prior-art-search1}}. 
-We used CLEF-IP 2010 data collection\footnote{\url{http://www.ifs.tuwien.ac.at/~clef-ip/}}. 
+We use CLEF-IP 2010 data collection\footnote{\url{http://www.ifs.tuwien.ac.at/~clef-ip/}}. 
 The documents in the patent collection are stored as XML files. The documents are derived from 
 European Patent Office (EPO) and have mixed content in English, German and French.
 The files contain bibliographic data as well as descriptive text. The XML files are quite comprehensive, 
 containing detailed information on inventors, assignees, priority dates and so on.
 CLEF-IP 2010 contains $  2,6  $ million patent documents, corresponding to approximately $ 1,3 $ 
-million individual patents published until 2001. Prior art candidate search task contained $2,000$ topics, 
-participants to the prior art task were allowed to submit results for a smaller topic set of $500$ topics. 
-The evaluations can be also done on topic subsets where the topic document language was English, German, and French, 
-respectively. These topic subsets were extracted from the large topic set, resulting in $1,348$ English language topics, 
-$518$ German topics and $134$ French topics. We used a subset of $1,281$ topics (queries)
-in the English test set where we determined at least one
-valid, relevant English document was available.
+million individual patents published until 2001. Prior art candidate search task contain $2,000$ topics.
+%, participants to the prior art task in CLEF-IP 2010 were allowed to submit results for a smaller topic set of $500$ topics. 
+The evaluations can be also done on topic subsets where the topic document language is English, German, and French, 
+respectively. These topic subsets are extracted from the large topic set, resulting in $1,348$ English language topics, 
+$518$ German topics and $134$ French topics. We use a subset of $1,281$ topics (queries)
+in the English test set where we determine at least one
+valid, relevant English document is available.
 
 Each patent in the collection consists of multiple versions of documents in the XML format, labelled as A1, A2, $\ldots$, B1, and B2. The letter 'A' refers to different versions of patent applications. The 'B' versions refer to granted patents. Each of these versions contains some updates to the text, citations, and claims of previous one. As recommended by~\cite{magdy2012toward}, we merge different versions of a single patent into one single document. The content of each section in the merged document is taken from the latest available versions of documents, which leads to presence of some patents in the collection with many missing content fields. The problem of missing data is in some cases so significant that some of these patents consist only of the~title.
 

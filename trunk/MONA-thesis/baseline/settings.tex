@@ -27,7 +27,7 @@ We achieved the best performance while querying with the description
 section as in previous work \citep{xue2009transforming} and using
 either the LM or the BM25 scoring function. 
 We call this initial 
-query the Patent Query and use it as our main baseline.
+query the Patent Query and use it as our main~baseline.
 \begin{savenotes}
 \begin{table*}[t!]
   \begin{center}
@@ -41,15 +41,15 @@ query the Patent Query and use it as our main baseline.
 %\noindent
 
 Table~\ref{tab:IRmodels_Sections} compares the system performance for different IR models 
-(BM25, TF-IDF, LM with Dirichlet, and Jelinek-Mercer smoothing --- Section~\ref{subsub:retmodels}) with Lucene default settings and different sections of the patent query.
-It can be seen that the results for BM25 and LM with Dirichlet (LMDIR) are very similar, therefore in the this thesis, we report our results based on LM.    
+(BM25, TF-IDF, LM with Dirichlet (LMDir), and Jelinek-Mercer (LMJ) smoothing --- Section~\ref{subsub:retmodels}) with Lucene default settings and different sections of the patent query.
+It can be seen that the results for BM25 and LM with Dirichlet smoothing are very similar, therefore in the this thesis, we report our results based on LM.    
 
 In addition, we compare our results to \textit{PATATRAS}, a highly engineered system developed by Lopez and Romary~\cite{lopez2010experiments}, 
 %~\cite{lopez2010patatras}
 which achieved the best performance in the CLEF-IP 2010 competition. This system uses multiple retrieval models %(especially Kullback-Leibler divergence
 %~\cite{Baeza-Yates2011} 
 %and Okapi BM25) 
-and exploits patent metadata and citation structures.  All results in the paper use the 1348 English topic subset as reported in the PATATRAS evaluation~\citep{piroi2010clef}.  Since the evaluation of our systems used a slightly smaller subset of 1281 topics as noted previously, we assume no relevant results were found by our systems for the 67 remaining topics of the 1348 topic subset in order to ensure a fair comparison to~PATATRAS.
+and exploits patent metadata and citation structures.  All results in this thesis use the 1348 English topic subset as reported in the PATATRAS evaluation~\citep{piroi2010clef}.  Since the evaluation of our systems used a slightly smaller subset of 1281 topics, we assume no relevant results were found by our systems for the 67 remaining topics of the 1348 topic subset in order to ensure a fair comparison to~PATATRAS.
 
 %In addition, we compare our results to \textit{PATATRAS}, a highly engineered system developed by~\cite{lopez2010experiments}, which achieved the best performance in the CLEF-IP 2010 competition. This system uses multiple retrieval models (especially Kullback-Leibler divergence~\citep{Baeza-Yates2011} and Okapi BM25) and exploits patent meta-data and citation structures. While our evaluation excludes 22 of the 1$,303$ topics for which no relevant English documents were available, the difference in the MAP score between our evaluation and the full $1,303$ topic evaluation of PATATRAS is negligible. We exclude 22 queries because the focus of our research has been on term analysis and errors related to term matching process of ranking functions. Therefore, we eliminated data curation errors and IPC filter errors --- as they will be described in Section~\ref{sec:DataCurationErrors} and Section~\ref{sec:ClassificationCodeMismatch} --- to increase the accuracy of our data analysis results. 
 

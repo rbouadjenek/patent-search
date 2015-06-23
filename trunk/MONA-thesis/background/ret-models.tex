@@ -1,7 +1,7 @@
 Having constructed an index on a document collection, queries need to 
 be matched to documents and a list of answers returned. We need a ranking algorithm based on good mathematical retrieval models to 
 return relevant documents at top of the ordered list, leading to high effectiveness. 
-Three well-known retrieval models are~\citep{croft2010search}: (1) vector space models (e.g., term frequency and inverse document frequency (TF-IDF)), (2) probabilistic models (e.g., BM25\footnote{BM stands for Best Match, and 25 is just a numbering scheme used by~\cite{robertson1994some} to keep track of weighting variants.}), and (3) Language Models (LM). 
+Three well-known retrieval models are~\citep{croft2010search}: (1) vector space models (e.g., term frequency and inverse document frequency (TF-IDF)), (2) probabilistic models (e.g., BM25\footnote{BM stands for Best Match, and 25 is just a numbering scheme used by~\cite{robertson1994some} to keep track of weighting variants.}), and (3) Language Models~(LM). 
 
 \paragraph{The Vector Space Model}
 \ \\
@@ -31,7 +31,7 @@ C=
 %\capstarttrue
 %\FloatBarrier 
 \noindent
-where $ D_{i}\in C $ is a document in the collection $ C $, $ d_{ik} $ is a weight for each term $ t_{k} $ in the document $ D_{i} $, and $ q_{k} $\footnote{We usually ignore indices to simplify the equations in this thesis.} represents a term in the query $ Q $.
+where $ D_{i} $ is a document in the collection $ C $, $ d_{ik} $ is a weight for each term $ t_{k} $ in the document $ D_{i} $, and $ q_{k} $\footnote{We ignore indices to simplify the equations in this thesis.} represents a term in the query $ Q $. The collection is represented by the matrix $C_{Nm}$, where $N$ is the number of documents in the collection and $m$ is the number of all vocabularies. If a term does not appear in a document or a query, the weight for that particular term will be zero. 
 
 The TF-IDF weighting function multiplies the occurrence of each term in the document ($ c(t_{k},Di)$)
 by the inverse document frequency ($ idf $) measure. $ idf $ measures the importance of a term in the collection: 
@@ -43,7 +43,7 @@ where $ df(t_{k}) $ is the number of documents in the collection, which contain 
 
 Given a query $Q$, documents are ranked based on the overlap score measure. The TF-IDF score of a document $D$ is the sum, over all query terms, of the TF-IDF weight of each query term $q$ in $D$. After pivoted normalisation, the TF-IDF score for each document is calculated as follows~\citep{bache2010improving}:
 \begin{equation}
-TFIDF(Q,D)=\sum\limits_{q \in Q\cap D}\frac{c(q,D).idf(q)}{(1-b)+b.\frac{|D|}{avdl}},
+TFIDF(Q,D)=\sum\limits_{q \in Q\cap D}\frac{c(q,D)\times idf(q)}{(1-b)+b.\frac{|D|}{avdl}},
 \label{eq:tfidf}
 \end{equation}
 where $ |D| $ is the size of the document (i.e, the number of words) and $ avdl $ is the average document length, $ c(q,D)$ is the number of occurrence of each query term in the document $D$, and $idf(q)$ is the importance of each query term in the collection. TF-IDF model scores a document higher if more query terms are present or these terms are rarer in the collection. The parameter $ b $ is set to 0.75 to be the same as the BM25 model as will be described below.
@@ -51,7 +51,7 @@ where $ |D| $ is the size of the document (i.e, the number of words) and $ avdl 
 \ \\
 BM25 is a popular and effective ranking algorithm, which extends the scoring function for the binary independence model~\citep{manning2008introduction} to include document and query term weights. Each document is scored based on the BM25 weighting scheme --- often called the Okapi weighting --- as follows:
 \begin{equation}
-BM25(Q,D)=\sum\limits_{q \in Q\cap D}\log\frac{N+1}{df(q)}.\frac{(k_{1}+1)c(q,D)}{k_{1}((1-b)+b.\frac{|D|}{avdl})+c(q,D)}.
+BM25(Q,D)=\sum\limits_{q \in Q\cap D}\Bigg(\log\frac{N+1}{df(q)}\Bigg)\Bigg(\frac{(k_{1}+1)c(q,D)}{k_{1}((1-b)+b.\frac{|D|}{avdl})+c(q,D)}\Bigg).
 \label{eq:idfbm25}
 \end{equation}
 The variable $ k_{1} $ is a positive tuning parameter that calibrates the document term frequency scaling. The setting of $ k_{1}=0 $ corresponds to a binary model (i.e., no term frequency), and setting a large value for $ k_{1} $ corresponds to using raw term
@@ -59,7 +59,7 @@ frequency. The parameter $ b $ is also used for tuning ($ 0 \leq b \leq 1 $) whi
 
 If the query is long, then we might also use similar weighting for query terms. This is appropriate if the queries are paragraph long information needs, but unnecessary for short queries.
 \begin{equation}
-BM25(Q,D)=\sum\limits_{q \in Q\cap D}\log\frac{N+1}{df(q)}.\frac{(k_{1}+1)c(q,D)}{k_{1}((1-b)+b.\frac{|D|}{avdl})+c(q,D)}.\frac{(k_{3}+1)c(q,Q)}{k_{3}+c(q,Q)},
+BM25(Q,D)=\sum\limits_{q \in Q\cap D}\log\Bigg(\frac{N+1}{df(q)}\Bigg)\Bigg(\frac{(k_{1}+1)c(q,D)}{k_{1}((1-b)+b\frac{|D|}{avdl})+c(q,D)}\Bigg)\Bigg(\frac{(k_{3}+1)c(q,Q)}{k_{3}+c(q,Q)}\Bigg),
 \label{eq:idfbm25}
 \end{equation}
 where $ c(q,Q) $ is the frequency of term $ q $ in the query $ Q $, and $ k_{3} $ being another positive tuning parameter that this time calibrates term frequency scaling of the query. In the equation presented, there is no length normalisation of
