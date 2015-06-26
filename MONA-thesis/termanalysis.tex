@@ -397,11 +397,11 @@ In Section~\ref{sec:OracularQueryFormulation}, we showed that terms inside the p
 however, results related to automated query reduction techniques showed only a little improvement. 
 We analyse the causes through the following experiments.    
 
-First, we use an anecdotal example --- a sample query --- to yse terms selected by proposed query reduction methods. 
+First, we use an anecdotal example --- a sample query --- to analyse terms selected by proposed query reduction methods. 
 Figure~\ref{fig:scatter_combined_a} shows a scatter plot of $\mathit{DF}$ score versus $\mathit{RF}$ score for the sample query --- PAC-1612. Each blue point is a vocabulary in top-100 retrieved document vocabulary set. We remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$ score; however it does not indicate that a term with a higher $\mathit{DF}$ score has essentially a lower $\mathit{RF}$ score.
-Hence, if we prune it out in $\mathit{DF}$ pruning method, we are not essentially removing an unimportant term.
-As it is illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms (e.g., $DF(t, Q)>\tau$), we also remove many useful terms (e.g., $RF(t, Q)>0$). In Figure~\ref{fig:scatter_combined_a}, red points are all query terms and in Figure~\ref{fig:scatter_combined_b}, they are query terms with term frequency higher than 5 (e.g., $QTF(t)>5$) --- where we got the best performance. 
-Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b} show that on the one hand, we are removing considerable amount of noisy terms by pruning out  terms with $QTF(t)<5$; on the other hand, we are also removing useful terms. In addition, remained terms are not purely useful terms because they are contaminated with the noisy terms. %We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the noisy terms out. 
+Hence, if we prune a document frequent term out in $\mathit{DF}$ pruning method, we are not essentially removing an unimportant term.
+As it is illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms (i.e., $DF(t, Q)>\tau$), we also remove many useful terms (e.g., $RF(t, Q)>0$). In Figure~\ref{fig:scatter_combined_a}, red points are all query terms and in Figure~\ref{fig:scatter_combined_b}, they are query terms with term frequency higher than 5 (i.e., $QTF(t)>5$) --- where we got the best performance. 
+Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b} shows that by pruning out  terms with $QTF(t)<5$ on the one hand, we are removing considerable amount of noisy terms; on the other hand, we are also removing useful terms. In addition, remained terms are not purely useful terms because they are still contaminated with the noisy~terms. %We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the noisy terms out. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
@@ -410,11 +410,11 @@ Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b}
 %\par\end{centering}
 
 \begin{centering}
-\subfigure[Query terms ($t \in Query$) versus document frequent terms.\label{fig:scatter_combined_a}]{\includegraphics[width=7cm]{figs/qterm_rf_df.eps}} \hspace*{.1cm} 
-\subfigure[Query terms ($t \in Query \; \bigwedge \; QTF(t)>5$) versus document frequent terms\label{fig:scatter_combined_b}]{\includegraphics[width=7cm]{figs/df-rf-tauline.eps}} 
+\subfigure[Red points are all terms in the query (e.g, $t \in Query$).\label{fig:scatter_combined_a}]{\includegraphics[width=7cm]{figs/qterm_rf_df.eps}} \hspace*{.1cm} 
+\subfigure[Red points are query terms where $\mathit{QTF}$ is higher than 5 (i.e., $t \in Query \; \bigwedge \; QTF(t)>5$).\label{fig:scatter_combined_b}]{\includegraphics[width=7cm]{figs/df-rf-tauline.eps}} 
 \par\end{centering} 
 
-\protect\caption{Anecdotal example for simple query reduction approaches. Blue points are all terms in a vocabulary set made of top-100 retrieved documents and red points are terms in the patent query.}
+\protect\caption{Scatter plot of $\mathit{DF}$ score versus $\mathit{RF}$ score. This anecdotal example analyses the query reduction approaches. Blue points are all terms in a vocabulary set made of top-100 retrieved documents and red points are terms in the patent query.}
 \label{fig:scatter_combined}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -445,9 +445,9 @@ Avg_{RF}(\hat{t}, Q) = \frac{1}{|\hat{t}|}\sum {RF}(\hat{t}, Q), \;\;\;\; \hat{t
 \end{equation}
 %\begin{displaymath}\hat{t}\in \{\hat{t} | PRF(\hat{t})>\tau\}\end{displaymath}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-where $Avg_{RF}(t, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{RF}$ terms ($RF(t, Q)>\tau$), $Avg_{RF}(\hat{t}, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{PRF}$ terms ($PRF(\hat{t}, Q)>\tau$), $\tau$ is a threshold for the score to select terms, $t$ is a symbol for terms with high $\mathit{RF}$ score and $\hat{t}$ is a symbol for terms with high $\mathit{PRF}$ score.
+where $Avg_{RF}(t, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{RF}$ terms (i.e., $RF(t, Q)>\tau$), $Avg_{RF}(\hat{t}, Q)$ is the average  $\mathit{RF}$ score for top  $\mathit{PRF}$ terms (i.e., $PRF(\hat{t}, Q)>\tau$), $\tau$ is a threshold for the score to select terms, $t$ is a symbol for terms with high $\mathit{RF}$ score and $\hat{t}$ is a symbol for terms with high $\mathit{PRF}$ score.
 
-Figure~\ref{fig:rf_prf} shows a scatter plot of average $\mathit{RF}$ score for top relevance feedback terms and top pseudo relevance feedback terms. First, we observe that almost the $\mathit{RF}$ score of top relevance feedback terms is higher than the $\mathit{RF}$ score of top pseudo relevance feedback terms for almost all queries ($ Avg_{RF}(t, Q) > Avg_{RF}(\hat{t}, Q)$). We can also see that for about half of the queries, $Avg_{RF}(\hat{t}, Q)$ is negative that indicates we are selecting noisy terms by their pseudo relevance feedback score rather than useful terms. Second, we can find a very slight positive correlation toward selecting positive terms by pseudo relevance feedback, which is the reason that we could get a little improvement applying query reduction by $\mathit{PRF}$.  
+Figure~\ref{fig:rf_prf} shows a scatter plot of average $\mathit{RF}$ score for top relevance feedback terms versus average $\mathit{RF}$ score for top pseudo relevance feedback terms. First, we observe that almost the $\mathit{RF}$ score of top relevance feedback terms is higher than the $\mathit{RF}$ score of top pseudo relevance feedback terms for almost all queries (i.e., $ Avg_{RF}(t, Q) > Avg_{RF}(\hat{t}, Q)$). We can also see that for about half of the queries, $Avg_{RF}(\hat{t}, Q)$ is negative that indicates we are selecting noisy terms by their pseudo relevance feedback score rather than useful terms. Second, we can find a very slight positive correlation toward selecting positive terms by pseudo relevance feedback, which is the reason that we could get a little improvement applying query reduction using $\mathit{PRF}$.  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[htpb]
 %\begin{figure}[t!]
@@ -521,7 +521,7 @@ esterification reaction.
 
 Finally, we analyse the reasons that four proposed query reduction approaches fail to approximate the oracular patent query, using an anecdotal example of a sample query about an invention related to ``emulsifier''. 
 Figure \ref{fig:anecdotal} shows the raw abstract of the invention, and the top high-scoring terms (except for IPC title terms which are not scored, but simply displayed) and their associated $\mathit{RF}$ scores for each approach. 
-Terms are chosen based on the scores for each approach as follows: 
+Terms are chosen based on their scores for each approach as follows: 
 \begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}.\end{displaymath}
 % Scott: the following is unclear... instead have modified Figure 3 caption.
 %IPC title terms are the words appearing in the IPC title and do not have any score.
@@ -720,5 +720,5 @@ Our attempts to automatically approximate the oracular query using different que
 were unsuccessful to retain only oracular query terms and the reformulated query was contaminated with sufficient 
 noisy terms, which were hurting the performance. Finally, we found that by
 identifying only the first 
-relevant document in the search results we could outperform over the baseline as well the PATATRAS system.
+relevant document from the search results we could outperform over the baseline as well the PATATRAS system.
 
