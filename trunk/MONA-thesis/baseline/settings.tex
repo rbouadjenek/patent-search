@@ -3,12 +3,10 @@ the Lucene search engine\footnote{\texttt{http://lucene.apache.org/}}, which pro
 smoothing, and Jelinek-Mercer smoothing)~\citep{zhai2004study} scoring functions. %We consider 
 %using BM25F~\cite{robertson2004simple} but had no opportunity to learn appropriate field weights.
 We used Lucene to index the English subset of CLEF-IP 2010 dataset\footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}} 
-(We will describe CLEF-IP in Section~\ref{sec:DataCollection}) that contains 2.6 million patent documents and $1,303$ topics (queries) for the English test set.
+(Section~\ref{sec:DataCollection}).
 We used the default Lucene settings with the Porter stemming algorithm \cite{Porter1980} and English stop-word removal. 
 We also removed patent-specific stop-words as described in \cite{magdy2012toward}.
-In
-our implementation, each section of a patent (title, abstract, claims,
-and description) is indexed in a separate field. However, when a query 
+In our implementation, each section of a patent (title, abstract, description, and claims) is indexed in a separate field. However, when a query 
 is processed, all indexed fields are targeted with an equal weight, since this generally
 offers best retrieval performance. We also used the International
 Patent Classification (IPC) codes assigned to the topics to filter
@@ -26,7 +24,7 @@ are willing to assess the top 100 patents \citep{joho2010survey}.
 We achieved the best performance while querying with the description
 section as in previous work \citep{xue2009transforming} and using
 either the LM or the BM25 scoring function. 
-We call this initial 
+We call the initial 
 query the Patent Query and use it as our main~baseline.
 \begin{savenotes}
 \begin{table*}[t!]
@@ -41,7 +39,7 @@ query the Patent Query and use it as our main~baseline.
 %\noindent
 
 Table~\ref{tab:IRmodels_Sections} compares the system performance for different IR models 
-(BM25, TF-IDF, LM with Dirichlet (LMDir), and Jelinek-Mercer (LMJ) smoothing --- Section~\ref{subsub:retmodels}) with Lucene default settings and different sections of the patent query.
+(BM25, TF-IDF, LM with Dirichlet (LMDir) and Jelinek-Mercer (LMJ) smoothing --- Section~\ref{subsub:retmodels}) with Lucene default settings and different sections of the patent query.
 It can be seen that the results for BM25 and LM with Dirichlet smoothing are very similar, therefore in the this thesis, we report our results based on LM.    
 
 In addition, we compare our results to \textit{PATATRAS}, a highly engineered system developed by Lopez and Romary~\cite{lopez2010experiments}, 
