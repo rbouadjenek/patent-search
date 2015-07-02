@@ -13,7 +13,7 @@ Many well-known information retrieval (IR) techniques (e.g., typical query expan
 for web search, are unsuccessful for patent 
 prior art search.
 In this thesis, we mainly investigate the reasons that generic IR techniques are not 
-effective for prior art search on the CLEF-IP\footnote{Cross Language Evaluation Forum for Intellectual Property track} test collection.   
+effective for prior art search on the CLEF-IP test collection.   
 %Hence in this thesis, we analysed the reasons lead in low effectiveness 
 %of general IR techniques for prior art search on the CLEF-IP test collection. 
 First, we analyse the errors caused due to data curation and experimental settings 
@@ -24,8 +24,8 @@ performance on the CLEF-IP prior art test collection, starting with
 the description section of the reference patent and using language models (LM) and BM25
 scoring functions. We find that an oracular relevance feedback system,
 which extracts terms from the judged relevant documents far
-outperforms the baseline (i.e., $0.112$ vs. $ 0.48 $) and performs twice as well on mean average precision (MAP) as the best
-competitor in CLEF-IP 2010. We find a very clear term selection value
+outperforms the baseline (i.e., $0.11$ vs. $ 0.48 $) and performs twice as well on mean average precision (MAP) as the best
+participant in CLEF-IP 2010. We find a very clear term selection value
 threshold for use when choosing terms.  We also notice that most of
 the useful feedback terms are actually present in the original query
 and hypothesise that the baseline system can be substantially
@@ -37,7 +37,7 @@ improved by removing negative query terms.
 We try four simple automated approaches to identify negative terms
 for query reduction but we are unable to improve on the baseline
 performance with any of them. However, we show that a
-simple, minimal feedback interactive approach where terms are selected
+simple, minimal feedback interactive approach, where terms are selected
 from only the first retrieved relevant document outperforms the best
 result from CLEF-IP 2010, suggesting the promise of interactive methods
 for term selection in patent prior art search.

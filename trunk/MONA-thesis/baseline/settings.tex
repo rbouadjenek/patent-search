@@ -3,22 +3,24 @@ the Lucene search engine\footnote{\texttt{http://lucene.apache.org/}}, which pro
 smoothing, and Jelinek-Mercer smoothing)~\citep{zhai2004study} scoring functions. %We consider 
 %using BM25F~\cite{robertson2004simple} but had no opportunity to learn appropriate field weights.
 We used Lucene to index the English subset of CLEF-IP 2010 dataset\footnote{\texttt{http://www.ifs.tuwien.ac.at/\textasciitilde{}clef-ip/}} 
-(Section~\ref{sec:DataCollection}).
+(Section~\ref{sec:DataCollection}) 
+that contains $2.6$ million patent documents and a subset of $1, 281$ topics (queries)
+in the English test set where we determined at least one
+valid, relevant English document was available.
 We used the default Lucene settings with the Porter stemming algorithm \cite{Porter1980} and English stop-word removal. 
 We also removed patent-specific stop-words as described in \cite{magdy2012toward}.
 In our implementation, each section of a patent (title, abstract, description, and claims) is indexed in a separate field. However, when a query 
 is processed, all indexed fields are targeted with an equal weight, since this generally
-offers best retrieval performance. We also used the International
-Patent Classification (IPC) codes assigned to the topics to filter
+offers best retrieval performance. We also used the 
+IPC codes assigned to the topics to filter
 the search results by constraining them to have common IPC codes with
-the patent topic as suggested in previous works~\citep{lopez2010patatras}.
+the patent topic as suggested in previous work~\citep{lopez2010patatras}.
 Although this IPC code filter may prevent retrieval of relevant patents 
 --- as it will be explained in Section~\ref{sec:ClassificationCodeMismatch} --- we
 keep it for the following reasons: (i) more than 80\%
 of the patent queries share an IPC code with their associated relevant
 patents, and (ii) it makes the retrieval process much faster. The accuracy of the results is evaluated 
-using three popular metrics --- Mean Average Precision (MAP), Average Recall, and Patent Retrieval Evaluation 
-Score (PRES)~\citep{magdy2012toward} --- on the top-100 results for each query, assuming that patent examiners 
+using three popular metrics --- MAP, average recall, and PRES --- on the top 100 results for each query, assuming that patent examiners 
 are willing to assess the top 100 patents \citep{joho2010survey}. 
 
 We achieved the best performance while querying with the description
@@ -47,7 +49,7 @@ In addition, we compare our results to \textit{PATATRAS}, a highly engineered sy
 which achieved the best performance in the CLEF-IP 2010 competition. This system uses multiple retrieval models %(especially Kullback-Leibler divergence
 %~\cite{Baeza-Yates2011} 
 %and Okapi BM25) 
-and exploits patent metadata and citation structures.  All results in this thesis use the 1348 English topic subset as reported in the PATATRAS evaluation~\citep{piroi2010clef}.  Since the evaluation of our systems used a slightly smaller subset of 1281 topics, we assume no relevant results were found by our systems for the 67 remaining topics of the 1348 topic subset in order to ensure a fair comparison to~PATATRAS.
+and exploits patent metadata and citation structures.  All results in this thesis use the $1, 348$ English topic subset as reported in the PATATRAS evaluation~\citep{piroi2010clef}.  Since the evaluation of our systems used a slightly smaller subset of $1, 281$ topics, we assume no relevant results were found by our systems for the $67$ remaining topics of the $1, 348$ topic subset in order to ensure a fair comparison to~PATATRAS.
 
 %In addition, we compare our results to \textit{PATATRAS}, a highly engineered system developed by~\cite{lopez2010experiments}, which achieved the best performance in the CLEF-IP 2010 competition. This system uses multiple retrieval models (especially Kullback-Leibler divergence~\citep{Baeza-Yates2011} and Okapi BM25) and exploits patent meta-data and citation structures. While our evaluation excludes 22 of the 1$,303$ topics for which no relevant English documents were available, the difference in the MAP score between our evaluation and the full $1,303$ topic evaluation of PATATRAS is negligible. We exclude 22 queries because the focus of our research has been on term analysis and errors related to term matching process of ranking functions. Therefore, we eliminated data curation errors and IPC filter errors --- as they will be described in Section~\ref{sec:DataCurationErrors} and Section~\ref{sec:ClassificationCodeMismatch} --- to increase the accuracy of our data analysis results. 
 
