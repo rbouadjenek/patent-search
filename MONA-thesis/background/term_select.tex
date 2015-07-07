@@ -2,7 +2,7 @@ Identifying useful query terms and giving them higher weights is important to bu
 %\[ 
 \begin{equation}
 \label{eq:kld}
- KLD(P_{Q}(t)||P_{C}(t)) = P_{Q}(t)log\Big(\frac{P_{Q}(t)}{P_{C}(t)}\Big),  
+ KLD(P_{Q}(t)||P_{C}(t)) = P_{Q}(t)\log\Big(\frac{P_{Q}(t)}{P_{C}(t)}\Big),  
 \end{equation}
 % \tag{2-1}\label{eq:kld}
 % \]
@@ -11,10 +11,10 @@ By applying the Equation~\ref{eq:kld}, it is possible to rank all the terms from
 %\[ 
 \begin{equation}
 \label{eq:IPCmodel}
- P_{Q}(t) = \lambda\frac{TF(t,Q)}{|Q|}+\frac{(1-\lambda)}{N}\sum_{d\in IPC_{Q}}\frac{TF(t,D)}{|D|} , 
+ P_{Q}(t) = \lambda\frac{c(t,Q)}{|Q|}+\frac{(1-\lambda)}{N}\sum_{D\in IPC_{Q}}\frac{c(t,D)}{|D|} , 
 \end{equation}
  %\tag{2-2}\label{eq:IPCmodel}
 % \]
-where $ TF(t,Q) $ is the term frequency of the term $ t $ in the query patent document, $ |Q| $ is the length of the query patent, $ N $ is the size of the relevant cluster with the same IPC code as the query, and $ \lambda $ is the smoothing parameter.
+where $ c(t,Q) $ is the term frequency of the term $ t $ in the query patent document, $ |Q| $ is the length of the query patent, $ N $ is the size of the relevant cluster with the same IPC code as the query, and $ \lambda $ is the smoothing parameter.
 %\item Used patent structure, linguistic clues, and word relations to identify important terms. Showed that keyword dependency relation
 %approach achieved 13-18\% improvement in MAP over the traditional tf-idf based term weighting method when a single field is used for query formulation. Obtained 42-46\% improvement in MAP when used additional terms through pattern-based semantic tagging.~\citep{nguyen2012query}
