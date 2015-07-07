@@ -72,13 +72,13 @@ which complicates the task of formulating~queries.
 
 The main users of patent prior art search are 
 patent analysts\footnote{Inventors, who want to determine whether their ideas are novel, 
-are not consider as users of patent prior art search, because the prior art search starts with querying by a patent application document; this document is not available when  the author is going to ensure the novelty of his idea.}, 
+are not considered as users of patent prior art search, because the prior art search starts with querying by a patent application document; this document is not available when  the author is going to ensure the novelty of his idea.}, 
 who are employed to determine the patentability 
 of applications. 
 Patent searchers have to perform an exhaustive and comprehensive search. In general, patent
 examiners spend about 12 hours to complete an invalidity task by examining
 approximately 100 patent documents retrieved by 15 different queries on average~\citep{joho2010survey}. 
-In addition, the number of patent applications and granted patents is rapidly increasing in recent years. For example, $326,033$ patent applications were approved in US alone\footnote{\texttt{http://www.uspto.gov/web/offices/ac/ido/oeip/taf/ us\_stat.htm}} in 2014, a number that has doubled in the past 15 years.
+In addition, the number of patent applications and granted patents is rapidly increasing in recent years. For example, $326,033$ patent applications were approved in US alone\footnote{\texttt{http://www.uspto.gov/web/offices/ac/ido/oeip/taf/ us\_stat.htm}} in 2014; a number that has doubled in the past 15 years.
 
 Searching based on patent queries helps patent examiners to save time and avoid 
 formulating appropriate search queries out of long and difficult patent applications. 
@@ -95,7 +95,7 @@ formulating appropriate search queries out of long and difficult patent applicat
 In this work, we focus on the task of query
 reformulation~\citep{Baeza-Yates2011} specifically applied to patent
 prior art
-search~\citep{mahdabi2014patent,Piroi2010,xue2009transforming}. While
+search~\citep{xue2009transforming,Piroi2010,mahdabi2014patent}. While
 prior work has largely focused on specific techniques for query
 reformulation, 
 %in Section \ref{Sec:OracularTermSelection}
@@ -109,7 +109,7 @@ Since the
 results of oracular query evaluation suggest that query reduction methods can
 outperform state-of-the-art prior art search performance, 
 %in Section \ref{sec:AutomatedReduction} 
-we proceed to analyse four simple
+we proceed to analysing four simple
 automated methods for identifying terms to remove from the original
 patent query.  Finding that none of these methods seems to
 independently yield promise for query reduction that strongly
@@ -120,7 +120,7 @@ interactive feedback approach, where terms are selected from only the
 first retrieved relevant document.  Observing that such simple
 interactive methods for query reduction with a standard LM retrieval
 model outperform highly engineered patent-specific search systems from
-CLEF-IP 2010, we conclude that interactive methods offer a promising
+CLEF-IP 2010\footnote{Cross-language Evaluation Forum, Intellectual Property Lab}, we conclude that interactive methods offer a promising
 avenue for simple but highly effective term selection in patent prior
 art search.
 
@@ -130,8 +130,9 @@ This thesis proposes term selection techniques for patent prior art search.
 %exact optimal solutions to H-MDP and H-POMDP, working
 %around some of the limitations of previous approaches. 
 The main contributions of this work are summarised as follows:
-\begin{itemize}
-\item We performed a novel analysis in patent IR indicating how identifying 
+\begin{description}
+%\begin{itemize}
+\item[First,] we performed a novel analysis in patent IR indicating how identifying 
 an initial set of relevant documents can improve the retrieval effectiveness of 
 patent prior art search through query formulation and query reduction. 
 We developed an oracular relevance feedback system which extracts terms from the 
@@ -140,19 +141,20 @@ baseline and  was approximately twice
 as well on mean average precision (MAP) as the best competitor in CLEF-IP 2010. 
 Experiments related to oracular system suggest the necessity of precise query reduction 
 and term selection techniques to improve the effectiveness of patent prior art search.
-\item Based on our initial analysis, we tried different query reformulation methods to 
+\item[Second,] based on our initial analysis, we tried different query reformulation methods to 
 automatically improve the original patent query and approximate the oracular query. 
 However, none of the proposed methods showed significant improvement over baseline, 
 which aligns with most of the reported literature in patent search. 
 We analysed that these approaches are inefficient because they cannot discriminate between 
 useful and noisy words. Since our system is over-sensitive to the existence of noisy words, 
 we could not achieve a noticeable improvement in performance via automated methods.
-\item We proposed labelling the initial set of retrieved results till a relevant document is 
+\item[Third,] we proposed labelling the initial set of retrieved results till a relevant document is 
 found can be used to improve the results of the baseline in a superior way and it outperforms one of the 
 best performing system in patent search (e.g., PATATRAS).
 We showed this simple interactive relevance feedback approach is also a minimum burden on the users 
 because the first relevant patent can be found 80\% of the time in the first 10 results of an initial run.
-\end{itemize}
+%\end{itemize}
+\end{description}
 \section{Thesis Outline}
 \label{sec:outline}
 This chapter introduced our research problem: techniques to reformulate the best performing 
@@ -165,7 +167,7 @@ generic and patent-specific IR.
 Our main experiments are described in Chapters~\ref{cha:BaselineIRFramework} and~\ref{cha:analysis}. 
 In Chapter~\ref{cha:BaselineIRFramework}, we first explain the baseline system and related experimental settings; 
 then we briefly describe the test collection used in our experiments. We also discuss errors caused by the data curation and applying IPC filter.
-Chapter~\ref{cha:analysis} covers a thorough analysis on terms in query and top-100 retrieved documents, where we figure out 
+Chapter~\ref{cha:analysis} covers a thorough analysis on terms in query and top 100 retrieved documents, where we figure out 
 the key causes of low effectiveness in prior art search. It also contains our proposed methods to formulate the query that get improved over the baseline and the best performing patent retrieval system. 
 %we propose our query generation frameworks,
 %suggestion methods, and diversification approaches; Chapter 4, Chapter 5, Chapter 6,

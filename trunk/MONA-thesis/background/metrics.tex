@@ -1,8 +1,8 @@
 A retrieval system is evaluated considering a set of relevance judgements, a binary assessment of either \textit{relevant} or \textit{irrelevant} for each query-document pair. An ideal retrieval system can retrieve all relevant documents. IR Evaluation metrics are calculated using a contingency table (Table \ref{tab:contengency}), where:\\\\
-\textit{True positive (tp)}: documents, which are relevant and the system retrieves them.\\
-\textit{False negative (fn)}: documents, which are relevant but the system does not retrieve them. \\
-\textit{False positive (fp)}: documents, which are irrelevant but the system retrieves them.\\
-\textit{True negative (tn)}: documents, which are irrelevant and the system does not retrieve them. 
+\textit{True Positive (TP)}: The number of documents, which are relevant and the system retrieves them.\\
+\textit{False Negative (FN)}: The number of documents, which are relevant but the system does not retrieve them. \\
+\textit{False Positive (FP)}: The number of documents, which are irrelevant but the system retrieves them.\\
+\textit{True Negative (TN)}: The number of documents, which are irrelevant and the system does not retrieve them. 
 \begin{table*}[t!]
   \centering
   \input table/contingency.tex
@@ -12,16 +12,17 @@ A retrieval system is evaluated considering a set of relevance judgements, a bin
 \FloatBarrier 
 \paragraph{Precision and Recall}
 \ \\
-Precision and recall are the most frequent and basic measures for information retrieval effectiveness~\citep{manning2008introduction}. They are calculated with respect to what IR system returns as a set of documents for a query.\\
+Precision and recall are the most frequent and basic measures for information retrieval effectiveness~\citep{manning2008introduction}. They are calculated with respect to what IR system returns as a set of documents for a query.
 Precision is the fraction of retrieved documents that are relevant:
 \[
-Precision=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(retrieved \: items)}=\frac{tp}{tp+fp}=P(relevant|retrieved),
+Precision=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(retrieved \: items)}=\frac{TP}{TP+FP}=P(relevant|retrieved),
 \]
-where the symbol $\sharp$ is read as `the number of'.\\
+where the symbol $\sharp$ is read as `the number of'.
 Recall is the fraction of relevant documents that are retrieved:
 \[
-Recall=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(relevant \: items)}=\frac{tp}{tp+fn}=P(retrieved|relevant).
+Recall=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(relevant \: items)}=\frac{TP}{TP+FN}=P(retrieved|relevant).
 \]
+
 For many prominent applications, particularly web search, good results on the first page or the first three pages are more important than all relevant documents. Hence, users prefer to look at precision and recall over a series of different rank cut-offs rather than to look at the entire retrieved set. This is referred to as ``Precision/Recall at \textit{k}'', for example ``Precision/Recall at 10''~\citep{manning2008introduction}. 
 \begin{equation}
 Precision@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: rank \: k)}{k},
@@ -33,10 +34,10 @@ Recall@k=\frac{\sharp(documents \: retrieved \: and \: relevant \: up \: to \: r
 \ \\
 We can measure mean average precision (MAP) by calculating average precision (AP) on retrieval results. AP is the average of precision at each point where a relevant document is found is computed as:
 \begin{equation}
-AP=\frac{\sum\limits_{r=1}^{N}(Prec(r)\times rel(r))}{n},
+AP=\frac{\sum\limits_{r=1}^{N}(Prec(r)\times R(r))}{n},
 \end{equation}
 \noindent
-where $ r $ is the rank, $ N $ the number of documents retrieved, $ rel(r) $ a binary function of the document relevance at a given rank, $ Prec(r) $ is precision at a given cut-off rank $ r $, and $ n $ is the total number of relevant documents~\citep{manning2008introduction}.
+where $ r $ is the rank, $ N $ the number of documents retrieved, $ R(r) $ a binary function of the document relevance at a given rank, $ Prec(r) $ is precision at a given cut-off rank $ r $, and $ n $ is the total number of relevant documents~\citep{manning2008introduction}.
 Then, for a given set of queries, $ Q $, $ MAP $ can be calculated by:
 \begin{equation}
 MAP(Q)=\frac{\sum\limits_{q\in Q}AP(q)}{|Q|},

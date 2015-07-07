@@ -16,7 +16,7 @@ algorithm \citep{Salton1971} is a classic algorithm of relevance feedback
 used mainly for query expansion. In brief, it provides a method of
 incorporating relevance feedback information into the vector space
 model representing a query~\citep{manning2008introduction}. 
-The rocchio algorithm is used to modify the query by the partial knowledge of known relevant and irrelevant~\footnote{In this thesis, we use irrelevant and non-relevant interchangeably for documents that are not relevant to the query.} documents; the goal is to move the query closer to the centroid of the relevant documents but further from irrelevant documents (Figure \ref{fig:rocchio}). The modified query $ \vec{q}_m $ is:
+The Rocchio algorithm is used to modify the query by the partial knowledge of known relevant and irrelevant~\footnote{In this thesis, we use irrelevant and non-relevant interchangeably for documents that are not relevant to the query.} documents; the goal is to move the query closer to the centroid of the relevant documents but further from irrelevant documents (Figure \ref{fig:rocchio}). The modified query $ \vec{q}_m $ is:
 %\[ 
 \begin{equation}
 \label{eq:rocchio}
