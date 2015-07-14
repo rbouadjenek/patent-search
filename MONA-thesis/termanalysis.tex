@@ -55,7 +55,7 @@ This experiment implicitly shows that a low or zero term match is not the main c
 A query is optimal if it ranks all relevant documents before
 those that are not relevant, it would lead to a ranking with an average precision of $1.0$. A query
 is most likely to achieve a ranking that is as close to optimal as possible if it contains all terms that
-appear in all relevant documents, but explicitly discounts all terms that occur in irrelevant documents~\citep{manning2008introduction}.
+appear in all relevant documents, but explicitly discounts all terms that occur in irrelevant documents~\citep[p.182]{manning2008introduction}.
 
 Inspired by the optimal query idea, we develop an oracular relevance feedback system, which
 extracts terms from the judged relevant documents to derive an upper bound on performance of
@@ -337,7 +337,7 @@ We first apply four simple automated query reduction techniques to improve the e
 \label{fig:combinedapproach}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In standard IR, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep{manning2008introduction}. Inspired by this fact, we hypothesise that we will improve the performance by pruning out highly frequent words in top 100 retrieved documents after an initial run of the patent query. To identify highly frequent terms, we calculate the average term frequency over top 100 documents for each term --- document frequent ($\mathit{DF}$) score --- as follows:
+In standard IR, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep[p.27]{manning2008introduction}. Inspired by this fact, we hypothesise that we will improve the performance by pruning out highly frequent words in top 100 retrieved documents after an initial run of the patent query. To identify highly frequent terms, we calculate the average term frequency over top 100 documents for each term --- document frequent ($\mathit{DF}$) score --- as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
  DF(t, Q)=\frac{1}{100}\sum_{d\in  D} c(t, d),    

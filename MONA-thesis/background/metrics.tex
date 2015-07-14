@@ -12,7 +12,7 @@ A retrieval system is evaluated considering a set of relevance judgements, a bin
 \FloatBarrier 
 \paragraph{Precision and Recall}
 \ \\
-Precision and recall are the most frequent and basic measures for information retrieval effectiveness~\citep{manning2008introduction}. They are calculated with respect to what IR system returns as a set of documents for a query.
+Precision and recall are the most frequent and basic measures for information retrieval effectiveness~\citep[p.155]{manning2008introduction}. They are calculated with respect to what IR system returns as a set of documents for a query.
 Precision is the fraction of retrieved documents that are relevant:
 \[
 Precision=\frac{\sharp(relevant \: items \: retrieved)}{\sharp(retrieved \: items)}=\frac{TP}{TP+FP}=P(relevant|retrieved),
@@ -37,7 +37,7 @@ We can measure mean average precision (MAP) by calculating average precision (AP
 AP=\frac{\sum\limits_{r=1}^{N}(Prec(r)\times R(r))}{n},
 \end{equation}
 \noindent
-where $ r $ is the rank, $ N $ the number of documents retrieved, $ R(r) $ a binary function of the document relevance at a given rank, $ Prec(r) $ is precision at a given cut-off rank $ r $, and $ n $ is the total number of relevant documents~\citep{manning2008introduction}.
+where $ r $ is the rank, $ N $ the number of documents retrieved, $ R(r) $ a binary function of the document relevance at a given rank, $ Prec(r) $ is precision at a given cut-off rank $ r $, and $ n $ is the total number of relevant documents~\citep[p.159]{manning2008introduction}.
 Then, for a given set of queries, $ Q $, $ MAP $ can be calculated by:
 \begin{equation}
 MAP(Q)=\frac{\sum\limits_{q\in Q}AP(q)}{|Q|},
