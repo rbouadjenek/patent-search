@@ -1,7 +1,7 @@
 Having constructed an index on a document collection, queries need to 
 be matched to documents and a list of answers returned. We need a ranking algorithm based on good mathematical retrieval models to 
 return relevant documents at top of the ordered list, leading to high effectiveness. 
-Three well-known retrieval models are~\citep{croft2010search}: (1) vector space models (e.g., term frequency and inverse document frequency (TF-IDF)), (2) probabilistic models (e.g., BM25\footnote{BM stands for Best Match, and 25 is just a numbering scheme used by~\cite{robertson1994some} to keep track of weighting variants.}), and (3) Language Models~(LM). 
+Three well-known retrieval models are~\citep[p. 233]{croft2010search}: (1) vector space models (e.g., term frequency and inverse document frequency (TF-IDF)), (2) probabilistic models (e.g., BM25\footnote{BM stands for Best Match, and 25 is just a numbering scheme used by~\cite{robertson1994some} to keep track of weighting variants.}), and (3) Language Models~(LM). 
 
 \paragraph{The Vector Space Model}
 \ \\
@@ -49,7 +49,7 @@ TFIDF(Q,D)=\sum\limits_{q \in Q\cap D}\frac{c(q,D)\times idf(q)}{(1-b)+b.\frac{|
 where $ |D| $ is the size of the document (i.e, the number of words) and $ avdl $ is the average document length, $ c(q,D)$ is the number of occurrence of each query term in the document $D$, and $idf(q)$ is the importance of each query term in the collection. TF-IDF model scores a document higher if more query terms are present or these terms are rarer in the collection. The parameter $ b $ is set to 0.75 to be the same as the BM25 model as will be described below.
 \paragraph{Probabilistic Models}
 \ \\
-BM25 is a popular and effective ranking algorithm, which extends the scoring function for the binary independence model~\citep{manning2008introduction} to include document and query term weights. Each document is scored based on the BM25 weighting scheme --- often called the Okapi weighting --- as follows:
+BM25 is a popular and effective ranking algorithm, which extends the scoring function for the binary independence model~\citep[p. 232]{manning2008introduction} to include document and query term weights. Each document is scored based on the BM25 weighting scheme --- often called the Okapi weighting --- as follows:
 \begin{equation}
 BM25(Q,D)=\sum\limits_{q \in Q\cap D}\Bigg(\log\frac{N+1}{df(q)}\Bigg)\Bigg(\frac{(k_{1}+1)c(q,D)}{k_{1}((1-b)+b.\frac{|D|}{avdl})+c(q,D)}\Bigg).
 \label{eq:idfbm25}
