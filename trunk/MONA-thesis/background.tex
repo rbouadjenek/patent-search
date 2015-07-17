@@ -1,9 +1,9 @@
 \chapter{Background and Related Work}
 \label{cha:background}
-In this chapter, first, we briefly explain the structure of patents, then we cover both general IR methods and patent-specific IR methods.
+In this chapter, first, we briefly explain the structure of patents, then we cover both generic IR methods and patent-specific IR methods.
 \section{Structure of Patents}
 \label{StructureofPatents}
-A patent is a structured document, which consists of five main sections:
+A patent is a structured document, which consists of four main sections:
 title, abstract, description, and claims. It also contains tables, mathematical and chemical formulas, citations,
 technical drawing, and meta-data.
 The text of a patent document is saved
@@ -81,7 +81,7 @@ modified beacon.
 In this section, we briefly explain the main sections and some meta-data of a patent document that are commonly used in a patent retrieval system as follows:\\\\
 \textbf{(1) Title}
 \ \\ 
-The title of the patent appears in three languages --- this is a feature in European Patent Office\footnote{\texttt{http://www.epo.org/}} (EPO)
+The title of the patent appears in three languages. This is a feature in European Patent Office\footnote{\texttt{http://www.epo.org/}} (EPO)
 patents, where the title is stated in English, French, and German. \\\\
 \textbf{(2) Abstract}
 \ \\ 
@@ -123,7 +123,7 @@ In 1971, the Strasbourg Agreement established the International Patent Classific
 under the World Intellectual Property Organization (WIPO) that divides technology into eight discrete sections~\citep{harris2010comparison}. The goal of this
 agreement was to overcome the difficulties caused by using diverse national patent classification~systems.
 
-A patent is assigned to one or more of the 71,000 IPC codes that 
+A patent is assigned to one or more of the 71, 000 IPC codes that 
 indicate the related technical field or fields the patent covers. 
 These codes are arranged in a hierarchical, tree-like structure with 
 five distinct components. Figure~\ref{fig:ipcexample} illustrates the components of an IPC classification.
@@ -198,7 +198,7 @@ After reading some of the documents in the initial result set, the query can be 
 Patent retrieval differs from a generic retrieval due to specific characteristics of patents. 
 For instance, in patent prior art search the query is as long as a patent document, which makes 
 the query (re)formulation more difficult compared to a web search. Patents have some specific 
-features that can be yielded in retrieval, which we will  be discussed in this section.
+features, which can be yielded in retrieval; we will discuss them in this section.
 
 \subsection{The Study of Retrievablity for Patents}
 \input{background/retrievability-p}
