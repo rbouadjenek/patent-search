@@ -29,7 +29,7 @@
 %\subsubsection{IPC Classification as a Filter}
 As we mentioned in Section~\ref{sec:settings}, IPC codes (Section~\ref{StructureofPatents}) 
 are assigned to patent queries to filter the search results by constraining them to have common IPC codes with the patent query.
-In this section, we investigate the errors caused by classification code mismatch between topics (queries) and relevant documents for three different level of hierarchy. 
+In this section, we investigate the errors caused by classification code mismatch between topics (queries) and relevant documents for three different levels of hierarchy. 
  
 %\subsubsection{Applying 4-digit IPC code for filtering}
 %\label{subsec: 4-digit}
@@ -54,7 +54,7 @@ around 19\% of the not-retrieved relevant patents do not share any IPC code with
 \hspace*{0.5cm}  \subfigure[Retrieved relevant patents (True Positive (TP) patents)\label{fig:ipcoverlap_b}]{\includegraphics[width=6.5cm]{figs/ipcOverlap-TPs.eps}} 
 
 \par\end{centering} 
-\protect\caption{Classification code overlap between the query and non-relevant retrieved patents (False Negative (FN) patents).}
+\protect\caption{Classification code overlap between the query and relevant patents (TPs and FNs).}
 \label{fig:ipcoverlap}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,27 +68,27 @@ We repeat the experiments for the true positive (TP) patents; as it has been sho
 %   \label{fig:tpipcoverlap} 
 %\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Although we cannot retrieve around 19\% of relevant patents as a result of applying the IPC filter, we still keep using the filter in our experiments for the following two main reasons: 
-\begin{enumerate}
-\item CLEF-IP 2010 collection contains 2.6 million patent documents. If we do not use the IPC filter, it will take long time to compare each patent in the whole collection with the query. Nonetheless, if we apply the filter, this process will take faster because the matching process is done on only the portion of the collection, which shares an IPC code with the patent query not the whole collection. Since only less than 19\% of errors are due to a classification mismatch, we continue our analysis by keeping the filter on. The matching process is computationally much faster when we apply the IPC filter. In trade off between losing the percentage of the relevant patents and faster computation, we choose the efficient computation. The computational time is critical in patent prior art search because the query is the description of the the patent query, consisting of thousands of words.   
-\item The precision in the top $k$ (100) significantly drops, when we rank the whole collection versus only a subset of patents that have the same classification code with the patent query.  
-\end{enumerate}
 
-We conduct the following experiment to justify the first above-mentioned reason. First, we calculate the number of documents that should be processed during the ranking process per query after applying the filter. Then we plot the distribution of this number over all test topics.
+Although we cannot retrieve around 19\% of relevant patents as the result of applying the IPC filter, we still keep using the filter in our experiments for the following two main reasons: 
+\begin{enumerate}
+\item CLEF-IP 2010 collection contains 2.6 million patent documents. It will very take long time to compare each patent in the whole collection with the query without IPC filter. Nonetheless, if we apply the filter, this process will take faster because the matching process is done on only the portion of the collection, which shares an IPC code with the patent query instead of the whole collection. Since only less than 19\% of errors are due to a classification mismatch, we continue our analysis by keeping the filter on. As the result, the matching process is computationally much faster when we apply the IPC filter. In trade off between losing the percentage of the relevant patents and faster computation, we choose the efficient computation. The computational time is critical in patent prior art search because we are querying with the description of the patent application, which is consisted of thousands of words.   
+\item The precision in the top $k$ (e.g., 100) significantly drops, when we rank the whole collection versus only a subset of patents that have the same classification code with the patent query.  
+\end{enumerate}
+We justify the efficient computational matching process by the following experiment. First, we calculate the number of documents that should be processed during the ranking process per query after applying the filter; then we plot the distribution of this number over all test topics.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
    \centering
    \includegraphics[width=0.70\textwidth,height=55mm]{figs/filter1}
-   \caption{The distribution of the number of patents that should be ranked for each query over all test topics ($1,303$), after applying the IPC filter (filter type I).
-On average, the matching process for each query is done over $ 36,254 $ documents instead of the whole collection (2.6 million documents), which dramatically reduces the computational time.}   
+   \caption{The distribution of the number of patents that should be ranked for each query over all test topics ($1, 303$), after applying the IPC filter (filter type I).
+On average, the matching process for each query is done over $ 36, 254 $ documents instead of the whole collection (2.6 million documents), which dramatically reduces the computational time.}   
    \label{fig:ipcfilter-histo} 
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\FloatBarrier 
 %\noindent
-Figure~\ref{fig:ipcfilter-histo} illustrates that the matching process should be only done over $25,000$ documents for the majority of queries. On average, this number is $ 36,254 $, which indicates that the system just needs to look into $ 36,254 $ documents per query on average instead of the entire collection that contains 2.6 million patent documents. Therefore, applying the IPC filter computationally saves us considerable amount of time.   
+Figure~\ref{fig:ipcfilter-histo} illustrates that the matching process should be only done over $25, 000$ documents for the majority of queries; on average, this number is $ 36, 254 $. Therefore, applying the IPC filter computationally saves us considerable amount of time since the system only needs to look into $ 36, 254 $ documents per query on average instead of the entire collection, which contains of 2.6 million patent documents.
 
-In trade off between losing 19\% of relevant patents and making the ranking process faster, we choose faster computation. In addition, we notice that the histogram falls down by increasing the number of documents that should be processed; this means that for the majority of queries the matching process is done over less number of patent documents.
+In trade off between losing 19\% of relevant patents and making the ranking process faster, we choose faster computation. In addition, we notice that the histogram falls down by increasing the number of documents, which should be processed; this means that for the majority of queries the matching process is done over less number of patent documents.
 %\vspace{-1cm}
 %\subsubsection{Applying First two IPC code components for filtering}
 %\label{subsec: Firsttwocomponents}
@@ -96,7 +96,7 @@ In trade off between losing 19\% of relevant patents and making the ranking proc
 %\textbf{(B) Filter: First two components of the IPC code}
 \ \\
 We hypothesise that the errors will be reduced, if we broaden the filter by selecting two first components of the query IPC, namely, section, and class (e.g., C07). We repeat the experiments for filter type II.
-The results have been illustrated in Figure~\ref{fig:ipc1stTwoElements}. Figure~\ref{fig:ipc1stTwoElements_a} shows that we can reduce the errors related to filtering from 19\% to 13\% by omitting the subclass component. However, the number of documents that should be ranked increases from $ 36,254 $ to $ 99,754 $ on average. As it can be seen in Figure~\ref{fig:ipc1stTwoElements_b}, the distribution of the number of documents that should be compared in matching process does not follow the falling trend as filtering with three first components. We conclude that this filter is not appropriate since we only reduce the error by 6\% whereas the average number of documents, which should be processed,~triples.    
+The results have been illustrated in Figure~\ref{fig:ipc1stTwoElements}. Figure~\ref{fig:ipc1stTwoElements_a} shows that we can reduce the errors related to filtering from 19\% to 13\% by omitting the subclass component of the IPC code filter. However, the number of documents, which should be ranked, increases from $ 36,254 $ to $ 99,754 $ on average. As it can be seen in Figure~\ref{fig:ipc1stTwoElements_b}, the distribution of the number of documents that should be compared in matching process does not follow the falling trend as filtering with three first components. Hence, we conclude that this filter is not appropriate since we only reduce the error by 6\% whereas the average number of documents, which should be processed,~triples.    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{figure}[t!]
 %   \centering
@@ -111,7 +111,7 @@ The results have been illustrated in Figure~\ref{fig:ipc1stTwoElements}. Figure~
 \subfigure[The portion of patents in the collection which are matched with the query IPC code. \label{fig:ipc1stTwoElements_a}]{\includegraphics[width=7.5cm, height=6cm]{figs/filter2_pie}} 
 \\[1ex]%
 \subfigure[The distribution of the number of patents should be ranked for each query over all test queries ($1,303$).
-In average, the matching process for each query is done over $ 99,754 $ documents instead of the whole collection (2.6 million documents), which dramatically reduce the computational time.\label{fig:ipc1stTwoElements_b}]{\includegraphics[width=9.5cm, height=6cm]{figs/filter2}} 
+In average, the matching process for each query is done over $ 99,754 $ documents instead of the whole collection (2.6 million documents), which dramatically reduce the computational time.\label{fig:ipc1stTwoElements_b}]{\includegraphics[width=9.5cm, height=5.5cm]{figs/filter2}} 
 
 \par\end{centering} 
 \protect\caption{Applying first two IPC code components (Section and Class) for filtering}
@@ -160,7 +160,7 @@ We can even make the filter more general by choosing only the first component, n
 \subfigure[The portion of patents in the collection which are matched with the query IPC code. Filter: The first two components \label{fig:ipc1stElements_a}]{\includegraphics[width=7.5cm, height=6cm]{figs/filter3_pie}} 
 \\[1ex]%
 \subfigure[The distribution of the number of patents should be processed for each query after applying the IPC filter.
-In average, the matching process for each query is done over $ 415,828 $ documents instead of the whole collection (2.6 million documents). This number is much higher than using more restricted filters, so it is not computationally~efficient.\label{fig:ipc1stElements_b}]{\includegraphics[width=9.5cm , height=6cm]{figs/filter3}} 
+In average, the matching process for each query is done over $ 415,828 $ documents instead of the whole collection (2.6 million documents). This number is much higher than using more restricted filters, so it is not computationally~efficient.\label{fig:ipc1stElements_b}]{\includegraphics[width=9.5cm , height=5.5cm]{figs/filter3}} 
 
 \par\end{centering} 
 \protect\caption{Applying the first IPC code component for filtering (Section)}
@@ -178,7 +178,7 @@ In average, the matching process for each query is done over $ 415,828 $ documen
 Figure~\ref{fig:ipc1stElements_a} shows that about 7\% of relevant patents do not share the most general component of the query IPC Code. 
 Figure~\ref{fig:ipc1stElements_b} shows the distribution of the number of patents should be ranked for each query after applying the IPC filter.
 %: ``\textit{only the first component of the IPC code}". 
-The results show that the matching process for each query is done over $ 415,828 $ documents, on average, instead of the whole collection (2.6 million documents). This number is much higher than the number for previous filters, which shows that using only the first component of the IPC code is not computationally efficient because it does not reduce the computational time as well as it still causes 7\% of the errors. 
+The results show that the matching process for each query is done over $ 415,828 $ documents on average. This number is much higher than the number for previous filters that explains using only the first component of the IPC code is not computationally efficient because it does not reduce the computational time as well it still causes 7\% of the errors. 
 %The min number of documents considered during matching process is `$ min=41721 $', and the maximum is `$ max=1058447 $'. 
 %\vspace{-2em}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,4 +193,4 @@ The results show that the matching process for each query is done over $ 415,828
 %\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-To recap our experiments related to the IPC code filtering, we showed that, in trade off between the errors related to applying IPC code filter and computationally efficient matching process, we got the best results when we applied the first three IPC code (section, class, and subclass) of the reference query as a filter. The filter reduced the number of documents to be ranked from the whole collection to $ 36,254 $ documents on average, so using the IPC filter saved a considerable amount of computational time.
+To recap our experiments related to the IPC code filtering, we showed in trade off between the errors related to applying IPC code filter and a computationally efficient matching process, we got the best results when we applied the first three IPC code symbols (e.g., section, class, and subclass) of the patent query as a filter. The filter reduced the number of documents to be ranked from the whole collection to $ 36, 254 $ documents on average, so using the IPC filter saved a considerable amount of computational time.

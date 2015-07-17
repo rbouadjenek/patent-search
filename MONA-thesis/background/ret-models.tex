@@ -65,7 +65,6 @@ BM25(Q,D)=\sum\limits_{q \in Q\cap D}\log\Bigg(\frac{N+1}{df(q)}\Bigg)\Bigg(\fra
 \end{equation}
 where $ c(q,Q) $ is the frequency of term $ q $ in the query $ Q $, and $ k_{3} $ being another positive tuning parameter that this time calibrates term frequency scaling of the query. In the equation presented, there is no length normalisation of
 queries because retrieval is being done with respect to a single fixed query. The tuning parameters of these equations should ideally be set to optimise performance on a development test collection. That is, we can search for values of these parameters that maximise performance on a separate development test collection (either manually or with optimisation methods such as grid search or something more advanced), and then use these parameters on the actual test collection. In the absence of such optimisation, experiments have shown reasonable values are to set $ k_{1} $ and $ k_{2} $ to a value between 1.2 and 2, and b = 0.75~\citep{manning2008introduction}.
-
 \paragraph{Language Models with Terms Smoothing}
 \ \\
 \input{background/LM}
