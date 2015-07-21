@@ -1,11 +1,11 @@
 \chapter{Optimal Query Term Selection}
 \label{cha:analysis}
-In this chapter, we will investigate the problem from term analysis perspective for both patent query and relevant documents because we are interested 
+In this chapter, we investigate the problem from term analysis perspective for both patent query and relevant documents because we are interested 
 in figuring out what is wrong in term matching process between the patent query and relevant patents 
 that the system cannot retrieve relevant patents at top of the search result list. 
 We start with experiments that show sufficient term overlap between the patent query and relevant documents, 
 then we introduce an oracular relevance feedback scoring criteria to discriminate useful terms from noisy terms. 
-We formulate two oracular queries based on this score that gives us an upper-bound performance. In addition, our 
+We formulate two oracular queries based on this score that gives us an upper bound performance. In addition, our 
 experiments demonstrate the sufficiency of terms in the patent query to achieve a high performance. 
 We try four simple query reduction approaches to approximate the oracular query; then we discuss why they are not efficient.  
 Finally, we show that we can get improved using an interactive approach, which needs minimum user~effort~\citep{mona2015termselection}.
@@ -93,7 +93,7 @@ We define four different criteria to select useful terms as follows:
 \begin{enumerate}
 \item terms with positive RF scores (i.e., $ RF(t, Q)>0) $);
 \item terms with the score higher than the positive median score (i.e., $ RF(t, Q)>RF(t_{+median}, Q) $);
-\item terms with the score higher than a constant: 1, 5, and 10 (i.e., $ RF(t, Q)>1, 5, 10) $); and
+\item terms with the score higher than a constant: 1, 5, and 10 (i.e., $ RF(t, Q)>1, 5, 10$); and
 \item top 100 high-scored terms.
 \end{enumerate}
 For each query, we calculate the fraction of useful terms to all query terms. 
@@ -197,8 +197,8 @@ Oracular \; Query = \{t \in top 100|RF(t, Q)>\tau\}.
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 First, we empirically seek to evaluate the threshold $\tau$ on $RF(t,Q)$ yielding the best oracular query.
-Figure \ref{fig:oracular-a} shows that the performance changes by the values of $\tau$ and peaks at $\tau=0$. We also remark that the performance jumps notably over the baseline for the oracular query formulated by the Equation \ref{eq:oq}. Second, we seek for the best number of terms to formulate the oracular query. 
-Figure~\ref{fig:oracular-b} shows that the performance increases notably when we include terms up to 200 while formulating a query, however it remains quit unchanged when we include more than 200 terms. 
+Figure \ref{fig:oracular-a} shows that the performance changes by the values of $\tau$ and peaks at $\tau=0$ for the MAP. We also remark that the performance jumps notably over the baseline for the oracular query formulated by the Equation \ref{eq:oq}. Second, we seek for the best number of terms to formulate the oracular query. 
+Figure~\ref{fig:oracular-b} shows that the performance increases notably when we include terms up to 200 while formulating a query, however it remains quit unchanged when we include more than 200~terms. 
 %Next, inspired by Maxwell and Croft's work~\citep{maxwell2013compact} that emphasise on the importance of query words, 
 
 We seek to establish that terms within a reference patent query are sufficient for a strong performance, so, we formulate the \textit{second} query by selecting oracular terms that also occur in the reference patent query. We call it oracular patent query:
@@ -243,8 +243,7 @@ We seek to establish that terms within a reference patent query are sufficient f
 %\vspace*{-1cm}
 \textbf{Baseline versus Oracular Query}
 \ \\
-First, we investigate the ideal threshold setting $\tau$ for the
-oracular queries as shown in Figure \ref{fig:oracularpq}.  Notably,
+We compare oracular queries versus the baseline as shown in Figure \ref{fig:oracularpq}.  Notably,
 there is a rather unexpected steep dropoff in performance for both
 oracular queries when slightly noisy terms are included
 (i.e., $\tau$ just slightly less than 0).  However, this dropoff is
@@ -337,7 +336,7 @@ We first apply four simple automated query reduction techniques to improve the e
 \label{fig:combinedapproach}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In standard IR, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep[p.27]{manning2008introduction}. Inspired by this fact, we hypothesise that we will improve the performance by pruning out highly frequent words in top 100 retrieved documents after an initial run of the patent query. To identify highly frequent terms, we calculate the average term frequency over top 100 documents for each term --- document frequent ($\mathit{DF}$) score --- as follows:
+In standard IR, removing terms appearing highly frequently across documents in the collection can improve retrieval effectiveness~\citep[p.27]{manning2008introduction}. Inspired by this fact, we hypothesise that we will improve the performance by pruning out highly frequent terms in top 100 retrieved documents after an initial run of the patent query. To identify highly frequent terms, we calculate the average term frequency over top 100 documents for each term --- document frequent ($\mathit{DF}$) score --- as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{equation}
  DF(t, Q)=\frac{1}{100}\sum_{d\in  D} c(t, d),    
@@ -349,7 +348,7 @@ where $D=\{d\in \mbox{Top 100 retrieved documents}\}$, and $c(t, d)$ is the term
 
 We remove words with $\mathit{DF}$ score higher than $\tau$ ($DF(t, Q)>\tau$) from the patent query. 
 As illustrated in Figure~\ref{fig:combinedapproach} (magenta line), such pruning hurts the performance. $\mathit{DF}$ pruning continues increasing and converges to the baseline as $\tau \to \infty $ (i.e., no pruning).
-Overall, removing document frequent terms from patent query does not consider an appropriate approach since it ruins the performance. 
+Overall, removing document frequent terms from patent query does not consider an appropriate approach since it hurts the performance. 
 \subsubsection{Removing Infrequent Terms in Patent Query}
 Frequent terms inside long and verbose queries are considered important~\citep{maxwell2013compact}. Thus, we hypothesise that removing terms appearing infrequently in the Patent Query may help and hence propose to remove terms with query term frequency (QTF) below a threshold $\tau$ ($QTF(t) \leq \tau$). Results in Figure~\ref{fig:combinedapproach} (blue line) indicate the performance is slightly better than the baseline when removing low QTF terms.  The best MAP is achieved when $\tau=5$ and it meets the baseline when $\tau=0$ (i.e., all terms retained). 
 %In this approach the best value for the threshold is $\tau=5$ to get higher MAP.
@@ -379,7 +378,7 @@ We select the terms in the patent query that have the $\mathit{PRF}$ score highe
 %   \label{fig:prf} 
 %\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Automated Techniques Fails to Approximate Oracular Patent Query}
+\subsubsection{Automated Techniques Fail to Approximate Oracular Patent Query}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\begin{figure}[t!]
 %\begin{centering}
@@ -399,9 +398,9 @@ We analyse the causes through the following experiments.
 
 First, we use an anecdotal example --- a sample query --- to analyse terms selected by proposed query reduction methods. 
 Figure~\ref{fig:scatter_combined_a} shows a scatter plot of $\mathit{DF}$ score versus $\mathit{RF}$ score for the sample query --- PAC-1612. Each blue point is a vocabulary in top 100 retrieved document vocabulary set. We remark a negative correlation between $\mathit{DF(t, Q)}$ and $\mathit{RF(t, Q)}$ score; however it does not indicate that a term with a higher $\mathit{DF}$ score has essentially a lower $\mathit{RF}$ score.
-Hence, if we prune a document frequent term out in $\mathit{DF}$ pruning method, we are not essentially removing an unimportant term.
-As it is illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms (i.e., $DF(t, Q)>\tau$), we also remove many useful terms (e.g., $RF(t, Q)>0$). In Figure~\ref{fig:scatter_combined_a}, red points are all query terms and in Figure~\ref{fig:scatter_combined_b}, they are query terms with term frequency higher than 5 (i.e., $QTF(t)>5$) --- where we got the best performance. 
-Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b} shows that by pruning out  terms with $QTF(t)<5$ on the one hand, we are removing considerable amount of noisy terms; on the other hand, we are also removing useful terms. In addition, remained terms are not purely useful terms because they are still contaminated with the noisy~terms. %We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the noisy terms out. 
+Hence in $\mathit{DF}$ pruning method, if we prune a document frequent term out, we are not essentially removing an unimportant term.
+As it is illustrated in Figure~\ref{fig:scatter_combined_b}, by removing document frequent terms (i.e., $DF(t, Q)>\tau$), we also remove many useful terms (e.g., terms with $RF(t, Q)>0$). In Figure~\ref{fig:scatter_combined_a}, red points are all query terms and in Figure~\ref{fig:scatter_combined_b}, they are query terms with term frequency higher than 5 (i.e., $QTF(t)>5$) --- where we got the best performance. 
+Comparing Figures~\ref{fig:scatter_combined_a} and ~\ref{fig:scatter_combined_b} shows that by pruning out terms with $QTF(t)<5$, on the one hand, we are removing considerable amount of noisy terms; on the other hand, we are removing useful terms too. In addition, remained terms are not purely useful terms because they are still contaminated with the noisy~terms (e.g., terms with $RF(t, Q)<0$). %We conclude that we achieve a trivial improvement over the baseline because proposed reduction techniques cannot precisely filter the noisy terms out. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}[t!]
@@ -526,7 +525,7 @@ Terms are chosen based on their scores for each approach as follows:
 % Scott: the following is unclear... instead have modified Figure 3 caption.
 %IPC title terms are the words appearing in the IPC title and do not have any score.
 %\begin{displaymath}\{t| DF(t)/QTF(t)/PRF(t)>10\}\end{displaymath}
-It can be seen that the four methods fail to clearly discriminate between useful and noisy terms.  Important stemmed terms like ``enzym'' and ``starch'' would be pruned according to $\mathit{DF}$; in contrast, $\mathit{QTF}$ and $\mathit{PRF}$ both score ``starch'' highly and retain it, but also retain other noisy terms.  Over half of the IPC title terms are noisy and appropriate to remove, but critical useful stemmed terms like ``emulsifi'' are also removed.
+It can be seen that the four methods fail to clearly discriminate between useful and noisy terms.  Important stemmed terms like ``enzym'' and ``starch'' would be pruned according to $\mathit{DF}$; in contrast, $\mathit{QTF}$ and $\mathit{PRF}$ both score ``starch'' highly and retain it, but also retain other noisy terms (e.g., highly noisy terms like "amylos" with $\mathit{RF}(t,Q)=-20.15$ or "amylopectin" with $\mathit{RF}(t,Q)=-7.14$).  Over half of the IPC title terms are noisy and appropriate to remove, but critical useful stemmed terms like ``emulsifi'' are also removed.
 %As one example, important stemmed terms like ``enzym'' and ``starch'' have been removed by the DF pruning approach, which hurts query quality.  As another example, pruning IPC title terms removes highly noisy (negative) terms like ``amylos'' or ``saccharid'', but also removes useful terms like ``emulsifi''.  
 %pruning IPC title terms yields more noisy terms than useful terms (13 out of 20 terms were noisy and removed, but more rare negative terms like ``amylos'' or ``saccharid'' remain).
   Critically, all methods retain noisy terms (red/negative) and results from Section~\ref{sec:OracularQueryFormulation} showed that the inclusion of even slightly noisy terms can significantly hurt performance.  Overall, all methods fail to retain only the oracular query terms (blue/positive) and do worse than PATATRAS.
@@ -717,7 +716,7 @@ However, we showed that the inclusion of even slight noisy terms can significant
 
 We drove an upper bound on performance through building an oracular query from known relevance judgements. 
 Our attempts to automatically approximate the oracular query using different query term selection techniques 
-were unsuccessful to retain only oracular query terms and the reformulated query was contaminated with sufficient 
+could not retain only oracular query terms and the reformulated query was contaminated with sufficient 
 noisy terms, which were hurting the performance. Finally, we found that by
 identifying only the first 
 relevant document from the search results we could outperform over the baseline as well the PATATRAS system.

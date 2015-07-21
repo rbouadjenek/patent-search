@@ -8,7 +8,7 @@
 %\section{Summary}
 %\label{sec:summary}
 
-In this thesis, we investigated the reasons that make patent prior art searches 
+In this thesis, we investigated the reasons that make patent prior art search 
 less effective than other web search applications.
 % on CLEF-IP 2010 data collection. 
 We started with recognising errors due to data curation and baseline settings that 
@@ -41,10 +41,10 @@ We briefly summarise the major contributions of our work as follows:
 \begin{enumerate}
 \item \textbf{Development of an oracular term selection system: }We built an oracular term selection system from known relevance judgements to formulate an oracular query that far outperformed the baseline and the best-performed competitor on CLEF-IP 2010. 
 Experiments related to the oracular system suggested the necessity of precise query
-reduction and term selection techniques to improve the effectiveness of patent
+reduction and term selection techniques to improve the effectiveness in patent
 prior art search.
-\item \textbf{Analysis of automated query reduction techniques for patent prior art search: } We examined four simple query reduction methods to select the positive terms and to prune the negative terms out. We illustrated that these approaches were inefficient because they could not discriminate between useful terms and noisy terms. Since our system was over-sensitive to the existence of noisy terms, we could not achieve high performance via these simple methods. 
-\item \textbf{Proposal of a semi-interactive method for query term selection: }We showed that a simple minimal interactive relevance feedback approach, where terms are selected by only the first retrieved relevant document performs as well as a highly engineered patent-specific system on CLEF-IP 2010. 
+\item \textbf{Analysis of automated query reduction techniques for patent prior art search: } We examined four simple query reduction methods to select the positive terms and to prune the negative terms out. We illustrated that these approaches were inefficient because they could not discriminate between useful terms and noisy terms. Since generic IR models demonstrated to be over-sensitive to the existence of noisy terms, the performance improved a little by our proposed automated~techniques. 
+\item \textbf{Proposal of a semi-interactive method for query term selection: }Finally, we showed that a simple minimal interactive relevance feedback approach, where terms are selected by only the first retrieved relevant document, outperformed a highly engineered patent-specific system on CLEF-IP 2010. 
 \end{enumerate}
 
 \section{Future Work}
@@ -72,15 +72,14 @@ Hence, an obvious extension of this work is extracting phrasal concepts while re
 
 \subsection{Patent Retrieval Using Meta-data Social Information}
 \label{subsec: Meta-dataNetworkAnalysis}
-A retrieval based on meta-data social information and social network analysis 
+A retrieval based on meta data and network analysis 
 is a proper alternative to a traditional IR based on term matching process 
 when the retrieval problem based on term matching is difficult.
-Patents are rich in meta-data; for example 
-the bibliographic meta-data in the patent XML file contains details about 
+Patents are rich in meta data and highly structured in terms of entities and relations; for example 
+the bibliographic meta data in the patent XML file contains details about 
 its inventor, organisation, and other information that can build a multidimensional graph.
-Recent studies aim at improving the IR process with
-information coming from social networks; this is commonly known as social IR. 
-Regarding this social network structure of patents, we can  
+This graph can unify both the searcher and information resources that played a fundamentally different role in traditional IR. 
+Regarding this network structure of patents, we can  
 find possible prior works in the social profile of other inventors with the same research interest.
 Also competitive organisations may have developed the same or very close idea prior to the  
 idea, which is claimed in the~patent~application.
