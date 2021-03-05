@@ -4,7 +4,7 @@ This project aims to develop an IR platform for Patent Prior Art Search Project.
 
 # Published papers related to this project
 
-* [n Term Selection Techniques for Patent Prior Art Search.](https://rbouadjenek.github.io/papers/p803-golestan-far.pdf). Mona Golestan Far, Scott Sanner, Mohamed Reda Bouadjenek, Gabriela Ferraro, David Hawking. SIGIR '15 Proceedings of the 38th international ACM SIGIR conference on Research and development in information retrieval, 2015.
+* [On Term Selection Techniques for Patent Prior Art Search.](https://rbouadjenek.github.io/papers/p803-golestan-far.pdf). Mona Golestan Far, Scott Sanner, Mohamed Reda Bouadjenek, Gabriela Ferraro, David Hawking. SIGIR '15 Proceedings of the 38th international ACM SIGIR conference on Research and development in information retrieval, 2015.
 * [A Study of Query Reformulation for Patent Prior Art Search with Partial Patent Applications.](https://rbouadjenek.github.io/papers/ICAIL2015.pdf). Mohamed Reda Bouadjenek, Scott Sanner, Gabriela Ferraro. ICAIL '15 Proceedings of the 15th ACM ICAIL International Conference on Artificial Intelligence and Law, 2015.
 
 # Contacts 
